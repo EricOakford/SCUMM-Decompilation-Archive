@@ -1,9 +1,3 @@
-/**
- * Sam & Max Hit the Road: Interactive Demo
- * 
- * Global Scripts
- */
-
 // Script 1: Game Initialization
 [0000] (6B) cursorCommand.initCharset(1)
 [0005] (43) VAR_TIMER_NEXT = 6
@@ -901,7 +895,7 @@ END
 [00CC] (66) stopObjectCodeB()
 END
 
-// Script 25
+// Script 25: Lose Inventory
 [0000] (6C) breakHere()
 [0001] (68) beginCutscene([2])
 [0008] (43) bitvar36 = 1
