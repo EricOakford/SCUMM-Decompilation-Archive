@@ -983,7 +983,7 @@ END
 [0A6D] (A0) stopObjectCode();
 END
 
-// Script 10
+// Script 10: Open Door
 [0000] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
 [0004] (87)   setState08(VAR_ACTIVE_OBJECT1);
 [0006] (1C)   startSound(8);
@@ -991,7 +991,7 @@ END
 [0008] (A0) stopObjectCode();
 END
 
-// Script 11
+// Script 11: Close Door
 [0000] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
 [0004] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
 [0006] (1C)   startSound(9);
@@ -999,7 +999,7 @@ END
 [0008] (A0) stopObjectCode();
 END
 
-// Script 17
+// Script 17: Hamster in Microwave
 [0000] (0C) loadSound(15)
 [0003] (0C) loadSound(16)
 [0006] (0C) loadSound(14)
@@ -1071,7 +1071,7 @@ END
 [0083] (A0) stopObjectCode();
 END
 
-// Script 24
+// Script 24: Grandfather Clock Ticking
 [0000] (2E) delay(120);
 [0004] (1C) startSound(28);
 [0006] (05) drawObject(454,255,255);
@@ -1085,7 +1085,7 @@ END
 [001F] (A0) stopObjectCode();
 END
 
-// Script 30
+// Script 30: Phone Input
 [0000] (42) startScript(34);
 [0002] (1C) startSound(21);
 [0004] (2E) delay(120);
@@ -1310,7 +1310,7 @@ END
 [00E8] (A0) stopObjectCode();
 END
 
-// Script 38
+// Script 38: Edna Returns to Room (Level 3 Hallway)
 [0000] (2D) putActorInRoom(10,0);
 [0003] (01) putActor(10,0,0);
 [0007] (2E) delay(900);
@@ -1321,7 +1321,7 @@ END
 [0017] (A0) stopObjectCode();
 END
 
-// Script 39
+// Script 39: Edna Leaves Room
 [0000] (80) breakHere();
 [0001] (1A) Var[125] = 1;
 [0005] (1A) Var[119] = 1;
@@ -1351,7 +1351,7 @@ END
 [0051] (A0) stopObjectCode();
 END
 
-// Script 40
+// Script 40: Edna Returns to Room (Enter Room)
 [0000] (1A) Var[125] = 1;
 [0004] (1A) Var[119] = 2;
 [0008] (42) startScript(36);
@@ -1390,7 +1390,7 @@ END
 END
 
 
-// Script 45: Safe Open Check
+// Script 45: Input Safe
 [0000] (9A) Var[63] = Var[55];
 [0003] (9A) Var[64] = Var[56];
 [0006] (9A) Var[65] = Var[57];
@@ -1413,7 +1413,7 @@ END
 [0048] (A0) stopObjectCode();
 END
 
-// Script 46: Radio Check
+// Script 46: Input Lab Keypad
 [0000] (9A) Var[63] = Var[59];
 [0003] (9A) Var[64] = Var[60];
 [0006] (9A) Var[65] = Var[61];
@@ -1697,7 +1697,7 @@ END
 [00E4] (A0) stopObjectCode();
 END
 
-// Script 55
+// Script 55: Check Light State
 [0000] (1A) Var[111] = 0;
 [0004] (10) Var[109] = getObjectOwner(84);
 [0008] (83) VAR_RESULT = getActorRoom(Var[109]);
@@ -1730,14 +1730,13 @@ END
 [000D] (A0) stopObjectCode();
 END
 
-
-// Script 57
+// Script 57: Play Outside Noise
 [0000] (2E) delay(360000);
 [0004] (18) goto 0000;
 [0007] (A0) stopObjectCode();
 END
 
-// Script 58
+// Script 58: Start Microwave
 [0000] (0C) loadSound(15)
 [0003] (0C) loadSound(14)
 [0006] (1C) startSound(15);
@@ -1818,7 +1817,7 @@ END
 [00F1] (A0) stopObjectCode();
 END
 
-// Script 60
+// Script 60: 1 Minute Timer
 [0000] (2E) delay(3600);
 [0004] (A0) stopObjectCode();
 END
@@ -2700,7 +2699,7 @@ END
 [0067] (A0) stopObjectCode();
 END
 
-// Script 102
+// Script 102: Set Lab Combination
 [0000] (16) Var[111] = getRandomNr(3);
 [0003] (47) clearState08(248);
 [0006] (47) clearState08(249);
@@ -2944,7 +2943,7 @@ END
 [00B9] (A0) stopObjectCode();
 END
 
-// Script 117
+// Script 117: Purple Chases Kid
 [0000] (0C) loadScript(49)
 [0003] (80) breakHere();
 [0004] (C3) VAR_RESULT = getActorX(VAR_EGO);
@@ -3128,7 +3127,7 @@ END
 [00E3] (A0) stopObjectCode();
 END
 
-// Script 135
+// Script 135: Meteor Crashes to Earth
 [0000] (2D) putActorInRoom(22,33);
 [0003] (01) putActor(22,80,5);
 [0007] (52) actorFollowCamera(22);
@@ -3151,7 +3150,7 @@ END
 [003B] (A0) stopObjectCode();
 END
 
-// Script 137: Open Dungeon Door
+// Script 137: Open Dungeon Door with Loose Brick
 [0000] (0F) if (!getState08(159)) {
 [0005] (1C)   startSound(8);
 [0007] (07)   setState08(159);
@@ -3174,7 +3173,7 @@ END
 [0013] (A0) stopObjectCode();
 END
 
-// Script 147
+// Script 147: Enter Outer Lab
 [0000] (9A) Var[116] = VAR_EGO;
 [0003] (80) breakHere();
 [0004] (48) if (Var[115] == 1) {
@@ -3199,7 +3198,6 @@ END
 [003C] (24) loadRoomWithEgo(169,30,255,255);
 [0042] (A0) stopObjectCode();
 END
-
 
 // Script 148: Lab Cutscene 1
 [0000] (2E) delay(3600);
@@ -3255,7 +3253,7 @@ END
 [0192] (A0) stopObjectCode();
 END
 
-// Script 149
+// Script 149: Open Basement Door
 [0000] (0F) if (!getState08(69)) {
 [0005] (07)   setState08(69);
 [0008] (1C)   startSound(8);
@@ -3354,7 +3352,7 @@ END
 [00D3] (A0) stopObjectCode();
 END
 
-// Script 152
+// Script 152: Edna in Kitchen Check
 [0000] (2E) delay(18000);
 [0004] (80) breakHere();
 [0005] (68) VAR_RESULT = isScriptRunning(153);
@@ -3473,7 +3471,7 @@ END
 [0115] (A0) stopObjectCode();
 END
 
-// Script 158
+// Script 158: Purple Moves Between Points
 [0000] (1E) walkActorTo(13,45,70);
 [0004] (3B) waitForActor(13);
 [0006] (1E) walkActorTo(13,39,70);
@@ -3482,7 +3480,7 @@ END
 [000F] (A0) stopObjectCode();
 END
 
-// Script 160
+// Script 160: Ed Walks Around Lab
 [0000] (80) breakHere();
 [0001] (3B) waitForActor(11);
 [0003] (80) breakHere();
