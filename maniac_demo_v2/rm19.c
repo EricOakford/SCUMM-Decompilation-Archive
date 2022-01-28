@@ -1,3 +1,9 @@
+/**
+ * Maniac Mansion: V2 Demo
+ * 
+ * Room 19: Edna's Room
+ */
+
 // EN
 [0000] (01) putActor(19,0,5);
 [0004] (00) stopObjectCode();
@@ -10,7 +16,7 @@
 [0017] (00) stopObjectCode();
 END
 
-// Object 103
+// Object 103: Door
 Events:
    1 - 001B
    2 - 0021
@@ -28,11 +34,11 @@ Events:
 [0034] (00) stopObjectCode();
 END
 
-// Object 105
+// Object 105: Phone
 Events:
 END
 
-// Object 107
+// Object 107: Small Key
 Events:
    B - 0021
    E - 001E
@@ -42,7 +48,7 @@ Events:
 [0026] (00) stopObjectCode();
 END
 
-// Object 231
+// Object 231: Ladder
 Events:
    D - 0019
 [0019] (07) setState08(217);
@@ -50,19 +56,19 @@ Events:
 [0022] (00) stopObjectCode();
 END
 
-// Object 306
+// Object 306: Desk
 Events:
 END
 
-// Script 307
+// Object 307: Cracked Mirror
 Events:
 END
 
-// Object 308
+// Object 308: Mirror
 Events:
 END
 
-// Object 309
+// Object 309: Light
 Events:
    4 - 001A
    5 - 0024
@@ -83,7 +89,7 @@ Events:
 [0020] (00) stopObjectCode();
 END
 
-// Object 311
+// Object 311: Picture of Dr. Fred
 Events:
    1 - 0028
    A - 0028
@@ -91,18 +97,18 @@ Events:
 [002A] (00) stopObjectCode();
 END
 
-// Object 313
+// Object 313: Night Stand
 Events:
 END
 
-// Object 314
+// Object 314: Plant
 Events:
 END
 
-// Object 444
+// Object 444: Perfume
 Events:
 END
 
-// Object 445
+// Object 445: Pillow
 Events:
 END

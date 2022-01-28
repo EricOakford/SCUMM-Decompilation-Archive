@@ -23,12 +23,25 @@ F = What Is
 5 = Bernard
 6 = Wendy
 7 = Jeff
+8 = ???
 9 = Dr. Fred
 10 = Nurse Edna
 11 = Weird Ed
 12 = Dead Cousin Ted
 13 = Purple Tentacle
 14 = Green Tentacle
+15 = Meteor Police
 16 = Meteor
+17 = Mark E. Teer
+18 = Wink Smiley
 19 = Plant
+20 = ???
+21 = ???
+22 = ???
 23 = Sandy
+
+// Variables
+95 = Death reason
+96 = Dying kid
+97 = Number of dead kids
+115 = Dave is dead

@@ -1,3 +1,9 @@
+/**
+ * Maniac Mansion: V2 Demo
+ * 
+ * Room 26: Ed's Room
+ */
+
 // EX
 [0000] (01) putActor(1,0,5);
 [0004] (00) stopObjectCode();
@@ -11,7 +17,7 @@
 [0019] (00) stopObjectCode();
 END
 
-// Object 34
+// Object 34: Hamster
 Events:
    3 - 002B
    B - 0025
@@ -52,7 +58,7 @@ Events:
 [007E] (00) stopObjectCode();
 END
 
-// Object 36
+// Object 36: Dime 1
 Events:
    B - 001C
    E - 0019
@@ -62,7 +68,7 @@ Events:
 [0021] (00) stopObjectCode();
 END
 
-// Object 37
+// Object 37: Dime 2
 Events:
    B - 001C
    E - 0019
@@ -72,7 +78,7 @@ Events:
 [0021] (00) stopObjectCode();
 END
 
-// Object 38
+// Object 38: Dime 3
 Events:
    B - 001C
    E - 0019
@@ -82,7 +88,7 @@ Events:
 [0021] (00) stopObjectCode();
 END
 
-// Object 39
+// Object 39: Door
 Events:
    1 - 001B
    2 - 0021
@@ -120,11 +126,11 @@ Events:
 [0028] (00) stopObjectCode();
 END
 
-// Object 271
+// Object 271: Fighter Jet
 Events:
 END
 
-// Object 272
+// Object 272: X-Wing Model
 Events:
 END
 
@@ -135,10 +141,10 @@ Events:
 [0047] (00) stopObjectCode();
 END
 
-// Object 274
+// Object 274: Bed
 Events:
 END
 
-// Object 275
+// Object 275: Window
 Events:
 END

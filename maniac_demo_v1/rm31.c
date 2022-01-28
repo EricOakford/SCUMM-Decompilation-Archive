@@ -53,10 +53,11 @@ Events:
 [0045] (00) stopObjectCode();
 END
 
-// Object 355: Periscope
+// Object 355: Control Panel
 Events:
 END
 
+// Object 356: Periscope
 Events:
    B - 001C
 [001C] (D8) printEgo("I see a heart-shaped bed.");

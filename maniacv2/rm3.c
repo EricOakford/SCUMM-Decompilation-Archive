@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Demo
+ * Maniac Mansion: V2 Retail
  * 
  * Room 3: Living Room
  */

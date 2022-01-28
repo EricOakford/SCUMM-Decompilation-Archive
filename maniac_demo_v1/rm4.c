@@ -8,7 +8,6 @@
 [0000] (00) stopObjectCode();
 END
 
-
 // Object 159: Door to Basement
 Events:
    1 - 0021

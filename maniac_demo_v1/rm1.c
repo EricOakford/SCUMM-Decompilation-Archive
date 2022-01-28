@@ -4,7 +4,7 @@
  * Room 1: House Exterior
  */
 
-// EN (Enter)
+// EN
 [0000] (3C) stopSound(32);
 [0002] (68) VAR_RESULT = isScriptRunning(63);
 [0005] (48) if (VAR_RESULT == 0) {
@@ -13,7 +13,7 @@
 [000D] (00) stopObjectCode();
 END
 
-// EX (Exit)
+// EX
 [0000] (4F) if (getState08(58)) {
 [0005] (48)   if (Var[83] == 1) {
 [000B] (48)     if (Var[104] == 1) {
@@ -34,7 +34,6 @@ END
 [0031] (**) }
 [0031] (00) stopObjectCode();
 END
-
 
 // Object 50: Mailbox
 Events:
@@ -128,8 +127,8 @@ END
 // Object 54: Doormat
 Events:
    9 - 003B
-   A - 001F	
-   E - 001F	
+   A - 001F
+   E - 001F
 [001F] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
 [0023] (D8)   printEgo("I'll leave it here.");
 [0035] (18) } else {
@@ -142,8 +141,8 @@ END
 
 // Object 55: House key
 Events:
-   B - 001B	// Use
-   E - 0018	// Pick Up
+   B - 001B
+   E - 0018
 [0018] (D0) pickupObject(VAR_ACTIVE_OBJECT1);
 [001A] (00) stopObjectCode();
 [001B] (48) if (VAR_ACTIVE_OBJECT2 == 61) {

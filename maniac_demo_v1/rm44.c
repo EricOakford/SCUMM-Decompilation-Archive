@@ -10,14 +10,13 @@
 [0004] (00) stopObjectCode();
 END
 
-// EN
+// EX
 [0000] (68) VAR_RESULT = isScriptRunning(12);
 [0003] (48) if (VAR_RESULT == 1) {
 [0009] (1C)   startSound(32);
 [000B] (**) }
 [000B] (00) stopObjectCode();
 END
-
 
 // Object 258: Path to House
 Events:

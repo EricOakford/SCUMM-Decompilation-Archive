@@ -4592,7 +4592,7 @@ END
 [016E] (A0) stopObjectCode();
 END
 
-// Script 124: Talk Shoe Ending
+// Script 124: Talk Show Ending
 [0000] (0C) unlockCostume(9)
 [0003] (0C) loadRoom(42)
 [0006] (0C) lockRoom(42)

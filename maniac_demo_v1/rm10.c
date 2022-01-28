@@ -98,7 +98,7 @@ END
 Events:
 END
 
-// Object 284 Vase (right)
+// Object 284: Vase (right)
 Events:
 END
 

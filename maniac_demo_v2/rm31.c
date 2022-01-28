@@ -1,12 +1,18 @@
-//EN
+/**
+ * Maniac Mansion: V2 Demo
+ * 
+ * Room 31: Outer Lab
+ */
+
+// EN
 [0000] (00) stopObjectCode();
 END
 
-//EX
-//NOTE: Decompiled with "ERROR: do_room_ops_old: unknown subop 0!"
+// EX
+//NOTE: "ERROR: do_room_ops_old: unknown subop 0!"
 [0000] (3F) if (!getState01(25186)) {
 
-// Object 166
+// Object 166: Door to Dungeon
 Events:
    1 - 001B
    2 - 0021
@@ -47,7 +53,7 @@ Events:
 [0045] (00) stopObjectCode();
 END
 
-// Object 355
+// Object 355: Control Panel
 Events:
 END
 
@@ -58,6 +64,6 @@ Events:
 [0033] (00) stopObjectCode();
 END
 
-// Object 423
+// Object 423: Map of House
 Events:
 END

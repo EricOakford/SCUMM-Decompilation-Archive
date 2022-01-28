@@ -1,3 +1,9 @@
+/**
+ * Maniac Mansion: V2 Demo
+ * 
+ * Room 45: Kid Selection
+ */
+
 //NOTE: Trying to extract this room with scummrp causes "ERROR: Duplicate offset in index: 0x27FB in room 45". It looks as though the file has been altered in some way, preventing a complete extraction.
 // As a result, I am using the 45.lfl from the full game to try to fill in the missing scripts.
 

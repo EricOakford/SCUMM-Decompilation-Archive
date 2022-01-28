@@ -1,3 +1,9 @@
+/**
+ * Maniac Mansion: V2 Demo
+ * 
+ * Room 44: Driveway
+ */
+
 // EN
 [0000] (3C) stopSound(32);
 [0002] (00) stopObjectCode();

@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Demo
+ * Maniac Mansion: V2 Retail
  * 
  * Room 1: House Exterior
  */
@@ -371,4 +371,31 @@ Events:
 [0099] (00) stopObjectCode();
 [009A] (D8) printEgo("Solicitors will be eaten.");
 [00B2] (00) stopObjectCode();
+END
+
+// Object 277
+Events:
+END
+
+// Object 394: Doorbell
+Events:
+   9 - 001F
+   B - 001F
+   C - 0045
+[001F] (1C) startSound(39);
+[0021] (48) if (Var[92] == 0) {
+[0027] (68)   VAR_RESULT = isScriptRunning(87);
+[002A] (48)   if (VAR_RESULT == 0) {
+[0030] (03)     VAR_RESULT = getActorRoom(11);
+[0033] (48)     if (VAR_RESULT == 26) {
+[0039] (1A)       Var[143] = 1;
+[003D] (42)       startScript(87);
+[003F] (**)     }
+[003F] (18)   } else {
+[0042] (42)     startScript(97);
+[0044] (**)   }
+[0044] (**) }
+[0044] (00) stopObjectCode();
+[0045] (D8) printEgo("This is the home of Dr. Fred,\x03Nurse Edna, Weird Ed, Dead Cousin Ted,\x03Green Tentacle and Purple Tentacle.");
+[009F] (00) stopObjectCode();
 END

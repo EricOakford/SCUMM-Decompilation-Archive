@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V1 Demo
+ * Maniac Mansion: V2 Retail
  * 
  * Room 9: Safe Attic
  */

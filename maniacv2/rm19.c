@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V1 Demo
+ * Maniac Mansion: V2 Retail
  * 
  * Room 19: Edna's Room
  */
