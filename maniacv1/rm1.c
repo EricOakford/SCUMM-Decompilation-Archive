@@ -1,12 +1,16 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 1: House Exterior
  */
 
 // EN
 [0000] (3C) stopSound(32);
-[0002] (00) stopObjectCode();
+[0002] (68) VAR_RESULT = isScriptRunning(63);
+[0005] (48) if (VAR_RESULT == 0) {
+[000B] (42)   startScript(57);
+[000D] (**) }
+[000D] (00) stopObjectCode();
 END
 
 // EX
