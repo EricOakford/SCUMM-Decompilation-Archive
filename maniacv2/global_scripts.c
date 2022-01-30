@@ -7,11 +7,11 @@
 // Script 1: Game initialization
 [0000] (1A) VAR_NUM_ACTOR = 25;
 [0004] (1A) VAR_BACKUP_VERB = 13;
-[0008] (1A) VAR_EGO = 3;
+[0008] (1A) VAR_EGO = 3;		// Dave is initial ego
 [000C] (1A) VAR_TIMER_NEXT = 4;
 [0010] (1A) VAR_CUTSCENEEXIT_KEY = 4;
 [0014] (1A) VAR_MACHINE_SPEED = 10;
-[0018] (13) ActorOps(0,[TalkColor(9)]);
+[0018] (13) ActorOps(0,[TalkColor(9)]);	// Set up the actors
 [001C] (40) cutscene();
 [001D] (53) ActorOps(1,[Name("Syd")]);
 [0025] (13) ActorOps(1,[Sound(6)]);
@@ -103,13 +103,13 @@
 [0208] (53) ActorOps(22,[Name()]);
 [020D] (13) ActorOps(22,[Costume(22)]);
 [0211] (13) ActorOps(22,[Sound(0)]);
-[0215] (60) cursorCommand(31, 3);
+[0215] (60) cursorCommand(31, 3);	// Set up the interface
 [0218] (0C) loadSound(58)
-[021B] (0C) loadScript(2)
+[021B] (0C) loadScript(2)		// Set up default verb responses
 [021E] (0C) lockScript(2)
-[0221] (0C) loadScript(4)
+[0221] (0C) loadScript(4)		// Set up the key commands
 [0224] (0C) lockScript(4)
-[0227] (0C) loadScript(164)
+[0227] (0C) loadScript(164)		// Set up the verbs on-screen
 [022A] (0C) lockScript(164)
 [022D] (0C) loadScript(5)
 [0230] (0C) lockScript(5)
@@ -120,30 +120,30 @@
 [023F] (0C) loadSound(38)
 [0242] (0C) loadRoom(44)
 [0245] (0C) loadScript(131)
-[0248] (1A) Var[47] = 3;
-[024C] (72) loadRoom(45);
-[024E] (1A) Var[110] = 0;
-[0252] (1A) Var[111] = 1;
-[0256] (2E) delay(60);
+[0248] (1A) Var[47] = 3;	// Dave is always 1st kid
+[024C] (72) loadRoom(45);	// Go to the kid selection screen
+[024E] (1A) Var[110] = 0;	// Game hasn't started yet
+[0252] (1A) Var[111] = 1;	// 1 Kid (Dave) already selected
+[0256] (2E) delay(60);		// Wait 1 second
 [025A] (14) print(255,"   Copyright 1987, 1988 Lucasfilm Ltd. \x01           All rights reserved.        ");
 [029A] (58) beginOverride();
 [029B] (18) goto 0303;
 [029E] (42) startScript(177);
 [02A0] (16) Var[67] = getRandomNr(1);
 [02A3] (48) if (VAR_HAVE_MSG == 0) {
-[02A9] (2E)   delay(120);
+[02A9] (2E)   delay(120);		// Wait 2 seconds
 [02AD] (48)   if (VAR_HAVE_MSG == 0) {
-[02B3] (48)     if (Var[111] == 1) {
+[02B3] (48)     if (Var[111] == 1) {	// 1 kid (Dave) selected
 [02B9] (14)       print(255,"      Please select two other kids.");
 [02D8] (**)     }
-[02D8] (48)     if (Var[111] == 2) {
+[02D8] (48)     if (Var[111] == 2) {	// 2 kids selected
 [02DE] (14)       print(255,"      Please select one other kid.");
 [02FC] (**)     }
 [02FC] (**)   }
 [02FC] (**) }
 [02FC] (80) breakHere();
-[02FD] (48) unless (Var[110] == 1) goto 02A0;
-[0303] (78) if (Var[111] < 3) {
+[02FD] (48) unless (Var[110] == 1) goto 02A0;	// Loop until Start is pressed
+[0303] (78) if (Var[111] < 3) {			// Need 3 kids to continue
 [0309] (19)   doSentence(9,403,0,0);
 [0310] (18)   goto 0256;
 [0313] (**) }
@@ -155,98 +155,98 @@
 [031F] (8C) loadCostume(Var[48])
 [0322] (8C) loadCostume(Var[49])
 [0325] (60) cursorCommand(15, 2);
-[0328] (48) if (Var[110] == 1) {
-[032E] (42)   startScript(120);
+[0328] (48) if (Var[110] == 1) {			// Start pressed
+[032E] (42)   startScript(120);				// Roll Intro
 [0330] (80)   breakHere();
-[0331] (68)   VAR_RESULT = isScriptRunning(120);
+[0331] (68)   VAR_RESULT = isScriptRunning(120);	// Keep going until intro done
 [0334] (48)   unless (VAR_RESULT == 0) goto 0330;
 [033A] (**) }
 [033A] (0C) unlockSound(58)
-[033D] (AD) putActorInRoom(Var[47],44);
+[033D] (AD) putActorInRoom(Var[47],44);			// Put Dave in driveway
 [0340] (81) putActor(Var[47],24,59);
-[0344] (AD) putActorInRoom(Var[48],44);
+[0344] (AD) putActorInRoom(Var[48],44);			// Put Kid 2 in driveway
 [0347] (81) putActor(Var[48],29,57);
-[034B] (AD) putActorInRoom(Var[49],44);
+[034B] (AD) putActorInRoom(Var[49],44);			// Put Kid 3 in driveway
 [034E] (81) putActor(Var[49],34,61);
-[0352] (2D) putActorInRoom(12,24);
+[0352] (2D) putActorInRoom(12,24);			// Put Ted in bathroom
 [0355] (01) putActor(12,30,48);
-[0359] (2D) putActorInRoom(11,26);
+[0359] (2D) putActorInRoom(11,26);			// Put Ed in his room
 [035C] (01) putActor(11,10,52);
 [0360] (1A) Var[164] = 1;
 [0364] (1A) VAR_ACTOR_RANGE_MIN = 1;
-[0368] (1A) VAR_ACTOR_RANGE_MAX = 8;
-[036C] (1B) setBitVar(2872,44,1);
-[0371] (1B) setBitVar(2872,1,1);
-[0376] (1B) setBitVar(2872,4,1);
-[037B] (1B) setBitVar(2872,6,1);
-[0380] (1B) setBitVar(2872,2,1);
-[0385] (1B) setBitVar(2872,16,1);
-[038A] (1B) setBitVar(2872,30,1);
-[038F] (1B) setBitVar(2872,31,1);
-[0394] (1B) setBitVar(2872,51,1);
-[0399] (1B) setBitVar(2816,8,1);
-[039E] (1B) setBitVar(2816,5,1);
-[03A3] (1B) setBitVar(2816,9,1);
-[03A8] (1B) setBitVar(2816,15,1);
-[03AD] (1B) setBitVar(2816,22,1);
-[03B2] (1B) setBitVar(2816,23,1);
-[03B7] (16) Var[111] = getRandomNr(4);
+[0368] (1A) VAR_ACTOR_RANGE_MAX = 8;			
+[036C] (1B) setBitVar(2872,44,1);			// Driveway: Always lit
+[0371] (1B) setBitVar(2872,1,1);			// Mansion exterior: Always lit
+[0376] (1B) setBitVar(2872,4,1);			// Dungeon: Always lit
+[037B] (1B) setBitVar(2872,6,1);			// Pool: Always lit
+[0380] (1B) setBitVar(2872,2,1);			// Pool bottom: Always lit
+[0385] (1B) setBitVar(2872,16,1);			// Garage: Always lit
+[038A] (1B) setBitVar(2872,30,1);			// Inner lab: Always lit
+[038F] (1B) setBitVar(2872,31,1);			// Outer lab: Always lit
+[0394] (1B) setBitVar(2872,51,1);			// Meteor's room: Always lit
+[0399] (1B) setBitVar(2816,8,1);			// Basement: Light off
+[039E] (1B) setBitVar(2816,5,1);			// Library: Light off
+[03A3] (1B) setBitVar(2816,9,1);			// Safe attic: Light off
+[03A8] (1B) setBitVar(2816,15,1);			// Wire attic: Light off
+[03AD] (1B) setBitVar(2816,22,1);			// Dr. Fred's Offic: Light off
+[03B2] (1B) setBitVar(2816,23,1);			// Dark Room: Light off
+[03B7] (16) Var[111] = getRandomNr(4);			// Randomize Edna's Phone Number
 [03BA] (48) if (Var[111] == 0) {
-[03C0] (26)   setVarRange(Var[51],4,[5,2,3,5]);
+[03C0] (26)   setVarRange(Var[51],4,[5,2,3,5]);		// Number: 5235
 [03C7] (**) }
 [03C7] (48) if (Var[111] == 1) {
-[03CD] (26)   setVarRange(Var[51],4,[1,5,4,7]);
-[03D4] (07)   setState08(119);
+[03CD] (26)   setVarRange(Var[51],4,[1,5,4,7]);		// Number: 1547
+[03D4] (07)   setState08(119);				// Put the number on bathroom wall
 [03D7] (**) }
 [03D7] (48) if (Var[111] == 2) {
-[03DD] (26)   setVarRange(Var[51],4,[2,2,7,5]);
-[03E4] (07)   setState08(120);
+[03DD] (26)   setVarRange(Var[51],4,[2,2,7,5]);		// Number: 2275
+[03E4] (07)   setState08(120);				// Put the number on bathroom wall
 [03E7] (**) }
 [03E7] (48) if (Var[111] == 3) {
-[03ED] (26)   setVarRange(Var[51],4,[3,4,4,4]);
-[03F4] (07)   setState08(121);
+[03ED] (26)   setVarRange(Var[51],4,[3,4,4,4]);		// Number: 3444
+[03F4] (07)   setState08(121);				// Put the number on bathroom wall
 [03F7] (**) }
 [03F7] (48) if (Var[111] == 4) {
-[03FD] (26)   setVarRange(Var[51],4,[7,5,3,7]);
-[0404] (07)   setState08(122);
+[03FD] (26)   setVarRange(Var[51],4,[7,5,3,7]);		// Number: 7537
+[0404] (07)   setState08(122);				// Put the number on bathroom wall
 [0407] (**) }
-[0407] (16) Var[111] = getRandomNr(4);
+[0407] (16) Var[111] = getRandomNr(4);			// Randomize safe combination
 [040A] (48) if (Var[111] == 0) {
-[0410] (26)   setVarRange(Var[55],4,[3,6,2,1]);
+[0410] (26)   setVarRange(Var[55],4,[3,6,2,1]);		// Number: 3621
 [0417] (**) }
 [0417] (48) if (Var[111] == 1) {
-[041D] (26)   setVarRange(Var[55],4,[0,1,2,0]);
-[0424] (07)   setState08(173);
+[041D] (26)   setVarRange(Var[55],4,[0,1,2,0]);		// Number: 0120
+[0424] (07)   setState08(173);				// Put the number on safe wall
 [0427] (**) }
 [0427] (48) if (Var[111] == 2) {
-[042D] (26)   setVarRange(Var[55],4,[1,2,3,0]);
-[0434] (07)   setState08(174);
+[042D] (26)   setVarRange(Var[55],4,[1,2,3,0]);		// Number: 1230
+[0434] (07)   setState08(174);				// Put the number on safe wall
 [0437] (**) }
 [0437] (48) if (Var[111] == 3) {
-[043D] (26)   setVarRange(Var[55],4,[1,0,2,9]);
-[0444] (07)   setState08(175);
+[043D] (26)   setVarRange(Var[55],4,[1,0,2,9]);		// Number: 1029
+[0444] (07)   setState08(175);				// Put the number on safe wall
 [0447] (**) }
 [0447] (48) if (Var[111] == 4) {
-[044D] (26)   setVarRange(Var[55],4,[4,1,8,6]);
-[0454] (07)   setState08(220);
+[044D] (26)   setVarRange(Var[55],4,[4,1,8,6]);		// Number: 4186
+[0454] (07)   setState08(220);				// Put the number on safe wall
 [0457] (**) }
-[0457] (16) Var[76] = getRandomNr(4);
+[0457] (16) Var[76] = getRandomNr(4);			// Randomize Meteor Police Number
 [045A] (48) if (Var[76] == 0) {
-[0460] (26)   setVarRange(Var[77],4,[3,4,1,2]);
+[0460] (26)   setVarRange(Var[77],4,[3,4,1,2]);		// Number: 3412
 [0467] (**) }
 [0467] (48) if (Var[76] == 1) {
-[046D] (26)   setVarRange(Var[77],4,[1,1,3,8]);
+[046D] (26)   setVarRange(Var[77],4,[1,1,3,8]);		// Number: 1138
 [0474] (**) }
 [0474] (48) if (Var[76] == 2) {
-[047A] (26)   setVarRange(Var[77],4,[9,1,1,1]);
+[047A] (26)   setVarRange(Var[77],4,[9,1,1,1]);		// Number: 9111
 [0481] (**) }
 [0481] (48) if (Var[76] == 3) {
-[0487] (26)   setVarRange(Var[77],4,[1,9,7,7]);
+[0487] (26)   setVarRange(Var[77],4,[1,9,7,7]);		// Number: 1977
 [048E] (**) }
 [048E] (48) if (Var[76] == 4) {
-[0494] (26)   setVarRange(Var[77],4,[0,5,2,5]);
+[0494] (26)   setVarRange(Var[77],4,[0,5,2,5]);		// Number: 0525
 [049B] (**) }
-[049B] (42) startScript(131);
+[049B] (42) startScript(131);				// Introduce the kids
 [049D] (A0) stopObjectCode();
 END
 
@@ -376,15 +376,15 @@ END
 END
 
 // Script 3: Verb Defaults
-[0000] (48) if (VAR_ACTIVE_VERB == 1) {
+[0000] (48) if (VAR_ACTIVE_VERB == 1) {			// Open
 [0006] (D8)   printEgo("It doesn't seem to open.");
-[001C] (48) } else if (VAR_ACTIVE_VERB == 9) {
+[001C] (48) } else if (VAR_ACTIVE_VERB == 9) {		// Push
 [0025] (18)   goto 0031;
-[0028] (48) } else if (VAR_ACTIVE_VERB == 10) {
+[0028] (48) } else if (VAR_ACTIVE_VERB == 10) {		// PUll
 [0031] (D8)   printEgo("I can't move it.");
-[0040] (48) } else if (VAR_ACTIVE_VERB == 12) {
+[0040] (48) } else if (VAR_ACTIVE_VERB == 12) {		// Read
 [0049] (D8)   printEgo("There's nothing to read on it.");
-[0064] (48) } else if (VAR_ACTIVE_VERB == 14) {
+[0064] (48) } else if (VAR_ACTIVE_VERB == 14) {		// Pick up
 [006D] (D8)   printEgo("I can't pick that up.");
 [0080] (18) } else {
 [0083] (D8)   printEgo("That doesn't seem to work.");
@@ -428,7 +428,7 @@ END
 [006D] (4A)       chainScript(163);
 [006F] (**)     }
 [006F] (48)     if (Var[21] == 1) {
-[0075] (48)       if (Var[175] == 0) {
+[0075] (48)       if (Var[175] == 0) {	// Can't save: FALSE
 [007B] (4A)         chainScript(163);
 [007D] (18)       } else {
 [0080] (14)         print(255,"The Meteor has control of your computer\x01and he won't let you save the game.");
@@ -634,7 +634,7 @@ END
 [0000] (40) cutscene();
 [0001] (1A) VAR_TIMER_NEXT = 4;
 [0005] (1A) VAR_CUTSCENEEXIT_KEY = 4;
-[0009] (1B) setBitVar(2816,5,1);
+[0009] (1B) setBitVar(2816,5,1);	// Library: Lights off
 [000E] (47) clearState08(106);
 [0011] (47) clearState08(44);
 [0014] (47) clearState08(43);
@@ -1033,7 +1033,7 @@ END
 END
 
 // Script 10: Open Door
-[0000] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0000] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {	// Door is closed
 [0004] (87)   setState08(VAR_ACTIVE_OBJECT1);
 [0006] (1C)   startSound(8);
 [0008] (**) }
@@ -1041,7 +1041,7 @@ END
 END
 
 // Script 11: Close Door
-[0000] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[0000] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {	// Door is open
 [0004] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
 [0006] (1C)   startSound(9);
 [0008] (**) }
@@ -1049,38 +1049,38 @@ END
 END
 
 // Script 12: Meltdown Timer
-[0000] (0F) if (!getState08(163)) {
-[0005] (2E)   delay(300);
-[0009] (08)   if (VAR_ROOM != 6) {
-[000F] (08)     if (VAR_ROOM != 1) {
-[0015] (08)       if (VAR_ROOM != 44) {
-[001B] (08)         if (VAR_ROOM != 2) {
-[0021] (08)           if (VAR_ROOM != 16) {
-[0027] (1C)             startSound(32);
-[0029] (1C)             startSound(33);
+[0000] (0F) if (!getState08(163)) {	
+[0005] (2E)   delay(300);			// Wait 5 seconds
+[0009] (08)   if (VAR_ROOM != 6) {		// Not at the pool,
+[000F] (08)     if (VAR_ROOM != 1) {		// mansion exterior.
+[0015] (08)       if (VAR_ROOM != 44) {		// driveway,
+[001B] (08)         if (VAR_ROOM != 2) {	// pool bottom,
+[0021] (08)           if (VAR_ROOM != 16) {	// or in garage
+[0027] (1C)             startSound(32);		// Start alarm sound 1
+[0029] (1C)             startSound(33);		// Start alarm sound 2
 [002B] (**)           }
 [002B] (**)         }
 [002B] (**)       }
 [002B] (**)     }
 [002B] (**)   }
-[002B] (2E)   delay(300);
-[002F] (3C)   stopSound(33);
-[0031] (42)   startScript(47);
-[0033] (2E)   delay(7200);
-[0037] (3C)   stopSound(32);
-[0039] (2E)   delay(180);
-[003D] (42)   startScript(62);
+[002B] (2E)   delay(300);	// Wait 5 seconds
+[002F] (3C)   stopSound(33);	// Stop alarm 2
+[0031] (42)   startScript(47);	// Meltdown Warning
+[0033] (2E)   delay(7200);	// Wait 2 minutes
+[0037] (3C)   stopSound(32);	// Stop alarm 1
+[0039] (2E)   delay(180);	// Wait 3 seconds
+[003D] (42)   startScript(62);	// Mansion explodes
 [003F] (**) }
 [003F] (A0) stopObjectCode();
 END
 
 // Script 13: Stop Meltdown Timer
-[0000] (62) stopScript(12);
-[0002] (03) VAR_RESULT = getActorRoom(13);
-[0005] (08) if (VAR_RESULT != 8) {
-[000B] (62)   stopScript(48);
+[0000] (62) stopScript(12);			// Stop the meltdown timer
+[0002] (03) VAR_RESULT = getActorRoom(13);	// Where's Purple Tentacle?
+[0005] (08) if (VAR_RESULT != 8) {		// If he's not in the basement,
+[000B] (62)   stopScript(48);			// stop his script
 [000D] (**) }
-[000D] (3C) stopSound(32);
+[000D] (3C) stopSound(32);			// Stop the alarm sounds
 [000F] (3C) stopSound(33);
 [0011] (A0) stopObjectCode();
 END
@@ -1117,52 +1117,52 @@ END
 END
 
 // Script 15: Read Manuscript
-[0000] (48) if (Var[160] == 0) {
+[0000] (48) if (Var[160] == 0) {	// Manuscript: Initial
 [0006] (D8)   printEgo("It looks like someone's memoir,\x01but the writing is terrible!\x03It's written by a meteor? How strange!");
 [005D] (**) }
-[005D] (48) if (Var[160] == 1) {
+[005D] (48) if (Var[160] == 1) {	// Manuscript: Revised (Bad)
 [0063] (D8)   printEgo("This is the worst junk I've ever read.");
 [0084] (**) }
-[0084] (48) if (Var[160] == 2) {
+[0084] (48) if (Var[160] == 2) {	// Manuscript: Revised (Good)
 [008A] (D8)   printEgo("This is great stuff!\x03The whole world should see it.");
 [00B7] (**) }
 [00B7] (A0) stopObjectCode();
 END
 
 // Script 16: Rewrite Manuscript
-[0000] (42) startScript(113);
+[0000] (42) startScript(113);			// Using the typewriter
 [0002] (80) breakHere();
-[0003] (68) VAR_RESULT = isScriptRunning(113);
+[0003] (68) VAR_RESULT = isScriptRunning(113);	// Wait until done with typewriter
 [0006] (48) unless (VAR_RESULT == 0) goto 0002;
-[000C] (48) if (VAR_EGO == 6) {
-[0012] (1A)   Var[160] = 2;
+[000C] (48) if (VAR_EGO == 6) {			// Wendy
+[0012] (1A)   Var[160] = 2;			// Manuscript: Revised (Good)
 [0016] (D8)   printEgo("Ah! That's much better.");
-[002C] (18) } else {
-[002F] (1A)   Var[160] = 1;
+[002C] (18) } else {				// Anyone else
+[002F] (1A)   Var[160] = 1;			// Manuscript: Revised (Bad)
 [0033] (D8)   printEgo("Whoops! I think I made it worse.");
 [004F] (**) }
 [004F] (A0) stopObjectCode();
 END
 
 // Script 17: Hamster in Microwave
-[0000] (0C) loadSound(15)
-[0003] (0C) loadSound(16)
-[0006] (0C) loadSound(14)
-[0009] (1C) startSound(15);
-[000B] (2E) delay(180);
+[0000] (0C) loadSound(15)		// Rotating
+[0003] (0C) loadSound(16)		// Splat!
+[0006] (0C) loadSound(14)		// DING!
+[0009] (1C) startSound(15);		// Start rotating
+[000B] (2E) delay(180);			// Wait 3 seconds
 [000F] (47) clearState08(86);
 [0012] (57) setState02(86);
 [0015] (07) setState08(87);
-[0018] (1C) startSound(16);
+[0018] (1C) startSound(16);		// Hamster goes splat!
 [001A] (2E) delay(60);
-[001E] (3C) stopSound(15);
-[0020] (1C) startSound(14);
+[001E] (3C) stopSound(15);		// Stop rotating
+[0020] (1C) startSound(14);		// Start ding
 [0022] (A0) stopObjectCode();
 END
 
 // Script 18: Open Shower Curtain
-[0000] (1C) startSound(34);
-[0002] (1A) Var[165] = 1;
+[0000] (1C) startSound(34);		// Sound of shower curtain
+[0002] (1A) Var[165] = 1;		// Shower curtain moving = TRUE
 [0006] (47) clearState08(117);
 [0009] (57) setState02(117);
 [000C] (80) breakHere();
@@ -1173,14 +1173,14 @@ END
 [0017] (57) setState02(115);
 [001A] (80) breakHere();
 [001B] (80) breakHere();
-[001C] (1A) Var[165] = 0;
-[0020] (3C) stopSound(34);
+[001C] (1A) Var[165] = 0;		// Shower curtain moving = FALSE
+[0020] (3C) stopSound(34);		// Stop the sound
 [0022] (A0) stopObjectCode();
 END
 
 // Script 19: Close Shower Curtain
-[0000] (1C) startSound(34);
-[0002] (1A) Var[165] = 1;
+[0000] (1C) startSound(34);		// Sound of shower curtain
+[0002] (1A) Var[165] = 1;		// Shower curtain moving = TRUE
 [0006] (07) setState08(115);
 [0009] (17) clearState02(115);
 [000C] (80) breakHere();
@@ -1191,52 +1191,52 @@ END
 [0017] (17) clearState02(117);
 [001A] (80) breakHere();
 [001B] (80) breakHere();
-[001C] (1A) Var[165] = 0;
-[0020] (3C) stopSound(34);
+[001C] (1A) Var[165] = 0;		// Shower curtain moving = FALSE
+[0020] (3C) stopSound(34);		// Stop the sound
 [0022] (A0) stopObjectCode();
 END
 
 // Script 20: Tentacle Mating Call Record
 [0000] (0C) loadSound(10)
-[0003] (1C) startSound(25);
-[0005] (2E) delay(120);
-[0009] (0F) if (!getState08(187)) {
-[000E] (1C)   startSound(10);
-[0010] (07)   setState08(187);
+[0003] (1C) startSound(25);		// Start screeching sound
+[0005] (2E) delay(120);			// Wait 2 seconds
+[0009] (0F) if (!getState08(187)) {	// Vase isn't broken
+[000E] (1C)   startSound(10);		// Glass break sound
+[0010] (07)   setState08(187);		// Vase is broken
 [0013] (**) }
-[0013] (2E) delay(72000);
-[0017] (3C) stopSound(25);
-[0019] (1A) Var[167] = 0;
+[0013] (2E) delay(72000);		// Wait 20 minutes
+[0017] (3C) stopSound(25);		// Stop the sound
+[0019] (1A) Var[167] = 0;		// Victrola turned off
 [001D] (A0) stopObjectCode();
 END
 
 // Script 21: Cassette Shatters Glass
-[0000] (2E) delay(240);
-[0004] (4F) if (getState08(78)) {
-[0009] (1C)   startSound(26);
-[000B] (47)   clearState08(78);
+[0000] (2E) delay(240);			// Wait 4 seconds
+[0004] (4F) if (getState08(78)) {	// Window 1 intact
+[0009] (1C)   startSound(26);		// Shatter sound
+[000B] (47)   clearState08(78);		// Window 1 cracked
 [000E] (**) }
-[000E] (2E) delay(60);
-[0012] (4F) if (getState08(79)) {
-[0017] (1C)   startSound(26);
-[0019] (47)   clearState08(79);
+[000E] (2E) delay(60);			// Wait 1 second
+[0012] (4F) if (getState08(79)) {	// Window 2 intact
+[0017] (1C)   startSound(26);		// Shatter sound
+[0019] (47)   clearState08(79);		// Window 2 cracked
 [001C] (**) }
-[001C] (2E) delay(60);
-[0020] (0F) if (!getState08(74)) {
-[0025] (1C)   startSound(26);
-[0027] (07)   setState08(74);
+[001C] (2E) delay(60);			// Wait 1 second
+[0020] (0F) if (!getState08(74)) {	// Chandelier intact
+[0025] (1C)   startSound(26);		// Shatter sound
+[0027] (07)   setState08(74);		// Hide glass chandelier
 [002A] (57)   setState02(74);
-[002D] (47)   clearState08(75);
+[002D] (47)   clearState08(75);		// Show broken chandelier
 [0030] (17)   clearState02(75);
-[0033] (47)   clearState08(76);
+[0033] (47)   clearState08(76);		// Show old rusty key
 [0036] (17)   clearState02(76);
 [0039] (**) }
-[0039] (2E) delay(60);
+[0039] (2E) delay(60);			// wait 1 second
 [003D] (1A) Var[109] = 1;
 [0041] (83) VAR_RESULT = getActorRoom(Var[109]);
-[0044] (48) if (VAR_RESULT == 3) {
+[0044] (48) if (VAR_RESULT == 3) {	// is kid in living room?
 [004A] (C3)   VAR_RESULT = getActorX(Var[109]);
-[004D] (44)   if (VAR_RESULT > 33) {
+[004D] (44)   if (VAR_RESULT > 33) {	// is kid underneath the chandelier?
 [0053] (C3)     VAR_RESULT = getActorX(Var[109]);
 [0056] (78)     if (VAR_RESULT < 46) {
 [005C] (D8)       printEgo("Gee, that was close!");
@@ -1246,25 +1246,25 @@ END
 [0072] (**) }
 [0072] (46) Var[109]++;
 [0074] (48) unless (Var[109] == 8) goto 0041;
-[007A] (2E) delay(18000);
-[007E] (3C) stopSound(25);
-[0080] (47) clearState08(228);
+[007A] (2E) delay(18000);	// Wait 5 minutes
+[007E] (3C) stopSound(25);	// Stop the sound
+[0080] (47) clearState08(228);	// Turn off cassette player
 [0083] (A0) stopObjectCode();
 END
 
 // Script 22: Rotate Telescope
-[0000] (1C) startSound(15);
-[0002] (2E) delay(60);
+[0000] (1C) startSound(15);	// Start rotating
+[0002] (2E) delay(60);		// Wait 1 second
 [0006] (D8) printEgo("It's rotating.");
-[0015] (2E) delay(180);
-[0019] (3C) stopSound(15);
+[0015] (2E) delay(180);		// Wait 3 seconds
+[0019] (3C) stopSound(15);	// Stop rotating
 [001B] (A0) stopObjectCode();
 END
 
 // Script 23: Look in Telescope
 [0000] (80) breakHere();
 [0001] (40) cutscene();
-[0002] (2E) delay(60);
+[0002] (2E) delay(60);		// Wait 1 second
 [0006] (48) if (Var[164] == 0) {
 [000C] (72)   loadRoom(35);
 [000E] (32)   setCameraAt(20);
@@ -2191,14 +2191,14 @@ END
 [00AA] (88) if (VAR_RESULT != Var[112]) {
 [00AF] (10)   VAR_RESULT = getObjectOwner(60);
 [00B3] (88)   if (VAR_RESULT != Var[112]) {
-[00B8] (48)     if (VAR_ROOM == 31) {
+[00B8] (48)     if (VAR_ROOM == 31) {		// In outer lab
 [00BE] (B1)       VAR_RESULT = getBitVar(2960,Var[112]);
-[00C3] (48)       if (VAR_RESULT == 1) {
+[00C3] (48)       if (VAR_RESULT == 1) {	// Green Tentacle will protect kid
 [00C9] (0C)         loadCostume(14)
 [00CC] (42)         startScript(115);
 [00CE] (62)         stopScript(0);
 [00D0] (**)       }
-[00D0] (48)       if (Var[93] == 1) {
+[00D0] (48)       if (Var[93] == 1) {		// Ed has prints
 [00D6] (0C)         loadCostume(11)
 [00D9] (42)         startScript(99);
 [00DB] (62)         stopScript(0);
@@ -3265,10 +3265,10 @@ END
 [000F] (83) VAR_RESULT = getActorRoom(Var[113]);
 [0012] (C8) if (VAR_RESULT == VAR_ROOM) {
 [0017] (B1)   VAR_RESULT = getBitVar(2936,Var[113]);
-[001C] (48)   if (VAR_RESULT == 1) {
+[001C] (48)   if (VAR_RESULT == 1) {	// Kid is Ed's enemy
 [0022] (14)     print(11,"You have some nerve coming\x01back here again!");
 [004A] (18)   } else {
-[004D] (14)     print(11,"Intruder, halt!");
+[004D] (14)     print(11,"Intruder, halt!");	// Kid is neutral to Ed
 [005E] (**)   }
 [005E] (80)   breakHere();
 [005F] (80)   breakHere();
@@ -3366,8 +3366,8 @@ END
 [0026] (9A)     Var[113] = VAR_EGO;
 [0029] (**)   }
 [0029] (48)   if (Var[92] == 1) {
-[002F] (B1)     VAR_RESULT = getBitVar(2936,Var[113]);
-[0034] (48)     if (VAR_RESULT == 0) {
+[002F] (B1)     VAR_RESULT = getBitVar(2936,Var[113]);	// Is kid Ed's enemy?
+[0034] (48)     if (VAR_RESULT == 0) {			// Kid is Ed's friend
 [003A] (03)       VAR_RESULT = getActorRoom(11);
 [003D] (C8)       if (VAR_RESULT == VAR_ROOM) {
 [0042] (88)         if (Var[137] != VAR_ROOM) {
@@ -3435,19 +3435,19 @@ END
 
 // Script 93: Give Prints to Ed
 [0000] (60) cursorCommand(15, 2);
-[0003] (9B) setBitVar(2936,VAR_EGO,0);
+[0003] (9B) setBitVar(2936,VAR_EGO,0);	// Kid is Ed's friend now
 [0008] (62) stopScript(88);
 [000A] (62) stopScript(91);
 [000C] (62) stopScript(116);
-[000E] (1A) Var[93] = 1;
+[000E] (1A) Var[93] = 1;	// Ed has prints = TRUE
 [0012] (29) setOwnerOf(56,0);
 [0016] (11) animateActor(11,250);
 [0019] (91) animateActor(VAR_EGO,250);
 [001C] (14) print(11,"Great, you developed my prints!");
 [003A] (AE) waitForMessage();
-[003B] (48) if (Var[155] == 2) {
+[003B] (48) if (Var[155] == 2) {	// Prints ruined
 [0041] (14)   print(11,"Oh no! You ruined them! Now all is lost,\x01the meteor will take over the world!");
-[0083] (18) } else {
+[0083] (18) } else {			// Prints good
 [0086] (14)   print(11,"Now we can overthrow the meteor!\x03Meet me in the lab in 10 minutes.\x03We'll storm it together!");
 [00D5] (**) }
 [00D5] (42) startScript(98);
@@ -3468,7 +3468,7 @@ END
 [0048] (48) if (VAR_ACTIVE_OBJECT2 == 11) {
 [004E] (60)   cursorCommand(15, 2);
 [0051] (80)   breakHere();
-[0052] (9B)   setBitVar(2936,VAR_EGO,0);
+[0052] (9B)   setBitVar(2936,VAR_EGO,0);	// Kid is Ed's friend now
 [0057] (62)   stopScript(88);
 [0059] (62)   stopScript(91);
 [005B] (62)   stopScript(116);
@@ -4343,7 +4343,7 @@ END
 [0048] (1A)     Var[175] = 1;
 [004C] (42)     startScript(164);
 [004E] (9A)     Var[113] = VAR_EGO;
-[0051] (9B)     setBitVar(2936,Var[113],1);
+[0051] (9B)     setBitVar(2936,Var[113],1);	// Kid is Ed's enemy now
 [0056] (62)     stopScript(96);
 [0058] (62)     stopScript(91);
 [005A] (62)     stopScript(88);

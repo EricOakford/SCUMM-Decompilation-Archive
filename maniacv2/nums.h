@@ -39,9 +39,3 @@ F = What Is
 21 = ???
 22 = ???
 23 = Sandy
-
-// Variables
-95 = Death reason
-96 = Dying kid
-97 = Number of dead kids
-115 = Dave is dead
