@@ -1,21 +1,12 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 16: Garage
  */
 
 // EN
 [0000] (3C) stopSound(32);
-[0002] (4F) if (getState08(149)) {
-[0007] (30)   setBoxFlags(2,128);
-[000A] (30)   setBoxFlags(3,128);
-[000D] (30)   setBoxFlags(4,128);
-[0010] (18) } else {
-[0013] (30)   setBoxFlags(2,0);
-[0016] (30)   setBoxFlags(3,0);
-[0019] (30)   setBoxFlags(4,0);
-[001C] (**) }
-[001C] (00) stopObjectCode();
+[0002] (00) stopObjectCode();
 END
 
 // EX
@@ -199,16 +190,17 @@ Events:
 [0068] (**) }
 [0068] (00) stopObjectCode();
 [0069] (48) if (VAR_ACTIVE_OBJECT2 == 45) {
-[006F] (13)   ActorOps(8,[Costume(8)]);
-[0073] (29)   setOwnerOf(45,0);
-[0077] (07)   setState08(268);
-[007A] (17)   clearState02(268);
-[007D] (1A)   Var[162] = 2;
-[0081] (1C)   startSound(68);
-[0083] (18) } else {
-[0086] (39)   doSentence(8,151,VAR_ACTIVE_OBJECT2,0);
-[008C] (**) }
-[008C] (00) stopObjectCode();
+[006F] (62)   stopScript(134);
+[0071] (11)   animateActor(8,28);
+[0074] (29)   setOwnerOf(45,0);
+[0078] (07)   setState08(268);
+[007B] (17)   clearState02(268);
+[007E] (1A)   Var[162] = 2;
+[0082] (1C)   startSound(68);
+[0084] (18) } else {
+[0087] (39)   doSentence(8,151,VAR_ACTIVE_OBJECT2,0);
+[008D] (**) }
+[008D] (00) stopObjectCode();
 END
 
 // Object 152: Tools
@@ -249,8 +241,8 @@ END
 // Object 281: License Plate
 Events:
    C - 0020
-[0020] (D8) printEgo("ED SEL");
-[0027] (00) stopObjectCode();
+[0020] (D8) printEgo("THX 1138");
+[0029] (00) stopObjectCode();
 END
 
 // Object 340: Weird Edsel

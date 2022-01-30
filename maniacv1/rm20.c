@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 20: Green Tentacle's Room
  */
@@ -16,7 +16,7 @@ END
 [0005] (3C) stopSound(20);
 [0007] (3C) stopSound(44);
 [0009] (3C) stopSound(50);
-[000B] (3C) stopSound(70);
+[000B] (3C) stopSound(55);
 [000D] (00) stopObjectCode();
 END
 
@@ -40,7 +40,7 @@ Events:
 [001E] (D7) setState02(VAR_ACTIVE_OBJECT1);
 [0020] (69) setOwnerOf(189,VAR_EGO);
 [0024] (54) setObjectName(189,"demo tape");
-[0031] (1A) Var[157] = 70;
+[0031] (1A) Var[157] = 55;
 [0035] (00) stopObjectCode();
 END
 

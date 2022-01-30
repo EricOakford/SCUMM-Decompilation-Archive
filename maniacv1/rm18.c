@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 18: Arcade Room
  */
@@ -113,260 +113,236 @@ END
 
 // Object 236: Coin Box 1
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(242)) {
-[002E] (19)     doSentence(14,242,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,438,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,236,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(242)) {
+[002A] (19)   doSentence(14,242,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,438,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,236,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 237: Coin Box 2
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(243)) {
-[002E] (19)     doSentence(14,243,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,439,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,237,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(243)) {
+[002A] (19)   doSentence(14,243,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,439,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,237,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 238: Coin Box 3
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(244)) {
-[002E] (19)     doSentence(14,244,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,440,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,238,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(244)) {
+[002A] (19)   doSentence(14,244,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,440,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,238,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 239: Coin Box 4
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(245)) {
-[002E] (19)     doSentence(14,245,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,441,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,239,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(245)) {
+[002A] (19)   doSentence(14,245,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,441,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,239,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 240: Coin Box 5
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(246)) {
-[002E] (19)     doSentence(14,246,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,442,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,240,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(246)) {
+[002A] (19)   doSentence(14,246,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,442,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,240,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 241: Coin Box 6
 Events:
-   1 - 005B
-   2 - 0062
-   8 - 006B
-   B - 0040
+   1 - 0052
+   2 - 0059
+   8 - 0062
+   B - 0037
    E - 0025
-  10 - 0062
-[0025] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0029] (0F)   if (!getState08(247)) {
-[002E] (19)     doSentence(14,247,0,0);
-[0035] (18)   } else {
-[0038] (42)     startScript(73);
-[003A] (**)   }
-[003A] (18) } else {
-[003D] (42)   startScript(70);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-[0040] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
-[0046] (19)   doSentence(11,443,221,0);
-[004D] (**) }
-[004D] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0053] (19)   doSentence(8,241,107,0);
-[005A] (**) }
-[005A] (00) stopObjectCode();
-[005B] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
-[005F] (42)   startScript(65);
+  10 - 0059
+[0025] (0F) if (!getState08(247)) {
+[002A] (19)   doSentence(14,247,0,0);
+[0031] (18) } else {
+[0034] (42)   startScript(73);
+[0036] (**) }
+[0036] (00) stopObjectCode();
+[0037] (48) if (VAR_ACTIVE_OBJECT2 == 221) {
+[003D] (19)   doSentence(11,443,221,0);
+[0044] (**) }
+[0044] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[004A] (19)   doSentence(8,241,107,0);
+[0051] (**) }
+[0051] (00) stopObjectCode();
+[0052] (8F) if (!getState08(VAR_ACTIVE_OBJECT1)) {
+[0056] (42)   startScript(65);
+[0058] (**) }
+[0058] (00) stopObjectCode();
+[0059] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
+[005D] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
+[005F] (A7)   setState04(VAR_ACTIVE_OBJECT1);
 [0061] (**) }
 [0061] (00) stopObjectCode();
-[0062] (CF) if (getState08(VAR_ACTIVE_OBJECT1)) {
-[0066] (C7)   clearState08(VAR_ACTIVE_OBJECT1);
-[0068] (A7)   setState04(VAR_ACTIVE_OBJECT1);
-[006A] (**) }
-[006A] (00) stopObjectCode();
-[006B] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
-[0071] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
-[0073] (87)   setState08(VAR_ACTIVE_OBJECT1);
-[0075] (18) } else {
-[0078] (42)   startScript(66);
-[007A] (**) }
-[007A] (00) stopObjectCode();
+[0062] (48) if (VAR_ACTIVE_OBJECT2 == 107) {
+[0068] (E7)   clearState04(VAR_ACTIVE_OBJECT1);
+[006A] (87)   setState08(VAR_ACTIVE_OBJECT1);
+[006C] (18) } else {
+[006F] (42)   startScript(66);
+[0071] (**) }
+[0071] (00) stopObjectCode();
 END
 
 // Object 242
@@ -432,9 +408,9 @@ END
 
 // Object 376: Poster
 Events:
-   C - 0027
-[0027] (D8) printEgo("Zak McKracken and the Alien Mindbenders.\x03What a great game!!\x03I never did figure out what to do with\x01the can of gas on Mars.");
-[008F] (00) stopObjectCode();
+   C - 0023
+[0023] (D8) printEgo("A Lucasfilm Ltd. Production.");
+[003E] (00) stopObjectCode();
 END
 
 // Object 438: Video Fever Quarter

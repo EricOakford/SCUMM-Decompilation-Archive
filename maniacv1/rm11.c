@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 11: Foyer Upstairs
  */
@@ -99,25 +99,6 @@ Events:
 [003F] (**) }
 [003F] (00) stopObjectCode();
 END
-
-// Object 363: Wall Lamp (right)
-Events:
-   4 - 001E
-   5 - 002C
-[001E] (1C) startSound(12);
-[0020] (9B) setBitVar(2816,VAR_ROOM,0);
-[0025] (42) startScript(55);
-[0027] (1A) Var[135] = 0;
-[002B] (00) stopObjectCode();
-[002C] (1C) startSound(12);
-[002E] (1A) Var[135] = 1;
-[0032] (48) if (Var[136] == 1) {
-[0038] (9B)   setBitVar(2816,VAR_ROOM,1);
-[003D] (42)   startScript(55);
-[003F] (**) }
-[003F] (00) stopObjectCode();
-END
-
 
 // Object 500: Keypad
 Events:
