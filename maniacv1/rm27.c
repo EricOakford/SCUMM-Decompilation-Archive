@@ -1,5 +1,5 @@
 /**
- * Maniac Mansion: V2 Retail
+ * Maniac Mansion: V1 Retail
  * 
  * Room 27: Den
  */
