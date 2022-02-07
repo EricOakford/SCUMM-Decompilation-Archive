@@ -1,0 +1,1261 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * 
+; * Room 75: Map of World (map-world)
+; */
+
+script 93 { ; SCRP LECF_0001\LFLF_0075\SCRP_0093
+local variable L.0
+local variable L.1
+
+	palette intensity 0 in-slot 11 to 11
+	for L.1 = 55 to 255 ++ {
+		palette intensity L.1 in-slot 11 to 11
+		if (L.0 is 1) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		if (L.0 is 3) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		break-here
+		L.1 += 40
+	}
+	palette intensity 255 in-slot 11 to 11
+	if (L.0 is 1) {
+		palette intensity 255 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 255 in-slot V.314 to V.314
+		}
+	}
+	if (L.0 is 3) {
+		palette intensity 255 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 255 in-slot V.314 to V.314
+		}
+	}
+	sleep-for V.452 jiffies
+	for L.1 = 255 to 55 -- {
+		palette intensity L.1 in-slot 11 to 11
+		if (L.0 is 2) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		if (L.0 is 3) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		break-here
+		L.1 -= 49
+	}
+	palette intensity 55 in-slot 11 to 11
+	if (L.0 is 2) {
+		palette intensity 55 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 55 in-slot V.314 to V.314
+		}
+		start-script 129 ()
+	}
+	if (L.0 is 3) {
+		palette intensity 55 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 55 in-slot V.314 to V.314
+		}
+		start-script 129 ()
+	}
+	print-line " "
+	break-here 5
+	B.35 = 1
+	end-script
+}
+
+script 94 { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+	start-script 107 ()
+	text-speed = 5
+	palette intensity 55 in-slot 11 to 11
+	B.35 = 0
+	charset 3
+	L.2 = L.0
+[00000034]:
+	if !(L.0 is L.1) jump &[00000049]
+	L.3 = 3
+	jump &[00000084]
+[00000049]:
+	if !(L.2 is L.0) jump &[00000064]
+	L.3 = 1
+	jump &[00000084]
+[00000064]:
+	if !(L.2 is L.1) jump &[00000079]
+	L.3 = 2
+	jump &[00000084]
+[00000079]:
+	L.3 = 0
+[00000084]:
+	start-script 93 (L.3)
+	start-script L.2 ()
+	break-until (B.35)
+	if (L.2 is L.1) {
+		draw-object V.308 
+	}
+	B.35 = 0
+	++L.2
+	if !(L.2 > L.1) jump &[00000034]
+	end-script
+}
+
+script 107 { ; SCRP LECF_0001\LFLF_0075\SCRP_0107
+	do {
+		text-speed = 3
+		break-here
+	}
+	end-script
+}
+
+script 129 { ; SCRP LECF_0001\LFLF_0075\SCRP_0129
+	charset 2
+	draw-object V.308 
+	break-here
+	palette intensity 255 in-slot 159 to 159
+	palette intensity 255 in-slot 11 to 11
+	if (V.314) {
+		palette intensity 255 in-slot V.314 to V.314
+		V.314 = 0
+	}
+	stop-script 107
+	end-script
+}
+
+room map-world {
+
+	object 1024 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1024
+		name is "Morocco"
+
+		verb 10 {
+			owner-of 1050 is 0
+			if (owner-of 88 is 1) {
+				owner-of 88 is 0
+			}
+			if (owner-of 22 is 1) {
+				owner-of 22 is 0
+			}
+			if (owner-of 53 is 1) {
+				owner-of 53 is 0
+			}
+			if (owner-of 68 is 1) {
+				owner-of 68 is 0
+			}
+			V.316 = 2
+			V.315 = 29
+			current-room 29
+			end-object
+		}
+	}
+
+	object 1018 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1018
+		name is "New York"
+
+		verb 10 {
+			if !(V.233) jump &[00000021]
+			V.316 = 3
+			jump &[00000026]
+[00000021]:
+			V.316 = 2
+[00000026]:
+			V.315 = 2
+			current-room 2
+			end-object
+		}
+	}
+
+	object 1019 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1019
+		name is "Yucatan"
+
+		verb 10 {
+			V.316 = 2
+			V.315 = 76
+			come-out 1035 in-room 76 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 1020 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1020
+		name is "Iceland"
+
+		verb 10 {
+			V.316 = 2
+			V.315 = 13
+			come-out 161 in-room 13 walk-to 202,116
+			end-object
+		}
+	}
+
+	object 1021 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1021
+		name is "Azores"
+
+		verb 10 {
+			V.316 = 2
+			V.315 = 19
+			current-room 19
+			end-object
+		}
+	}
+
+	object 1022 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1022
+		name is "Leningrad"
+
+		verb 10 {
+			V.316 = 2
+			end-object
+		}
+	}
+
+	object 1023 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1023
+		name is "Cadiz"
+
+		verb 10 {
+			V.316 = 2
+			if !(B.96[2]) jump &[00000025]
+			camera-follow 1
+			jump &[00000028]
+[00000025]:
+			camera-follow selected-actor
+[00000028]:
+			end-object
+		}
+	}
+
+	object 1027 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1027
+		name is "Algiers"
+
+		verb 10 {
+			V.316 = 3
+			V.315 = 29
+			current-room 29
+			end-object
+		}
+	}
+
+	object 1033 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1033
+		name is ""
+	}
+
+	object 1026 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1026
+		name is "Monte Carlo"
+
+		verb 10 {
+			V.316 = 3
+			V.315 = 27
+			if !(class-of 1026 is 136) jump &[00000036]
+			start-script 206 (1026)
+			jump &[00000044]
+[00000036]:
+			come-out 282 in-room 27 walk-to 92,141
+[00000044]:
+			end-object
+		}
+	}
+
+	object 1029 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1029
+		name is "Crete"
+
+		verb 10 {
+			V.316 = 4
+			V.315 = 33
+			if !(class-of 1029 is 136) jump &[00000036]
+			start-script 206 (1029)
+			jump &[00000038]
+[00000036]:
+			current-room 33
+[00000038]:
+			end-object
+		}
+	}
+
+	object 1032 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1032
+		name is "Crete"
+
+		verb 10 {
+			end-object
+		}
+	}
+
+	object 1030 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1030
+		name is "Santorini"
+
+		verb 10 {
+			if (V.238 is 2) {
+				owner-of 926 is 0
+			}
+			V.316 = 3
+			V.315 = 49
+			current-room 49
+			end-object
+		}
+	}
+
+	object 1031 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1031
+		name is "Santorini"
+
+		verb 10 {
+			V.316 = 4
+			V.315 = 49
+			current-room 49
+			end-object
+		}
+	}
+
+	object 1025 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1025
+		name is "Monte Carlo"
+
+		verb 10 {
+			owner-of 1050 is 0
+			if (owner-of 88 is 1) {
+				owner-of 88 is 0
+			}
+			if (owner-of 22 is 1) {
+				owner-of 22 is 0
+			}
+			if (owner-of 53 is 1) {
+				owner-of 53 is 0
+			}
+			if (owner-of 68 is 1) {
+				owner-of 68 is 0
+			}
+			V.316 = 2
+			V.315 = 27
+			come-out 282 in-room 27 walk-to 92,141
+			end-object
+		}
+	}
+
+	object 1028 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1028
+		name is "Barnett College"
+
+		verb 10 {
+			V.315 = 1
+			current-room 2
+			end-object
+		}
+	}
+
+	object 1034 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1034
+		name is "New York City"
+
+		verb 10 {
+			V.316 = 2
+			V.315 = 2
+			current-room 10
+			end-object
+		}
+	}
+
+	object 67 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_0067
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0075\ROOM\EXCD
+		min-jiffies = 6
+		unlock-sound 18
+		sound-kludge 269 17 70 180
+		sound-kludge 65535
+		sound-kludge 9 17
+		build-sentence-script = V.448
+		if (script-running 205) {
+			stop-script 205
+		}
+		start-script 59 ()
+		set-screen 0 to 144
+		start-script 19 (2)
+		actor 10 init-animation 1 follow-boxes
+		class-of 2 is 141
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0075\ROOM\ENCD
+		cursor off
+		stop-script 199
+		stop-sound 76
+		if (script-running 31) {
+			stop-script 31
+		}
+		if (script-running 86) {
+			stop-script 86
+		}
+		if !(V.315 is 49) jump &[00000138]
+		load-sound 157
+		load-sound 81
+		sound-kludge 272
+		sound-kludge 257 80 0
+		sound-kludge 65535
+		sound-kludge 269 82 0 30
+		sound-kludge 269 80 0 30
+		start-sound 81
+		sound-kludge 270 81 1
+		sound-kludge 271 8 157
+		sound-kludge 271 65535
+		jump &[00000266]
+[00000138]:
+		if !(V.315 is 42) jump &[00000221]
+		load-sound 80
+		load-sound 81
+		sound-kludge 272
+		sound-kludge 257 157 0
+		sound-kludge 65535
+		sound-kludge 269 157 0 30
+		start-sound 81
+		sound-kludge 270 81 1
+		sound-kludge 271 8 80
+		sound-kludge 271 65535
+		jump &[00000266]
+[00000221]:
+		if (V.224 is-not 15) {
+			load-sound 17
+			load-sound 18
+			if (!B.105) {
+				sound-kludge 11
+			}
+			sound-kludge 65535
+		}
+		if (!B.105) {
+			if (V.315 is-not 15) {
+				sound-kludge 65535
+			}
+		}
+[00000266]:
+		if (B.210) {
+			if (V.224 is 2) {
+				state-of 1020 is 0
+				class-of 1020 is 160
+				state-of 1022 is 0
+				class-of 1022 is 160
+				state-of 1019 is 0
+				class-of 1019 is 160
+				state-of 1021 is 0
+				class-of 1021 is 160
+				state-of 1023 is 0
+				class-of 1023 is 160
+				class-of 1018 is 160
+			}
+		}
+		B.86 = 0
+		selected-actor = 1
+		set-screen 0 to 200
+		actor 10 default costume 58 scale 255 255 name "Indy" ignore-boxes never-zclip
+		start-script 19 (3)
+		if (script-running 59) {
+			stop-script 59
+		}
+		V.448 = build-sentence-script
+		build-sentence-script = 204
+		start-script 200 ()
+		start-script 205 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0200
+		cursor on
+		if !(V.316 is 1) jump &[00000237]
+		camera-at 160
+		class-of 1034 is 32
+		class-of 1028 is 32
+		if !(V.224 is 2) jump &[00000217]
+		if !(B.105 is 1) jump &[00000207]
+		cut-scene
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1028
+		break-here 8
+		start-sound 18
+		sound-kludge 65535
+		sound-kludge 269 17 0 15
+		B.105 = 0
+		V.445 = actor-x 1034
+		V.446 = actor-y 1034
+		V.351 = actor-x 10
+		V.352 = actor-y 10
+		V.351 -= 1
+		V.352 -= 1
+		actor 10 costume 0
+		start-script 202 (149,72,226,146,40,1,3)
+		break-until (!script-running 202)
+		sound-kludge 262 33 0
+		sound-kludge 269 33 0 360
+		break-here 8
+		end-cut-scene
+		start-object 1034 verb 10 ()
+		stop-script 0
+		jump &[00000214]
+[00000207]:
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1028
+[00000214]:
+		jump &[00000234]
+[00000217]:
+		if !(V.224 is 10) jump &[00000234]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1034
+		jump &[00000234]
+[00000234]:
+		jump &[00002111]
+[00000237]:
+		if !(V.316 is 2) jump &[00000656]
+		camera-at 480
+		state-of 1018 is 1
+		class-of 1018 is 32
+		if (B.87[8]) {
+			state-of 1020 is 1
+			class-of 1020 is 32
+		}
+		if (B.87[0]) {
+			state-of 1022 is 1
+			class-of 1022 is 32
+		}
+		if (B.87[1]) {
+			state-of 1021 is 1
+			class-of 1021 is 32
+		}
+		if (B.87[3]) {
+			state-of 1019 is 1
+			class-of 1019 is 32
+		}
+		if (B.87[2]) {
+			state-of 1023 is 1
+			class-of 1023 is 32
+		}
+		if (B.87[4]) {
+			if (owner-of 937 is 1) {
+				state-of 1025 is 1
+				class-of 1025 is 32
+			}
+		}
+		if (B.87[5]) {
+			if (owner-of 937 is 1) {
+				state-of 1024 is 1
+				class-of 1024 is 32
+			}
+		}
+		if !(V.315 is 15) jump &[00000551]
+		cut-scene
+		break-here 8
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1034
+		break-here 8
+		V.445 = actor-x 1018
+		V.446 = actor-y 1018
+		V.351 = V.445
+		V.352 = V.446
+		V.445 = actor-x 1020
+		V.446 = actor-y 1020
+		start-script 202 (V.351,V.352,V.445,V.446,40,1,3)
+		break-until (!script-running 202)
+		sound-kludge 262 64 0
+		sound-kludge 269 64 0 360
+		break-here 8
+		end-cut-scene
+		start-object 1020 verb 10 ()
+		stop-script 0
+		jump &[00000653]
+[00000551]:
+		if !(V.315 is 19) jump &[00000568]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1021
+		jump &[00000653]
+[00000568]:
+		if !(V.315 is 13) jump &[00000585]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1020
+		jump &[00000653]
+[00000585]:
+		if !(V.315 is 76) jump &[00000602]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1019
+		jump &[00000653]
+[00000602]:
+		if !(V.315 is 2) jump &[00000619]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1018
+		jump &[00000653]
+[00000619]:
+		if !(V.315 is 29) jump &[00000636]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1024
+		jump &[00000653]
+[00000636]:
+		if !(V.315 is 27) jump &[00000653]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1025
+		jump &[00000653]
+[00000653]:
+		jump &[00002111]
+[00000656]:
+		if !(V.316 is 3) jump &[00001329]
+		camera-at 800
+		if (B.381) {
+			state-of 1033 is 1
+		}
+		if (B.87[6]) {
+			state-of 1030 is 1
+			class-of 1030 is 32
+		}
+		if (B.87[7]) {
+			state-of 1029 is 1
+			class-of 1029 is 32
+		}
+		if (B.87[5]) {
+			state-of 1027 is 1
+			class-of 1027 is 32
+		}
+		if (B.87[4]) {
+			state-of 1026 is 1
+			class-of 1026 is 32
+		}
+		class-of 1029 is 8
+		class-of 1026 is 8
+		if !(V.315 is 67) jump &[00000824]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1033
+		class-of 1029 is 136
+		class-of 1026 is 136
+		if (owner-of 876 is 1) {
+			owner-of 876 is 0
+		}
+		if (owner-of 871 is 1) {
+			owner-of 871 is 0
+		}
+		jump &[00001326]
+[00000824]:
+		if !(V.315 is 27) jump &[00000841]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1026
+		jump &[00001326]
+[00000841]:
+		if !(V.315 is 29) jump &[00000939]
+		if !(V.224 is 67) jump &[00000910]
+		cut-scene
+		override &[00000899]
+		start-script 202 (803,210,708,101,40,1,1)
+		break-until (!script-running 202)
+[00000899]:
+		end-cut-scene
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1027
+		jump &[00000936]
+[00000910]:
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1027
+		do-animation 10 250
+		break-here
+		do-animation 10 6
+		break-here 12
+[00000936]:
+		jump &[00001326]
+[00000939]:
+		if !(V.315 is 20) jump &[00001326]
+		cut-scene
+		override &[00001306]
+		if (owner-of 876 is 1) {
+			owner-of 876 is 0
+		}
+		if (owner-of 871 is 1) {
+			owner-of 871 is 0
+		}
+		break-here 12
+		start-script 203 (733,118,749,87,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (749,87,778,98,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (778,98,755,114,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (755,114,785,125,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (785,125,752,128,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (752,128,828,159,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (828,159,848,150,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (848,150,826,131,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (826,131,876,112,40,1,1)
+		break-until (!script-running 203)
+[00001306]:
+		start-script 144 (72,4)
+		end-cut-scene
+		start-object 1029 verb 10 ()
+		stop-script 0
+		jump &[00001326]
+[00001326]:
+		jump &[00002111]
+[00001329]:
+		if !(V.316 is 4) jump &[00002111]
+		camera-at 1120
+		if !(V.315 is 33) jump &[00001429]
+		cut-scene
+		start-sound 81
+		start-script 207 ()
+		break-until (!script-running 207)
+		break-here 4
+		stop-sound 81
+		start-sound 17
+		start-script 203 (1136,177,1164,48,40,1,1)
+		break-until (!script-running 203)
+		actor 1 costume 2
+		V.238 = 1
+		min-jiffies = 6
+		end-cut-scene
+		current-room 49
+		jump &[00002108]
+[00001429]:
+		if !(V.315 is 41) jump &[00001589]
+		cut-scene
+		override &[00001560]
+		break-here 12
+		start-script 203 (1137,179,1174,146,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (1174,146,1112,122,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (1112,122,1168,97,40,1,1)
+		break-until (!script-running 203)
+[00001560]:
+		if (override-hit) {
+			min-jiffies = 6
+		}
+		end-cut-scene
+		B.37[1] = 1
+		min-jiffies = 6
+		break-here
+		current-room 66
+		jump &[00002108]
+[00001589]:
+		if !(V.315 is 40) jump &[00001742]
+		cut-scene
+		override &[00001720]
+		break-here 12
+		start-script 203 (1168,97,1112,122,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (1112,122,1174,146,40,1,1)
+		break-until (!script-running 203)
+		start-script 203 (1174,146,1140,181,40,1,1)
+		break-until (!script-running 203)
+[00001720]:
+		if (override-hit) {
+			min-jiffies = 6
+		}
+		end-cut-scene
+		min-jiffies = 6
+		break-here
+		current-room 33
+		jump &[00002108]
+[00001742]:
+		if !(V.315 is 49) jump &[00002007]
+		cut-scene
+		override &[00001992]
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1031
+		do-animation 10 250
+		break-here
+		do-animation 10 6
+		break-here 12
+		V.445 = actor-x 10
+		V.446 = actor-y 10
+		V.317 = (V.415 * 4)
+		V.317 /= 3
+		if !(V.416 is 1) jump &[00001843]
+		V.445 = (V.445 - V.317)
+		V.446 = (V.446 + V.317)
+		jump &[00001921]
+[00001843]:
+		if !(V.416 is 2) jump &[00001864]
+		V.446 = (V.446 + V.317)
+		jump &[00001921]
+[00001864]:
+		if !(V.416 is 3) jump &[00001896]
+		V.445 = (V.445 + V.317)
+		V.446 = (V.446 + V.317)
+		jump &[00001921]
+[00001896]:
+		print-debug "Shouldn't be here."
+		debug 0
+[00001921]:
+		V.259 = V.445
+		V.260 = V.446
+		V.351 = actor-x 10
+		V.352 = actor-y 10
+		put-actor 10 in-room 0
+		actor 10 default name " "
+		class-of 10 is 0
+		start-script 202 (V.351,V.352,V.259,V.260,40,1,8)
+		break-until (!script-running 202)
+[00001992]:
+		override off
+		end-cut-scene
+		min-jiffies = 6
+		current-room 42
+		stop-script 0
+		jump &[00002108]
+[00002007]:
+		if !(V.315 is 42) jump &[00002101]
+		cut-scene
+		override &[00002086]
+		break-here
+		V.445 = actor-x 1031
+		V.446 = actor-y 1031
+		put-actor 10 in-room 0
+		actor 10 default name " "
+		class-of 10 is 0
+		start-script 202 (V.259,V.260,V.445,V.446,40,1,1)
+		break-until (!script-running 202)
+[00002086]:
+		override off
+		end-cut-scene
+		min-jiffies = 6
+		current-room 49
+		stop-script 0
+		jump &[00002108]
+[00002101]:
+		put-actor 10 in-room 75
+		put-actor 10 at-object 1031
+[00002108]:
+		jump &[00002111]
+[00002111]:
+		do-animation 10 250
+		break-here
+		do-animation 10 6
+		break-here 12
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+
+		L.4 = (L.0 - (L.3 / 2))
+		L.6 = (L.4 + L.3)
+		L.5 = (L.1 - (L.3 / 2))
+		L.7 = (L.5 + L.3)
+		draw-box L.4,L.5 to L.6,L.7 color L.2
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+	local variable L.12
+	local variable L.13
+	local variable L.14
+	local variable L.15
+	local variable L.16
+
+		L.16 = min-jiffies
+		min-jiffies = L.6
+		V.443 = (camera-x - 160)
+		L.0 -= V.443
+		L.2 -= V.443
+		if !(L.2 >= L.0) jump &[00000065]
+		L.7 = 1
+		L.9 = (L.2 - L.0)
+		jump &[00000081]
+[00000065]:
+		L.7 = 65535
+		L.9 = (L.0 - L.2)
+[00000081]:
+		if !(L.3 >= L.1) jump &[00000107]
+		L.8 = 1
+		L.10 = (L.3 - L.1)
+		jump &[00000123]
+[00000107]:
+		L.8 = 65535
+		L.10 = (L.1 - L.3)
+[00000123]:
+		if !(L.9 > L.10) jump &[00000138]
+		L.11 = L.9
+		jump &[00000143]
+[00000138]:
+		L.11 = L.10
+[00000143]:
+		L.12 = L.0
+		L.13 = L.1
+		L.0 = 0
+		L.1 = 0
+		V.443 = (L.11 - 2)
+		L.14 = 0
+[00000179]:
+		if !(L.14 >= V.443) jump &[00000189]
+		jump &[00000289]
+[00000189]:
+		sleep-for 1 jiffies
+		L.0 += L.9
+		L.1 += L.10
+		L.15 = 0
+		if (L.0 > L.11) {
+			L.15 = 1
+			L.0 -= L.11
+			L.12 += L.7
+		}
+		if (L.1 > L.11) {
+			L.15 = 1
+			L.1 -= L.11
+			L.13 += L.8
+		}
+		if (L.15) {
+			if (L.14 > 2) {
+				start-script 201 (L.12,L.13,L.4,L.5)
+			}
+		}
+		++L.14
+		if !(L.14 > L.11) jump &[00000179]
+[00000289]:
+		min-jiffies = L.16
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+	local variable L.12
+	local variable L.13
+	local variable L.14
+	local variable L.15
+	local variable L.16
+
+		L.16 = min-jiffies
+		min-jiffies = L.6
+		V.443 = (camera-x - 160)
+		L.0 -= V.443
+		L.2 -= V.443
+		if !(L.2 >= L.0) jump &[00000065]
+		L.7 = 1
+		L.9 = (L.2 - L.0)
+		jump &[00000081]
+[00000065]:
+		L.7 = 65535
+		L.9 = (L.0 - L.2)
+[00000081]:
+		if !(L.3 >= L.1) jump &[00000107]
+		L.8 = 1
+		L.10 = (L.3 - L.1)
+		jump &[00000123]
+[00000107]:
+		L.8 = 65535
+		L.10 = (L.1 - L.3)
+[00000123]:
+		if !(L.9 > L.10) jump &[00000138]
+		L.11 = L.9
+		jump &[00000143]
+[00000138]:
+		L.11 = L.10
+[00000143]:
+		L.12 = L.0
+		L.13 = L.1
+		L.0 = 0
+		L.1 = 0
+		start-script 201 (L.12,L.13,L.4,L.5)
+		L.14 = 0
+[00000183]:
+		if !(L.14 >= V.443) jump &[00000193]
+		jump &[00000286]
+[00000193]:
+		sleep-for 1 jiffies
+		L.0 += L.9
+		L.1 += L.10
+		L.15 = 0
+		if (L.0 > L.11) {
+			L.15 = 1
+			L.0 -= L.11
+			L.12 += L.7
+		}
+		if (L.1 > L.11) {
+			L.15 = 1
+			L.1 -= L.11
+			L.13 += L.8
+		}
+		if (L.15) {
+			start-script 201 (L.12,L.13,L.4,L.5)
+		}
+		++L.14
+		if !(L.14 > L.11) jump &[00000183]
+[00000286]:
+		min-jiffies = L.16
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0204
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		L.2 = V.108
+		L.3 = actor-x L.2
+		L.4 = actor-y L.2
+		V.351 = actor-x 10
+		V.352 = actor-y 10
+		if !(V.351 is L.3) jump &[00000067]
+		if !(V.352 is L.4) jump &[00000067]
+		B.86 = 1
+		if !(V.224 is-not 67) jump &[00000065]
+		current-room V.224
+		jump &[00000065]
+[00000065]:
+		stop-script 0
+[00000067]:
+		if !(L.2) jump &[00000199]
+		actor 10 costume 0
+		cut-scene
+		start-sound 18
+		sound-kludge 65535
+		sound-kludge 269 17 0 15
+		override &[00000181]
+		if !(class-of L.2 is 136) jump &[00000123]
+		jump &[00000181]
+		jump &[00000181]
+[00000123]:
+		if (V.351 < L.3) {
+			if (V.352 < L.4) {
+				V.351 -= 1
+				V.352 -= 1
+			}
+		}
+		start-script 202 (V.351,V.352,L.3,L.4,40,1,1)
+		break-until (!script-running 202)
+[00000181]:
+		if (override-hit) {
+			min-jiffies = 6
+		}
+		end-cut-scene
+		start-object L.2 verb 10 ()
+		stop-script 0
+[00000199]:
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0205
+	local variable L.0
+
+[00000008]:
+		V.442 = random 1
+		L.0 = find-actor cursor-x,cursor-y
+		if !(L.0) jump &[00000032]
+		V.108 = L.0
+		jump &[00000044]
+[00000032]:
+		L.0 = find-object cursor-x,cursor-y
+		V.108 = L.0
+[00000044]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		cut-scene
+		L.1 = actor-x 1033
+		L.2 = actor-y 1033
+		L.3 = actor-x 1027
+		L.4 = actor-y 1027
+		override &[00000126]
+		start-script 202 (L.1,L.2,L.3,L.4,40,1,1)
+		break-until (!script-running 202)
+		L.1 = L.3
+		L.2 = L.4
+		L.3 = actor-x L.0
+		L.4 = actor-y L.0
+		start-script 202 (L.1,L.2,L.3,L.4,40,1,1)
+		break-until (!script-running 202)
+[00000126]:
+		V.316 = 4
+		if !(L.0 is 1026) jump &[00000146]
+		V.315 = 27
+		jump &[00000151]
+[00000146]:
+		V.315 = 33
+[00000151]:
+		class-of 1029 is 8
+		class-of 1026 is 8
+		end-cut-scene
+		if !(L.0 is 1026) jump &[00000178]
+		current-room 27
+		jump &[00000180]
+[00000178]:
+		current-room 33
+[00000180]:
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+
+		break-here 2
+		actor 5 costume 56 init-animation 1 scale 0 0 ignore-boxes never-zclip
+		actor 6 costume 56 init-animation 2 scale 0 0 ignore-boxes never-zclip
+		put-actor 5 in-room 75
+		put-actor 5 at 1130,90
+		do-animation 5 250
+		do-animation 6 250
+		do-animation 5 6
+		break-here
+		*40 = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+		L.6 = 1
+		L.7 = 10
+		L.8 = 2
+[00000213]:
+		for L.4 = L.6 to L.7 ++ {
+			L.9 = (L.5 / 10)
+			L.9 += 4
+			*40[L.4] = L.9
+			L.5 += L.8
+		}
+		if !(L.6 is 1) jump &[00000271]
+		L.8 = 2
+		jump &[00000421]
+[00000271]:
+		if !(L.6 is 11) jump &[00000286]
+		L.8 = 3
+		jump &[00000421]
+[00000286]:
+		if !(L.6 is 21) jump &[00000301]
+		L.8 = 5
+		jump &[00000421]
+[00000301]:
+		if !(L.6 is 31) jump &[00000316]
+		L.8 = 6
+		jump &[00000421]
+[00000316]:
+		if !(L.6 is 41) jump &[00000331]
+		L.8 = 10
+		jump &[00000421]
+[00000331]:
+		if !(L.6 is 51) jump &[00000346]
+		L.8 = 13
+		jump &[00000421]
+[00000346]:
+		if !(L.6 is 61) jump &[00000361]
+		L.8 = 19
+		jump &[00000421]
+[00000361]:
+		if !(L.6 is 71) jump &[00000376]
+		L.8 = 17
+		jump &[00000421]
+[00000376]:
+		if !(L.6 is 81) jump &[00000391]
+		L.8 = 37
+		jump &[00000421]
+[00000391]:
+		if !(L.6 is 91) jump &[00000406]
+		L.8 = 56
+		jump &[00000421]
+[00000406]:
+		if !(L.6 is 101) jump &[00000421]
+		L.8 = 72
+		jump &[00000421]
+[00000421]:
+		if !(L.7 is-not 120) jump &[00000441]
+		L.6 += 10
+		L.7 += 10
+		jump &[00000213]
+[00000441]:
+		*40[121] = 255
+		min-jiffies = 1
+		L.11 = 1
+		L.0 = *40[1]
+		L.4 = 0
+		L.2 = 1
+[00000472]:
+		L.4 += L.11
+		if (L.4 > 121) {
+			L.4 = 121
+		}
+		L.0 = *40[L.4]
+		jiffy1 = 0
+		actor 5 scale L.0 L.0
+		actor 6 scale L.0 L.0
+		break-here
+		L.3 = jiffy1
+		if !(L.3 > L.11) jump &[00000550]
+		if (L.10 is 1) {
+			L.11 = L.3
+		}
+		L.10 = 1
+		jump &[00000555]
+[00000550]:
+		L.10 = 0
+[00000555]:
+		if !(L.4 is 121) jump &[00000472]
+		min-jiffies = 6
+		sleep-for 60 jiffies
+		draw-object 67 
+		sleep-for 120 jiffies
+		start-script 94 (208,208)
+		break-until (!script-running 94)
+		state-of 67 is 0
+		put-actor 5 in-room 0
+		put-actor 6 in-room 0
+		actor 5 default
+		actor 6 default
+		break-here
+		end-script
+	}
+; Demo copyright info
+	script 208 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0208
+		V.452 = 100
+		charset 1
+		print-line color 4 center at 160,130 "= & \\x0F 1992 LucasArts Entertainment Company\\xFF\\x01All Rights Reserved.  Indiana Jones is a\\xFF\\x01registered trademark of Lucasfilm Ltd."
+		charset 2
+		end-script
+	}
+}
+

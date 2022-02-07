@@ -1,0 +1,18 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * 
+; * Room 24: Death (deadroom)
+; */
+
+room deadroom {
+
+	exit { ; EXCD LECF_0001\LFLF_0024\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0024\ROOM\ENCD
+		save-load-key = 0
+		end-object
+	}
+}
+

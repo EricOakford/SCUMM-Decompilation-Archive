@@ -1,0 +1,985 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis: CD Demo
+; * 
+; * Room 4: Caswell Hall Attic
+; */
+
+script 93 { ; SCRP LECF_0001\LFLF_0004\SCRP_0093
+local variable L.0
+local variable L.1
+
+	palette intensity 0 in-slot 11 to 11
+	for L.1 = 55 to 255 ++ {
+		palette intensity L.1 in-slot 11 to 11
+		if (L.0 is 1) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		if (L.0 is 3) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		break-here
+		L.1 += 40
+	}
+	palette intensity 255 in-slot 11 to 11
+	if (L.0 is 1) {
+		palette intensity 255 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 255 in-slot V.314 to V.314
+		}
+	}
+	if (L.0 is 3) {
+		palette intensity 255 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 255 in-slot V.314 to V.314
+		}
+	}
+	sleep-for V.452 jiffies
+	for L.1 = 255 to 55 -- {
+		palette intensity L.1 in-slot 11 to 11
+		if (L.0 is 2) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		if (L.0 is 3) {
+			palette intensity L.1 in-slot 159 to 159
+			if (V.314) {
+				palette intensity L.1 in-slot V.314 to V.314
+			}
+		}
+		break-here
+		L.1 -= 49
+	}
+	palette intensity 55 in-slot 11 to 11
+	if (L.0 is 2) {
+		palette intensity 55 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 55 in-slot V.314 to V.314
+		}
+		start-script 129 ()
+	}
+	if (L.0 is 3) {
+		palette intensity 55 in-slot 159 to 159
+		if (V.314) {
+			palette intensity 55 in-slot V.314 to V.314
+		}
+		start-script 129 ()
+	}
+	print-line " "
+	break-here 5
+	B.35 = 1
+	end-script
+}
+
+script 94 { ; SCRP LECF_0001\LFLF_0004\SCRP_0094
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+	start-script 107 ()
+	text-speed = 5
+	palette intensity 55 in-slot 11 to 11
+	B.35 = 0
+	charset 3
+	L.2 = L.0
+[00000034]:
+	if !(L.0 is L.1) jump &[00000049]
+	L.3 = 3
+	jump &[00000084]
+[00000049]:
+	if !(L.2 is L.0) jump &[00000064]
+	L.3 = 1
+	jump &[00000084]
+[00000064]:
+	if !(L.2 is L.1) jump &[00000079]
+	L.3 = 2
+	jump &[00000084]
+[00000079]:
+	L.3 = 0
+[00000084]:
+	start-script 93 (L.3)
+	start-script L.2 ()
+	break-until (B.35)
+	if (L.2 is L.1) {
+		draw-object V.308 
+	}
+	B.35 = 0
+	++L.2
+	if !(L.2 > L.1) jump &[00000034]
+	end-script
+}
+
+script 107 { ; SCRP LECF_0001\LFLF_0004\SCRP_0107
+	do {
+		text-speed = 3
+		break-here
+	}
+	end-script
+}
+
+script 129 { ; SCRP LECF_0001\LFLF_0004\SCRP_0129
+	charset 2
+	draw-object V.308 
+	break-here
+	palette intensity 255 in-slot 159 to 159
+	palette intensity 255 in-slot 11 to 11
+	if (V.314) {
+		palette intensity 255 in-slot V.314 to V.314
+		V.314 = 0
+	}
+	stop-script 107
+	end-script
+}
+
+room  {
+
+	object 60 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0060
+		name is "statue"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line 1 "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00It's a stone carving of\\x10Shiva."
+			end-object
+		}
+	}
+
+	object 61 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0061
+		name is "trap door"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			if (B.69) {
+				say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x18\\x00\\xFF\\x0A\\x00\\x00I have to be more careful around these\\x10things."
+			}
+			end-object
+		}
+
+		verb 3 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x19\\x00\\xFF\\x0A\\x00\\x00It's already\\x10open."
+			end-object
+		}
+
+		verb 4 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00It won't\\x10close."
+			end-object
+		}
+
+		verb 10 {
+			if !(!B.69) jump &[00000169]
+			start-script 200 ()
+			jump &[00000172]
+[00000169]:
+			start-script 203 ()
+[00000172]:
+			end-object
+		}
+	}
+
+	object 62 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0062
+		name is "logo-indy-IV"
+	}
+
+	object 63 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0063
+		name is "peculiar statue"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x1C\\x00\\xFF\\x0A\\x00\\x00It's a crude copy of a Persian\\x10idol."
+			end-object
+		}
+
+		verb 10 {
+			if !(!B.69) jump &[00000081]
+			start-script 200 ()
+			jump &[00000081]
+[00000081]:
+			end-object
+		}
+	}
+
+	object 68 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0068
+		name is "urn@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 91 {
+			V.161 = 1364
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of 65 is 134) jump &[00000102]
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x27\\x00\\xFF\\x0A\\x00\\x00I don't want to disturb it any more than\\x10necessary."
+			jump &[00000154]
+[00000102]:
+			if !(class-of 68 is 134) jump &[00000151]
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x28\\x00\\xFF\\x0A\\x00\\x00I already have it."
+			jump &[00000154]
+[00000151]:
+			start-script 202 ()
+[00000154]:
+			wait-for-message
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of 68 is 134) jump &[00000199]
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x29\\x00\\xFF\\x0A\\x00\\x00It's dusty."
+			jump &[00000270]
+[00000199]:
+			if !(class-of 65 is 6) jump &[00000265]
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x2A\\x00\\xFF\\x0A\\x00\\x00Looks like someone's ashes in\\x10here."
+			jump &[00000270]
+[00000265]:
+			start-object 65 verb 9 ()
+[00000270]:
+			wait-for-message
+			end-object
+		}
+
+		verb 3 {
+			if (class-of 68 is 6) {
+				start-object 65 verb 3 ()
+			}
+			end-object
+		}
+
+		verb 4 {
+			if (class-of 68 is 6) {
+				start-object 65 verb 4 ()
+			}
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(class-of 68 is 134) jump &[00000321]
+			do-sentence 8 L.0 with me
+			jump &[00000368]
+[00000321]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x2B\\x00\\xFF\\x0A\\x00\\x00That doesn't seem to\\x10work."
+			wait-for-message
+[00000368]:
+			end-object
+		}
+	}
+
+	object 65 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0065
+		name is "urn"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00I don't want to disturb it any more than\\x10necessary."
+			end-object
+		}
+
+		verb 9 {
+			start-script bak 204 ()
+			end-object
+		}
+
+		verb 3 {
+			if !(class-of 65 is 134) jump &[00000132]
+			start-sound 172
+			class-of 65 is 6
+			if (class-of 65 is 146) {
+				new-name-of 68 is "ashes"
+			}
+			state-of 65 is 1
+			jump &[00000169]
+[00000132]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x20\\x00\\xFF\\x0A\\x00\\x00It's already\\x10open."
+[00000169]:
+			end-object
+		}
+
+		verb 4 {
+			if !(class-of 65 is 6) jump &[00000211]
+			start-sound 172
+			class-of 65 is 134
+			state-of 65 is 0
+			if (class-of 68 is 6) {
+				new-name-of 68 is "urn"
+			}
+			jump &[00000250]
+[00000211]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00It's already\\x10closed."
+[00000250]:
+			end-object
+		}
+	}
+
+	object 70 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0070
+		name is "candlestick"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x33\\x00\\xFF\\x0A\\x00\\x00It's a genuine\\x10candlestick."
+			end-object
+		}
+
+		verb 11 {
+			cut-scene
+			do-animation 1 12
+			break-here
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x34\\x00\\xFF\\x0A\\x00\\x00Urrrh^"
+			wait-for-message
+			do-animation 1 3
+			break-here
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x35\\x00\\xFF\\x0A\\x00\\x00I think it's fine right where it\\x10is."
+			end-cut-scene
+			end-object
+		}
+	}
+
+	object 66 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0066
+		name is "chest"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 3 {
+			if !(class-of 69 is 134) jump &[00000086]
+			cut-scene
+			do-animation 1 12
+			break-here 5
+			do-animation 1 3
+			break-here
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x2D\\x00\\xFF\\x0A\\x00\\x00I can't lift the\\x10lid."
+			wait-for-message
+			end-cut-scene
+			jump &[00000167]
+[00000086]:
+			if !(class-of 66 is 134) jump &[00000130]
+			state-of 66 is 1
+			class-of 66 is 6
+			draw-object 66 
+			start-sound 172
+			break-here
+			class-of 66 is 16
+			class-of 66 is 143
+			jump &[00000167]
+[00000130]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x2E\\x00\\xFF\\x0A\\x00\\x00It's already\\x10open."
+[00000167]:
+			end-object
+		}
+
+		verb 4 {
+			if !(class-of 66 is 6) jump &[00000208]
+			state-of 66 is 0
+			class-of 66 is 134
+			start-sound 172
+			break-here
+			class-of 66 is 15
+			class-of 66 is 144
+			jump &[00000247]
+[00000208]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00It's already\\x10closed."
+[00000247]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of 66 is 134) jump &[00000331]
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x30\\x00\\xFF\\x0A\\x00\\x00Marcus still thinks this chest belonged to\\x10Columbus."
+			jump &[00000370]
+[00000331]:
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x31\\x00\\xFF\\x0A\\x00\\x00It's full of^\\xFF\\x03^air."
+[00000370]:
+			wait-for-message
+			end-object
+		}
+	}
+
+	object 69 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0069
+		name is "candlestick"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 11 {
+			chain-script 205 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x37\\x00\\xFF\\x0A\\x00\\x00It's a genuine\\x10candlestick."
+			end-object
+		}
+	}
+
+	object 72 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0072
+		name is "statue"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x3B\\x00\\xFF\\x0A\\x00\\x00It's a copy of an Egyptian statue of\\x10Horus."
+			end-object
+		}
+	}
+
+	object 64 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0064
+		name is "statue"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x24\\x00\\xFF\\x0A\\x00\\x00Poor Marcus^\\xFF\\x03^he thought this was a Masai\\x10warrior."
+			end-object
+		}
+	}
+
+	object 71 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0071
+		name is "gargoyle"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line 1 "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x39\\x00\\xFF\\x0A\\x00\\x00It's a medieval\\x10gargoyle^\\xFF\\x03^or a good\\x10imitation."
+			end-object
+		}
+	}
+
+	object 67 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0067
+		name is ""
+	}
+
+	object 73 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0073
+		name is ""
+	}
+
+	object 74 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0074
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0004\ROOM\EXCD
+		override off
+		unlock-costume 138
+		if !(!B.69) jump &[00000025]
+		state-of 73 is 0
+		jump &[00000092]
+[00000025]:
+		if !(V.72 is 5) jump &[00000092]
+		sound-kludge 269 20 70 120
+		sound-kludge 262 20 0
+		sound-kludge 65535
+		start-sound 40
+		sound-kludge 258 40 100
+		sound-kludge 269 20 0 60
+		jump &[00000092]
+[00000092]:
+		break-until (!script-running 200)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0004\ROOM\ENCD
+		if !(!B.69) jump &[00000089]
+		put-actor 1 in-room 0
+		lock-sound 21
+		load-sound 21
+		lock-sound 22
+		load-sound 22
+		lock-sound 29
+		load-sound 29
+		lock-sound 30
+		load-sound 30
+		set-screen 0 to 200
+		fades 33153
+		start-script 19 (1)
+		start-script 19 (3)
+		state-of 61 is 0
+		V.307 = 30
+		V.308 = 73
+		draw-object 74 
+		charset 2
+		chain-script 206 ()
+		jump &[00000126]
+[00000089]:
+		actor 1 elevation 0
+		state-of 74 is 0
+		class-of 61 is 32
+		state-of 61 is 1
+		if (class-of 66 is 6) {
+			draw-object 66 
+		}
+		start-script 216 ()
+[00000126]:
+		end-object
+	}
+; Indy Falls Down Trap Door
+	script 200 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0200
+		V.209 = 1
+		break-here
+		cut-scene
+		actor selected-actor ignore-boxes never-zclip
+		walk selected-actor to 81,131
+		wait-for-actor selected-actor
+		do-animation 1 247
+		break-here 2
+		do-animation 1 246
+		load-sound 106
+		break-here 2
+		sound-kludge 257 21 0
+		unlock-sound 21
+		sound-kludge 9 21
+		sound-kludge 9 22
+		sound-kludge 9 29
+		sound-kludge 9 30
+		sound-kludge 8 106
+		draw-object 61 
+		start-sound 192
+		actor 1 costume 138 ignore-boxes always-zclip 2
+		do-animation 1 6
+		break-here 25
+		camera-at 160
+		put-actor 1 in-room 5
+		put-actor 1 at 124,30
+		end-cut-scene
+		camera-follow selected-actor
+		end-script
+	}
+; Retail Title Sequence
+	script 201 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+
+		break-here 2
+		camera-at 160
+		put-actor selected-actor in-room 0
+		actor 5 costume 56 init-animation 1 scale 0 0 ignore-boxes never-zclip
+		actor 6 costume 56 init-animation 2 scale 0 0 ignore-boxes never-zclip
+		put-actor 5 in-room 4
+		put-actor 5 at 165,87
+		do-animation 5 250
+		do-animation 6 250
+		do-animation 5 6
+		break-here
+		*40 = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+		L.6 = 1
+		L.7 = 10
+		L.8 = 2
+[00000220]:
+		for L.4 = L.6 to L.7 ++ {
+			L.9 = (L.5 / 10)
+			L.9 += 4
+			*40[L.4] = L.9
+			L.5 += L.8
+		}
+		if !(L.6 is 1) jump &[00000278]
+		L.8 = 2
+		jump &[00000428]
+[00000278]:
+		if !(L.6 is 11) jump &[00000293]
+		L.8 = 3
+		jump &[00000428]
+[00000293]:
+		if !(L.6 is 21) jump &[00000308]
+		L.8 = 5
+		jump &[00000428]
+[00000308]:
+		if !(L.6 is 31) jump &[00000323]
+		L.8 = 6
+		jump &[00000428]
+[00000323]:
+		if !(L.6 is 41) jump &[00000338]
+		L.8 = 10
+		jump &[00000428]
+[00000338]:
+		if !(L.6 is 51) jump &[00000353]
+		L.8 = 13
+		jump &[00000428]
+[00000353]:
+		if !(L.6 is 61) jump &[00000368]
+		L.8 = 19
+		jump &[00000428]
+[00000368]:
+		if !(L.6 is 71) jump &[00000383]
+		L.8 = 17
+		jump &[00000428]
+[00000383]:
+		if !(L.6 is 81) jump &[00000398]
+		L.8 = 37
+		jump &[00000428]
+[00000398]:
+		if !(L.6 is 91) jump &[00000413]
+		L.8 = 56
+		jump &[00000428]
+[00000413]:
+		if !(L.6 is 101) jump &[00000428]
+		L.8 = 72
+		jump &[00000428]
+[00000428]:
+		if !(L.7 is-not 120) jump &[00000448]
+		L.6 += 10
+		L.7 += 10
+		jump &[00000220]
+[00000448]:
+		*40[121] = 255
+		min-jiffies = 1
+		L.11 = 1
+		L.0 = *40[1]
+		L.4 = 0
+		L.2 = 1
+		sound-kludge 272
+		start-sound 21
+		sound-kludge 270 21 0
+		sound-kludge 271 269 21 0 240
+		sound-kludge 271 65535
+		sound-kludge 270 21 1
+		sound-kludge 271 2
+		sound-kludge 271 8 22
+		sound-kludge 271 8 29
+		sound-kludge 271 8 30
+		sound-kludge 271 262 22 138
+		sound-kludge 271 262 29 138
+		sound-kludge 271 262 30 138
+		sound-kludge 271 3
+		sound-kludge 271 65535
+[00000632]:
+		L.4 += L.11
+		if (L.4 > 121) {
+			L.4 = 121
+		}
+		L.0 = *40[L.4]
+		jiffy1 = 0
+		actor 5 scale L.0 L.0
+		actor 6 scale L.0 L.0
+		break-here
+		L.3 = jiffy1
+		if !(L.3 > L.11) jump &[00000710]
+		if (L.10 is 1) {
+			L.11 = L.3
+		}
+		L.10 = 1
+		jump &[00000715]
+[00000710]:
+		L.10 = 0
+[00000715]:
+		if !(L.4 is 121) jump &[00000632]
+		min-jiffies = 6
+		sleep-for 60 jiffies
+		draw-object 67 
+		sleep-for 60 jiffies
+		start-script 94 (207,207)
+		break-until (!script-running 94)
+		start-script 208 ()
+		start-script 94 (210,215)
+		break-until (!script-running 94)
+		state-of 67 is 0
+		put-actor 5 in-room 0
+		put-actor 6 in-room 0
+		actor 5 default
+		actor 6 default
+		break-here
+		end-script
+	}
+; Indy Gets Dusty Key
+	script 202 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0202
+		cut-scene
+		do-animation 1 12
+		say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x03\\x00\\xFF\\x0A\\x00\\x00Feels like there's something loose in\\x10here^"
+		wait-for-message
+		sleep-for 30 jiffies
+		say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x04\\x00\\xFF\\x0A\\x00\\x00^a key?"
+		do-animation 1 3
+		wait-for-message
+		end-cut-scene
+		new-name-of 68 is "dusty key"
+		pick-up-object 68 in-room 0
+		owner-of 68 is 1
+		state-of 68 is 0
+		class-of 68 is 134
+		class-of 68 is 130
+		class-of 68 is 160
+		class-of 65 is 18
+		start-script 10 ()
+		end-script
+	}
+; Indy Climbs Down
+	script 203 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0203
+		cut-scene
+		actor 1 costume 27 ignore-boxes always-zclip 2
+		put-actor 1 at 77,164
+		do-animation 1 251
+		override &[00000049]
+		do-animation 1 14
+		break-here 11
+[00000049]:
+		override off
+		end-cut-scene
+		current-room 5
+		end-script
+	}
+; Look At Urn
+	script 204 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0204
+		if !(B.69) jump &[00000109]
+		cut-scene
+		say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x06\\x00\\xFF\\x0A\\x00\\x00It's some kind of funeral\\x10urn."
+		wait-for-message
+		do-animation 1 12
+		break-here 12
+		start-script 123 (V.234)
+		break-until (!script-running 123)
+		wait-for-message
+		do-animation 1 3
+		end-cut-scene
+		jump &[00000158]
+[00000109]:
+		say-line "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x07\\x00\\xFF\\x0A\\x00\\x00It's some kind of funeral\\x10urn."
+[00000158]:
+		end-script
+	}
+; Indy Picks Up Candlestick
+	script 205 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0205
+		cut-scene
+		class-of 69 is 6
+		class-of 69 is 160
+		state-of 69 is 1
+		owner-of 69 is 1
+		start-script 10 ()
+		say-line 1 "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x00\\x00It must be made out of\\x10lead."
+		wait-for-message
+		walk 1 to-object 70
+		break-here 6
+		do-animation 1 10
+		say-line 1 "\\xFF\\x0A\\x2F\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x09\\x00\\xFF\\x0A\\x00\\x00There!"
+		break-here 5
+		do-animation 1 3
+		state-of 70 is 1
+		class-of 70 is 32
+		owner-of 69 is 0
+		owner-of 69 is 15
+		start-script 10 ()
+		wait-for-message
+		end-cut-scene
+		end-script
+	}
+; Demo Title Sequence
+	script 206 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0206
+	local variable L.1
+
+		cursor off
+		userput off
+		break-here
+		clear-heap
+		break-here
+		userput on
+		start-script 201 ()
+		break-here
+		override &[00000042]
+		V.57 = 0
+		break-until (!script-running 201)
+[00000042]:
+		if (override-hit) {
+			override off
+			stop-script 201
+			put-actor 5 in-room 0
+			put-actor 6 in-room 0
+			state-of 67 is 0
+			stop-script 94
+			stop-script 93
+			for L.1 = 207 to 215 ++ {
+				stop-script L.1
+			}
+			print-line " "
+			start-script 129 ()
+			break-until (!script-running 129)
+			min-jiffies = 6
+			palette intensity 255 in-slot 159 to 159
+			palette intensity 255 in-slot 11 to 11
+		}
+		override off
+		V.57 = 46
+		break-here 25
+		sound-kludge 9 21
+		sound-kludge 9 22
+		sound-kludge 9 29
+		sound-kludge 9 30
+		sound-kludge 8 106
+		B.69 = 1
+		current-room 62
+		stop-script 0
+		end-script
+	}
+; Show Copyright Info
+	script 207 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0207
+		V.452 = 120
+		charset 1
+		print-line color 9 center at 160,155 "= & \\x0F 1992 LucasArts Entertainment Company\\xFF\\x01All Rights Reserved.  Indiana Jones is a\\xFF\\x01registered trademark of Lucasfilm Ltd."
+		charset 3
+		end-script
+	}
+; Show Demo Credits
+	script 208 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0208
+		charset 3
+		palette intensity 55 in-slot 159 to 159
+		print-text color 159 center at 160,150 "CD-ROM TALKIE:"
+		end-script
+	}
+; Duplicate of 208?
+	script 209 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0209
+		charset 3
+		palette intensity 55 in-slot 159 to 159
+		print-text color 159 center at 160,150 "CD-ROM TALKIE:"
+		end-script
+	}
+; Demo Blurb 1
+	script 210 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0210
+		V.452 = 180
+		print-line color 11 center at 160,165 "Over 8000 lines of digital dialog"
+		end-script
+	}
+; Demo Blurb 2
+	script 211 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0211
+		V.452 = 120
+		print-line color 11 center at 160,165 "Full of Digitized Sound Effects"
+		end-script
+	}
+; Demo Blurb 3
+	script 212 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0212
+		V.452 = 120
+		print-line color 11 center at 160,165 "iMuse\\x0F Interactive Music"
+		end-script
+	}
+; Demo Blurb 4
+	script 213 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0213
+		V.452 = 120
+		print-line color 11 center at 160,165 "'Best Adventure Game of the Year'\\xFF\\x01Computer Game Review, Games Magazine"
+		end-script
+	}
+: Demo Blurb 5
+	script 214 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0214
+		V.452 = 120
+		print-line color 11 center at 160,165 "'Best Adventure Game of the Year'\\xFF\\x01Game Players Magazine, Game Informer"
+		end-script
+	}
+; Demo Blurb 6
+	script 215 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0215
+		V.452 = 120
+		print-line color 11 center at 160,165 "CD-Rom Available Spring 1993"
+		end-script
+	}
+
+	script 216 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0216
+		cut-scene
+		actor 1 ignore-boxes always-zclip 2 elevation 0
+		override &[00000053]
+		put-actor 1 in-room 4
+		put-actor 1 at 77,164
+		do-animation 1 251
+		do-animation 1 13
+		break-here 11
+[00000053]:
+		override off
+		if (override-hit) {
+			do-animation 1 1
+		}
+		put-actor 1 at 77,136
+		actor 1 costume 2 follow-boxes
+		do-animation 1 246
+		break-here 2
+		end-cut-scene
+		end-script
+	}
+
+	script 217 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0217
+	local variable L.0
+
+		V.209 = 0
+		if !(L.0) jump &[00000021]
+		jump &[00000042]
+[00000021]:
+		override &[00000037]
+		break-until (V.209)
+		override off
+		jump &[00000157]
+[00000037]:
+		if !(override-hit) jump &[00000157]
+[00000042]:
+		override off
+		B.19 = 1
+		actor 1 costume 2 follow-boxes
+		for V.442 = 116 to 119 ++ {
+			class-of V.442 is 134
+		}
+		V.442 = random 3
+		V.442 += 116
+		class-of V.442 is 145
+		class-of V.442 is 6
+		do {
+			V.443 = random 3
+			V.443 += 116
+		} until (V.442 is-not V.443)
+		class-of V.443 is 146
+		class-of V.442 is 6
+		state-of 40 is 1
+		state-of 50 is 0
+		class-of 50 is 160
+		build-sentence-script = 4
+		V.224 = 2
+		current-room 1
+[00000157]:
+		end-script
+	}
+
+	script 218 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0218
+		end-script
+	}
+}
+

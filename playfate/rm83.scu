@@ -1,0 +1,587 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * 
+; * Room 83: Plato's Lost Dialogue (cu-plato)
+; */
+
+room cu-plato {
+
+	object 1120 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1120
+		name is ""
+	}
+
+	object 1103 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1103
+		name is ""
+	}
+
+	object 1104 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1104
+		name is ""
+	}
+
+	object 1106 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1106
+		name is ""
+	}
+
+	object 1115 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1115
+		name is ""
+	}
+
+	object 1107 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1107
+		name is ""
+	}
+
+	object 1108 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1108
+		name is ""
+	}
+
+	object 1116 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1116
+		name is ""
+	}
+
+	object 1109 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1109
+		name is ""
+	}
+
+	object 1110 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1110
+		name is ""
+	}
+
+	object 1117 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1117
+		name is ""
+	}
+
+	object 1111 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1111
+		name is ""
+	}
+
+	object 1112 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1112
+		name is ""
+	}
+
+	object 1118 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1118
+		name is ""
+	}
+
+	object 1113 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1113
+		name is ""
+	}
+
+	object 1114 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1114
+		name is ""
+	}
+
+	object 1119 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1119
+		name is ""
+	}
+
+	object 1105 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1105
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0083\ROOM\EXCD
+		build-sentence-script = V.448
+		set-screen 0 to 144
+		start-script 19 (2)
+		charset 2
+		B.210 = 1
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0083\ROOM\ENCD
+		stop-script 31
+		set-screen 0 to 200
+		start-script 19 (1)
+		camera-at 160
+		V.448 = build-sentence-script
+		build-sentence-script = 200
+		charset 1
+		start-script 85 ()
+		cursor on
+		if (V.224 is 45) {
+			shake on
+		}
+		start-script 201 ()
+		start-script 206 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0200
+		V.100 = cursor-x
+		V.101 = cursor-y
+		V.442 = (find-object V.100,V.101)
+		if !(V.442 is 0) jump &[00000056]
+[00000037]:
+		start-script 119 (V.224,2)
+		break-until (!script-running 119)
+[00000056]:
+		if (state-of V.442 is 0) {
+			stop-script 0
+		}
+		if !(V.442 is 1103) jump &[00000085]
+		jump &[00000037]
+		stop-script 0
+		jump &[00000345]
+[00000085]:
+		if !(V.442 is 1104) jump &[00000100]
+		jump &[00000037]
+		stop-script 0
+		jump &[00000345]
+[00000100]:
+		if !(V.442 is 1105) jump &[00000113]
+		jump &[00000133]
+		jump &[00000345]
+[00000113]:
+		if !(V.442 is 1106) jump &[00000126]
+		jump &[00000133]
+		jump &[00000345]
+[00000126]:
+		if !(V.442 is 1115) jump &[00000149]
+[00000133]:
+		start-script 201 ()
+		break-until (!script-running 201)
+		jump &[00000345]
+[00000149]:
+		if !(V.442 is 1107) jump &[00000162]
+		jump &[00000182]
+		jump &[00000345]
+[00000162]:
+		if !(V.442 is 1108) jump &[00000175]
+		jump &[00000182]
+		jump &[00000345]
+[00000175]:
+		if !(V.442 is 1116) jump &[00000198]
+[00000182]:
+		start-script 202 ()
+		break-until (!script-running 202)
+		jump &[00000345]
+[00000198]:
+		if !(V.442 is 1109) jump &[00000211]
+		jump &[00000231]
+		jump &[00000345]
+[00000211]:
+		if !(V.442 is 1110) jump &[00000224]
+		jump &[00000231]
+		jump &[00000345]
+[00000224]:
+		if !(V.442 is 1117) jump &[00000247]
+[00000231]:
+		start-script 203 ()
+		break-until (!script-running 203)
+		jump &[00000345]
+[00000247]:
+		if !(V.442 is 1111) jump &[00000260]
+		jump &[00000280]
+		jump &[00000345]
+[00000260]:
+		if !(V.442 is 1112) jump &[00000273]
+		jump &[00000280]
+		jump &[00000345]
+[00000273]:
+		if !(V.442 is 1118) jump &[00000296]
+[00000280]:
+		start-script 204 ()
+		break-until (!script-running 204)
+		jump &[00000345]
+[00000296]:
+		if !(V.442 is 1113) jump &[00000309]
+		jump &[00000329]
+		jump &[00000345]
+[00000309]:
+		if !(V.442 is 1114) jump &[00000322]
+		jump &[00000329]
+		jump &[00000345]
+[00000322]:
+		if !(V.442 is 1119) jump &[00000345]
+[00000329]:
+		start-script 205 ()
+		break-until (!script-running 205)
+		jump &[00000345]
+[00000345]:
+		end-script
+	}
+; Page 1
+	script 201 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0201
+		B.37[1] = 1
+		draw-object 1103 
+		draw-object 1104 
+		state-of 1105 is 0
+		state-of 1106 is 0
+		state-of 1115 is 1
+		state-of 1107 is 0
+		state-of 1108 is 1
+		state-of 1116 is 0
+		state-of 1109 is 0
+		state-of 1110 is 1
+		state-of 1117 is 0
+		state-of 1111 is 0
+		state-of 1112 is 1
+		state-of 1118 is 0
+		state-of 1113 is 0
+		state-of 1114 is 1
+		state-of 1119 is 0
+		state-of 1120 is 1
+		break-here
+		print-text color 8 at 32,32 "\\x08THE HERMOCRATES\\x08 "
+		print-text color 8 at 32,46 "Now at last I have"
+		print-text color 8 at 32,55 "Plato's Lost Dialogue"
+		print-text color 8 at 32,64 "translated entirely."
+		print-text color 8 at 32,76 "The Greek original is"
+		print-text color 8 at 32,85 "lost, so I've used the"
+		print-text color 8 at 32,94 "Arabic text I found in"
+		print-text color 8 at 32,103 "an Italian monastery"
+		print-text color 8 at 32,112 "years ago and always"
+		print-text color 8 at 32,121 "thought was a hoax."
+		print-text color 8 at 32,133 "Now I wonder ^ could"
+		print-text color 8 at 32,142 "this remarkable book"
+		print-text color 8 at 32,151 "hold the secret to"
+		print-text color 8 at 168,32 "long-lost Atlantis?"
+		print-text color 8 at 168,44 "Probably not.  No one"
+		print-text color 8 at 168,53 "will publish it, that's"
+		print-text color 8 at 168,62 "certain.  The fear of"
+		print-text color 8 at 168,71 "ridicule is too great."
+		print-text color 8 at 168,83 "To be safe, I've sent a"
+		print-text color 8 at 168,92 "copy to Ashkenazy."
+		print-text color 8 at 168,142 "       London, 1922"
+		break-here
+		end-script
+	}
+; Page 2
+	script 202 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0202
+		B.37[2] = 1
+		draw-object 1103 
+		draw-object 1104 
+		state-of 1105 is 1
+		state-of 1106 is 0
+		state-of 1115 is 0
+		state-of 1107 is 0
+		state-of 1108 is 0
+		state-of 1116 is 1
+		state-of 1109 is 0
+		state-of 1110 is 1
+		state-of 1117 is 0
+		state-of 1111 is 0
+		state-of 1112 is 1
+		state-of 1118 is 0
+		state-of 1113 is 0
+		state-of 1114 is 1
+		state-of 1119 is 0
+		state-of 1120 is 0
+		break-here
+		print-text color 8 at 32,32 "HERMOCRATES:"
+		print-text color 8 at 32,41 "In shame I hereby do"
+		print-text color 8 at 32,50 "recant the time and"
+		print-text color 8 at 32,59 "place whereof Critias"
+		print-text color 8 at 32,68 "spoke.  In rendering"
+		print-text color 8 at 32,77 "Egyptian into Greek he"
+		print-text color 8 at 32,86 "made a tenfold error."
+		print-text color 8 at 32,97 "Instead of lying 3,000"
+		print-text color 8 at 32,106 "miles hence, Atlantis"
+		print-text color 8 at 32,115 "may well have been"
+		print-text color 8 at 32,124 "30,000 miles away.  Or"
+		print-text color 8 at 32,133 "perhaps it was less"
+		print-text color 8 at 32,142 "than 300 miles from"
+		print-text color 8 at 32,151 "our own shores."
+		print-text color 8 at 168,32 "Likewise, it may be"
+		print-text color 8 at 168,41 "that the Lost Kingdom"
+		print-text color 8 at 168,50 "held sway as many as"
+		print-text color 8 at 168,59 "100,000 years ago, or"
+		print-text color 8 at 168,68 "as few as 1,000."
+		print-text color 8 at 168,88 "SOCRATES:"
+		print-text color 8 at 168,97 "If a kingdom arose on"
+		print-text color 8 at 168,106 "Earth beyond anywhere"
+		print-text color 8 at 168,115 "men might travel, then"
+		print-text color 8 at 168,124 "we would never hear of"
+		print-text color 8 at 168,133 "it.  We ought to accept"
+		print-text color 8 at 168,142 "the lesser figure."
+		break-here
+		end-script
+	}
+; Page 3
+	script 203 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0203
+		B.37[3] = 1
+		draw-object 1103 
+		draw-object 1104 
+		state-of 1105 is 1
+		state-of 1106 is 0
+		state-of 1115 is 0
+		state-of 1107 is 1
+		state-of 1108 is 0
+		state-of 1116 is 0
+		state-of 1109 is 0
+		state-of 1110 is 0
+		state-of 1117 is 1
+		state-of 1111 is 0
+		state-of 1112 is 1
+		state-of 1118 is 0
+		state-of 1113 is 0
+		state-of 1114 is 1
+		state-of 1119 is 0
+		state-of 1120 is 0
+		break-here
+		print-text color 8 at 32,32 "^so glorious Atlantis"
+		print-text color 8 at 32,41 "founded two colonies,"
+		print-text color 8 at 32,50 "the Lesser %n239% miles"
+		if !(V.240 is 1) jump &[00000226]
+		print-text color 8 at 32,59 "northeast of the City"
+		jump &[00000306]
+[00000226]:
+		if !(V.240 is 2) jump &[00000264]
+		print-text color 8 at 32,59 "north of the City"
+		jump &[00000306]
+[00000264]:
+		if !(V.240 is 3) jump &[00000306]
+		print-text color 8 at 32,59 "northwest of the City"
+		jump &[00000306]
+[00000306]:
+		if !(V.240 is 2) jump &[00000327]
+		V.442 = (730 - V.239)
+		jump &[00000338]
+[00000327]:
+		V.442 = (810 - V.239)
+[00000338]:
+		print-text color 8 at 32,68 "and the Greater %n442%"
+		if !(V.240 is 1) jump &[00000411]
+		print-text color 8 at 32,77 "miles away southwest."
+		jump &[00000493]
+[00000411]:
+		if !(V.240 is 2) jump &[00000451]
+		print-text color 8 at 32,77 "miles to the south."
+		jump &[00000493]
+[00000451]:
+		if !(V.240 is 3) jump &[00000493]
+		print-text color 8 at 32,77 "miles away southeast."
+		jump &[00000493]
+[00000493]:
+		print-text color 8 at 32,89 "Gates of the kingdom"
+		print-text color 8 at 32,98 "opened only with the"
+		print-text color 8 at 32,107 "aid of special stones."
+		print-text color 8 at 32,119 "At many outposts, a"
+		print-text color 8 at 32,128 "Sunstone sufficed, if"
+		if !(V.241 is 1) jump &[00000716]
+		print-text color 8 at 32,137 "hot sunlight bathed"
+		print-text color 8 at 32,146 "the tall horns."
+		jump &[00000910]
+[00000716]:
+		if !(V.241 is 2) jump &[00000778]
+		print-text color 8 at 32,137 "sunset made the tall"
+		print-text color 8 at 32,146 "horns red."
+		jump &[00000910]
+[00000778]:
+		if !(V.241 is 3) jump &[00000843]
+		print-text color 8 at 32,137 "darkness concealed"
+		print-text color 8 at 32,146 "the tall horns."
+		jump &[00000910]
+[00000843]:
+		if !(V.241 is 4) jump &[00000910]
+		print-text color 8 at 32,137 "morning light warmed"
+		print-text color 8 at 32,146 "the tall horns."
+		jump &[00000910]
+[00000910]:
+		print-text color 8 at 168,32 "At the Greater Colony"
+		print-text color 8 at 168,41 "a Moonstone was also"
+		if !(V.242 is 1) jump &[00001067]
+		print-text color 8 at 168,50 "needed, with the noon"
+		print-text color 8 at 168,59 "sun riding above the"
+		print-text color 8 at 168,68 "full moon."
+		jump &[00001340]
+[00001067]:
+		if !(V.242 is 2) jump &[00001159]
+		print-text color 8 at 168,50 "needed, with darkest"
+		print-text color 8 at 168,59 "night healed by the"
+		print-text color 8 at 168,68 "full moon."
+		jump &[00001340]
+[00001159]:
+		if !(V.242 is 3) jump &[00001250]
+		print-text color 8 at 168,50 "needed, with pale dawn"
+		print-text color 8 at 168,59 "to shred the darkest"
+		print-text color 8 at 168,68 "night."
+		jump &[00001340]
+[00001250]:
+		if !(V.242 is 4) jump &[00001340]
+		print-text color 8 at 168,50 "needed, with the sun"
+		print-text color 8 at 168,59 "dying as a new moon"
+		print-text color 8 at 168,68 "is born."
+		jump &[00001340]
+[00001340]:
+		print-text color 8 at 168,80 "To approach Atlantis"
+		print-text color 8 at 168,89 "itself a Worldstone"
+		print-text color 8 at 168,98 "was required as well,"
+		if !(V.242 is 1) jump &[00001629]
+		if !(V.243 is 1) jump &[00001533]
+		print-text color 8 at 168,107 "with the dying orbs"
+		print-text color 8 at 168,116 "plummeting into the"
+		print-text color 8 at 168,125 "eastern sea."
+		jump &[00001626]
+[00001533]:
+		if !(V.243 is 2) jump &[00001626]
+		print-text color 8 at 168,107 "with darkness ruling"
+		print-text color 8 at 168,116 "the old city without"
+		print-text color 8 at 168,125 "challenge."
+		jump &[00001626]
+[00001626]:
+		jump &[00002249]
+[00001629]:
+		if !(V.242 is 2) jump &[00001835]
+		if !(V.243 is 3) jump &[00001736]
+		print-text color 8 at 168,107 "with the moon, full"
+		print-text color 8 at 168,116 "of beauty unrivaled,"
+		print-text color 8 at 168,125 "lighting the city."
+		jump &[00001832]
+[00001736]:
+		if !(V.243 is 4) jump &[00001832]
+		print-text color 8 at 168,107 "with a glorious sun"
+		print-text color 8 at 168,116 "blazing alone upon"
+		print-text color 8 at 168,125 "the western sea."
+		jump &[00001832]
+[00001832]:
+		jump &[00002249]
+[00001835]:
+		if !(V.242 is 3) jump &[00002050]
+		if !(V.243 is 5) jump &[00001946]
+		print-text color 8 at 168,107 "with the rising sun"
+		print-text color 8 at 168,116 "breaking night's grip"
+		print-text color 8 at 168,125 "above the fiery peak."
+		jump &[00002047]
+[00001946]:
+		if !(V.243 is 6) jump &[00002047]
+		print-text color 8 at 168,107 "with only a waning"
+		print-text color 8 at 168,116 "moon to protect the"
+		print-text color 8 at 168,125 "city from grim night."
+		jump &[00002047]
+[00002047]:
+		jump &[00002249]
+[00002050]:
+		if !(V.242 is 4) jump &[00002249]
+		if !(V.243 is 7) jump &[00002146]
+		print-text color 8 at 168,107 "with darkest night"
+		print-text color 8 at 168,116 "soon to rule the"
+		print-text color 8 at 168,125 "western sea."
+		jump &[00002246]
+[00002146]:
+		if !(V.243 is 8) jump &[00002246]
+		print-text color 8 at 168,107 "with a waxing moon"
+		print-text color 8 at 168,116 "the sky's only reply"
+		print-text color 8 at 168,125 "to the fires below."
+		jump &[00002246]
+[00002246]:
+		jump &[00002249]
+[00002249]:
+		print-text color 8 at 168,137 "Final entrance yielded"
+		print-text color 8 at 168,146 "only to contrary minds."
+		break-here
+		end-script
+	}
+; Page 4
+	script 204 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0204
+		B.37[4] = 1
+		draw-object 1103 
+		draw-object 1104 
+		state-of 1105 is 1
+		state-of 1106 is 0
+		state-of 1115 is 0
+		state-of 1107 is 1
+		state-of 1108 is 0
+		state-of 1116 is 0
+		state-of 1109 is 1
+		state-of 1110 is 0
+		state-of 1117 is 0
+		state-of 1111 is 0
+		state-of 1112 is 0
+		state-of 1118 is 1
+		state-of 1113 is 0
+		state-of 1114 is 1
+		state-of 1119 is 0
+		state-of 1120 is 0
+		break-here
+		print-text color 8 at 32,32 "^and it is said that"
+		print-text color 8 at 32,41 "dwellers in Atlantis"
+		print-text color 8 at 32,50 "had no horses nor any"
+		print-text color 8 at 32,59 "need of them."
+		print-text color 8 at 32,71 "Orichalcum, the metal"
+		print-text color 8 at 32,80 "that glittered like"
+		print-text color 8 at 32,89 "fire, this they had"
+		print-text color 8 at 32,98 "instead.  They cast it"
+		print-text color 8 at 32,107 "into shiny beads and"
+		print-text color 8 at 32,116 "used them as we do"
+		print-text color 8 at 32,125 "minted coins, paying"
+		print-text color 8 at 32,134 "statues to do their"
+		print-text color 8 at 32,143 "work as if by magic."
+		print-text color 8 at 168,32 "When their colonies"
+		print-text color 8 at 168,41 "were failing, wise"
+		print-text color 8 at 168,50 "men carved strange"
+		print-text color 8 at 168,59 "devices out of amber"
+		print-text color 8 at 168,68 "to search for the"
+		print-text color 8 at 168,77 "metal, but only proud"
+		print-text color 8 at 168,86 "Atlantis ever yielded"
+		print-text color 8 at 168,95 "a supply."
+		print-text color 8 at 168,116 "SOCRATES:"
+		print-text color 8 at 168,125 "You have called the"
+		print-text color 8 at 168,134 "kingdom wealthy, but"
+		print-text color 8 at 168,143 "surely this is absurd."
+		break-here
+		end-script
+	}
+; Page 5
+	script 205 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0205
+		B.37[5] = 1
+		draw-object 1103 
+		draw-object 1104 
+		state-of 1105 is 1
+		state-of 1106 is 0
+		state-of 1115 is 0
+		state-of 1107 is 1
+		state-of 1108 is 0
+		state-of 1116 is 0
+		state-of 1109 is 1
+		state-of 1110 is 0
+		state-of 1117 is 0
+		state-of 1111 is 1
+		state-of 1112 is 0
+		state-of 1118 is 0
+		state-of 1113 is 0
+		state-of 1114 is 0
+		state-of 1119 is 1
+		state-of 1120 is 0
+		break-here
+		print-text color 8 at 32,32 "^as the waters rose"
+		print-text color 8 at 32,41 "around their city, the"
+		print-text color 8 at 32,50 "Kings of Atlantis, one"
+		print-text color 8 at 32,59 "after another, sought"
+		print-text color 8 at 32,68 "to hold off fate."
+		print-text color 8 at 32,80 "Knowing mortal men"
+		print-text color 8 at 32,89 "would never rule the"
+		print-text color 8 at 32,98 "sea, they planned a"
+		print-text color 8 at 32,107 "huge colossus, which"
+		print-text color 8 at 32,116 "by use of orichalcum,"
+		print-text color 8 at 32,125 "ten beads at a time,"
+		print-text color 8 at 32,134 "would make them like"
+		print-text color 8 at 32,143 "the gods themselves."
+		print-text color 8 at 168,32 "Nur-Ab-Sal was one"
+		print-text color 8 at 168,41 "such king.  He it was,"
+		print-text color 8 at 168,50 "say the wise men of"
+		print-text color 8 at 168,59 "Egypt, who first put"
+		print-text color 8 at 168,68 "men in the colossus,"
+		print-text color 8 at 168,77 "making many freaks of"
+		print-text color 8 at 168,86 "nature at times when"
+		print-text color 8 at 168,95 "the celestial spheres"
+		print-text color 8 at 168,104 "were well aligned."
+		print-text color 8 at 168,125 "SOCRATES:"
+		print-text color 8 at 168,134 "This I doubt.  We are"
+		print-text color 8 at 168,143 "hearing a child's tale."
+		break-here
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0206
+		override &[00000017]
+		do {
+			break-here
+		}
+[00000017]:
+		override off
+		start-script 119 (V.224,2)
+		break-until (!script-running 119)
+		end-script
+	}
+}
+
