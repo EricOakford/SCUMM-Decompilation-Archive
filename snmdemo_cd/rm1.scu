@@ -1,11 +1,13 @@
 ;/**
-; * Sam & Max Hit the Road: Interactive Demo (Floppy)
+; * Sam & Max Hit the Road: Interactive Demo (CD)
 ; * 
 ; * Room 1
 ; */
 
 ; Game Initialization
 script 1 { ; SCRP LECF_0001\LFLF_0001\SCRP_0001
+local variable L.0
+
 	charset 1
 	V.19 = 6
 	V.24 = 27
@@ -81,11 +83,6 @@ script 1 { ; SCRP LECF_0001\LFLF_0001\SCRP_0001
 	V.43 = 32
 	V.50 = 0
 	kludge 124 [1]
-	if ( V.40 < 340 ) {
-		print-system \
-			"Warning!  More free memory needed!  Consult ref card!"
-
-	}
 	V.37 = 3
 	V.35 = 2
 	V.36 = 3
@@ -97,10 +94,9 @@ script 1 { ; SCRP LECF_0001\LFLF_0001\SCRP_0001
 	V.8 = 19
 	V.34 = 52
 	fades 257
-	V.50 = 319
 	charset 2
 	V.177 = 889
-	cursor V.177 image 92
+	cursor V.177 image 93
 	V.178[1] = 879
 	V.178[2] = 880
 	V.178[3] = 881
@@ -185,7 +181,350 @@ script 1 { ; SCRP LECF_0001\LFLF_0001\SCRP_0001
 	V.61 = 33
 	V.62 = 34
 	start-script 30
+	if !( L.0 ) jump &[00003569]
+	lock-room 94
+	load-room 94
+	lock-room 93
+	load-room 93
+	lock-script 48
+	load-script 48
+	lock-script 50
+	load-script 50
+	lock-script 49
+	load-script 49
+	lock-script 51
+	load-script 51
+	lock-script 52
+	load-script 52
+	lock-script 53
+	load-script 53
+	lock-script 54
+	load-script 54
+	lock-script 55
+	load-script 55
+	lock-script 56
+	load-script 56
+	lock-script 57
+	load-script 57
+	lock-script 58
+	load-script 58
+	lock-script 59
+	load-script 59
+	lock-script 60
+	load-script 60
+	lock-script 61
+	load-script 61
+	lock-script 62
+	load-script 62
+	lock-script 63
+	load-script 63
+	lock-script 64
+	load-script 64
+	lock-script 2
+	load-script 2
+	lock-script 3
+	load-script 3
+	lock-script 4
+	load-script 4
+	lock-script 6
+	load-script 6
+	lock-script 7
+	load-script 7
+	lock-script 9
+	load-script 9
+	lock-script 10
+	load-script 10
+	lock-script 11
+	load-script 11
+	lock-script 12
+	load-script 12
+	lock-script 13
+	load-script 13
+	lock-script 14
+	load-script 14
+	lock-script 15
+	load-script 15
+	lock-script 16
+	load-script 16
+	lock-script 17
+	load-script 17
+	lock-script 18
+	load-script 18
+	lock-script 19
+	load-script 19
+	lock-script 20
+	load-script 20
+	lock-script 21
+	load-script 21
+	lock-script 22
+	load-script 22
+	lock-script 23
+	load-script 23
+	lock-script 24
+	load-script 24
+	lock-script 25
+	load-script 25
+	lock-script 26
+	load-script 26
+	lock-script 27
+	load-script 27
+	lock-script 28
+	load-script 28
+	lock-script 29
+	load-script 29
+	lock-script 30
+	load-script 30
+	lock-script 31
+	load-script 31
+	lock-script 32
+	load-script 32
+	lock-script 33
+	load-script 33
+	lock-script 34
+	load-script 34
+	lock-script 35
+	load-script 35
+	lock-script 44
+	load-script 44
+	lock-script 45
+	load-script 45
+	lock-script 46
+	load-script 46
+	lock-script 47
+	load-script 47
+	lock-costume 1
+	load-costume 1
+	lock-costume 2
+	load-costume 2
+	lock-costume 3
+	load-costume 3
+	lock-costume 4
+	load-costume 4
+	lock-costume 5
+	load-costume 5
+	lock-costume 11
+	load-costume 11
+	lock-costume 6
+	load-costume 6
+	lock-costume 7
+	load-costume 7
+	lock-costume 9
+	load-costume 9
+	lock-costume 8
+	load-costume 8
+	if !( L.0 != -1 ) jump &[00003548]
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x33\xB1\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x60\xB2\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xEA\x71\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x97\x04\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x44\x4F\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x01\x4C\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xAE\x70\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x5B\x5D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x88\x86\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x87\x47\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x1A\xD2\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xBD\xE5\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xC1\x62\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x68\xB1\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x15\xCC\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x90\x11\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x27\x7E\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x84\x51\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	s_selectedActor = 2
+	print-debug \
+		"\xFF\x0A\xD3\xE9\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	s_selectedActor = 0
+	jump &[00003554]
+[00003548]:
+	R.230 = 1
+[00003554]:
+	set-screen 0 to 200
 	current-room 1
+	jump &[00003604]
+[00003569]:
+	if !( L.0 == -1 ) jump &[00003588]
+	R.230 = 1
+	jump &[00003594]
+[00003588]:
+	R.230 = 0
+[00003594]:
+	R.223 = 1
+	current-room 1
+[00003604]:
 	end-script
 }
 
@@ -228,7 +567,7 @@ local variable L.0
 
 script 4 { ; SCRP LECF_0001\LFLF_0001\SCRP_0004
 	if ( R.6 ) {
-		load-object 995 in-room 93
+		load-object 995 in-room 94
 		start-script 5
 		V.27 = 20
 		put-actor 1 at V.2 - 160,200 in-room V.4
@@ -254,7 +593,7 @@ local variable L.2
 	L.0 = 1
 [00000020]:
 	if !( L.0 <= 5 ) jump &[00000047]
-	load-object V.178[L.0] in-room 92
+	load-object V.178[L.0] in-room 93
 	++L.0
 	jump &[00000020]
 [00000047]:
@@ -269,7 +608,7 @@ local variable L.2
 	++L.2
 	L.1 = V.178[L.0]
 	start-object [2] L.1 verb 91
-	load-object V.182 in-room 93
+	load-object V.182 in-room 94
 	if !( L.2 >= V.179 ) jump &[00000143]
 	jump &[00000149]
 [00000143]:
@@ -352,7 +691,7 @@ local variable L.0
 	palette 255 185 130 in-slot 180
 	V.123 = 1
 	V.177 = 874
-	cursor V.177 image 92
+	cursor V.177 image 93
 	L.0 = 4
 [00000113]:
 	if !( L.0 <= V.196 ) jump &[00000138]
@@ -396,7 +735,7 @@ local variable L.0
 	userput on
 	R.5 = 0
 	V.177 = 889
-	cursor V.177 image 92
+	cursor V.177 image 93
 	kludge 110 []
 	break-here
 	end-script
@@ -441,8 +780,8 @@ local variable L.4
 	L.1 = 0
 	L.3 = (V.2 - 160) / 8
 	if ( V.193 + 7 < L.0 or V.193 > 0 ) {
-		load-object 1004 in-room 93
-		load-object 1005 in-room 93
+		load-object 1004 in-room 94
+		load-object 1005 in-room 94
 		class-of 1004 is 150
 		class-of 1005 is 150
 		draw-object 1004 at L.3 + 35,19
@@ -453,13 +792,13 @@ local variable L.4
 [00000122]:
 	if !( L.2 <= 7 ) jump &[00000246]
 	if !( V.190[L.2] ) jump &[00000185]
-	load-object V.190[L.2] in-room 93
+	load-object V.190[L.2] in-room 94
 	class-of V.190[L.2] is 150
 	draw-object V.190[L.2] at L.3 + L.1,22
 	jump &[00000230]
 [00000185]:
 	if ( L.4 <= 1067 ) {
-		load-object L.4 in-room 93
+		load-object L.4 in-room 94
 		class-of L.4 is 150
 		draw-object L.4 at L.3 + L.1,22
 		++L.4
@@ -1090,7 +1429,7 @@ script 25 { ; SCRP LECF_0001\LFLF_0001\SCRP_0025
 	cut-scene (2)
 	R.36 = 1
 	start-script 17 ( 2, 1010 )
-	say-line 2 "Hey, what happened to my carefully-collected box of useless junk?"
+	say-line 2 "\xFF\x0A\x61\xCB\xFF\x0A\xAD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, what happened to my carefully-collected box of useless junk?"
 	wait-for-message
 	end-cut-scene
 	end-script
@@ -1133,57 +1472,57 @@ local variable L.0
 		V.169 = random 1
 		break-here
 	} until (V.171)
-	if !( V.171 == 999 ) jump &[00000179]
-	say-line 2 "Never mind."
+	if !( V.171 == 999 ) jump &[00000195]
+	say-line 2 "\xFF\x0A\x4C\xFD\xFF\x0A\xAE\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Never mind."
 	wait-for-message
-	jump &[00004279]
-	jump &[00000506]
-[00000179]:
-	if !( V.171 == 998 ) jump &[00000310]
-	if !( random-between 1 to 3 == 1 ) jump &[00000221]
-	say-line 2 "Hey, Max!"
-	jump &[00000295]
-[00000221]:
-	if !( random-between 1 to 3 == 2 ) jump &[00000254]
-	say-line 2 "Hey, lil' buddy!"
-	jump &[00000295]
-[00000254]:
-	if !( random-between 1 to 3 == 3 ) jump &[00000294]
-	say-line 2 "Hey, Sam!\xFF\x03I mean, Max!"
-	jump &[00000295]
-[00000295]:
+	jump &[00001571]
+	jump &[00000682]
+[00000195]:
+	if !( V.171 == 998 ) jump &[00000390]
+	if !( random-between 1 to 3 == 1 ) jump &[00000253]
+	say-line 2 "\xFF\x0A\x37\x43\xFF\x0A\xAF\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, Max!"
+	jump &[00000359]
+[00000253]:
+	if !( random-between 1 to 3 == 2 ) jump &[00000302]
+	say-line 2 "\xFF\x0A\x62\x91\xFF\x0A\xAF\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, lil' buddy!"
+	jump &[00000359]
+[00000302]:
+	if !( random-between 1 to 3 == 3 ) jump &[00000358]
+	say-line 2 "\xFF\x0A\xCD\xE0\xFF\x0A\xAF\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, Sam!\xFF\x03I mean, Max!"
+	jump &[00000359]
+[00000359]:
 	wait-for-message
-	say-line 3 "What?"
-	jump &[00000506]
-[00000310]:
-	if !( random-between 1 to 3 == 1001 ) jump &[00000393]
-	say-line 2 "I'm filled with disgust and an odd sense of foreboding."
+	say-line 3 "\xFF\x0A\xB8\xB9\xFF\x0A\xB0\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What?"
+	jump &[00000682]
+[00000390]:
+	if !( random-between 1 to 3 == 1001 ) jump &[00000505]
+	say-line 2 "\xFF\x0A\x63\xD5\xFF\x0A\xB0\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm filled with disgust and an odd sense of foreboding."
 	wait-for-message
-	say-line 3 "And?"
-	jump &[00000506]
-[00000393]:
-	if !( random-between 1 to 3 == 1000 ) jump &[00000446]
-	say-line 2 "I'm angry as all get out."
+	say-line 3 "\xFF\x0A\x4E\xCF\xFF\x0A\xB1\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00And?"
+	jump &[00000682]
+[00000505]:
+	if !( random-between 1 to 3 == 1000 ) jump &[00000590]
+	say-line 2 "\xFF\x0A\x79\xF6\xFF\x0A\xB1\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm angry as all get out."
 	wait-for-message
-	say-line 3 "And?"
-	jump &[00000506]
-[00000446]:
-	if !( random-between 1 to 3 == 997 ) jump &[00000505]
-	say-line 2 "Are you as confused as I am?"
+	say-line 3 "\xFF\x0A\xA4\x80\xFF\x0A\xB2\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00And?"
+	jump &[00000682]
+[00000590]:
+	if !( random-between 1 to 3 == 997 ) jump &[00000681]
+	say-line 2 "\xFF\x0A\xCF\xA7\xFF\x0A\xB2\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Are you as confused as I am?"
 	wait-for-message
-	say-line 3 "Moreso."
-	jump &[00000506]
-[00000506]:
+	say-line 3 "\xFF\x0A\xBA\x35\xFF\x0A\xB3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Moreso."
+	jump &[00000682]
+[00000682]:
 	wait-for-message
 	start-script 15 ( V.188 )
-[00000521]:
+[00000697]:
 	V.301 = 4
-[00000527]:
-	if !( V.301 <= V.196 ) jump &[00000552]
+[00000703]:
+	if !( V.301 <= V.196 ) jump &[00000728]
 	V.195[V.301] = 0
 	++V.301
-	jump &[00000527]
-[00000552]:
+	jump &[00000703]
+[00000728]:
 	start-script 11
 	V.196 = 3
 	start-script 14
@@ -1192,210 +1531,57 @@ local variable L.0
 		V.169 = random 1
 		break-here
 	} until (V.171)
-	if !( V.171 == 999 ) jump &[00000640]
-	say-line 2 "Well, that's all."
+	if !( V.171 == 999 ) jump &[00000832]
+	say-line 2 "\xFF\x0A\xA5\x65\xFF\x0A\xB3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Well, that's all."
 	wait-for-message
-	jump &[00004279]
-	jump &[00004274]
-[00000640]:
-	if !( V.171 == 998 ) jump &[00000686]
-	say-line 2 "I'm excited!"
+	jump &[00001571]
+	jump &[00001566]
+[00000832]:
+	if !( V.171 == 998 ) jump &[00000910]
+	say-line 2 "\xFF\x0A\x50\xC9\xFF\x0A\xB3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm excited!"
 	wait-for-message
-	say-line 3 "Who isn't?"
-	jump &[00004274]
-[00000686]:
-	if !( V.171 == 1001 ) jump &[00000717]
+	say-line 3 "\xFF\x0A\x3B\x10\xFF\x0A\xB4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Who isn't?"
+	jump &[00001566]
+[00000910]:
+	if !( V.171 == 1001 ) jump &[00000941]
 	start-script 28
 	break-until (!script-running 28)
-	jump &[00004274]
-[00000717]:
-	if !( V.171 == 1000 ) jump &[00000762]
-	say-line 2 "I'm mad as hell."
+	jump &[00001566]
+[00000941]:
+	if !( V.171 == 1000 ) jump &[00001018]
+	say-line 2 "\xFF\x0A\xE6\x3C\xFF\x0A\xB4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm mad as hell."
 	wait-for-message
-	say-line 3 "Neat."
-	jump &[00004274]
-[00000762]:
-	if !( V.171 == 997 ) jump &[00001604]
-	say-line 2 "What should we do now?"
+	say-line 3 "\xFF\x0A\x91\xAC\xFF\x0A\xB4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Neat."
+	jump &[00001566]
+[00001018]:
+	if !( V.171 == 997 ) jump &[00001439]
+	say-line 2 "\xFF\x0A\xFC\xD2\xFF\x0A\xB4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What should we do now?"
 	wait-for-message
-	if !( V.198 == 0 ) jump &[00000933]
-	say-line 3 "I'd like to spend the rest of the day harassing pigeons,\xFF\x03but we should probably meet the Commissioner's contact."
-	jump &[00001601]
-[00000933]:
-	if !( V.198 == 1 ) jump &[00001012]
-	say-line 3 "It'll probably be a big mistake, but let's go to the carnival."
-	jump &[00001601]
-[00001012]:
-	if !( V.198 == 2 ) jump &[00001076]
-	say-line 3 "Let's find the weirdos in charge of this place."
-	jump &[00001601]
-[00001076]:
-	if !( V.198 == 3 ) jump &[00001146]
-	say-line 3 "Let's find Bruno and Trixie and collect a fat reward."
-	jump &[00001601]
-[00001146]:
-	if !( V.198 == 4 ) jump &[00001222]
-	say-line 3 "My rabbity senses tell me that we should go to Bumpusville."
-	jump &[00001601]
-[00001222]:
-	if !( V.198 == 5 ) jump &[00001364]
-	say-line 3 "We must free Bruno and Trixie from Conroy's oppressive shackles, so we can return them to their rightful oppressive shackles."
-	jump &[00001601]
-[00001364]:
-	if !( V.198 == 6 ) jump &[00001440]
-	say-line 3 "I say we go to that bigfoot party and crash it like Skylab."
-	jump &[00001601]
-[00001440]:
-	if !( V.198 == 7 ) jump &[00001502]
-	say-line 3 "Maybe we should work on our bigfoot disguise."
-	jump &[00001601]
-[00001502]:
-	if !( V.198 == 8 ) jump &[00001577]
-	say-line 3 "I thought we were doing one of those scavenger hunt deals."
-	jump &[00001601]
-[00001577]:
-	say-line 3 "How should I know?"
-[00001601]:
-	jump &[00004274]
-[00001604]:
-	if !( V.198 == 1012 ) jump &[00001798]
-	say-line 2 "What do you think of this handheld video game?"
+	if !( V.198 == 0 ) jump &[00001221]
+	say-line 3 "\xFF\x0A\x27\x26\xFF\x0A\xB5\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd like to spend the rest of the day harassing pigeons,\xFF\x03but we should probably meet the Commissioner's contact."
+	jump &[00001436]
+[00001221]:
+	if !( V.198 == 1 ) jump &[00001316]
+	say-line 3 "\xFF\x0A\x52\xD4\xFF\x0A\xB6\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It'll probably be a big mistake, but let's go to the carnival."
+	jump &[00001436]
+[00001316]:
+	if !( V.198 == 2 ) jump &[00001396]
+	say-line 3 "\xFF\x0A\xFD\xD1\xFF\x0A\xB7\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Let's find the weirdos in charge of this place."
+	jump &[00001436]
+[00001396]:
+	say-line 3 "\xFF\x0A\x68\x8C\xFF\x0A\xB8\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00How should I know?"
+[00001436]:
+	jump &[00001566]
+[00001439]:
+	if !( V.198 == 1008 ) jump &[00001565]
+	say-line 2 "\xFF\x0A\x53\xE3\xFF\x0A\xB8\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You're looking hale and hearty, lil' buddy."
 	wait-for-message
-	say-line 3 "I think it's a fiendish device that's secretly controlling our minds."
+	say-line 3 "\xFF\x0A\x7E\x8F\xFF\x0A\xB9\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm a coffee achiever, Sam."
+	jump &[00001566]
+[00001566]:
 	wait-for-message
-	say-line 2 "Probably, but it's a pretty color."
-	wait-for-message
-	say-line 3 "Agreed."
-	jump &[00004274]
-[00001798]:
-	if !( V.198 == 1014 ) jump &[00001959]
-	say-line 2 "What do you think we should do with this flip book?"
-	wait-for-message
-	say-line 3 "I say we go down to the scummy side of town and give a bunch of hoods some paper cuts."
-	jump &[00004274]
-[00001959]:
-	if !( V.198 == 1013 ) jump &[00002086]
-	say-line 2 "Want to do some painting, Max?"
-	wait-for-message
-	say-line 3 "You know us lagomorphs are color-blind, Sam."
-	wait-for-message
-	say-line 2 "That's weird, so am I^"
-	jump &[00004274]
-[00002086]:
-	if !( V.198 == 1018 ) jump &[00002250]
-	say-line 2 "Why is this game called `Carbomb,` anyway?"
-	wait-for-message
-	say-line 3 "To avoid getting the pants sued off us."
-	wait-for-message
-	say-line 2 "But you don't wear any pants."
-	wait-for-message
-	say-line 3 "Don't remind me."
-	jump &[00004274]
-[00002250]:
-	if !( V.198 == 1071 ) jump &[00002414]
-	say-line 2 "What do you think we should do with these paper dolls?"
-	wait-for-message
-	say-line 3 "I say we go down to the scummy side of town and give a bunch of hoods some paper cuts."
-	jump &[00004274]
-[00002414]:
-	if !( V.198 == 1008 ) jump &[00002508]
-	say-line 2 "You're looking hale and hearty, lil' buddy."
-	wait-for-message
-	say-line 3 "I'm a coffee achiever, Sam."
-	jump &[00004274]
-[00002508]:
-	if !( V.198 == 1010 ) jump &[00002686]
-	say-line 2 "I wish I knew what happened to all that cool stuff I'd collected."
-	wait-for-message
-	say-line 3 "Maybe it went to inventory heaven."
-	wait-for-message
-	say-line 2 "That's the stupidest thing I've ever heard, Max."
-	jump &[00004274]
-[00002686]:
-	if !( V.198 == 1076 ) jump &[00002808]
-	say-line 2 "What do you think that swirly totem pole means?"
-	wait-for-message
-	say-line 3 "I think it represents a primordial washing machine."
-	jump &[00004274]
-[00002808]:
-	if !( V.198 == 1077 ) jump &[00002939]
-	say-line 2 "I'm not sure what to make of that toothy totem pole."
-	wait-for-message
-	say-line 3 "I think it's a graven idol for tooth fairy worshippers."
-	jump &[00004274]
-[00002939]:
-	if !( V.198 == 1078 ) jump &[00003079]
-	say-line 2 "That guy in the campfire totem pole could be just about anybody."
-	wait-for-message
-	say-line 3 "Maybe it's Alan Ludden, the late host of `Password!`"
-	jump &[00004274]
-[00003079]:
-	if !( V.198 == 1079 ) jump &[00003246]
-	say-line 2 "That two-headed totem pole is a mystery to me."
-	wait-for-message
-	say-line 3 "I think it's the Kushmans."
-	wait-for-message
-	say-line 2 "Nah.  Neither one of them is bald."
-	wait-for-message
-	say-line 2 "Maybe it's their wives."
-	jump &[00004274]
-[00003246]:
-	if !( V.198 == 1025 ) jump &[00003532]
-	say-line 2 "I wonder where Bruno is."
-	wait-for-message
-	if !( V.198 == 5 ) jump &[00003348]
-	say-line 3 "He's trapped in Conroy's menagerie, dufus."
-	jump &[00003529]
-[00003348]:
-	if !( V.198 == 6 ) jump &[00003449]
-[00003357]:
-	say-line 3 "I'd bet your life's savings that he's at the bigfoot party at the Savage Jungle Inn."
-	jump &[00003529]
-[00003449]:
-	if !( V.198 == 7 ) jump &[00003464]
-	jump &[00003357]
-	jump &[00003529]
-[00003464]:
-	if !( V.198 == 8 ) jump &[00003476]
-	jump &[00003529]
-[00003476]:
-	say-line 3 "I'm still trying to figure out where I am, Sam."
-[00003529]:
-	jump &[00004274]
-[00003532]:
-	if !( V.198 == 1062 ) jump &[00003773]
-	say-line 2 "I wonder where Trixie is."
-	wait-for-message
-	if !( !R.157 ) jump &[00003676]
-	say-line 3 "I shudder to think of the indignities she's suffering at the hands of that brute, Bruno."
-	jump &[00003770]
-[00003676]:
-	say-line 3 "I shudder to think of the gross, kissy-poo noises she's making with her boyfriend, Bruno."
-[00003770]:
-	jump &[00004274]
-[00003773]:
-	if !( V.198 == 1061 ) jump &[00004273]
-	if !( V.198 == 8 ) jump &[00003981]
-	say-line 2 "Do you think it was a good idea to leave Conroy and Lee-Harvey in the freezer like that?"
-	wait-for-message
-	say-line 3 "They'll be fine, as long as we put in a fresh box of baking soda every now and then."
-	jump &[00004270]
-[00003981]:
-	if !( V.198 == 5 ) jump &[00004144]
-	say-line 2 "That Conroy Bumpus is one sick puppy."
-	wait-for-message
-	say-line 3 "And yet, there's something in his music that speaks to the brutally sadistic inner child in all of us."
-	jump &[00004270]
-[00004144]:
-	say-line 2 "I'm concerned about this Conroy Bumpus character."
-	wait-for-message
-	say-line 3 "Don't worry, Sam.  We'll mop up the floor with his cheap toupee."
-[00004270]:
-	jump &[00004274]
-[00004274]:
-	wait-for-message
-	jump &[00000521]
-[00004279]:
+	jump &[00000697]
+[00001571]:
 	start-script 10
 	R.2 = 0
 	end-script
@@ -1407,196 +1593,97 @@ local variable L.0
 local variable L.1
 
 	L.0 = random-between V.198 to 3 * (V.198 + 1)
-	if !( L.0 == 0 ) jump &[00000140]
-	say-line 2 "I've got something in my eye."
+	if !( L.0 == 0 ) jump &[00000172]
+[00000038]:
+	say-line 2 "\xFF\x0A\x69\x1D\xFF\x0A\xBA\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I've got something in my eye."
 	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00000140]:
-	if !( L.0 == 1 ) jump &[00000238]
-	say-line 2 "I'm thinking of a number between one and ten, and I don't know why."
+	say-line 3 "\xFF\x0A\x14\x9D\xFF\x0A\xBA\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Try digging it out with a fork.  That always works for me."
+	jump &[00001766]
+[00000172]:
+	if !( L.0 == 1 ) jump &[00000302]
+	say-line 2 "\xFF\x0A\x7F\x70\xFF\x0A\xBB\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'm thinking of a number between one and ten, and I don't know why."
 	wait-for-message
-	say-line 3 "Me too."
-	jump &[00003354]
-[00000238]:
-	if !( L.0 == 2 ) jump &[00000433]
-	say-line 2 "What's the good word, lil buddy?"
+	say-line 3 "\xFF\x0A\xAA\xA7\xFF\x0A\xBC\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Me too."
+	jump &[00001766]
+[00000302]:
+	if !( L.0 == 2 ) jump &[00000593]
+	say-line 2 "\xFF\x0A\xD5\xD8\xFF\x0A\xBC\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What's the good word, lil buddy?"
 	wait-for-message
 	L.1 = random 4
-	if !( L.1 == 0 ) jump &[00000324]
-	say-line 3 "`Creosote`."
-	jump &[00000430]
-[00000324]:
-	if !( L.1 == 1 ) jump &[00000349]
-	say-line 3 "`Lumbar`"
-	jump &[00000430]
-[00000349]:
-	if !( L.1 == 2 ) jump &[00000379]
-	say-line 3 "`Triumvirate`"
-	jump &[00000430]
-[00000379]:
-	if !( L.1 == 3 ) jump &[00000403]
-	say-line 3 "`Gleep`"
-	jump &[00000430]
-[00000403]:
-	if !( L.1 == 4 ) jump &[00000429]
-	say-line 3 "`Synergy`"
-	jump &[00000430]
-[00000430]:
-	jump &[00003354]
-[00000433]:
-	if !( L.1 == 3 ) jump &[00000536]
-	say-line 2 "My mind is a swirling miasma of scintillating thoughts and turgid ideas."
+	if !( L.1 == 0 ) jump &[00000420]
+	say-line 3 "\xFF\x0A\x40\x4A\xFF\x0A\xBD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Creosote`."
+	jump &[00000590]
+[00000420]:
+	if !( L.1 == 1 ) jump &[00000461]
+	say-line 3 "\xFF\x0A\xEB\x7D\xFF\x0A\xBD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Lumbar`"
+	jump &[00000590]
+[00000461]:
+	if !( L.1 == 2 ) jump &[00000507]
+	say-line 3 "\xFF\x0A\x16\xB4\xFF\x0A\xBD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Triumvirate`"
+	jump &[00000590]
+[00000507]:
+	if !( L.1 == 3 ) jump &[00000547]
+	say-line 3 "\xFF\x0A\x41\xF2\xFF\x0A\xBD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Gleep`"
+	jump &[00000590]
+[00000547]:
+	if !( L.1 == 4 ) jump &[00000589]
+	say-line 3 "\xFF\x0A\x2C\x0D\xFF\x0A\xBE\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Synergy`"
+	jump &[00000590]
+[00000590]:
+	jump &[00001766]
+[00000593]:
+	if !( L.1 == 3 ) jump &[00000728]
+	say-line 2 "\xFF\x0A\x17\x3E\xFF\x0A\xBE\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00My mind is a swirling miasma of scintillating thoughts and turgid ideas."
 	wait-for-message
-	say-line 3 "Me too."
-	jump &[00003354]
-[00000536]:
-	if !( L.1 == 4 ) jump &[00000639]
-	say-line 2 "This mission's giving me the heebie-jeebies."
+	say-line 3 "\xFF\x0A\x02\xAA\xFF\x0A\xBF\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Me too."
+	jump &[00001766]
+[00000728]:
+	if !( L.1 == 4 ) jump &[00000863]
+	say-line 2 "\xFF\x0A\x6D\xDD\xFF\x0A\xBF\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This mission's giving me the heebie-jeebies."
 	wait-for-message
-	say-line 3 "You can get a lotion for that, Sam."
-	jump &[00003354]
-[00000639]:
-	if !( L.1 == 5 ) jump &[00000739]
-	say-line 2 "I didn't always want to be a cop, you know."
+	say-line 3 "\xFF\x0A\x58\x93\xFF\x0A\xC0\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You can get a lotion for that, Sam."
+	jump &[00001766]
+[00000863]:
+	if !( L.1 == 5 ) jump &[00000995]
+	say-line 2 "\xFF\x0A\xC3\x13\xFF\x0A\xC1\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I didn't always want to be a cop, you know."
 	wait-for-message
-	say-line 3 "Me neither; I wanted to be a Hun."
-	jump &[00003354]
-[00000739]:
-	if !( L.1 == 6 ) jump &[00000837]
-	say-line 2 "The weed of crime bears bitter fruit."
+	say-line 3 "\xFF\x0A\xAE\xBC\xFF\x0A\xC1\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Me neither; I wanted to be a Hun."
+	jump &[00001766]
+[00000995]:
+	if !( L.1 == 6 ) jump &[00001125]
+	say-line 2 "\xFF\x0A\x19\x54\xFF\x0A\xC2\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00The weed of crime bears bitter fruit."
 	wait-for-message
-	say-line 3 "But it makes a pretty good milkshake."
-	jump &[00003354]
-[00000837]:
-	if !( L.1 == 7 ) jump &[00000927]
-	say-line 2 "I miss my gun."
+	say-line 3 "\xFF\x0A\xC4\x0F\xFF\x0A\xC3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00But it makes a pretty good milkshake."
+	jump &[00001766]
+[00001125]:
+	if !( L.1 == 7 ) jump &[00001247]
+	say-line 2 "\xFF\x0A\xAF\x8D\xFF\x0A\xC3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I miss my gun."
 	wait-for-message
-	say-line 3 "Me too.  I wish we hadn't left them at the cleaners."
-	jump &[00003354]
-[00000927]:
-	if !( L.1 == 8 ) jump &[00001046]
-	say-line 2 "I think I've got something in my eye."
+	say-line 3 "\xFF\x0A\x9A\xE9\xFF\x0A\xC3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Me too.  I wish we hadn't left them at the cleaners."
+	jump &[00001766]
+[00001247]:
+	if !( L.1 == 8 ) jump &[00001398]
+	say-line 2 "\xFF\x0A\x05\xCD\xFF\x0A\xC4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I think I've got something in my eye."
 	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001046]:
-	if !( L.1 == 9 ) jump &[00001175]
-	say-line 3 "How come I don't get any inventory?"
+	say-line 3 "\xFF\x0A\x30\x5A\xFF\x0A\xC5\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Try digging it out with a fork.  That always works for me."
+	jump &[00001766]
+[00001398]:
+	if !( L.1 == 9 ) jump &[00001575]
+	say-line 3 "\xFF\x0A\x9B\x2D\xFF\x0A\xC6\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00How come I don't get any inventory?"
 	wait-for-message
-	say-line 2 "Where would you keep it?"
+	say-line 2 "\xFF\x0A\x06\xB5\xFF\x0A\xC6\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Where would you keep it?"
 	wait-for-message
-	say-line 3 "That's none of your damn business, Sam."
-	jump &[00003354]
-[00001175]:
-	if !( L.1 == 10 ) jump &[00001330]
-	say-line 2 "Computer games are your best entertainment dollar value!"
+	say-line 3 "\xFF\x0A\x31\x05\xFF\x0A\xC7\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's none of your damn business, Sam."
+	jump &[00001766]
+[00001575]:
+	if !( L.1 == 10 ) jump &[00001762]
+	say-line 2 "\xFF\x0A\xDC\x9D\xFF\x0A\xC7\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Computer games are your best entertainment dollar value!"
 	wait-for-message
-	say-line 3 "Go buy some computer games right now.  Especially the funny LucasArts ones."
-	jump &[00003354]
-[00001330]:
-	if !( L.1 == 11 ) jump &[00001449]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001449]:
-	if !( L.1 == 12 ) jump &[00001568]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001568]:
-	if !( L.1 == 13 ) jump &[00001687]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001687]:
-	if !( L.1 == 14 ) jump &[00001806]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001806]:
-	if !( L.1 == 15 ) jump &[00001925]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00001925]:
-	if !( L.1 == 16 ) jump &[00002044]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002044]:
-	if !( L.1 == 17 ) jump &[00002163]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002163]:
-	if !( L.1 == 18 ) jump &[00002282]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002282]:
-	if !( L.1 == 19 ) jump &[00002401]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002401]:
-	if !( L.1 == 20 ) jump &[00002520]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002520]:
-	if !( L.1 == 21 ) jump &[00002639]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002639]:
-	if !( L.1 == 22 ) jump &[00002758]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002758]:
-	if !( L.1 == 23 ) jump &[00002877]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002877]:
-	if !( L.1 == 24 ) jump &[00002996]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00002996]:
-	if !( L.1 == 25 ) jump &[00003115]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00003115]:
-	if !( L.1 == 26 ) jump &[00003234]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00003234]:
-	if !( L.1 == 27 ) jump &[00003353]
-	say-line 2 "I think I've got something in my eye."
-	wait-for-message
-	say-line 3 "Try digging it out with a fork.  That always works for me."
-	jump &[00003354]
-[00003354]:
+	say-line 3 "\xFF\x0A\xC7\x87\xFF\x0A\xC8\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Go buy some computer games right now.  Especially the funny LucasArts ones."
+	jump &[00001766]
+[00001762]:
+	jump &[00000038]
+[00001766]:
 	end-script
 }
 
@@ -1640,16 +1727,21 @@ local variable L.2
 	if !( (!V.133) and (!V.136) and (!V.135) and (!V.134) ) jump &[00000112]
 	jump &[00000008]
 [00000112]:
-	if !( (random 3) == 0 ) jump &[00000131]
-[00000125]:
-	jump &[00000152]
-	jump &[00000171]
+	if !( (random 3) == 0 ) jump &[00000153]
+	if !( V.134 ) jump &[00000147]
 [00000131]:
-	if !( (!V.133) and (!V.136) and (!V.135) ) jump &[00000152]
-	jump &[00000125]
-[00000152]:
+	start-script 24 ( 67, 1 )
+	jump &[00000150]
+[00000147]:
+	jump &[00000174]
+[00000150]:
+	jump &[00000193]
+[00000153]:
+	if !( (!V.133) and (!V.136) and (!V.135) ) jump &[00000174]
+	jump &[00000131]
+[00000174]:
 	start-script 24 ( 0, 1, 42, 43 )
-[00000171]:
+[00000193]:
 	jump &[00000008]
 	end-script
 }
@@ -1684,7 +1776,7 @@ local variable L.1
 	V.177 = 889
 	start-script 52
 [00000123]:
-	cursor V.177 image 92
+	cursor V.177 image 93
 	end-script
 }
 
@@ -1692,7 +1784,7 @@ script 33 { ; SCRP LECF_0001\LFLF_0001\SCRP_0033
 	V.71 = 0
 	V.173 = V.177
 	V.177 = 874
-	cursor V.177 image 92
+	cursor V.177 image 93
 	end-script
 }
 
@@ -1700,7 +1792,7 @@ script 34 { ; SCRP LECF_0001\LFLF_0001\SCRP_0034
 	V.177 = V.173
 	V.70 = 1
 	if !( V.177 >= 995 ) jump &[00000066]
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
@@ -1708,8 +1800,11 @@ script 34 { ; SCRP LECF_0001\LFLF_0001\SCRP_0034
 	cursor transparent 6
 	jump &[00000074]
 [00000066]:
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000074]:
+	if ( V.32 == 60 ) {
+		start-script 59
+	}
 	end-script
 }
 
@@ -2380,7 +2475,7 @@ script 42 { ; SCRP LECF_0001\LFLF_0001\SCRP_0042
 	undim V.200
 	undim V.199
 	undim V.294
-	start-script 24 ( 1, 2 )
+	start-script 24 ( 67, 2 )
 	end-script
 }
 
@@ -2393,40 +2488,39 @@ local variable L.2
 	L.0 = V.20
 	L.1 = V.21
 	cursor off
-	userput off
 	kludge 117 []
-[00000032]:
-	if !( random-between 0 to 3 == 0 ) jump &[00000073]
-	if !( V.133 ) jump &[00000067]
+[00000030]:
+	if !( random-between 0 to 3 == 0 ) jump &[00000071]
+	if !( V.133 ) jump &[00000065]
 	start-script bak 36
-	jump &[00000070]
-[00000067]:
-	jump &[00000032]
-[00000070]:
-	jump &[00000164]
-[00000073]:
-	if !( random-between 0 to 3 == 1 ) jump &[00000107]
-	if !( V.135 ) jump &[00000101]
+	jump &[00000068]
+[00000065]:
+	jump &[00000030]
+[00000068]:
+	jump &[00000162]
+[00000071]:
+	if !( random-between 0 to 3 == 1 ) jump &[00000105]
+	if !( V.135 ) jump &[00000099]
 	start-script bak 39
-	jump &[00000104]
-[00000101]:
-	jump &[00000032]
-[00000104]:
-	jump &[00000164]
-[00000107]:
-	if !( random-between 0 to 3 == 2 ) jump &[00000141]
-	if !( V.136 ) jump &[00000135]
+	jump &[00000102]
+[00000099]:
+	jump &[00000030]
+[00000102]:
+	jump &[00000162]
+[00000105]:
+	if !( random-between 0 to 3 == 2 ) jump &[00000139]
+	if !( V.136 ) jump &[00000133]
 	start-script bak 41
-	jump &[00000138]
-[00000135]:
-	jump &[00000032]
-[00000138]:
-	jump &[00000164]
-[00000141]:
-	if !( random-between 0 to 3 == 3 ) jump &[00000163]
+	jump &[00000136]
+[00000133]:
+	jump &[00000030]
+[00000136]:
+	jump &[00000162]
+[00000139]:
+	if !( random-between 0 to 3 == 3 ) jump &[00000161]
 	start-script bak 40
-	jump &[00000164]
-[00000164]:
+	jump &[00000162]
+[00000162]:
 	do {
 		break-here
 		L.2 = random 1
@@ -2442,7 +2536,7 @@ local variable L.2
 			undim V.292
 			undim V.293
 			undim V.299
-			start-script 24 ( 1, 2 )
+			start-script 24 ( 67, 2 )
 		}
 	}
 	end-script
@@ -2455,57 +2549,32 @@ local variable L.1
 
 	do-animation 2 face-towards 3
 	break-here 2 times
-	if !( L.0 == 4 ) jump &[00000048]
-	say-line 2 "It's Max."
-	jump &[00000136]
-[00000048]:
-	if !( L.0 == 3 ) jump &[00000079]
+	if !( L.0 == 4 ) jump &[00000064]
+	say-line 2 "\xFF\x0A\x72\xF4\xFF\x0A\xC9\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's Max."
+	jump &[00000168]
+[00000064]:
+	if !( L.0 == 3 ) jump &[00000095]
 	if ( L.1 ) {
 		do-sentence 3 L.1 [130] 35
 	}
-	jump &[00000136]
-[00000079]:
-	if !( L.0 == 7 ) jump &[00000091]
-	jump &[00000136]
-[00000091]:
-	say-line 2 "I don't think I want to do that to Max."
-[00000136]:
+	jump &[00000168]
+[00000095]:
+	if !( L.0 == 7 ) jump &[00000107]
+	jump &[00000168]
+[00000107]:
+	say-line 2 "\xFF\x0A\xDD\x46\xFF\x0A\xCA\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't think I want to do that to Max."
+[00000168]:
 	end-script
 }
 
 script 45 { ; SCRP LECF_0001\LFLF_0001\SCRP_0045
 local variable L.0
-local variable L.1
 
 	V.229 = L.0
-	cursor off
-	userput off
-	if !( V.177 >= 995 ) jump &[00000059]
-	cursor V.177 image 93
-	cursor transparent 176
-	cursor transparent 178
-	cursor transparent 0
-	cursor transparent 6
-	jump &[00000067]
-[00000059]:
-	cursor V.177 image 92
-[00000067]:
-	if ( !L.1 ) {
-		cursor on
-		userput on
-	}
-	class-of L.0 is 147
 	end-script
 }
 
 script 46 { ; SCRP LECF_0001\LFLF_0001\SCRP_0046
-	cut-scene (2)
-	break-here 4 times
-	break-here 4 times
-	class-of V.229 is 147
-	fades 134
-	break-here 18 times
-	end-cut-scene
 	end-script
 }
 
@@ -2556,8 +2625,8 @@ local variable L.5
 	V.167 = V.20
 	V.168 = V.21
 	R.1 = 1
-	if !( L.0 == 2 ) jump &[00001550]
-	if !( L.2 == 1 ) jump &[00001112]
+	if !( L.0 == 2 ) jump &[00001536]
+	if !( L.2 == 1 ) jump &[00001098]
 	stop-sentence
 	L.5 = find-actor V.20,V.21
 	if !( L.5 ) jump &[00000752]
@@ -2569,7 +2638,7 @@ local variable L.5
 	V.180 = 0
 	V.181 = 0
 	V.177 = 889
-	cursor V.177 image 92
+	cursor V.177 image 93
 	V.180 = 0
 	stop-script 0
 	jump &[00000243]
@@ -2614,7 +2683,7 @@ local variable L.5
 	V.181 = 35
 	V.180 = 35
 	V.177 = 1008
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
@@ -2682,7 +2751,7 @@ local variable L.5
 [00000735]:
 	do-sentence 3 L.5 [130] V.181
 [00000749]:
-	jump &[00001109]
+	jump &[00001095]
 [00000752]:
 	L.5 = find-object V.20,V.21
 	if !( L.5 ) jump &[00001069]
@@ -2734,175 +2803,173 @@ local variable L.5
 [00001052]:
 	do-sentence 3 L.5 [130] V.181
 [00001066]:
-	jump &[00001109]
+	jump &[00001095]
 [00001069]:
 	V.220 = V.20
 	s_debugMode = V.21
-	V.177 = 890
-	cursor V.177 image 92
 	walk V.1 to V.20,V.21
 	stop-script 0
-[00001109]:
-	jump &[00001550]
-[00001112]:
-	if !( V.177 == 874 ) jump &[00001130]
+[00001095]:
+	jump &[00001536]
+[00001098]:
+	if !( V.177 == 874 ) jump &[00001116]
 	++V.177
-	jump &[00001528]
-[00001130]:
-	if !( V.177 == 890 ) jump &[00001148]
+	jump &[00001514]
+[00001116]:
+	if !( V.177 == 890 ) jump &[00001134]
 	V.177 = 875
-	jump &[00001528]
-[00001148]:
-	if !( V.177 == 875 ) jump &[00001166]
+	jump &[00001514]
+[00001134]:
+	if !( V.177 == 875 ) jump &[00001152]
 	V.177 = 884
-	jump &[00001528]
-[00001166]:
-	if !( V.177 == 876 ) jump &[00001184]
+	jump &[00001514]
+[00001152]:
+	if !( V.177 == 876 ) jump &[00001170]
 	V.177 = 885
-	jump &[00001528]
-[00001184]:
-	if !( V.177 == 877 ) jump &[00001202]
+	jump &[00001514]
+[00001170]:
+	if !( V.177 == 877 ) jump &[00001188]
 	V.177 = 886
-	jump &[00001528]
-[00001202]:
-	if !( V.177 == 878 ) jump &[00001330]
-	if !( V.181 ) jump &[00001321]
-	if !( (owner-of V.181) == V.1 ) jump &[00001306]
+	jump &[00001514]
+[00001188]:
+	if !( V.177 == 878 ) jump &[00001316]
+	if !( V.181 ) jump &[00001307]
+	if !( (owner-of V.181) == V.1 ) jump &[00001292]
 	start-object [2] V.181 verb 91
-	if !( V.177 == V.182 ) jump &[00001260]
+	if !( V.177 == V.182 ) jump &[00001246]
 	V.177 = 890
-	jump &[00001303]
-[00001260]:
+	jump &[00001289]
+[00001246]:
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
 	cursor transparent 6
 	stop-script 0
-[00001303]:
-	jump &[00001318]
-[00001306]:
+[00001289]:
+	jump &[00001304]
+[00001292]:
 	V.181 = 0
 	V.177 = 890
-[00001318]:
-	jump &[00001327]
-[00001321]:
+[00001304]:
+	jump &[00001313]
+[00001307]:
 	V.177 = 890
-[00001327]:
-	jump &[00001528]
-[00001330]:
-	if !( V.177 == 889 ) jump &[00001348]
+[00001313]:
+	jump &[00001514]
+[00001316]:
+	if !( V.177 == 889 ) jump &[00001334]
 	V.177 = 883
-	jump &[00001528]
-[00001348]:
-	if !( V.177 == 883 ) jump &[00001363]
+	jump &[00001514]
+[00001334]:
+	if !( V.177 == 883 ) jump &[00001349]
 	++V.177
-	jump &[00001528]
-[00001363]:
-	if !( V.177 == 884 ) jump &[00001378]
+	jump &[00001514]
+[00001349]:
+	if !( V.177 == 884 ) jump &[00001364]
 	++V.177
-	jump &[00001528]
-[00001378]:
-	if !( V.177 == 885 ) jump &[00001393]
+	jump &[00001514]
+[00001364]:
+	if !( V.177 == 885 ) jump &[00001379]
 	++V.177
-	jump &[00001528]
-[00001393]:
-	if !( V.177 == 886 ) jump &[00001521]
-[00001402]:
-	if !( V.181 ) jump &[00001512]
-	if !( (owner-of V.181) == V.1 ) jump &[00001497]
+	jump &[00001514]
+[00001379]:
+	if !( V.177 == 886 ) jump &[00001507]
+[00001388]:
+	if !( V.181 ) jump &[00001498]
+	if !( (owner-of V.181) == V.1 ) jump &[00001483]
 	start-object [2] V.181 verb 91
-	if !( V.177 == V.182 ) jump &[00001451]
+	if !( V.177 == V.182 ) jump &[00001437]
 	V.177 = 889
-	jump &[00001494]
-[00001451]:
+	jump &[00001480]
+[00001437]:
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
 	cursor transparent 6
 	stop-script 0
-[00001494]:
-	jump &[00001509]
-[00001497]:
+[00001480]:
+	jump &[00001495]
+[00001483]:
 	V.181 = 0
 	V.177 = 889
-[00001509]:
-	jump &[00001518]
-[00001512]:
+[00001495]:
+	jump &[00001504]
+[00001498]:
 	V.177 = 889
-[00001518]:
-	jump &[00001528]
-[00001521]:
+[00001504]:
+	jump &[00001514]
+[00001507]:
 	V.177 = 889
-[00001528]:
-	cursor V.177 image 92
+[00001514]:
+	cursor V.177 image 93
 	start-script V.175
 	stop-script 0
-[00001550]:
-	if !( L.0 == 4 ) jump &[00001855]
-	if !( L.1 == 105 ) jump &[00001578]
+[00001536]:
+	if !( L.0 == 4 ) jump &[00001841]
+	if !( L.1 == 105 ) jump &[00001564]
 	jump &[00000154]
-	jump &[00001855]
-[00001578]:
-	if !( L.1 == 101 ) jump &[00001617]
+	jump &[00001841]
+[00001564]:
+	if !( L.1 == 101 ) jump &[00001603]
 	if ( V.181 and V.177 >= 995 ) {
 		do-sentence 4 V.181 [0] 0
 	}
-	jump &[00001855]
-[00001617]:
-	if !( L.1 == 117 ) jump &[00001638]
+	jump &[00001841]
+[00001603]:
+	if !( L.1 == 117 ) jump &[00001624]
 	V.177 = 886
-	jump &[00001528]
-	jump &[00001855]
-[00001638]:
-	if !( L.1 == 116 ) jump &[00001659]
+	jump &[00001514]
+	jump &[00001841]
+[00001624]:
+	if !( L.1 == 116 ) jump &[00001645]
 	V.177 = 885
-	jump &[00001528]
-	jump &[00001855]
-[00001659]:
-	if !( L.1 == 119 ) jump &[00001680]
+	jump &[00001514]
+	jump &[00001841]
+[00001645]:
+	if !( L.1 == 119 ) jump &[00001666]
 	V.177 = 889
-	jump &[00001528]
-	jump &[00001855]
-[00001680]:
-	if !( L.1 == 112 ) jump &[00001701]
+	jump &[00001514]
+	jump &[00001841]
+[00001666]:
+	if !( L.1 == 112 ) jump &[00001687]
 	V.177 = 884
-	jump &[00001528]
-	jump &[00001855]
-[00001701]:
-	if !( L.1 == 108 ) jump &[00001722]
+	jump &[00001514]
+	jump &[00001841]
+[00001687]:
+	if !( L.1 == 108 ) jump &[00001708]
 	V.177 = 883
-	jump &[00001528]
-	jump &[00001855]
-[00001722]:
-	if !( L.1 == 111 ) jump &[00001737]
-	jump &[00001402]
-	jump &[00001855]
-[00001737]:
-	if !( L.1 == 97 ) jump &[00001762]
+	jump &[00001514]
+	jump &[00001841]
+[00001708]:
+	if !( L.1 == 111 ) jump &[00001723]
+	jump &[00001388]
+	jump &[00001841]
+[00001723]:
+	if !( L.1 == 97 ) jump &[00001748]
 	start-script 49 ( -1 )
-	jump &[00001855]
-[00001762]:
-	if !( L.1 == 100 ) jump &[00001787]
+	jump &[00001841]
+[00001748]:
+	if !( L.1 == 100 ) jump &[00001773]
 	start-script 49 ( 1 )
-	jump &[00001855]
-[00001787]:
-	if !( L.1 == 115 ) jump &[00001812]
+	jump &[00001841]
+[00001773]:
+	if !( L.1 == 115 ) jump &[00001798]
 	start-script 49 ( 2 )
-	jump &[00001855]
-[00001812]:
-	if !( L.1 == 120 ) jump &[00001837]
+	jump &[00001841]
+[00001798]:
+	if !( L.1 == 120 ) jump &[00001823]
 	start-script 49 ( -2 )
-	jump &[00001855]
-[00001837]:
+	jump &[00001841]
+[00001823]:
 	start-script 64 ( L.1 )
 	stop-script 0
-[00001855]:
+[00001841]:
 	end-script
 }
 
@@ -2948,7 +3015,7 @@ local variable L.3
 	}
 	if ( L.2 > 1 ) {
 		print-debug \
-			"\xFF\x0A\x89\x9F\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xD3\xE9\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		stop-script 0
 	}
@@ -2974,8 +3041,8 @@ local variable L.3
 	V.180 = L.3
 	start-object [2] L.3 verb 91
 	V.177 = V.182
-	load-object V.182 in-room 93
-	cursor V.177 image 93
+	load-object V.182 in-room 94
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
@@ -3180,13 +3247,13 @@ local variable L.4
 	if !( !L.4 ) jump &[00000159]
 	if ( valid-verb L.2 4 ) {
 		V.177 = 875
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 	jump &[00000182]
 [00000159]:
 	if ( V.184[L.2] ) {
 		V.177 = 875
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 [00000182]:
 	jump &[00000881]
@@ -3195,21 +3262,21 @@ local variable L.4
 	if !( !L.4 ) jump &[00000245]
 	if !( valid-verb L.2 4 ) jump &[00000228]
 	V.177 = 875
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000242]
 [00000228]:
 	V.177 = 883
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000242]:
 	jump &[00000285]
 [00000245]:
 	if !( V.184[L.2] ) jump &[00000271]
 	V.177 = 875
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000285]
 [00000271]:
 	V.177 = 883
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000285]:
 	jump &[00000881]
 [00000288]:
@@ -3217,13 +3284,13 @@ local variable L.4
 	if !( !L.4 ) jump &[00000331]
 	if ( valid-verb L.2 3 ) {
 		V.177 = 878
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 	jump &[00000354]
 [00000331]:
 	if ( V.184[L.2] ) {
 		V.177 = 878
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 [00000354]:
 	jump &[00000881]
@@ -3232,21 +3299,21 @@ local variable L.4
 	if !( !L.4 ) jump &[00000417]
 	if !( valid-verb L.2 3 ) jump &[00000400]
 	V.177 = 878
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000414]
 [00000400]:
 	V.177 = 886
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000414]:
 	jump &[00000457]
 [00000417]:
 	if !( V.184[L.2] ) jump &[00000443]
 	V.177 = 878
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000457]
 [00000443]:
 	V.177 = 886
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000457]:
 	jump &[00000881]
 [00000460]:
@@ -3254,13 +3321,13 @@ local variable L.4
 	if !( !L.4 ) jump &[00000503]
 	if ( valid-verb L.2 6 ) {
 		V.177 = 877
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 	jump &[00000526]
 [00000503]:
 	if ( V.184[L.2] ) {
 		V.177 = 877
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 [00000526]:
 	jump &[00000881]
@@ -3269,21 +3336,21 @@ local variable L.4
 	if !( !L.4 ) jump &[00000589]
 	if !( valid-verb L.2 6 ) jump &[00000572]
 	V.177 = 877
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000586]
 [00000572]:
 	V.177 = 885
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000586]:
 	jump &[00000629]
 [00000589]:
 	if !( V.184[L.2] ) jump &[00000615]
 	V.177 = 877
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000629]
 [00000615]:
 	V.177 = 885
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000629]:
 	jump &[00000881]
 [00000632]:
@@ -3291,13 +3358,13 @@ local variable L.4
 	if !( !L.4 ) jump &[00000675]
 	if ( valid-verb L.2 5 ) {
 		V.177 = 876
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 	jump &[00000698]
 [00000675]:
 	if ( V.184[L.2] ) {
 		V.177 = 876
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 [00000698]:
 	jump &[00000881]
@@ -3306,34 +3373,34 @@ local variable L.4
 	if !( !L.4 ) jump &[00000761]
 	if !( valid-verb L.2 5 ) jump &[00000744]
 	V.177 = 876
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000758]
 [00000744]:
 	V.177 = 884
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000758]:
 	jump &[00000801]
 [00000761]:
 	if !( V.184[L.2] ) jump &[00000787]
 	V.177 = 876
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000801]
 [00000787]:
 	V.177 = 884
-	cursor V.177 image 92
+	cursor V.177 image 93
 [00000801]:
 	jump &[00000881]
 [00000804]:
 	if !( V.177 == 889 ) jump &[00000830]
 	V.177 = 890
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000881]
 [00000830]:
 	if !( V.177 == 874 ) jump &[00000842]
 	jump &[00000881]
 [00000842]:
 	if ( V.177 > 995 ) {
-		cursor V.177 image 93
+		cursor V.177 image 94
 		cursor transparent 176
 		cursor transparent 178
 		cursor transparent 0
@@ -3348,27 +3415,27 @@ local variable L.4
 [00000920]:
 	if !( V.177 == 875 ) jump &[00000949]
 	V.177 = 883
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00001101]
 [00000949]:
 	if !( V.177 == 878 ) jump &[00000975]
 	V.177 = 886
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00001101]
 [00000975]:
 	if !( V.177 == 877 ) jump &[00001001]
 	V.177 = 885
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00001101]
 [00001001]:
 	if !( V.177 == 876 ) jump &[00001027]
 	V.177 = 884
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00001101]
 [00001027]:
 	if !( V.177 == 890 ) jump &[00001053]
 	V.177 = 889
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00001101]
 [00001053]:
 	if !( V.177 == 874 ) jump &[00001065]
@@ -3521,7 +3588,7 @@ local variable L.0
 	V.180 = L.0
 	V.181 = L.0
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
@@ -3549,7 +3616,7 @@ local variable L.1
 	V.180 = L.0
 	V.181 = L.0
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
@@ -3641,7 +3708,7 @@ local variable L.7
 		center \
 		at 160,8 \
 		end
-	load-object 995 in-room 93
+	load-object 995 in-room 94
 	V.123 = 1
 	if ( !L.0 ) {
 		draw-object 995 at L.6 / 8 + 0,0
@@ -3653,7 +3720,7 @@ local variable L.7
 	L.3 = 1
 [00000146]:
 	if !( L.3 <= 5 ) jump &[00000243]
-	load-object V.178[L.3] in-room 92
+	load-object V.178[L.3] in-room 93
 	draw-object V.178[L.3] at L.6 / 8 + L.1,L.2
 	class-of V.178[L.3] is 32
 	L.1 = L.1 + 5
@@ -3675,7 +3742,7 @@ local variable L.7
 	++L.7
 	L.5 = V.178[L.3]
 	start-object [2] L.5 verb 91
-	load-object V.182 in-room 93
+	load-object V.182 in-room 94
 	class-of V.182 is 32
 	draw-object V.182 at L.6 / 8 + L.1,L.2
 	if !( L.7 >= V.179 ) jump &[00000367]
@@ -3722,29 +3789,30 @@ local variable L.9
 	L.4 = ((V.20 - L.7) / (5 * 8)) * 5
 	L.5 = (V.21 / (3 * 8)) * 3
 	L.6 = (L.5 / 3 - 1) * (32 / 5) + L.4 / 5
-	if !( L.6 > 0 and L.6 < 6 ) jump &[00000279]
-	if !( V.180 < 995 ) jump &[00000279]
+	if !( L.6 > 0 and L.6 < 6 ) jump &[00000283]
+	if !( V.180 < 995 ) jump &[00000283]
 	if !( V.178[L.6] == 879 ) jump &[00000146]
 	V.177 = 875
-	jump &[00000229]
+	jump &[00000233]
 [00000146]:
 	if !( V.178[L.6] == 880 ) jump &[00000164]
 	V.177 = 876
-	jump &[00000229]
+	jump &[00000233]
 [00000164]:
 	if !( V.178[L.6] == 881 ) jump &[00000182]
 	V.177 = 877
-	jump &[00000229]
+	jump &[00000233]
 [00000182]:
 	if !( V.178[L.6] == 882 ) jump &[00000200]
 	V.177 = 878
-	jump &[00000229]
+	jump &[00000233]
 [00000200]:
-	if !( V.178[L.6] == 888 ) jump &[00000228]
+	if !( V.178[L.6] == 888 ) jump &[00000232]
+	stop-script 61
 	start-script 62 ( 0, 0 )
-	jump &[00000229]
-[00000229]:
-	cursor V.177 image 92
+	jump &[00000233]
+[00000233]:
+	cursor V.177 image 93
 	if ( V.181 ) {
 		start-script 52 ( V.181 )
 		V.181 = 0
@@ -3752,105 +3820,105 @@ local variable L.9
 		start-script 59
 	}
 	stop-script 0
-[00000279]:
-	if !( L.0 == 2 ) jump &[00001441]
-	if !( L.2 == 2 ) jump &[00000514]
+[00000283]:
+	if !( L.0 == 2 ) jump &[00001445]
+	if !( L.2 == 2 ) jump &[00000518]
 	L.8 = 1
-	if !( V.177 == 874 ) jump &[00000323]
+	if !( V.177 == 874 ) jump &[00000327]
 	++V.177
-	jump &[00000503]
-[00000323]:
-	if !( V.177 == 875 ) jump &[00000338]
+	jump &[00000507]
+[00000327]:
+	if !( V.177 == 875 ) jump &[00000342]
 	++V.177
-	jump &[00000503]
-[00000338]:
-	if !( V.177 == 876 ) jump &[00000353]
+	jump &[00000507]
+[00000342]:
+	if !( V.177 == 876 ) jump &[00000357]
 	++V.177
-	jump &[00000503]
-[00000353]:
-	if !( V.177 == 877 ) jump &[00000368]
+	jump &[00000507]
+[00000357]:
+	if !( V.177 == 877 ) jump &[00000372]
 	++V.177
-	jump &[00000503]
-[00000368]:
-	if !( V.177 == 878 ) jump &[00000496]
-	if !( V.181 ) jump &[00000487]
-	if !( (owner-of V.181) == V.1 ) jump &[00000472]
+	jump &[00000507]
+[00000372]:
+	if !( V.177 == 878 ) jump &[00000500]
+	if !( V.181 ) jump &[00000491]
+	if !( (owner-of V.181) == V.1 ) jump &[00000476]
 	start-object [2] V.181 verb 91
-	if !( V.177 == V.182 ) jump &[00000426]
+	if !( V.177 == V.182 ) jump &[00000430]
 	V.177 = 875
-	jump &[00000469]
-[00000426]:
+	jump &[00000473]
+[00000430]:
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
 	cursor transparent 0
 	cursor transparent 6
 	stop-script 0
-[00000469]:
-	jump &[00000484]
-[00000472]:
+[00000473]:
+	jump &[00000488]
+[00000476]:
 	V.181 = 0
 	V.177 = 875
-[00000484]:
-	jump &[00000493]
-[00000487]:
+[00000488]:
+	jump &[00000497]
+[00000491]:
 	V.177 = 875
-[00000493]:
-	jump &[00000503]
-[00000496]:
+[00000497]:
+	jump &[00000507]
+[00000500]:
 	V.177 = 875
-[00000503]:
-	cursor V.177 image 92
-	jump &[00001441]
-[00000514]:
+[00000507]:
+	cursor V.177 image 93
+	jump &[00001445]
+[00000518]:
 	if ( L.4 > 32 or L.4 < 5 or L.5 < 3 or L.5 > 18 ) {
 		stop-script 0
 	}
 	stop-sentence
-	if !( V.178[L.6] ) jump &[00001343]
+	if !( V.178[L.6] ) jump &[00001347]
 	V.7 = V.178[L.6]
 	start-object [2] V.7 verb 91
 	L.3 = V.182
 	V.210 = L.3
-	if !( V.177 >= 995 ) jump &[00000677]
+	if !( V.177 >= 995 ) jump &[00000681]
 	L.0 = V.181
-	if !( valid-verb V.7 3 ) jump &[00000651]
+	if !( valid-verb V.7 3 ) jump &[00000655]
 	L.8 = 1
 	start-object [2] V.7 verb 3 ( L.0 )
 	stop-script 0
-	jump &[00000674]
-[00000651]:
+	jump &[00000678]
+[00000655]:
 	start-script 63 ( 3, V.7, L.0 )
 	stop-script 0
-[00000674]:
-	jump &[00001340]
-[00000677]:
-	if !( V.177 == 875 ) jump &[00000743]
-	if !( class-of V.7 is 131 ) jump &[00000721]
+[00000678]:
+	jump &[00001344]
+[00000681]:
+	if !( V.177 == 875 ) jump &[00000747]
+	if !( class-of V.7 is 131 ) jump &[00000725]
 	start-script 62 ( V.7, 4 )
-	jump &[00000740]
-[00000721]:
+	jump &[00000744]
+[00000725]:
 	start-object [2] V.7 verb 4
 	L.8 = 1
-[00000740]:
-	jump &[00001340]
-[00000743]:
-	if !( V.177 == 877 ) jump &[00000810]
-	if !( class-of V.7 is 141 ) jump &[00000787]
+[00000744]:
+	jump &[00001344]
+[00000747]:
+	if !( V.177 == 877 ) jump &[00000814]
+	if !( class-of V.7 is 141 ) jump &[00000791]
 	start-object [2] V.7 verb 6
 	L.8 = 1
-	jump &[00000807]
-[00000787]:
+	jump &[00000811]
+[00000791]:
 	start-script 63 ( 6, V.7 )
 	stop-script 0
-[00000807]:
-	jump &[00001340]
-[00000810]:
-	if !( V.177 == 878 ) jump &[00001120]
+[00000811]:
+	jump &[00001344]
+[00000814]:
+	if !( V.177 == 878 ) jump &[00001124]
 	L.0 = 0
-	if !( class-of V.7 is 130 ) jump &[00001039]
+	if !( class-of V.7 is 130 ) jump &[00001043]
 	start-object [2] V.7 verb 91
 	L.3 = V.182
 	V.210 = L.3
@@ -3866,7 +3934,7 @@ local variable L.9
 	V.180 = V.181
 	V.178[L.6] = 0
 	V.177 = L.3
-	cursor L.3 image 93
+	cursor L.3 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
@@ -3876,7 +3944,7 @@ local variable L.9
 		V.178[L.6] = L.9
 		++V.179
 		start-object [2] L.9 verb 91
-		load-object V.182 in-room 93
+		load-object V.182 in-room 94
 		draw-object V.182 at L.7 / 8 + L.4,L.5
 	}
 	L.8 = 1
@@ -3884,23 +3952,23 @@ local variable L.9
 		center \
 		at 160,8 \
 		end
-	jump &[00001117]
-[00001039]:
-	if !( valid-verb V.7 3 ) jump &[00001097]
-	if !( class-of V.7 is 3 ) jump &[00001078]
+	jump &[00001121]
+[00001043]:
+	if !( valid-verb V.7 3 ) jump &[00001101]
+	if !( class-of V.7 is 3 ) jump &[00001082]
 	start-object [2] V.7 verb 3
-	jump &[00001094]
-[00001078]:
+	jump &[00001098]
+[00001082]:
 	start-script 62 ( V.7, 3 )
-[00001094]:
-	jump &[00001117]
-[00001097]:
+[00001098]:
+	jump &[00001121]
+[00001101]:
 	start-script 63 ( 3, V.7 )
 	stop-script 0
-[00001117]:
-	jump &[00001340]
-[00001120]:
-	if !( V.177 == 876 ) jump &[00001339]
+[00001121]:
+	jump &[00001344]
+[00001124]:
+	if !( V.177 == 876 ) jump &[00001343]
 	start-object [2] V.7 verb 91
 	L.3 = V.182
 	V.210 = L.3
@@ -3917,7 +3985,7 @@ local variable L.9
 	V.180 = V.181
 	V.178[L.6] = 0
 	V.177 = L.3
-	cursor L.3 image 93
+	cursor L.3 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
@@ -3928,7 +3996,7 @@ local variable L.9
 		V.178[L.6] = L.9
 		++V.179
 		start-object [2] L.9 verb 91
-		load-object V.182 in-room 93
+		load-object V.182 in-room 94
 		draw-object V.182 at L.7 / 8 + L.4,L.5
 	}
 	L.8 = 1
@@ -3936,10 +4004,10 @@ local variable L.9
 		center \
 		at 160,8 \
 		end
-	jump &[00001340]
-[00001340]:
-	jump &[00001441]
-[00001343]:
+	jump &[00001344]
+[00001344]:
+	jump &[00001445]
+[00001347]:
 	if ( V.177 >= 995 and V.181 ) {
 		V.178[L.6] = V.181
 		V.181 = 0
@@ -3950,54 +4018,54 @@ local variable L.9
 
 		draw-object V.177 at L.7 / 8 + L.4,L.5
 		V.177 = 875
-		cursor 875 image 92
+		cursor 875 image 93
 		++V.179
 		print-line \
 			center \
 			at 160,8 \
 			end
 	}
-[00001441]:
-	if !( L.0 == 4 ) jump &[00001645]
+[00001445]:
+	if !( L.0 == 4 ) jump &[00001649]
 	L.8 = 1
-	if !( L.1 == 100 ) jump &[00001472]
-	jump &[00001645]
-[00001472]:
-	if !( L.1 == 101 ) jump &[00001511]
+	if !( L.1 == 100 ) jump &[00001476]
+	jump &[00001649]
+[00001476]:
+	if !( L.1 == 101 ) jump &[00001515]
 	if ( V.180 and V.177 >= 995 ) {
 		do-sentence 4 V.180 [0] 0
 	}
-	jump &[00001645]
-[00001511]:
-	if !( L.1 == 105 ) jump &[00001541]
+	jump &[00001649]
+[00001515]:
+	if !( L.1 == 105 ) jump &[00001545]
 	stop-script 61
 	start-script 62
 	stop-script 0
-	jump &[00001645]
-[00001541]:
-	if !( L.1 == 117 ) jump &[00001562]
+	jump &[00001649]
+[00001545]:
+	if !( L.1 == 117 ) jump &[00001566]
 	V.177 = 878
-	jump &[00000229]
-	jump &[00001645]
-[00001562]:
-	if !( L.1 == 116 ) jump &[00001583]
+	jump &[00000233]
+	jump &[00001649]
+[00001566]:
+	if !( L.1 == 116 ) jump &[00001587]
 	V.177 = 877
-	jump &[00000229]
-	jump &[00001645]
-[00001583]:
-	if !( L.1 == 112 ) jump &[00001604]
+	jump &[00000233]
+	jump &[00001649]
+[00001587]:
+	if !( L.1 == 112 ) jump &[00001608]
 	V.177 = 876
-	jump &[00000229]
-	jump &[00001645]
-[00001604]:
-	if !( L.1 == 108 ) jump &[00001625]
+	jump &[00000233]
+	jump &[00001649]
+[00001608]:
+	if !( L.1 == 108 ) jump &[00001629]
 	V.177 = 875
-	jump &[00000229]
-	jump &[00001645]
-[00001625]:
+	jump &[00000233]
+	jump &[00001649]
+[00001629]:
 	start-script 64 ( L.1 )
 	L.8 = 0
-[00001645]:
+[00001649]:
 	start-script 59 ( L.8 )
 	end-script
 }
@@ -4008,7 +4076,7 @@ local variable L.0
 	if !( V.181 ) jump &[00000069]
 	start-object [2] V.181 verb 91
 	V.177 = V.182
-	cursor V.177 image 93
+	cursor V.177 image 94
 	cursor transparent 180
 	cursor transparent 176
 	cursor transparent 178
@@ -4018,17 +4086,17 @@ local variable L.0
 [00000069]:
 	if !( V.177 in [ 883, 890, 889, 874 ] ) jump &[00000108]
 	V.177 = 875
-	cursor 875 image 92
+	cursor 875 image 93
 	jump &[00000159]
 [00000108]:
 	if !( V.177 == 884 ) jump &[00000135]
 	V.177 = 876
-	cursor V.177 image 92
+	cursor V.177 image 93
 	jump &[00000159]
 [00000135]:
 	if ( V.177 == 886 ) {
 		V.177 = 878
-		cursor V.177 image 92
+		cursor V.177 image 93
 	}
 [00000159]:
 	V.225 = 0
@@ -4097,6 +4165,7 @@ local variable L.2
 	state-of 995 is 0
 	kludge 110 []
 	break-here
+	V.123 = 0
 	end-cut-scene
 	print-line \
 		color 15 \
@@ -4104,15 +4173,15 @@ local variable L.2
 		center \
 		overhead \
 		end
-	if !( L.0 ) jump &[00000232]
-	if !( L.1 == 4 ) jump &[00000206]
+	if !( L.0 ) jump &[00000238]
+	if !( L.1 == 4 ) jump &[00000212]
 	start-object [2] L.0 verb 4
-	jump &[00000232]
-[00000206]:
-	if !( L.1 == 3 ) jump &[00000231]
+	jump &[00000238]
+[00000212]:
+	if !( L.1 == 3 ) jump &[00000237]
 	start-object [2] L.0 verb 3
-	jump &[00000232]
-[00000232]:
+	jump &[00000238]
+[00000238]:
 	put-actor 1 at V.2 - 160,200 in-room V.4
 	palette 255 0 7 in-slot 180
 	start-script V.176
@@ -4125,133 +4194,134 @@ local variable L.0
 local variable L.1
 local variable L.2
 
-	if !( L.1 > 19 or L.1 == 0 ) jump &[00001018]
-	if !( L.0 == 7 ) jump &[00000082]
-	say-line 2 "I can't go there.  Don't ask me why."
-	jump &[00001015]
-[00000082]:
-	if !( L.0 == 6 ) jump &[00000120]
-	say-line 2 "I can't talk to that."
-	jump &[00001015]
-[00000120]:
-	if !( L.0 == 3 ) jump &[00000235]
-	if !( L.2 and L.1 != 0 ) jump &[00000185]
-	say-line 2 "I can't use these things together."
-	jump &[00000232]
-[00000185]:
-	say-line 2 "This is a completely unusable thingamabob."
-[00000232]:
-	jump &[00001015]
-[00000235]:
-	if !( L.0 == 5 ) jump &[00001014]
-	if !( L.1 == V.226 ) jump &[00000973]
+	if !( L.1 > 19 or L.1 == 0 ) jump &[00001292]
+	if !( L.0 == 7 ) jump &[00000098]
+	say-line 2 "\xFF\x0A\x24\x19\xFF\x0A\x0C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I can't go there.  Don't ask me why."
+	jump &[00001289]
+[00000098]:
+	if !( L.0 == 6 ) jump &[00000152]
+	say-line 2 "\xFF\x0A\x8F\xE0\xFF\x0A\x0C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I can't talk to that."
+	jump &[00001289]
+[00000152]:
+	if !( L.0 == 3 ) jump &[00000299]
+	if !( L.2 and L.1 != 0 ) jump &[00000233]
+	say-line 2 "\xFF\x0A\x3A\x4E\xFF\x0A\x0D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I can't use these things together."
+	jump &[00000296]
+[00000233]:
+	say-line 2 "\xFF\x0A\xA5\xDD\xFF\x0A\x0D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is a completely unusable thingamabob."
+[00000296]:
+	jump &[00001289]
+[00000299]:
+	if !( L.0 == 5 ) jump &[00001288]
+	if !( L.1 == V.226 ) jump &[00001231]
 	++V.227
-	if !( V.227 == 1 ) jump &[00000310]
-	say-line 2 "No, really, I can't pick that up."
-	jump &[00000970]
-[00000310]:
-	if !( V.227 == 2 ) jump &[00000364]
-	say-line 2 "Are you dense?  I can't pick that up!"
-	jump &[00000970]
-[00000364]:
-	if !( V.227 == 3 ) jump &[00000451]
+	if !( V.227 == 1 ) jump &[00000390]
+	say-line 2 "\xFF\x0A\x10\xAF\xFF\x0A\x0E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00No, really, I can't pick that up."
+	jump &[00001228]
+[00000390]:
+	if !( V.227 == 2 ) jump &[00000460]
+	say-line 2 "\xFF\x0A\x3B\x4A\xFF\x0A\x0F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Are you dense?  I can't pick that up!"
+	jump &[00001228]
+[00000460]:
+	if !( V.227 == 3 ) jump &[00000563]
 	cut-scene (2)
 	do-animation 2 250
 	break-here 2 times
-	say-line 2 "Read my lips:\xFF\x03^I^\xFF\x03^CAN'T^\xFF\x03^PICK^\xFF\x03^THAT^\xFF\x03^UP!"
+	say-line 2 "\xFF\x0A\x66\x0A\xFF\x0A\x10\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Read my lips:\xFF\x03^I^\xFF\x03^CAN'T^\xFF\x03^PICK^\xFF\x03^THAT^\xFF\x03^UP!"
 	wait-for-message
 	end-cut-scene
-	jump &[00000970]
-[00000451]:
-	if !( V.227 == 4 ) jump &[00000851]
+	jump &[00001228]
+[00000563]:
+	if !( V.227 == 4 ) jump &[00001061]
 	cut-scene (2)
-	if !( !R.67 ) jump &[00000770]
-	say-line 2 "I give up."
+	if !( !R.67 ) jump &[00000964]
+	say-line 2 "\xFF\x0A\xD1\xD7\xFF\x0A\x11\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I give up."
 	do-animation 2 251
 	R.2 = 1
 	break-until (R.3)
 	break-here 2 times
 	wait-for-message
-	say-line 2 "<sob>"
+	say-line 2 "\xFF\x0A\xBC\x18\xFF\x0A\x12\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<sob>"
 	do-animation 3 250
 	break-here 2 times
 	wait-for-message
-	say-line 3 "Now you've done it.\xFF\x03You've broken Sam's spirit with your stupid attempts to pick up object #%n16385% ."
+	say-line 3 "\xFF\x0A\x27\x5F\xFF\x0A\x12\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Now you've done it.\xFF\x03You've broken Sam's spirit with your stupid attempts to pick up object #%n16385% ."
 	wait-for-message
-	say-line 2 "<sob>"
-	say-line 3 "In fact, if I didn't find his pitiful sobbing so amusing, I'd come out there and rip your limbs off."
+	say-line 2 "\xFF\x0A\xD2\xFD\xFF\x0A\x13\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<sob>"
+	wait-for-message
+	say-line 3 "\xFF\x0A\xBD\x53\xFF\x0A\x14\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00In fact, if I didn't find his pitiful sobbing so amusing, I'd come out there and rip your limbs off."
 	wait-for-message
 	R.2 = 0
-	jump &[00000847]
-[00000770]:
+	jump &[00001057]
+[00000964]:
 	do-animation 2 250
 	break-here 2 times
-	say-line 2 "Look, bub, don't make me stop this game and come out there."
+	say-line 2 "\xFF\x0A\x28\x4B\xFF\x0A\x16\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Look, bub, don't make me stop this game and come out there."
 	wait-for-message
-[00000847]:
+[00001057]:
 	end-cut-scene
-	jump &[00000970]
-[00000851]:
-	if !( !R.67 ) jump &[00000958]
+	jump &[00001228]
+[00001061]:
+	if !( !R.67 ) jump &[00001200]
 	cut-scene (2)
-	say-line 2 "<choke><sob>"
+	say-line 2 "\xFF\x0A\x53\x4B\xFF\x0A\x17\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<choke><sob>"
 	R.2 = 1
 	break-until (R.3)
 	wait-for-message
-	say-line 3 "Just ignore him, Sam.  Maybe he'll go away."
+	say-line 3 "\xFF\x0A\x7E\xCB\xFF\x0A\x17\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Just ignore him, Sam.  Maybe he'll go away."
 	wait-for-message
 	R.2 = 0
 	end-cut-scene
-	jump &[00000970]
-[00000958]:
-	say-line 2 "Grrrrr."
-[00000970]:
-	jump &[00001011]
-[00000973]:
+	jump &[00001228]
+[00001200]:
+	say-line 2 "\xFF\x0A\x69\xA2\xFF\x0A\x18\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Grrrrr."
+[00001228]:
+	jump &[00001285]
+[00001231]:
 	V.226 = L.1
 	V.227 = 0
-	say-line 2 "I can't pick that up."
-[00001011]:
-	jump &[00001015]
-[00001015]:
-	jump &[00001406]
-[00001018]:
-	if !( L.0 == 7 ) jump &[00001074]
-	say-line 2 "I can't go there.  Don't ask me why."
-	jump &[00001406]
-[00001074]:
-	if !( L.0 == 6 ) jump &[00001174]
-	if !( class-of L.1 is 18 ) jump &[00001135]
-	say-line 2 "There's just no talking to him."
-	jump &[00001171]
-[00001135]:
-	say-line 2 "There's just no talking to her."
-[00001171]:
-	jump &[00001406]
-[00001174]:
-	if !( L.0 == 3 ) jump &[00001332]
-	if !( L.2 ) jump &[00001277]
-	if !( class-of L.1 is 18 ) jump &[00001239]
-	say-line 2 "I don't think he'd want that."
-	jump &[00001274]
-[00001239]:
-	say-line 2 "I don't think she'd want that."
-[00001274]:
-	jump &[00001329]
-[00001277]:
-	say-line 2 "I don't indiscriminately use people^except Max."
-[00001329]:
-	jump &[00001406]
-[00001332]:
-	if !( L.0 == 5 ) jump &[00001405]
-	if !( class-of L.1 is 18 ) jump &[00001379]
-	say-line 2 "He's not my type."
-	jump &[00001402]
-[00001379]:
-	say-line 2 "She's not my type."
-[00001402]:
-	jump &[00001406]
-[00001406]:
+	say-line 2 "\xFF\x0A\x14\x18\xFF\x0A\x19\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I can't pick that up."
+[00001285]:
+	jump &[00001289]
+[00001289]:
+	jump &[00001808]
+[00001292]:
+	if !( L.0 == 7 ) jump &[00001364]
+	say-line 2 "\xFF\x0A\x3F\x7A\xFF\x0A\x19\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I can't go there.  Don't ask me why."
+	jump &[00001808]
+[00001364]:
+	if !( L.0 == 6 ) jump &[00001496]
+	if !( class-of L.1 is 18 ) jump &[00001441]
+	say-line 2 "\xFF\x0A\x6A\x3A\xFF\x0A\x1A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00There's just no talking to him."
+	jump &[00001493]
+[00001441]:
+	say-line 2 "\xFF\x0A\x95\xC5\xFF\x0A\x1A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00There's just no talking to her."
+[00001493]:
+	jump &[00001808]
+[00001496]:
+	if !( L.0 == 3 ) jump &[00001702]
+	if !( L.2 ) jump &[00001631]
+	if !( class-of L.1 is 18 ) jump &[00001577]
+	say-line 2 "\xFF\x0A\x00\x4F\xFF\x0A\x1B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't think he'd want that."
+	jump &[00001628]
+[00001577]:
+	say-line 2 "\xFF\x0A\x6B\xC8\xFF\x0A\x1B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't think she'd want that."
+[00001628]:
+	jump &[00001699]
+[00001631]:
+	say-line 2 "\xFF\x0A\xD6\x3A\xFF\x0A\x1C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't indiscriminately use people^except Max."
+[00001699]:
+	jump &[00001808]
+[00001702]:
+	if !( L.0 == 5 ) jump &[00001807]
+	if !( class-of L.1 is 18 ) jump &[00001765]
+	say-line 2 "\xFF\x0A\x41\x2F\xFF\x0A\x1D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00He's not my type."
+	jump &[00001804]
+[00001765]:
+	say-line 2 "\xFF\x0A\xEC\x84\xFF\x0A\x1D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00She's not my type."
+[00001804]:
+	jump &[00001808]
+[00001808]:
 	wait-for-message
 	end-script
 }
@@ -4303,7 +4373,7 @@ local variable L.0
 	end-script
 }
 
-script { ; SCRP LECF_0001\LFLF_0001\SCRP_o_95F6
+script 200 { ; SCRP LECF_0001\LFLF_0001\SCRP_0200
 local variable L.0
 local variable L.1
 local variable L.2
@@ -4372,7 +4442,10 @@ room room_1 {
 		}
 
 		verb 4 {
-			say-line "It's my lil' buddy, ready for action."
+			print-debug \
+				"\xFF\x0A\xD3\xE9\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+			say-line "\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's my lil' buddy, ready for action."
 			end-script
 		}
 
@@ -4393,22 +4466,28 @@ room room_1 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0001\ROOM\EXCD
+		unlock-sound 2
+		print-text \
+			" "
+
 		end-script
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0001\ROOM\ENCD
 		set-screen 0 to 200
+		lock-sound 2
+		load-sound 2
 		V.174 = V.32
 		stop-script V.175
 		V.176 = V.175
 		V.32 = 0
 		V.175 = 51
-		if !( V.32 != 48 ) jump &[00000063]
+		if !( V.32 != 48 ) jump &[00000071]
 		R.6 = 0
-		jump &[00000069]
-[00000063]:
+		jump &[00000077]
+[00000071]:
 		R.6 = 1
-[00000069]:
+[00000077]:
 		start-script V.175
 		start-script 201
 		end-script
@@ -4420,10 +4499,264 @@ room room_1 {
 	local variable L.5
 
 		cut-scene (2)
+		if !( !R.230 ) jump &[00001901]
+		V.50 = 0
+		V.42 = 0
+		palette intensity 0 in-slot 16 to 255
+		break-here 2 times
+		if !( V.40 < 400 ) jump &[00000123]
+		print-system \
+			"Heap Status: Unplayable (%n40% Kb avail, 4096Kb prefered)"
+
+		jump &[00000231]
+[00000123]:
+		if !( V.40 < 800 ) jump &[00000178]
+		print-system \
+			"Heap Status: Ugly (%n40% Kb available)"
+
+		jump &[00000231]
+[00000178]:
+		if ( V.40 < 1000 ) {
+			print-system \
+				"Heap Status: Dicey (%n40% Kb available)"
+
+		}
+[00000231]:
+		print-text \
+			no-talk-animation \
+			center \
+			color 9 \
+			at 160,80 \
+			"Loading Sounds^Please Wait"
+
+		start-script 206 ( 0 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x33\xB1\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x33\xB1\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x60\xB2\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEA\x71\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 10 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x97\x04\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x44\x4F\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 20 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 30 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 40 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x01\x4C\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xAE\x70\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 50 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x5B\x5D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x88\x86\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x87\x47\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x1A\xD2\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 60 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xBD\xE5\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xC1\x62\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 70 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x68\xB1\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x15\xCC\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 80 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x90\x11\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x27\x7E\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x84\x51\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 90 )
+		break-until (!script-running 206)
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xD3\xE9\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		start-script 206 ( 100 )
+		break-until (!script-running 206)
+		draw-box 1,1 to 320,200 color -1
+		break-here 2 times
+[00001901]:
 		V.42 = 322
-		V.50 = 319
 		charset 2
-		override &[00000615]
+		override &[00002495]
 		palette intensity 0 in-slot 16 to 255
 		break-here
 		start-script bak rec 205 ( 202, 80, 4, 4, 128 )
@@ -4445,46 +4778,46 @@ room room_1 {
 		start-script bak rec 205 ( 32, 24, 0, 0, 255 )
 		L.5 = 0
 		L.0 = 5
-[00000485]:
-		if !( L.0 <= 255 ) jump &[00000555]
+[00002365]:
+		if !( L.0 <= 255 ) jump &[00002435]
 		palette intensity L.0 in-slot 16 to 255
 		L.0 = L.0 + 7
 		L.2 = random 255
 		if ( L.0 > 70 and (!L.5) ) {
-			start-sound 1
+			start-sound 2
 			L.5 = 1
 		}
 		break-here
 		++L.0
-		jump &[00000485]
-[00000555]:
+		jump &[00002365]
+[00002435]:
 		sleep-for 3 seconds
 		L.0 = 250
-[00000565]:
-		if !( L.0 >= 0 ) jump &[00000603]
+[00002445]:
+		if !( L.0 >= 0 ) jump &[00002483]
 		palette intensity L.0 in-slot 0 to 255
 		L.0 = L.0 - 15
 		break-here
 		--L.0
-		jump &[00000565]
-[00000603]:
+		jump &[00002445]
+[00002483]:
 		stop-script 204
 		stop-script 205
 		break-here
-		jump &[00000626]
-[00000615]:
+		jump &[00002506]
+[00002495]:
 		if ( V.5 ) {
-			stop-sound 1
+			stop-sound 2
 		}
 		override off
-[00000626]:
+[00002506]:
 		end-cut-scene
 		actor 2 \
 			follow-boxes \
 		actor 3 \
 			follow-boxes \
 		fades -32383
-		current-room 7
+		current-room 77
 		end-script
 	}
 
@@ -4597,6 +4930,20 @@ room room_1 {
 			L.6 = L.6 + 247
 		}
 		jump &[00000020]
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0001\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		draw-box 79,100 to 241,110 color 8
+		draw-box 241,100 to 241,110 color 15
+		draw-box 79,110 to 241,110 color 15
+		L.1 = (160 * L.0) / 100
+		draw-box 80,101 to 80 + L.1,109 color 10
+		draw-box 81 + L.1,101 to 240,109 color 7
+		break-here
 		end-script
 	}
 }

@@ -1,11 +1,10 @@
 ;/**
-; * Sam & Max Hit the Road: Interactive Demo (CD)
+; * Sam & Max Hit the Road: Interactive Demo (Floppy)
 ; * 
 ; * Room 93
 ; */
 
-; NOTE: This didn't seem to decompile right.
-script { ; SCRP LECF_0001\LFLF_0093\SCRP_o_2698
+script 200 { ; SCRP LECF_0001\LFLF_0093\SCRP_0200
 local variable L.0
 local variable L.1
 local variable L.2
@@ -65,87 +64,371 @@ local variable L.4
 
 room room_93 {
 
-	object 874 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0874
+	object 995 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0995
+		name is "dsf"
+	}
+
+	object 996 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0996
+		name is "dashj"
+	}
+
+	object 997 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0997
 		name is ""
 	}
 
-	object 875 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0875
+	object 998 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0998
 		name is ""
 	}
 
-	object 876 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0876
+	object 999 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0999
 		name is ""
 	}
 
-	object 877 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0877
+	object 1000 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1000
 		name is ""
 	}
 
-	object 878 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0878
+	object 1001 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1001
 		name is ""
 	}
 
-	object 879 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0879
+	object 1002 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1002
 		name is ""
 	}
 
-	object 880 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0880
+	object 1003 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1003
 		name is ""
 	}
 
-	object 881 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0881
+	object 1005 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1005
 		name is ""
 	}
 
-	object 882 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0882
+	object 1004 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1004
 		name is ""
 	}
 
-	object 883 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0883
+	object 1006 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1006
 		name is ""
 	}
 
-	object 887 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0887
+	object 1007 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1007
 		name is ""
 	}
 
-	object 884 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0884
+	object 1008 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1008
 		name is ""
 	}
 
-	object 885 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0885
+	object 1009 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1009
 		name is ""
 	}
 
-	object 886 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0886
+	object 1010 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1010
 		name is ""
 	}
 
-	object 888 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0888
+	object 1011 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1011
 		name is ""
 	}
 
-	object 889 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0889
+	object 1012 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1012
 		name is ""
 	}
 
-	object 890 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0890
+	object 1015 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1015
 		name is ""
 	}
 
-	object 891 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0891
+	object 1013 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1013
 		name is ""
 	}
 
-	object 892 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0892
+	object 1016 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1016
 		name is ""
 	}
 
-	object 893 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0893
+	object 1014 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1014
 		name is ""
 	}
 
-	object 894 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_0894
+	object 1017 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1017
+		name is ""
+	}
+
+	object 1018 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1018
+		name is ""
+	}
+
+	object 1019 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1019
+		name is ""
+	}
+
+	object 1020 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1020
+		name is ""
+	}
+
+	object 1021 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1021
+		name is ""
+	}
+
+	object 1022 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1022
+		name is ""
+	}
+
+	object 1023 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1023
+		name is ""
+	}
+
+	object 1024 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1024
+		name is ""
+	}
+
+	object 1025 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1025
+		name is ""
+	}
+
+	object 1033 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1033
+		name is ""
+	}
+
+	object 1026 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1026
+		name is ""
+	}
+
+	object 1027 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1027
+		name is ""
+	}
+
+	object 1028 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1028
+		name is ""
+	}
+
+	object 1029 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1029
+		name is ""
+	}
+
+	object 1030 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1030
+		name is ""
+	}
+
+	object 1031 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1031
+		name is ""
+	}
+
+	object 1032 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1032
+		name is ""
+	}
+
+	object 1034 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1034
+		name is ""
+	}
+
+	object 1035 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1035
+		name is ""
+	}
+
+	object 1036 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1036
+		name is ""
+	}
+
+	object 1037 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1037
+		name is ""
+	}
+
+	object 1038 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1038
+		name is ""
+	}
+
+	object 1039 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1039
+		name is ""
+	}
+
+	object 1040 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1040
+		name is ""
+	}
+
+	object 1041 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1041
+		name is ""
+	}
+
+	object 1046 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1046
+		name is ""
+	}
+
+	object 1042 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1042
+		name is ""
+	}
+
+	object 1043 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1043
+		name is ""
+	}
+
+	object 1044 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1044
+		name is ""
+	}
+
+	object 1045 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1045
+		name is ""
+	}
+
+	object 1047 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1047
+		name is ""
+	}
+
+	object 1048 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1048
+		name is ""
+	}
+
+	object 1049 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1049
+		name is ""
+	}
+
+	object 1050 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1050
+		name is ""
+	}
+
+	object 1051 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1051
+		name is ""
+	}
+
+	object 1052 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1052
+		name is ""
+	}
+
+	object 1053 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1053
+		name is ""
+	}
+
+	object 1054 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1054
+		name is ""
+	}
+
+	object 1055 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1055
+		name is ""
+	}
+
+	object 1056 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1056
+		name is ""
+	}
+
+	object 1057 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1057
+		name is ""
+	}
+
+	object 1058 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1058
+		name is ""
+	}
+
+	object 1059 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1059
+		name is ""
+	}
+
+	object 1060 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1060
+		name is ""
+	}
+
+	object 1061 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1061
+		name is ""
+	}
+
+	object 1062 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1062
+		name is ""
+	}
+
+	object 1063 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1063
+		name is ""
+	}
+
+	object 1064 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1064
+		name is ""
+	}
+
+	object 1065 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1065
+		name is ""
+	}
+
+	object 1066 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1066
+		name is ""
+	}
+
+	object 1067 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1067
+		name is ""
+	}
+
+	object 1068 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1068
+		name is ""
+	}
+
+	object 1069 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1069
+		name is ""
+	}
+
+	object 1070 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1070
+		name is ""
+	}
+
+	object 1071 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1071
+		name is ""
+	}
+
+	object 1072 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1072
+		name is ""
+	}
+
+	object 1076 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1076
+		name is ""
+	}
+
+	object 1073 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1073
+		name is ""
+	}
+
+	object 1077 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1077
+		name is ""
+	}
+
+	object 1074 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1074
+		name is ""
+	}
+
+	object 1078 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1078
+		name is ""
+	}
+
+	object 1075 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1075
+		name is ""
+	}
+
+	object 1079 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1079
+		name is ""
+	}
+
+	object 1080 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1080
+		name is ""
+	}
+
+	object 1081 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1081
+		name is ""
+	}
+
+	object 1082 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1082
+		name is ""
+	}
+
+	object 1083 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1083
+		name is ""
+	}
+
+	object 1084 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1084
+		name is ""
+	}
+
+	object 1085 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1085
+		name is ""
+	}
+
+	object 1086 { ; VERB LECF_0001\LFLF_0093\ROOM\OBCD_1086
 		name is ""
 	}
 

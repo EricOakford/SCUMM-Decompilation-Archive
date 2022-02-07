@@ -1,0 +1,1431 @@
+;/**
+; * Sam & Max Hit the Road: Interactive Demo (CD)
+; * 
+; * Room 9
+; */
+
+; NOTE: This didn't seem to decompile right.
+script { ; SCRP LECF_0001\LFLF_0009\SCRP_o_E9DB
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	sound 13 L.0 0 9
+	sound -1
+	L.3 = V.56
+[00000037]:
+	if ( !sound-running L.0 ) {
+		stop-script 0
+	}
+	if !( L.1 > 0 ) jump &[00000076]
+	if ( L.3 >= L.2 ) {
+		stop-script 0
+	}
+	jump &[00000090]
+[00000076]:
+	if ( L.3 <= L.2 ) {
+		stop-script 0
+	}
+[00000090]:
+	sound 12 L.0 0 9 L.3
+	if !( L.1 > 0 ) jump &[00000141]
+	sound 12 L.0 0 8 0
+	jump &[00000160]
+[00000141]:
+	sound 12 L.0 0 8 127
+[00000160]:
+	sound -1
+	if !( L.1 > 0 ) jump &[00000236]
+	L.4 = 0
+[00000183]:
+	if !( L.4 < 127 ) jump &[00000233]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 + 6
+	break-here
+	jump &[00000183]
+[00000233]:
+	jump &[00000292]
+[00000236]:
+	L.4 = 127
+[00000242]:
+	if !( L.4 > 0 ) jump &[00000292]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 - 6
+	break-here
+	jump &[00000242]
+[00000292]:
+	L.3 = L.3 + L.1
+	if !( L.3 == L.2 ) jump &[00000037]
+	end-script
+}
+
+room room_9 {
+
+	object 91 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0091
+		name is "liquor store"
+
+		verb 4 {
+			if !( !R.174 ) jump &[00000180]
+			R.174 = 1
+			say-line "\xFF\x0A\xF1\xED\xFF\x0A\x9F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I see that old Mr. Bosco's generously giving away his profits\xFF\x01to the underprivileged, ski-mask-wearing youth of the neighborhood again."
+			wait-for-message
+			jump &[00000256]
+[00000180]:
+			say-line "\xFF\x0A\x5C\x18\xFF\x0A\xA2\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I see that old Mr. Bosco's doing his usual rabid business."
+[00000256]:
+			end-script
+		}
+
+		verb 7 {
+			if !( !R.173 ) jump &[00000351]
+			if !( !R.67 ) jump &[00000290]
+			R.173 = 1
+			start-script 204
+			jump &[00000348]
+[00000290]:
+			say-line "\xFF\x0A\xC7\x2C\xFF\x0A\xA3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I wouldn't want Max to miss all the fun."
+[00000348]:
+			jump &[00000427]
+[00000351]:
+			say-line "\xFF\x0A\x72\xDB\xFF\x0A\xA3\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Geez Bosco, aren't you ever going to clean up this mess?"
+			wait-for-message
+[00000427]:
+			end-script
+		}
+	}
+
+	object 89 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0089
+		name is "beat up DeSoto"
+
+		verb 4 {
+			cut-scene (2)
+			say-line "\xFF\x0A\xD0\x34\xFF\x0A\x9E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I love this car."
+			if ( !R.67 ) {
+				R.2 = 1
+				break-until (R.3)
+				wait-for-message
+				say-line 3 "\xFF\x0A\xBB\xB0\xFF\x0A\x9E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You're a sick puppy, Sam."
+				wait-for-message
+				R.2 = 0
+			}
+			end-cut-scene
+			end-script
+		}
+
+		verb 3 {
+			if !( !R.67 ) jump &[00000151]
+			start-script 214
+			stop-script 0
+			jump &[00000151]
+[00000151]:
+			end-script
+		}
+	}
+
+	object 90 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0090
+		name is "street-diner-door"
+
+		verb 4 {
+			say-line "\xFF\x0A\xC6\x46\xFF\x0A\x9F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00The finest in Bavarian cuisine."
+			end-script
+		}
+
+		verb 3 {
+			if !( (state-of V.7) == 1 ) jump &[00000082]
+			state-of V.7 is 0
+			jump &[00000089]
+[00000082]:
+			state-of V.7 is 1
+[00000089]:
+			end-script
+		}
+
+		verb 7 {
+			if ( (state-of V.7) == 1 ) {
+				start-script 205
+			}
+			end-script
+		}
+	}
+
+	object 88 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0088
+		name is "street-hall-door"
+
+		verb 4 {
+			say-line "\xFF\x0A\xE5\xCA\xFF\x0A\x9D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I think it's a door."
+			end-script
+		}
+
+		verb 7 {
+			if !( (state-of V.7) == 1 ) jump &[00000099]
+			cut-scene (2)
+			walk 2 to 80,109
+[00000075]:
+			wait-for-actor 2 [ref &[00000075]]
+			end-cut-scene
+			come-out-door 82 in-room 8 walk 188,185
+			jump &[00000154]
+[00000099]:
+			state-of V.7 is 1
+			set-box 3 to 0
+			cut-scene (2)
+			walk 2 to 80,109
+[00000133]:
+			wait-for-actor 2 [ref &[00000133]]
+			end-cut-scene
+			come-out-door 82 in-room 8 walk 188,185
+[00000154]:
+			end-script
+		}
+
+		verb 3 {
+			if !( (state-of V.7) == 1 ) jump &[00000186]
+			state-of V.7 is 0
+			set-box 3 to 128
+			jump &[00000241]
+[00000186]:
+			state-of V.7 is 1
+			set-box 3 to 0
+			cut-scene (2)
+			walk 2 to 80,109
+[00000220]:
+			wait-for-actor 2 [ref &[00000220]]
+			end-cut-scene
+			come-out-door 82 in-room 8 walk 188,185
+[00000241]:
+			end-script
+		}
+	}
+
+	object 92 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0092
+		name is "pile of mail"
+
+		verb 4 {
+			say-line "\xFF\x0A\x1D\xF6\xFF\x0A\xA4\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Somebody's been ripping off the US Postal Service."
+			end-script
+		}
+
+		verb 5 {
+			say-line "\xFF\x0A\x48\xDE\xFF\x0A\xA5\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Steal the mail?  Are you nuts?"
+			end-script
+		}
+	}
+
+	object 93 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0093
+		name is "road kill"
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\xF3\xAB\xFF\x0A\xA6\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Another senseless victim of America's love affair with the automobile."
+			end-script
+		}
+
+		verb 5 {
+			say-line 2 "\xFF\x0A\xDE\xBE\xFF\x0A\xA7\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd rather leave it in its natural state."
+			end-script
+		}
+	}
+
+	object 94 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0094
+		name is "dead guy"
+
+		verb 4 {
+			say-line "\xFF\x0A\x89\x68\xFF\x0A\xA8\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That'll teach him to break our antenna."
+			end-script
+		}
+
+		verb 5 {
+			say-line "\xFF\x0A\xB4\x0B\xFF\x0A\xA9\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't think he's gonna move until we get our DeSoto off of him."
+			end-script
+		}
+	}
+
+	object 95 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0095
+		name is "carnival tickets"
+
+		verb 91 {
+			V.182 = 1017
+			end-script
+		}
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\x1F\x05\xFF\x0A\xAA\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's our orders from the Commissioner, telling us to high-tail it down to the carnival."
+			class-of V.7 is 147
+			end-script
+		}
+	}
+
+	object 96 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0096
+		name is "street-parking-sign"
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\x0A\x47\xFF\x0A\xAB\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Vehicles Will Be Stolen.`"
+			wait-for-message
+			end-script
+		}
+	}
+
+	object 97 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0097
+		name is "street-space-sign"
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\xF5\xD3\xFF\x0A\xAB\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Soiled office space available.`"
+			wait-for-message
+			end-script
+		}
+	}
+
+	object 98 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0098
+		name is "street-boscos-sign"
+
+		verb 4 {
+			do-animation 2 251
+			break-here
+			say-line 2 "\xFF\x0A\x60\x66\xFF\x0A\xAC\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Bosco's Guns, Liquor, Baby Needs.`"
+			wait-for-message
+			end-script
+		}
+	}
+
+	object 99 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0099
+		name is "street-food-sign"
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\x0B\x25\xFF\x0A\xAD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`Really Bad Food.`"
+			wait-for-message
+			end-script
+		}
+	}
+
+	object 100 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0100
+		name is "street-noway-sign"
+
+		verb 4 {
+			say-line 2 "\xFF\x0A\xF6\x91\xFF\x0A\xAD\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00`No way.`"
+			wait-for-message
+			end-script
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0009\ROOM\EXCD
+		if !( V.72 == 8 ) jump &[00000070]
+		lock-sound 3
+		load-sound 3
+		sound 20 30 8 3 0
+		sound 20 32 15 3 0 1
+		jump &[00000075]
+[00000070]:
+		unlock-sound 3
+[00000075]:
+		sound 14 8 0 1 0 90
+		unlock-sound 8
+		unlock-costume 29
+		unlock-costume 30
+		unlock-costume 36
+		unlock-costume 31
+		unlock-costume 32
+		unlock-costume 33
+		unlock-costume 34
+		unlock-costume 10
+		unlock-costume 35
+		unlock-costume 27
+		unlock-costume 26
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
+		lock-sound 8
+		load-sound 8
+		V.184[7] = 209
+		V.185[7] = 274
+		V.186[7] = 136
+		state-of 89 is 1
+		if ( (owner-of 95) != 2 ) {
+			lock-costume 29
+			load-costume 29
+			lock-costume 30
+			load-costume 30
+			lock-costume 36
+			load-costume 36
+		}
+		lock-costume 31
+		load-costume 31
+		lock-costume 32
+		load-costume 32
+		lock-costume 33
+		load-costume 33
+		lock-costume 34
+		load-costume 34
+		lock-costume 10
+		load-costume 10
+		lock-costume 35
+		load-costume 35
+		lock-costume 27
+		load-costume 27
+		lock-costume 26
+		load-costume 26
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x15\xCC\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x27\x7E\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x88\x86\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x90\x11\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x01\x4C\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x60\xB2\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x68\xB1\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xBD\xE5\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x1A\xD2\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x84\x51\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x87\x47\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xC1\x62\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		if !( !R.16 ) jump &[00000781]
+		start-script bak 207
+		jump &[00000811]
+[00000781]:
+		start-script 208
+		set-box 16 to 128
+		set-box 17 to 128
+[00000811]:
+		actor 5 \
+			default
+			costume 28 \
+			ignore-boxes \
+			always-zclip 1
+			scale 255
+		put-actor 5 at 310,24 in-room 9
+		V.184[5] = 215
+		V.185[5] = 327
+		V.186[5] = 124
+		if !( V.166 == 8 ) jump &[00000988]
+		if ( sound-running 7 ) {
+			sound 19 7 0 1 -1
+			sound 14 7 0 1 0 30
+		}
+		state-of 88 is 1
+		sound 14 3 0 1 0 45
+		if ( !sound-running 8 ) {
+			sound 8 8 0
+		}
+		jump &[00000989]
+[00000989]:
+		if ( (state-of 88) == 0 ) {
+			set-box 3 to 128
+		}
+		set-box 13 to 128
+		if ( class-of 95 is 134 ) {
+			actor 4 \
+				default
+				costume 29 \
+				talk-color 9 \
+				talk-animation 7 6 \
+				stand-animation 6 \
+			put-actor 4 at 59,166 in-room 9
+			do-animation 4 250
+			V.184[4] = 206
+			V.185[4] = 94
+			V.186[4] = 166
+		}
+		if ( !R.67 ) {
+			start-script bak 201
+		}
+		start-script bak 212
+		V.194 = 202
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !( V.166 == 8 ) jump &[00000074]
+		put-actor 3 at 55,94 in-room 9
+		walk 3 to 128,111
+[00000043]:
+		wait-for-actor 3 [ref &[00000043]]
+		break-until ((actor-box 2) != 3 and (actor-box 2) != 4)
+		jump &[00000085]
+[00000074]:
+		put-actor 3 at-object 89 in room 9
+[00000085]:
+		L.0 = 0
+		R.2 = 0
+		R.3 = 0
+[00000103]:
+		break-here
+		L.1 = random-between 1 to 2
+		if !( L.1 == L.0 ) jump &[00000127]
+		jump &[00000350]
+[00000127]:
+		R.3 = 1
+		if !( L.1 == 1 ) jump &[00000213]
+		walk 3 to 252,145
+[00000155]:
+		wait-for-actor 3 [ref &[00000155]]
+		if !( R.2 ) jump &[00000171]
+		jump &[00000565]
+[00000171]:
+		do-animation 3 251
+		V.204 = 0
+		V.202[0] = 6
+		V.203[0] = -2
+		jump &[00000344]
+[00000213]:
+		if !( L.1 == 2 ) jump &[00000343]
+		if !( (object-x 2) > 240 ) jump &[00000269]
+		walk 3 to 403,122
+[00000243]:
+		wait-for-actor 3 [ref &[00000243]]
+		if !( R.2 ) jump &[00000259]
+		jump &[00000565]
+[00000259]:
+		do-animation 3 249
+		jump &[00000302]
+[00000269]:
+		walk 3 to 160,171
+[00000279]:
+		wait-for-actor 3 [ref &[00000279]]
+		if !( R.2 ) jump &[00000295]
+		jump &[00000565]
+[00000295]:
+		do-animation 3 249
+[00000302]:
+		V.204 = 1
+		V.202[0] = 6, 16
+		V.203[0] = -2, 2
+		jump &[00000344]
+[00000344]:
+		L.0 = L.1
+[00000350]:
+		R.3 = 0
+[00000356]:
+		if !( !random 3 ) jump &[00000536]
+		if !( V.204 ) jump &[00000380]
+		L.1 = random V.204
+		jump &[00000386]
+[00000380]:
+		L.1 = 0
+[00000386]:
+		if ( V.202[L.1] == 16 ) {
+			do-animation 3 15
+			break-here 2 times
+		}
+		do-animation 3 V.202[L.1]
+		L.2 = V.203[L.1]
+		if !( L.2 > 0 ) jump &[00000470]
+[00000439]:
+		break-here L.2 times
+		if !( R.2 ) jump &[00000459]
+		do-animation 3 1
+		jump &[00000565]
+[00000459]:
+		if !( !random 2 ) jump &[00000439]
+		jump &[00000509]
+[00000470]:
+		L.2 = L.2 * -1
+		break-here L.2 times
+[00000484]:
+		if !( R.2 ) jump &[00000500]
+		do-animation 3 1
+		jump &[00000565]
+[00000500]:
+		break-here
+		if !( !random 10 ) jump &[00000484]
+[00000509]:
+		do-animation 3 1
+		break-here
+		if !( R.2 ) jump &[00000533]
+		do-animation 3 1
+		jump &[00000565]
+[00000533]:
+		jump &[00000554]
+[00000536]:
+		break-here
+		if !( R.2 ) jump &[00000546]
+		jump &[00000565]
+[00000546]:
+		if !( !random 8 ) jump &[00000536]
+[00000554]:
+		if !( !random 7 ) jump &[00000356]
+		jump &[00000103]
+[00000565]:
+		do-animation 3 3
+		R.3 = 1
+		break-until (!R.2)
+		L.0 = 0
+		jump &[00000103]
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0202
+		if !( V.224 == 5 ) jump &[00000064]
+		say-line "\xFF\x0A\x6A\xA4\xFF\x0A\x5D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I don't speak pigeon."
+		wait-for-message
+		jump &[00000131]
+[00000064]:
+		if !( V.224 == 4 ) jump &[00000090]
+		start-script 203
+		stop-script 0
+		jump &[00000131]
+[00000090]:
+		if !( V.224 == 7 ) jump &[00000116]
+		start-script 210
+		stop-script 0
+		jump &[00000131]
+[00000116]:
+		start-script 26
+		stop-script 0
+[00000131]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0203
+		cut-scene (2)
+		do-animation 2 face-towards 4
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 face-towards 4
+		break-here
+		say-line "\xFF\x0A\x55\x11\xFF\x0A\x5E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey there, lil' fella."
+		do-animation 4 face-towards 3
+		wait-for-message
+		say-line 4 "\xFF\x0A\x40\x7D\xFF\x0A\x5E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You talkin' to me?"
+		wait-for-message
+		end-cut-scene
+		actor 2 \
+			costume 11 \
+		start-script 9
+		start-script 15 ( 1 )
+		start-script 14
+		V.171 = 0
+		do {
+			V.169 = random 1
+			break-here
+		} until (V.171)
+		if !( V.171 == 999 ) jump &[00000247]
+		say-line "\xFF\x0A\xAB\xD2\xFF\x0A\x5E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I guess not."
+		wait-for-message
+		jump &[00002164]
+		jump &[00001663]
+[00000247]:
+		if !( V.171 == 1001 ) jump &[00000682]
+		if !( !R.17 ) jump &[00000497]
+		R.17 = 1
+		say-line "\xFF\x0A\x56\x1D\xFF\x0A\x5F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's times like this that make me want to lash out against a cruel world.\xFF\x09\x0F\x00"
+		wait-for-message
+		do-animation 2 24
+		say-line 3 "\xFF\x0A\x41\x52\xFF\x0A\x60\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Funny, I feel like that all the time."
+		wait-for-message
+		say-line 4 "\xFF\x0A\xEC\xEC\xFF\x0A\x60\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You must be the Freelance Police."
+		do-animation 2 17
+		jump &[00000679]
+[00000497]:
+		say-line 2 "\xFF\x0A\xD7\x83\xFF\x0A\x61\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Your head is disturbingly disproportionate to your body.\xFF\x09\x0E\x00"
+		wait-for-message
+		do-animation 2 24
+		say-line 4 "\xFF\x0A\x42\x70\xFF\x0A\x62\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's the vocal cords.  You'd be amazed how much room they take up."
+		wait-for-message
+		jump &[00002164]
+[00000679]:
+		jump &[00001663]
+[00000682]:
+		if !( V.171 == 998 ) jump &[00001029]
+		if !( !R.17 ) jump &[00000827]
+		R.17 = 1
+		say-line "\xFF\x0A\x6D\x70\xFF\x0A\x63\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Wow, a talking cat!"
+		wait-for-message
+		say-line 4 "\xFF\x0A\x98\xF8\xFF\x0A\x63\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Wow, a stupid dog!\xFF\x03You must be the Freelance Police."
+		do-animation 2 17
+		jump &[00001026]
+[00000827]:
+		say-line "\xFF\x0A\x43\x29\xFF\x0A\x65\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Don't get smart with me, bub, or my partner'll\xFF\x01floss every last crevice on his body with your whiskers.\xFF\x09\x0F\x00"
+		wait-for-message
+		do-animation 2 24
+		do-animation 3 face-towards 2
+		break-here
+		say-line 3 "\xFF\x0A\x6E\xF5\xFF\x0A\x66\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's unsanitary, Sam!"
+		wait-for-message
+		do-animation 3 face-towards 4
+		jump &[00002164]
+[00001026]:
+		jump &[00001663]
+[00001029]:
+		if !( V.171 == 997 ) jump &[00001662]
+		if !( !R.17 ) jump &[00001193]
+		R.17 = 1
+		say-line "\xFF\x0A\x59\x70\xFF\x0A\x67\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Maybe.  Are you a cleverly disguised bonded city courier?\xFF\x09\x11\x00"
+		wait-for-message
+		say-line 4 "\xFF\x0A\x84\x86\xFF\x0A\x68\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Maybe.  Are you the Freelance Police?"
+		jump &[00001659]
+[00001193]:
+		say-line 2 "\xFF\x0A\xEF\x46\xFF\x0A\x69\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Could you try coughing up our orders again?\xFF\x09\x12\x00"
+		wait-for-message
+		say-line 4 "\xFF\x0A\x9A\xF5\xFF\x0A\x69\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sure.\xFF\x03KAAK-huk-huk-KAAK"
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 face-towards 4
+		wait-for-message
+		say-line 4 "\xFF\x0A\x05\x77\xFF\x0A\x6C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sorry, no dice."
+		++V.231
+		wait-for-message
+		if !( V.231 == 1 ) jump &[00001431]
+		say-line 3 "\xFF\x0A\x70\x03\xFF\x0A\x6D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Maybe I could help, Sam."
+		jump &[00001637]
+[00001431]:
+		if !( V.231 == 2 ) jump &[00001502]
+		say-line 3 "\xFF\x0A\x5B\x7A\xFF\x0A\x6D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I really think I could help here, Sam."
+		jump &[00001637]
+[00001502]:
+		if !( V.231 == 3 ) jump &[00001566]
+		say-line 3 "\xFF\x0A\x86\x24\xFF\x0A\x6E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, Sam, let me try something!"
+		jump &[00001637]
+[00001566]:
+		say-line 3 "\xFF\x0A\xB1\xA7\xFF\x0A\x6E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You're not using me to my fullest potential, Sam."
+[00001637]:
+		do-animation 2 27
+		break-here 7 times
+		wait-for-message
+		R.2 = 0
+		jump &[00002164]
+[00001659]:
+		jump &[00001663]
+[00001663]:
+		wait-for-message
+		say-line 2 "\xFF\x0A\x9C\x86\xFF\x0A\x6F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Yes, but don't go blabbing it to everybody."
+		wait-for-message
+		say-line 3 "\xFF\x0A\xC7\x31\xFF\x0A\x70\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I think he's kinda cute, Sam.\xFF\x03Can I make a tennis racket out of him?\xFF\x09\x06\x00"
+		wait-for-message
+		do-animation 3 7
+		say-line 2 "\xFF\x0A\xF2\x4B\xFF\x0A\x71\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Maybe later, Max.\xFF\x03Right now, we've got a message from the Commissioner to collect.\xFF\x09\x17\x00"
+		wait-for-message
+		do-animation 2 22
+		say-line 4 "\xFF\x0A\x9D\x83\xFF\x0A\x72\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oh yeah, right.\xFF\x03KAFF-KAFF-huk-KAAAAAK"
+		wait-for-message
+		say-line 4 "\xFF\x0A\x08\x40\xFF\x0A\x75\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sorry guys^\xFF\x03I swallowed your orders for safekeeping,"
+		wait-for-message
+		say-line 4 "\xFF\x0A\xF3\x40\xFF\x0A\x76\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00but now I can't seem to hock them back up."
+		do-animation 2 26
+		break-here 9 times
+		wait-for-message
+[00002164]:
+		start-script 10
+		actor 2 \
+			costume 2 \
+		R.2 = 0
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0204
+		if !( !R.67 ) jump &[00001046]
+		cut-scene (2)
+		set-box 13 to 0
+		walk 2 to 304,115
+		R.2 = 1
+		break-until (R.3)
+		walk 3 to 304,115
+		say-line 2 "\xFF\x0A\xDE\xF9\xFF\x0A\x76\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, I don't think Mr. Bosco's voluntarily giving away his money!"
+		wait-for-message
+		print-line \
+			color 2 \
+			at 160,100 \
+			"\xFF\x0A\x09\x2D\xFF\x0A\x78\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oh, I'm real terrified!  A dog and a rabbit.  Ooh, scary!"
+
+		wait-for-message
+[00000246]:
+		wait-for-actor 3 [ref &[00000246]]
+		say-line 2 "\xFF\x0A\xB4\xAA\xFF\x0A\x79\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Max, the smartass kid doesn't think we're scary.\xFF\x03What do you think about that?"
+		wait-for-message
+		say-line 3 "\xFF\x0A\x1F\x1A\xFF\x0A\x7B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Grrrr^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x6A\xA1\xFF\x0A\x7B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's telling him, little buddy."
+		wait-for-message
+		actor 3 \
+			costume 10 \
+		shake on
+		do-animation 3 17
+		print-line \
+			color 1 \
+			at 160,80 \
+			"BIFF"
+
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\x01\x4C\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		print-line \
+			color 1 \
+			at 180,100 \
+			"POW"
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 4 times
+		print-debug \
+			"\xFF\x0A\x60\xB2\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		print-line \
+			color 1 \
+			at 160,120 \
+			"DUFF"
+
+		break-here 2 times
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\x68\xB1\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\xBD\xE5\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		break-here 1 times
+		print-debug \
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 1 times
+		shake off
+		actor 3 \
+			costume 3 \
+		do-animation 3 1
+		break-here
+		walk 3 to 417,126
+		break-here 3 times
+		walk 2 to 380,125
+		say-line 3 "\xFF\x0A\xD5\x1B\xFF\x0A\x7C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I think that punk learned a valuable lesson, Sam."
+		wait-for-message
+		do-animation 3 248
+		do-animation 2 249
+		say-line 2 "\xFF\x0A\xC0\x05\xFF\x0A\x7D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Me too, Max.  I didn't realize that the lower lip could stretch completely over the head.\xFF\x03Amazing."
+		wait-for-message
+[00001022]:
+		wait-for-actor 2 [ref &[00001022]]
+		set-box 13 to 128
+		end-cut-scene
+		R.2 = 0
+[00001046]:
+		R.2 = 0
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0205
+		cut-scene (2)
+		set-box 13 to 0
+		walk 2 to 418,100
+		R.2 = 1
+		break-until (R.3)
+		walk 3 to 418,100
+[00000058]:
+		wait-for-actor 3 [ref &[00000058]]
+		state-of 90 is 0
+		say-line 2 "\xFF\x0A\x6B\xF3\xFF\x0A\x7E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We'd like some fine Bavarian food sprinkled with umlauts, please."
+		wait-for-message
+		print-line \
+			color 9 \
+			at 160,40 \
+			"No shoes, no shirt, no service."
+
+		wait-for-message
+		say-line 3 "\xFF\x0A\x56\x0B\xFF\x0A\x80\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's okay, we don't want service.\xFF\x03We just want a few schnitzels and some other things that begin with `schnitz.`"
+		wait-for-message
+		print-line \
+			color 9 \
+			at 160,40 \
+			"OUT!"
+
+		wait-for-message
+		state-of 90 is 1
+		walk 3 to 380,125
+		break-here 3 times
+		walk 2 to 417,126
+		break-here 3 times
+		state-of 90 is 0
+		set-box 13 to 128
+		say-line 2 "\xFF\x0A\xA1\xE3\xFF\x0A\x81\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What a sourpuss."
+		wait-for-message
+		say-line 3 "\xFF\x0A\xCC\x54\xFF\x0A\x82\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I think he just needs a hug.  Or a sharp blow to the head."
+		wait-for-message
+		end-cut-scene
+		R.2 = 0
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		if !( L.0 == 7 ) jump &[00000023]
+		jump &[00001428]
+[00000023]:
+		if !( L.0 == 4 ) jump &[00000412]
+		cut-scene (2)
+		say-line "\xFF\x0A\x97\x36\xFF\x0A\x83\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Aw, it's a cute little hypercephalic kitten."
+		wait-for-message
+		if !( !R.67 ) jump &[00000408]
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 face-towards 4
+		if !( (random 2) == 0 ) jump &[00000201]
+		say-line 3 "\xFF\x0A\x82\x20\xFF\x0A\x84\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I am repulsed by his bulging eyes."
+		jump &[00000400]
+[00000201]:
+		if !( (random 2) == 1 ) jump &[00000305]
+		say-line 3 "\xFF\x0A\xED\xE4\xFF\x0A\x84\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'll call him `Mittens`, because I think he'd make a fine pair of them."
+		jump &[00000400]
+[00000305]:
+		if !( (random 2) == 2 ) jump &[00000399]
+		say-line 3 "\xFF\x0A\x38\xDD\xFF\x0A\x85\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00He's adorable.  Let's take him home and put tape on his feet."
+		jump &[00000400]
+[00000400]:
+		wait-for-message
+		R.2 = 0
+[00000408]:
+		end-cut-scene
+		jump &[00001428]
+[00000412]:
+		if !( (random 2) == 3 ) jump &[00001312]
+		if !( L.1 == 35 ) jump &[00001305]
+		cut-scene (2)
+		R.2 = 1
+		break-until (R.3)
+		say-line "\xFF\x0A\x83\xFF\xFF\x0A\x86\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd just love to turn this guy inside-out!"
+		wait-for-message
+		say-line 3 "\xFF\x0A\xEE\xD1\xFF\x0A\x87\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ooh, that gives me an idea!"
+		wait-for-message
+		walk 3 to 84,163
+		walk 2 to 137,165
+[00000585]:
+		wait-for-actor 3 [ref &[00000585]]
+[00000592]:
+		wait-for-actor 2 [ref &[00000592]]
+		do-animation 3 248
+		do-animation 2 248
+		break-here
+		actor 4 \
+			costume 30 \
+		do-animation 4 6
+		break-here
+		actor 3 \
+			elevation 255
+			costume 0 \
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\x1A\xD2\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 6 times
+		print-debug \
+			"\xFF\x0A\x84\x51\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 5 times
+		print-debug \
+			"\xFF\x0A\x87\x47\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 5 times
+		print-debug \
+			"\xFF\x0A\x01\x4C\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 8 times
+		print-debug \
+			"\xFF\x0A\xC1\x62\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 5 times
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		do-animation 4 7
+		break-here 3 times
+		do-animation 4 8
+		break-here 2 times
+		actor 2 \
+			elevation 255
+		break-here
+		actor 2 \
+			costume 36 \
+			elevation 0
+		put-actor 2 at 134,165 in-room 9
+		do-animation 2 249
+		do-animation 2 6
+		break-here 3 times
+		do-animation 2 249
+		do-animation 2 7
+		break-here 20 times
+		do-animation 2 249
+		do-animation 2 8
+		break-here 3 times
+		actor 2 \
+			costume 2 \
+		do-animation 2 248
+		put-actor 2 at 137,165 in-room 9
+		do-animation 2 8
+		break-here 4 times
+		do-animation 2 3
+		break-here
+		start-script 54 ( 95 )
+		class-of 95 is 6
+		actor 3 \
+			elevation 0
+			costume 3 \
+		put-actor 4 at 0,0 in-room 0
+		say-line 2 "\xFF\x0A\x19\x46\xFF\x0A\x88\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00According to these orders, something bizarre is happening at the carnival."
+		do-animation 3 249
+		wait-for-message
+		say-line 3 "\xFF\x0A\x04\x61\xFF\x0A\x89\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I thought that was the whole point."
+		wait-for-message
+		say-line 2 "\xFF\x0A\xEF\xE2\xFF\x0A\x89\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Maybe we should check it out when we've got nothing better to do.  Like anytime."
+		wait-for-message
+		V.184[4] = 0
+		V.198 = 1
+		R.2 = 0
+		end-cut-scene
+		jump &[00001309]
+[00001305]:
+		jump &[00001405]
+[00001309]:
+		jump &[00001428]
+[00001312]:
+		if !( L.1 == 5 ) jump &[00001404]
+		say-line 2 "\xFF\x0A\x9A\x13\xFF\x0A\x8B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I won't pick that kitten up.  I don't know where he's been."
+		jump &[00001428]
+[00001405]:
+		start-script 63 ( L.0, 4, L.1 )
+		stop-script 0
+[00001428]:
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0207
+		set-box 16 to 0
+		set-box 17 to 0
+		put-actor 8 at 217,118 in-room 9
+		actor 8 \
+			default
+			costume 27 \
+			step-dist 10,4 \
+			scale 155
+		walk 8 to 330,140
+[00000076]:
+		wait-for-actor 8 [ref &[00000076]]
+		put-actor 8 at 0,0 in-room 0
+		R.16 = 1
+		set-box 16 to 128
+		set-box 17 to 128
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0208
+		if !( random-between 1 to 2 == 1 ) jump &[00000066]
+		actor 7 \
+			default
+			costume 26 \
+			ignore-boxes \
+			talk-color 13 \
+		put-actor 7 at 246,79 in-room 9
+		do-animation 7 250
+		jump &[00000092]
+[00000066]:
+		if !( random-between 1 to 2 == 2 ) jump &[00000091]
+		put-actor 7 at 0,0 in-room 0
+		jump &[00000092]
+[00000092]:
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0209
+	local variable L.0
+	local variable L.1
+
+		if !( L.0 == 4 ) jump &[00000151]
+		say-line 2 "\xFF\x0A\x05\xF5\xFF\x0A\x8B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Look!  It's yet another cat, a nice, round, chubby cat^\xFF\x03Looks like he got caught in a threshing machine."
+		wait-for-message
+		jump &[00000197]
+[00000151]:
+		if !( L.0 == 6 ) jump &[00000173]
+		start-script 210
+		jump &[00000197]
+[00000173]:
+		start-script 63 ( L.0, V.7, L.1 )
+		stop-script 0
+[00000197]:
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0210
+		print-debug \
+			"get here?"
+
+		start-script 9
+		if ( !R.67 ) {
+			do-animation 3 251
+			break-here
+		}
+		do-animation 2 251
+		break-here
+		start-script 15 ( 1 )
+		start-script 14
+		V.171 = 0
+		do {
+			V.169 = random 1
+			break-here
+		} until (V.171)
+		if !( V.171 == 997 ) jump &[00000525]
+		do-animation 2 251
+		break-here
+		say-line 2 "\xFF\x0A\x70\xFF\xFF\x0A\x8D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey cute little kitty with the mangled eye.\xFF\x03How are you today?"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x1B\x21\xFF\x0A\x8F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00meow."
+		wait-for-message
+		if !( !R.67 ) jump &[00000344]
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 251
+		break-here
+		say-line 3 "\xFF\x0A\xC6\x45\xFF\x0A\x8F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Is that all you can say?"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x91\xBB\xFF\x0A\x8F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Meow, meow."
+		wait-for-message
+		jump &[00000425]
+[00000344]:
+		say-line 2 "\xFF\x0A\x3C\xF9\xFF\x0A\x8F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Is that all you can say?"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x67\x76\xFF\x0A\x90\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Meow, meow."
+		wait-for-message
+[00000425]:
+		say-line 2 "\xFF\x0A\x92\xB2\xFF\x0A\x90\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I guess he just slipped through the cracks of our public school system."
+		wait-for-message
+		jump &[00001167]
+		jump &[00001167]
+[00000525]:
+		if !( V.171 == 998 ) jump &[00000943]
+		break-here
+		if !( !R.67 ) jump &[00000838]
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 251
+		break-here
+		say-line 3 "\xFF\x0A\xBD\xB7\xFF\x0A\x91\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Here kitty kitty^"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x48\x1B\xFF\x0A\x92\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00MEOW!"
+		wait-for-message
+		say-line 3 "\xFF\x0A\x73\x46\xFF\x0A\x92\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ok, ok."
+		wait-for-message
+		do-animation 3 face-towards 2
+		break-here
+		say-line 3 "\xFF\x0A\x5E\xA5\xFF\x0A\x92\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sam, he's not as friendly as he looks."
+		wait-for-message
+		say-line 2 "\xFF\x0A\xC9\x55\xFF\x0A\x93\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00He is obviously bitter and disillusioned."
+		wait-for-message
+		say-line 3 "\xFF\x0A\xF4\x11\xFF\x0A\x94\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What cat isn't?"
+		wait-for-message
+		jump &[00001167]
+		jump &[00000940]
+[00000838]:
+		break-here
+		say-line 2 "\xFF\x0A\xFF\x6D\xFF\x0A\x94\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Here kitty kitty^"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x2A\xE5\xFF\x0A\x94\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00MEOW!"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x55\x1F\xFF\x0A\x95\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ok, ok."
+		wait-for-message
+		jump &[00001167]
+[00000940]:
+		jump &[00001167]
+[00000943]:
+		if !( V.171 == 1001 ) jump &[00001095]
+		say-line 2 "\xFF\x0A\x80\x9C\xFF\x0A\x95\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00How'd you lose your eye, anyway?"
+		wait-for-message
+		say-line 7 "\xFF\x0A\xAB\x3D\xFF\x0A\x96\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Meow, meow^me-ow, meow.\xFF\x03Meeeow, meowmeow, meoooowww, meow."
+		wait-for-message
+		jump &[00001167]
+		jump &[00001167]
+[00001095]:
+		if !( V.171 == 999 ) jump &[00001166]
+		say-line 2 "\xFF\x0A\x56\xDA\xFF\x0A\x96\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ciao."
+		wait-for-message
+		say-line 7 "\xFF\x0A\x81\x19\xFF\x0A\x97\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Meow."
+		wait-for-message
+		jump &[00001651]
+		jump &[00001167]
+[00001167]:
+		V.301 = 4
+[00001173]:
+		if !( V.301 <= V.196 ) jump &[00001198]
+		V.195[V.301] = 0
+		++V.301
+		jump &[00001173]
+[00001198]:
+		start-script 11
+		V.196 = 3
+		start-script 14
+		V.171 = 0
+		do {
+			V.169 = random 1
+			break-here
+		} until (V.171)
+		if !( V.171 == 997 ) jump &[00001331]
+		say-line 2 "\xFF\x0A\x2C\x3F\xFF\x0A\x97\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Are you a pirate?"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x57\xAE\xFF\x0A\x97\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00meeeuw"
+		wait-for-message
+		jump &[00001167]
+		jump &[00001651]
+[00001331]:
+		if !( V.171 == 998 ) jump &[00001413]
+		say-line 2 "\xFF\x0A\x02\xE9\xFF\x0A\x97\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Here kitty kitty^"
+		wait-for-message
+		say-line 7 "\xFF\x0A\x2D\x5B\xFF\x0A\x98\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00meow"
+		wait-for-message
+		jump &[00001167]
+		jump &[00001651]
+[00001413]:
+		if !( V.171 == 1001 ) jump &[00001635]
+		say-line 7 "\xFF\x0A\xD8\x72\xFF\x0A\x98\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Meow"
+		wait-for-message
+		if !( !R.67 ) jump &[00001560]
+		R.2 = 1
+		break-until (R.3)
+		say-line 3 "\xFF\x0A\x83\x90\xFF\x0A\x98\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sam, I really don't think we're going to get much out of this."
+		wait-for-message
+		jump &[00001167]
+		jump &[00001632]
+[00001560]:
+		say-line 2 "\xFF\x0A\x4E\x75\xFF\x0A\x99\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What we have here is^a failure to communicate."
+		wait-for-message
+		jump &[00001167]
+[00001632]:
+		jump &[00001651]
+[00001635]:
+		if !( V.171 == 999 ) jump &[00001650]
+		jump &[00001651]
+		jump &[00001651]
+[00001651]:
+		wait-for-message
+		if ( !R.67 ) {
+			R.2 = 0
+		}
+		start-script 10
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0212
+		do-animation 5 250
+		break-here
+		do {
+			do-animation 5 7
+			sleep-for random-between 1 to 15 seconds
+			do-animation 5 6
+			break-here 11 times
+		}
+		end-script
+	}
+
+	script 214 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0214
+		cut-scene (2)
+		sound 15 8 0 1
+		R.2 = 1
+		break-until (R.3)
+		walk 3 to 300,136
+[00000054]:
+		wait-for-actor 3 [ref &[00000054]]
+		do-animation 3 248
+		break-here 2 times
+		camera-at V.2
+		put-actor 2 at 0,0 in-room 0
+		put-actor 3 at 0,0 in-room 0
+		put-actor 4 at 0,0 in-room 0
+		state-of 89 is 0
+		actor 10 \
+			default
+			costume 31 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 10 at 435,182 in-room 9
+		do-animation 10 249
+		do-animation 10 6
+		actor 9 \
+			default
+			costume 32 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 9 at 435,182 in-room 9
+		do-animation 9 249
+		do-animation 9 6
+		break-here 4 times
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 1 times
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 7 times
+		print-debug \
+			"\xFF\x0A\x15\xCC\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 7 times
+		print-debug \
+			"\xFF\x0A\x27\x7E\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		actor 10 \
+			costume 33 \
+		actor 9 \
+			costume 34 \
+		do-animation 10 6
+		do-animation 9 6
+		break-here 16 times
+		print-debug \
+			"\xFF\x0A\x88\x86\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 10 times
+		put-actor 10 at 0,0 in-room 0
+		break-here 1 times
+		print-debug \
+			"\xFF\x0A\x33\xB1\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 10 times
+		actor 9 \
+			costume 35 \
+		do-animation 9 6
+		break-here 2 times
+		sound 14 8 0 1 40 150
+		print-debug \
+			"\xFF\x0A\x90\x11\xFF\x0A\x09\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 8 times
+		print-debug \
+			"\xFF\x0A\x88\x86\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		do-animation 9 7
+		break-here 9 times
+		put-actor 9 at 0,0 in-room 0
+		end-cut-scene
+		restart
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0215
+	local variable L.0
+	local variable L.1
+
+		if !( L.0 == 7 ) jump &[00000023]
+		jump &[00000369]
+[00000023]:
+		if !( L.0 == 4 ) jump &[00000092]
+		say-line 2 "\xFF\x0A\x79\x96\xFF\x0A\x9A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Just a bunch of intoxicated pigeons."
+		jump &[00000369]
+[00000092]:
+		if !( L.0 == 3 ) jump &[00000295]
+		if !( L.1 == 35 ) jump &[00000209]
+		say-line 2 "\xFF\x0A\xA4\x4E\xFF\x0A\x9B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah, Max'd just see how many of them he could stuff into his gaping maw."
+		jump &[00000292]
+[00000209]:
+		if !( L.1 == 0 ) jump &[00000268]
+		say-line 2 "\xFF\x0A\x4F\x7C\xFF\x0A\x9C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I have no use for pigeons."
+		jump &[00000292]
+[00000268]:
+		start-script 63 ( 3, 5, L.1 )
+		stop-script 0
+[00000292]:
+		jump &[00000369]
+[00000295]:
+		if !( L.1 == 5 ) jump &[00000368]
+		say-line 2 "\xFF\x0A\xFA\x02\xFF\x0A\x9D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd rather not handle those winged rats."
+		jump &[00000369]
+[00000369]:
+		end-script
+	}
+}
+

@@ -1,0 +1,351 @@
+;/**
+; * Sam & Max Hit the Road: Interactive Demo (Floppy)
+; * 
+; * Room 10
+; */
+
+script 66 { ; SCRP LECF_0001\LFLF_0010\SCRP_0066
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.9
+local variable L.10
+local variable L.11
+local variable L.12
+local variable L.13
+local variable L.14
+local variable L.15
+
+	L.9 = 0
+[00000014]:
+	if !( L.0[L.9] == 0 or L.9 > 198 ) jump &[00000038]
+	jump &[00000044]
+[00000038]:
+	++L.9
+	jump &[00000014]
+[00000044]:
+	L.1 = L.9
+	L.9 = L.5 - L.3
+	L.10 = L.6 - L.4
+	L.13 = 0
+[00000076]:
+	if !( L.13 <= L.7 ) jump &[00000354]
+	if !( L.13 != L.7 ) jump &[00000135]
+	L.11 = (L.9 * L.13) / L.7 + L.3
+	L.12 = (L.10 * L.13) / L.7 + L.4
+	jump &[00000147]
+[00000135]:
+	L.11 = L.5
+	L.12 = L.6
+[00000147]:
+	print-text \
+		color L.2 \
+		center \
+		no-talk-animation \
+		at L.11,L.12 \
+		"%s16384%"
+
+	if ( L.8 ) {
+		draw-box 0,0 to 320,67 color -1
+		draw-box 0,132 to 320,200 color -1
+	}
+	break-here
+	if !( L.13 == L.7 ) jump &[00000225]
+	jump &[00000348]
+[00000225]:
+	if !( L.8 == 3 ) jump &[00000290]
+	L.11 = L.11 - (L.1 * 12) / 2
+	L.14 = L.11 + L.1 * 13
+	L.12 = L.12 - 4
+	L.15 = L.12 + 16
+	jump &[00000332]
+[00000290]:
+	L.11 = L.11 - (L.1 * 9) / 2
+	L.14 = L.11 + L.1 * 9
+	L.15 = L.12 + 12
+[00000332]:
+	draw-box L.11,L.12 to L.14,L.15 color -1
+[00000348]:
+	++L.13
+	jump &[00000076]
+[00000354]:
+	if ( L.8 == 2 ) {
+		print-text \
+			color L.2 \
+			center \
+			no-talk-animation \
+			at L.5,L.6 \
+			"%s16384%"
+
+	}
+	break-here
+	end-script
+}
+
+; NOTE: This didn't seem to decompile right.
+script { ; SCRP LECF_0001\LFLF_0010\SCRP_o_ADBA
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	sound 13 L.0 0 9
+	sound -1
+	L.3 = V.56
+[00000037]:
+	if ( !sound-running L.0 ) {
+		stop-script 0
+	}
+	if !( L.1 > 0 ) jump &[00000076]
+	if ( L.3 >= L.2 ) {
+		stop-script 0
+	}
+	jump &[00000090]
+[00000076]:
+	if ( L.3 <= L.2 ) {
+		stop-script 0
+	}
+[00000090]:
+	sound 12 L.0 0 9 L.3
+	if !( L.1 > 0 ) jump &[00000141]
+	sound 12 L.0 0 8 0
+	jump &[00000160]
+[00000141]:
+	sound 12 L.0 0 8 127
+[00000160]:
+	sound -1
+	if !( L.1 > 0 ) jump &[00000236]
+	L.4 = 0
+[00000183]:
+	if !( L.4 < 127 ) jump &[00000233]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 + 6
+	break-here
+	jump &[00000183]
+[00000233]:
+	jump &[00000292]
+[00000236]:
+	L.4 = 127
+[00000242]:
+	if !( L.4 > 0 ) jump &[00000292]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 - 6
+	break-here
+	jump &[00000242]
+[00000292]:
+	L.3 = L.3 + L.1
+	if !( L.3 == L.2 ) jump &[00000037]
+	end-script
+}
+
+room room_10 {
+
+	object 774 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0774
+		name is "credit-panel-1"
+	}
+
+	object 775 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0775
+		name is "credit-panel-2"
+	}
+
+	object 776 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0776
+		name is "credit-panel-3"
+	}
+
+	object 777 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0777
+		name is "credit-panel-4"
+	}
+
+	object 778 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0778
+		name is "credit-killer"
+	}
+
+	object 779 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0779
+		name is "credit-killer-2"
+	}
+
+	object 780 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0780
+		name is "credit-panel-5"
+	}
+
+	object 781 { ; VERB LECF_0001\LFLF_0010\ROOM\OBCD_0781
+		name is "credit-panel-6"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0010\ROOM\EXCD
+		print-text \
+			" "
+
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0010\ROOM\ENCD
+		V.174 = V.32
+		stop-script V.175
+		V.176 = V.175
+		V.32 = 0
+		V.175 = 51
+		if !( V.32 != 48 ) jump &[00000055]
+		R.6 = 0
+		jump &[00000061]
+[00000055]:
+		R.6 = 1
+[00000061]:
+		start-script V.175
+		start-script 201
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0010\ROOM\LSCR_0201
+		cut-scene (2)
+		camera-at 480
+		put-actor 1 at 0,0 in-room 0
+		dim byte array V.304[200]
+		dim byte array V.305[200]
+		dim byte array V.306[200]
+		dim byte array V.307[200]
+		dim byte array V.308[200]
+		override &[00000808]
+		charset 5
+		charset color 0, 0, 0, 9
+		jump &[00000526]
+		break-here 5 times
+		V.304[] = "the lucasarts entertainment consortium"
+		V.305[] = "presents"
+		V.306[] = "in association with"
+		V.307[] = "illuminati local #421"
+		start-script bak rec 66 ( V.304, 40, 86, 160, 30, 160, 70, 10, 1 )
+		break-here 5 times
+		start-script bak rec 66 ( V.306, 30, 86, -100, 85, 160, 85, 10, 1 )
+		start-script bak rec 66 ( V.307, 30, 86, 360, 100, 160, 100, 10, 1 )
+		start-script bak rec 66 ( V.305, 10, 86, 160, 170, 160, 115, 10, 1 )
+		break-here 40 times
+		start-script bak rec 66 ( V.304, 40, 86, 160, 70, 160, 30, 5, 1 )
+		start-script bak rec 66 ( V.306, 30, 86, 160, 85, 420, 85, 5, 1 )
+		start-script bak rec 66 ( V.307, 30, 86, 160, 100, -100, 100, 5, 1 )
+		start-script bak rec 66 ( V.305, 10, 86, 160, 115, 160, 170, 5, 1 )
+		break-here 8 times
+[00000526]:
+		break-here 5 times
+		actor 4 \
+			default
+			costume 37 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 4 at 479,99 in-room 10
+		do-animation 4 250
+		do-animation 4 6
+		break-here 4 times
+		print-debug \
+			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 14 times
+		print-debug \
+			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		do-animation 4 7
+		print-debug \
+			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 35 times
+		do-animation 4 8
+		break-here
+		actor 5 \
+			default
+			costume 38 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 5 at 479,99 in-room 10
+		do-animation 5 250
+		do-animation 5 6
+		break-here 3 times
+		put-actor 4 at 0,0 in-room 0
+		put-actor 5 at 0,0 in-room 0
+		jump &[00000782]
+[00000782]:
+		break-here 5 times
+		undim V.304
+		undim V.305
+		undim V.306
+		undim V.307
+		undim V.308
+		restart
+[00000808]:
+		if ( V.5 ) {
+			start-sound 5
+		}
+		end-cut-scene
+		cursor off
+		userput off
+		undim V.304
+		undim V.305
+		undim V.306
+		undim V.307
+		undim V.308
+		break-here
+		charset 2
+		cursor on
+		userput on
+		current-room 7
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0010\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+
+		if !( L.2 > L.1 ) jump &[00000027]
+		L.5 = 10
+		jump &[00000033]
+[00000027]:
+		L.5 = -10
+[00000033]:
+		L.6 = L.1
+[00000039]:
+		L.6 = L.6 + L.5
+		draw-object L.0 at L.6,L.3
+		if !( L.3 != 0 ) jump &[00000084]
+		L.8 = 133
+		L.9 = 779
+		jump &[00000096]
+[00000084]:
+		L.9 = 778
+		L.8 = 0
+[00000096]:
+		if !( L.2 < L.1 ) jump &[00000133]
+		L.7 = L.6 * 8
+		draw-object L.9 at L.6 + 40,L.3
+		jump &[00000161]
+[00000133]:
+		L.7 = L.6 * 8 - 320
+		draw-object L.9 at L.6 - 10,L.3
+[00000161]:
+		break-here
+		if !( L.6 == L.2 ) jump &[00000039]
+		end-script
+	}
+}
+

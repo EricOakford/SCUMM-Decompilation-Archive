@@ -1,11 +1,11 @@
 ;/**
-; * Sam & Max Hit the Road: Interactive Demo (Floppy)
+; * Sam & Max Hit the Road: Interactive Demo (CD)
 ; * 
 ; * Room 8
 ; */
 
 ; NOTE: This didn't seem to decompile right.
-script { ; SCRP LECF_0001\LFLF_0008\SCRP_o_7769
+script { ; SCRP LECF_0001\LFLF_0008\SCRP_o_79AE
 local variable L.0
 local variable L.1
 local variable L.2
@@ -77,7 +77,7 @@ room room_8 {
 			do-animation 2 10
 			break-here
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 			state-of V.7 is 1
 			break-here
@@ -88,35 +88,35 @@ room room_8 {
 		}
 
 		verb 4 {
-			say-line "An egress."
+			say-line "\xFF\x0A\x6D\x27\xFF\x0A\x5A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00An egress."
 			end-script
 		}
 
 		verb 3 {
-			if !( (state-of V.7) != 0 ) jump &[00000154]
+			if !( (state-of V.7) != 0 ) jump &[00000170]
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 			state-of V.7 is 0
-			jump &[00000236]
-[00000154]:
+			jump &[00000252]
+[00000170]:
 			state-of V.7 is 0
 			cut-scene (2)
 			do-animation 2 10
 			break-here
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
-			if !( R.226 ) jump &[00000214]
+			if !( R.226 ) jump &[00000230]
 			state-of V.7 is 1
-			jump &[00000221]
-[00000214]:
+			jump &[00000237]
+[00000230]:
 			draw-object V.7 image 2
-[00000221]:
+[00000237]:
 			break-here
 			end-cut-scene
 			come-out-door 62 in-room 7 walk -1,-1
-[00000236]:
+[00000252]:
 			end-script
 		}
 	}
@@ -142,25 +142,25 @@ room room_8 {
 		name is "pug-object"
 
 		verb 4 {
-			say-line "Guess he had it coming to him."
+			say-line "\xFF\x0A\x98\x65\xFF\x0A\x5A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Guess he had it coming to him."
 			end-script
 		}
 
 		verb 5 {
 		local variable L.0
 
-			if !( L.0 == 35 or L.0 == 0 ) jump &[00000123]
-			if !( !R.67 ) jump &[00000085]
+			if !( L.0 == 35 or L.0 == 0 ) jump &[00000155]
+			if !( !R.67 ) jump &[00000101]
 			start-script 204
-			jump &[00000120]
-[00000085]:
-			say-line "Nah.  Max would never forgive me."
-[00000120]:
-			jump &[00000146]
-[00000123]:
+			jump &[00000152]
+[00000101]:
+			say-line "\xFF\x0A\x03\xE3\xFF\x0A\x5A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah.  Max would never forgive me."
+[00000152]:
+			jump &[00000178]
+[00000155]:
 			start-script 63 ( 3, V.7, L.0 )
 			stop-script 0
-[00000146]:
+[00000178]:
 			end-script
 		}
 	}
@@ -173,36 +173,93 @@ room room_8 {
 		name is "sam-hall-upstairs"
 
 		verb 4 {
-			say-line "Stairs."
+			say-line "\xFF\x0A\x6E\xA7\xFF\x0A\x5B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Stairs."
 			end-script
 		}
 
 		verb 7 {
-			if !( !R.67 ) jump &[00000083]
-			say-line "We don't go upstairs."
+			if !( !R.67 ) jump &[00000131]
+			say-line "\xFF\x0A\xD9\xE5\xFF\x0A\x5B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We don't go upstairs."
 			wait-for-message
-			say-line 3 "Not since the accident."
+			say-line 3 "\xFF\x0A\x94\x51\xFF\x0A\x5C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Not since the accident."
 			wait-for-message
-			jump &[00000134]
-[00000083]:
-			say-line "We don't go upstairs^\xFF\x03^not since the accident."
+			jump &[00000198]
+[00000131]:
+			say-line "\xFF\x0A\x7F\xB9\xFF\x0A\x5C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We don't go upstairs^\xFF\x03^not since the accident."
 			wait-for-message
-[00000134]:
+[00000198]:
 			end-script
 		}
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0008\ROOM\EXCD
-		unlock-sound 6
-		unlock-sound 2
+		unlock-sound 7
+		unlock-sound 3
+		unlock-costume 23
+		unlock-costume 25
+		unlock-costume 24
 		end-script
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0008\ROOM\ENCD
+		if ( !R.14 ) {
+			lock-costume 23
+			load-costume 23
+			lock-sound 7
+			load-sound 7
+		}
+		if ( !state-of 84 ) {
+			lock-costume 25
+			load-costume 25
+		}
+		if ( !R.15 ) {
+			lock-costume 24
+			load-costume 24
+		}
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEA\x71\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xAE\x70\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x44\x4F\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x5B\x5D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x97\x04\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
 		start-script bak 202
-		if !( V.166 == 7 ) jump &[00000114]
-		sound 15 2 0 1
-		sound 17 2 2 15 2 0
+		if !( V.166 == 7 ) jump &[00000440]
+		sound 15 3 0 1
+		sound 17 3 2 15 3 0
 		if ( !R.14 ) {
 			start-script 201
 		}
@@ -210,28 +267,28 @@ room room_8 {
 			start-script 205
 		}
 		state-of 81 is 1
-		jump &[00000144]
-[00000114]:
-		if !( !sound-running 2 ) jump &[00000122]
-[00000122]:
-		sound 17 2 2 15 2 0
-[00000144]:
-		if !( V.166 == 7 and (!R.67) ) jump &[00000206]
-		if !( !R.226 ) jump &[00000176]
+		jump &[00000470]
+[00000440]:
+		if !( !sound-running 3 ) jump &[00000448]
+[00000448]:
+		sound 17 3 2 15 3 0
+[00000470]:
+		if !( V.166 == 7 and (!R.67) ) jump &[00000532]
+		if !( !R.226 ) jump &[00000502]
 		draw-object 81 image 2
-		jump &[00000183]
-[00000176]:
+		jump &[00000509]
+[00000502]:
 		state-of 81 is 1
-[00000183]:
+[00000509]:
 		put-actor 3 at-object 81 in room 8
 		start-script bak 29
-		jump &[00000233]
-[00000206]:
+		jump &[00000559]
+[00000532]:
 		if ( !R.67 ) {
 			put-actor 3 at-object 82 in room 8
 			start-script bak 29
 		}
-[00000233]:
+[00000559]:
 		end-script
 	}
 
@@ -243,22 +300,22 @@ room room_8 {
 			elevation 200
 		break-until ((object-y 2) >= 130)
 		print-debug \
-			"\xFF\x0A\x0D\x68\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
-		stop-sound 2
-		start-sound 6
+		stop-sound 3
+		start-sound 7
 		walk 3 to 150,120
 		V.151 = 125
 		cut-scene (2)
 		do-animation 2 255
 		stop-sentence
-		override &[00000410]
+		override &[00000458]
 		do-animation 2 249
 		sleep-for 20 jiffies
 		print-line \
 			color 10 \
 			at 270,20 \
-			"So, you want a piece of me, huh?\xFF\x03Well, take a piece of this!"
+			"\xFF\x0A\xD5\x67\xFF\x0A\x54\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00So, you want a piece of me, huh?\xFF\x03Well, take a piece of this!"
 
 		wait-for-message
 		do-animation 3 249
@@ -266,7 +323,7 @@ room room_8 {
 		do-animation 4 249
 		do-animation 4 6
 		print-debug \
-			"\xFF\x0A\xA4\x60\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xEA\x71\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 3 times
 		do-animation 2 248
@@ -274,22 +331,22 @@ room room_8 {
 		break-here 1 times
 		break-here 1 times
 		print-debug \
-			"\xFF\x0A\x5E\x61\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xAE\x70\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\x0D\x68\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 5 times
 		draw-object 85 image 0
 		class-of 85 is 32
 		draw-object 83 image 0
 		put-actor 4 at 0,0 in-room 0
-		say-line 2 "Brutal."
+		say-line 2 "\xFF\x0A\xC0\x90\xFF\x0A\x55\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Brutal."
 		wait-for-message
-		say-line 3 "But very true to life."
+		say-line 3 "\xFF\x0A\x6B\xD9\xFF\x0A\x55\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00But very true to life."
 		wait-for-message
-[00000410]:
+[00000458]:
 		draw-object 85 image 0
 		class-of 85 is 32
 		state-of 83 is 1
@@ -353,14 +410,14 @@ room room_8 {
 			stop-script 205
 			L.0 = 1
 		}
-		say-line 3 "Gratuitous acts of senseless violence are MY forte!"
+		say-line 3 "\xFF\x0A\xD6\x3F\xFF\x0A\x56\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Gratuitous acts of senseless violence are MY forte!"
 		walk 3 to 150,134
 		wait-for-message
-[00000097]:
-		wait-for-actor 2 [ref &[00000097]]
+[00000113]:
+		wait-for-actor 2 [ref &[00000113]]
 		do-animation 2 248
-[00000111]:
-		wait-for-actor 3 [ref &[00000111]]
+[00000127]:
+		wait-for-actor 3 [ref &[00000127]]
 		do-animation 3 248
 		break-here
 		V.151 = 133
@@ -377,11 +434,11 @@ room room_8 {
 		class-of 85 is 160
 		break-here 6 times
 		print-debug \
-			"\xFF\x0A\x7C\xCF\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x44\x4F\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 5 times
 		print-debug \
-			"\xFF\x0A\xCA\xD7\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x5B\x5D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 5 times
 		actor 3 \
@@ -391,7 +448,7 @@ room room_8 {
 		R.15 = 1
 		do-animation 2 248
 		break-here
-		say-line "You're such an adorable urchin, Max."
+		say-line "\xFF\x0A\xC1\x4F\xFF\x0A\x57\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00You're such an adorable urchin, Max."
 		wait-for-message
 		if ( L.0 ) {
 			start-script 205
@@ -408,12 +465,12 @@ room room_8 {
 		cut-scene ()
 		break-until ((object-y 2) >= 149)
 		do-animation 2 255
-		override &[00000546]
+		override &[00000594]
 		do-animation 2 249
 		print-line \
 			color 10 \
 			at 270,20 \
-			"An' here's one for your old man!"
+			"\xFF\x0A\x6C\x09\xFF\x0A\x58\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00An' here's one for your old man!"
 
 		wait-for-message
 		actor 4 \
@@ -427,7 +484,7 @@ room room_8 {
 		put-actor 4 at 174,149 in-room 8
 		do-animation 4 249
 		print-debug \
-			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		do-animation 4 6
 		break-here 6 times
@@ -436,20 +493,20 @@ room room_8 {
 		actor 3 \
 			elevation 255
 		print-debug \
-			"\xFF\x0A\x10\xAA\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x97\x04\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
-		lock-sound 2
-		load-sound 2
-		sound 17 6 0 1 8 2 0
+		lock-sound 3
+		load-sound 3
+		sound 17 7 0 1 8 3 0
 		break-here 14 times
 		break-here 6 times
 		print-debug \
-			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		do-animation 4 8
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\x55\x49\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x77\x43\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 8 times
 		break-here 10 times
@@ -463,22 +520,22 @@ room room_8 {
 		put-actor 4 at 0,0 in-room 0
 		do-animation 2 248
 		break-here
-		say-line "I really respect Flint's business acumen."
-		sound 15 6 0 1
+		say-line "\xFF\x0A\x97\x9C\xFF\x0A\x58\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I really respect Flint's business acumen."
+		sound 15 7 0 1
 		wait-for-message
-		say-line 3 "Please, Sam, don't use the word `acumen` again."
+		say-line 3 "\xFF\x0A\x42\x53\xFF\x0A\x59\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Please, Sam, don't use the word `acumen` again."
 		wait-for-message
-[00000546]:
+[00000594]:
 		if ( V.5 ) {
 			do-animation 3 255
 			actor 2 \
 				elevation 0
 			actor 3 \
 				elevation 0
+			lock-sound 3
+			load-sound 3
+			sound 17 7 0 1 8 3 0
 		}
-		lock-sound 2
-		load-sound 2
-		sound 17 6 0 1 8 2 0
 		draw-object 84 image 0
 		put-actor 4 at 0,0 in-room 0
 		end-cut-scene

@@ -1,5 +1,5 @@
 ;/**
-; * Sam & Max Hit the Road: Interactive Demo (Floppy)
+; * Sam & Max Hit the Road: Interactive Demo (CD)
 ; * 
 ; * Room 7
 ; */
@@ -7,8 +7,139 @@
 ; After Introduction
 script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	cut-scene (2)
-	lock-sound 4
-	load-sound 4
+	lock-room 94
+	load-room 94
+	lock-room 93
+	load-room 93
+	lock-script 48
+	load-script 48
+	lock-script 50
+	load-script 50
+	lock-script 49
+	load-script 49
+	lock-script 51
+	load-script 51
+	lock-script 52
+	load-script 52
+	lock-script 53
+	load-script 53
+	lock-script 54
+	load-script 54
+	lock-script 55
+	load-script 55
+	lock-script 56
+	load-script 56
+	lock-script 57
+	load-script 57
+	lock-script 58
+	load-script 58
+	lock-script 59
+	load-script 59
+	lock-script 60
+	load-script 60
+	lock-script 61
+	load-script 61
+	lock-script 62
+	load-script 62
+	lock-script 63
+	load-script 63
+	lock-script 64
+	load-script 64
+	lock-script 2
+	load-script 2
+	lock-script 3
+	load-script 3
+	lock-script 4
+	load-script 4
+	lock-script 6
+	load-script 6
+	lock-script 7
+	load-script 7
+	lock-script 9
+	load-script 9
+	lock-script 10
+	load-script 10
+	lock-script 11
+	load-script 11
+	lock-script 12
+	load-script 12
+	lock-script 13
+	load-script 13
+	lock-script 14
+	load-script 14
+	lock-script 15
+	load-script 15
+	lock-script 16
+	load-script 16
+	lock-script 17
+	load-script 17
+	lock-script 18
+	load-script 18
+	lock-script 19
+	load-script 19
+	lock-script 20
+	load-script 20
+	lock-script 21
+	load-script 21
+	lock-script 22
+	load-script 22
+	lock-script 23
+	load-script 23
+	lock-script 24
+	load-script 24
+	lock-script 25
+	load-script 25
+	lock-script 26
+	load-script 26
+	lock-script 27
+	load-script 27
+	lock-script 28
+	load-script 28
+	lock-script 29
+	load-script 29
+	lock-script 30
+	load-script 30
+	lock-script 31
+	load-script 31
+	lock-script 32
+	load-script 32
+	lock-script 33
+	load-script 33
+	lock-script 34
+	load-script 34
+	lock-script 35
+	load-script 35
+	lock-script 44
+	load-script 44
+	lock-script 45
+	load-script 45
+	lock-script 46
+	load-script 46
+	lock-script 47
+	load-script 47
+	lock-costume 1
+	load-costume 1
+	lock-costume 2
+	load-costume 2
+	lock-costume 3
+	load-costume 3
+	lock-costume 4
+	load-costume 4
+	lock-costume 5
+	load-costume 5
+	lock-costume 11
+	load-costume 11
+	lock-costume 6
+	load-costume 6
+	lock-costume 7
+	load-costume 7
+	lock-costume 9
+	load-costume 9
+	lock-costume 8
+	load-costume 8
+	unlock-sound 9
+	lock-sound 5
+	load-sound 5
 	actor 2 \
 		default
 		costume 4 \
@@ -29,30 +160,30 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	do-animation 3 249
 	break-here 4 times
 	print-debug \
-		"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	state-of 62 is 1
-	override &[00001893]
+	override &[00002610]
 	break-here
 	walk 2 to 237,120
 	break-here 3 times
 	walk 3 to 206,112
-[00000184]:
-	wait-for-actor 2 [ref &[00000184]]
+[00000709]:
+	wait-for-actor 2 [ref &[00000709]]
 	do-animation 2 244
-[00000198]:
-	wait-for-actor 3 [ref &[00000198]]
+[00000723]:
+	wait-for-actor 3 [ref &[00000723]]
 	do-animation 3 250
 	break-here 2 times
-	say-line 2 "Well, that was a pleasantly understated credit sequence."
+	say-line 2 "\xFF\x0A\x6D\xA0\xFF\x0A\x1E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Well, that was a pleasantly understated credit sequence."
 	wait-for-message
-	say-line 3 "I enjoyed the cheesy retro ambience."
+	say-line 3 "\xFF\x0A\x98\x9C\xFF\x0A\x1F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I enjoyed the cheesy retro ambience."
 	wait-for-message
-	say-line 2 "What the hell are you talking about, Max?"
+	say-line 2 "\xFF\x0A\x43\x52\xFF\x0A\x20\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What the hell are you talking about, Max?"
 	wait-for-message
-	say-line 3 "Sam, either termites are burrowing through my skull, or one of us is ticking."
+	say-line 3 "\xFF\x0A\xEE\xFC\xFF\x0A\x20\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sam, either termites are burrowing through my skull, or one of us is ticking."
 	wait-for-message
-	say-line 2 "Oops, oh yeah."
+	say-line 2 "\xFF\x0A\xD9\x3B\xFF\x0A\x22\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oops, oh yeah."
 	wait-for-message
 	stop-script 203
 	palette intensity 200 in-slot 234 to 241
@@ -63,13 +194,13 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 		scale 255
 	actor 10 \
 		default
-		costume 8 \
+		costume 9 \
 		ignore-boxes \
 		scale 210
 		talk-color 6 \
 	actor 11 \
 		default
-		costume 9 \
+		costume 8 \
 		ignore-boxes \
 		scale 216
 	do-animation 2 249
@@ -83,9 +214,9 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	do-animation 10 248
 	do-animation 11 250
 	put-actor 11 at 206,97 in-room 7
-	say-line 10 "Max, where should I put this so it doesn't hurt anyone we know or care about?"
+	say-line 10 "\xFF\x0A\x84\xB2\xFF\x0A\x22\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Max, where should I put this so it doesn't hurt anyone we know or care about?"
 	wait-for-message
-	say-line 11 "Out the window, Sam.  There's nothing but strangers out there."
+	say-line 11 "\xFF\x0A\x2F\xD6\xFF\x0A\x23\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Out the window, Sam.  There's nothing but strangers out there."
 	wait-for-message
 	put-actor 10 at 0,0 in-room 0
 	put-actor 11 at 0,0 in-room 0
@@ -93,7 +224,7 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	break-here 17 times
 	state-of 80 is 1
 	print-debug \
-		"\xFF\x0A\x0C\x2C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here
 	state-of 80 is 2
@@ -101,7 +232,7 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	$ room-color is 1
 	shake on
 	print-debug \
-		"\xFF\x0A\x32\x35\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here
 	$ room-color is 0
@@ -122,17 +253,17 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	break-here
 	break-here 6 times
 	break-here
-	say-line 2 "I hope there was nobody on that bus."
+	say-line 2 "\xFF\x0A\x5A\xBE\xFF\x0A\x24\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I hope there was nobody on that bus."
 	wait-for-message
-	say-line 3 "Nobody we know, at least."
+	say-line 3 "\xFF\x0A\x05\x52\xFF\x0A\x25\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nobody we know, at least."
 	wait-for-message
 	break-here 4 times
-	unlock-sound 5
-	sound 14 5 0 1 0 40
-	start-sound 3
+	unlock-sound 6
+	sound 14 6 0 1 0 40
+	start-sound 4
 	start-script 203
 	print-debug \
-		"\xFF\x0A\x62\xED\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	draw-object 64 image 1
 	state-of 64 is 1
@@ -159,7 +290,7 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	break-here 6 times
 	break-here 9 times
 	print-debug \
-		"\xFF\x0A\x21\xDA\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 10 times
 	palette intensity 255 in-slot 234 to 241
@@ -169,64 +300,64 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 		always-zclip 1
 	break-here 5 times
 	print-debug \
-		"\xFF\x0A\x3E\x9C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 6 times
 	print-debug \
-		"\xFF\x0A\x21\xDA\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 10 times
 	actor 2 \
 		costume 20 \
 	do-animation 2 6
 	print-debug \
-		"\xFF\x0A\x08\x54\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 2 times
 	print-debug \
-		"\xFF\x0A\x0D\x68\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 2 times
 	print-debug \
-		"\xFF\x0A\x76\x79\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 2 times
 	break-here 7 times
-	sound 15 3 0 1
-	sound 17 3 0 1 8 4 0
+	sound 15 4 0 1
+	sound 17 4 0 1 8 5 0
 	print-debug \
-		"\xFF\x0A\x21\xDA\xFF\x0A\x00\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 22 times
 	put-actor 2 at 0,0 in-room 0
 	break-here 1 times
 	print-debug \
-		"\xFF\x0A\x77\x35\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 6 times
 	do-animation 9 7
 	actor 2 \
-		costume 8 \
+		costume 9 \
 		ignore-boxes \
 		elevation 125
 		scale 255
 		text-offset 0,-40 \
 	put-actor 2 at 66,233 in-room 7
 	do-animation 2 248
-	say-line 2 "Hello?  Yes?  Yes?"
+	say-line 2 "\xFF\x0A\x70\xB4\xFF\x0A\x25\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hello?  Yes?  Yes?"
 	wait-for-message
-	say-line 2 "Yes?\xFF\x03No!"
+	say-line 2 "\xFF\x0A\x1B\xA8\xFF\x0A\x26\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Yes?\xFF\x03No!"
 	wait-for-message
 	put-actor 3 at 0,129 in-room 7
 	walk 3 to 120,140
-	say-line 2 "Really?\xFF\x03Well, the same to you, Mac!"
+	say-line 2 "\xFF\x0A\xC6\x37\xFF\x0A\x27\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Really?\xFF\x03Well, the same to you, Mac!"
 	wait-for-message
 	actor 2 \
 		elevation 0
 	do-animation 9 8
 	break-here 3 times
 	print-debug \
-		"\xFF\x0A\x77\x35\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+		"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	break-here 4 times
 	actor 2 \
@@ -239,11 +370,11 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	do-animation 2 248
 	start-script bak 203
 	state-of 64 is 0
-[00001875]:
-	wait-for-actor 3 [ref &[00001875]]
+[00002592]:
+	wait-for-actor 3 [ref &[00002592]]
 	do-animation 3 244
 	break-here 2 times
-[00001893]:
+[00002610]:
 	if ( V.5 ) {
 		shake off
 		$ room-color is 0
@@ -267,30 +398,30 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 		do-animation 2 249
 		do-animation 3 1
 		do-animation 3 248
-		stop-sound 5
-		stop-sound 3
-		stop-sound 2
+		stop-sound 6
 		stop-sound 4
-		start-sound 2
+		stop-sound 3
+		stop-sound 5
+		start-sound 3
 	}
 	override off
-	say-line 3 "Another confused census taker?"
+	say-line 3 "\xFF\x0A\xF1\x08\xFF\x0A\x28\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Another confused census taker?"
 	wait-for-message
 	do-animation 2 face-towards 3
 	break-here 2 times
-	say-line 2 "Actually, it was the Commissioner with another idiotic and baffling assignment."
+	say-line 2 "\xFF\x0A\xDC\x98\xFF\x0A\x28\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Actually, it was the Commissioner with another idiotic and baffling assignment."
 	wait-for-message
-	say-line 3 "Does it involve wanton destruction?"
+	say-line 3 "\xFF\x0A\x87\xB5\xFF\x0A\x29\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Does it involve wanton destruction?"
 	wait-for-message
-	say-line 2 "We can only hope.\xFF\x03Due to the arbitrarily sensitive nature of the mission,\xFF\x03we'll be meeting a bonded city courier out on the street."
-	if ( sound-running 4 ) {
-		lock-sound 2
-		load-sound 2
-		sound 17 4 0 1 8 2 0
-		sound 15 4 0 1
+	say-line 2 "\xFF\x0A\x32\x5B\xFF\x0A\x2A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We can only hope.\xFF\x03Due to the arbitrarily sensitive nature of the mission,\xFF\x03we'll be meeting a bonded city courier out on the street."
+	if ( sound-running 5 ) {
+		lock-sound 3
+		load-sound 3
+		sound 17 5 0 1 8 3 0
+		sound 15 5 0 1
 	}
 	wait-for-message
-	say-line 3 "Ooh, smells like a fiercely thickening plot."
+	say-line 3 "\xFF\x0A\xDD\xE9\xFF\x0A\x2C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ooh, smells like a fiercely thickening plot."
 	wait-for-message
 	end-cut-scene
 	V.198 = 0
@@ -298,12 +429,12 @@ script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
 	start-script bak 202
 	start-script 30
 	V.177 = 889
-	cursor V.177 image 92
+	cursor V.177 image 93
 	end-script
 }
 
 ; NOTE: This didn't seem to decompile right.
-script { ; SCRP LECF_0001\LFLF_0007\SCRP_o_10E89
+script { ; SCRP LECF_0001\LFLF_0007\SCRP_o_117D2
 local variable L.0
 local variable L.1
 local variable L.2
@@ -368,17 +499,17 @@ room room_7 {
 
 		verb 4 {
 			cut-scene ()
-			say-line "This phone represents unhindered contact with the outside world."
+			say-line "\xFF\x0A\x7B\x0D\xFF\x0A\x4B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This phone represents unhindered contact with the outside world."
 			wait-for-message
 			if ( !R.67 ) {
-				say-line 3 "Until they realize we don't pay the bills."
+				say-line 3 "\xFF\x0A\xA6\x1E\xFF\x0A\x4C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Until they realize we don't pay the bills."
 			}
 			end-cut-scene
 			end-script
 		}
 
 		verb 5 {
-			say-line "This is no time for chit-chat."
+			say-line "\xFF\x0A\xD1\xC3\xFF\x0A\x4C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is no time for chit-chat."
 			end-script
 		}
 	}
@@ -387,17 +518,17 @@ room room_7 {
 		name is "office-answering-machine"
 
 		verb 4 {
-			say-line "Our primitive answering machine.  It's an 8-track."
+			say-line "\xFF\x0A\x54\x75\xFF\x0A\x52\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Our primitive answering machine.  It's an 8-track."
 			end-script
 		}
 
 		verb 3 {
-			if !( V.230 ) jump &[00000080]
+			if !( V.230 ) jump &[00000096]
 			start-script 206
-			jump &[00000106]
-[00000080]:
-			say-line "Nobody's left a message."
-[00000106]:
+			jump &[00000138]
+[00000096]:
+			say-line "\xFF\x0A\x7F\x5E\xFF\x0A\x53\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nobody's left a message."
+[00000138]:
 			end-script
 		}
 	}
@@ -419,7 +550,7 @@ room room_7 {
 			do-animation 2 10
 			break-here
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 			state-of V.7 is 1
 			break-here
@@ -434,36 +565,36 @@ room room_7 {
 		}
 
 		verb 4 {
-			say-line V.1 "This is pretty damn self-explanatory."
+			say-line V.1 "\xFF\x0A\x8D\xD7\xFF\x0A\x45\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is pretty damn self-explanatory."
 			end-script
 		}
 
 		verb 3 {
-			if !( (state-of V.7) == 1 ) jump &[00000343]
-			if !( (actor-box 3) == 8 ) jump &[00000294]
+			if !( (state-of V.7) == 1 ) jump &[00000375]
+			if !( (actor-box 3) == 8 ) jump &[00000326]
 			cut-scene (2)
-			say-line 2 "Get in here, Max."
+			say-line 2 "\xFF\x0A\xB8\x89\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Get in here, Max."
 			R.2 = 1
 			break-until (R.3)
 			walk 3 to 92,152
-[00000267]:
-			wait-for-actor 3 [ref &[00000267]]
+[00000299]:
+			wait-for-actor 3 [ref &[00000299]]
 			do-animation 2 10
 			break-here 2 times
 			wait-for-message
 			end-cut-scene
 			R.2 = 0
-[00000294]:
+[00000326]:
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 			state-of V.7 is 0
 			set-box 8 to 128
 			do-animation 2 3
-			jump &[00000446]
-[00000343]:
+			jump &[00000478]
+[00000375]:
 			print-debug \
-				"\xFF\x0A\x59\xAA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 			state-of V.7 is 1
 			set-box 8 to 0
@@ -474,11 +605,11 @@ room room_7 {
 			break-here
 			set-box 8 to 0
 			walk 2 to 0,160
-[00000425]:
-			wait-for-actor 2 [ref &[00000425]]
+[00000457]:
+			wait-for-actor 2 [ref &[00000457]]
 			end-cut-scene
 			come-out-door 81 in-room 8 walk 164,110
-[00000446]:
+[00000478]:
 			end-script
 		}
 	}
@@ -492,41 +623,41 @@ room room_7 {
 		}
 
 		verb 4 {
-			if !( class-of V.7 is 24 134 ) jump &[00000133]
+			if !( class-of V.7 is 24 134 ) jump &[00000149]
 			class-of V.7 is 152
-			say-line 2 "It's a black light that Max uses to illuminate his rare 60's posters."
-			jump &[00000154]
-[00000133]:
-			say-line "It's a black light."
-[00000154]:
+			say-line 2 "\xFF\x0A\xFA\xF4\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's a black light that Max uses to illuminate his rare 60's posters."
+			jump &[00000186]
+[00000149]:
+			say-line "\xFF\x0A\xA5\x41\xFF\x0A\x4A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's a black light."
+[00000186]:
 			end-script
 		}
 
 		verb 5 {
-			if !( (actor-room 8) == 7 ) jump &[00000203]
-			say-line 2 "I'd better turn it off first."
-			jump &[00000223]
-[00000203]:
+			if !( (actor-room 8) == 7 ) jump &[00000251]
+			say-line 2 "\xFF\x0A\xD0\x93\xFF\x0A\x4A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd better turn it off first."
+			jump &[00000271]
+[00000251]:
 			class-of 63 is 6
 			start-script 54 ( 63 )
-[00000223]:
+[00000271]:
 			end-script
 		}
 
 		verb 3 {
 		local variable L.0
 
-			if !( class-of V.7 is 134 ) jump &[00000273]
-			if !( !L.0 ) jump &[00000257]
+			if !( class-of V.7 is 134 ) jump &[00000321]
+			if !( !L.0 ) jump &[00000305]
 			start-script 214
-			jump &[00000270]
-[00000257]:
+			jump &[00000318]
+[00000305]:
 			do-sentence 3 L.0 [130] V.7
-[00000270]:
-			jump &[00000286]
-[00000273]:
+[00000318]:
+			jump &[00000334]
+[00000321]:
 			do-sentence 3 L.0 [130] V.7
-[00000286]:
+[00000334]:
 			end-script
 		}
 	}
@@ -535,7 +666,7 @@ room room_7 {
 		name is "roach farm"
 
 		verb 4 {
-			say-line "It's Max's roach farm."
+			say-line "\xFF\x0A\xCF\x78\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's Max's roach farm."
 			if ( !R.13 ) {
 				if ( !R.67 ) {
 					start-script 210
@@ -554,12 +685,12 @@ room room_7 {
 		}
 
 		verb 4 {
-			if !( class-of V.7 is 24 ) jump &[00000093]
-			say-line 2 "My coat hanger antenna.  I'm an electronics genius."
-			jump &[00000110]
-[00000093]:
-			say-line 2 "Rabbit ears?"
-[00000110]:
+			if !( class-of V.7 is 24 ) jump &[00000109]
+			say-line 2 "\xFF\x0A\xFC\x57\xFF\x0A\x4D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00My coat hanger antenna.  I'm an electronics genius."
+			jump &[00000142]
+[00000109]:
+			say-line 2 "\xFF\x0A\xA7\x78\xFF\x0A\x4E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Rabbit ears?"
+[00000142]:
 			end-script
 		}
 
@@ -573,19 +704,19 @@ room room_7 {
 		name is "office-light-switch"
 
 		verb 4 {
-			say-line "One mighty fine light switch."
+			say-line "\xFF\x0A\xD2\xD1\xFF\x0A\x4E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00One mighty fine light switch."
 			end-script
 		}
 
 		verb 3 {
-			if !( (state-of V.7) == 0 ) jump &[00000070]
+			if !( (state-of V.7) == 0 ) jump &[00000086]
 			state-of V.7 is 1
 			R.226 = 1
-			jump &[00000083]
-[00000070]:
+			jump &[00000099]
+[00000086]:
 			state-of V.7 is 0
 			R.226 = 0
-[00000083]:
+[00000099]:
 			start-script 201 ( state-of V.7 )
 			end-script
 		}
@@ -595,22 +726,22 @@ room room_7 {
 		name is "office-rat-hole"
 
 		verb 4 {
-			if !( class-of V.7 is 146 ) jump &[00000072]
-			say-line "All our money is invested in that rat hole."
-			jump &[00000105]
-[00000072]:
-			say-line "It looks pretty empty in there."
-[00000105]:
+			if !( class-of V.7 is 146 ) jump &[00000088]
+			say-line "\xFF\x0A\xFD\x78\xFF\x0A\x4F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00All our money is invested in that rat hole."
+			jump &[00000137]
+[00000088]:
+			say-line "\xFF\x0A\x28\x30\xFF\x0A\x50\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It looks pretty empty in there."
+[00000137]:
 			end-script
 		}
 
 		verb 5 {
-			if !( class-of V.7 is 146 ) jump &[00000132]
+			if !( class-of V.7 is 146 ) jump &[00000164]
 			start-script 207
-			jump &[00000159]
-[00000132]:
-			say-line "I already cleaned it out."
-[00000159]:
+			jump &[00000207]
+[00000164]:
+			say-line "\xFF\x0A\xD3\xA7\xFF\x0A\x50\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I already cleaned it out."
+[00000207]:
 			end-script
 		}
 	}
@@ -624,7 +755,7 @@ room room_7 {
 		}
 
 		verb 4 {
-			say-line "It's more money than we'll ever need."
+			say-line "\xFF\x0A\x7E\x17\xFF\x0A\x51\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's more money than we'll ever need."
 			end-script
 		}
 	}
@@ -633,16 +764,16 @@ room room_7 {
 		name is "office-tv"
 
 		verb 4 {
-			say-line "We've been through a lot together, this TV and I."
+			say-line "\xFF\x0A\x29\xA9\xFF\x0A\x51\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We've been through a lot together, this TV and I."
 			end-script
 		}
 
 		verb 3 {
-			if !( class-of V.7 is 146 ) jump &[00000172]
+			if !( class-of V.7 is 146 ) jump &[00000188]
 			cut-scene ()
 			walk 2 to-object 71 within 0
-[00000090]:
-			wait-for-actor 2 [ref &[00000090]]
+[00000106]:
+			wait-for-actor 2 [ref &[00000106]]
 			actor 2 \
 				default
 				costume 17 \
@@ -656,12 +787,12 @@ room room_7 {
 				talk-color 6 \
 				text-offset 0,-110 \
 			end-cut-scene
-			jump &[00000265]
-[00000172]:
+			jump &[00000281]
+[00000188]:
 			cut-scene ()
 			walk 2 to-object 71 within 0
-[00000186]:
-			wait-for-actor 2 [ref &[00000186]]
+[00000202]:
+			wait-for-actor 2 [ref &[00000202]]
 			actor 2 \
 				default
 				costume 17 \
@@ -675,7 +806,7 @@ room room_7 {
 				talk-color 6 \
 				text-offset 0,-110 \
 			end-cut-scene
-[00000265]:
+[00000281]:
 			end-script
 		}
 	}
@@ -705,18 +836,18 @@ room room_7 {
 		}
 
 		verb 5 {
-			if !( !R.67 ) jump &[00000054]
-			say-line 3 "ME! ME! ME!"
+			if !( !R.67 ) jump &[00000070]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
 			start-script 210
-			jump &[00000060]
-[00000054]:
-			say-line "Nah."
-[00000060]:
+			jump &[00000092]
+[00000070]:
+			say-line "\xFF\x0A\xCE\x49\xFF\x0A\x47\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah."
+[00000092]:
 			end-script
 		}
 
 		verb 4 {
-			say-line "That's the tuna fish sandwich I made last spring."
+			say-line "\xFF\x0A\xF9\x7C\xFF\x0A\x47\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's the tuna fish sandwich I made last spring."
 			if ( !R.67 ) {
 				start-script 210
 			}
@@ -726,24 +857,24 @@ room room_7 {
 		verb 3 {
 		local variable L.0
 
-			if !( L.0 == 0 ) jump &[00000187]
-			if !( !R.67 ) jump &[00000178]
-			say-line 3 "ME! ME! ME!"
+			if !( L.0 == 0 ) jump &[00000267]
+			if !( !R.67 ) jump &[00000242]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
 			start-script 210
-			jump &[00000184]
-[00000178]:
-			say-line "Nah."
-[00000184]:
-			jump &[00000249]
-[00000187]:
-			if !( L.0 == 35 ) jump &[00000225]
-			say-line 3 "ME! ME! ME!"
+			jump &[00000264]
+[00000242]:
+			say-line "\xFF\x0A\xA4\x48\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah."
+[00000264]:
+			jump &[00000345]
+[00000267]:
+			if !( L.0 == 35 ) jump &[00000321]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
 			start-script 210
-			jump &[00000249]
-[00000225]:
+			jump &[00000345]
+[00000321]:
 			start-script 63 ( 3, V.7, L.0 )
 			stop-script 0
-[00000249]:
+[00000345]:
 			end-script
 		}
 	}
@@ -752,7 +883,7 @@ room room_7 {
 		name is "office-dart-board"
 
 		verb 4 {
-			say-line "Vertical silverware storage."
+			say-line "\xFF\x0A\xAA\xCA\xFF\x0A\x53\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Vertical silverware storage."
 			end-script
 		}
 
@@ -775,13 +906,31 @@ room room_7 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0007\ROOM\EXCD
-		unlock-sound 4
+		unlock-sound 5
 		actor 3 \
 			costume 3 \
 		stop-script 208
 		put-actor 4 at 0,0 in-room 0
 		do-animation 5 255
 		put-actor 5 at 0,0 in-room 0
+		unlock-costume 12
+		unlock-costume 15
+		unlock-costume 13
+		unlock-costume 14
+		unlock-costume 16
+		unlock-costume 17
+		unlock-costume 18
+		unlock-costume 19
+		unlock-costume 20
+		unlock-costume 21
+		unlock-costume 22
+		unlock-sound 4
+		unlock-sound 5
+		unlock-sound 6
+		unlock-costume 19
+		unlock-costume 20
+		unlock-costume 21
+		unlock-costume 22
 		end-script
 	}
 
@@ -810,7 +959,7 @@ room room_7 {
 		if !( R.229 ) jump &[00000341]
 		actor 8 \
 			default
-			costume 11 \
+			costume 39 \
 			ignore-boxes \
 			always-zclip 1
 			scale 255
@@ -835,6 +984,142 @@ room room_7 {
 		V.175 = 51
 		V.33 = 50
 		start-script V.175
+		if ( (owner-of 70) != 2 ) {
+			lock-costume 12
+			load-costume 12
+		}
+		if ( !R.13 ) {
+			lock-costume 15
+			load-costume 15
+		}
+		lock-costume 13
+		load-costume 13
+		lock-costume 14
+		load-costume 14
+		lock-costume 16
+		load-costume 16
+		lock-costume 17
+		load-costume 17
+		lock-costume 18
+		load-costume 18
+		lock-sound 3
+		load-sound 3
+		if ( V.166 in [ 1, 77 ] ) {
+			lock-sound 4
+			load-sound 4
+			lock-sound 5
+			load-sound 5
+			lock-sound 6
+			load-sound 6
+			lock-costume 19
+			load-costume 19
+			lock-costume 20
+			load-costume 20
+			lock-costume 21
+			load-costume 21
+			lock-costume 22
+			load-costume 22
+		}
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
 		actor 5 \
 			default
 			costume 14 \
@@ -848,19 +1133,17 @@ room room_7 {
 		start-script bak 204
 		start-script bak 205
 		start-script bak 208
-		if !( V.166 == 8 ) jump &[00000487]
-[00000487]:
-		if !( V.166 in [ 1 ] ) jump &[00000525]
-		start-sound 5
-		stop-sound 1
+		if !( V.166 == 8 ) jump &[00001321]
+[00001321]:
+		if !( V.166 in [ 1, 77 ] ) jump &[00001354]
 		start-script 65
 		stop-script 0
-		jump &[00000537]
-[00000525]:
-		if ( !sound-running 2 ) {
-			start-sound 2
+		jump &[00001366]
+[00001354]:
+		if ( !sound-running 3 ) {
+			start-sound 3
 		}
-[00000537]:
+[00001366]:
 		put-actor 2 at 0,160 in-room 7
 		walk 2 to 105,130
 		actor 3 \
@@ -879,7 +1162,7 @@ room room_7 {
 	local variable L.0
 
 		print-debug \
-			"\xFF\x0A\x0C\x2C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		if !( L.0 ) jump &[00000216]
 		R.226 = 0
@@ -999,86 +1282,86 @@ room room_7 {
 
 	script 206 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0206
 		cut-scene ()
-		say-line "Oh boy! We've got a message!"
+		say-line "\xFF\x0A\x48\xC4\xFF\x0A\x2D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oh boy! We've got a message!"
 		wait-for-message
 		if ( !R.67 ) {
-			say-line 3 "Gee, I hope it's something eerily provocative."
+			say-line 3 "\xFF\x0A\x73\x55\xFF\x0A\x2E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Gee, I hope it's something eerily provocative."
 			wait-for-message
 		}
 		walk 2 to-object 76 within 0
-[00000114]:
-		wait-for-actor 2 [ref &[00000114]]
+[00000146]:
+		wait-for-actor 2 [ref &[00000146]]
 		do-animation 2 10
 		break-here 3 times
 		do-animation 2 3
-		if !( V.230 == 1 ) jump &[00001148]
-[00000151]:
-		if !( (random 4) == 0 ) jump &[00000435]
+		if !( V.230 == 1 ) jump &[00001308]
+[00000183]:
+		if !( (random 3) == 0 ) jump &[00000499]
 		print-line \
 			color 4 \
-			"<beep> Hey!  You're the jerk who sideswiped me on the Queensborough Bridge!\xFF\x03Don't think I didn't get a good look at your long fluffy ears!\xFF\x03See you in court!"
+			"\xFF\x0A\x5E\x2E\xFF\x0A\x2F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hey!  You're the jerk who sideswiped me on the Queensborough Bridge!\xFF\x03Don't think I didn't get a good look at your long fluffy ears!\xFF\x03See you in court!"
 
 		wait-for-message
-		say-line 2 "We may have to go over there and terrify the righteous indignity out of that little fellow."
+		say-line 2 "\xFF\x0A\xC9\x2A\xFF\x0A\x32\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We may have to go over there and terrify the righteous indignity out of that little fellow."
 		wait-for-message
-		jump &[00001145]
-[00000435]:
-		if !( (random 4) == 1 ) jump &[00000662]
+		jump &[00001305]
+[00000499]:
+		if !( (random 3) == 1 ) jump &[00000758]
 		print-line \
 			color 4 \
-			"<beep> Sam, it's your mother calling to wish you a good morning.\xFF\x03Be careful, honey and try not to get shot today, okay?"
+			"\xFF\x0A\xF4\x5D\xFF\x0A\x33\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Sam, it's your mother calling to wish you a good morning.\xFF\x03Be careful, honey and try not to get shot today, okay?"
 
 		wait-for-message
-		say-line 2 "Doesn't she know I'm old enough to make my own decisions about getting shot?"
+		say-line 2 "\xFF\x0A\xDF\xEA\xFF\x0A\x35\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Doesn't she know I'm old enough to make my own decisions about getting shot?"
 		wait-for-message
-		jump &[00001145]
-[00000662]:
-		if !( (random 4) == 2 ) jump &[00000843]
+		jump &[00001305]
+[00000758]:
+		if !( (random 3) == 2 ) jump &[00000971]
 		print-line \
 			color 4 \
-			"<beep> Hi, I'm calling about your upcoming auction of confiscated automatic weapons.\xFF\x03Do you sell to convicted felons?"
+			"\xFF\x0A\x0A\x03\xFF\x0A\x37\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hi, I'm calling about your upcoming auction of confiscated automatic weapons.\xFF\x03Do you sell to convicted felons?"
 
 		wait-for-message
-		say-line 2 "Hey, who are we to discriminate?"
+		say-line 2 "\xFF\x0A\xB5\xDD\xFF\x0A\x39\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, who are we to discriminate?"
 		wait-for-message
-		jump &[00001145]
-[00000843]:
-		if !( (random 4) == 3 ) jump &[00001062]
+		jump &[00001305]
+[00000971]:
+		if !( (random 3) == 3 ) jump &[00001222]
 		print-line \
 			color 4 \
-			"<beep> Hello, is this the Saint Francis Pie Shop?\xFF\x03I'd like to order 200 lemon meringue pies and a small diet cola."
+			"\xFF\x0A\x20\x73\xFF\x0A\x3A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hello, is this the Saint Francis Pie Shop?\xFF\x03I'd like to order 200 lemon meringue pies and a small diet cola."
 
 		wait-for-message
-		say-line 2 "I wonder if the pie shop gets calls reporting machete-wielding intruders?"
+		say-line 2 "\xFF\x0A\x0B\x3C\xFF\x0A\x3D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I wonder if the pie shop gets calls reporting machete-wielding intruders?"
 		wait-for-message
-		jump &[00001145]
-[00001062]:
-		if !( (random 4) == 4 ) jump &[00001144]
+		jump &[00001305]
+[00001222]:
+		if !( (random 3) == 4 ) jump &[00001304]
 		print-line \
 			color 4 \
 			"<beep> Snork! <Grunt>\xFF\x03SQUEEEE!!!!\xFF\x03<Scronk> Yib!\xFF\x03<Click>"
 
 		wait-for-message
-		jump &[00001145]
-[00001145]:
-		jump &[00001412]
-[00001148]:
-		if !( (random 4) == 2 ) jump &[00001294]
+		jump &[00001305]
+[00001305]:
+		jump &[00001604]
+[00001308]:
+		if !( (random 3) == 2 ) jump &[00001470]
 		print-line \
 			color 4 \
-			"<beep> I saw what you did at the World-of-Fish^\xFF\x03^don't think I didn't.\xFF\x03Send me all your money and I won't call the police."
+			"\xFF\x0A\xB6\x61\xFF\x0A\x3E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> I saw what you did at the World-of-Fish^\xFF\x03^don't think I didn't.\xFF\x03Send me all your money and I won't call the police."
 
-		jump &[00001412]
-[00001294]:
-		if !( (random 4) == 3 ) jump &[00001408]
+		jump &[00001604]
+[00001470]:
+		if !( (random 3) == 3 ) jump &[00001600]
 		print-line \
 			color 4 \
-			"<beep> Hey! You're the one\xFF\x01who cut me off on highway 364!\xFF\x03You're a jerk!\xFF\x03^Um^\xFF\x03^so there!"
+			"\xFF\x0A\xE1\xC9\xFF\x0A\x40\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hey! You're the one\xFF\x01who cut me off on highway 364!\xFF\x03You're a jerk!\xFF\x03^Um^\xFF\x03^so there!"
 
-		jump &[00001412]
-[00001408]:
-		jump &[00000151]
-[00001412]:
+		jump &[00001604]
+[00001600]:
+		jump &[00000183]
+[00001604]:
 		wait-for-message
 		stop-script 205
 		state-of 76 is 0
@@ -1116,11 +1399,11 @@ room room_7 {
 		}
 		break-here 10 times
 		print-debug \
-			"\xFF\x0A\xBB\x41\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 5 times
 		print-debug \
-			"\xFF\x0A\xCE\x10\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 25 times
 		actor 2 \
@@ -1129,10 +1412,11 @@ room room_7 {
 			talk-color 6 \
 			text-offset 0,-110 \
 		put-actor 2 at 132,120 in-room 255
-		say-line "Cash.  Never leave home without it."
+		unlock-costume 12
+		say-line "\xFF\x0A\x8C\x89\xFF\x0A\x43\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Cash.  Never leave home without it."
 		wait-for-message
 		if ( !R.67 ) {
-			say-line 3 "Yeah.  We may need it to bribe slippery government officials."
+			say-line 3 "\xFF\x0A\x37\x23\xFF\x0A\x44\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Yeah.  We may need it to bribe slippery government officials."
 		}
 		class-of V.7 is 18
 		start-script 54 ( 70 )
@@ -1221,15 +1505,15 @@ room room_7 {
 		draw-object 65 image 0
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\xDE\x99\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\xDE\x99\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 14 times
 		print-debug \
-			"\xFF\x0A\x85\xBA\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		put-actor 5 at 0,0 in-room 0
 		actor 3 \
@@ -1268,33 +1552,33 @@ room room_7 {
 		do-animation 7 249
 		actor 2 \
 			elevation 255
-			costume 10 \
+			costume 7 \
 		break-here
 		do-animation 7 6
 		break-here 2 times
 		print-debug \
-			"\xFF\x0A\x2A\xE9\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		state-of 77 is 1
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\xBB\x41\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 6 times
 		print-debug \
-			"\xFF\x0A\x16\xFF\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 4 times
 		print-debug \
-			"\xFF\x0A\x16\xFF\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 4 times
 		print-debug \
-			"\xFF\x0A\x16\xFF\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 3 times
 		print-debug \
-			"\xFF\x0A\x16\xFF\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 5 times
 		break-here 2 times
@@ -1303,15 +1587,15 @@ room room_7 {
 		}
 		break-here 15 times
 		print-debug \
-			"\xFF\x0A\x53\xCE\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 1 times
 		print-debug \
-			"\xFF\x0A\x3D\x8C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 2 times
 		print-debug \
-			"\xFF\x0A\x3E\x9C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 1 times
 		put-actor 2 at 100,115 in-room 7
@@ -1345,7 +1629,7 @@ room room_7 {
 		}
 		break-here 2 times
 		print-debug \
-			"\xFF\x0A\x0C\x2C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		break-here 6 times
 		actor 2 \
@@ -1389,7 +1673,7 @@ room room_7 {
 		cut-scene (2)
 		break-here 2 times
 		print-debug \
-			"\xFF\x0A\x0C\x2C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		end-cut-scene
 		state-of 71 is 0
@@ -1413,7 +1697,7 @@ room room_7 {
 		do-animation 2 7
 		break-here
 		print-debug \
-			"\xFF\x0A\x70\x32\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		state-of 67 is 3
 		class-of 67 is 9
@@ -1437,7 +1721,7 @@ room room_7 {
 		do-animation 2 6
 		break-here
 		print-debug \
-			"\xFF\x0A\x70\x32\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		state-of 67 is 3
 		class-of 67 is 137
@@ -1470,7 +1754,7 @@ room room_7 {
 
 	script 214 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0214
 		print-debug \
-			"\xFF\x0A\x0C\x2C\xFF\x0A\x01\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 		if !( (actor-room 8) == 7 ) jump &[00000109]
 		put-actor 8 at 0,0 in-room 0
@@ -1482,12 +1766,12 @@ room room_7 {
 [00000092]:
 		palette 31 35 37 in-slot 16
 [00000106]:
-		jump &[00000337]
+		jump &[00000353]
 [00000109]:
 		R.229 = 1
 		actor 8 \
 			default
-			costume 11 \
+			costume 39 \
 			ignore-boxes \
 			always-zclip 1
 			scale 255
@@ -1497,18 +1781,18 @@ room room_7 {
 		do-animation 8 250
 		do-animation 8 6
 		V.184[8] = 215
-		if !( R.226 ) jump &[00000304]
+		if !( R.226 ) jump &[00000320]
 		palette 165 172 187 in-slot 16
 		kludge 109 [160, 191, 255, 20, 255]
 		cut-scene (2)
-		say-line 2 "This would be more impressive in the dark, I think."
+		say-line 2 "\xFF\x0A\xE2\x28\xFF\x0A\x45\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This would be more impressive in the dark, I think."
 		wait-for-message
 		end-cut-scene
-		jump &[00000337]
-[00000304]:
+		jump &[00000353]
+[00000320]:
 		palette intensity 255 in-slot 16 to 16
 		kludge 109 [160, 191, 255, 20, 255]
-[00000337]:
+[00000353]:
 		end-script
 	}
 
