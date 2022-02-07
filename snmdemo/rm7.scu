@@ -1,0 +1,1807 @@
+;/**
+; * Sam & Max Hit the Road: Interactive Demo (CD)
+; * 
+; * Room 7
+; */
+
+; After Introduction
+script 65 { ; SCRP LECF_0001\LFLF_0007\SCRP_0065
+	cut-scene (2)
+	lock-room 94
+	load-room 94
+	lock-room 93
+	load-room 93
+	lock-script 48
+	load-script 48
+	lock-script 50
+	load-script 50
+	lock-script 49
+	load-script 49
+	lock-script 51
+	load-script 51
+	lock-script 52
+	load-script 52
+	lock-script 53
+	load-script 53
+	lock-script 54
+	load-script 54
+	lock-script 55
+	load-script 55
+	lock-script 56
+	load-script 56
+	lock-script 57
+	load-script 57
+	lock-script 58
+	load-script 58
+	lock-script 59
+	load-script 59
+	lock-script 60
+	load-script 60
+	lock-script 61
+	load-script 61
+	lock-script 62
+	load-script 62
+	lock-script 63
+	load-script 63
+	lock-script 64
+	load-script 64
+	lock-script 2
+	load-script 2
+	lock-script 3
+	load-script 3
+	lock-script 4
+	load-script 4
+	lock-script 6
+	load-script 6
+	lock-script 7
+	load-script 7
+	lock-script 9
+	load-script 9
+	lock-script 10
+	load-script 10
+	lock-script 11
+	load-script 11
+	lock-script 12
+	load-script 12
+	lock-script 13
+	load-script 13
+	lock-script 14
+	load-script 14
+	lock-script 15
+	load-script 15
+	lock-script 16
+	load-script 16
+	lock-script 17
+	load-script 17
+	lock-script 18
+	load-script 18
+	lock-script 19
+	load-script 19
+	lock-script 20
+	load-script 20
+	lock-script 21
+	load-script 21
+	lock-script 22
+	load-script 22
+	lock-script 23
+	load-script 23
+	lock-script 24
+	load-script 24
+	lock-script 25
+	load-script 25
+	lock-script 26
+	load-script 26
+	lock-script 27
+	load-script 27
+	lock-script 28
+	load-script 28
+	lock-script 29
+	load-script 29
+	lock-script 30
+	load-script 30
+	lock-script 31
+	load-script 31
+	lock-script 32
+	load-script 32
+	lock-script 33
+	load-script 33
+	lock-script 34
+	load-script 34
+	lock-script 35
+	load-script 35
+	lock-script 44
+	load-script 44
+	lock-script 45
+	load-script 45
+	lock-script 46
+	load-script 46
+	lock-script 47
+	load-script 47
+	lock-costume 1
+	load-costume 1
+	lock-costume 2
+	load-costume 2
+	lock-costume 3
+	load-costume 3
+	lock-costume 4
+	load-costume 4
+	lock-costume 5
+	load-costume 5
+	lock-costume 11
+	load-costume 11
+	lock-costume 6
+	load-costume 6
+	lock-costume 7
+	load-costume 7
+	lock-costume 9
+	load-costume 9
+	lock-costume 8
+	load-costume 8
+	unlock-sound 9
+	lock-sound 5
+	load-sound 5
+	actor 2 \
+		default
+		costume 4 \
+		follow-boxes \
+		talk-color 6 \
+		text-offset 0,-110 \
+	actor 3 \
+		default
+		costume 5 \
+		follow-boxes \
+	actor 2 \
+		follow-boxes \
+	state-of 79 is 1
+	camera-at 160
+	put-actor 2 at 0,123 in-room 7
+	put-actor 3 at 0,123 in-room 7
+	do-animation 2 249
+	do-animation 3 249
+	break-here 4 times
+	print-debug \
+		"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	state-of 62 is 1
+	override &[00002610]
+	break-here
+	walk 2 to 237,120
+	break-here 3 times
+	walk 3 to 206,112
+[00000709]:
+	wait-for-actor 2 [ref &[00000709]]
+	do-animation 2 244
+[00000723]:
+	wait-for-actor 3 [ref &[00000723]]
+	do-animation 3 250
+	break-here 2 times
+	say-line 2 "\xFF\x0A\x6D\xA0\xFF\x0A\x1E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Well, that was a pleasantly understated credit sequence."
+	wait-for-message
+	say-line 3 "\xFF\x0A\x98\x9C\xFF\x0A\x1F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I enjoyed the cheesy retro ambience."
+	wait-for-message
+	say-line 2 "\xFF\x0A\x43\x52\xFF\x0A\x20\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00What the hell are you talking about, Max?"
+	wait-for-message
+	say-line 3 "\xFF\x0A\xEE\xFC\xFF\x0A\x20\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Sam, either termites are burrowing through my skull, or one of us is ticking."
+	wait-for-message
+	say-line 2 "\xFF\x0A\xD9\x3B\xFF\x0A\x22\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oops, oh yeah."
+	wait-for-message
+	stop-script 203
+	palette intensity 200 in-slot 234 to 241
+	palette intensity 200 in-slot 223 to 223
+	actor 2 \
+		costume 22 \
+		ignore-boxes \
+		scale 255
+	actor 10 \
+		default
+		costume 9 \
+		ignore-boxes \
+		scale 210
+		talk-color 6 \
+	actor 11 \
+		default
+		costume 8 \
+		ignore-boxes \
+		scale 216
+	do-animation 2 249
+	put-actor 2 at 237,115 in-room 7
+	actor 3 \
+		elevation 200
+	do-animation 2 6
+	break-here 30 times
+	do-animation 2 7
+	put-actor 10 at 236,84 in-room 7
+	do-animation 10 248
+	do-animation 11 250
+	put-actor 11 at 206,97 in-room 7
+	say-line 10 "\xFF\x0A\x84\xB2\xFF\x0A\x22\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Max, where should I put this so it doesn't hurt anyone we know or care about?"
+	wait-for-message
+	say-line 11 "\xFF\x0A\x2F\xD6\xFF\x0A\x23\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Out the window, Sam.  There's nothing but strangers out there."
+	wait-for-message
+	put-actor 10 at 0,0 in-room 0
+	put-actor 11 at 0,0 in-room 0
+	do-animation 2 8
+	break-here 17 times
+	state-of 80 is 1
+	print-debug \
+		"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here
+	state-of 80 is 2
+	break-here 8 times
+	$ room-color is 1
+	shake on
+	print-debug \
+		"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here
+	$ room-color is 0
+	break-here
+	$ room-color is 1
+	break-here
+	$ room-color is 0
+	break-here 3 times
+	shake off
+	break-here 16 times
+	actor 2 \
+		costume 2 \
+		follow-boxes \
+	actor 3 \
+		elevation 0
+	do-animation 2 248
+	put-actor 2 at 237,120 in-room 7
+	break-here
+	break-here 6 times
+	break-here
+	say-line 2 "\xFF\x0A\x5A\xBE\xFF\x0A\x24\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I hope there was nobody on that bus."
+	wait-for-message
+	say-line 3 "\xFF\x0A\x05\x52\xFF\x0A\x25\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nobody we know, at least."
+	wait-for-message
+	break-here 4 times
+	unlock-sound 6
+	sound 14 6 0 1 0 40
+	start-sound 4
+	start-script 203
+	print-debug \
+		"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	draw-object 64 image 1
+	state-of 64 is 1
+	actor 9 \
+		default
+		costume 21 \
+		ignore-boxes \
+		never-zclip
+		elevation 100
+	put-actor 9 at 8,226 in-room 7
+	do-animation 9 249
+	do-animation 9 6
+	put-actor 3 at 0,0 in-room 0
+	stop-script 203
+	actor 2 \
+		costume 19 \
+		ignore-boxes \
+		scale 255
+		always-zclip 2
+		elevation -2
+	palette intensity 200 in-slot 234 to 241
+	do-animation 2 249
+	do-animation 2 6
+	break-here 6 times
+	break-here 9 times
+	print-debug \
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 10 times
+	palette intensity 255 in-slot 234 to 241
+	break-here 3 times
+	state-of 79 is 0
+	actor 2 \
+		always-zclip 1
+	break-here 5 times
+	print-debug \
+		"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 6 times
+	print-debug \
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 10 times
+	actor 2 \
+		costume 20 \
+	do-animation 2 6
+	print-debug \
+		"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	break-here 7 times
+	sound 15 4 0 1
+	sound 17 4 0 1 8 5 0
+	print-debug \
+		"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 22 times
+	put-actor 2 at 0,0 in-room 0
+	break-here 1 times
+	print-debug \
+		"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 6 times
+	do-animation 9 7
+	actor 2 \
+		costume 9 \
+		ignore-boxes \
+		elevation 125
+		scale 255
+		text-offset 0,-40 \
+	put-actor 2 at 66,233 in-room 7
+	do-animation 2 248
+	say-line 2 "\xFF\x0A\x70\xB4\xFF\x0A\x25\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hello?  Yes?  Yes?"
+	wait-for-message
+	say-line 2 "\xFF\x0A\x1B\xA8\xFF\x0A\x26\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Yes?\xFF\x03No!"
+	wait-for-message
+	put-actor 3 at 0,129 in-room 7
+	walk 3 to 120,140
+	say-line 2 "\xFF\x0A\xC6\x37\xFF\x0A\x27\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Really?\xFF\x03Well, the same to you, Mac!"
+	wait-for-message
+	actor 2 \
+		elevation 0
+	do-animation 9 8
+	break-here 3 times
+	print-debug \
+		"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 4 times
+	actor 2 \
+		costume 2 \
+		follow-boxes \
+		elevation 0
+		text-offset 0,-110 \
+	put-actor 2 at 66,152 in-room 255
+	put-actor 9 at 0,0 in-room 0
+	do-animation 2 248
+	start-script bak 203
+	state-of 64 is 0
+[00002592]:
+	wait-for-actor 3 [ref &[00002592]]
+	do-animation 3 244
+	break-here 2 times
+[00002610]:
+	if ( V.5 ) {
+		shake off
+		$ room-color is 0
+		state-of 79 is 0
+		state-of 80 is 2
+		actor 2 \
+			costume 2 \
+			follow-boxes \
+			elevation 0
+		actor 3 \
+			costume 5 \
+			follow-boxes \
+			elevation 0
+		put-actor 10 at 0,0 in-room 0
+		put-actor 11 at 0,0 in-room 0
+		put-actor 2 at 66,152 in-room 7
+		put-actor 3 at 120,140 in-room 7
+		put-actor 9 at 0,0 in-room 0
+		state-of 64 is 0
+		do-animation 2 1
+		do-animation 2 249
+		do-animation 3 1
+		do-animation 3 248
+		stop-sound 6
+		stop-sound 4
+		stop-sound 3
+		stop-sound 5
+		start-sound 3
+	}
+	override off
+	say-line 3 "\xFF\x0A\xF1\x08\xFF\x0A\x28\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Another confused census taker?"
+	wait-for-message
+	do-animation 2 face-towards 3
+	break-here 2 times
+	say-line 2 "\xFF\x0A\xDC\x98\xFF\x0A\x28\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Actually, it was the Commissioner with another idiotic and baffling assignment."
+	wait-for-message
+	say-line 3 "\xFF\x0A\x87\xB5\xFF\x0A\x29\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Does it involve wanton destruction?"
+	wait-for-message
+	say-line 2 "\xFF\x0A\x32\x5B\xFF\x0A\x2A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We can only hope.\xFF\x03Due to the arbitrarily sensitive nature of the mission,\xFF\x03we'll be meeting a bonded city courier out on the street."
+	if ( sound-running 5 ) {
+		lock-sound 3
+		load-sound 3
+		sound 17 5 0 1 8 3 0
+		sound 15 5 0 1
+	}
+	wait-for-message
+	say-line 3 "\xFF\x0A\xDD\xE9\xFF\x0A\x2C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Ooh, smells like a fiercely thickening plot."
+	wait-for-message
+	end-cut-scene
+	V.198 = 0
+	camera-follow 2
+	start-script bak 202
+	start-script 30
+	V.177 = 889
+	cursor V.177 image 93
+	end-script
+}
+
+; NOTE: This didn't seem to decompile right.
+script { ; SCRP LECF_0001\LFLF_0007\SCRP_o_117D2
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	sound 13 L.0 0 9
+	sound -1
+	L.3 = V.56
+[00000037]:
+	if ( !sound-running L.0 ) {
+		stop-script 0
+	}
+	if !( L.1 > 0 ) jump &[00000076]
+	if ( L.3 >= L.2 ) {
+		stop-script 0
+	}
+	jump &[00000090]
+[00000076]:
+	if ( L.3 <= L.2 ) {
+		stop-script 0
+	}
+[00000090]:
+	sound 12 L.0 0 9 L.3
+	if !( L.1 > 0 ) jump &[00000141]
+	sound 12 L.0 0 8 0
+	jump &[00000160]
+[00000141]:
+	sound 12 L.0 0 8 127
+[00000160]:
+	sound -1
+	if !( L.1 > 0 ) jump &[00000236]
+	L.4 = 0
+[00000183]:
+	if !( L.4 < 127 ) jump &[00000233]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 + 6
+	break-here
+	jump &[00000183]
+[00000233]:
+	jump &[00000292]
+[00000236]:
+	L.4 = 127
+[00000242]:
+	if !( L.4 > 0 ) jump &[00000292]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 - 6
+	break-here
+	jump &[00000242]
+[00000292]:
+	L.3 = L.3 + L.1
+	if !( L.3 == L.2 ) jump &[00000037]
+	end-script
+}
+
+room room_7 {
+
+	object 64 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0064
+		name is "office phone"
+
+		verb 4 {
+			cut-scene ()
+			say-line "\xFF\x0A\x7B\x0D\xFF\x0A\x4B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This phone represents unhindered contact with the outside world."
+			wait-for-message
+			if ( !R.67 ) {
+				say-line 3 "\xFF\x0A\xA6\x1E\xFF\x0A\x4C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Until they realize we don't pay the bills."
+			}
+			end-cut-scene
+			end-script
+		}
+
+		verb 5 {
+			say-line "\xFF\x0A\xD1\xC3\xFF\x0A\x4C\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is no time for chit-chat."
+			end-script
+		}
+	}
+
+	object 76 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0076
+		name is "office-answering-machine"
+
+		verb 4 {
+			say-line "\xFF\x0A\x54\x75\xFF\x0A\x52\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Our primitive answering machine.  It's an 8-track."
+			end-script
+		}
+
+		verb 3 {
+			if !( V.230 ) jump &[00000096]
+			start-script 206
+			jump &[00000138]
+[00000096]:
+			say-line "\xFF\x0A\x7F\x5E\xFF\x0A\x53\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nobody's left a message."
+[00000138]:
+			end-script
+		}
+	}
+
+	object 62 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0062
+		name is "door"
+
+		verb 7 {
+			if !( (state-of V.7) == 1 ) jump &[00000063]
+			cut-scene (2)
+			walk 2 to 0,160
+[00000039]:
+			wait-for-actor 2 [ref &[00000039]]
+			end-cut-scene
+			come-out-door 81 in-room 8 walk 164,110
+			jump &[00000149]
+[00000063]:
+			cut-scene (2)
+			do-animation 2 10
+			break-here
+			print-debug \
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+			state-of V.7 is 1
+			break-here
+			set-box 8 to 0
+			walk 2 to 0,160
+[00000128]:
+			wait-for-actor 2 [ref &[00000128]]
+			end-cut-scene
+			come-out-door 81 in-room 8 walk 164,110
+[00000149]:
+			end-script
+		}
+
+		verb 4 {
+			say-line V.1 "\xFF\x0A\x8D\xD7\xFF\x0A\x45\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is pretty damn self-explanatory."
+			end-script
+		}
+
+		verb 3 {
+			if !( (state-of V.7) == 1 ) jump &[00000375]
+			if !( (actor-box 3) == 8 ) jump &[00000326]
+			cut-scene (2)
+			say-line 2 "\xFF\x0A\xB8\x89\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Get in here, Max."
+			R.2 = 1
+			break-until (R.3)
+			walk 3 to 92,152
+[00000299]:
+			wait-for-actor 3 [ref &[00000299]]
+			do-animation 2 10
+			break-here 2 times
+			wait-for-message
+			end-cut-scene
+			R.2 = 0
+[00000326]:
+			print-debug \
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+			state-of V.7 is 0
+			set-box 8 to 128
+			do-animation 2 3
+			jump &[00000478]
+[00000375]:
+			print-debug \
+				"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+			state-of V.7 is 1
+			set-box 8 to 0
+			cut-scene (2)
+			do-animation 2 10
+			break-here
+			state-of V.7 is 1
+			break-here
+			set-box 8 to 0
+			walk 2 to 0,160
+[00000457]:
+			wait-for-actor 2 [ref &[00000457]]
+			end-cut-scene
+			come-out-door 81 in-room 8 walk 164,110
+[00000478]:
+			end-script
+		}
+	}
+
+	object 63 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0063
+		name is "office black light"
+
+		verb 91 {
+			V.182 = 1006
+			end-script
+		}
+
+		verb 4 {
+			if !( class-of V.7 is 24 134 ) jump &[00000149]
+			class-of V.7 is 152
+			say-line 2 "\xFF\x0A\xFA\xF4\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's a black light that Max uses to illuminate his rare 60's posters."
+			jump &[00000186]
+[00000149]:
+			say-line "\xFF\x0A\xA5\x41\xFF\x0A\x4A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's a black light."
+[00000186]:
+			end-script
+		}
+
+		verb 5 {
+			if !( (actor-room 8) == 7 ) jump &[00000251]
+			say-line 2 "\xFF\x0A\xD0\x93\xFF\x0A\x4A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I'd better turn it off first."
+			jump &[00000271]
+[00000251]:
+			class-of 63 is 6
+			start-script 54 ( 63 )
+[00000271]:
+			end-script
+		}
+
+		verb 3 {
+		local variable L.0
+
+			if !( class-of V.7 is 134 ) jump &[00000321]
+			if !( !L.0 ) jump &[00000305]
+			start-script 214
+			jump &[00000318]
+[00000305]:
+			do-sentence 3 L.0 [130] V.7
+[00000318]:
+			jump &[00000334]
+[00000321]:
+			do-sentence 3 L.0 [130] V.7
+[00000334]:
+			end-script
+		}
+	}
+
+	object 66 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0066
+		name is "roach farm"
+
+		verb 4 {
+			say-line "\xFF\x0A\xCF\x78\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's Max's roach farm."
+			if ( !R.13 ) {
+				if ( !R.67 ) {
+					start-script 210
+				}
+			}
+			end-script
+		}
+	}
+
+	object 67 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0067
+		name is "antenna"
+
+		verb 91 {
+			V.182 = 1007
+			end-script
+		}
+
+		verb 4 {
+			if !( class-of V.7 is 24 ) jump &[00000109]
+			say-line 2 "\xFF\x0A\xFC\x57\xFF\x0A\x4D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00My coat hanger antenna.  I'm an electronics genius."
+			jump &[00000142]
+[00000109]:
+			say-line 2 "\xFF\x0A\xA7\x78\xFF\x0A\x4E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Rabbit ears?"
+[00000142]:
+			end-script
+		}
+
+		verb 3 {
+			start-script 213
+			end-script
+		}
+	}
+
+	object 68 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0068
+		name is "office-light-switch"
+
+		verb 4 {
+			say-line "\xFF\x0A\xD2\xD1\xFF\x0A\x4E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00One mighty fine light switch."
+			end-script
+		}
+
+		verb 3 {
+			if !( (state-of V.7) == 0 ) jump &[00000086]
+			state-of V.7 is 1
+			R.226 = 1
+			jump &[00000099]
+[00000086]:
+			state-of V.7 is 0
+			R.226 = 0
+[00000099]:
+			start-script 201 ( state-of V.7 )
+			end-script
+		}
+	}
+
+	object 69 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0069
+		name is "office-rat-hole"
+
+		verb 4 {
+			if !( class-of V.7 is 146 ) jump &[00000088]
+			say-line "\xFF\x0A\xFD\x78\xFF\x0A\x4F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00All our money is invested in that rat hole."
+			jump &[00000137]
+[00000088]:
+			say-line "\xFF\x0A\x28\x30\xFF\x0A\x50\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It looks pretty empty in there."
+[00000137]:
+			end-script
+		}
+
+		verb 5 {
+			if !( class-of V.7 is 146 ) jump &[00000164]
+			start-script 207
+			jump &[00000207]
+[00000164]:
+			say-line "\xFF\x0A\xD3\xA7\xFF\x0A\x50\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I already cleaned it out."
+[00000207]:
+			end-script
+		}
+	}
+
+	object 70 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0070
+		name is "office-money"
+
+		verb 91 {
+			V.182 = 1040
+			end-script
+		}
+
+		verb 4 {
+			say-line "\xFF\x0A\x7E\x17\xFF\x0A\x51\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00It's more money than we'll ever need."
+			end-script
+		}
+	}
+
+	object 71 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0071
+		name is "office-tv"
+
+		verb 4 {
+			say-line "\xFF\x0A\x29\xA9\xFF\x0A\x51\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We've been through a lot together, this TV and I."
+			end-script
+		}
+
+		verb 3 {
+			if !( class-of V.7 is 146 ) jump &[00000188]
+			cut-scene ()
+			walk 2 to-object 71 within 0
+[00000106]:
+			wait-for-actor 2 [ref &[00000106]]
+			actor 2 \
+				default
+				costume 17 \
+			do-animation 2 6
+			class-of V.7 is 18
+			start-script 212 ( 0 )
+			break-here 8 times
+			actor 2 \
+				default
+				costume 2 \
+				talk-color 6 \
+				text-offset 0,-110 \
+			end-cut-scene
+			jump &[00000281]
+[00000188]:
+			cut-scene ()
+			walk 2 to-object 71 within 0
+[00000202]:
+			wait-for-actor 2 [ref &[00000202]]
+			actor 2 \
+				default
+				costume 17 \
+			do-animation 2 6
+			class-of V.7 is 146
+			start-script 212 ( 1 )
+			break-here 8 times
+			actor 2 \
+				default
+				costume 2 \
+				talk-color 6 \
+				text-offset 0,-110 \
+			end-cut-scene
+[00000281]:
+			end-script
+		}
+	}
+
+	object 72 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0072
+		name is "office-spot-1"
+	}
+
+	object 73 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0073
+		name is "office-spot-2"
+	}
+
+	object 74 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0074
+		name is "office-eyes-1"
+	}
+
+	object 75 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0075
+		name is "office-eyes-2"
+	}
+
+	object 65 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0065
+		name is "roach food"
+
+		verb 91 {
+			V.182 = 1007
+			end-script
+		}
+
+		verb 5 {
+			if !( !R.67 ) jump &[00000070]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
+			start-script 210
+			jump &[00000092]
+[00000070]:
+			say-line "\xFF\x0A\xCE\x49\xFF\x0A\x47\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah."
+[00000092]:
+			end-script
+		}
+
+		verb 4 {
+			say-line "\xFF\x0A\xF9\x7C\xFF\x0A\x47\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00That's the tuna fish sandwich I made last spring."
+			if ( !R.67 ) {
+				start-script 210
+			}
+			end-script
+		}
+
+		verb 3 {
+		local variable L.0
+
+			if !( L.0 == 0 ) jump &[00000267]
+			if !( !R.67 ) jump &[00000242]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
+			start-script 210
+			jump &[00000264]
+[00000242]:
+			say-line "\xFF\x0A\xA4\x48\xFF\x0A\x48\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Nah."
+[00000264]:
+			jump &[00000345]
+[00000267]:
+			if !( L.0 == 35 ) jump &[00000321]
+			say-line 3 "\xFF\x0A\xE3\xE4\xFF\x0A\x46\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00ME! ME! ME!"
+			start-script 210
+			jump &[00000345]
+[00000321]:
+			start-script 63 ( 3, V.7, L.0 )
+			stop-script 0
+[00000345]:
+			end-script
+		}
+	}
+
+	object 77 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0077
+		name is "office-dart-board"
+
+		verb 4 {
+			say-line "\xFF\x0A\xAA\xCA\xFF\x0A\x53\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Vertical silverware storage."
+			end-script
+		}
+
+		verb 5 {
+			start-script 211
+			end-script
+		}
+	}
+
+	object 78 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0078
+		name is "office-tv-static"
+	}
+
+	object 79 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0079
+		name is "office-desk-papers"
+	}
+
+	object 80 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0080
+		name is "office-window"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0007\ROOM\EXCD
+		unlock-sound 5
+		actor 3 \
+			costume 3 \
+		stop-script 208
+		put-actor 4 at 0,0 in-room 0
+		do-animation 5 255
+		put-actor 5 at 0,0 in-room 0
+		unlock-costume 12
+		unlock-costume 15
+		unlock-costume 13
+		unlock-costume 14
+		unlock-costume 16
+		unlock-costume 17
+		unlock-costume 18
+		unlock-costume 19
+		unlock-costume 20
+		unlock-costume 21
+		unlock-costume 22
+		unlock-sound 4
+		unlock-sound 5
+		unlock-sound 6
+		unlock-costume 19
+		unlock-costume 20
+		unlock-costume 21
+		unlock-costume 22
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0007\ROOM\ENCD
+		V.32 = 48
+		stop-script V.175
+		V.175 = 51
+		R.6 = 1
+		start-script 51
+		V.32 = 48
+		if !( R.226 ) jump &[00000066]
+		palette intensity 255 in-slot 0 to 255
+		jump &[00000176]
+[00000066]:
+		palette intensity 68 in-slot 17 to 138
+		palette intensity 68 in-slot 140 to 146
+		palette intensity 68 in-slot 148 to 159
+		palette intensity 68 in-slot 192 to 255
+		palette intensity 255 in-slot 157 to 157
+		palette intensity 255 in-slot 201 to 203
+		palette intensity 255 in-slot 207 to 207
+		palette intensity 255 in-slot 214 to 214
+		palette intensity 255 in-slot 219 to 219
+		palette intensity 255 in-slot 223 to 223
+[00000176]:
+		if !( R.229 ) jump &[00000341]
+		actor 8 \
+			default
+			costume 39 \
+			ignore-boxes \
+			always-zclip 1
+			scale 255
+			elevation 100
+		kludge 111 [8, 160]
+		put-actor 8 at 375,238 in-room 7
+		do-animation 8 250
+		do-animation 8 6
+		V.184[8] = 215
+		if !( R.226 ) jump &[00000305]
+		palette 165 172 187 in-slot 16
+		kludge 109 [160, 191, 255, 20, 255]
+		jump &[00000338]
+[00000305]:
+		palette intensity 255 in-slot 16 to 16
+		kludge 109 [160, 191, 255, 20, 255]
+[00000338]:
+		jump &[00000355]
+[00000341]:
+		palette 165 172 187 in-slot 16
+[00000355]:
+		V.175 = 51
+		V.33 = 50
+		start-script V.175
+		if ( (owner-of 70) != 2 ) {
+			lock-costume 12
+			load-costume 12
+		}
+		if ( !R.13 ) {
+			lock-costume 15
+			load-costume 15
+		}
+		lock-costume 13
+		load-costume 13
+		lock-costume 14
+		load-costume 14
+		lock-costume 16
+		load-costume 16
+		lock-costume 17
+		load-costume 17
+		lock-costume 18
+		load-costume 18
+		lock-sound 3
+		load-sound 3
+		if ( V.166 in [ 1, 77 ] ) {
+			lock-sound 4
+			load-sound 4
+			lock-sound 5
+			load-sound 5
+			lock-sound 6
+			load-sound 6
+			lock-costume 19
+			load-costume 19
+			lock-costume 20
+			load-costume 20
+			lock-costume 21
+			load-costume 21
+			lock-costume 22
+			load-costume 22
+		}
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x15\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x31\x86\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x63\x64\xFF\x0A\x02\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB0\x57\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x8F\x7F\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x36\xA2\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xB9\x1A\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		s_selectedActor = 2
+		print-debug \
+			"\xFF\x0A\x7B\x03\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		s_selectedActor = 0
+		actor 5 \
+			default
+			costume 14 \
+			ignore-boxes \
+		put-actor 5 at 353,117 in-room 7
+		do-animation 5 6
+		if ( class-of 71 is 146 ) {
+			start-script 212 ( 1 )
+		}
+		start-script bak 203
+		start-script bak 204
+		start-script bak 205
+		start-script bak 208
+		if !( V.166 == 8 ) jump &[00001321]
+[00001321]:
+		if !( V.166 in [ 1, 77 ] ) jump &[00001354]
+		start-script 65
+		stop-script 0
+		jump &[00001366]
+[00001354]:
+		if ( !sound-running 3 ) {
+			start-sound 3
+		}
+[00001366]:
+		put-actor 2 at 0,160 in-room 7
+		walk 2 to 105,130
+		actor 3 \
+			costume 5 \
+		if ( !R.67 ) {
+			put-actor 3 at 0,160 in-room 7
+			start-script 202
+		}
+		if ( (state-of 62) == 0 ) {
+			set-box 8 to 128
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0201
+	local variable L.0
+
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		if !( L.0 ) jump &[00000216]
+		R.226 = 0
+		palette intensity 68 in-slot 17 to 138
+		palette intensity 68 in-slot 140 to 146
+		palette intensity 68 in-slot 148 to 159
+		palette intensity 68 in-slot 192 to 255
+		palette intensity 255 in-slot 157 to 157
+		palette intensity 255 in-slot 201 to 203
+		palette intensity 255 in-slot 207 to 207
+		palette intensity 255 in-slot 214 to 214
+		palette intensity 255 in-slot 219 to 219
+		palette intensity 255 in-slot 223 to 223
+		if !( (actor-room 8) == 7 ) jump &[00000199]
+		palette intensity 255 in-slot 16 to 16
+		kludge 109 [160, 191, 255, 20, 255]
+		jump &[00000213]
+[00000199]:
+		palette 31 35 37 in-slot 16
+[00000213]:
+		jump &[00000302]
+[00000216]:
+		R.226 = 1
+		palette intensity 255 in-slot 0 to 15
+		palette intensity 255 in-slot 17 to 138
+		palette intensity 255 in-slot 140 to 146
+		palette intensity 255 in-slot 148 to 159
+		palette intensity 255 in-slot 192 to 255
+		if ( (actor-room 8) != 7 ) {
+			palette 165 172 187 in-slot 16
+		}
+[00000302]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0202
+		start-script bak 29
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0203
+[00000008]:
+		if !( R.226 ) jump &[00000155]
+		if !( (proximity 2 72) < 62 ) jump &[00000042]
+		palette intensity 255 in-slot 242 to 254
+		jump &[00000081]
+[00000042]:
+		if !( (proximity 2 73) < 58 ) jump &[00000070]
+		palette intensity 255 in-slot 242 to 254
+		jump &[00000081]
+[00000070]:
+		palette intensity 200 in-slot 242 to 254
+[00000081]:
+		if !( !R.67 ) jump &[00000155]
+		if !( (proximity 3 72) < 62 ) jump &[00000116]
+		palette intensity 255 in-slot 234 to 241
+		jump &[00000155]
+[00000116]:
+		if !( (proximity 3 73) < 58 ) jump &[00000144]
+		palette intensity 255 in-slot 234 to 241
+		jump &[00000155]
+[00000144]:
+		palette intensity 200 in-slot 234 to 241
+[00000155]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0204
+	local variable L.0
+
+[00000008]:
+		L.0 = random-between 1 to 4
+		if !( L.0 == 1 ) jump &[00000040]
+		state-of 74 is 1
+		jump &[00000098]
+[00000040]:
+		if !( L.0 == 2 ) jump &[00000059]
+		state-of 75 is 1
+		jump &[00000098]
+[00000059]:
+		if !( L.0 == 3 ) jump &[00000078]
+		state-of 74 is 0
+		jump &[00000098]
+[00000078]:
+		if !( L.0 == 4 ) jump &[00000097]
+		state-of 75 is 0
+		jump &[00000098]
+[00000098]:
+		break-here
+		L.0 = random-between 1 to 3
+		sleep-for L.0 seconds
+		break-until (!V.32 == 60)
+		jump &[00000008]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0205
+		if ( !V.230 ) {
+			V.230 = random-between 0 to 1
+		}
+		if ( V.230 ) {
+			do {
+				if ( !V.32 == 60 ) {
+					draw-object 76 image 0
+				}
+				sleep-for 30 jiffies
+				if ( !V.32 == 60 ) {
+					state-of 76 is 0
+				}
+				sleep-for 30 jiffies
+			}
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0206
+		cut-scene ()
+		say-line "\xFF\x0A\x48\xC4\xFF\x0A\x2D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Oh boy! We've got a message!"
+		wait-for-message
+		if ( !R.67 ) {
+			say-line 3 "\xFF\x0A\x73\x55\xFF\x0A\x2E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Gee, I hope it's something eerily provocative."
+			wait-for-message
+		}
+		walk 2 to-object 76 within 0
+[00000146]:
+		wait-for-actor 2 [ref &[00000146]]
+		do-animation 2 10
+		break-here 3 times
+		do-animation 2 3
+		if !( V.230 == 1 ) jump &[00001308]
+[00000183]:
+		if !( (random 3) == 0 ) jump &[00000499]
+		print-line \
+			color 4 \
+			"\xFF\x0A\x5E\x2E\xFF\x0A\x2F\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hey!  You're the jerk who sideswiped me on the Queensborough Bridge!\xFF\x03Don't think I didn't get a good look at your long fluffy ears!\xFF\x03See you in court!"
+
+		wait-for-message
+		say-line 2 "\xFF\x0A\xC9\x2A\xFF\x0A\x32\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00We may have to go over there and terrify the righteous indignity out of that little fellow."
+		wait-for-message
+		jump &[00001305]
+[00000499]:
+		if !( (random 3) == 1 ) jump &[00000758]
+		print-line \
+			color 4 \
+			"\xFF\x0A\xF4\x5D\xFF\x0A\x33\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Sam, it's your mother calling to wish you a good morning.\xFF\x03Be careful, honey and try not to get shot today, okay?"
+
+		wait-for-message
+		say-line 2 "\xFF\x0A\xDF\xEA\xFF\x0A\x35\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Doesn't she know I'm old enough to make my own decisions about getting shot?"
+		wait-for-message
+		jump &[00001305]
+[00000758]:
+		if !( (random 3) == 2 ) jump &[00000971]
+		print-line \
+			color 4 \
+			"\xFF\x0A\x0A\x03\xFF\x0A\x37\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hi, I'm calling about your upcoming auction of confiscated automatic weapons.\xFF\x03Do you sell to convicted felons?"
+
+		wait-for-message
+		say-line 2 "\xFF\x0A\xB5\xDD\xFF\x0A\x39\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Hey, who are we to discriminate?"
+		wait-for-message
+		jump &[00001305]
+[00000971]:
+		if !( (random 3) == 3 ) jump &[00001222]
+		print-line \
+			color 4 \
+			"\xFF\x0A\x20\x73\xFF\x0A\x3A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hello, is this the Saint Francis Pie Shop?\xFF\x03I'd like to order 200 lemon meringue pies and a small diet cola."
+
+		wait-for-message
+		say-line 2 "\xFF\x0A\x0B\x3C\xFF\x0A\x3D\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00I wonder if the pie shop gets calls reporting machete-wielding intruders?"
+		wait-for-message
+		jump &[00001305]
+[00001222]:
+		if !( (random 3) == 4 ) jump &[00001304]
+		print-line \
+			color 4 \
+			"<beep> Snork! <Grunt>\xFF\x03SQUEEEE!!!!\xFF\x03<Scronk> Yib!\xFF\x03<Click>"
+
+		wait-for-message
+		jump &[00001305]
+[00001305]:
+		jump &[00001604]
+[00001308]:
+		if !( (random 3) == 2 ) jump &[00001470]
+		print-line \
+			color 4 \
+			"\xFF\x0A\xB6\x61\xFF\x0A\x3E\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> I saw what you did at the World-of-Fish^\xFF\x03^don't think I didn't.\xFF\x03Send me all your money and I won't call the police."
+
+		jump &[00001604]
+[00001470]:
+		if !( (random 3) == 3 ) jump &[00001600]
+		print-line \
+			color 4 \
+			"\xFF\x0A\xE1\xC9\xFF\x0A\x40\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00<beep> Hey! You're the one\xFF\x01who cut me off on highway 364!\xFF\x03You're a jerk!\xFF\x03^Um^\xFF\x03^so there!"
+
+		jump &[00001604]
+[00001600]:
+		jump &[00000183]
+[00001604]:
+		wait-for-message
+		stop-script 205
+		state-of 76 is 0
+		end-cut-scene
+		V.230 = 0
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0207
+		cut-scene ()
+		walk 2 to 140,120
+[00000022]:
+		wait-for-actor 2 [ref &[00000022]]
+		do-animation 2 248
+		break-here 5 times
+		do-animation 2 6
+		break-here 6 times
+		if ( R.226 ) {
+			stop-script 203
+			palette intensity 255 in-slot 242 to 254
+		}
+		actor 2 \
+			costume 12 \
+			ignore-boxes \
+			always-zclip 2
+			scale 212
+		put-actor 2 at 145,120 in-room 255
+		do-animation 2 250
+		break-here
+		do-animation 2 6
+		if ( !R.67 ) {
+			do-animation 3 3
+			break-here
+			do-animation 3 face-towards 2
+		}
+		break-here 10 times
+		print-debug \
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 5 times
+		print-debug \
+			"\xFF\x0A\xDE\xCC\xFF\x0A\x0A\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 25 times
+		actor 2 \
+			default
+			costume 2 \
+			talk-color 6 \
+			text-offset 0,-110 \
+		put-actor 2 at 132,120 in-room 255
+		unlock-costume 12
+		say-line "\xFF\x0A\x8C\x89\xFF\x0A\x43\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Cash.  Never leave home without it."
+		wait-for-message
+		if ( !R.67 ) {
+			say-line 3 "\xFF\x0A\x37\x23\xFF\x0A\x44\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Yeah.  We may need it to bribe slippery government officials."
+		}
+		class-of V.7 is 18
+		start-script 54 ( 70 )
+		end-cut-scene
+		if ( R.226 ) {
+			start-script bak 203
+		}
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0208
+[00000008]:
+		if !( random-between 1 to 8 == 2 ) jump &[00000174]
+		if !( !script-running 207 ) jump &[00000171]
+		actor 4 \
+			default
+			costume 13 \
+			ignore-boxes \
+			always-zclip 3
+			scale 140
+		put-actor 4 at 106,106 in-room 7
+		start-script bak 209
+		walk 4 to 114,113
+[00000089]:
+		wait-for-actor 4 [ref &[00000089]]
+		actor 4 \
+			ignore-boxes \
+			always-zclip 2
+		walk 4 to 140,119
+[00000118]:
+		wait-for-actor 4 [ref &[00000118]]
+		walk 4 to 232,155
+[00000135]:
+		wait-for-actor 4 [ref &[00000135]]
+		actor 4 \
+			ignore-boxes \
+			always-zclip 1
+		walk 4 to 488,179
+[00000164]:
+		wait-for-actor 4 [ref &[00000164]]
+[00000171]:
+		jump &[00000175]
+[00000175]:
+		stop-script 209
+		sleep-for 4 seconds
+		jump &[00000008]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0209
+	local variable L.0
+
+[00000008]:
+		if !( (object-y 4) >= 158 ) jump &[00000032]
+		actor 4 \
+			scale 255
+		jump &[00000065]
+[00000032]:
+		L.0 = ((object-y 4) - 112) * (25 / 10) + 139
+		actor 4 \
+			scale L.0
+[00000065]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0210
+		cut-scene ()
+		R.13 = 1
+		actor 6 \
+			default
+			costume 15 \
+			ignore-boxes \
+			scale 255
+		walk 3 to-object 65 within 0
+		wait-for-message
+[00000049]:
+		wait-for-actor 3 [ref &[00000049]]
+		do-animation 3 3
+		break-here
+		put-actor 6 at-object 65 in room 7
+		actor 3 \
+			elevation 255
+		do-animation 3 6
+		draw-object 65 image 0
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\xA8\xDE\xFF\x0A\x0B\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 14 times
+		print-debug \
+			"\xFF\x0A\xA8\x23\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		put-actor 5 at 0,0 in-room 0
+		actor 3 \
+			elevation 0
+		do-animation 3 249
+		break-here 25 times
+		do-animation 3 7
+		put-actor 5 at 353,117 in-room 7
+		put-actor 6 at 0,0 in-room 0
+		break-here 3 times
+		class-of 65 is 160
+		end-cut-scene
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0211
+		cut-scene ()
+		if ( R.226 ) {
+			stop-script 203
+		}
+		actor 7 \
+			default
+			costume 16 \
+			ignore-boxes \
+			always-zclip 2
+			scale 215
+		walk 2 to-object 77 within 0
+		R.2 = 1
+		break-until (R.3)
+		do-animation 3 face-towards 77
+[00000076]:
+		wait-for-actor 2 [ref &[00000076]]
+		do-animation 2 249
+		break-here 2 times
+		put-actor 7 at-object 77 in room 7
+		do-animation 7 249
+		actor 2 \
+			elevation 255
+			costume 7 \
+		break-here
+		do-animation 7 6
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\xEE\x7E\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		state-of 77 is 1
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\xBE\x31\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 6 times
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 4 times
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 4 times
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 3 times
+		print-debug \
+			"\xFF\x0A\x9B\xAA\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 5 times
+		break-here 2 times
+		if ( R.226 ) {
+			palette intensity 255 in-slot 242 to 254
+		}
+		break-here 15 times
+		print-debug \
+			"\xFF\x0A\x96\x49\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 1 times
+		print-debug \
+			"\xFF\x0A\x99\xC7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\x70\xE7\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 1 times
+		put-actor 2 at 100,115 in-room 7
+		actor 2 \
+			elevation 0
+		break-here 1 times
+		state-of 77 is 0
+		break-here 1 times
+		put-actor 7 at 0,0 in-room 0
+		actor 2 \
+			costume 2 \
+		R.2 = 0
+		if ( R.226 ) {
+			start-script bak 203
+		}
+		end-cut-scene
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0212
+	local variable L.0
+	local variable L.1
+
+		if !( L.0 ) jump &[00000270]
+		if ( !R.226 ) {
+			palette intensity 255 in-slot 201 to 203
+			palette intensity 255 in-slot 207 to 207
+			palette intensity 255 in-slot 214 to 214
+			palette intensity 255 in-slot 219 to 219
+			palette intensity 255 in-slot 223 to 223
+		}
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 6 times
+		actor 2 \
+			default
+			costume 2 \
+			talk-color 6 \
+			text-offset 0,-110 \
+[00000131]:
+		if !( class-of 67 is 137 ) jump &[00000205]
+[00000144]:
+		L.1 = 1
+[00000150]:
+		if !( L.1 <= 2 ) jump &[00000202]
+		break-until (!V.32 == 60)
+		draw-object 78 image L.1
+		if !( class-of 67 is 9 ) jump &[00000195]
+		jump &[00000205]
+[00000195]:
+		break-here
+		++L.1
+		jump &[00000150]
+[00000202]:
+		jump &[00000263]
+[00000205]:
+		L.1 = 1
+[00000211]:
+		if !( L.1 <= 15 ) jump &[00000263]
+		break-until (!V.32 == 60)
+		draw-object 71 image L.1
+		if !( class-of 67 is 137 ) jump &[00000256]
+		jump &[00000144]
+[00000256]:
+		break-here
+		++L.1
+		jump &[00000211]
+[00000263]:
+		break-here
+		jump &[00000131]
+		jump &[00000322]
+[00000270]:
+		cut-scene (2)
+		break-here 2 times
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		end-cut-scene
+		state-of 71 is 0
+		state-of 78 is 0
+		stop-script 0
+[00000322]:
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0213
+	local variable L.0
+
+		cut-scene ()
+		walk 2 to 122,128
+[00000022]:
+		wait-for-actor 2 [ref &[00000022]]
+		actor 2 \
+			default
+			costume 18 \
+		if !( class-of 67 is 137 ) jump &[00000168]
+		do-animation 2 7
+		break-here
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		state-of 67 is 3
+		class-of 67 is 9
+		if !( class-of 71 is 146 ) jump &[00000154]
+		L.0 = 1
+[00000120]:
+		if !( L.0 <= 7 ) jump &[00000151]
+		draw-object 78 image 3
+		break-here
+		draw-object 78 image 4
+		++L.0
+		jump &[00000120]
+[00000151]:
+		jump &[00000158]
+[00000154]:
+		break-here 12 times
+[00000158]:
+		draw-object 67 image 1
+		jump &[00000287]
+[00000168]:
+		do-animation 2 6
+		break-here
+		print-debug \
+			"\xFF\x0A\x53\x13\xFF\x0A\x05\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		state-of 67 is 3
+		class-of 67 is 137
+		if !( class-of 71 is 146 ) jump &[00000276]
+		L.0 = 1
+[00000234]:
+		if !( L.0 <= 6 ) jump &[00000266]
+		draw-object 78 image 3
+		break-here
+		draw-object 78 image 4
+		break-here
+		++L.0
+		jump &[00000234]
+[00000266]:
+		draw-object 78 image 3
+		jump &[00000280]
+[00000276]:
+		break-here 12 times
+[00000280]:
+		draw-object 67 image 2
+[00000287]:
+		actor 2 \
+			default
+			costume 2 \
+			talk-color 6 \
+			text-offset 0,-110 \
+		end-cut-scene
+		end-script
+	}
+
+	script 214 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0214
+		print-debug \
+			"\xFF\x0A\x0E\x08\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		if !( (actor-room 8) == 7 ) jump &[00000109]
+		put-actor 8 at 0,0 in-room 0
+		V.184[8] = 0
+		R.229 = 0
+		if !( R.226 ) jump &[00000092]
+		palette 165 172 187 in-slot 16
+		jump &[00000106]
+[00000092]:
+		palette 31 35 37 in-slot 16
+[00000106]:
+		jump &[00000353]
+[00000109]:
+		R.229 = 1
+		actor 8 \
+			default
+			costume 39 \
+			ignore-boxes \
+			always-zclip 1
+			scale 255
+			elevation 100
+		kludge 111 [8, 160]
+		put-actor 8 at 375,238 in-room 7
+		do-animation 8 250
+		do-animation 8 6
+		V.184[8] = 215
+		if !( R.226 ) jump &[00000320]
+		palette 165 172 187 in-slot 16
+		kludge 109 [160, 191, 255, 20, 255]
+		cut-scene (2)
+		say-line 2 "\xFF\x0A\xE2\x28\xFF\x0A\x45\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This would be more impressive in the dark, I think."
+		wait-for-message
+		end-cut-scene
+		jump &[00000353]
+[00000320]:
+		palette intensity 255 in-slot 16 to 16
+		kludge 109 [160, 191, 255, 20, 255]
+[00000353]:
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0215
+	local variable L.0
+	local variable L.1
+
+		do-sentence L.0 63 [130] L.1
+		end-script
+	}
+}
+

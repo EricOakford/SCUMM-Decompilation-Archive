@@ -1,0 +1,754 @@
+;/**
+; * Sam & Max Hit the Road: Interactive Demo (CD)
+; * 
+; * Room 77
+; */
+
+script 66 { ; SCRP LECF_0001\LFLF_0077\SCRP_0066
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.9
+local variable L.10
+local variable L.11
+local variable L.12
+local variable L.13
+local variable L.14
+local variable L.15
+
+	L.9 = 0
+[00000014]:
+	if !( L.0[L.9] == 0 or L.9 > 198 ) jump &[00000038]
+	jump &[00000044]
+[00000038]:
+	++L.9
+	jump &[00000014]
+[00000044]:
+	L.1 = L.9
+	L.9 = L.5 - L.3
+	L.10 = L.6 - L.4
+	L.13 = 0
+[00000076]:
+	if !( L.13 <= L.7 ) jump &[00000354]
+	if !( L.13 != L.7 ) jump &[00000135]
+	L.11 = (L.9 * L.13) / L.7 + L.3
+	L.12 = (L.10 * L.13) / L.7 + L.4
+	jump &[00000147]
+[00000135]:
+	L.11 = L.5
+	L.12 = L.6
+[00000147]:
+	print-text \
+		color L.2 \
+		center \
+		no-talk-animation \
+		at L.11,L.12 \
+		"%s16384%"
+
+	if ( L.8 ) {
+		draw-box 0,0 to 320,67 color -1
+		draw-box 0,132 to 320,200 color -1
+	}
+	break-here
+	if !( L.13 == L.7 ) jump &[00000225]
+	jump &[00000348]
+[00000225]:
+	if !( L.8 == 3 ) jump &[00000290]
+	L.11 = L.11 - (L.1 * 12) / 2
+	L.14 = L.11 + L.1 * 13
+	L.12 = L.12 - 4
+	L.15 = L.12 + 16
+	jump &[00000332]
+[00000290]:
+	L.11 = L.11 - (L.1 * 9) / 2
+	L.14 = L.11 + L.1 * 9
+	L.15 = L.12 + 12
+[00000332]:
+	draw-box L.11,L.12 to L.14,L.15 color -1
+[00000348]:
+	++L.13
+	jump &[00000076]
+[00000354]:
+	if ( L.8 == 2 ) {
+		print-text \
+			color L.2 \
+			center \
+			no-talk-animation \
+			at L.5,L.6 \
+			"%s16384%"
+
+	}
+	break-here
+	end-script
+}
+
+; NOTE: This didn't seem to decompile right.
+script { ; SCRP LECF_0001\LFLF_0077\SCRP_o_C9B9
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	sound 13 L.0 0 9
+	sound -1
+	L.3 = V.56
+[00000037]:
+	if ( !sound-running L.0 ) {
+		stop-script 0
+	}
+	if !( L.1 > 0 ) jump &[00000076]
+	if ( L.3 >= L.2 ) {
+		stop-script 0
+	}
+	jump &[00000090]
+[00000076]:
+	if ( L.3 <= L.2 ) {
+		stop-script 0
+	}
+[00000090]:
+	sound 12 L.0 0 9 L.3
+	if !( L.1 > 0 ) jump &[00000141]
+	sound 12 L.0 0 8 0
+	jump &[00000160]
+[00000141]:
+	sound 12 L.0 0 8 127
+[00000160]:
+	sound -1
+	if !( L.1 > 0 ) jump &[00000236]
+	L.4 = 0
+[00000183]:
+	if !( L.4 < 127 ) jump &[00000233]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 + 6
+	break-here
+	jump &[00000183]
+[00000233]:
+	jump &[00000292]
+[00000236]:
+	L.4 = 127
+[00000242]:
+	if !( L.4 > 0 ) jump &[00000292]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 - 6
+	break-here
+	jump &[00000242]
+[00000292]:
+	L.3 = L.3 + L.1
+	if !( L.3 == L.2 ) jump &[00000037]
+	end-script
+}
+
+room room_77 {
+
+	object 774 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0774
+		name is "credit-panel-1"
+	}
+
+	object 775 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0775
+		name is "credit-panel-2"
+	}
+
+	object 776 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0776
+		name is "credit-panel-3"
+	}
+
+	object 777 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0777
+		name is "credit-panel-4"
+	}
+
+	object 778 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0778
+		name is "credit-killer"
+	}
+
+	object 779 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0779
+		name is "credit-killer-2"
+	}
+
+	object 780 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0780
+		name is "credit-panel-5"
+	}
+
+	object 781 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0781
+		name is "credit-panel-6"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0077\ROOM\EXCD
+		print-text \
+			" "
+
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0077\ROOM\ENCD
+		V.174 = V.32
+		stop-script V.175
+		V.176 = V.175
+		V.32 = 0
+		V.175 = 51
+		if !( V.32 != 48 ) jump &[00000055]
+		R.6 = 0
+		jump &[00000061]
+[00000055]:
+		R.6 = 1
+[00000061]:
+		start-script V.175
+		start-script 201
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0077\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		cut-scene (2)
+		camera-at 480
+		start-sound 9
+		put-actor 1 at 0,0 in-room 0
+		load-object 600 in-room 67
+		load-object 601 in-room 67
+		load-object 602 in-room 67
+		load-object 603 in-room 67
+		dim byte array V.304[200]
+		dim byte array V.305[200]
+		dim byte array V.306[200]
+		dim byte array V.307[200]
+		dim byte array V.308[200]
+		override &[00007971]
+		charset 5
+		charset color 0, 0, 0, 9
+		break-here 5 times
+		V.304[] = "the lucasarts entertainment consortium"
+		V.305[] = "presents"
+		V.306[] = "in association with"
+		V.307[] = "illuminati local #421"
+		start-script bak rec 66 ( V.304, 40, 86, 160, 30, 160, 70, 10, 1 )
+		break-here 5 times
+		start-script bak rec 66 ( V.306, 30, 86, -100, 85, 160, 85, 10, 1 )
+		start-script bak rec 66 ( V.307, 30, 86, 360, 100, 160, 100, 10, 1 )
+		start-script bak rec 66 ( V.305, 10, 86, 160, 170, 160, 115, 10, 1 )
+		break-here 40 times
+		start-script bak rec 66 ( V.304, 40, 86, 160, 70, 160, 30, 5, 1 )
+		start-script bak rec 66 ( V.306, 30, 86, 160, 85, 420, 85, 5, 1 )
+		start-script bak rec 66 ( V.307, 30, 86, 160, 100, -100, 100, 5, 1 )
+		start-script bak rec 66 ( V.305, 10, 86, 160, 115, 160, 170, 5, 1 )
+		break-here 8 times
+		actor 4 \
+			default
+			costume 37 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 4 at 479,99 in-room 77
+		do-animation 4 250
+		do-animation 4 6
+		break-here 22 times
+		do-animation 4 7
+		break-here 35 times
+		do-animation 4 8
+		break-here
+		actor 5 \
+			default
+			costume 38 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 5 at 479,99 in-room 77
+		do-animation 5 250
+		do-animation 5 6
+		break-here 3 times
+		put-actor 4 at 0,0 in-room 0
+		put-actor 5 at 0,0 in-room 0
+		start-script rec 202 ( 774, 0, 40, 0 )
+		start-script rec 202 ( 775, 80, 40, 16 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 10)
+		V.56 = 0
+		V.304[] = "designed by"
+		V.305[] = "sean clark"
+		V.306[] = "collette michaud"
+		V.307[] = "steve purcell"
+		V.308[] = "michael stemmle"
+		start-script bak rec 66 ( V.305, 20, 86, 10, 5, 80, 95, 10, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 310, 5, 240, 95, 10, 1 )
+		start-script bak rec 66 ( V.307, 20, 86, 10, 185, 80, 115, 10, 1 )
+		start-script bak rec 66 ( V.308, 20, 86, 310, 185, 240, 115, 10, 1 )
+		break-here 4 times
+		start-script bak rec 66 ( V.304, 20, 86, 160, 25, 160, 75, 10, 1 )
+		break-here 35 times
+		start-script bak rec 66 ( V.304, 20, 86, 160, 75, 160, 25, 5, 1 )
+		break-here
+		start-script bak rec 66 ( V.305, 20, 86, 80, 95, 310, 155, 7, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 240, 95, 10, 155, 7, 1 )
+		start-script bak rec 66 ( V.307, 20, 86, 80, 115, 310, 5, 7, 1 )
+		start-script bak rec 66 ( V.308, 20, 86, 240, 115, 10, 5, 7, 1 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 18)
+		V.56 = 0
+		V.304[] = "programmed by"
+		V.307[] = "livia mackin"
+		V.308[] = "jonathan ackley"
+		V.305[] = "sean clark"
+		V.306[] = "michael stemmle"
+		start-script bak rec 66 ( V.305, 20, 86, 10, 25, 80, 95, 10, 2 )
+		start-script bak rec 66 ( V.306, 20, 86, 310, 25, 240, 95, 10, 2 )
+		start-script bak rec 66 ( V.307, 20, 86, 10, 155, 80, 115, 10, 2 )
+		start-script bak rec 66 ( V.308, 25, 86, 310, 155, 240, 115, 10, 2 )
+		start-script bak rec 66 ( V.304, 20, 86, 160, 25, 160, 75, 10, 2 )
+		break-here 35 times
+		start-script bak rec 66 ( V.304, 20, 86, 160, 75, 160, 25, 6, 1 )
+		break-here
+		start-script bak rec 66 ( V.305, 20, 86, 80, 95, 80, 155, 6, 1 )
+		start-script bak rec 66 ( V.306, 20, 86, 240, 95, 240, 155, 6, 1 )
+		start-script bak rec 66 ( V.307, 20, 86, 80, 115, 80, 5, 6, 1 )
+		start-script bak rec 66 ( V.308, 25, 86, 240, 115, 240, 5, 6, 1 )
+		start-script rec 202 ( 774, 40, 0, 0 )
+		start-script rec 202 ( 776, 80, 40, 0 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 26)
+		V.56 = 0
+		V.304[] = "background art by"
+		V.305[] = "peter chan"
+		V.306[] = "paul mica"
+		V.307[] = "steve"
+		V.308[] = "purcell"
+		start-script bak rec 66 ( V.305, 30, 86, 160, 25, 160, 85, 10, 2 )
+		start-script bak rec 66 ( V.306, 30, 86, 160, 165, 162, 100, 10, 2 )
+		start-script bak rec 66 ( V.308, 20, 86, -100, 120, 182, 115, 10, 2 )
+		start-script bak rec 66 ( V.307, 20, 86, 420, 120, 130, 115, 10, 2 )
+		break-here 4 times
+		start-script bak rec 66 ( V.304, 20, 86, 160, 25, 160, 70, 10, 1 )
+		break-here 30 times
+		start-script bak rec 66 ( V.304, 20, 86, 160, 70, 160, 25, 6, 1 )
+		break-here
+		start-script bak rec 66 ( V.305, 30, 86, 160, 85, 160, 25, 6, 1 )
+		start-script bak rec 66 ( V.306, 30, 86, 162, 100, 162, 165, 6, 1 )
+		start-script bak rec 66 ( V.308, 20, 86, 182, 115, -100, 115, 6, 1 )
+		start-script bak rec 66 ( V.307, 20, 86, 130, 115, 420, 115, 6, 1 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 33)
+		V.56 = 0
+		V.304[] = "lela dowling"
+		V.305[] = "collette michaud"
+		V.306[] = "steve purcell"
+		V.307[] = "larry ahern"
+		V.308[] = "jesse clark"
+		start-script bak rec 66 ( V.305, 20, 86, 160, 25, 160, 95, 6, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.304, 20, 86, 50, 15, 50, 85, 6, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.306, 20, 86, 265, 15, 265, 85, 6, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.308, 20, 86, 50, 185, 50, 115, 6, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.307, 20, 86, 265, 195, 265, 115, 6, 2 )
+		break-here 2 times
+		V.305[] = "animation by"
+		start-script bak rec 66 ( V.305, 20, 86, 160, 25, 160, 75, 6, 2 )
+		break-here 45 times
+		V.308[] = "animation by"
+		start-script bak rec 66 ( V.308, 20, 86, 160, 75, 160, 25, 5, 1 )
+		break-here 2 times
+		V.304[] = "lela dowling"
+		start-script bak rec 66 ( V.304, 20, 86, 50, 85, 50, 15, 6, 1 )
+		break-here 2 times
+		start-script bak rec 66 ( V.306, 20, 86, 265, 85, 265, 15, 6, 1 )
+		break-here 2 times
+		V.305[] = "collette michaud"
+		start-script bak rec 66 ( V.305, 20, 86, 160, 95, 160, 25, 6, 1 )
+		break-here 2 times
+		V.308[] = "larry ahern"
+		start-script bak rec 66 ( V.308, 20, 86, 265, 115, 265, 195, 6, 1 )
+		break-here 2 times
+		V.304[] = "jesse clark"
+		start-script bak rec 66 ( V.304, 20, 86, 50, 115, 50, 185, 6, 1 )
+		start-script rec 202 ( 775, 40, 80, 16 )
+		start-script rec 202 ( 777, 0, 40, 16 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 40)
+		V.56 = 0
+		V.304[] = "ron lussier"
+		V.305[] = "ralph gerth"
+		V.306[] = "3-d animation by"
+		start-script bak rec 66 ( V.304, 20, 86, 80, 35, 80, 105, 10, 2 )
+		start-script bak rec 66 ( V.305, 20, 86, 240, 195, 240, 105, 10, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.306, 35, 86, 160, 25, 160, 75, 10, 2 )
+		break-here 25 times
+		start-script bak rec 66 ( V.306, 35, 86, 160, 75, 160, 25, 6, 1 )
+		break-here 2 times
+		start-script bak rec 66 ( V.304, 20, 86, 80, 105, 80, 195, 6, 1 )
+		start-script bak rec 66 ( V.305, 20, 86, 240, 105, 240, 35, 6, 1 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 45)
+		V.56 = 0
+		V.304[] = "michael levine"
+		V.305[] = "jesse clark"
+		V.306[] = "art technicians"
+		start-script bak rec 66 ( V.304, 20, 86, -100, 105, 80, 105, 10, 2 )
+		start-script bak rec 66 ( V.305, 20, 86, 420, 105, 240, 105, 10, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.306, 35, 86, 160, 25, 160, 75, 10, 2 )
+		break-here 30 times
+		start-script bak rec 66 ( V.306, 35, 86, 160, 75, 160, 25, 6, 1 )
+		break-here 2 times
+		start-script bak rec 66 ( V.304, 20, 86, 80, 105, 80, 35, 6, 1 )
+		start-script bak rec 66 ( V.305, 20, 86, 240, 105, 240, 195, 6, 1 )
+		start-script rec 202 ( 776, 40, 80, 0 )
+		start-script rec 202 ( 780, 0, 40, 0 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 51)
+		V.56 = 0
+		V.304[] = "clint bajakian"
+		V.305[] = "peter mcconnell"
+		V.306[] = "michael z. land"
+		V.307[] = "music composed by"
+		start-script bak rec 66 ( V.304, 25, 86, 160, 35, 160, 85, 10, 2 )
+		start-script bak rec 66 ( V.305, 25, 86, 160, 155, 160, 100, 10, 2 )
+		start-script bak rec 66 ( V.306, 25, 86, 160, 155, 160, 115, 10, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.307, 35, 86, 160, 25, 160, 70, 10, 2 )
+		break-here 30 times
+		start-script bak rec 66 ( V.307, 35, 86, 160, 70, 160, 25, 6, 1 )
+		break-here 2 times
+		start-script bak rec 66 ( V.306, 25, 86, 160, 115, 160, 175, 6, 1 )
+		start-script bak rec 66 ( V.305, 25, 86, 160, 100, 160, 160, 6, 1 )
+		start-script bak rec 66 ( V.304, 25, 86, 160, 85, 160, 145, 6, 1 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 58)
+		V.56 = 0
+		V.304[] = "tamlynn barra"
+		V.305[] = "voice produced and directed by"
+		start-script bak rec 66 ( V.304, 20, 86, 160, 175, 160, 95, 10, 2 )
+		start-script bak rec 66 ( V.305, 40, 86, 160, 25, 160, 75, 10, 2 )
+		break-here 30 times
+		start-script bak rec 66 ( V.305, 40, 86, 160, 75, 160, 25, 6, 1 )
+		start-script bak rec 66 ( V.304, 20, 86, 160, 95, 160, 175, 6, 1 )
+		break-here 8 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 64)
+		V.56 = 0
+		V.304[] = "jonathan ackley"
+		V.305[] = "digital sound effects editing by"
+		V.307[] = "voice production coordination by"
+		V.306[] = "khris brown"
+		start-script bak rec 66 ( V.304, 20, 86, -100, 120, 160, 120, 10, 2 )
+		start-script bak rec 66 ( V.305, 40, 86, -100, 105, 160, 105, 10, 2 )
+		start-script bak rec 66 ( V.306, 20, 86, 420, 90, 160, 90, 10, 2 )
+		start-script bak rec 66 ( V.307, 40, 86, 420, 75, 160, 75, 10, 2 )
+		break-here 30 times
+		start-script bak rec 66 ( V.305, 40, 86, 160, 100, 160, 10, 6, 1 )
+		start-script bak rec 66 ( V.307, 40, 86, 160, 75, 160, 165, 6, 1 )
+		break-here
+		start-script bak rec 66 ( V.304, 20, 86, 160, 120, 160, 30, 6, 1 )
+		start-script bak rec 66 ( V.306, 20, 86, 160, 90, 160, 180, 6, 1 )
+		start-script rec 202 ( 777, 40, 0, 16 )
+		start-script rec 202 ( 781, 80, 40, 16 )
+		break-here 8 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 71)
+		V.56 = 0
+		V.305[] = "quality assurance by"
+		V.304[] = "jo `captain tripps` ashburn"
+		V.306[] = "dan connors"
+		V.307[] = "dana fong"
+		V.308[] = "chris snyder"
+		start-script bak rec 66 ( V.304, 35, 86, 160, 175, 160, 85, 10, 2 )
+		start-script bak rec 66 ( V.305, 40, 86, 160, 25, 160, 70, 10, 2 )
+		start-script bak rec 66 ( V.306, 20, 86, 100, 185, 100, 100, 10, 2 )
+		start-script bak rec 66 ( V.307, 20, 86, 220, 185, 220, 100, 10, 2 )
+		start-script bak rec 66 ( V.308, 20, 86, 160, 185, 160, 115, 10, 2 )
+		break-here 35 times
+		start-script bak rec 66 ( V.305, 40, 86, 160, 70, 160, 25, 6, 1 )
+		start-script bak rec 66 ( V.304, 35, 86, 160, 85, 160, 25, 6, 1 )
+		start-script bak rec 66 ( V.306, 20, 86, 100, 100, 100, 185, 6, 1 )
+		start-script bak rec 66 ( V.307, 20, 86, 220, 100, 220, 185, 6, 1 )
+		start-script bak rec 66 ( V.308, 20, 86, 160, 115, 160, 185, 6, 1 )
+		start-script rec 202 ( 781, 40, 80, 16 )
+		start-script rec 202 ( 601, 0, 40, 16 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 76)
+		V.56 = 0
+		V.304[] = "michael z. land"
+		V.305[] = "peter mcconnell"
+		V.306[] = "clint bajakian"
+		V.306[] = "justin graham"
+		V.307[] = "\x12 music system by"
+		start-script bak rec 66 ( V.304, 25, 86, 160, 35, 160, 90, 10, 2 )
+		start-script bak rec 66 ( V.305, 25, 86, -100, 115, 160, 105, 10, 2 )
+		start-script bak rec 66 ( V.306, 25, 86, 420, 135, 160, 120, 10, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.307, 55, 86, 160, 25, 160, 75, 10, 3 )
+		break-here 30 times
+		start-script bak rec 66 ( V.307, 55, 86, 160, 75, 160, 25, 6, 3 )
+		break-here 2 times
+		start-script bak rec 66 ( V.304, 25, 86, 160, 90, 160, 195, 6, 1 )
+		start-script bak rec 66 ( V.305, 25, 86, 160, 105, 420, 105, 6, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 160, 120, -100, 120, 6, 1 )
+		start-script rec 202 ( 780, 40, 0, 0 )
+		start-script rec 202 ( 600, 80, 40, 0 )
+		break-here 7 times
+		V.306[] = "ron gilbert"
+		V.304[] = "aric wilmunder"
+		V.308[] = "brad p. taylor"
+		V.305[] = "justin graham"
+		V.307[] = " \x11 system by "
+		start-script bak rec 66 ( V.304, 25, 86, 160, 35, 160, 90, 10, 2 )
+		start-script bak rec 66 ( V.305, 25, 86, -100, 105, 80, 105, 10, 2 )
+		start-script bak rec 66 ( V.306, 25, 86, 420, 105, 240, 105, 10, 2 )
+		start-script bak rec 66 ( V.308, 25, 86, 160, 165, 160, 120, 10, 2 )
+		break-here 2 times
+		start-script bak rec 66 ( V.307, 80, 86, 160, 25, 160, 75, 10, 3 )
+		break-here 30 times
+		L.1 = 126
+		L.2 = 90
+		L.3 = 62
+		L.4 = 93
+		L.0 = 0
+[00006443]:
+		if !( L.0 <= 17 ) jump &[00006574]
+		draw-box 0,90 to 320,L.2 color -1
+		draw-box 0,L.1 to 320,125 color -1
+		draw-box 80,62 to 240,L.3 color -1
+		draw-box 80,L.4 to 240,93 color -1
+		L.1 = L.1 - 2
+		L.2 = L.2 + 2
+		L.3 = L.3 + 2
+		L.4 = L.4 - 2
+		L.0 = L.0 + 1
+		break-here
+		++L.0
+		jump &[00006443]
+[00006574]:
+		L.1 = 120
+		L.2 = 120
+		L.3 = 77
+		L.4 = 77
+		V.307[] = "\x11 upgrades by"
+		V.305[] = "sean clark"
+		V.306[] = "mike stemmle"
+		L.0 = 16
+[00006663]:
+		if !( L.0 >= 0 ) jump &[00006872]
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 160,75 \
+			"%s307%"
+
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 240,102 \
+			"%s306%"
+
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 80,102 \
+			"%s305%"
+
+		draw-box 0,89 to 320,L.2 color -1
+		draw-box 0,L.1 to 320,126 color -1
+		draw-box 80,62 to 240,L.3 color -1
+		draw-box 80,L.4 to 240,93 color -1
+		L.1 = L.1 + 2
+		L.2 = L.2 - 2
+		L.3 = L.3 - 2
+		L.4 = L.4 + 2
+		L.0 = L.0 - 1
+		break-here
+		--L.0
+		jump &[00006663]
+[00006872]:
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 160,75 \
+			"%s307%"
+
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 240,102 \
+			"%s306%"
+
+		print-text \
+			color 86 \
+			center \
+			no-talk-animation \
+			at 80,102 \
+			"%s305%"
+
+		break-here 25 times
+		start-script bak rec 66 ( V.307, 70, 86, 160, 75, 160, 25, 6, 3 )
+		break-here 2 times
+		start-script bak rec 66 ( V.305, 25, 86, 80, 102, -100, 102, 6, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 240, 102, 420, 102, 6, 1 )
+		start-script rec 202 ( 601, 40, 80, 16 )
+		start-script rec 202 ( 600, 40, 0, 0 )
+		start-script rec 202 ( 602, 80, 40, 0 )
+		start-script rec 202 ( 603, 0, 40, 16 )
+		break-here 4 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 80)
+		V.56 = 0
+		V.304[] = "SAM & MAX, FREELANCE POLICE"
+		V.305[] = "created by"
+		V.306[] = "steve purcell"
+		start-script bak rec 66 ( V.304, 35, 86, 160, 35, 160, 75, 10, 3 )
+		break-here 3 times
+		start-script bak rec 66 ( V.305, 25, 86, -100, 95, 160, 95, 10, 2 )
+		break-here 3 times
+		start-script bak rec 66 ( V.306, 25, 86, 420, 115, 160, 115, 10, 2 )
+		break-here 35 times
+		start-script bak rec 66 ( V.304, 35, 86, 160, 75, 160, 35, 6, 3 )
+		start-script bak rec 66 ( V.305, 25, 86, 160, 95, 420, 95, 6, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 160, 115, -100, 115, 6, 1 )
+		break-here 6 times
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 97)
+		V.56 = 0
+		V.304[] = "directed and produced by"
+		V.305[] = "sean clark"
+		V.306[] = "mike stemmle"
+		start-script bak rec 66 ( V.304, 35, 86, 160, 35, 160, 75, 10, 2 )
+		break-here 3 times
+		start-script bak rec 66 ( V.305, 25, 86, -100, 95, 160, 95, 10, 2 )
+		break-here 3 times
+		start-script bak rec 66 ( V.306, 25, 86, 420, 115, 160, 115, 10, 2 )
+		break-here 35 times
+		start-script bak rec 66 ( V.304, 35, 86, 160, 75, 160, 35, 6, 1 )
+		start-script bak rec 66 ( V.305, 25, 86, 160, 95, 420, 95, 6, 1 )
+		start-script bak rec 66 ( V.306, 25, 86, 160, 115, -100, 115, 6, 1 )
+		start-script rec 202 ( 602, 40, 80, 0 )
+		start-script rec 202 ( 603, 40, 0, 16 )
+		break-here 6 times
+		if !( sound-running 9 ) jump &[00007934]
+		do {
+			break-here
+			sound 256 9 0 1
+		} until (V.56 >= 111)
+		V.56 = 0
+		jump &[00007938]
+[00007934]:
+		start-sound 6
+[00007938]:
+		lock-sound 6
+		load-sound 6
+		sound 17 9 0 1 8 6 0
+[00007971]:
+		if ( V.5 ) {
+			stop-sound 9
+			start-sound 6
+		}
+		end-cut-scene
+		cursor off
+		userput off
+		undim V.304
+		undim V.305
+		undim V.306
+		undim V.307
+		undim V.308
+		break-here
+		charset 2
+		cursor on
+		userput on
+		current-room 7
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0077\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+
+		if !( L.2 > L.1 ) jump &[00000027]
+		L.5 = 10
+		jump &[00000033]
+[00000027]:
+		L.5 = -10
+[00000033]:
+		L.6 = L.1
+[00000039]:
+		L.6 = L.6 + L.5
+		draw-object L.0 at L.6,L.3
+		if !( L.3 != 0 ) jump &[00000084]
+		L.8 = 133
+		L.9 = 779
+		jump &[00000096]
+[00000084]:
+		L.9 = 778
+		L.8 = 0
+[00000096]:
+		if !( L.2 < L.1 ) jump &[00000133]
+		L.7 = L.6 * 8
+		draw-object L.9 at L.6 + 40,L.3
+		jump &[00000161]
+[00000133]:
+		L.7 = L.6 * 8 - 320
+		draw-object L.9 at L.6 - 10,L.3
+[00000161]:
+		break-here
+		if !( L.6 == L.2 ) jump &[00000039]
+		end-script
+	}
+}
+

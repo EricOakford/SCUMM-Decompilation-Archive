@@ -1,0 +1,500 @@
+;/**
+; * Sam & Max Hit the Road: Interactive Demo (CD)
+; * 
+; * Room 67
+; */
+
+; NOTE: This didn't seem to decompile right.
+script { ; SCRP LECF_0001\LFLF_0067\SCRP_o_8C42
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	sound 13 L.0 0 9
+	sound -1
+	L.3 = V.56
+[00000037]:
+	if ( !sound-running L.0 ) {
+		stop-script 0
+	}
+	if !( L.1 > 0 ) jump &[00000076]
+	if ( L.3 >= L.2 ) {
+		stop-script 0
+	}
+	jump &[00000090]
+[00000076]:
+	if ( L.3 <= L.2 ) {
+		stop-script 0
+	}
+[00000090]:
+	sound 12 L.0 0 9 L.3
+	if !( L.1 > 0 ) jump &[00000141]
+	sound 12 L.0 0 8 0
+	jump &[00000160]
+[00000141]:
+	sound 12 L.0 0 8 127
+[00000160]:
+	sound -1
+	if !( L.1 > 0 ) jump &[00000236]
+	L.4 = 0
+[00000183]:
+	if !( L.4 < 127 ) jump &[00000233]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 + 6
+	break-here
+	jump &[00000183]
+[00000233]:
+	jump &[00000292]
+[00000236]:
+	L.4 = 127
+[00000242]:
+	if !( L.4 > 0 ) jump &[00000292]
+	sound 12 L.0 0 8 L.4
+	sound -1
+	L.4 = L.4 - 6
+	break-here
+	jump &[00000242]
+[00000292]:
+	L.3 = L.3 + L.1
+	if !( L.3 == L.2 ) jump &[00000037]
+	end-script
+}
+
+room room_67 {
+
+	object 598 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0598
+		name is "b-stars"
+	}
+
+	object 599 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0599
+		name is "b-star-sign"
+	}
+
+	object 600 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0600
+		name is "credit-panel-7"
+	}
+
+	object 601 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0601
+		name is "credit-panel-8"
+	}
+
+	object 602 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0602
+		name is "credit-panel-9"
+	}
+
+	object 603 { ; VERB LECF_0001\LFLF_0067\ROOM\OBCD_0603
+		name is "credit-panel-10"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0067\ROOM\EXCD
+		V.32 = 48
+		stop-script V.175
+		V.175 = 51
+		R.6 = 1
+		start-script 51
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0067\ROOM\ENCD
+		kludge 117 []
+		set-screen 0 to 200
+		if ( state-of 599 ) {
+			state-of 599 is 0
+		}
+		state-of 598 is 0
+		state-of 600 is 0
+		state-of 601 is 0
+		state-of 602 is 0
+		state-of 603 is 0
+		V.174 = V.32
+		stop-script V.175
+		V.176 = V.175
+		V.32 = 201
+		V.175 = 202
+		if !( V.32 != 48 ) jump &[00000119]
+		R.6 = 0
+		jump &[00000125]
+[00000119]:
+		R.6 = 1
+[00000125]:
+		start-script V.175
+		stop-script 30
+		start-script 204
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0201
+		start-script 24 ( 67, 2 )
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		break-here
+		L.0 = V.20
+		L.1 = V.21
+		cursor off
+		do {
+			break-here
+			L.2 = random 1
+			if ( V.20 != L.0 or V.21 != L.1 ) {
+				start-script 24 ( 67, 2 )
+			}
+		}
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0203
+	local variable L.0
+
+		V.152 = 1
+[00000014]:
+		L.0 = 2
+[00000020]:
+		if !( L.0 <= V.138 ) jump &[00000050]
+		break-here random-between 150 to 200 times
+		V.152 = L.0
+		++L.0
+		jump &[00000020]
+[00000050]:
+		L.0 = V.138 - 1
+[00000060]:
+		if !( L.0 >= 1 ) jump &[00000102]
+		break-here random-between 150 to 200 times
+		break-until ((actor-room L.0) != 67)
+		V.152 = L.0
+		--L.0
+		jump &[00000060]
+[00000102]:
+		jump &[00000014]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+
+		L.0 = 2
+[00000014]:
+		if !( L.0 <= 19 ) jump &[00000066]
+		actor L.0 \
+			default
+			costume 2 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			elevation 3
+		class-of L.0 is 6
+		++L.0
+		jump &[00000014]
+[00000066]:
+		V.151 = 0
+		start-script 203
+		start-script 207
+[00000092]:
+		L.0 = 2
+[00000098]:
+		if !( L.0 <= V.152 ) jump &[00000768]
+		if !( (!actor-moving L.0) or (object-y L.0) <= 1 ) jump &[00000642]
+		if !( class-of L.0 is 6 ) jump &[00000154]
+		put-actor L.0 at 0,0 in-room 0
+		jump &[00000157]
+[00000154]:
+		jump &[00000762]
+[00000157]:
+		if !( !random 6 ) jump &[00000639]
+		if !( (random 1) == 0 ) jump &[00000271]
+		actor L.0 \
+			default
+			costume 3 \
+			ignore-boxes \
+			never-zclip
+		if ( random 10 ) {
+			L.1 = random-between 16 to 45
+			actor L.0 \
+				color 2 is L.1
+			L.1 = 16 + 3 * (random 9)
+			actor L.0 \
+				color 8 is L.1 + 2
+				color 7 is L.1 + 1
+		}
+		jump &[00000382]
+[00000271]:
+		if !( (random 1) == 1 ) jump &[00000381]
+		actor L.0 \
+			default
+			costume 2 \
+			ignore-boxes \
+			never-zclip
+		if ( random 10 ) {
+			L.1 = 16 + 3 * (random 9)
+			actor L.0 \
+				color 13 is L.1
+				color 12 is L.1 + 1
+				color 11 is L.1 + 2
+		}
+		L.1 = random-between 16 to 45
+		actor L.0 \
+			color 3 is L.1
+		jump &[00000382]
+[00000382]:
+		if !( random 1 ) jump &[00000522]
+		L.1 = random-between 20 to 199
+		if !( random 1 ) jump &[00000464]
+		if !( (actor-room L.0) != 67 ) jump &[00000450]
+		put-actor L.0 at -40,L.1 in-room 67
+		do-animation L.0 249
+		walk L.0 to 360,L.1
+		jump &[00000461]
+[00000450]:
+		walk L.0 to 360,object-y L.0
+[00000461]:
+		jump &[00000519]
+[00000464]:
+		if !( (actor-room L.0) != 67 ) jump &[00000508]
+		put-actor L.0 at 360,L.1 in-room 67
+		do-animation L.0 248
+		walk L.0 to -40,L.1
+		jump &[00000519]
+[00000508]:
+		walk L.0 to -40,object-y L.0
+[00000519]:
+		jump &[00000638]
+[00000522]:
+		L.1 = random-between 0 to 320
+		if !( random 1 ) jump &[00000590]
+		if !( (actor-room L.0) != 67 ) jump &[00000576]
+		put-actor L.0 at L.1,2 in-room 67
+		walk L.0 to L.1,254
+		jump &[00000587]
+[00000576]:
+		walk L.0 to object-x L.0,254
+[00000587]:
+		jump &[00000638]
+[00000590]:
+		if !( (actor-room L.0) != 67 ) jump &[00000627]
+		put-actor L.0 at L.1,254 in-room 67
+		walk L.0 to L.1,1
+		jump &[00000638]
+[00000627]:
+		walk L.0 to object-x L.0,1
+[00000638]:
+		break-here
+[00000639]:
+		jump &[00000762]
+[00000642]:
+		if !( (class-of L.0 is 6) and (object-x L.0) < 254 and (object-x L.0) > 30 and (object-y L.0) > 75 and (object-y L.0) < 195 ) jump &[00000762]
+		if !( (!random 60) and V.151 < 11 ) jump &[00000762]
+		if !( (actor-costume L.0) == 2 ) jump &[00000736]
+		start-script rec 205 ( L.0 )
+		jump &[00000762]
+[00000736]:
+		if !( (actor-costume L.0) == 3 ) jump &[00000761]
+		start-script rec 206 ( L.0 )
+		jump &[00000762]
+[00000762]:
+		++L.0
+		jump &[00000098]
+[00000768]:
+		break-here
+		jump &[00000092]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0205
+	local variable L.0
+
+		class-of L.0 is 134
+		++V.151
+		do-animation L.0 255
+		break-here
+		do-animation L.0 random-between 10 to 12
+		break-here 5 times
+		do-animation L.0 3
+		if !( (random 3) == 0 ) jump &[00000078]
+		walk L.0 to -40,object-y L.0
+		jump &[00000148]
+[00000078]:
+		if !( (random 3) == 1 ) jump &[00000101]
+		walk L.0 to 360,object-y L.0
+		jump &[00000148]
+[00000101]:
+		if !( (random 3) == 2 ) jump &[00000124]
+		walk L.0 to object-x L.0,1
+		jump &[00000148]
+[00000124]:
+		if !( (random 3) == 3 ) jump &[00000147]
+		walk L.0 to object-x L.0,254
+		jump &[00000148]
+[00000148]:
+		break-here
+		class-of L.0 is 6
+		--V.151
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0206
+	local variable L.0
+
+		class-of L.0 is 134
+		++V.151
+		do-animation L.0 255
+		break-here
+		if !( (random 5) == 0 ) jump &[00000067]
+		do-animation L.0 250
+		break-here 2 times
+		do-animation L.0 8
+		break-here 5 times
+		jump &[00000322]
+[00000067]:
+		if !( (random 5) == 1 ) jump &[00000101]
+		do-animation L.0 250
+		break-here 2 times
+		do-animation L.0 9
+		break-here 8 times
+		jump &[00000322]
+[00000101]:
+		if !( (random 5) == 2 ) jump &[00000143]
+		if ( (actor-facing L.0) == 3 ) {
+			do-animation L.0 249
+			break-here
+		}
+		do-animation L.0 17
+		break-here 14 times
+		jump &[00000322]
+[00000143]:
+		if !( (random 5) == 3 ) jump &[00000215]
+		if ( (actor-facing L.0) == 3 ) {
+			do-animation L.0 249
+			break-here
+		}
+		if ( (actor-facing L.0) == 2 ) {
+			do-animation L.0 248
+			break-here
+		}
+		do-animation L.0 15
+		break-here 2 times
+		do-animation L.0 16
+		break-here 8 times
+		jump &[00000322]
+[00000215]:
+		if !( (random 5) == 4 ) jump &[00000287]
+		if ( (actor-facing L.0) == 3 ) {
+			do-animation L.0 249
+			break-here
+		}
+		if ( (actor-facing L.0) == 2 ) {
+			do-animation L.0 248
+			break-here
+		}
+		do-animation L.0 13
+		break-here 2 times
+		do-animation L.0 14
+		break-here 12 times
+		jump &[00000322]
+[00000287]:
+		if !( (random 5) == 5 ) jump &[00000321]
+		do-animation L.0 6
+		break-here 8 times
+		do-animation L.0 7
+		break-here 3 times
+		jump &[00000322]
+[00000322]:
+		do-animation L.0 3
+		break-here
+		if !( (random 3) == 0 ) jump &[00000357]
+		walk L.0 to -40,object-y L.0
+		jump &[00000427]
+[00000357]:
+		if !( (random 3) == 1 ) jump &[00000380]
+		walk L.0 to 360,object-y L.0
+		jump &[00000427]
+[00000380]:
+		if !( (random 3) == 2 ) jump &[00000403]
+		walk L.0 to object-x L.0,1
+		jump &[00000427]
+[00000403]:
+		if !( (random 3) == 3 ) jump &[00000426]
+		walk L.0 to object-x L.0,290
+		jump &[00000427]
+[00000427]:
+		break-here
+		class-of L.0 is 6
+		--V.151
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		L.0 = 2
+[00000014]:
+		if !( L.0 <= 19 ) jump &[00000338]
+		if !( (actor-room L.0) == V.4 ) jump &[00000332]
+		L.2 = object-x L.0
+		if !( L.2 <= -40 ) jump &[00000090]
+		break-here
+		if !( (object-x L.0) == L.2 ) jump &[00000090]
+		class-of L.0 is 6
+		put-actor L.0 at 0,0 in-room 0
+		jump &[00000332]
+[00000090]:
+		if !( L.2 >= 360 ) jump &[00000138]
+		break-here
+		if !( (object-x L.0) == L.2 ) jump &[00000138]
+		class-of L.0 is 6
+		put-actor L.0 at 0,0 in-room 0
+		jump &[00000332]
+[00000138]:
+		L.1 = object-y L.0
+		if !( L.1 >= 254 ) jump &[00000193]
+		break-here
+		if !( (object-y L.0) == L.1 ) jump &[00000193]
+		class-of L.0 is 6
+		put-actor L.0 at 0,0 in-room 0
+		jump &[00000332]
+[00000193]:
+		if !( L.1 > 230 ) jump &[00000228]
+		actor L.0 \
+			scale 255 + 3 * (230 - L.1)
+		jump &[00000332]
+[00000228]:
+		if !( L.1 < 20 ) jump &[00000311]
+		if !( L.1 <= 1 ) jump &[00000286]
+		break-here
+		if !( (object-y L.0) == L.1 ) jump &[00000286]
+		class-of L.0 is 6
+		put-actor L.0 at 0,0 in-room 0
+		jump &[00000332]
+[00000286]:
+		actor L.0 \
+			scale 255 - 4 * (20 - L.1)
+		jump &[00000332]
+[00000311]:
+		if ( (actor-scale L.0) != 255 ) {
+			actor L.0 \
+				scale 255
+		}
+[00000332]:
+		++L.0
+		jump &[00000014]
+[00000338]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0067\ROOM\LSCR_0210
+		end-script
+	}
+}
+
