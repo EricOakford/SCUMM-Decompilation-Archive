@@ -1,0 +1,40 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 73: Dark Lab (dim-lab)
+; */
+
+script 136 { ; SCRP LECF_0001\LFLF_0073\SCRP_0136
+	do {
+		draw-object 733 image 1 + (random 2)
+		draw-object 734 image 1 + (random 2)
+		draw-object 735 image 1 + (random 2)
+		draw-object 737 image 1 + (random 2)
+		break-here
+	}
+	end-script
+}
+
+room dim-lab {
+
+	object 745 { ; VERB LECF_0001\LFLF_0073\ROOM\OBCD_0745
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0073\ROOM\EXCD
+		if ( !script-running 137 ) {
+			set-screen 0 to 144
+			start-script 93 ( 2 )
+		}
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0073\ROOM\ENCD
+		if ( !script-running 137 ) {
+			start-script 93 ( 1 )
+			set-screen 0 to 200
+		}
+		end-script
+	}
+}
+

@@ -1,0 +1,17 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 1: Mansion Panorama (panorama)
+; */
+
+room panorama {
+
+	exit { ; EXCD LECF_0001\LFLF_0001\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0001\ROOM\ENCD
+		end-script
+	}
+}
+

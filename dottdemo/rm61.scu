@@ -1,0 +1,1573 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 61: Vortex (vortex)
+; */
+
+; Game Initialization
+script 1 { ; SCRP LECF_0001\LFLF_0061\SCRP_0001
+local variable L.1
+	sound 6 100
+	cursor off
+	userput off
+	V.6 = 2
+	V.188 = 1
+	V.19 = 0
+	V.24 = 27
+	V.43 = 0
+	charset 2
+	V.230[] = "Day of the Tentacle BBS Contest DEMO"
+	V.122 = 0
+	V.93[] = "Game Paused.  Press SPACE to Continue."
+	V.90[] = "Insert Disk %c and Press Button to Continue."
+	V.91[] = "Unable to Find %s, (%c%d) Press Button."
+	V.92[] = "Error reading disk %c, (%c%d) Press Button."
+	V.94[] = "Are you sure you want to restart?  (Y/N)Y"
+	V.95[] = "Are you sure you want to quit?  (Y/N)Y"
+	dim int array V.110[50]
+	start-script 121
+	lock-script 94
+	load-script 94
+	lock-script 95
+	load-script 95
+	lock-script 98
+	load-script 98
+	lock-script 100
+	load-script 100
+	lock-script 101
+	load-script 101
+	V.35 = 94
+	V.36 = 95
+	V.28 = 98
+	V.29 = 100
+	V.30 = 101
+	V.145 = 6
+	V.37 = 9 - V.145
+	V.8 = 12
+	fades -32383
+	V.19 = 6
+	dim bit array V.240[15]
+	dim bit array V.259[25]
+	dim bit array V.265[15]
+	dim bit array V.266[15]
+	dim bit array V.237[2]
+	dim bit array V.238[3]
+	dim bit array V.239[2]
+	dim bit array V.236[13]
+	current-room 0
+	set-screen 0 to 144
+	L.1 = 1
+[00000589]:
+	if !( L.1 <= 12 ) jump &[00000618]
+	put-actor L.1 at 0,0 in-room 0
+	++L.1
+	jump &[00000589]
+[00000618]:
+	V.1 = 1
+	start-script 99
+	print-system \
+		color 9 \
+		end
+	if ( V.40 < 319 ) {
+		cursor off
+		userput off
+		current-room 61
+		break-here 10 times
+		userput on
+		print-system \
+			"Not enough free memory to run demo."
+
+		quit
+	}
+	actor 1 \
+		default
+		text-offset 0,-85 \
+		costume 305 \
+		talk-color 15 \
+		name "Bernard"
+		step-dist 10,2 \
+		width 30
+	actor 2 \
+		default
+		text-offset 0,-85 \
+		costume 306 \
+		talk-color 14 \
+		name "Laverne"
+		step-dist 11,2 \
+		width 30
+	actor 3 \
+		default
+		text-offset 0,-85 \
+		costume 307 \
+		talk-color 242 \
+		name "Hoagie"
+		step-dist 11,3 \
+		width 35
+	R.93 = 0
+	start-script 3
+	end-script
+}
+
+script 2 { ; SCRP LECF_0001\LFLF_0061\SCRP_0002
+local variable L.0
+local variable L.1
+
+	if ( L.0 == 4 ) {
+		if ( L.1 == 44 ) {
+			R.93 = 1
+		}
+	}
+	end-script
+}
+
+script 3 { ; SCRP LECF_0001\LFLF_0061\SCRP_0003
+	cursor off
+	userput off
+	V.232 = V.19
+	current-room 0
+	set-screen 0 to 200
+	R.93 = 0
+	current-room 61
+	userput on
+	break-until (R.93)
+	if !( V.39 > 1 ) jump &[00000070]
+	V.32 = 2
+	userput on
+	jump &[00000072]
+[00000070]:
+	userput off
+[00000072]:
+	fades 257
+	R.93 = 0
+	R.93 = 0
+	current-room 2
+	fades 129
+	break-until (R.93)
+	V.19 = V.232
+	charset 2
+	R.93 = 0
+	current-room 3
+	break-until (R.93)
+	charset 2
+	fades 257
+	R.93 = 0
+	current-room 5
+	break-until (R.93)
+	R.93 = 0
+	current-room 77
+	break-until (R.93)
+	charset 2
+	V.19 = V.232
+	stop-script 6
+	stop-script 139
+	charset 2
+	put-actor 7 at 0,0 in-room 0
+	put-actor 6 at 0,0 in-room 0
+	put-actor 2 at 0,0 in-room 0
+	put-actor 3 at 0,0 in-room 0
+	put-actor 1 at 0,0 in-room 0
+	put-actor 4 at 0,0 in-room 0
+	start-script 137
+	end-script
+}
+
+script 4 { ; SCRP LECF_0001\LFLF_0061\SCRP_0004
+	actor 2 \
+		color 0 is 160
+		color 1 is 161
+		color 2 is 162
+		color 3 is 163
+		color 4 is 164
+		color 5 is 165
+		color 6 is 166
+		color 7 is 167
+		color 8 is 168
+		color 9 is 169
+		color 10 is 170
+		color 11 is 171
+		color 12 is 172
+		color 13 is 173
+		color 14 is 174
+	actor 3 \
+		color 0 is 176
+		color 1 is 177
+		color 2 is 178
+		color 3 is 179
+		color 4 is 180
+		color 5 is 181
+		color 6 is 182
+		color 7 is 183
+		color 8 is 184
+		color 9 is 185
+		color 10 is 186
+		color 11 is 187
+		color 12 is 188
+		color 13 is 176
+	end-script
+}
+
+script 69 { ; SCRP LECF_0001\LFLF_0061\SCRP_0069
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+
+	if !( L.4 == 0 ) jump &[00000059]
+	if !( L.3 > 12 ) jump &[00000045]
+	L.4 = object-y L.3
+	L.3 = object-x L.3
+	jump &[00000059]
+[00000045]:
+	L.4 = object-y L.3
+	L.3 = object-x L.3
+[00000059]:
+	V.236[L.2] = 1
+[00000068]:
+	if ( (actor-room 12) == V.4 ) {
+		break-until ((actor-room 12) != V.4)
+	}
+	actor 12 \
+		default
+		costume 0 \
+		step-dist 32,8 \
+	if ( (actor-box L.2) == 0 ) {
+		actor 12 \
+			ignore-boxes \
+	}
+	put-actor 12 at L.3,L.4 in-room V.4
+	if !( (proximity L.2 12) < 1 ) jump &[00000159]
+	jump &[00000408]
+[00000159]:
+	put-actor 12 at object-x L.2,object-y L.2 in-room 255
+	do-animation 12 248 + (actor-facing L.2)
+	walk 12 to L.3,L.4
+	break-here
+	L.5 = object-x 12
+	L.6 = object-y 12
+	L.7 = 248 + (actor-facing 12)
+	put-actor 12 at 0,0 in-room 0
+	do-animation L.2 L.7
+	if !( L.0 ) jump &[00000258]
+	do-animation L.2 L.0
+	jump &[00000287]
+[00000258]:
+	if !( !random 3 ) jump &[00000280]
+	do-animation L.2 6
+	break-here 2 times
+	jump &[00000287]
+[00000280]:
+	do-animation L.2 8
+[00000287]:
+	if ( !R.203 ) {
+		print-debug \
+			"\xFF\x0A\xDA\xD9\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	}
+	break-here
+	if !( actor-chore L.2 ) jump &[00000316]
+	put-actor L.2 at L.5,L.6 in-room 255
+	if !( L.1 ) jump &[00000357]
+	do-animation L.2 L.1
+	break-here 2 times
+	jump &[00000368]
+[00000357]:
+	do-animation L.2 7
+	break-here 2 times
+[00000368]:
+	if ( !R.203 ) {
+		print-debug \
+			"\xFF\x0A\x95\x9D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	}
+	break-here
+	if !( actor-chore L.2 ) jump &[00000397]
+	jump &[00000068]
+[00000408]:
+	put-actor 12 at 0,0 in-room 0
+	do-animation L.2 3
+	V.236[L.2] = 0
+	end-script
+}
+
+script 93 { ; SCRP LECF_0001\LFLF_0061\SCRP_0093
+local variable L.0
+
+	if !( L.0 == 2 ) jump &[00000101]
+	V.151 = -1
+	verbs-restore 1 to 1 set 1
+	verbs-restore 2 to 11 set 1
+	verbs-restore 100 to 100 set 1
+	verbs-restore 200 to 209 set 1
+	verbs-restore 103 to 105 set 1
+	start-script 86
+	start-script 87
+	jump &[00000436]
+[00000101]:
+	if !( L.0 == 1 ) jump &[00000202]
+	V.151 = -1
+	if ( V.153 ) {
+		verb V.153 \
+			color 6 \
+			(end-verb)
+		V.153 = 0
+	}
+	verbs-save 2 to 11 set 1
+	verbs-save 1 to 1 set 1
+	verbs-save 100 to 100 set 1
+	verbs-save 200 to 209 set 1
+	verbs-save 103 to 105 set 1
+	stop-script 87
+	jump &[00000436]
+[00000202]:
+	if !( L.0 == 5 ) jump &[00000435]
+	V.151 = -1
+	if ( V.153 ) {
+		verb V.153 \
+			color 6 \
+			(end-verb)
+		V.153 = 0
+	}
+	charset 1
+	verb 120 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 121 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 122 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 123 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 124 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 125 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 126 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 127 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	verb 128 \
+		new \
+		color 6 \
+		hicolor 3 \
+		(end-verb)
+	charset 2
+	start-script 93 ( 1 )
+	jump &[00000436]
+[00000436]:
+	end-script
+}
+
+script 94 { ; SCRP LECF_0001\LFLF_0061\SCRP_0094
+local variable L.0
+
+	V.183 = V.183 + 1
+	cursor soft-off
+	userput soft-off
+	if ( L.0 != 2 ) {
+		stop-sentence
+	}
+	if ( L.0 == 1 ) {
+		verbs-save 2 to 11 set 2
+		verbs-save 1 to 1 set 2
+		verbs-save 100 to 100 set 2
+		verbs-save 200 to 209 set 2
+		verbs-save 103 to 105 set 2
+	}
+	if ( L.0 == 3 ) {
+		verbs-save 2 to 11 set 2
+		verbs-save 1 to 1 set 2
+		verbs-save 100 to 100 set 2
+		verbs-save 200 to 209 set 2
+		verbs-save 103 to 105 set 2
+	}
+	if ( L.0 == 4 ) {
+		verbs-save 2 to 11 set 2
+		verbs-save 1 to 1 set 2
+		verbs-save 100 to 100 set 2
+		verbs-save 200 to 209 set 2
+		verbs-save 103 to 105 set 2
+	}
+	freeze-scripts 127
+	end-script
+}
+
+script 95 { ; SCRP LECF_0001\LFLF_0061\SCRP_0095
+local variable L.0
+
+	V.183 = V.183 - 1
+	cursor soft-on
+	userput soft-on
+	if ( L.0 == 1 ) {
+		verbs-restore 1 to 1 set 2
+		verbs-restore 2 to 11 set 2
+		verbs-restore 100 to 100 set 2
+		verbs-restore 200 to 209 set 2
+		verbs-restore 103 to 105 set 2
+	}
+	if ( L.0 == 3 ) {
+		verbs-restore 1 to 1 set 2
+		verbs-restore 2 to 11 set 2
+		verbs-restore 100 to 100 set 2
+		verbs-restore 200 to 209 set 2
+		verbs-restore 103 to 105 set 2
+	}
+	unfreeze-scripts
+	if ( L.0 == 4 ) {
+		stop-script 0
+	}
+	if ( L.0 != 2 ) {
+		stop-sentence
+		if ( L.0 != 3 ) {
+			camera-follow V.1
+		}
+	}
+	end-script
+}
+
+script 96 { ; SCRP LECF_0001\LFLF_0061\SCRP_0096
+local variable L.0
+local variable L.1
+
+	if !( L.1 == 1 ) jump &[00000089]
+	print-line \
+		" "
+
+	freeze-scripts 127
+	saveload-game 1 0
+	break-here
+	if !( V.71 == 203 ) jump &[00000070]
+	V.50 = 319
+	V.138 = 1
+	unfreeze-scripts
+	stop-script 0
+	jump &[00000086]
+[00000070]:
+	V.50 = 0
+	V.138 = 0
+	current-room L.0
+[00000086]:
+	jump &[00000100]
+[00000089]:
+	cursor off
+	saveload-game 2 0
+	break-here
+[00000100]:
+	end-script
+}
+
+script 98 { ; SCRP LECF_0001\LFLF_0061\SCRP_0098
+	V.157 = 0
+	V.158 = 0
+	V.159 = 0
+	V.160 = 0
+	V.161 = 0
+	V.162 = 0
+	V.163 = 0
+	V.164 = 0
+	V.165 = 0
+	V.166 = 0
+	V.167 = 0
+	V.168 = 0
+	V.169 = 0
+	V.170 = 0
+	V.172 = 0
+	V.173 = 0
+	V.174 = 0
+	V.175 = 0
+	V.176 = 0
+	end-script
+}
+
+script 99 { ; SCRP LECF_0001\LFLF_0061\SCRP_0099
+	if !( V.49 == 19 ) jump &[00000490]
+	if !( V.1 == 3 ) jump &[00000105]
+	V.191 = 71
+	V.192 = 0
+	V.193 = 71
+	V.194 = 255
+	V.195 = 19
+	V.196 = 0
+	V.197 = 19
+	V.198 = 0
+	V.199 = 15
+	V.200 = 0
+	V.201 = 103
+	V.202 = 0
+	jump &[00000424]
+[00000105]:
+	if !( V.1 == 1 ) jump &[00000270]
+	if ( R.186 ) {
+		if ( V.4 in [ 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 89 ] ) {
+			$ room-color is 1
+		}
+	}
+	V.191 = 71
+	V.192 = 0
+	V.193 = 71
+	V.194 = 255
+	V.195 = 139
+	V.196 = 39
+	V.197 = 19
+	V.198 = 0
+	V.199 = 15
+	V.200 = 0
+	V.201 = 71
+	V.202 = 143
+	jump &[00000424]
+[00000270]:
+	if !( V.1 == 2 ) jump &[00000423]
+	if ( R.16 ) {
+		if ( V.4 in [ 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59 ] ) {
+			$ room-color is 1
+		}
+	}
+	V.191 = 95
+	V.192 = 0
+	V.193 = 99
+	V.194 = 255
+	V.195 = 255
+	V.196 = 0
+	V.197 = 19
+	V.198 = 0
+	V.199 = 15
+	V.200 = 0
+	V.201 = 111
+	V.202 = 127
+	jump &[00000424]
+[00000424]:
+	palette V.191 V.192 V.193 in-slot 2
+	palette V.194 V.195 V.196 in-slot 3
+	palette V.197 V.198 V.199 in-slot 1
+	palette V.200 V.201 V.202 in-slot 6
+	start-script 121
+	jump &[00000553]
+[00000490]:
+	palette 0 0 0 in-slot 2
+	palette 252 84 252 in-slot 3
+	palette 0 0 0 in-slot 1
+	palette 168 0 168 in-slot 6
+	start-script 121
+[00000553]:
+	end-script
+}
+
+script 100 { ; SCRP LECF_0001\LFLF_0061\SCRP_0100
+	start-script 99
+	V.144 = V.38
+	stop-sentence
+	if ( R.126 ) {
+		R.126 = 0
+		fades -32383
+	}
+	end-script
+}
+
+script 101 { ; SCRP LECF_0001\LFLF_0061\SCRP_0101
+	V.136 = V.4
+	print-line \
+		color 15 \
+		at 160,8 \
+		center \
+		overhead \
+		clipped 320 \
+		end
+	stop-script 111
+	stop-script 69
+	put-actor 12 at 0,0 in-room 0
+	V.132 = 0
+[00000067]:
+	if !( V.132 <= 12 ) jump &[00000092]
+	V.236[V.132] = 0
+	++V.132
+	jump &[00000067]
+[00000092]:
+	end-script
+}
+
+; Set up Verbs
+script 102 { ; SCRP LECF_0001\LFLF_0061\SCRP_0102
+	charset 5
+	charset color 0, 6, 2
+	verb 1 \
+		new \
+		image 625 in-room 60 \
+		at 0,152 \
+		bakcolor 0 \
+		dim \
+		(end-verb)
+	verb 11 \
+		new \
+		name "Walk to" \
+		key 119 \
+		off \
+		(end-verb)
+	verb 4 \
+		new \
+		name "Give" \
+		center \
+		key 103 \
+		at 20,152 \
+		on \
+		(end-verb)
+	verb 2 \
+		new \
+		name "Open" \
+		center \
+		key 111 \
+		at 20,168 \
+		on \
+		(end-verb)
+	verb 3 \
+		new \
+		name "Close" \
+		center \
+		key 99 \
+		at 20,184 \
+		on \
+		(end-verb)
+	verb 9 \
+		new \
+		name "Pick up" \
+		center \
+		key 112 \
+		at 72,152 \
+		on \
+		(end-verb)
+	verb 8 \
+		new \
+		name "L\xB0k at" \
+		center \
+		key 108 \
+		at 72,168 \
+		on \
+		(end-verb)
+	verb 10 \
+		new \
+		name "Talk to" \
+		center \
+		key 116 \
+		at 72,184 \
+		on \
+		(end-verb)
+	verb 7 \
+		new \
+		name "Use" \
+		center \
+		key 117 \
+		at 124,152 \
+		on \
+		(end-verb)
+	verb 5 \
+		new \
+		name "Push" \
+		center \
+		key 115 \
+		at 124,168 \
+		on \
+		(end-verb)
+	verb 6 \
+		new \
+		name "Pu\xB8" \
+		center \
+		key 121 \
+		at 124,184 \
+		on \
+		(end-verb)
+	V.132 = 2
+[00000395]:
+	if !( V.132 <= 11 ) jump &[00000433]
+	verb V.132 \
+		color 6 \
+		hicolor 3 \
+		bakcolor 1 \
+		(end-verb)
+	++V.132
+	jump &[00000395]
+[00000433]:
+	start-script 85
+	verb 103 \
+		new \
+		image 693 in-room 60 \
+		off \
+		(end-verb)
+	verb 105 \
+		new \
+		image 694 in-room 60 \
+		at 288,152 \
+		off \
+		(end-verb)
+	verb 104 \
+		new \
+		image 695 in-room 60 \
+		at 288,176 \
+		off \
+		(end-verb)
+	verb 129 \
+		new \
+		name "in" \
+		off \
+		(end-verb)
+	verb 130 \
+		new \
+		name "with" \
+		off \
+		(end-verb)
+	verb 131 \
+		new \
+		name "on" \
+		off \
+		(end-verb)
+	verb 132 \
+		new \
+		name "to" \
+		off \
+		(end-verb)
+	charset 1
+	verb 100 \
+		new \
+		at 160,145 \
+		color 6 \
+		dimcolor 6 \
+		center \
+		off \
+		(end-verb)
+	charset 2
+	end-script
+}
+
+; Open a Door
+script 103 { ; SCRP LECF_0001\LFLF_0061\SCRP_0103
+local variable L.0
+local variable L.1
+
+	if ( !L.0 ) {
+		L.0 = V.7
+	}
+	if !( (state-of L.0) != 1 ) jump &[00000240]
+	if !( class-of L.0 is 6 ) jump &[00000074]
+	state-of L.0 is 1
+	if ( L.1 ) {
+		state-of L.1 is 1
+	}
+	print-debug \
+		" "
+
+	jump &[00000240]
+[00000074]:
+	if !( V.1 == 3 ) jump &[00000131]
+	say-line 3 "Hmm.  This door appears to be locked."
+	jump &[00000240]
+[00000131]:
+	if !( V.1 == 1 ) jump &[00000185]
+	say-line 1 "Hmm.  This door appears to be locked."
+	jump &[00000240]
+[00000185]:
+	if !( V.1 == 2 ) jump &[00000239]
+	say-line 2 "Hmm.  This door appears to be locked."
+	jump &[00000240]
+[00000240]:
+	end-script
+}
+
+; Close a Door
+script 104 { ; SCRP LECF_0001\LFLF_0061\SCRP_0104
+local variable L.0
+local variable L.1
+
+	if ( !L.0 ) {
+		L.0 = V.7
+	}
+	if !( (state-of L.0) == 1 ) jump &[00000104]
+	if !( class-of L.0 is 139 ) jump &[00000055]
+	state-of L.0 is 2
+	jump &[00000062]
+[00000055]:
+	state-of L.0 is 0
+[00000062]:
+	if !( L.1 ) jump &[00000098]
+	if !( class-of L.1 is 139 ) jump &[00000091]
+	state-of L.1 is 2
+	jump &[00000098]
+[00000091]:
+	state-of L.1 is 0
+[00000098]:
+	print-debug \
+		" "
+
+[00000104]:
+	end-script
+}
+
+script 105 { ; SCRP LECF_0001\LFLF_0061\SCRP_0105
+local variable L.0
+
+	if ( !L.0 ) {
+		L.0 = V.7
+	}
+	if !( (state-of L.0) == 1 ) jump &[00000054]
+	start-object [0] L.0 verb 3 ( 0, 3 )
+	jump &[00000073]
+[00000054]:
+	start-object [0] L.0 verb 2 ( 0, 2 )
+[00000073]:
+	end-script
+}
+
+script 110 { ; SCRP LECF_0001\LFLF_0061\SCRP_0110
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.11
+local variable L.12
+
+	L.5 = (object-x L.0) - L.1
+	L.6 = (object-y L.0) - L.2
+	L.5 = abs(L.5)
+	L.6 = abs(L.6)
+	if ( L.5 > L.3 ) {
+		V.137 = 0
+		stop-script 0
+	}
+	if ( L.6 > L.4 ) {
+		V.137 = 0
+		stop-script 0
+	}
+	L.7 = L.5 * L.5
+	L.8 = L.6 * L.6
+	if ( L.7 < 0 ) {
+		print-debug \
+			"x2 value overflowing in ellipse check"
+
+	}
+	if ( L.8 < 0 ) {
+		print-debug \
+			"y2 value overflowing in ellipse check"
+
+	}
+	L.11 = 1
+	L.12 = 0
+[00000220]:
+	if !( L.7 <= 4000 ) jump &[00000243]
+	L.7 = L.7 * 4
+	jump &[00000253]
+[00000243]:
+	L.3 = L.3 / 2
+[00000253]:
+	if !( L.8 <= 4000 ) jump &[00000276]
+	L.8 = L.8 * 4
+	jump &[00000286]
+[00000276]:
+	L.4 = L.4 / 2
+[00000286]:
+	L.11 = L.11 * 4
+	if ( L.11 >= 64 ) {
+		L.12 = 1
+	}
+	if !( L.12 ) jump &[00000220]
+	if ( L.3 == 0 ) {
+		L.3 = 1
+		print-debug \
+			"very skinny ellipse warning"
+
+	}
+	if ( L.4 == 0 ) {
+		L.4 = 1
+		print-debug \
+			"very flat ellipse warning"
+
+	}
+	V.137 = L.7 / (L.3 * L.3) + L.8 / (L.4 * L.4)
+	if ( V.137 == 0 ) {
+		V.137 = 1
+	}
+	if ( V.137 > L.11 ) {
+		V.137 = 0
+	}
+	end-script
+}
+
+script 111 { ; SCRP LECF_0001\LFLF_0061\SCRP_0111
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+
+	L.4 = V.4
+	if ( !L.1 ) {
+		L.1 = 3
+	}
+	do {
+		do {
+			V.132 = L.1 - 1
+			L.3 = (random V.132) + 1
+		} until (L.3 != L.2)
+		draw-object L.0 image L.3
+		L.2 = L.3
+		break-here
+	} until (V.4 != L.4)
+	end-script
+}
+
+script 112 { ; SCRP LECF_0001\LFLF_0061\SCRP_0112
+local variable L.0
+local variable L.1
+
+	if !( L.1 ) jump &[00000024]
+	pick-up-object L.0 in-room L.1
+	jump &[00000031]
+[00000024]:
+	pick-up-object L.0 in-room 0
+[00000031]:
+	state-of L.0 is 0
+	end-script
+}
+
+script 113 { ; SCRP LECF_0001\LFLF_0061\SCRP_0113
+local variable L.0
+local variable L.1
+local variable L.2
+
+	if !( L.2 ) jump &[00000024]
+	pick-up-object L.0 in-room L.2
+	jump &[00000031]
+[00000024]:
+	pick-up-object L.0 in-room 0
+[00000031]:
+	state-of L.0 is L.1
+	end-script
+}
+
+script 114 { ; SCRP LECF_0001\LFLF_0061\SCRP_0114
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+
+	if ( !L.0 ) {
+		L.0 = 6
+	}
+	if ( !L.1 ) {
+		if ( !L.2 ) {
+			L.1 = 255
+			L.2 = 0
+		}
+	}
+	L.3 = (L.2 - L.1) / L.0
+	L.4 = L.1
+	palette intensity L.4 in-slot 208 to 255
+	L.5 = 1
+[00000084]:
+	if !( L.5 <= L.0 ) jump &[00000122]
+	L.4 = L.4 + L.3
+	palette intensity L.4 in-slot 208 to 255
+	break-here
+	++L.5
+	jump &[00000084]
+[00000122]:
+	end-script
+}
+
+script 121 { ; SCRP LECF_0001\LFLF_0061\SCRP_0121
+	V.110[0] = 0
+	V.110[1] = 2
+	V.110[2] = 6
+	V.110[3] = 2
+	V.110[4] = 1
+	V.110[5] = 6
+	V.110[6] = 3
+	V.110[7] = 1
+	V.110[8] = 6
+	V.110[9] = 1
+	V.110[10] = 6
+	V.110[11] = 3
+	V.110[12] = 1
+	V.110[13] = 2
+	V.110[14] = 2
+	V.110[15] = 2
+	V.110[16] = 2
+	V.110[17] = 2
+	V.110[18] = 2
+	V.110[19] = 2
+	V.110[20] = 2
+	V.110[21] = 2
+	V.110[22] = 2
+	V.110[23] = 2
+	V.110[24] = 2
+	V.110[25] = 6
+	V.110[26] = 1
+	V.110[27] = 2
+	V.110[28] = 2
+	V.110[29] = 2
+	V.110[30] = 2
+	V.110[31] = 6
+	V.110[32] = 1
+	V.110[33] = 2
+	V.110[34] = 2
+	V.110[35] = 2
+	V.110[36] = 2
+	V.110[37] = 6
+	V.110[38] = 1
+	V.110[39] = 2
+	V.110[40] = 2
+	V.110[41] = 2
+	V.110[42] = 2
+	end-script
+}
+
+; Bernard Frees Tentacles
+script 137 { ; SCRP LECF_0001\LFLF_0061\SCRP_0137
+local variable L.0
+local variable L.1
+
+	R.246 = 0
+	actor 11 \
+		default
+		costume 360 \
+	do-animation 11 250
+	put-actor 11 at 197,137 in-room 73
+	current-room 73
+	do-animation 11 6
+	break-here 3 times
+	do-animation 11 7
+	break-here 4 times
+	do-animation 11 8
+	break-here 5 times
+	do-animation 11 9
+	break-here 5 times
+	do-animation 11 10
+	break-here 1 times
+	do-animation 11 11
+	break-here 1 times
+	actor 1 \
+		default
+		text-offset 0,-85 \
+		costume 305 \
+		talk-color 15 \
+		name "Bernard"
+		step-dist 10,2 \
+		width 30
+	do-animation 1 249
+	put-actor 1 at 197,137 in-room 73
+	put-actor 11 at 0,0 in-room 0
+	draw-object 745 image 0
+	actor 7 \
+		default
+		costume 265 \
+		talk-color 13 \
+		name "Purple Tentacle"
+		step-dist 4,2 \
+	put-actor 7 at 246,133 in-room 73
+	do-animation 7 248
+	actor 6 \
+		default
+		costume 5 \
+		talk-color 10 \
+		name "Green Tentacle"
+		step-dist 4,2 \
+		color 1 is 130
+		color 2 is 131
+		color 3 is 112
+	put-actor 6 at 263,138 in-room 73
+	do-animation 6 248
+	R.203 = 1
+	sound 270 27 4
+	sound 271 262 27 0
+	sound 271 -1
+	say-line 1 "\xFF\x0A\xB2\x73\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Okay, you're free to go!"
+	wait-for-message
+	sound 272
+	sound -1
+	sound 262 27 127
+	sound 270 27 5
+	sound 271 262 27 0
+	sound 271 269 27 0 180
+	sound 271 -1
+	actor 7 \
+		talk-animation 0 0 \
+	say-line \
+		no-talk-animation \
+		"\xFF\x0A\x1F\xED\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Now I can finish TAKING OVER THE WORLD!\xFF\x03Ha ha ha!"
+
+	start-script rec 69 ( 8, 7, 7, 202, 147 )
+	break-until (V.236[7] == 0)
+	do-animation 1 246
+	start-script rec 69 ( 8, 7, 7, 162, 137 )
+	do-animation 1 244
+	break-until (V.236[7] == 0)
+	start-script rec 69 ( 8, 7, 7, 162, 108 )
+	break-until (!7 in-box 2)
+	L.1 = 255
+	L.0 = 1
+[00000760]:
+	if !( L.0 <= 8 ) jump &[00000853]
+	palette intensity L.1 in-slot 217 to 217
+	palette intensity L.1 in-slot 219 to 219
+	palette intensity L.1 in-slot 211 to 211
+	palette intensity L.1 in-slot 230 to 230
+	palette intensity L.1 in-slot 231 to 231
+	palette intensity L.1 in-slot 254 to 254
+	L.1 = L.1 - 32
+	break-here
+	++L.0
+	jump &[00000760]
+[00000853]:
+	stop-script 69
+	put-actor 12 at 0,0 in-room 0
+	V.236[7] = 0
+	do-animation 7 3
+	put-actor 7 at 0,0 in-room 0
+	wait-for-message
+	do-animation 1 247
+	do-animation 6 244
+	do-animation 1 245
+	sleep-for 20 jiffies
+	say-line 1 "\xFF\x0A\x0C\xC0\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Well, what possible harm could one insane, mutant tentacle do?"
+	wait-for-message
+	print-line \
+		" "
+
+	put-actor 4 at 0,0 in-room 0
+	put-actor 1 at 0,0 in-room 0
+	R.203 = 0
+	start-script 135 ( 1 )
+	break-until (!script-running 135)
+	start-script 138
+	end-script
+}
+
+; Demo Sequence
+script 138 { ; SCRP LECF_0001\LFLF_0061\SCRP_0138
+	set-screen 0 to 200
+	actor 4 \
+		default
+		costume 124 \
+		talk-color 240 \
+		text-offset 0,-85 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+	put-actor 4 at 182,79 in-room 69
+	do-animation 4 250
+	actor 2 \
+		costume 347 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+	do-animation 2 250
+	put-actor 2 at 304,130 in-room 69
+	actor 1 \
+		costume 345 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+	do-animation 1 250
+	put-actor 1 at 238,137 in-room 69
+	actor 3 \
+		costume 346 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+	do-animation 3 250
+	put-actor 3 at 44,129 in-room 69
+	state-of 729 is 1
+	state-of 730 is 1
+	state-of 731 is 1
+	fades 257
+	camera-follow 1
+	do-animation 4 7
+	fades -32383
+	sleep-for 2 seconds
+	say-line 1 "\xFF\x0A\xF7\x7F\xFF\x0A\x04\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00Have any people ever been hurt in this thing?"
+	wait-for-message
+	say-line 4 "\xFF\x0A\x75\xDA\xFF\x0A\x05\x00\xFF\x0A\x12\x00\xFF\x0A\x00\x00Of course not!"
+	sleep-for 30 jiffies
+	do-animation 3 11
+	do-animation 2 11
+	do-animation 1 11
+	wait-for-message
+	do-animation 4 244
+	say-line 4 "\xFF\x0A\xAC\x14\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00This is the first time I've ever tried it on PEOPLE!"
+	sleep-for 120 jiffies
+	do-animation 1 6
+	do-animation 2 12
+	do-animation 3 12
+	wait-for-message
+	break-here
+	do-animation 2 8
+	do-animation 3 8
+	do-animation 1 8
+	break-here 5 times
+	V.132 = V.2
+	camera-at V.132
+	put-actor 2 at 0,0 in-room 0
+	put-actor 1 at 0,0 in-room 0
+	put-actor 3 at 0,0 in-room 0
+	do-animation 4 250
+	actor 4 \
+		costume 350 \
+	do-animation 4 6
+	break-here 7 times
+	draw-object 732 image 1
+	draw-object 738 image 1
+	actor 11 \
+		default
+		costume 351 \
+		ignore-boxes \
+		never-zclip
+	do-animation 11 250
+	put-actor 11 at 122,39 in-room 69
+	do-animation 11 6
+	break-here
+	print-debug \
+		"\xFF\x0A\x3E\x35\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	load-costume 349
+	break-here 6 times
+	actor 4 \
+		costume 124 \
+	do-animation 4 248
+	break-here
+	do-animation 11 8
+	do-animation 4 7
+	actor 2 \
+		costume 349 \
+	put-actor 2 at 313,122 in-room 69
+	do-animation 2 249
+	state-of 741 is 1
+	actor 3 \
+		costume 349 \
+	do-animation 3 248
+	put-actor 3 at 37,121 in-room 69
+	state-of 739 is 1
+	actor 1 \
+		costume 349 \
+	put-actor 1 at 235,134 in-room 69
+	do-animation 1 250
+	state-of 740 is 1
+	state-of 729 is 0
+	state-of 731 is 0
+	state-of 730 is 0
+	do-animation 4 246
+	do-animation 4 6
+	do-animation 3 8
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	do-animation 2 250
+	do-animation 2 7
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	do-animation 1 6
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 12 times
+	print-debug \
+		"\xFF\x0A\x36\x98\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 19 times
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 4 times
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 4 times
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 4 times
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 4 times
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here
+	state-of 739 is 0
+	break-here 2 times
+	state-of 741 is 0
+	break-here
+	print-debug \
+		"\xFF\x0A\x3A\x85\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	state-of 740 is 0
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\xC9\x54\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	do-animation 3 9
+	break-here 2 times
+	print-debug \
+		"\xFF\x0A\xC9\x54\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	do-animation 2 9
+	break-here 3 times
+	print-debug \
+		"\xFF\x0A\xC9\x54\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	do-animation 1 9
+	break-here 19 times
+	charset 2
+	put-actor 7 at 0,0 in-room 0
+	put-actor 6 at 0,0 in-room 0
+	put-actor 2 at 0,0 in-room 0
+	put-actor 3 at 0,0 in-room 0
+	put-actor 1 at 0,0 in-room 0
+	put-actor 4 at 0,0 in-room 0
+	actor 1 \
+		default
+		text-offset 0,-85 \
+		costume 305 \
+		talk-color 15 \
+		name "Bernard"
+		step-dist 10,2 \
+		width 30
+	R.93 = 0
+	current-room 26
+	break-here 10 times
+	walk 1 to-object 189 within 0
+[00001417]:
+	wait-for-actor 1 [ref &[00001417]]
+	sleep-for 1 seconds
+	R.93 = 0
+	current-room 9
+	break-until (R.93)
+	sleep-for 30 jiffies
+	current-room 26
+	sleep-for 90 jiffies
+	do-animation 1 245
+	sleep-for 45 jiffies
+	do-animation 1 244
+	sleep-for 30 jiffies
+	do-animation 1 245
+	sleep-for 30 jiffies
+	R.93 = 0
+	current-room 56
+	break-until (R.93)
+	sleep-for 30 jiffies
+	R.93 = 0
+	current-room 26
+	sleep-for 60 jiffies
+	do-animation 1 244
+	break-here 4 times
+	start-object [0] 189 verb 5
+	break-until (R.93)
+	palette intensity 0 in-slot 16 to 255
+	palette intensity 255 in-slot 0 to 15
+	break-here 3 times
+	charset 12
+	charset color 0, 0, 8
+	print-text \
+		color 10 \
+		center \
+		at 160,40 \
+		"Day of the Tentacle"
+
+	sleep-for 3 seconds
+	charset 11
+	print-line \
+		color 13 \
+		center \
+		at 160,100 \
+		"From LucasArts\xFF\x02"
+
+	sleep-for 3 seconds
+	print-line \
+		" "
+
+	print-line \
+		color 13 \
+		center \
+		at 160,100 \
+		"IBM disk-based and full voice talkie CD-ROM versions available Summer 1993\xFF\x02"
+
+	sleep-for 7 seconds
+	print-line \
+		" "
+
+	print-line \
+		color 13 \
+		center \
+		at 160,100 \
+		"For pre-orders or more information, dial 1-800-STARWARS\xFF\x02"
+
+	sleep-for 7 seconds
+	print-line \
+		" "
+
+	V.132 = 1
+[00001894]:
+	if !( V.132 <= 12 ) jump &[00001923]
+	put-actor V.132 at 0,0 in-room 0
+	++V.132
+	jump &[00001894]
+[00001923]:
+	restart
+	end-script
+}
+
+room vortex {
+
+	object 714 { ; VERB LECF_0001\LFLF_0061\ROOM\OBCD_0714
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0061\ROOM\EXCD
+		sound 269 43 0 90
+		sound 269 44 0 90
+		sound 269 45 0 90
+		sound -1
+		sound 257 43 0
+		sound 257 44 0
+		sound 257 45 0
+		sound 269 43 0 30
+		sound 269 44 0 30
+		sound 269 45 0 30
+		state-of 714 is 0
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0061\ROOM\ENCD
+		start-script 201
+		start-sound 43
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+
+		$ room-color is 1
+		load-costume 325
+		V.32 = 202
+		actor 11 \
+			default
+			costume 325 \
+			ignore-boxes \
+			never-zclip
+			scale 1
+			step-dist 1,3 \
+		do-animation 11 250
+		put-actor 11 at 0,0 in-room 0
+		sleep-for 2 seconds
+		start-sound 44
+		L.1 = 100
+		put-actor 11 at 160,L.1 in-room 61
+		L.0 = 1
+		actor 11 \
+			scale L.0
+		do {
+			L.0 = (actor-scale 11) * 2
+			if ( L.0 > 255 ) {
+				L.0 = 255
+			}
+			actor 11 \
+				scale L.0
+			L.1 = L.1 - 3
+			put-actor 11 at 160,L.1 in-room 255
+			break-here
+		} until (L.0 == 255)
+		sleep-for 1 seconds
+		sound 9 43
+		start-sound 45
+		print-debug \
+			"\xFF\x0A\x14\xA4\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		draw-object 714 image 0
+		sleep-for 3 seconds
+		start-script 202
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0201
+		do {
+			palette intensity 255 in-slot 136 to 175
+			palette intensity 150,150,750 in-slot 16 to 55
+			break-here
+			palette intensity 255 in-slot 16 to 55
+			palette intensity 150,150,750 in-slot 56 to 95
+			break-here
+			palette intensity 255 in-slot 56 to 95
+			palette intensity 150,150,750 in-slot 96 to 135
+			break-here
+			palette intensity 255 in-slot 96 to 135
+			palette intensity 150,150,750 in-slot 136 to 175
+			break-here
+		}
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0202
+	local variable L.3
+	local variable L.4
+
+		userput off
+		stop-script 200
+		draw-object 714 image 2
+		if !( (actor-room 11) == V.4 ) jump &[00000121]
+		L.3 = actor-scale 11
+		L.4 = object-y 11
+[00000046]:
+		if !( L.3 > 0 ) jump &[00000104]
+		L.3 = (actor-scale 11) / 3
+		actor 11 \
+			scale L.3
+		L.4 = L.4 + 3
+		put-actor 11 at 160,L.4 in-room 255
+		break-here
+		jump &[00000046]
+[00000104]:
+		put-actor 11 at 0,0 in-room 0
+		sleep-for 30 jiffies
+[00000121]:
+		R.93 = 1
+		end-script
+	}
+}
+

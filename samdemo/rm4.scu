@@ -1,0 +1,122 @@
+/**
+ * Sam & Max Hit the Road: Self-Running Demo
+ * 
+ * Room 4
+ */
+
+room room_4 {
+
+	object 703 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0703
+		name is "dummy-object-4"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0004\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0004\ROOM\ENCD
+		set-screen 0 to 200
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0200
+		camera-at 160
+		actor 6 \
+			default
+			costume 21 \
+			ignore-boxes \
+			always-zclip 1
+			scale 255
+		put-actor 6 at 130,104 in-room 4
+		do-animation 6 249
+		do-animation 6 6
+		break-here 39 times
+		camera-at 480
+		put-actor 6 at 0,0 in-room 0
+		$ room-color is 1
+		start-script 13
+		palette cycle-speed 1 is 0
+		palette cycle-speed 2 is 0
+		actor 2 \
+			costume 1 \
+			ignore-boxes \
+			never-zclip
+		put-actor 2 at 416,143 in-room 4
+		do-animation 2 249
+		actor 3 \
+			costume 2 \
+			elevation 255
+		put-actor 3 at 453,144 in-room 4
+		do-animation 3 249
+		actor 5 \
+			default
+			costume 11 \
+		actor 5 \
+			default
+			costume 11 \
+			ignore-boxes \
+		put-actor 5 at 505,117 in-room 4
+		do-animation 5 6
+		actor 4 \
+			default
+			costume 12 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 4 at 453,144 in-room 4
+		do-animation 4 249
+		do-animation 4 6
+		break-here 20 times
+		actor 3 \
+			elevation 0
+		put-actor 5 at 0,0 in-room 0
+		do-animation 3 249
+		break-here 25 times
+		put-actor 3 at 0,0 in-room 0
+		put-actor 2 at 0,0 in-room 0
+		put-actor 4 at 0,0 in-room 0
+		camera-at 800
+		$ room-color is 2
+		start-script 13
+		sound 268 4 0 1
+		actor 6 \
+			default
+			costume 13 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 6 at 915,182 in-room 4
+		do-animation 6 249
+		do-animation 6 6
+		actor 5 \
+			default
+			costume 14 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 5 at 915,182 in-room 4
+		do-animation 5 6
+		break-here 19 times
+		actor 6 \
+			costume 15 \
+		actor 5 \
+			costume 16 \
+		do-animation 6 6
+		do-animation 5 6
+		break-here 21 times
+		put-actor 6 at 0,0 in-room 0
+		break-here 16 times
+		actor 5 \
+			costume 17 \
+		do-animation 5 6
+		break-here 10 times
+		do-animation 5 7
+		break-here 9 times
+		put-actor 5 at 0,0 in-room 0
+		fades -32383
+		current-room 6
+		end-script
+	}
+}
+

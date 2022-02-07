@@ -1,0 +1,165 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 2: Toxic Pipes (toxic-pipes)
+; */
+
+script 5 { ; SCRP LECF_0001\LFLF_0002\SCRP_0005
+local variable L.1
+local variable L.2
+
+	start-sound 4
+	sound 264 4 0 47 0
+	sound 270 4 3
+	sound 271 262 4 0
+	sound 271 -1
+	sound -1
+	R.93 = 0
+	actor 7 \
+		default
+		costume 6 \
+		talk-color 13 \
+		name "Purple Tentacle"
+		step-dist 4,2 \
+		step-dist 4,1 \
+	actor 6 \
+		default
+		costume 5 \
+		talk-color 10 \
+		name "Green Tentacle"
+		step-dist 4,2 \
+		step-dist 4,1 \
+	put-actor 7 at 185,100 in-room 2
+	put-actor 6 at 288,83 in-room 2
+	do-animation 7 248
+	do-animation 6 248
+	sleep-for 60 jiffies
+	say-line 6 "\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x0E\x00\xFF\x0A\x00\x00I don't think you should drink that^"
+	wait-for-message
+	break-until (R.327)
+	do-animation 7 250
+	actor 7 \
+		costume 7 \
+	do-animation 7 6
+	break-here 7 times
+	do-animation 7 7
+	break-here 4 times
+	do-animation 7 8
+	break-here 7 times
+	break-here 10 times
+	do-animation 7 9
+	break-here 3 times
+	print-debug \
+		"\xFF\x0A\x39\x88\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 7 times
+	break-here 5 times
+	do-animation 7 250
+	actor 7 \
+		default
+		costume 6 \
+		talk-color 13 \
+		name "Purple Tentacle"
+		step-dist 4,2 \
+	say-line 7 "\xFF\x0A\xDC\x47\xFF\x0A\x00\x00\xFF\x0A\x0E\x00\xFF\x0A\x00\x00Nonsense!"
+	wait-for-message
+	say-line 7 "\xFF\x0A\x17\x85\xFF\x0A\x00\x00\xFF\x0A\x26\x00\xFF\x0A\x00\x00It makes me feel GREAT!\xFF\x03Smarter!  More aggressive!"
+	wait-for-message
+	sound 272
+	sound -1
+	sound 262 4 127
+	sound 256 4 7
+	sound -1
+	L.1 = 20 + (V.56 - (V.56 / 4) * 4)
+	sound 256 4 8
+	sound -1
+	L.2 = V.56
+	sound 263 4 2 0 0
+	sound -1
+	sound 264 4 2 L.1 L.2
+	sound -1
+	start-script rec 69 ( 0, 7, 7, 241, 108 )
+	break-here 4 times
+	do-animation 6 246
+	break-until (V.236[7] == 0)
+	do-animation 7 245
+	wait-for-message
+	do-animation 7 246
+	say-line 7 "\xFF\x0A\xFC\x36\xFF\x0A\x01\x00\xFF\x0A\x1E\x00\xFF\x0A\x00\x00I feel like I could^"
+	wait-for-message
+	sound 269 4 40 5
+	sound 262 4 0
+	sound 269 4 127 5
+	sound 262 4 127
+	sound -1
+	R.93 = 1
+	end-script
+}
+
+room toxic-pipes {
+
+	object 18 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0018
+		name is ""
+	}
+
+	object 19 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0019
+		name is ""
+	}
+
+	object 20 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0020
+		name is ""
+	}
+
+	object 21 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0021
+		name is ""
+	}
+
+	object 22 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0022
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0002\ROOM\EXCD
+		stop-script 5
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0002\ROOM\ENCD
+		start-script bak 201
+		start-script 5
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0200
+		do {
+			break-here 4 times
+			R.327 = 1
+			break-here
+			R.327 = 0
+			break-here 11 times
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0201
+		actor 10 \
+			default
+			costume 12 \
+			ignore-boxes \
+			never-zclip
+			elevation 20
+		do-animation 10 250
+		put-actor 10 at 160,120 in-room 2
+		actor 11 \
+			default
+			costume 13 \
+			ignore-boxes \
+			never-zclip
+		do-animation 11 250
+		put-actor 11 at 160,100 in-room 2
+		do-animation 10 6
+		do-animation 11 6
+		start-script bak 200
+		end-script
+	}
+}
+

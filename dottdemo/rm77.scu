@@ -1,0 +1,124 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 77: Opening Credits 1 (credit-1)
+; */
+
+; Opening Title
+script 139 { ; SCRP LECF_0001\LFLF_0077\SCRP_0139
+local variable L.0
+
+	lock-sound 65
+	load-sound 65
+	charset 11
+	actor 5 \
+		default
+		costume 364 \
+		ignore-boxes \
+	actor 6 \
+		default
+		costume 365 \
+		ignore-boxes \
+	put-actor 5 at 160,100 in-room V.4
+	do-animation 5 250
+	put-actor 6 at 160,100 in-room V.4
+	do-animation 6 250
+	charset color 0, 0
+	print-line \
+		center \
+		color 193 \
+		at 160,40 \
+		"LucasArts Entertainment Company\xFF\x01Presents\xFF\x02"
+
+	break-here 30 times
+	break-here 15 times
+	print-line \
+		" "
+
+	print-line \
+		" "
+
+	break-here 5 times
+	break-here 9 times
+	draw-object 751 image 0
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 7 times
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	break-here 2 times
+	actor 6 \
+		default
+		costume 366 \
+		ignore-boxes \
+	put-actor 6 at 160,100 in-room V.4
+	do-animation 6 250
+	L.0 = 1
+[00000290]:
+	if !( L.0 <= 50 ) jump &[00000307]
+	break-here
+	++L.0
+	jump &[00000290]
+[00000307]:
+	print-debug \
+		"\xFF\x0A\x05\xE5\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	L.0 = 1
+[00000335]:
+	if !( L.0 <= 9 ) jump &[00000352]
+	break-here
+	++L.0
+	jump &[00000335]
+[00000352]:
+	sound 256 5 8
+	sound -1
+	L.0 = V.56
+	stop-sound 5
+	start-sound 65
+	sound 264 65 0 4 L.0
+	sound -1
+	print-debug \
+		"\xFF\x0A\x4D\xFE\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+	L.0 = 1
+[00000440]:
+	if !( L.0 <= 9 ) jump &[00000457]
+	break-here
+	++L.0
+	jump &[00000440]
+[00000457]:
+	unlock-sound 65
+	sleep-for 85 jiffies
+	charset 2
+	R.93 = 1
+	end-script
+}
+
+room credit-1 {
+
+	object 751 { ; VERB LECF_0001\LFLF_0077\ROOM\OBCD_0751
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0077\ROOM\EXCD
+		if ( !script-running 3 ) {
+			set-screen 0 to 144
+			start-script 93 ( 2 )
+		}
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0077\ROOM\ENCD
+		if !( script-running 3 ) jump &[00000028]
+		start-script 139
+		jump &[00000046]
+[00000028]:
+		start-script 93 ( 1 )
+		set-screen 0 to 200
+[00000046]:
+		end-script
+	}
+}
+

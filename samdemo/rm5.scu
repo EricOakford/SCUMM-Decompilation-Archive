@@ -1,0 +1,92 @@
+/**
+ * Sam & Max Hit the Road: Self-Running Demo
+ * 
+ * Room 5
+ */
+
+room room_5 {
+
+	object 709 { ; VERB LECF_0001\LFLF_0005\ROOM\OBCD_0709
+		name is "midway-trailer-door"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0005\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0005\ROOM\ENCD
+		set-screen 0 to 200
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0200
+		cursor off
+		userput off
+		V.19 = 6
+		camera-at 160
+		break-here 4 times
+		lock-costume 23
+		load-costume 23
+		lock-costume 18
+		load-costume 18
+		lock-costume 19
+		load-costume 19
+		lock-sound 4
+		load-sound 4
+		start-sound 4
+		sound 258 4 96
+		break-here 2 times
+		lock-sound 2
+		load-sound 2
+		start-sound 2
+		break-here 40 times
+		camera-pan-to 320
+		actor 3 \
+			default
+			costume 23 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 3 at 350,172 in-room 5
+		do-animation 3 249
+		actor 2 \
+			default
+			costume 18 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		put-actor 2 at 389,171 in-room 5
+		do-animation 2 249
+		actor 4 \
+			default
+			costume 19 \
+			ignore-boxes \
+			never-zclip
+		put-actor 4 at 389,171 in-room 5
+		do-animation 4 249
+		break-here 3 times
+		do-animation 4 6
+		put-actor 3 at 0,0 in-room 0
+		do-animation 2 249
+		do-animation 2 6
+		break-here 15 times
+		state-of 709 is 1
+		break-here
+		state-of 709 is 0
+		break-here
+		state-of 709 is 1
+		break-here 11 times
+		fades -32383
+		break-until (!sound-running 2)
+		sound 269 4 127 3
+		break-here
+		unlock-sound 2
+		unlock-costume 23
+		unlock-costume 18
+		unlock-costume 19
+		current-room 2
+		end-script
+	}
+}
+

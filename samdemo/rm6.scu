@@ -1,0 +1,92 @@
+/**
+ * Sam & Max Hit the Road: Self-Running Demo
+ * 
+ * Room 6
+ */
+
+room room_6 {
+
+	object 36 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0036
+		name is "our-sainted-logo"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0006\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0006\ROOM\ENCD
+		set-screen 0 to 200
+		if !( V.146 != 4 ) jump &[00000043]
+		start-sound 1
+		start-script 200
+		jump &[00000053]
+[00000043]:
+		start-script 201
+[00000053]:
+		end-script
+	}
+
+; Start Demo
+	script 200 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.2
+
+		cut-scene (2)
+		camera-at 160
+		state-of 36 is 0
+		palette intensity 0 in-slot 0 to 255
+		L.0 = 5
+[00000043]:
+		if !( L.0 <= 255 ) jump &[00000088]
+		palette intensity L.0 in-slot 0 to 255
+		L.0 = L.0 + 12
+		L.2 = random 255
+		break-here
+		++L.0
+		jump &[00000043]
+[00000088]:
+		palette intensity 255 in-slot 0 to 255
+		sleep-for 4 seconds
+		L.0 = 250
+[00000109]:
+		if !( L.0 >= 0 ) jump &[00000147]
+		palette intensity L.0 in-slot 0 to 255
+		L.0 = L.0 - 15
+		break-here
+		--L.0
+		jump &[00000109]
+[00000147]:
+		palette intensity 0 in-slot 0 to 255
+		jump &[00000161]
+[00000161]:
+		end-cut-scene
+		fades -32383
+		stop-sound 1
+		current-room 5
+		end-script
+	}
+
+;Finish Demo
+	script 201 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0201
+		camera-at 480
+		V.19 = 6
+		sound 269 4 96 1
+		break-here 10 times
+		lock-sound 3
+		load-sound 3
+		start-sound 3
+		break-here 19 times
+		break-until (!sound-running 3)
+		break-here
+		sound 269 4 127 10
+		sleep-for 2 seconds
+		sound 268 4 0 2
+		sleep-for 5 seconds
+		break-here
+		unlock-sound 4
+		unlock-sound 3
+		restart
+		end-script
+	}
+}
+

@@ -1,0 +1,75 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 69: Left Lab (left-lab)
+; */
+
+room left-lab {
+
+	object 729 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0729
+		name is ""
+	}
+
+	object 730 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0730
+		name is ""
+	}
+
+	object 731 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0731
+		name is ""
+	}
+
+	object 732 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0732
+		name is ""
+	}
+
+	object 733 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0733
+		name is ""
+	}
+
+	object 734 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0734
+		name is ""
+	}
+
+	object 735 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0735
+		name is ""
+	}
+
+	object 736 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0736
+		name is ""
+	}
+
+	object 737 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0737
+		name is ""
+	}
+
+	object 738 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0738
+		name is ""
+	}
+
+	object 739 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0739
+		name is ""
+	}
+
+	object 740 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0740
+		name is ""
+	}
+
+	object 741 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0741
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0069\ROOM\EXCD
+		if ( script-running 7 ) {
+			set-screen 0 to 144
+		}
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0069\ROOM\ENCD
+		if ( script-running 7 ) {
+			set-screen 0 to 200
+		}
+		end-script
+	}
+}
+

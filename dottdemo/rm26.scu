@@ -1,0 +1,208 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 26: Convention Hall (convention)
+; */
+
+room convention {
+
+	object 182 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0182
+		name is ""
+	}
+
+	object 183 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0183
+		name is ""
+	}
+
+	object 184 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0184
+		name is ""
+	}
+
+	object 185 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0185
+		name is ""
+	}
+
+	object 186 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0186
+		name is ""
+	}
+
+	object 187 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0187
+		name is ""
+	}
+
+	object 188 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0188
+		name is ""
+	}
+
+	object 189 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0189
+		name is ""
+
+		verb 5 {
+			start-script 200
+			end-script
+		}
+	}
+
+	object 190 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0190
+		name is ""
+	}
+
+	object 191 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0191
+		name is ""
+	}
+
+	object 195 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0195
+		name is ""
+	}
+
+	object 197 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0197
+		name is ""
+	}
+
+	object 192 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0192
+		name is ""
+	}
+
+	object 193 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0193
+		name is ""
+	}
+
+	object 194 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0194
+		name is ""
+	}
+
+	object 196 { ; VERB LECF_0001\LFLF_0026\ROOM\OBCD_0196
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0026\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0026\ROOM\ENCD
+		if ( V.136 == 69 ) {
+			set-screen 0 to 144
+			start-script 215
+		}
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0026\ROOM\LSCR_0200
+		camera-follow 1
+		state-of 191 is 1
+		put-actor 5 at 0,0 in-room 0
+		do-animation 7 249
+		actor 7 \
+			default
+			costume 107 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			talk-color 217 \
+		state-of 189 is 0
+		put-actor 7 at 115,139 in-room 26
+		actor 1 \
+			costume 108 \
+		wait-for-camera
+		do-animation 1 6
+		break-here 8 times
+		print-debug \
+			"\xFF\x0A\x0D\x7B\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		do-animation 7 6
+		break-here 6 times
+		print-debug \
+			"\xFF\x0A\xA1\x31\xFF\x0A\x07\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 8 times
+		break-here 38 times
+		state-of 189 is 1
+		put-actor 7 at 0,0 in-room 0
+		R.93 = 1
+		end-script
+	}
+; Use Scalpel on Cigar Salseman
+	script 214 { ; LSCR LECF_0001\LFLF_0026\ROOM\LSCR_0214
+		V.132 = 2 - 1
+		V.132 = (random V.132) + 1
+		if !( V.132 == 1 ) jump &[00000308]
+		cut-scene ()
+		actor 1 \
+			costume 109 \
+		do-animation 1 7
+		break-here 20 times
+		do-animation 1 8
+		break-here
+		do-animation 5 245
+		say-line 5 "Hey, kid.  Can I help you with something?"
+		wait-for-message
+		actor 1 \
+			default
+			text-offset 0,-85 \
+			costume 305 \
+			talk-color 15 \
+			name "Bernard"
+			step-dist 10,2 \
+			width 30
+		say-line 1 "No.  No.  I think I'll just see what these chattering teeth are up to."
+		wait-for-message
+		walk 1 to-object 186 within 0
+		do-animation 5 248
+[00000271]:
+		wait-for-actor 1 [ref &[00000271]]
+		say-line 1 "Whew, that was close."
+		end-cut-scene
+		jump &[00000451]
+[00000308]:
+		if !( V.132 == 2 ) jump &[00000450]
+		cut-scene ()
+		actor 1 \
+			costume 109 \
+		do-animation 1 7
+		break-here 20 times
+		do-animation 1 9
+		say-line 1 "sigh"
+		break-here 11 times
+		actor 1 \
+			default
+			text-offset 0,-85 \
+			costume 305 \
+			talk-color 15 \
+			name "Bernard"
+			step-dist 10,2 \
+			width 30
+		do-animation 1 250
+		say-line 1 "No, that would be wrong."
+		end-cut-scene
+		jump &[00000451]
+[00000451]:
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0026\ROOM\LSCR_0215
+		cut-scene (2)
+		break-here 5 times
+		put-actor 1 at 222,105 in-room 26
+		do-animation 1 250
+		actor 1 \
+			costume 117 \
+			ignore-boxes \
+		do-animation 1 6
+		print-debug \
+			"\xFF\x0A\xD1\x75\xFF\x0A\x08\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 2 times
+		break-here 11 times
+		actor 1 \
+			default
+			text-offset 0,-85 \
+			costume 305 \
+			talk-color 15 \
+			name "Bernard"
+			step-dist 10,2 \
+			width 30
+		end-cut-scene
+		end-script
+	}
+}
+

@@ -1,0 +1,348 @@
+/**
+ * Sam & Max Hit the Road: Self-Running Demo
+ * 
+ * Room 2
+ */
+
+; Game Initialization
+script 1 { ; SCRP LECF_0001\LFLF_0002\SCRP_0001
+	charset 1
+	V.19 = 6
+	V.24 = 27
+	V.42 = 0
+	V.43 = 32
+	V.57 = 46
+	V.133[] = "Sam & Max Hit the Road, Self-Running Demo 5-10-93"
+	V.93[] = "Game Paused.  Press SPACE to Continue."
+	V.94[] = "Are you sure you want to restart?  (Y/N)Y"
+	V.95[] = "Are you sure you want to quit?  (Y/N)Y"
+	V.108[] = "Save"
+	V.109[] = "Load"
+	V.98[] = "Play"
+	V.99[] = "Cancel"
+	V.100[] = "Quit"
+	V.101[] = "OK"
+	V.102[] = "Insert save/load game disk"
+	V.103[] = "You must enter a name"
+	V.104[] = "The game was NOT saved"
+	V.105[] = "The game was NOT loaded"
+	V.106[] = "Saving"
+	V.107[] = "Loading"
+	V.108[] = "Name your SAVE game"
+	V.109[] = "Select a game to LOAD"
+	V.117[] = "Sam & Max Hit the Road"
+	dim int array V.110[44]
+	V.110[0] = 7
+	V.110[1] = 0
+	V.110[2] = 8
+	V.110[3] = 0
+	V.110[4] = 7
+	V.110[5] = 8
+	V.110[6] = 14
+	V.110[7] = 7
+	V.110[8] = 0
+	V.110[9] = 7
+	V.110[10] = 8
+	V.110[11] = 14
+	V.110[12] = 7
+	V.110[13] = 15
+	V.110[14] = 8
+	V.110[15] = 15
+	V.110[16] = 8
+	V.110[17] = 15
+	V.110[18] = 8
+	V.110[19] = 15
+	V.110[20] = 8
+	V.110[21] = 8
+	V.110[22] = 15
+	V.110[23] = 8
+	V.110[24] = 15
+	V.110[25] = 8
+	V.110[26] = 7
+	V.110[27] = 15
+	V.110[28] = 8
+	V.110[29] = 15
+	V.110[30] = 8
+	V.110[31] = 4
+	V.110[32] = 7
+	V.110[33] = 15
+	V.110[34] = 8
+	V.110[35] = 15
+	V.110[36] = 8
+	V.110[37] = 8
+	V.110[38] = 7
+	V.110[39] = 15
+	V.110[40] = 8
+	V.110[41] = 15
+	V.110[42] = 8
+	V.24 = 27
+	V.43 = 32
+	V.50 = 0
+	V.37 = 3
+	V.149 = 7
+	V.35 = 2
+	V.36 = 3
+	V.29 = 4
+	V.30 = 5
+	V.32 = 0
+	V.162 = 10
+	V.33 = 9
+	V.8 = 19
+	V.34 = 11
+	fades 257
+	charset 2
+	V.37 = 3
+	current-room 6
+	end-script
+}
+
+;Cutscene Start
+script 2 { ; SCRP LECF_0001\LFLF_0002\SCRP_0002
+local variable L.0
+
+	cursor soft-off
+	userput soft-off
+	if !( L.0 == 1 ) jump &[00000022]
+[00000022]:
+	if !( L.0 == 3 ) jump &[00000032]
+[00000032]:
+	if !( L.0 == 0 ) jump &[00000042]
+[00000042]:
+	freeze-scripts 127
+	end-script
+}
+
+;Cutscene End
+script 3 { ; SCRP LECF_0001\LFLF_0002\SCRP_0003
+local variable L.0
+
+	cursor soft-on
+	userput soft-on
+	override off
+	if !( L.0 == 1 ) jump &[00000026]
+	jump &[00000036]
+[00000026]:
+	if !( L.0 == 3 ) jump &[00000036]
+[00000036]:
+	if !( L.0 != 2 ) jump &[00000056]
+	if !( L.0 != 3 ) jump &[00000056]
+[00000056]:
+	unfreeze-scripts
+	end-script
+}
+
+; Room Entry
+script 4 { ; SCRP LECF_0001\LFLF_0002\SCRP_0004
+	if !( R.6 ) jump &[00000014]
+[00000014]:
+	if !( !V.179 ) jump &[00000021]
+[00000021]:
+	if !( R.0 ) jump &[00000027]
+[00000027]:
+	if !( !V.171[3] ) jump &[00000037]
+[00000037]:
+	end-script
+}
+
+; Room Exit
+script 5 { ; SCRP LECF_0001\LFLF_0002\SCRP_0005
+local variable L.0
+
+	V.146 = V.4
+	print-line \
+		color 15 \
+		at 160,8 \
+		center \
+		overhead \
+		end
+	L.0 = 0
+[00000041]:
+	if !( L.0 <= 19 ) jump &[00000084]
+	V.171[L.0] = 0
+	V.239[L.0] = 0
+	V.240[L.0] = 0
+	++L.0
+	jump &[00000041]
+[00000084]:
+	V.172 = 0
+	V.197 = 0
+	R.3 = 1
+	V.179 = 0
+	end-script
+}
+
+script 6 { ; SCRP LECF_0001\LFLF_0002\SCRP_0006
+local variable L.0
+local variable L.1
+local variable L.3
+local variable L.4
+
+	if !( L.0 < L.1 ) jump &[00000030]
+	V.151 = 0
+	jump &[00000084]
+	jump &[00000084]
+[00000030]:
+	L.3 = L.0
+	L.4 = L.1
+	L.0 = L.3
+	L.1 = L.4
+	V.151 = L.0 / L.1
+	L.1 = L.1 * V.151
+	L.0 = L.0 - L.1
+[00000084]:
+	V.153 = L.0
+	end-script
+}
+
+script 7 { ; SCRP LECF_0001\LFLF_0002\SCRP_0007
+local variable L.0
+local variable L.1
+
+	do-animation L.1 255
+	do-animation L.1 1
+	break-here 2 times
+	do {
+		do-animation L.1 face-towards L.0
+		break-here 4 times
+	} until (actor-moving L.1)
+	end-script
+}
+
+script 8 { ; SCRP LECF_0001\LFLF_0002\SCRP_0008
+	end-script
+}
+
+; Sentence Line
+script 9 { ; SCRP LECF_0001\LFLF_0002\SCRP_0009
+	end-script
+}
+
+script 10 { ; SCRP LECF_0001\LFLF_0002\SCRP_0010
+	end-script
+}
+
+script 11 { ; SCRP LECF_0001\LFLF_0002\SCRP_0011
+	end-script
+}
+
+script 12 { ; SCRP LECF_0001\LFLF_0002\SCRP_0012
+	end-script
+}
+
+script 13 { ; SCRP LECF_0001\LFLF_0002\SCRP_0013
+	palette intensity 0,0,0 in-slot 0 to 255
+	break-here
+	palette intensity 255,255,255 in-slot 0 to 255
+	end-script
+}
+
+room room_2 {
+
+	object 701 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0701
+		name is "flint-window"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0002\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0002\ROOM\ENCD
+		set-screen 0 to 200
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0200
+		V.19 = 4
+		actor 2 \
+			default
+			costume 22 \
+			ignore-boxes \
+			never-zclip
+		actor 3 \
+			default
+			costume 23 \
+			ignore-boxes \
+			never-zclip
+		actor 2 \
+			scale 222
+		actor 3 \
+			scale 222
+		put-actor 2 at 159,131 in-room 2
+		put-actor 3 at 180,128 in-room 2
+		palette intensity 200 in-slot 242 to 254
+		palette intensity 200 in-slot 234 to 241
+		break-here 2 times
+		actor 5 \
+			default
+			costume 4 \
+			ignore-boxes \
+			always-zclip 1
+			elevation -100
+		put-actor 5 at 433,44 in-room 2
+		do-animation 5 249
+		actor 4 \
+			default
+			costume 3 \
+			ignore-boxes \
+			elevation 200
+		put-actor 4 at 135,307 in-room 2
+		do-animation 2 249
+		do-animation 3 249
+		do-animation 4 249
+		do-animation 4 6
+		break-here 3 times
+		do-animation 2 248
+		do-animation 3 248
+		break-here 4 times
+		do-animation 5 6
+		break-here 11 times
+		draw-object 701 image 0
+		camera-at 480
+		put-actor 4 at 0,0 in-room 0
+		put-actor 2 at 0,0 in-room 0
+		put-actor 3 at 0,0 in-room 0
+		$ room-color is 1
+		start-script 13
+		break-here 10 times
+		actor 5 \
+			costume 5 \
+			stand-animation 6 \
+			walk-animation 6 \
+			init-animation 6
+		put-actor 5 at 444,42 in-room 255
+		do-animation 5 248
+		walk 5 to 289,55
+		break-here 12 times
+		camera-at 800
+		put-actor 5 at 0,0 in-room 0
+		actor 4 \
+			default
+			costume 6 \
+			ignore-boxes \
+			never-zclip
+		actor 2 \
+			scale 255
+		actor 3 \
+			scale 255
+		put-actor 4 at 699,166 in-room 2
+		put-actor 3 at 724,163 in-room 2
+		put-actor 2 at 777,165 in-room 2
+		do-animation 3 248
+		do-animation 2 248
+		do-animation 4 249
+		$ room-color is 2
+		start-script 13
+		break-here
+		do-animation 4 8
+		break-here
+		put-actor 3 at 0,0 in-room 0
+		break-here 32 times
+		do-animation 4 9
+		break-here 3 times
+		fades -32383
+		current-room 3
+		end-script
+	}
+}
+

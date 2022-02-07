@@ -1,0 +1,106 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 5: Kids' Room Closeup (cu-kids-room)
+; */
+
+room cu-kids-room {
+
+	object 25 { ; VERB LECF_0001\LFLF_0005\ROOM\OBCD_0025
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0005\ROOM\EXCD
+		if ( !script-running 3 ) {
+			set-screen 0 to 144
+			start-script 93 ( 2 )
+		}
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0005\ROOM\ENCD
+		if !( script-running 3 ) jump &[00000025]
+		start-script 200
+		jump &[00000043]
+[00000025]:
+		start-script 93 ( 1 )
+		set-screen 0 to 200
+[00000043]:
+		end-script
+	}
+; Bernard Reads Green's Note
+	script 200 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0200
+		R.93 = 0
+		charset 11
+		actor 1 \
+			costume 17 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			text-offset 103,-49 \
+		actor 3 \
+			costume 19 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		actor 2 \
+			costume 20 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+		actor 5 \
+			costume 18 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			elevation 0
+		start-sound 5
+		sound -1
+		sound 270 5 2
+		sound 271 262 5 0
+		sound 271 -1
+		sound 272
+		sound -1
+		sound 262 5 127
+		do-animation 1 250
+		put-actor 1 at 137,51 in-room 5
+		do-animation 1 6
+		do-animation 5 250
+		put-actor 5 at 77,150 in-room 5
+		do-animation 5 6
+		actor 1 \
+			talk-animation 6 9 \
+		say-line 1 "\xFF\x0A\x03\xE5\xFF\x0A\x01\x00\xFF\x0A\x16\x00\xFF\x0A\x00\x00It's from my old friend Green Tentacle^"
+		break-here 13 times
+		break-here
+		do-animation 3 250
+		put-actor 3 at 291,136 in-room 5
+		do-animation 3 6
+		do-animation 2 250
+		put-actor 2 at 291,136 in-room 5
+		do-animation 2 6
+		break-here 7 times
+		wait-for-message
+		actor 1 \
+			talk-animation 7 9 \
+		do-animation 1 7
+		say-line 1 "\xFF\x0A\xBF\x55\xFF\x0A\x02\x00\xFF\x0A\x0E\x00\xFF\x0A\x00\x00He says that Purple Tentacle's mutated into an insane genius^"
+		break-here 23 times
+		break-here 3 times
+		wait-for-message
+		actor 1 \
+			talk-animation 8 9 \
+		do-animation 1 8
+		say-line 1 "\xFF\x0A\x96\x0B\xFF\x0A\x03\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00^and Doctor Fred's going to kill them both!"
+		break-here 21 times
+		break-here 27 times
+		break-here
+		wait-for-message
+		R.93 = 1
+		sound 256 5 8
+		sound -1
+		sound 263 5 0 109 V.56
+		end-script
+	}
+}
+

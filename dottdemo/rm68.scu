@@ -1,0 +1,73 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 68: Newspaper (newspaper)
+; */
+
+; Demo Newspaper
+script 135 { ; SCRP LECF_0001\LFLF_0068\SCRP_0135
+local variable L.0
+
+	if ( L.0 > 7 ) {
+		stop-script 0
+	}
+	cut-scene (2)
+	override &[00000255]
+	state-of 728 is 0
+	current-room 68
+	palette intensity 0 in-slot 16 to 191
+	draw-object 728 image L.0
+	break-here
+	charset 9
+	if !( L.0 == 1 ) jump &[00000174]
+	print-text \
+		color 35 \
+		left \
+		at 46,55 \
+		"Tentacle Amends\xFE\x01Constitution"
+
+	charset 10
+	print-text \
+		color 35 \
+		left \
+		at 56,121 \
+		"Humans Now Slaves"
+
+	jump &[00000175]
+[00000175]:
+	charset 2
+	actor 10 \
+		default
+		costume 344 \
+		ignore-boxes \
+		never-zclip
+	put-actor 10 at 170,94 in-room 68
+	do-animation 10 250
+	do-animation 10 6
+	break-here 18 times
+	put-actor 10 at 0,0 in-room 0
+	palette intensity 255 in-slot 16 to 191
+	sleep-for 3 seconds
+[00000255]:
+	R.151 = 0
+	V.247 = 0
+	end-cut-scene
+	end-script
+}
+
+room room_68 {
+
+	object 728 { ; VERB LECF_0001\LFLF_0068\ROOM\OBCD_0728
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0068\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0068\ROOM\ENCD
+		set-screen 0 to 200
+		end-script
+	}
+}
+

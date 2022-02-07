@@ -1,0 +1,86 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 3: Purple Tentacle's Closeup (cu-purple)
+; */
+
+room cu-purple {
+
+	object 23 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0023
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0003\ROOM\EXCD
+		sound 269 4 70 120
+		if ( !script-running 3 ) {
+			set-screen 0 to 144
+			start-script 93 ( 2 )
+		}
+		sound 257 4 0
+		sound 269 4 0 60
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
+		if !( script-running 3 ) jump &[00000041]
+		sound 268 4 0 4
+		start-script 200
+		jump &[00000059]
+[00000041]:
+		start-script 93 ( 1 )
+		set-screen 0 to 200
+[00000059]:
+		end-script
+	}
+; Purple Speaks
+	script 200 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0200
+		R.93 = 0
+		actor 7 \
+			default
+			costume 14 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			talk-color 5 \
+			text-offset -25,-98 \
+		do-animation 7 250
+		put-actor 7 at 160,100 in-room 3
+		do-animation 7 6
+		break-here
+		charset 12
+		charset color 0, 0, 0
+		break-here 5 times
+		say-line \
+			color 5 \
+			no-talk-animation \
+			"\xFF\x0A\xE7\x81\xFF\x0A\x01\x00\xFF\x0A\x16\x00\xFF\x0A\x00\x00TAKE ON \xFF\x03THE WORLD!!!"
+
+		break-here 8 times
+		do-animation 7 7
+		break-here 17 times
+		do-animation 7 8
+		break-here 6 times
+		palette 214 235 255 in-slot 145
+		palette 242 105 250 in-slot 194
+		break-here 2 times
+		palette intensity 255 in-slot 145 to 145
+		palette intensity 255 in-slot 194 to 194
+		break-here
+		palette 214 235 255 in-slot 145
+		palette 242 105 250 in-slot 194
+		break-here 3 times
+		palette intensity 255 in-slot 145 to 145
+		palette intensity 255 in-slot 194 to 194
+		break-here 2 times
+		palette 214 235 255 in-slot 145
+		palette 242 105 250 in-slot 194
+		break-here 2 times
+		palette intensity 255 in-slot 145 to 145
+		palette intensity 255 in-slot 194 to 194
+		break-here 18 times
+		charset 2
+		R.93 = 1
+		end-script
+	}
+}
+

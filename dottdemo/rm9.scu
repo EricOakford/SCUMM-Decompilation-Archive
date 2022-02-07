@@ -1,0 +1,343 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 9: Field (field)
+; */
+
+script 11 { ; SCRP LECF_0001\LFLF_0009\SCRP_0011
+	camera-at 471
+	draw-object 49 image 0
+	actor 6 \
+		default
+		costume 33 \
+		stand-animation 8 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+		talk-color 240 \
+	put-actor 6 at 416,110 in-room 9
+	do-animation 6 249
+	do-animation 6 8
+	actor 8 \
+		default
+		costume 39 \
+		ignore-boxes \
+		never-zclip
+		scale 255
+		elevation -10
+	put-actor 8 at 415,121 in-room 9
+	do-animation 8 250
+	do-animation 8 6
+	actor 3 \
+		default
+		costume 35 \
+	put-actor 3 at 495,110 in-room 9
+	do-animation 3 248
+	sleep-for 1 seconds
+	do-animation 3 6
+	break-here 4 times
+	do-animation 6 14
+	do-animation 8 7
+	break-here 2 times
+	do-animation 3 8
+	break-here 3 times
+	actor 6 \
+		walk-animation 2 \
+		stand-animation 3 \
+		talk-animation 4 5 \
+	walk 6 to 250,110
+[00000239]:
+	wait-for-actor 6 [ref &[00000239]]
+	R.93 = 1
+	end-script
+}
+
+room field {
+
+	object 39 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0039
+		name is ""
+
+		verb 9 {
+			if ( class-of V.7 is 149 ) {
+				owner-of 119 is 3
+				class-of 39 is 21
+				V.215 = 4
+				start-script 86
+				cut-scene (2)
+				actor 3 \
+					default
+					costume 35 \
+				do-animation 3 10
+				break-here 14 times
+				end-cut-scene
+			}
+			end-script
+		}
+
+		verb 5 {
+			start-script 201
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "It's the breast pocket from the lab coat."
+			end-script
+		}
+	}
+
+	object 38 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0038
+		name is ""
+
+		verb 5 {
+			start-script 201
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "That's the thing I'm supposed to push, I think."
+			end-script
+		}
+
+		verb 91 {
+			if !( V.215 == 5 ) jump &[00000094]
+			V.186 = 708
+			jump &[00000100]
+[00000094]:
+			V.186 = 709
+[00000100]:
+			end-script
+		}
+	}
+
+	object 37 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0037
+		name is ""
+
+		verb 90 {
+			V.152 = 10
+			end-script
+		}
+
+		verb 10 {
+			start-script 12
+			end-script
+		}
+
+		verb 23 {
+			cut-scene (2)
+			start-script 130
+			say-line 6 "Boy, that's a real sleeper of a book.\xFF\x03What are you, some kind of geek?"
+			wait-for-message
+			start-script 131
+			end-cut-scene
+			end-script
+		}
+
+		verb 26 {
+			cut-scene (2)
+			override &[00000274]
+			start-script 14 ( 2, 1 )
+			break-until (!script-running 14)
+			say-line 3 "Nailed ya dead on, man!"
+			wait-for-message
+			say-line 6 "Unless it's lightning you're talking about, I don't want to know."
+			wait-for-message
+[00000274]:
+			override off
+			print-line \
+				" "
+
+			stop-script 14
+			actor 3 \
+				default
+				text-offset 0,-85 \
+				costume 307 \
+				talk-color 242 \
+				name "Hoagie"
+				step-dist 11,3 \
+				width 35
+			end-cut-scene
+			end-script
+		}
+
+		verb 58 {
+			say-line 3 "I don't think he'd get it."
+			end-script
+		}
+
+		verb 80 {
+		local variable L.0
+
+			if !( L.0 == 117 ) jump &[00000495]
+			say-line 6 "Nice rain coat.\xFF\x03I wish I needed it, but unfortunately, the sun continues to mock me with its insipid warmth."
+			jump &[00000527]
+[00000495]:
+			say-line 6 "Please, I'm concentrating."
+[00000527]:
+			end-script
+		}
+
+		verb 7 {
+			say-line 6 "Sure, push me around while you can."
+			end-script
+		}
+
+		verb 8 {
+			say-line 6 "If you think I'm something to look at now, just wait."
+			end-script
+		}
+	}
+
+	object 46 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0046
+		name is ""
+	}
+
+	object 43 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0043
+		name is ""
+
+		verb 90 {
+			V.152 = -999
+			end-script
+		}
+
+		verb 11 {
+			come-out-door 64 in-room 11 walk 360,108
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "They look, and smell, a lot better from a distance."
+			end-script
+		}
+	}
+
+	object 42 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0042
+		name is ""
+
+		verb 90 {
+			V.152 = -999
+			end-script
+		}
+
+		verb 11 {
+			come-out-door 65 in-room 11 walk 418,111
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "They look, and smell, a lot better from a distance."
+			end-script
+		}
+	}
+
+	object 41 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0041
+		name is ""
+
+		verb 11 {
+			come-out-door 60 in-room 11 walk 156,116
+			end-script
+		}
+	}
+
+	object 44 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0044
+		name is ""
+
+		verb 90 {
+			V.152 = -999
+			end-script
+		}
+
+		verb 11 {
+			come-out-door 66 in-room 11 walk 303,111
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "They look, and smell, a lot better from a distance."
+			end-script
+		}
+	}
+
+	object 40 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0040
+		name is ""
+
+		verb 90 {
+			V.152 = 8
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "The lightning must've charged it up."
+			end-script
+		}
+
+		verb 9 {
+			owner-of 119 is 3
+			state-of 40 is 0
+			class-of 40 is 160
+			end-script
+		}
+	}
+
+	object 45 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0045
+		name is ""
+
+		verb 11 {
+			if ( R.151 ) {
+				start-script 83 ( 28, 7, 434, 56 )
+			}
+			come-out-door 28 in-room 7 walk 434,56
+			end-script
+		}
+	}
+
+	object 36 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0036
+		name is ""
+
+		verb 2 {
+			start-script 103 ( 36, 28 )
+			end-script
+		}
+
+		verb 3 {
+			start-script 104 ( 36, 28 )
+			end-script
+		}
+
+		verb 11 {
+			if ( R.151 ) {
+				start-script 83 ( 28, 7, 434, 56 )
+			}
+			come-out-door 28 in-room 7 walk 434,56
+			end-script
+		}
+
+		verb 8 {
+			say-line 3 "It looks pretty much the same as Dr. Fred's motel."
+			end-script
+		}
+	}
+
+	object 47 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0047
+		name is ""
+	}
+
+	object 48 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0048
+		name is ""
+	}
+
+	object 49 { ; VERB LECF_0001\LFLF_0009\ROOM\OBCD_0049
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0009\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
+		draw-object 47 image 0
+		draw-object 48 image 0
+		start-script 11
+		end-script
+	}
+}
+

@@ -1,0 +1,66 @@
+;/**
+; * Day of the Tentacle: Demo
+; * 
+; * Room 56: Roof Future (top)
+; */
+
+room top {
+
+	object 584 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0584
+		name is ""
+	}
+
+	object 585 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0585
+		name is ""
+	}
+
+	object 586 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0586
+		name is ""
+	}
+
+	object 589 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0589
+		name is ""
+	}
+
+	object 587 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0587
+		name is ""
+	}
+
+	object 588 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0588
+		name is ""
+	}
+
+	object 590 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0590
+		name is ""
+	}
+
+	object 591 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0591
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0056\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0056\ROOM\ENCD
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0056\ROOM\LSCR_0200
+		actor 2 \
+			costume 290 \
+		put-actor 2 at 149,92 in-room 56
+		do-animation 2 251
+		break-here 5 times
+		do-animation 2 6
+		break-here 10 times
+		print-debug \
+			"\xFF\x0A\xDA\xD9\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
+
+		break-here 23 times
+		R.93 = 1
+		end-script
+	}
+}
+

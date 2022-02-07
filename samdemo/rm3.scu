@@ -1,0 +1,181 @@
+/**
+ * Sam & Max Hit the Road: Self-Running Demo
+ * 
+ * Room 3
+ */
+
+room room_3 {
+
+	object 702 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0702
+		name is "bonk-arm"
+	}
+
+	object 704 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0704
+		name is "whack-max"
+	}
+
+	object 705 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0705
+		name is "whack-dull-arm"
+	}
+
+	object 706 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0706
+		name is "whack-maxii"
+	}
+
+	object 707 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0707
+		name is "da-bed"
+	}
+
+	object 708 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0708
+		name is "da-closet"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0003\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
+		start-script 200
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0200
+		camera-at 160
+		start-script 13
+		actor 2 \
+			costume 22 \
+			scale 255
+		put-actor 2 at 66,169 in-room 3
+		do-animation 2 249
+		actor 3 \
+			costume 23 \
+			scale 255
+		put-actor 3 at 96,160 in-room 3
+		do-animation 3 249
+		actor 4 \
+			default
+			costume 7 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			elevation 17
+		put-actor 4 at 166,156 in-room 3
+		do-animation 4 249
+		do-animation 4 6
+		break-here 35 times
+		actor 5 \
+			default
+			costume 8 \
+			ignore-boxes \
+			never-zclip
+		actor 6 \
+			default
+			costume 8 \
+			ignore-boxes \
+			never-zclip
+		actor 7 \
+			default
+			costume 8 \
+			ignore-boxes \
+			never-zclip
+		put-actor 5 at 421,143 in-room 3
+		put-actor 6 at 443,161 in-room 3
+		put-actor 7 at 466,184 in-room 3
+		do-animation 5 250
+		do-animation 6 250
+		do-animation 7 250
+		camera-at 480
+		put-actor 2 at 0,0 in-room 0
+		put-actor 3 at 0,0 in-room 0
+		put-actor 4 at 0,0 in-room 0
+		$ room-color is 1
+		start-script 13
+		draw-object 705 image 0
+		draw-object 706 image 3
+		do-animation 7 15
+		do-animation 6 9
+		do-animation 5 8
+		break-here
+		put-actor 5 at 0,0 in-room 0
+		draw-object 704 image 0
+		break-here
+		draw-object 706 image 1
+		draw-object 705 image 0
+		break-here
+		draw-object 706 image 2
+		do-animation 7 16
+		break-here
+		draw-object 706 image 3
+		break-here 2 times
+		draw-object 704 image 0
+		break-here
+		draw-object 706 image 1
+		draw-object 705 image 0
+		break-here
+		draw-object 706 image 2
+		do-animation 7 16
+		break-here
+		draw-object 706 image 3
+		break-here 2 times
+		draw-object 704 image 0
+		break-here
+		draw-object 706 image 1
+		draw-object 705 image 0
+		break-here
+		draw-object 706 image 2
+		do-animation 7 16
+		break-here
+		draw-object 706 image 3
+		break-here 2 times
+		put-actor 5 at 0,0 in-room 0
+		put-actor 6 at 0,0 in-room 0
+		put-actor 7 at 0,0 in-room 0
+		camera-at 800
+		$ room-color is 2
+		start-script 13
+		actor 2 \
+			costume 1 \
+			always-zclip 1
+		put-actor 2 at 849,157 in-room 3
+		do-animation 2 249
+		start-script 201
+		break-here 2 times
+		actor 2 \
+			costume 9 \
+		put-actor 2 at 720,138 in-room 3
+		do-animation 2 7
+		break-here 10 times
+		draw-object 708 image 1
+		break-here
+		draw-object 708 image 2
+		break-here 12 times
+		actor 2 \
+			costume 1 \
+		put-actor 2 at 849,157 in-room 3
+		draw-object 708 image 2
+		break-here 9 times
+		fades -32383
+		current-room 4
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0201
+		actor 3 \
+			costume 10 \
+			ignore-boxes \
+			never-zclip
+			scale 255
+			elevation 0
+		put-actor 3 at 766,165 in-room 3
+		do-animation 3 250
+		do {
+			do-animation 3 17
+			break-here 6 times
+			draw-object 707 image 0
+			break-here
+			state-of 707 is 0
+		}
+		end-script
+	}
+}
+
