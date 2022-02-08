@@ -1,0 +1,225 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 8
+; */
+
+script 41 { ; SCRP LECF_0001\LFLF_0008\SCRP_0041
+local variable L.0
+
+	load-sound 26
+	load-sound 27
+	load-sound 28
+	V.19 = 1
+	start-sound 28
+	L.0 = 1
+[00000039]:
+	if !( L.0 <= 3 ) jump &[00000063]
+	draw-object 166 image L.0
+	break-here
+	++L.0
+	jump &[00000039]
+[00000063]:
+	L.0 = 1
+[00000069]:
+	if !( L.0 <= 5 ) jump &[00000093]
+	draw-object 167 image L.0
+	break-here
+	++L.0
+	jump &[00000069]
+[00000093]:
+	L.0 = 1
+[00000099]:
+	if !( L.0 <= 5 ) jump &[00000123]
+	draw-object 168 image L.0
+	break-here
+	++L.0
+	jump &[00000099]
+[00000123]:
+	L.0 = 1
+[00000129]:
+	if !( L.0 <= 2 ) jump &[00000153]
+	draw-object 169 image L.0
+	break-here
+	++L.0
+	jump &[00000129]
+[00000153]:
+	start-sound 27
+	L.0 = 1
+[00000163]:
+	if !( L.0 <= 4 ) jump &[00000187]
+	draw-object 170 image L.0
+	break-here
+	++L.0
+	jump &[00000163]
+[00000187]:
+	L.0 = 1
+[00000193]:
+	if !( L.0 <= 4 ) jump &[00000217]
+	draw-object 171 image L.0
+	break-here
+	++L.0
+	jump &[00000193]
+[00000217]:
+	L.0 = 1
+[00000223]:
+	if !( L.0 <= 5 ) jump &[00000247]
+	draw-object 172 image L.0
+	break-here
+	++L.0
+	jump &[00000223]
+[00000247]:
+	L.0 = 1
+[00000253]:
+	if !( L.0 <= 5 ) jump &[00000277]
+	draw-object 173 image L.0
+	break-here
+	++L.0
+	jump &[00000253]
+[00000277]:
+	start-sound 27
+	L.0 = 1
+[00000287]:
+	if !( L.0 <= 4 ) jump &[00000311]
+	draw-object 174 image L.0
+	break-here
+	++L.0
+	jump &[00000287]
+[00000311]:
+	L.0 = 1
+[00000317]:
+	if !( L.0 <= 4 ) jump &[00000341]
+	draw-object 175 image L.0
+	break-here
+	++L.0
+	jump &[00000317]
+[00000341]:
+	L.0 = 1
+[00000347]:
+	if !( L.0 <= 4 ) jump &[00000371]
+	draw-object 176 image L.0
+	break-here
+	++L.0
+	jump &[00000347]
+[00000371]:
+	L.0 = 1
+[00000377]:
+	if !( L.0 <= 4 ) jump &[00000401]
+	draw-object 177 image L.0
+	break-here
+	++L.0
+	jump &[00000377]
+[00000401]:
+	start-sound 27
+	L.0 = 1
+[00000411]:
+	if !( L.0 <= 4 ) jump &[00000435]
+	draw-object 178 image L.0
+	break-here
+	++L.0
+	jump &[00000411]
+[00000435]:
+	L.0 = 1
+[00000441]:
+	if !( L.0 <= 4 ) jump &[00000465]
+	draw-object 179 image L.0
+	break-here
+	++L.0
+	jump &[00000441]
+[00000465]:
+	L.0 = 1
+[00000471]:
+	if !( L.0 <= 4 ) jump &[00000495]
+	draw-object 180 image L.0
+	break-here
+	++L.0
+	jump &[00000471]
+[00000495]:
+	L.0 = 1
+[00000501]:
+	if !( L.0 <= 4 ) jump &[00000525]
+	draw-object 181 image L.0
+	break-here
+	++L.0
+	jump &[00000501]
+[00000525]:
+	start-sound 26
+	V.19 = 6
+	end-script
+}
+
+room room_8 {
+
+	object 166 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0166
+		name is ""
+	}
+
+	object 167 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0167
+		name is ""
+	}
+
+	object 168 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0168
+		name is ""
+	}
+
+	object 169 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0169
+		name is ""
+	}
+
+	object 170 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0170
+		name is ""
+	}
+
+	object 171 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0171
+		name is ""
+	}
+
+	object 172 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0172
+		name is ""
+	}
+
+	object 173 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0173
+		name is ""
+	}
+
+	object 174 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0174
+		name is ""
+	}
+
+	object 175 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0175
+		name is ""
+	}
+
+	object 176 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0176
+		name is ""
+	}
+
+	object 177 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0177
+		name is ""
+	}
+
+	object 178 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0178
+		name is ""
+	}
+
+	object 179 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0179
+		name is ""
+	}
+
+	object 180 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0180
+		name is ""
+	}
+
+	object 181 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0181
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0008\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0008\ROOM\ENCD
+		end-script
+	}
+}
+

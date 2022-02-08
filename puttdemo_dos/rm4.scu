@@ -1,0 +1,749 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 4
+; */
+
+room room_4 {
+
+	object 49 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0049
+		name is "butterfly-object-1"
+
+		verb 8 {
+			class-of 49 is 160
+			start-sound 41
+			start-script rec 204 ( 49 )
+			end-script
+		}
+	}
+
+	object 50 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0050
+		name is "butterfly-object-2"
+
+		verb 8 {
+			class-of 50 is 160
+			start-sound 41
+			start-script rec 204 ( 50 )
+			end-script
+		}
+	}
+
+	object 51 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0051
+		name is "butterfly-object-3"
+
+		verb 8 {
+			class-of 51 is 160
+			start-sound 41
+			start-script rec 204 ( 51 )
+			end-script
+		}
+	}
+
+	object 52 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0052
+		name is "butterfly-object-4"
+
+		verb 8 {
+			class-of 52 is 160
+			start-sound 41
+			start-script rec 204 ( 52 )
+			end-script
+		}
+	}
+
+	object 53 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0053
+		name is "butterfly-object-5"
+
+		verb 8 {
+			class-of 53 is 160
+			start-sound 41
+			start-script rec 204 ( 53 )
+			end-script
+		}
+	}
+
+	object 54 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0054
+		name is "butterfly-object-6"
+
+		verb 8 {
+			class-of 54 is 160
+			start-sound 41
+			start-script rec 204 ( 54 )
+			end-script
+		}
+	}
+
+	object 55 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0055
+		name is "pond-flower-1"
+
+		verb 8 {
+			start-script rec 209 ( 55, random 1 )
+			end-script
+		}
+	}
+
+	object 56 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0056
+		name is "pond-flower-2"
+
+		verb 8 {
+			start-script rec 209 ( 56, random 1 )
+			end-script
+		}
+	}
+
+	object 57 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0057
+		name is "pond-flower-3"
+
+		verb 8 {
+			start-script rec 209 ( 57, random 1 )
+			end-script
+		}
+	}
+
+	object 58 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0058
+		name is "pond-flower-4"
+
+		verb 8 {
+			start-script rec 209 ( 58, random 1 )
+			end-script
+		}
+	}
+
+	object 59 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0059
+		name is "pond-flower-5"
+
+		verb 8 {
+			start-script rec 209 ( 59, random 1 )
+			end-script
+		}
+	}
+
+	object 60 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0060
+		name is "pond-flower-6"
+
+		verb 8 {
+			start-script rec 209 ( 60, random 1 )
+			end-script
+		}
+	}
+
+	object 47 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0047
+		name is "pond-apple-door"
+
+		verb 8 {
+			userput off
+			cursor off
+			V.27 = 0
+			V.240 = actor-costume V.1
+			actor V.1 \
+				costume 0 \
+			V.132 = 1 + 1
+[00000048]:
+			if !( V.132 <= 12 ) jump &[00000077]
+			put-actor V.132 at 0,0 in-room 0
+			++V.132
+			jump &[00000048]
+[00000077]:
+			verb 17 \
+				image 182 in-room 20 \
+				(end-verb)
+			verb 18 \
+				image 183 in-room 20 \
+				(end-verb)
+			load-object 102 in-room 20
+			draw-object 102 at (V.2 - 160) / 8,(V.54 - 16) / 8
+			palette intensity 0 in-slot 16 to 223
+			palette intensity 0 in-slot 246 to 253
+			break-here
+			set-screen 0 to 128
+			userput on
+			cursor on
+			come-out-door 34 in-room 3 walk -1,-1
+			end-script
+		}
+	}
+
+	object 48 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0048
+		name is "pond-cow-door"
+
+		verb 8 {
+			userput off
+			cursor off
+			V.27 = 0
+			V.240 = actor-costume V.1
+			actor V.1 \
+				costume 0 \
+			V.132 = 1 + 1
+[00000048]:
+			if !( V.132 <= 12 ) jump &[00000077]
+			put-actor V.132 at 0,0 in-room 0
+			++V.132
+			jump &[00000048]
+[00000077]:
+			verb 17 \
+				image 182 in-room 20 \
+				(end-verb)
+			verb 18 \
+				image 183 in-room 20 \
+				(end-verb)
+			load-object 102 in-room 20
+			draw-object 102 at (V.2 - 160) / 8,(V.54 - 16) / 8
+			palette intensity 0 in-slot 16 to 223
+			palette intensity 0 in-slot 246 to 253
+			break-here
+			set-screen 0 to 128
+			userput on
+			cursor on
+			come-out-door 63 in-room 5 walk 45,114
+			end-script
+		}
+	}
+
+	object 46 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0046
+		name is "pond"
+
+		verb 8 {
+			if !( !V.166 ) jump &[00000058]
+			if !( random 15 ) jump &[00000051]
+			start-script rec 206 ( @34 ( 5, 12 ) )
+			jump &[00000058]
+[00000051]:
+			start-script 207
+[00000058]:
+			end-script
+		}
+	}
+
+	object 61 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0061
+		name is "pond-road-1"
+	}
+
+	object 62 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0062
+		name is "pond-road-2"
+	}
+
+	object 188 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0188
+		name is ""
+	}
+
+	object 189 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0189
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0004\ROOM\EXCD
+		V.32 = 7
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0004\ROOM\ENCD
+		V.287 = 189
+		V.288 = 188
+		V.166 = 0
+		start-script 205
+		start-script 208
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !( (find-actor V.20,V.21) == 2 ) jump &[00000037]
+		V.165 = 1
+		V.32 = 7
+		jump &[00000056]
+[00000037]:
+		start-script 7 ( L.0, L.1, L.2 )
+[00000056]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0201
+		do-animation 2 9
+		break-here 36 times
+		break-here 3 times
+		do-animation 2 10
+		break-here 12 times
+		start-sound 40
+		break-here 11 times
+		start-sound 41
+		break-here 28 - 23 times
+		actor 2 \
+			stand-animation 1 \
+			walk-animation 2 \
+			ignore-turns on \
+		put-actor 2 at (object-x 2) - 22,(object-y 2) - 31 in-room 255
+		do-animation 2 2
+		walk 2 to -60,20
+[00000111]:
+		wait-for-actor 2 [ref &[00000111]]
+		put-actor 2 at 0,0 in-room 0
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0202
+		sleep-for 3 seconds
+		V.32 = 200
+		do {
+			do-animation 2 8
+			break-here 9 times
+			put-actor 2 at (object-x 2) - 6,object-y 2 in-room 255
+			if ( V.165 ) {
+				start-script 201
+				stop-script 0
+			}
+		} until ((object-x 2) <= -20)
+		V.32 = 7
+		put-actor 2 at 0,0 in-room 0
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0203
+	local variable L.0
+
+		L.0 = 49
+[00000014]:
+		if !( L.0 <= 54 ) jump &[00000040]
+		class-of L.0 is 160
+		++L.0
+		jump &[00000014]
+[00000040]:
+		class-of V.167 is 32
+		class-of V.168 is 32
+		end-script
+	}
+
+;Do Butterflies
+	script 204 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.3
+	local variable L.4
+
+		do {
+			L.1 = (random 5) + 49
+		} until (L.1 != V.167 and L.1 != V.168)
+		if !( L.0 == V.167 ) jump &[00000062]
+		L.3 = 3
+		V.167 = L.1
+		jump &[00000074]
+[00000062]:
+		L.3 = 4
+		V.168 = L.1
+[00000074]:
+		L.4 = (random 78) + 96
+		if !( L.4 > (object-x L.3) ) jump &[00000106]
+		do-animation L.3 249
+		jump &[00000113]
+[00000106]:
+		do-animation L.3 248
+[00000113]:
+		walk L.3 to L.4,(random 57) + 112
+[00000128]:
+		wait-for-actor L.3 [ref &[00000128]]
+		if !( (object-x L.1) > (object-x L.3) ) jump &[00000157]
+		do-animation L.3 249
+		jump &[00000164]
+[00000157]:
+		do-animation L.3 248
+[00000164]:
+		walk L.3 to-object L.1 within 0
+[00000174]:
+		wait-for-actor L.3 [ref &[00000174]]
+		if !( L.1 == 49 ) jump &[00000203]
+		do-animation L.3 249
+		jump &[00000299]
+[00000203]:
+		if !( L.1 == 50 ) jump &[00000222]
+		do-animation L.3 249
+		jump &[00000299]
+[00000222]:
+		if !( L.1 == 51 ) jump &[00000241]
+		do-animation L.3 248
+		jump &[00000299]
+[00000241]:
+		if !( L.1 == 52 ) jump &[00000260]
+		do-animation L.3 248
+		jump &[00000299]
+[00000260]:
+		if !( L.1 == 53 ) jump &[00000279]
+		do-animation L.3 248
+		jump &[00000299]
+[00000279]:
+		if !( L.1 == 54 ) jump &[00000298]
+		do-animation L.3 249
+		jump &[00000299]
+[00000299]:
+		start-script rec 203
+		stop-script 36
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		actor 2 \
+			new \
+			costume 14 \
+			init-animation 7
+			stand-animation 7 \
+			walk-animation 8 \
+			ignore-boxes \
+			always-zclip 1
+		put-actor 2 at 340,95 in-room 4
+		do-animation 2 248
+		do-animation 2 7
+		V.165 = 0
+		V.167 = 0
+		V.168 = 0
+		L.0 = 3
+[00000093]:
+		if !( L.0 <= 4 ) jump &[00000363]
+		L.1 = (random 2) * 2 + 1
+		actor L.0 \
+			new \
+			costume 14 \
+			ignore-boxes \
+			never-zclip
+			elevation 100
+			step-dist 5,2 \
+			ignore-turns on \
+			init-animation L.1
+			stand-animation L.1 \
+			walk-animation L.1 + 1 \
+		do {
+			L.2 = (random 5) + 49
+		} until (L.2 != V.167 and L.2 != V.168)
+		if !( L.0 == 3 ) jump &[00000216]
+		V.167 = L.2
+		jump &[00000222]
+[00000216]:
+		V.168 = L.2
+[00000222]:
+		put-actor L.0 at-object L.2 in room 4
+		if !( L.2 == 49 ) jump &[00000254]
+		do-animation L.0 249
+		jump &[00000350]
+[00000254]:
+		if !( L.2 == 50 ) jump &[00000273]
+		do-animation L.0 249
+		jump &[00000350]
+[00000273]:
+		if !( L.2 == 51 ) jump &[00000292]
+		do-animation L.0 249
+		jump &[00000350]
+[00000292]:
+		if !( L.2 == 52 ) jump &[00000311]
+		do-animation L.0 248
+		jump &[00000350]
+[00000311]:
+		if !( L.2 == 53 ) jump &[00000330]
+		do-animation L.0 248
+		jump &[00000350]
+[00000330]:
+		if !( L.2 == 54 ) jump &[00000349]
+		do-animation L.0 249
+		jump &[00000350]
+[00000350]:
+		do-animation L.0 L.1
+		++L.0
+		jump &[00000093]
+[00000363]:
+		start-script rec 203
+		L.0 = 5
+[00000379]:
+		if !( L.0 <= 12 ) jump &[00000408]
+		put-actor L.0 at 0,0 in-room 0
+		++L.0
+		jump &[00000379]
+[00000408]:
+		class-of 55 is 32
+		class-of 56 is 32
+		class-of 57 is 32
+		class-of 58 is 32
+		class-of 59 is 32
+		class-of 60 is 32
+		draw-object 55 image 1
+		draw-object 56 image 1
+		draw-object 57 image 1
+		draw-object 58 image 1
+		draw-object 59 image 1
+		draw-object 60 image 1
+		start-script 202
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		if ( !L.0 ) {
+			stop-script 0
+		}
+		actor L.0 \
+			new \
+			costume 12 \
+			ignore-boxes \
+			always-zclip 2
+			sound [39]
+		put-actor L.0 at 145,82 in-room 4
+		if !( random 1 ) jump &[00000076]
+		do-animation L.0 249
+		jump &[00000083]
+[00000076]:
+		do-animation L.0 248
+[00000083]:
+		L.1 = (random 2) + 2
+		if !( L.1 == 2 ) jump &[00000437]
+		if !( random-between 1 to 5 == 1 ) jump &[00000177]
+		actor L.0 \
+			color 4 is 199
+		actor L.0 \
+			color 5 is 201
+		actor L.0 \
+			color 6 is 206
+		actor L.0 \
+			color 7 is 207
+		jump &[00000434]
+[00000177]:
+		if !( random-between 1 to 5 == 2 ) jump &[00000241]
+		actor L.0 \
+			color 4 is 192
+		actor L.0 \
+			color 5 is 194
+		actor L.0 \
+			color 6 is 193
+		actor L.0 \
+			color 7 is 196
+		jump &[00000434]
+[00000241]:
+		if !( random-between 1 to 5 == 3 ) jump &[00000305]
+		actor L.0 \
+			color 4 is 210
+		actor L.0 \
+			color 5 is 211
+		actor L.0 \
+			color 6 is 208
+		actor L.0 \
+			color 7 is 209
+		jump &[00000434]
+[00000305]:
+		if !( random-between 1 to 5 == 4 ) jump &[00000369]
+		actor L.0 \
+			color 4 is 214
+		actor L.0 \
+			color 5 is 219
+		actor L.0 \
+			color 6 is 212
+		actor L.0 \
+			color 7 is 213
+		jump &[00000434]
+[00000369]:
+		if !( random-between 1 to 5 == 5 ) jump &[00000433]
+		actor L.0 \
+			color 4 is 205
+		actor L.0 \
+			color 5 is 206
+		actor L.0 \
+			color 6 is 204
+		actor L.0 \
+			color 7 is 190
+		jump &[00000434]
+[00000434]:
+		jump &[00001053]
+[00000437]:
+		if !( random-between 1 to 5 == 3 ) jump &[00000712]
+		if !( random-between 1 to 5 == 1 ) jump &[00000504]
+		actor L.0 \
+			color 4 is 199
+		actor L.0 \
+			color 5 is 201
+		actor L.0 \
+			color 7 is 207
+		jump &[00000709]
+[00000504]:
+		if !( random-between 1 to 5 == 2 ) jump &[00000555]
+		actor L.0 \
+			color 4 is 196
+		actor L.0 \
+			color 5 is 192
+		actor L.0 \
+			color 7 is 193
+		jump &[00000709]
+[00000555]:
+		if !( random-between 1 to 5 == 3 ) jump &[00000606]
+		actor L.0 \
+			color 4 is 209
+		actor L.0 \
+			color 5 is 211
+		actor L.0 \
+			color 7 is 210
+		jump &[00000709]
+[00000606]:
+		if !( random-between 1 to 5 == 4 ) jump &[00000657]
+		actor L.0 \
+			color 4 is 213
+		actor L.0 \
+			color 5 is 214
+		actor L.0 \
+			color 7 is 212
+		jump &[00000709]
+[00000657]:
+		if !( random-between 1 to 5 == 5 ) jump &[00000708]
+		actor L.0 \
+			color 4 is 190
+		actor L.0 \
+			color 5 is 206
+		actor L.0 \
+			color 7 is 205
+		jump &[00000709]
+[00000709]:
+		jump &[00001053]
+[00000712]:
+		if !( random-between 1 to 5 == 4 ) jump &[00001052]
+		if !( random-between 1 to 5 == 1 ) jump &[00000792]
+		actor L.0 \
+			color 4 is 199
+		actor L.0 \
+			color 5 is 201
+		actor L.0 \
+			color 6 is 206
+		actor L.0 \
+			color 7 is 207
+		jump &[00001049]
+[00000792]:
+		if !( random-between 1 to 5 == 2 ) jump &[00000856]
+		actor L.0 \
+			color 4 is 196
+		actor L.0 \
+			color 5 is 192
+		actor L.0 \
+			color 6 is 197
+		actor L.0 \
+			color 7 is 193
+		jump &[00001049]
+[00000856]:
+		if !( random-between 1 to 5 == 3 ) jump &[00000920]
+		actor L.0 \
+			color 4 is 210
+		actor L.0 \
+			color 5 is 211
+		actor L.0 \
+			color 6 is 208
+		actor L.0 \
+			color 7 is 209
+		jump &[00001049]
+[00000920]:
+		if !( random-between 1 to 5 == 4 ) jump &[00000984]
+		actor L.0 \
+			color 4 is 214
+		actor L.0 \
+			color 5 is 219
+		actor L.0 \
+			color 6 is 212
+		actor L.0 \
+			color 7 is 213
+		jump &[00001049]
+[00000984]:
+		if !( random-between 1 to 5 == 5 ) jump &[00001048]
+		actor L.0 \
+			color 4 is 205
+		actor L.0 \
+			color 5 is 206
+		actor L.0 \
+			color 6 is 204
+		actor L.0 \
+			color 7 is 190
+		jump &[00001049]
+[00001049]:
+		jump &[00001053]
+[00001053]:
+		start-sound 38
+		do-animation L.0 L.1
+		if !( L.1 == 2 ) jump &[00001083]
+		break-here 19 times
+		jump &[00001116]
+[00001083]:
+		if !( L.1 == 3 ) jump &[00001099]
+		break-here 22 times
+		jump &[00001116]
+[00001099]:
+		if !( L.1 == 4 ) jump &[00001115]
+		break-here 16 times
+		jump &[00001116]
+[00001116]:
+		put-actor L.0 at 0,0 in-room 0
+		end-script
+	}
+
+; Do Pond
+	script 207 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0207
+	local variable L.0
+
+		V.166 = 1
+		break-until (!script-running 206)
+		do {
+			L.0 = @34 ( 5, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 13 \
+			ignore-boxes \
+			never-zclip
+		do-animation L.0 249
+		put-actor L.0 at 110,70 in-room 4
+		do-animation L.0 6
+		break-here 16 times
+		do-animation L.0 7
+		break-here 8 * ((random 2) + 1) times
+		do-animation L.0 8
+		break-here 13 times
+		put-actor L.0 at 0,0 in-room 0
+		V.166 = 0
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0208
+		do {
+			if ( (random 20) > 13 ) {
+				if ( !script-running 207 ) {
+					start-script rec 206 ( @34 ( 5, 12 ) )
+				}
+			}
+			sleep-for 10 seconds
+		}
+		end-script
+	}
+
+; Do Pond Flowers
+	script 209 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0209
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		class-of L.0 is 160
+		if !( L.1 ) jump &[00000031]
+		start-sound 43
+		jump &[00000035]
+[00000031]:
+		start-sound 44
+[00000035]:
+		L.2 = 2
+[00000041]:
+		if !( L.2 <= 12 ) jump &[00000065]
+		draw-object L.0 image L.2
+		break-here
+		++L.2
+		jump &[00000041]
+[00000065]:
+		draw-object L.0 image 1
+		class-of L.0 is 32
+		end-script
+	}
+}
+

@@ -1,0 +1,693 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 6
+; */
+
+room room_6 {
+
+	object 97 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0097
+		name is "welcome-mat"
+
+		verb 8 {
+			say-line "\xFF\x0A\x0D\xD0\xFF\x0A\x03\x00\xFF\x0A\xC0\x2D\xFF\x0A\x00\x00It says:"
+			wait-for-message
+			say-line "\xFF\x0A\x42\x76\xFF\x0A\x0A\x00\xFF\x0A\xB2\x19\xFF\x0A\x00\x00Welcome."
+			end-script
+		}
+	}
+
+	object 95 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0095
+		name is "grocery-door"
+
+		verb 8 {
+			start-script 207
+			end-script
+		}
+	}
+
+	object 96 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0096
+		name is "wipers-object"
+
+		verb 8 {
+			class-of 96 is 160
+			do-animation 6 7
+			break-here 17 * ((random 4) + 1) times
+			do-animation 6 8
+			break-here 3 times
+			do-animation 6 6
+			class-of 96 is 32
+			end-script
+		}
+	}
+
+	object 94 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0094
+		name is "cans-object"
+
+		verb 8 {
+			start-script 208
+			end-script
+		}
+	}
+
+	object 83 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0083
+		name is "grocery-town-door-2"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 82 L.1 ) jump &[00000043]
+			start-object [0] 82 verb L.1 ( L.0 )
+			jump &[00000063]
+[00000043]:
+			if ( L.1 != 90 ) {
+				start-script 10 ( L.1 )
+			}
+[00000063]:
+			end-script
+		}
+	}
+
+	object 84 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0084
+		name is "grocery-town-door-3"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 82 L.1 ) jump &[00000043]
+			start-object [0] 82 verb L.1 ( L.0 )
+			jump &[00000063]
+[00000043]:
+			if ( L.1 != 90 ) {
+				start-script 10 ( L.1 )
+			}
+[00000063]:
+			end-script
+		}
+	}
+
+	object 85 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0085
+		name is "grocery-town-door-4"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 82 L.1 ) jump &[00000043]
+			start-object [0] 82 verb L.1 ( L.0 )
+			jump &[00000063]
+[00000043]:
+			if ( L.1 != 90 ) {
+				start-script 10 ( L.1 )
+			}
+[00000063]:
+			end-script
+		}
+	}
+
+	object 89 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0089
+		name is "birdseed"
+
+		verb 91 {
+			end-script
+			end-script
+		}
+
+		verb 92 {
+			end-script
+			end-script
+		}
+
+		verb 8 {
+			if !( (owner-of 89) != V.1 ) jump &[00000048]
+			start-script 204
+			jump &[00000080]
+[00000048]:
+			say-line "\xFF\x0A\xF2\x0F\xFF\x0A\x0A\x00\xFF\x0A\x50\x66\xFF\x0A\x00\x00It's birdseed."
+[00000080]:
+			end-script
+		}
+	}
+
+	object 90 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0090
+		name is "baldini-object"
+
+		verb 8 {
+			start-script 202
+			end-script
+		}
+	}
+
+	object 91 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0091
+		name is "groceries"
+
+		verb 92 {
+			end-script
+			end-script
+		}
+	}
+
+	object 92 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0092
+		name is "dice-object"
+
+		verb 8 {
+			do-animation 3 7
+			start-sound 58
+			break-here 9 times
+			do-animation 3 6
+			end-script
+		}
+	}
+
+	object 93 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0093
+		name is "doll-object"
+
+		verb 8 {
+			do-animation 4 7
+			start-sound 57
+			end-script
+		}
+	}
+
+	object 82 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0082
+		name is "grocery-town-door-1"
+	}
+
+	object 87 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0087
+		name is "grocery-sign-2"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 86 L.1 ) jump &[00000040]
+			start-object [0] 86 verb L.1 ( L.0 )
+			jump &[00000060]
+[00000040]:
+			if ( L.1 != 90 ) {
+				start-script 10 ( L.1 )
+			}
+[00000060]:
+			end-script
+		}
+	}
+
+	object 88 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0088
+		name is "grocery-sign-3"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 86 L.1 ) jump &[00000040]
+			start-object [0] 86 verb L.1 ( L.0 )
+			jump &[00000060]
+[00000040]:
+			if ( L.1 != 90 ) {
+				start-script 10 ( L.1 )
+			}
+[00000060]:
+			end-script
+		}
+	}
+
+	object 86 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0086
+		name is "grocery-sign"
+
+		verb 8 {
+			say-line "\xFF\x0A\x0D\xD0\xFF\x0A\x03\x00\xFF\x0A\xC0\x2D\xFF\x0A\x00\x00It says:"
+			wait-for-message
+			say-line "\xFF\x0A\x15\xCB\xFF\x0A\x09\x00\xFF\x0A\xDD\x44\xFF\x0A\x00\x00Baldini's Grocery Store."
+			end-script
+		}
+	}
+
+	object 98 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0098
+		name is "grocery-road-object-1"
+	}
+
+	object 192 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0192
+		name is ""
+	}
+
+	object 193 { ; VERB LECF_0001\LFLF_0006\ROOM\OBCD_0193
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0006\ROOM\EXCD
+		put-actor 5 at 0,0 in-room 0
+		put-actor 2 at 0,0 in-room 0
+		put-actor 4 at 0,0 in-room 0
+		put-actor 3 at 0,0 in-room 0
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0006\ROOM\ENCD
+		V.287 = 193
+		V.288 = 192
+		start-script 203
+		draw-object 95 image 1
+		class-of 95 is 32
+		class-of 90 is 160
+		class-of 94 is 32
+		class-of 96 is 32
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.0 = 1
+[00000014]:
+		if !( L.0 <= 12 ) jump &[00000039]
+		V.258[L.0] = L.0
+		++L.0
+		jump &[00000014]
+[00000039]:
+		L.0 = 1
+[00000045]:
+		if !( L.0 <= 12 * 12 ) jump &[00000117]
+		L.1 = (random 11) + 1
+		L.2 = (random 11) + 1
+		L.3 = V.258[L.1]
+		V.258[L.1] = V.258[L.2]
+		V.258[L.2] = L.3
+		++L.0
+		jump &[00000045]
+[00000117]:
+		L.0 = 1
+[00000123]:
+		if !( L.0 <= 12 ) jump &[00000398]
+		if !( V.258[L.0] == 1 ) jump &[00000160]
+		V.258[L.0] = 1
+		jump &[00000392]
+[00000160]:
+		if !( V.258[L.0] == 2 ) jump &[00000181]
+		V.258[L.0] = 2
+		jump &[00000392]
+[00000181]:
+		if !( V.258[L.0] == 3 ) jump &[00000202]
+		V.258[L.0] = 3
+		jump &[00000392]
+[00000202]:
+		if !( V.258[L.0] == 4 ) jump &[00000223]
+		V.258[L.0] = 4
+		jump &[00000392]
+[00000223]:
+		if !( V.258[L.0] == 5 ) jump &[00000244]
+		V.258[L.0] = 5
+		jump &[00000392]
+[00000244]:
+		if !( V.258[L.0] == 6 ) jump &[00000265]
+		V.258[L.0] = 6
+		jump &[00000392]
+[00000265]:
+		if !( V.258[L.0] == 7 ) jump &[00000286]
+		V.258[L.0] = 7
+		jump &[00000392]
+[00000286]:
+		if !( V.258[L.0] == 8 ) jump &[00000307]
+		V.258[L.0] = 8
+		jump &[00000392]
+[00000307]:
+		if !( V.258[L.0] == 9 ) jump &[00000328]
+		V.258[L.0] = 9
+		jump &[00000392]
+[00000328]:
+		if !( V.258[L.0] == 10 ) jump &[00000349]
+		V.258[L.0] = 10
+		jump &[00000392]
+[00000349]:
+		if !( V.258[L.0] == 11 ) jump &[00000370]
+		V.258[L.0] = 11
+		jump &[00000392]
+[00000370]:
+		if !( V.258[L.0] == 12 ) jump &[00000391]
+		V.258[L.0] = 12
+		jump &[00000392]
+[00000392]:
+		++L.0
+		jump &[00000123]
+[00000398]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0201
+	local variable L.0
+
+		do-animation V.1 10
+		do {
+			L.0 = @34 ( 6, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 29 \
+			ignore-boxes \
+			elevation 140
+		put-actor L.0 at (object-x 2) - 29,(object-y 2) + 101 in-room 6
+		do-animation L.0 250
+		do-animation L.0 7
+		break-here 29 times
+		pick-up-object 91 in-room 0
+		put-actor L.0 at 0,0 in-room 0
+		class-of 91 is 32
+		do-animation V.1 3
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0202
+		userput off
+		cursor off
+		if !( !R.7 ) jump &[00001584]
+		if !( !V.258[1] ) jump &[00001584]
+		say-line 2 "\xFF\x0A\xB0\x8F\xFF\x0A\x06\x00\xFF\x0A\x13\x63\xFF\x0A\x00\x00How would you like to deliver some groceries?"
+		wait-for-message
+		sleep-for 15 jiffies
+		start-script 22 ( 0 )
+		start-script 23
+		actor V.1 \
+			ignore-boxes \
+			never-zclip
+		V.197 = 0
+		do {
+			V.132 = random 1
+			break-here
+		} until (V.197)
+		if !( V.197 == 120 ) jump &[00001483]
+[00000159]:
+		if !( V.260 != 0 ) jump &[00000172]
+		jump &[00000336]
+[00000172]:
+		start-script 200
+		break-until (!script-running 200)
+		if !( V.249 == 0 ) jump &[00000209]
+		jump &[00000336]
+		jump &[00000333]
+[00000209]:
+		if !( V.249 == 100 ) jump &[00000250]
+		if !( !V.258[1] in [ 1, 2, 3, 4 ] ) jump &[00000247]
+		jump &[00000336]
+[00000247]:
+		jump &[00000333]
+[00000250]:
+		if !( V.249 == 101 ) jump &[00000291]
+		if !( !V.258[1] in [ 5, 6, 7, 8 ] ) jump &[00000288]
+		jump &[00000336]
+[00000288]:
+		jump &[00000333]
+[00000291]:
+		if !( V.249 == 102 ) jump &[00000332]
+		if !( !V.258[1] in [ 9, 10, 11, 12 ] ) jump &[00000329]
+		jump &[00000336]
+[00000329]:
+		jump &[00000333]
+[00000333]:
+		jump &[00000159]
+[00000336]:
+		++V.259
+		if ( V.259 == 13 ) {
+			V.259 = 1
+		}
+		if ( (owner-of 91) != V.1 ) {
+			start-script 201
+		}
+		say-line 2 "\xFF\x0A\xC3\xF2\xFF\x0A\x06\x00\xFF\x0A\xA7\x48\xFF\x0A\x00\x00You can deliver these to^"
+		wait-for-message
+		if !( V.258[V.259] == 1 ) jump &[00000505]
+		say-line 2 "\xFF\x0A\x6A\x3B\xFF\x0A\x07\x00\xFF\x0A\x28\x2B\xFF\x0A\x00\x00^number 1^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x92\x66\xFF\x0A\x07\x00\xFF\x0A\x29\x23\xFF\x0A\x00\x00^Red Street."
+		jump &[00001376]
+[00000505]:
+		if !( V.258[V.259] == 2 ) jump &[00000583]
+		say-line 2 "\xFF\x0A\xBB\x89\xFF\x0A\x07\x00\xFF\x0A\x87\x22\xFF\x0A\x00\x00^number 2^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x92\x66\xFF\x0A\x07\x00\xFF\x0A\x29\x23\xFF\x0A\x00\x00^Red Street."
+		jump &[00001376]
+[00000583]:
+		if !( V.258[V.259] == 3 ) jump &[00000661]
+		say-line 2 "\xFF\x0A\x42\xAC\xFF\x0A\x07\x00\xFF\x0A\xF7\x25\xFF\x0A\x00\x00^number 3^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x92\x66\xFF\x0A\x07\x00\xFF\x0A\x29\x23\xFF\x0A\x00\x00^Red Street."
+		jump &[00001376]
+[00000661]:
+		if !( V.258[V.259] == 4 ) jump &[00000739]
+		say-line 2 "\xFF\x0A\x39\xD2\xFF\x0A\x07\x00\xFF\x0A\x69\x2D\xFF\x0A\x00\x00^number 4^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x92\x66\xFF\x0A\x07\x00\xFF\x0A\x29\x23\xFF\x0A\x00\x00^Red Street."
+		jump &[00001376]
+[00000739]:
+		if !( V.258[V.259] == 5 ) jump &[00000819]
+		say-line 2 "\xFF\x0A\x6A\x3B\xFF\x0A\x07\x00\xFF\x0A\x28\x2B\xFF\x0A\x00\x00^number 1^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\xA2\xFF\xFF\x0A\x07\x00\xFF\x0A\x69\x22\xFF\x0A\x00\x00^Green Street."
+		jump &[00001376]
+[00000819]:
+		if !( V.258[V.259] == 6 ) jump &[00000899]
+		say-line 2 "\xFF\x0A\xBB\x89\xFF\x0A\x07\x00\xFF\x0A\x87\x22\xFF\x0A\x00\x00^number 2^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\xA2\xFF\xFF\x0A\x07\x00\xFF\x0A\x69\x22\xFF\x0A\x00\x00^Green Street."
+		jump &[00001376]
+[00000899]:
+		if !( V.258[V.259] == 7 ) jump &[00000979]
+		say-line 2 "\xFF\x0A\x42\xAC\xFF\x0A\x07\x00\xFF\x0A\xF7\x25\xFF\x0A\x00\x00^number 3^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\xA2\xFF\xFF\x0A\x07\x00\xFF\x0A\x69\x22\xFF\x0A\x00\x00^Green Street."
+		jump &[00001376]
+[00000979]:
+		if !( V.258[V.259] == 8 ) jump &[00001059]
+		say-line 2 "\xFF\x0A\x39\xD2\xFF\x0A\x07\x00\xFF\x0A\x69\x2D\xFF\x0A\x00\x00^number 4^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\xA2\xFF\xFF\x0A\x07\x00\xFF\x0A\x69\x22\xFF\x0A\x00\x00^Green Street."
+		jump &[00001376]
+[00001059]:
+		if !( V.258[V.259] == 9 ) jump &[00001138]
+		say-line 2 "\xFF\x0A\x6A\x3B\xFF\x0A\x07\x00\xFF\x0A\x28\x2B\xFF\x0A\x00\x00^number 1^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x0B\x22\xFF\x0A\x08\x00\xFF\x0A\x27\x2E\xFF\x0A\x00\x00^Blue Street."
+		jump &[00001376]
+[00001138]:
+		if !( V.258[V.259] == 10 ) jump &[00001217]
+		say-line 2 "\xFF\x0A\xBB\x89\xFF\x0A\x07\x00\xFF\x0A\x87\x22\xFF\x0A\x00\x00^number 2^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x0B\x22\xFF\x0A\x08\x00\xFF\x0A\x27\x2E\xFF\x0A\x00\x00^Blue Street."
+		jump &[00001376]
+[00001217]:
+		if !( V.258[V.259] == 11 ) jump &[00001296]
+		say-line 2 "\xFF\x0A\x42\xAC\xFF\x0A\x07\x00\xFF\x0A\xF7\x25\xFF\x0A\x00\x00^number 3^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x0B\x22\xFF\x0A\x08\x00\xFF\x0A\x27\x2E\xFF\x0A\x00\x00^Blue Street."
+		jump &[00001376]
+[00001296]:
+		if !( V.258[V.259] == 12 ) jump &[00001375]
+		say-line 2 "\xFF\x0A\x39\xD2\xFF\x0A\x07\x00\xFF\x0A\x69\x2D\xFF\x0A\x00\x00^number 4^"
+		wait-for-message
+		say-line 2 "\xFF\x0A\x0B\x22\xFF\x0A\x08\x00\xFF\x0A\x27\x2E\xFF\x0A\x00\x00^Blue Street."
+		jump &[00001376]
+[00001376]:
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line 2 "\xFF\x0A\x32\x50\xFF\x0A\x08\x00\xFF\x0A\x31\x22\xFF\x0A\x00\x00Good luck!"
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line "\xFF\x0A\x63\x72\xFF\x0A\x08\x00\xFF\x0A\x50\x1E\xFF\x0A\x00\x00Thanks!"
+		wait-for-message
+		sleep-for 15 jiffies
+		start-script 12 ( object-x 82 )
+		walk V.1 to-object 82 within 0
+[00001471]:
+		wait-for-actor V.1 [ref &[00001471]]
+		restart
+		jump &[00001561]
+[00001483]:
+		if !( V.258[V.259] == 121 ) jump &[00001560]
+		say-line 2 "\xFF\x0A\xB3\x90\xFF\x0A\x08\x00\xFF\x0A\xA9\x5D\xFF\x0A\x00\x00Well, I hope to see you at the parade."
+		wait-for-message
+		sleep-for 15 jiffies
+		jump &[00001561]
+[00001561]:
+		wait-for-message
+		sleep-for 15 jiffies
+		start-script 25
+		actor V.1 \
+			follow-boxes \
+		jump &[00001584]
+[00001584]:
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0203
+		actor 6 \
+			new \
+			costume 30 \
+			sound [59]
+			ignore-boxes \
+			always-zclip 1
+		put-actor 6 at 294,18 in-room 6
+		do-animation 6 6
+		actor 4 \
+			new \
+			costume 26 \
+			ignore-boxes \
+		put-actor 4 at 116,32 in-room 6
+		do-animation 4 6
+		actor 3 \
+			new \
+			costume 25 \
+			ignore-boxes \
+		put-actor 3 at 79,40 in-room 6
+		do-animation 3 6
+		actor 5 \
+			new \
+			costume 27 \
+			ignore-boxes \
+			never-zclip
+			sound [60, 61, 62]
+		put-actor 5 at 266,84 in-room 6
+		do-animation 5 250
+		do-animation 5 6
+		V.165 = 1
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0204
+	local variable L.0
+
+		userput off
+		cursor off
+		start-script 12 ( 87 )
+		break-until (!script-running 12)
+		walk V.1 to 87,141
+		say-line "\xFF\x0A\x5C\xEE\xFF\x0A\x08\x00\xFF\x0A\x29\x65\xFF\x0A\x00\x00It says free birdseed."
+		wait-for-message
+[00000086]:
+		wait-for-actor V.1 [ref &[00000086]]
+		start-script 12 ( 0, 1 )
+		break-until (!script-running 12)
+		do-animation V.1 10
+		do {
+			L.0 = @34 ( 6, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 28 \
+			ignore-boxes \
+			elevation 1
+		put-actor L.0 at object-x V.1,(object-y V.1) + 1 in-room 6
+		start-sound 63
+		do-animation L.0 250
+		do-animation L.0 7
+		break-here 6 times
+		draw-object 89 image 1
+		break-here 11 times
+		pick-up-object 89 in-room 0
+		break-here 4 times
+		put-actor L.0 at 0,0 in-room 0
+		do-animation V.1 3
+		if ( V.261 == 1 ) {
+			say-line "\xFF\x0A\x85\x53\xFF\x0A\x09\x00\xFF\x0A\x90\x77\xFF\x0A\x00\x00I have some feathered friends who would like this."
+		}
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0205
+		do {
+			sleep-for (random 4) + 3 seconds
+			do-animation 2 15
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !( L.0 == 1 ) jump &[00000055]
+		start-sound 64
+		L.2 = 2
+[00000028]:
+		if !( L.2 <= 4 ) jump &[00000052]
+		draw-object L.1 image L.2
+		break-here
+		++L.2
+		jump &[00000028]
+[00000052]:
+		jump &[00000089]
+[00000055]:
+		start-sound 64
+		L.2 = 3
+[00000065]:
+		if !( L.2 >= 1 ) jump &[00000089]
+		draw-object L.1 image L.2
+		break-here
+		--L.2
+		jump &[00000065]
+[00000089]:
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0207
+		userput off
+		cursor off
+		class-of 95 is 160
+		class-of 90 is 32
+		actor 2 \
+			new \
+			costume 24 \
+			talk-color 11 \
+			ignore-boxes \
+			always-zclip 2
+		put-actor 2 at 220,93 in-room 6
+		do-animation 2 250
+		start-script bak 205
+		start-script 206 ( 1, 95 )
+		break-until (!script-running 206)
+		walk 2 to 194,102
+[00000121]:
+		wait-for-actor 2 [ref &[00000121]]
+		actor 2 \
+			never-zclip
+		userput on
+		cursor on
+		start-script 202
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0208
+		class-of 94 is 160
+		if !( V.165 == 2 ) jump &[00000070]
+		do-animation 5 8
+		break-here 6 times
+		break-here 2 times
+		do-animation 5 9
+		break-here 20 times
+		do-animation 5 6
+		V.165 = 1
+		jump &[00000094]
+[00000070]:
+		do-animation 5 7
+		break-here 27 times
+		do-animation 5 10
+		V.165 = 2
+[00000094]:
+		class-of 94 is 32
+		end-script
+	}
+}
+

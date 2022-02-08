@@ -1,0 +1,379 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 3
+; */
+
+room room_3 {
+
+	object 41 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0041
+		name is "kissing-flower-object"
+
+		verb 8 {
+			start-script 206
+			end-script
+		}
+	}
+
+	object 34 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0034
+		name is "apple-pond-door"
+
+		verb 8 {
+			start-script 201
+			end-script
+		}
+	}
+
+	object 33 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0033
+		name is "apple-home-door"
+
+		verb 8 {
+			userput off
+			cursor off
+			V.27 = 0
+			V.240 = actor-costume V.1
+			actor V.1 \
+				costume 0 \
+			V.132 = 1 + 1
+[00000051]:
+			if !( V.132 <= 12 ) jump &[00000080]
+			put-actor V.132 at 0,0 in-room 0
+			++V.132
+			jump &[00000051]
+[00000080]:
+			verb 17 \
+				image 182 in-room 20 \
+				(end-verb)
+			verb 18 \
+				image 183 in-room 20 \
+				(end-verb)
+			load-object 102 in-room 20
+			draw-object 102 at (V.2 - 160) / 8,(V.54 - 16) / 8
+			palette intensity 0 in-slot 16 to 223
+			palette intensity 0 in-slot 246 to 253
+			break-here
+			set-screen 0 to 128
+			userput on
+			cursor on
+			come-out-door 18 in-room 1 walk 117,134
+			end-script
+		}
+	}
+
+	object 37 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0037
+		name is "apple-pond-door2"
+
+		verb 8 {
+			start-script 201
+			end-script
+		}
+	}
+
+	object 35 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0035
+		name is "apple-cloud-1"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 36 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0036
+		name is "apple-cloud-2"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 38 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0038
+		name is "apple-1"
+
+		verb 8 {
+			start-script rec 205 ( 2, 38 )
+			end-script
+		}
+	}
+
+	object 39 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0039
+		name is "apple-2"
+
+		verb 8 {
+			start-script rec 205 ( 3, 39 )
+			end-script
+		}
+	}
+
+	object 40 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0040
+		name is "apple-3"
+
+		verb 8 {
+			start-script rec 205 ( 4, 40 )
+			end-script
+		}
+	}
+
+	object 42 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0042
+		name is "apple-4"
+
+		verb 8 {
+			start-script rec 205 ( 5, 42 )
+			end-script
+		}
+	}
+
+	object 43 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0043
+		name is "apple-5"
+
+		verb 8 {
+			start-script rec 205 ( 6, 43 )
+			end-script
+		}
+	}
+
+	object 32 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0032
+		name is "barrel"
+	}
+
+	object 44 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0044
+		name is "road-obj-1"
+	}
+
+	object 45 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0045
+		name is "road-obj-2"
+	}
+
+	object 190 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0190
+		name is ""
+	}
+
+	object 191 { ; VERB LECF_0001\LFLF_0003\ROOM\OBCD_0191
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0003\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
+		V.287 = 191
+		V.288 = 190
+		if ( !V.267 ) {
+			V.267 = (random 1) + 3
+		}
+		start-script 204
+		start-script 203
+		start-script 202
+		if ( V.135 == 4 ) {
+			start-script 200
+		}
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0200
+		userput off
+		cursor off
+		put-actor V.1 at 42,64 in-room 3
+		actor V.1 \
+			step-dist 16,2 \
+		do-animation V.1 248
+		break-here
+		walk V.1 to-object 34 within 0
+[00000056]:
+		wait-for-actor V.1 [ref &[00000056]]
+		actor V.1 \
+			step-dist 8,2 \
+		do-animation V.1 249
+		walk V.1 to-object 45 within 0
+[00000093]:
+		wait-for-actor V.1 [ref &[00000093]]
+		userput on
+		cursor on
+		end-script
+	}
+; Do Pond Door
+	script 201 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0201
+		userput off
+		cursor off
+		do-animation V.1 249
+		walk V.1 to 42,64
+[00000029]:
+		wait-for-actor V.1 [ref &[00000029]]
+		userput on
+		cursor on
+		userput off
+		cursor off
+		V.27 = 0
+		V.240 = actor-costume V.1
+		actor V.1 \
+			costume 0 \
+		V.132 = 1 + 1
+[00000077]:
+		if !( V.132 <= 12 ) jump &[00000106]
+		put-actor V.132 at 0,0 in-room 0
+		++V.132
+		jump &[00000077]
+[00000106]:
+		verb 17 \
+			image 182 in-room 20 \
+			(end-verb)
+		verb 18 \
+			image 183 in-room 20 \
+			(end-verb)
+		load-object 102 in-room 20
+		draw-object 102 at (V.2 - 160) / 8,(V.54 - 16) / 8
+		palette intensity 0 in-slot 16 to 223
+		palette intensity 0 in-slot 246 to 253
+		break-here
+		set-screen 0 to 128
+		userput on
+		cursor on
+		come-out-door 47 in-room 4 walk 48,131
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0202
+	local variable L.0
+
+		do {
+			if ( (object-x V.1) < -31 and L.0 == 0 ) {
+				actor V.1 \
+					step-dist 20,8 \
+				L.0 = 1
+			}
+			if ( (object-x V.1) > -31 and L.0 == 1 ) {
+				actor V.1 \
+					step-dist 8,2 \
+				L.0 = 0
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0203
+		actor 7 \
+			new \
+			costume 11 \
+			ignore-boxes \
+			never-zclip
+			sound [36]
+		put-actor 7 at 135,86 in-room 3
+		do-animation 7 6
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0204
+		class-of 38 is 32
+		class-of 39 is 32
+		class-of 40 is 32
+		class-of 42 is 32
+		class-of 43 is 32
+		actor 2 \
+			new \
+			costume 6 \
+			ignore-boxes \
+			never-zclip
+			sound [30, 25 + (random 3)]
+			elevation 100
+		actor 3 \
+			new \
+			costume 7 \
+			ignore-boxes \
+			never-zclip
+			sound [30, 32, 23, 25 + (random 3)]
+			elevation 100
+		actor 4 \
+			new \
+			costume 8 \
+			ignore-boxes \
+			never-zclip
+			sound [30, 24]
+			elevation 100
+		actor 5 \
+			new \
+			costume 9 \
+			ignore-boxes \
+			never-zclip
+			sound [29, 40, 57, 37, 31]
+			elevation 100
+		actor 6 \
+			new \
+			costume 10 \
+			ignore-boxes \
+			never-zclip
+			sound [30, 33]
+			elevation 100
+		put-actor 2 at 159,199 in-room 3
+		put-actor 3 at 159,199 in-room 3
+		put-actor 4 at 159,199 in-room 3
+		put-actor 5 at 159,199 in-room 3
+		put-actor 6 at 159,199 in-room 3
+		do-animation 2 7
+		do-animation 3 7
+		do-animation 4 7
+		do-animation 5 7
+		do-animation 6 7
+		end-script
+	}
+; Do Apples
+	script 205 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		class-of L.1 is 160
+		if !( L.0 == 2 ) jump &[00000039]
+		L.2 = 28
+		jump &[00000112]
+[00000039]:
+		if !( L.0 == 3 ) jump &[00000057]
+		L.2 = 55
+		jump &[00000112]
+[00000057]:
+		if !( L.0 == 4 ) jump &[00000075]
+		L.2 = 38
+		jump &[00000112]
+[00000075]:
+		if !( L.0 == 5 ) jump &[00000093]
+		L.2 = 86
+		jump &[00000112]
+[00000093]:
+		if !( L.0 == 6 ) jump &[00000111]
+		L.2 = 35
+		jump &[00000112]
+[00000112]:
+		do-animation L.0 8
+		break-here L.2 times
+		put-actor L.0 at 0,0 in-room 0
+		if ( L.0 != 5 ) {
+			sleep-for 1 seconds
+		}
+		put-actor L.0 at 159,199 in-room 3
+		do-animation L.0 6
+		break-here 6 times
+		do-animation L.0 7
+		class-of L.1 is 32
+		end-script
+	}
+
+; Do Kissing Flower
+	script 206 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0206
+		class-of 41 is 160
+		do-animation 7 7
+		break-here 7 times
+		do-animation 7 6
+		class-of 41 is 32
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0207
+		userput off
+		cursor off
+		sleep-for 45 jiffies
+		start-script 33
+		userput on
+		cursor on
+		end-script
+	}
+}
+

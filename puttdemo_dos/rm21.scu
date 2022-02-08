@@ -1,0 +1,89 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 21
+; */
+
+room room_21 {
+
+	object 145 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0145
+		name is ""
+	}
+
+	object 146 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0146
+		name is ""
+	}
+
+	object 147 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0147
+		name is ""
+	}
+
+	object 148 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0148
+		name is ""
+	}
+
+	object 149 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0149
+		name is ""
+	}
+
+	object 150 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0150
+		name is ""
+	}
+
+	object 151 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0151
+		name is ""
+	}
+
+	object 152 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0152
+		name is ""
+	}
+
+	object 153 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0153
+		name is ""
+	}
+
+	object 154 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0154
+		name is ""
+	}
+
+	object 155 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0155
+		name is ""
+	}
+
+	object 156 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0156
+		name is ""
+	}
+
+	object 157 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0157
+		name is ""
+	}
+
+	object 158 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0158
+		name is ""
+	}
+
+	object 159 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0159
+		name is ""
+	}
+
+	object 160 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0160
+		name is ""
+	}
+
+	object 161 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0161
+		name is ""
+	}
+
+	object 162 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0162
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0021\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0021\ROOM\ENCD
+		end-script
+	}
+}
+

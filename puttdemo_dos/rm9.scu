@@ -1,0 +1,58 @@
+;/**
+; * Putt-Putt Joins the Parade: DOS Demo
+; * 
+; * Room 9
+; */
+
+; Putt-Putt Introduces Himself
+script 42 { ; SCRP LECF_0001\LFLF_0009\SCRP_0042
+	current-room 7
+	sleep-for 2 seconds
+	fades 134
+	current-room 8
+	start-script 41
+	break-until (!script-running 41)
+	sleep-for 2 seconds
+	fades -32383
+	current-room 9
+	start-script 39 ( 70 )
+	sleep-for 1 seconds
+	actor 1 \
+		ignore-boxes \
+		never-zclip
+		step-dist 10,2 \
+	put-actor 1 at -50,155 in-room 9
+	walk 1 to 170,155
+[00000111]:
+	wait-for-actor 1 [ref &[00000111]]
+	stop-script 29
+	do-animation 1 9
+	sleep-for 30 jiffies
+	say-line "\xFF\x0A\xF4\x8F\xFF\x0A\x0A\x00\xFF\x0A\xF8\x3A\xFF\x0A\x00\x00Hi, I'm Putt Putt."
+	start-script 29
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line "\xFF\x0A\xEC\xCA\xFF\x0A\x0A\x00\xFF\x0A\x82\x49\xFF\x0A\x00\x00Come join me on my adventure."
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line "\xFF\x0A\x6E\x14\xFF\x0A\x0B\x00\xFF\x0A\xC8\x38\xFF\x0A\x00\x00I'm ready to go!"
+	wait-for-message
+	sleep-for 15 jiffies
+	do-animation 1 7
+	walk 1 to 370,155
+[00000295]:
+	wait-for-actor 1 [ref &[00000295]]
+	end-script
+}
+
+room room_9 {
+
+	exit { ; EXCD LECF_0001\LFLF_0009\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
+		end-script
+	}
+}
+
