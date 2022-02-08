@@ -1,0 +1,2565 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 30: Phatt Island Library (library)
+; */
+
+script 88 { ; SCRP LECF_0001\LFLF_0030\SCRP_0088
+local variable L.0
+local variable L.1
+
+	class-of L.0 is 6 9
+	if !(L.1 is 1) jump &[00000057]
+	new-name-of L.0 is "Zelda Carbuncle Tells All"
+	jump &[00007687]
+[00000057]:
+	if !(L.1 is 2) jump &[00000083]
+	new-name-of L.0 is "Animatronics"
+	jump &[00007687]
+[00000083]:
+	if !(L.1 is 3) jump &[00000114]
+	new-name-of L.0 is "Under the Surface"
+	jump &[00007687]
+[00000114]:
+	if !(L.1 is 4) jump &[00000150]
+	new-name-of L.0 is "X Never Marks the Spot"
+	jump &[00007687]
+[00000150]:
+	if !(L.1 is 5) jump &[00000188]
+	new-name-of L.0 is "Vagueness as an Art Form"
+	jump &[00007687]
+[00000188]:
+	if !(L.1 is 6) jump &[00000225]
+	new-name-of L.0 is "Idealism or Surrealism?"
+	jump &[00007687]
+[00000225]:
+	if !(L.1 is 7) jump &[00000261]
+	new-name-of L.0 is "Beverages for Everyone"
+	jump &[00007687]
+[00000261]:
+	if !(L.1 is 8) jump &[00000278]
+	class-of L.0 is 137
+	jump &[00007687]
+[00000278]:
+	if !(L.1 is 9) jump &[00000308]
+	new-name-of L.0 is "Both Hands Empty"
+	jump &[00007687]
+[00000308]:
+	if !(L.1 is 10) jump &[00000339]
+	new-name-of L.0 is "Both Hands Moving"
+	jump &[00007687]
+[00000339]:
+	if !(L.1 is 11) jump &[00000369]
+	new-name-of L.0 is "Both Heads Empty"
+	jump &[00007687]
+[00000369]:
+	if !(L.1 is 12) jump &[00000405]
+	new-name-of L.0 is "A Fistful of Barnacles"
+	jump &[00007687]
+[00000405]:
+	if !(L.1 is 13) jump &[00000440]
+	new-name-of L.0 is "Lick the Silver Spoon"
+	jump &[00007687]
+[00000440]:
+	if !(L.1 is 14) jump &[00000471]
+	new-name-of L.0 is "Me and Blackbeard"
+	jump &[00007687]
+[00000471]:
+	if !(L.1 is 15) jump &[00000511]
+	new-name-of L.0 is "The Time I Blew Up LeChuck"
+	jump &[00007687]
+[00000511]:
+	if !(L.1 is 16) jump &[00000531]
+	new-name-of L.0 is "Yikes!"
+	jump &[00007687]
+[00000531]:
+	if !(L.1 is 17) jump &[00000563]
+	new-name-of L.0 is "Unusual Birthmarks"
+	jump &[00007687]
+[00000563]:
+	if !(L.1 is 18) jump &[00000600]
+	new-name-of L.0 is "Breakfast at Meathook's"
+	jump &[00007687]
+[00000600]:
+	if !(L.1 is 19) jump &[00000654]
+	new-name-of L.0 is "Crash! True Life Stories of Game Testers"
+	jump &[00007687]
+[00000654]:
+	if !(L.1 is 20) jump &[00000708]
+	new-name-of L.0 is "How to Make Friends and Influence People"
+	jump &[00007687]
+[00000708]:
+	if !(L.1 is 21) jump &[00000736]
+	new-name-of L.0 is "Friend or Foe?"
+	jump &[00007687]
+[00000736]:
+	if !(L.1 is 22) jump &[00000766]
+	new-name-of L.0 is "How to Serve Man"
+	jump &[00007687]
+[00000766]:
+	if !(L.1 is 23) jump &[00000783]
+	class-of L.0 is 137
+	jump &[00007687]
+[00000783]:
+	if !(L.1 is 24) jump &[00000828]
+	new-name-of L.0 is "Pirate Captains and Their Ships"
+	jump &[00007687]
+[00000828]:
+	if !(L.1 is 25) jump &[00000871]
+	new-name-of L.0 is "Guide to Cheeses of the World"
+	jump &[00007687]
+[00000871]:
+	if !(L.1 is 26) jump &[00000928]
+	new-name-of L.0 is "The Sinister and Extremely Exil Shodowbeast"
+	jump &[00007687]
+[00000928]:
+	if !(L.1 is 27) jump &[00000979]
+	new-name-of L.0 is "Treasury of Pirate Children's Stories"
+	jump &[00007687]
+[00000979]:
+	if !(L.1 is 28) jump &[00001011]
+	new-name-of L.0 is "You Can Pirate Too"
+	jump &[00007687]
+[00001011]:
+	if !(L.1 is 29) jump &[00001063]
+	new-name-of L.0 is "Alfredo and Bill's Excellent Adventure"
+	jump &[00007687]
+[00001063]:
+	if !(L.1 is 30) jump &[00001099]
+	new-name-of L.0 is "Damn the Human Torpedo"
+	jump &[00007687]
+[00001099]:
+	if !(L.1 is 31) jump &[00001133]
+	new-name-of L.0 is "Great Expectorations"
+	jump &[00007687]
+[00001133]:
+	if !(L.1 is 32) jump &[00001172]
+	new-name-of L.0 is "Junk, Junk, and More Junk"
+	jump &[00007687]
+[00001172]:
+	if !(L.1 is 33) jump &[00001209]
+	new-name-of L.0 is "Noteworthy Pirate Foods"
+	jump &[00007687]
+[00001209]:
+	if !(L.1 is 34) jump &[00001258]
+	new-name-of L.0 is "Viscous Fluids You Can Make at Home"
+	jump &[00007687]
+[00001258]:
+	if !(L.1 is 35) jump &[00001309]
+	new-name-of L.0 is "Crochet Eyepatches for Fun and Profit"
+	jump &[00007687]
+[00001309]:
+	if !(L.1 is 36) jump &[00001364]
+	new-name-of L.0 is "Dancing Skeltons and Other Hallucinations"
+	jump &[00007687]
+[00001364]:
+	if !(L.1 is 37) jump &[00001414]
+	V.493 = 37
+	new-name-of L.0 is "Great Shipwrecks of Our Century"
+	jump &[00007687]
+[00001414]:
+	if !(L.1 is 38) jump &[00001457]
+	new-name-of L.0 is "Facinating Facts About Scurvy"
+	jump &[00007687]
+[00001457]:
+	if !(L.1 is 39) jump &[00001489]
+	new-name-of L.0 is "Shipboard Diseases"
+	jump &[00007687]
+[00001489]:
+	if !(L.1 is 40) jump &[00001525]
+	new-name-of L.0 is "Dog English Dictionary"
+	jump &[00007687]
+[00001525]:
+	if !(L.1 is 41) jump &[00001577]
+	new-name-of L.0 is "Preparing for the Pirate Aptitude Test"
+	jump &[00007687]
+[00001577]:
+	if !(L.1 is 42) jump &[00001627]
+	new-name-of L.0 is "How to Test Games on One Egg Per Day"
+	jump &[00007687]
+[00001627]:
+	if !(L.1 is 43) jump &[00001657]
+	new-name-of L.0 is "Quiet on the Set"
+	jump &[00007687]
+[00001657]:
+	if !(L.1 is 44) jump &[00001683]
+	new-name-of L.0 is "Tomato Worms"
+	jump &[00007687]
+[00001683]:
+	if !(L.1 is 45) jump &[00001726]
+	new-name-of L.0 is "Governor Phatt's Face Workout"
+	jump &[00007687]
+[00001726]:
+	if !(L.1 is 46) jump &[00001743]
+	class-of L.0 is 137
+	jump &[00007687]
+[00001743]:
+	if !(L.1 is 47) jump &[00001760]
+	class-of L.0 is 137
+	jump &[00007687]
+[00001760]:
+	if !(L.1 is 48) jump &[00001803]
+	new-name-of L.0 is "Summer Swashbuckling Fashions"
+	jump &[00007687]
+[00001803]:
+	if !(L.1 is 49) jump &[00001825]
+	new-name-of L.0 is "E Ticket"
+	jump &[00007687]
+[00001825]:
+	if !(L.1 is 50) jump &[00001862]
+	new-name-of L.0 is "Five More Than I Needed"
+	jump &[00007687]
+[00001862]:
+	if !(L.1 is 51) jump &[00001889]
+	new-name-of L.0 is "Hedgehog Days"
+	jump &[00007687]
+[00001889]:
+	if !(L.1 is 52) jump &[00001927]
+	new-name-of L.0 is "Not So Much As A Dubloon"
+	jump &[00007687]
+[00001927]:
+	if !(L.1 is 53) jump &[00001964]
+	new-name-of L.0 is "Very Very Short Stories"
+	jump &[00007687]
+[00001964]:
+	if !(L.1 is 54) jump &[00002001]
+	new-name-of L.0 is "Easy Ways to Make Money"
+	jump &[00007687]
+[00002001]:
+	if !(L.1 is 55) jump &[00002036]
+	V.491 = 55
+	new-name-of L.0 is "Big Book of Fish"
+	jump &[00007687]
+[00002036]:
+	if !(L.1 is 56) jump &[00002078]
+	new-name-of L.0 is "Limpet Fishing: The Lost Art"
+	jump &[00007687]
+[00002078]:
+	if !(L.1 is 57) jump &[00002112]
+	new-name-of L.0 is "I Married A Muenster"
+	jump &[00007687]
+[00002112]:
+	if !(L.1 is 58) jump &[00002146]
+	new-name-of L.0 is "Life-Size and Larger"
+	jump &[00007687]
+[00002146]:
+	if !(L.1 is 59) jump &[00002184]
+	new-name-of L.0 is "Rats as a Protein Source"
+	jump &[00007687]
+[00002184]:
+	if !(L.1 is 60) jump &[00002201]
+	class-of L.0 is 137
+	jump &[00007687]
+[00002201]:
+	if !(L.1 is 61) jump &[00002238]
+	new-name-of L.0 is "Hal Barwood on Monkey 2"
+	jump &[00007687]
+[00002238]:
+	if !(L.1 is 62) jump &[00002273]
+	new-name-of L.0 is "Kings of Shuffleboard"
+	jump &[00007687]
+[00002273]:
+	if !(L.1 is 63) jump &[00002308]
+	new-name-of L.0 is "Play Winning Checkers"
+	jump &[00007687]
+[00002308]:
+	if !(L.1 is 64) jump &[00002344]
+	new-name-of L.0 is "When I Blew Up LeChuck"
+	jump &[00007687]
+[00002344]:
+	if !(L.1 is 65) jump &[00002381]
+	new-name-of L.0 is "Where I Blew Up LeChuck"
+	jump &[00007687]
+[00002381]:
+	if !(L.1 is 66) jump &[00002416]
+	new-name-of L.0 is "Why I Blew Up LeChuck"
+	jump &[00007687]
+[00002416]:
+	if !(L.1 is 67) jump &[00002473]
+	new-name-of L.0 is "Grave Robbing: The Greatest Sin of Them All"
+	jump &[00007687]
+[00002473]:
+	if !(L.1 is 68) jump &[00002510]
+	new-name-of L.0 is "I Am Blackbeard's Liver"
+	jump &[00007687]
+[00002510]:
+	if !(L.1 is 69) jump &[00002561]
+	new-name-of L.0 is "Loose Cannon: The Life of T. Bratcher"
+	jump &[00007687]
+[00002561]:
+	if !(L.1 is 70) jump &[00002616]
+	new-name-of L.0 is "Tattoos: Cure for Baldness or Ego-stoker?"
+	jump &[00007687]
+[00002616]:
+	if !(L.1 is 71) jump &[00002667]
+	new-name-of L.0 is "Diseases You Can Get From Your Parrot"
+	jump &[00007687]
+[00002667]:
+	if !(L.1 is 72) jump &[00002712]
+	new-name-of L.0 is "Careful With Those Cannonballs!"
+	jump &[00007687]
+[00002712]:
+	if !(L.1 is 73) jump &[00002729]
+	class-of L.0 is 137
+	jump &[00007687]
+[00002729]:
+	if !(L.1 is 74) jump &[00002764]
+	new-name-of L.0 is "Rememberance of Molly"
+	jump &[00007687]
+[00002764]:
+	if !(L.1 is 75) jump &[00002802]
+	new-name-of L.0 is "Bad Puns For Bad Pirates"
+	jump &[00007687]
+[00002802]:
+	if !(L.1 is 76) jump &[00002833]
+	new-name-of L.0 is "Dumb Pirate Jokes"
+	jump &[00007687]
+[00002833]:
+	if !(L.1 is 77) jump &[00002878]
+	new-name-of L.0 is "So You're Going To Be Executed^"
+	jump &[00007687]
+[00002878]:
+	if !(L.1 is 78) jump &[00002900]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00002900]:
+	if !(L.1 is 79) jump &[00002922]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00002922]:
+	if !(L.1 is 80) jump &[00002944]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00002944]:
+	if !(L.1 is 81) jump &[00002984]
+	new-name-of L.0 is "Tikis of the South Pacific"
+	jump &[00007687]
+[00002984]:
+	if !(L.1 is 82) jump &[00003026]
+	new-name-of L.0 is "Igloo Construction Made Easy"
+	jump &[00007687]
+[00003026]:
+	if !(L.1 is 83) jump &[00003058]
+	new-name-of L.0 is "The Story of Jello"
+	jump &[00007687]
+[00003058]:
+	if !(L.1 is 84) jump &[00003105]
+	new-name-of L.0 is "My Karma Just Ran Over Your Dogma"
+	jump &[00007687]
+[00003105]:
+	if !(L.1 is 85) jump &[00003143]
+	new-name-of L.0 is "Methodology and Practice"
+	jump &[00007687]
+[00003143]:
+	if !(L.1 is 86) jump &[00003168]
+	new-name-of L.0 is "Kleptomania"
+	jump &[00007687]
+[00003168]:
+	if !(L.1 is 87) jump &[00003190]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003190]:
+	if !(L.1 is 88) jump &[00003212]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003212]:
+	if !(L.1 is 89) jump &[00003234]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003234]:
+	if !(L.1 is 90) jump &[00003256]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003256]:
+	if !(L.1 is 91) jump &[00003278]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003278]:
+	if !(L.1 is 92) jump &[00003300]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003300]:
+	if !(L.1 is 93) jump &[00003322]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003322]:
+	if !(L.1 is 94) jump &[00003344]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003344]:
+	if !(L.1 is 95) jump &[00003366]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003366]:
+	if !(L.1 is 96) jump &[00003388]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003388]:
+	if !(L.1 is 97) jump &[00003410]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003410]:
+	if !(L.1 is 98) jump &[00003432]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003432]:
+	if !(L.1 is 99) jump &[00003454]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003454]:
+	if !(L.1 is 100) jump &[00003476]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003476]:
+	if !(L.1 is 101) jump &[00003511]
+	new-name-of L.0 is "Hip Lingo for Pirates"
+	jump &[00007687]
+[00003511]:
+	if !(L.1 is 102) jump &[00003548]
+	new-name-of L.0 is "Afternoon at Meathook's"
+	jump &[00007687]
+[00003548]:
+	if !(L.1 is 103) jump &[00003565]
+	class-of L.0 is 137
+	jump &[00007687]
+[00003565]:
+	if !(L.1 is 104) jump &[00003603]
+	new-name-of L.0 is "Damp Damsels of the Deep"
+	jump &[00007687]
+[00003603]:
+	if !(L.1 is 105) jump &[00003643]
+	new-name-of L.0 is "The Sailor and the Sea Cow"
+	jump &[00007687]
+[00003643]:
+	if !(L.1 is 106) jump &[00003693]
+	new-name-of L.0 is "The Steath Sailer: Why It Won't Sail"
+	jump &[00007687]
+[00003693]:
+	if !(L.1 is 107) jump &[00003733]
+	new-name-of L.0 is "The Majesty of the Sierras"
+	jump &[00007687]
+[00003733]:
+	if !(L.1 is 108) jump &[00003758]
+	new-name-of L.0 is "Elvis Lives"
+	jump &[00007687]
+[00003758]:
+	if !(L.1 is 109) jump &[00003818]
+	new-name-of L.0 is "Grammy Award Winners of the Renaissance Period"
+	jump &[00007687]
+[00003818]:
+	if !(L.1 is 110) jump &[00003844]
+	new-name-of L.0 is "Volume First"
+	jump &[00007687]
+[00003844]:
+	if !(L.1 is 111) jump &[00003884]
+	new-name-of L.0 is "World's Worst Pirate Songs"
+	jump &[00007687]
+[00003884]:
+	if !(L.1 is 112) jump &[00003921]
+	new-name-of L.0 is "Xylophone For Beginners"
+	jump &[00007687]
+[00003921]:
+	if !(L.1 is 113) jump &[00003943]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003943]:
+	if !(L.1 is 114) jump &[00003965]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003965]:
+	if !(L.1 is 115) jump &[00003987]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00003987]:
+	if !(L.1 is 116) jump &[00004009]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004009]:
+	if !(L.1 is 117) jump &[00004031]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004031]:
+	if !(L.1 is 118) jump &[00004053]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004053]:
+	if !(L.1 is 119) jump &[00004075]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004075]:
+	if !(L.1 is 120) jump &[00004097]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004097]:
+	if !(L.1 is 121) jump &[00004138]
+	new-name-of L.0 is "Dianetics by L. Ron Gilbert"
+	jump &[00007687]
+[00004138]:
+	if !(L.1 is 122) jump &[00004197]
+	new-name-of L.0 is "BAOOOGA: A Difinative Guide to Cartoon Noises"
+	jump &[00007687]
+[00004197]:
+	if !(L.1 is 123) jump &[00004236]
+	new-name-of L.0 is "How to Give Great Noogies"
+	jump &[00007687]
+[00004236]:
+	if !(L.1 is 124) jump &[00004274]
+	new-name-of L.0 is "Numerology for Beginners"
+	jump &[00007687]
+[00004274]:
+	if !(L.1 is 125) jump &[00004306]
+	new-name-of L.0 is "More of Me to Love"
+	jump &[00007687]
+[00004306]:
+	if !(L.1 is 126) jump &[00004328]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004328]:
+	if !(L.1 is 127) jump &[00004350]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004350]:
+	if !(L.1 is 128) jump &[00004372]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004372]:
+	if !(L.1 is 129) jump &[00004394]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004394]:
+	if !(L.1 is 130) jump &[00004416]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004416]:
+	if !(L.1 is 131) jump &[00004438]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004438]:
+	if !(L.1 is 132) jump &[00004460]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004460]:
+	if !(L.1 is 133) jump &[00004482]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004482]:
+	if !(L.1 is 134) jump &[00004504]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004504]:
+	if !(L.1 is 135) jump &[00004526]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004526]:
+	if !(L.1 is 136) jump &[00004548]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004548]:
+	if !(L.1 is 137) jump &[00004570]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004570]:
+	if !(L.1 is 138) jump &[00004592]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004592]:
+	if !(L.1 is 139) jump &[00004614]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004614]:
+	if !(L.1 is 140) jump &[00004636]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00004636]:
+	if !(L.1 is 141) jump &[00004691]
+	new-name-of L.0 is "Read This Book, Everyone Else Already Has"
+	jump &[00007687]
+[00004691]:
+	if !(L.1 is 142) jump &[00004716]
+	new-name-of L.0 is "Deliberance"
+	jump &[00007687]
+[00004716]:
+	if !(L.1 is 143) jump &[00004752]
+	new-name-of L.0 is "Rastafarian Philosophy"
+	jump &[00007687]
+[00004752]:
+	if !(L.1 is 144) jump &[00004785]
+	new-name-of L.0 is "All about Pillaging"
+	jump &[00007687]
+[00004785]:
+	if !(L.1 is 145) jump &[00004819]
+	new-name-of L.0 is "Masters of Pillaging"
+	jump &[00007687]
+[00004819]:
+	if !(L.1 is 146) jump &[00004845]
+	new-name-of L.0 is "Clean Sheets"
+	jump &[00007687]
+[00004845]:
+	if !(L.1 is 147) jump &[00004895]
+	V.494 = 147
+	class-of L.0 is 134
+	new-name-of L.0 is "Famous Pirate Quotations"
+	jump &[00007687]
+[00004895]:
+	if !(L.1 is 148) jump &[00004942]
+	new-name-of L.0 is "Louse Ranching For Fun and Profit"
+	jump &[00007687]
+[00004942]:
+	if !(L.1 is 149) jump &[00004959]
+	class-of L.0 is 137
+	jump &[00007687]
+[00004959]:
+	if !(L.1 is 150) jump &[00004992]
+	V.492 = 150
+	new-name-of L.0 is "The Joy of Hex"
+	jump &[00007687]
+[00004992]:
+	if !(L.1 is 151) jump &[00005029]
+	new-name-of L.0 is "Amour's Agonizing Adieu"
+	jump &[00007687]
+[00005029]:
+	if !(L.1 is 152) jump &[00005073]
+	new-name-of L.0 is "Desire's Distasteful Denoument"
+	jump &[00007687]
+[00005073]:
+	if !(L.1 is 153) jump &[00005113]
+	new-name-of L.0 is "Fascination's Final Frenzy"
+	jump &[00007687]
+[00005113]:
+	if !(L.1 is 154) jump &[00005159]
+	new-name-of L.0 is "Infatuation's Infinite Insolence"
+	jump &[00007687]
+[00005159]:
+	if !(L.1 is 155) jump &[00005199]
+	new-name-of L.0 is "Love's Lingering Lastitude"
+	jump &[00007687]
+[00005199]:
+	if !(L.1 is 156) jump &[00005228]
+	new-name-of L.0 is "Next To Nothing"
+	jump &[00007687]
+[00005228]:
+	if !(L.1 is 157) jump &[00005271]
+	new-name-of L.0 is "Passion's Persistent Presence"
+	jump &[00007687]
+[00005271]:
+	if !(L.1 is 158) jump &[00005307]
+	new-name-of L.0 is "Sin's Sordid Swan Song"
+	jump &[00007687]
+[00005307]:
+	if !(L.1 is 159) jump &[00005345]
+	new-name-of L.0 is "Romances Wreched Residue"
+	jump &[00007687]
+[00005345]:
+	if !(L.1 is 160) jump &[00005390]
+	new-name-of L.0 is "Yearning's Yellowing Yesterdays"
+	jump &[00007687]
+[00005390]:
+	if !(L.1 is 161) jump &[00005425]
+	new-name-of L.0 is "If I Only Had A Drain"
+	jump &[00007687]
+[00005425]:
+	if !(L.1 is 162) jump &[00005451]
+	new-name-of L.0 is "Safe Sailing"
+	jump &[00007687]
+[00005451]:
+	if !(L.1 is 163) jump &[00005485]
+	new-name-of L.0 is "Scabb Island History"
+	jump &[00007687]
+[00005485]:
+	if !(L.1 is 164) jump &[00005523]
+	new-name-of L.0 is "Pirates Who Love to Much"
+	jump &[00007687]
+[00005523]:
+	if !(L.1 is 165) jump &[00005580]
+	new-name-of L.0 is "Not Eating People and Feeling Good About It"
+	jump &[00007687]
+[00005580]:
+	if !(L.1 is 166) jump &[00005613]
+	new-name-of L.0 is "Killers of the Deep"
+	jump &[00007687]
+[00005613]:
+	if !(L.1 is 167) jump &[00005646]
+	new-name-of L.0 is "Modern Shipbuilding"
+	jump &[00007687]
+[00005646]:
+	if !(L.1 is 168) jump &[00005663]
+	class-of L.0 is 137
+	jump &[00007687]
+[00005663]:
+	if !(L.1 is 169) jump &[00005694]
+	new-name-of L.0 is "Shiver Me Timbers"
+	jump &[00007687]
+[00005694]:
+	if !(L.1 is 170) jump &[00005733]
+	new-name-of L.0 is "Gift of the Lizard People"
+	jump &[00007687]
+[00005733]:
+	if !(L.1 is 171) jump &[00005767]
+	new-name-of L.0 is "Over the Crow's Nest"
+	jump &[00007687]
+[00005767]:
+	if !(L.1 is 172) jump &[00005822]
+	new-name-of L.0 is "Walk Thru Walls: The Intelligence Avoider"
+	jump &[00007687]
+[00005822]:
+	if !(L.1 is 173) jump &[00005875]
+	new-name-of L.0 is "Subtraction: Addition's Tricky Partener"
+	jump &[00007687]
+[00005875]:
+	if !(L.1 is 174) jump &[00005897]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00005897]:
+	if !(L.1 is 175) jump &[00005919]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00005919]:
+	if !(L.1 is 176) jump &[00005941]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00005941]:
+	if !(L.1 is 177) jump &[00005963]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00005963]:
+	if !(L.1 is 178) jump &[00005985]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00005985]:
+	if !(L.1 is 179) jump &[00006007]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006007]:
+	if !(L.1 is 180) jump &[00006029]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006029]:
+	if !(L.1 is 181) jump &[00006071]
+	new-name-of L.0 is "Tattoos: Why Chicks Dig Them"
+	jump &[00007687]
+[00006071]:
+	if !(L.1 is 182) jump &[00006116]
+	new-name-of L.0 is "Tattoos-Related Skin Infections"
+	jump &[00007687]
+[00006116]:
+	if !(L.1 is 183) jump &[00006158]
+	new-name-of L.0 is "Tattoos of the Great Pirates"
+	jump &[00007687]
+[00006158]:
+	if !(L.1 is 184) jump &[00006203]
+	new-name-of L.0 is "A Child's First Book of Tattoos"
+	jump &[00007687]
+[00006203]:
+	if !(L.1 is 185) jump &[00006249]
+	new-name-of L.0 is "Beyond Hearts and Question Marks"
+	jump &[00007687]
+[00006249]:
+	if !(L.1 is 186) jump &[00006296]
+	new-name-of L.0 is "The Caribbean on No Dollars A Day"
+	jump &[00007687]
+[00006296]:
+	if !(L.1 is 187) jump &[00006341]
+	new-name-of L.0 is "Falstein's Treasury of Treasure"
+	jump &[00007687]
+[00006341]:
+	if !(L.1 is 188) jump &[00006394]
+	new-name-of L.0 is "Inky Island: Unclaimed Bonanza or Myth?"
+	jump &[00007687]
+[00006394]:
+	if !(L.1 is 189) jump &[00006427]
+	new-name-of L.0 is "Long Lost Treasures"
+	jump &[00007687]
+[00006427]:
+	if !(L.1 is 190) jump &[00006449]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006449]:
+	if !(L.1 is 191) jump &[00006471]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006471]:
+	if !(L.1 is 192) jump &[00006493]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006493]:
+	if !(L.1 is 193) jump &[00006515]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006515]:
+	if !(L.1 is 194) jump &[00006537]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006537]:
+	if !(L.1 is 195) jump &[00006559]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006559]:
+	if !(L.1 is 196) jump &[00006581]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006581]:
+	if !(L.1 is 197) jump &[00006603]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006603]:
+	if !(L.1 is 198) jump &[00006625]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006625]:
+	if !(L.1 is 199) jump &[00006647]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006647]:
+	if !(L.1 is 200) jump &[00006669]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006669]:
+	if !(L.1 is 201) jump &[00006690]
+	new-name-of L.0 is "Patches"
+	jump &[00007687]
+[00006690]:
+	if !(L.1 is 202) jump &[00006707]
+	class-of L.0 is 137
+	jump &[00007687]
+[00006707]:
+	if !(L.1 is 203) jump &[00006745]
+	new-name-of L.0 is "Opulence as a Social Art"
+	jump &[00007687]
+[00006745]:
+	if !(L.1 is 204) jump &[00006773]
+	new-name-of L.0 is "Out On a Plank"
+	jump &[00007687]
+[00006773]:
+	if !(L.1 is 205) jump &[00006795]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006795]:
+	if !(L.1 is 206) jump &[00006817]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006817]:
+	if !(L.1 is 207) jump &[00006839]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006839]:
+	if !(L.1 is 208) jump &[00006861]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006861]:
+	if !(L.1 is 209) jump &[00006883]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006883]:
+	if !(L.1 is 210) jump &[00006905]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006905]:
+	if !(L.1 is 211) jump &[00006927]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006927]:
+	if !(L.1 is 212) jump &[00006949]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006949]:
+	if !(L.1 is 213) jump &[00006971]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006971]:
+	if !(L.1 is 214) jump &[00006993]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00006993]:
+	if !(L.1 is 215) jump &[00007015]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007015]:
+	if !(L.1 is 216) jump &[00007037]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007037]:
+	if !(L.1 is 217) jump &[00007059]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007059]:
+	if !(L.1 is 218) jump &[00007081]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007081]:
+	if !(L.1 is 219) jump &[00007103]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007103]:
+	if !(L.1 is 220) jump &[00007125]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007125]:
+	if !(L.1 is 221) jump &[00007142]
+	class-of L.0 is 137
+	jump &[00007687]
+[00007142]:
+	if !(L.1 is 222) jump &[00007190]
+	new-name-of L.0 is "Yodeling from the Top of the Lungs"
+	jump &[00007687]
+[00007190]:
+	if !(L.1 is 223) jump &[00007217]
+	new-name-of L.0 is "Zipper Theory"
+	jump &[00007687]
+[00007217]:
+	if !(L.1 is 224) jump &[00007255]
+	new-name-of L.0 is "Just one of the Primates"
+	jump &[00007687]
+[00007255]:
+	if !(L.1 is 225) jump &[00007309]
+	new-name-of L.0 is "Zoo Animals More Intelligent Than Humans"
+	jump &[00007687]
+[00007309]:
+	if !(L.1 is 226) jump &[00007331]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007331]:
+	if !(L.1 is 227) jump &[00007353]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007353]:
+	if !(L.1 is 228) jump &[00007375]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007375]:
+	if !(L.1 is 229) jump &[00007397]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007397]:
+	if !(L.1 is 230) jump &[00007419]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007419]:
+	if !(L.1 is 231) jump &[00007441]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007441]:
+	if !(L.1 is 232) jump &[00007463]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007463]:
+	if !(L.1 is 233) jump &[00007485]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007485]:
+	if !(L.1 is 234) jump &[00007507]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007507]:
+	if !(L.1 is 235) jump &[00007529]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007529]:
+	if !(L.1 is 236) jump &[00007551]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007551]:
+	if !(L.1 is 237) jump &[00007573]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007573]:
+	if !(L.1 is 238) jump &[00007595]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007595]:
+	if !(L.1 is 239) jump &[00007617]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007617]:
+	if !(L.1 is 240) jump &[00007639]
+	new-name-of L.0 is " "
+	class-of L.0 is 137
+	jump &[00007687]
+[00007639]:
+	new-name-of L.0 is "1001 Pirate Songs, a Book You Shouldn't Have"
+[00007687]:
+	end-script
+}
+
+script 106 { ; SCRP LECF_0001\LFLF_0030\SCRP_0106
+local variable L.0
+
+	cut-scene
+	override &[00000357]
+	L.0 = V.462[0]
+	if !(L.0 is 0) jump &[00000057]
+	say-line "Guybrush Threepwood"
+	jump &[00000111]
+[00000057]:
+	if !(L.0 is 1) jump &[00000083]
+	say-line "Captain Dread"
+	jump &[00000111]
+[00000083]:
+	if !(L.0 is 2) jump &[00000111]
+	say-line "Herman Toothrot"
+	jump &[00000111]
+[00000111]:
+	wait-for-message
+	L.0 = V.462[1]
+	if !(L.0 is 0) jump &[00000150]
+	say-line "221B Baker Street"
+	jump &[00000247]
+[00000150]:
+	if !(L.0 is 1) jump &[00000180]
+	say-line "10 Downing Street"
+	jump &[00000247]
+[00000180]:
+	if !(L.0 is 2) jump &[00000210]
+	say-line "1060 West Addison"
+	jump &[00000247]
+[00000210]:
+	if !(L.0 is 3) jump &[00000247]
+	say-line "1600 Pennsylvania Avenue"
+	jump &[00000247]
+[00000247]:
+	wait-for-message
+	say-line "Age: 21"
+	wait-for-message
+	L.0 = V.462[2]
+	if !(L.0 is 0) jump &[00000291]
+	say-line "Consultant"
+	jump &[00000355]
+[00000291]:
+	if !(L.0 is 1) jump &[00000313]
+	say-line "Freelance"
+	jump &[00000355]
+[00000313]:
+	if !(L.0 is 2) jump &[00000336]
+	say-line "Unemployed"
+	jump &[00000355]
+[00000336]:
+	if !(L.0 is 3) jump &[00000355]
+	say-line "Pirate"
+	jump &[00000355]
+[00000355]:
+	wait-for-message
+[00000357]:
+	print-line " "
+	end-cut-scene
+	end-script
+}
+
+room library {
+
+	object 288 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0288
+		name is "librarian"
+
+		verb 90 {
+			V.156 = 10
+			end-object
+		}
+
+		verb 10 {
+			start-script 200 ()
+			end-object
+		}
+
+		verb 80 {
+		local variable L.0
+
+			start-script 205 (L.0)
+			end-object
+		}
+
+		verb 8 {
+			say-line "She looks kind of surly."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I wouldn't want to.\\xFF\\x03She's not my type."
+			end-object
+		}
+	}
+
+	object 287 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0287
+		name is "model lighthouse lens"
+
+		verb 91 {
+			V.302 = 841
+			end-object
+		}
+
+		verb 8 {
+			if !(owner-of 287 is selected-actor) jump &[00000060]
+			say-line "Everything looks all blurry."
+			jump &[00000078]
+[00000060]:
+			say-line "Looks powerful."
+[00000078]:
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object 287 in-room 0
+			end-object
+		}
+	}
+
+	object 284 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0284
+		name is "model lighthouse"
+
+		verb 8 {
+			say-line "This looks like a lighthouse on a beach."
+			end-object
+		}
+
+		verb 2 {
+			if !(class-of 284 is 134) jump &[00000085]
+			say-line "It's already open."
+			jump &[00000141]
+[00000085]:
+			class-of 284 is 134
+			class-of 287 is 32
+			say-line "There's a model lighthouse lens inside."
+[00000141]:
+			end-object
+		}
+
+		verb 3 {
+			say-line "Uh, oh, it won't close.\\xFF\\x03I think I broke it."
+			end-object
+		}
+	}
+
+	object 285 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0285
+		name is "door"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 26 (me,248)
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,248)
+			end-object
+		}
+
+		verb 7 {
+			start-script 32 ()
+			end-object
+		}
+
+		verb 11 {
+			if (state-of me is 1) {
+				start-script 202 ()
+			}
+			end-object
+		}
+	}
+
+	object 286 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0286
+		name is "ladder"
+
+		verb 8 {
+			say-line "Looks like a normal ladder to me."
+			end-object
+		}
+	}
+
+	object 289 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0289
+		name is "books"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 8 {
+			say-line "There are so many books here^\\xFF\\x03I'll never be able to find anything."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I don't want to carry that many books with me."
+			end-object
+		}
+
+		verb 6 {
+			say-line "I don't think that would be a good idea."
+			end-object
+		}
+
+		verb 7 {
+			say-line "I can't read that fast."
+			end-object
+		}
+
+		verb 11 {
+			end-object
+		}
+
+		verb 255 {
+			start-script 3 ()
+			end-object
+		}
+	}
+
+	object 290 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0290
+		name is "books"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 255 {
+		local variable L.1
+
+			start-object 289 verb L.1 (me)
+			end-object
+		}
+	}
+
+	object 291 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0291
+		name is "books"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 255 {
+		local variable L.1
+
+			start-object 289 verb L.1 (me)
+			end-object
+		}
+	}
+
+	object 292 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0292
+		name is "books"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 255 {
+		local variable L.1
+
+			start-object 289 verb L.1 (me)
+			end-object
+		}
+	}
+
+	object 293 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0293
+		name is "card catalog"
+
+		verb 8 {
+			current-room 31
+			end-object
+		}
+	}
+
+	object 294 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0294
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 91 {
+			V.302 = (836 + (V.334[0] - ((V.334[0] / 4) * 4)))
+			end-object
+		}
+
+		verb 8 {
+			V.100 = V.334[0]
+			start-script 89 (V.100)
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 425) jump &[00000068]
+			start-object 425 verb 7 (294)
+			jump &[00000074]
+[00000068]:
+			start-script 3 (7)
+[00000074]:
+			end-object
+		}
+	}
+
+	object 295 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0295
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 91 {
+			V.302 = (836 + (V.334[1] - ((V.334[1] / 4) * 4)))
+			end-object
+		}
+
+		verb 8 {
+			V.100 = V.334[1]
+			start-script 89 (V.100)
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 425) jump &[00000068]
+			start-object 425 verb 7 (295)
+			jump &[00000074]
+[00000068]:
+			start-script 3 (7)
+[00000074]:
+			end-object
+		}
+	}
+
+	object 296 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0296
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 91 {
+			V.302 = (836 + (V.334[2] - ((V.334[2] / 4) * 4)))
+			end-object
+		}
+
+		verb 8 {
+			V.100 = V.334[2]
+			start-script 89 (V.100)
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 425) jump &[00000068]
+			start-object 425 verb 7 (296)
+			jump &[00000074]
+[00000068]:
+			start-script 3 (7)
+[00000074]:
+			end-object
+		}
+	}
+
+	object 297 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0297
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 91 {
+			V.302 = (836 + (V.334[3] - ((V.334[3] / 4) * 4)))
+			end-object
+		}
+
+		verb 8 {
+			V.100 = V.334[3]
+			start-script 89 (V.100)
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 425) jump &[00000068]
+			start-object 425 verb 7 (297)
+			jump &[00000074]
+[00000068]:
+			start-script 3 (7)
+[00000074]:
+			end-object
+		}
+	}
+
+	object 298 { ; VERB LECF_0001\LFLF_0030\ROOM\OBCD_0298
+		name is "temporary library card"
+
+		verb 91 {
+			V.302 = 875
+			end-object
+		}
+
+		verb 8 {
+			start-script 106 ()
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0030\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0030\ROOM\ENCD
+		V.164 = 0
+		start-script 201 ()
+		V.160 = 313
+		V.161 = 314
+		V.162 = 315
+		V.163 = 316
+		if (!B.694) {
+			start-script 116 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		build-sentence-script = 14
+		start-script 16 (5)
+		cursor off
+		userput off
+		stop-sentence
+		V.155 = 65535
+		if !(!B.215) jump &[00000437]
+		B.215 = 1
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Excuse me^" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Hi, I'm looking for a book." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Want to hear a fantastic ghost story?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		stop-script 204
+		do-animation 8 3
+		break-here 2
+		do-animation 8 251
+		break-here
+		do-animation 8 249
+		sleep-for 45 jiffies
+		do-animation 8 16
+		break-here 5
+		actor 8 talk-animation 14,13
+		say-line 8 "SHHHH!!!!"
+		wait-for-message
+		do-animation 8 12
+		break-here 6
+		actor 8 talk-animation 4,12
+		say-line 8 "This is a library!"
+		do-animation 8 12
+		wait-for-message
+		do-animation 8 5
+		do-animation 8 12
+		actor 8 talk-animation 4,5
+		do-animation 8 16
+		break-here
+		do-animation 8 3
+		say-line 8 "WHISPER!"
+		wait-for-message
+		say-line 8 "Now, what is it?"
+		wait-for-message
+		jump &[00000509]
+[00000437]:
+		say-line "Pardon me, Miss."
+		wait-for-message
+		stop-script 204
+		do-animation 8 3
+		break-here 2
+		do-animation 8 251
+		break-here
+		do-animation 8 249
+		break-here 4
+		say-line 8 "What do you want this time?"
+		wait-for-message
+[00000509]:
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I'm looking for a book." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		if (!B.216) {
+			V.100 = ((120 + 3) - 1)
+			verb V.100 at 0,V.176 name "\\x07Why do you have a model lighthouse here?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Sorry.  I didn't mean to bother you." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00000806]
+		jump &[00001977]
+		jump &[00000860]
+[00000806]:
+		if !(V.175 is 122) jump &[00000824]
+		B.216 = 1
+		jump &[00000860]
+		jump &[00000860]
+[00000824]:
+		if !(V.175 is 123) jump &[00000860]
+		say-line 8 "Then why did you?"
+		wait-for-message
+		jump &[00006142]
+		jump &[00000860]
+[00000860]:
+		say-line 8 "There's a new lighthouse being built in town."
+		wait-for-message
+		do-animation 8 8
+		say-line 8 "That is a scale model of what it will look like."
+		break-here 3
+		do-animation selected-actor 244
+		wait-for-message
+		do-animation 8 3
+		camera-pan-to 160
+		wait-for-camera
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07It's very attractive, for a lighthouse." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Does it work?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Why do you need a lighthouse?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		do-animation selected-actor 245
+		camera-follow selected-actor
+		wait-for-camera
+		if !(V.175 is 120) jump &[00001490]
+		say-line 8 "Yes, and it will be very bright, too.\\xFF\\x03It will have one of the most powerful magnifying lenses in the Caribbean."
+		wait-for-message
+[00001374]:
+		break-here
+		do-animation 8 16
+		break-here
+		do-animation 8 12
+		break-here 6
+		actor 8 talk-animation 4,16
+		say-line 8 "I'd show you with the model, but unfortunately the bulb has burned out."
+		do-animation 8 12
+		wait-for-message
+		actor 8 talk-animation 4,5
+		do-animation 8 5
+		break-here
+		do-animation 8 3
+		jump &[00001965]
+[00001490]:
+		if !(V.175 is 121) jump &[00001764]
+		break-here
+		do-animation 8 16
+		break-here
+		do-animation 8 12
+		break-here 6
+		actor 8 talk-animation 4,12
+		say-line 8 "It wouldn't be much of a lighthouse if it didn't, now would it?"
+		do-animation 8 12
+		wait-for-message
+		do-animation 8 5
+		do-animation 8 12
+		actor 8 talk-animation 4,5
+		say-line "Actually, I meant the model."
+		wait-for-message
+		do-animation 8 16
+		break-here
+		do-animation 8 3
+		say-line 8 "Oh!\\xFF\\x03Yes, normally the model works, too.\\xFF\\x03The bulb is burned out right now, but there's a scaled down lens inside."
+		wait-for-message
+		jump &[00001965]
+[00001764]:
+		if !(V.175 is 122) jump &[00001965]
+		say-line 8 "We're tired of rebuilding the wharf every time a boat goes though it.\\xFF\\x03That's why it has to be very bright.\\xFF\\x03It will have one of the most powerful magnifying lenses in the Caribbean."
+		wait-for-message
+		jump &[00001374]
+		jump &[00001965]
+[00001965]:
+		print-line " "
+		do-animation selected-actor 249
+		jump &[00000509]
+[00001977]:
+		if !(owner-of 298 is 15) jump &[00002819]
+		say-line 8 "Do you have a library card?"
+		wait-for-message
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07No." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07No, how do I get one?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07I must have left it in my other pants." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00002529]
+[00002271]:
+		say-line 8 "Well, would you like one?"
+		wait-for-message
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Yes, what do I have to do?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07No, thank you." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00002481]
+		jump &[00004316]
+		jump &[00002526]
+[00002481]:
+		if !(V.175 is 121) jump &[00002526]
+		say-line 8 "Then stop wasting my time."
+		wait-for-message
+		jump &[00006142]
+		jump &[00002526]
+[00002526]:
+		jump &[00002819]
+[00002529]:
+		if !(V.175 is 121) jump &[00002542]
+		jump &[00004316]
+		jump &[00002819]
+[00002542]:
+		if !(V.175 is 122) jump &[00002819]
+		do-animation 8 16
+		break-here 5
+		actor 8 talk-animation 14,13
+		say-line 8 "But you DO have one?"
+		wait-for-message
+		actor 8 talk-animation 4,5
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Well^ no." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Certainly." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		do-animation 8 3
+		if !(V.175 is 120) jump &[00002752]
+		jump &[00002271]
+		jump &[00002816]
+[00002752]:
+		if !(V.175 is 121) jump &[00002816]
+		L.6 = 1
+		say-line 8 "I'll have to issue you a temporary card."
+		wait-for-message
+		jump &[00004316]
+		jump &[00002816]
+[00002816]:
+		jump &[00002819]
+[00002819]:
+		say-line 8 "What book are you looking for?"
+		wait-for-message
+[00002855]:
+		start-script 33 ()
+		if (V.330[3]) {
+			V.100 = ((120 + 4) - 1)
+			verb V.100 at 0,V.176 name "\\x07Do you have '%o163%'?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (V.330[2]) {
+			V.100 = ((120 + 3) - 1)
+			verb V.100 at 0,V.176 name "\\x07I'd like '%o162%'." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (V.330[1]) {
+			V.100 = ((120 + 2) - 1)
+			verb V.100 at 0,V.176 name "\\x07Could you find '%o161%'?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (V.330[0]) {
+			V.100 = ((120 + 1) - 1)
+			verb V.100 at 0,V.176 name "\\x07I need '%o160%'." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (!V.330[0]) {
+			if (!V.330[1]) {
+				if (!V.330[2]) {
+					if (!V.330[3]) {
+						if (!L.5) {
+							V.100 = ((120 + 6) - 1)
+							verb V.100 at 0,V.176 name "\\x07I don't know, what have you got?" on key V.177
+							V.176 += 8
+							V.100 -= 120
+							++V.177
+							++V.304
+							B.16[V.100] = 1
+						}
+					}
+				}
+			}
+		}
+		if !(L.5) jump &[00003397]
+		V.100 = ((120 + 5) - 1)
+		verb V.100 at 0,V.176 name "\\x07I won't be needing any more books just now." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00003495]
+[00003397]:
+		V.100 = ((120 + 5) - 1)
+		verb V.100 at 0,V.176 name "\\x07Whoops, I've just remembered an appointment." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00003495]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00003908]
+[00003517]:
+		start-script 203 ()
+		if !(!V.106) jump &[00003631]
+		do-animation 8 9
+		break-here 3
+		do-animation 8 3
+		do-animation 8 18
+		do-animation 8 21
+		sleep-for 30 jiffies
+		do-animation 8 3
+		say-line 8 "You already have four books checked out.\\xFF\\x03You'll have to give some back."
+		wait-for-message
+		jump &[00006142]
+		jump &[00003877]
+[00003631]:
+		L.4 = V.106
+		L.0 = (V.175 - 120)
+		L.3 = (313 + L.0)
+		L.2 = V.330[L.0]
+		L.1 = 0
+[00003670]:
+		if !(V.334[L.1] is L.2) jump &[00003757]
+[00003679]:
+		start-script 206 (0)
+		break-until (!script-running 206)
+		do-animation 8 9
+		break-here 3
+		do-animation 8 3
+		do-animation 8 18
+		do-animation 8 21
+		sleep-for 30 jiffies
+		do-animation 8 3
+		say-line 8 "That book has been checked out."
+		wait-for-message
+		jump &[00003860]
+[00003757]:
+		++L.1
+		if !(L.1 > 3) jump &[00003670]
+		if !(V.490 is L.2) jump &[00003777]
+		jump &[00003679]
+[00003777]:
+		start-script 206 (1)
+		break-until (!script-running 206)
+		pick-up-object L.4 in-room 0
+		start-script 88 (L.4,L.2)
+		L.4 -= 294
+		V.334[L.4] = L.2
+		say-line 8 "OK, here you go."
+		do-animation 8 10
+		break-here 3
+		do-animation selected-actor 10
+		do-animation 8 8
+		break-here 2
+		do-animation selected-actor 3
+		do-animation 8 3
+[00003860]:
+		V.330[L.0] = 0
+		owner-of L.3 is 0
+		owner-of L.3 is 15
+		wait-for-message
+[00003877]:
+		say-line 8 "Anything else?"
+		wait-for-message
+		L.5 = 1
+		jump &[00002855]
+		jump &[00004316]
+[00003908]:
+		if !(V.175 is 121) jump &[00003921]
+		jump &[00003517]
+		jump &[00004316]
+[00003921]:
+		if !(V.175 is 122) jump &[00003934]
+		jump &[00003517]
+		jump &[00004316]
+[00003934]:
+		if !(V.175 is 123) jump &[00003947]
+		jump &[00003517]
+		jump &[00004316]
+[00003947]:
+		if !(V.175 is 124) jump &[00004193]
+		if !(owner-of 287 is 15) jump &[00003973]
+		V.100 = random 2
+		jump &[00003977]
+[00003973]:
+		V.100 = random 3
+[00003977]:
+		if !(V.100 is 0) jump &[00004027]
+		say-line 8 "Don't slam the door on your way out."
+		jump &[00004185]
+[00004027]:
+		if !(V.100 is 1) jump &[00004086]
+		say-line 8 "Remember, books are the treasure of the mind."
+		jump &[00004185]
+[00004086]:
+		if !(V.100 is 2) jump &[00004128]
+		say-line 8 "Remember, silence is golden."
+		jump &[00004185]
+[00004128]:
+		if !(V.100 is 3) jump &[00004185]
+		say-line 8 "Please put the lens back in the lighthouse."
+		jump &[00004185]
+[00004185]:
+		wait-for-message
+		jump &[00006142]
+		jump &[00004316]
+[00004193]:
+		if !(V.175 is 125) jump &[00004316]
+		say-line 8 "You expect me to name every book in the library?"
+		wait-for-message
+		say-line 8 "Use the card catalog like a normal person."
+		do-animation 8 8
+		break-here 2
+		do-animation 8 3
+		wait-for-message
+		jump &[00006142]
+		jump &[00004316]
+[00004316]:
+		say-line 8 "I'll need some personal information."
+		wait-for-message
+		do-animation 8 21
+		say-line 8 "Name?"
+		wait-for-message
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Guybrush Threepwood." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Captain Dread." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Herman Toothrot." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		V.462[0] = (V.175 - 120)
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "Address?"
+		wait-for-message
+		do-animation 8 21
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07221B Baker Street." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x0710 Downing Street." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x071060 West Addison." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x071600 Pennsylvania Avenue." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		V.462[1] = (V.175 - 120)
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "Age?"
+		wait-for-message
+		do-animation 8 21
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Ummm... twenty-one." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Errrr... twenty-one." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Ninet --uh--, twenty-one." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "Occupation?"
+		wait-for-message
+		do-animation 8 21
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Consultant." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Freelance." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Unemployed." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Pirate." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		V.462[2] = (V.175 - 120)
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "Vices?"
+		wait-for-message
+		do-animation 8 21
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Nose picking." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Jaywalking." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Murder, arson, thievery, that sort of thing." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "I see."
+		wait-for-message
+		do-animation 8 3
+		if !(L.6) jump &[00005864]
+		say-line 8 "All right, here's your temporary card."
+		jump &[00005987]
+[00005864]:
+		say-line 8 "All right, your library card will be mailed to the address you gave me."
+		wait-for-message
+		say-line 8 "In the meantime, take this temporary card."
+[00005987]:
+		do-animation 8 8
+		break-here 2
+		do-animation selected-actor 10
+		break-here
+		do-animation 8 3
+		break-here
+		do-animation selected-actor 3
+		wait-for-message
+		pick-up-object 298 in-room 0
+		say-line 8 "You may check books out of the library, but only four at a time."
+		wait-for-message
+		say-line "That's about as many titles as I can remember anyhow."
+		wait-for-message
+		jump &[00001977]
+[00006142]:
+		do-animation 8 251
+		break-here
+		do-animation 8 248
+		break-here
+		start-script bak 204 ()
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0201
+		actor 8 default costume 8 talk-color 3 ignore-boxes always-zclip 1
+		do-animation 8 248
+		put-actor 8 in-room 30
+		put-actor 8 at 342,117
+		actor 9 default costume 0 ignore-boxes
+		put-actor 9 in-room 30
+		put-actor 9 at 342,117
+		start-script bak 204 ()
+		start-script 209 ()
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0202
+		walk selected-actor to 67,97
+		wait-for-actor selected-actor
+		come-out 248 in-room 27 walk-to 65535,65535
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0203
+		for V.106 = 294 to 297 ++ {
+			if (owner-of V.106 is 15) {
+				stop-script 0
+			}
+		}
+		V.106 = 0
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		if !(L.1 is 3) jump &[00000022]
+		L.1 = random 2
+		jump &[00000026]
+[00000022]:
+		L.1 = random 3
+[00000026]:
+		if !(L.1 is 0) jump &[00000059]
+		do-animation 8 18
+		L.0 = (((random 3) + 2) * 60)
+		sleep-for L.0 jiffies
+		jump &[00000187]
+[00000059]:
+		if !(L.1 is 1) jump &[00000095]
+		do-animation 8 21
+		do-animation 8 5
+		L.0 = (((random 1) + 1) * 60)
+		sleep-for L.0 jiffies
+		jump &[00000187]
+[00000095]:
+		if !(L.1 is 2) jump &[00000131]
+		do-animation 8 18
+		do-animation 8 21
+		L.0 = (((random 1) + 1) * 60)
+		sleep-for L.0 jiffies
+		jump &[00000187]
+[00000131]:
+		if !(L.1 is 3) jump &[00000187]
+		do-animation 8 9
+		break-here 2
+		do-animation 8 10
+		break-here 2
+		do-animation 8 11
+		L.0 = (((random 2) + 1) * 60)
+		sleep-for L.0 jiffies
+		do-animation 8 10
+		break-here 2
+		do-animation 8 9
+		break-here 2
+		do-animation 8 3
+		jump &[00000187]
+[00000187]:
+		jump &[00000008]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+
+		if (L.0 is 425) {
+			say-line "I'd better not, it looks like there's a big overdue fine on this one."
+			stop-script 0
+		}
+		stop-script 204
+		cut-scene
+		do-animation selected-actor 10
+		do-animation 8 3
+		do-animation 8 251
+		break-here
+		do-animation 8 249
+		break-here 3
+		if !(L.0 >= 294) jump &[00000188]
+		if !(L.0 <= 297) jump &[00000188]
+		owner-of L.0 is 0
+		owner-of L.0 is 15
+		L.1 = (L.0 - 294)
+		V.334[L.1] = 0
+		do-animation 8 8
+		break-here 3
+		do-animation 8 10
+		do-animation selected-actor 3
+		break-here 2
+		do-animation 8 3
+		say-line 8 "Thank you."
+		jump &[00000261]
+[00000188]:
+		if !(L.0 is 287) jump &[00000240]
+		say-line 8 "Please put that back where you got it."
+		jump &[00000261]
+[00000240]:
+		say-line 8 "No thank you."
+		do-animation selected-actor 3
+[00000261]:
+		wait-for-message
+		do-animation 8 251
+		break-here
+		do-animation 8 248
+		end-cut-scene
+		start-script bak 204 ()
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.1 = random 4
+		start-script bak 208 ()
+		if !(L.1 is 0) jump &[00000044]
+		start-script 207 (348,110)
+		break-until (!script-running 207)
+		jump &[00000174]
+[00000044]:
+		if !(L.1 is 1) jump &[00000073]
+		start-script 207 (190,117)
+		break-until (!script-running 207)
+		jump &[00000092]
+[00000073]:
+		start-script 207 (235,117)
+		break-until (!script-running 207)
+[00000092]:
+		if (L.1 >= 2) {
+			start-script 207 (235,98)
+			break-until (!script-running 207)
+		}
+		if (L.1 >= 3) {
+			actor 8 always-zclip 2
+			start-script 207 (365,89)
+			break-until (!script-running 207)
+		}
+		if (L.1 >= 4) {
+			walk 8 to 365,86
+			wait-for-actor 8
+			walk 8 to 311,86
+			wait-for-actor 8
+		}
+[00000174]:
+		L.2 = 0
+		L.3 = 8
+		if !(L.1 is 0) jump &[00000208]
+		do-animation 8 248
+		break-here
+		L.2 = 1
+		L.3 = 7
+		jump &[00000336]
+[00000208]:
+		if !(L.1 is 1) jump &[00000250]
+		do-animation 8 245
+		break-here 2
+		V.100 = random 1
+		if !(V.100) jump &[00000237]
+		L.3 = 9
+		jump &[00000247]
+[00000237]:
+		L.2 = 1
+		L.3 = 7
+[00000247]:
+		jump &[00000336]
+[00000250]:
+		if !(L.1 is 2) jump &[00000295]
+		V.100 = random 1
+		if !(V.100) jump &[00000272]
+		do-animation 8 248
+		jump &[00000275]
+[00000272]:
+		do-animation 8 249
+[00000275]:
+		L.2 = random 1
+		L.3 = (7 + (random 2))
+		jump &[00000336]
+[00000295]:
+		if !(L.1 is 4) jump &[00000336]
+		V.100 = random 1
+		if !(V.100) jump &[00000317]
+		do-animation 8 248
+		jump &[00000320]
+[00000317]:
+		do-animation 8 249
+[00000320]:
+		L.3 = (8 + (random 1))
+		jump &[00000336]
+[00000336]:
+		if (L.2) {
+			do-animation 8 19
+			break-here 7
+		}
+		if !(L.0) jump &[00000370]
+		do-animation 8 L.3
+		break-here 2
+		do-animation 8 10
+		break-here 2
+		jump &[00000374]
+[00000370]:
+		break-here 4
+[00000374]:
+		if (L.2) {
+			do-animation 8 20
+			break-here 7
+		}
+		do-animation 8 3
+		break-here 2
+		if (L.1 >= 4) {
+			L.1 = 2
+		}
+		if (L.1 >= 3) {
+			start-script 207 (235,98)
+			break-until (!script-running 207)
+		}
+		actor 8 always-zclip 1
+		if (L.1 >= 2) {
+			start-script 207 (235,117)
+			break-until (!script-running 207)
+		}
+		start-script 207 (342,117)
+		break-until (!script-running 207)
+		do-animation 8 251
+		break-here
+		do-animation 8 249
+		break-here
+		stop-script 208
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.1
+
+		put-actor 9 at L.0,L.1
+		do-animation 8 face-towards 9
+		break-here
+		do-animation 8 6
+		break-here
+		walk 8 to L.0,L.1
+		wait-for-actor 8
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		L.0 = actor-y 8
+		if !(L.0 >= 115) jump &[00000028]
+		L.1 = 255
+		jump &[00000082]
+[00000028]:
+		if !(L.0 <= 89) jump &[00000043]
+		L.1 = 200
+		jump &[00000082]
+[00000043]:
+		L.1 = ((L.0 - 89) * (255 - 200))
+		L.1 = (L.1 / (115 - 89))
+		L.1 += 200
+[00000082]:
+		actor 8 scale L.1 L.1
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0209
+	local variable L.0
+
+[00000008]:
+		if !(message-going) jump &[00000328]
+		if !(actor-talking is selected-actor) jump &[00000328]
+		wait-for-message
+		if !(!script-running 200) jump &[00000328]
+		if !(!script-running 205) jump &[00000328]
+		cut-scene
+		stop-script 204
+		do-animation 8 3
+		do-animation 8 245
+		if !(V.164 <= 6) jump &[00000073]
+		L.0 = V.164
+		V.164 += 1
+		jump &[00000077]
+[00000073]:
+		L.0 = random 6
+[00000077]:
+		if !(L.0 is 0) jump &[00000097]
+		say-line 8 "SHHH!!"
+		jump &[00000319]
+[00000097]:
+		if !(L.0 is 1) jump &[00000130]
+		say-line 8 "This is a library!!"
+		jump &[00000319]
+[00000130]:
+		if !(L.0 is 2) jump &[00000162]
+		say-line 8 "Please, be quiet!!"
+		jump &[00000319]
+[00000162]:
+		if !(L.0 is 3) jump &[00000201]
+		say-line 8 "You're disturbing people!"
+		jump &[00000319]
+[00000201]:
+		if !(L.0 is 4) jump &[00000233]
+		say-line 8 "Lower your voice!!"
+		jump &[00000319]
+[00000233]:
+		if !(L.0 is 5) jump &[00000283]
+		say-line 8 "This is not `hog-calling` practice!!"
+		jump &[00000319]
+[00000283]:
+		if !(L.0 is 6) jump &[00000319]
+		say-line 8 "I won't ask you again!"
+		jump &[00000319]
+[00000319]:
+		wait-for-message
+		do-animation 8 244
+		start-script bak 204 ()
+		end-cut-scene
+[00000328]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+}
+

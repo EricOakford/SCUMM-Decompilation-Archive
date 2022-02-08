@@ -1,0 +1,784 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 87: World Map (map)
+; */
+
+script 111 { ; SCRP LECF_0002\LFLF_0087\SCRP_0111
+	B.577[L.0] = 1
+	B.577[L.1] = 1
+	B.577[L.2] = 1
+	B.577[L.3] = 1
+	B.577[L.4] = 1
+	B.577[L.5] = 1
+	B.577[L.6] = 1
+	B.577[L.7] = 1
+	end-script
+}
+
+script 124 { ; SCRP LECF_0002\LFLF_0087\SCRP_0124
+local variable L.0
+
+	stop-script 23
+	print-line " "
+	if (V.528) {
+		start-script V.528 ()
+		V.528 = 0
+		current-room 87
+		stop-script 23
+		print-line " "
+		break-here
+	}
+	if !(L.0 is 767) jump &[00000144]
+	if !(!B.713) jump &[00000059]
+	if !(!B.226) jump &[00000059]
+	jump &[00000129]
+[00000059]:
+	userput off
+	cursor off
+	B.714 = 1
+	start-script 137 (2)
+	break-until (!script-running 137)
+	B.211 = 1
+	current-room 2
+	start-script 138 (185,0,198,25,4,4,1)
+	break-until (!script-running 138)
+	sleep-for 60 jiffies
+[00000129]:
+	cursor on
+	userput on
+	come-out 44 in-room 7 walk-to 716,49
+	jump &[00000332]
+[00000144]:
+	if !(L.0 is 768) jump &[00000241]
+	if (!B.713) {
+		userput off
+		cursor off
+		B.713 = 1
+		start-script 137 (46)
+		break-until (!script-running 137)
+		B.211 = 1
+		current-room 46
+		start-script 138 (320,184,251,162,4,4,1)
+		break-until (!script-running 138)
+		sleep-for 60 jiffies
+	}
+	cursor on
+	userput on
+	come-out 459 in-room 47 walk-to 24,134
+	jump &[00000332]
+[00000241]:
+	if !(L.0 is 769) jump &[00000332]
+	if (!B.226) {
+		userput off
+		cursor off
+		start-script 137 (26)
+		break-until (!script-running 137)
+		B.211 = 1
+		current-room 26
+		start-script 138 (197,0,206,45,4,4,1)
+		break-until (!script-running 138)
+		sleep-for 60 jiffies
+	}
+	cursor on
+	userput on
+	B.703 = 1
+	current-room 27
+	jump &[00000332]
+[00000332]:
+	end-script
+}
+
+script 137 { ; SCRP LECF_0002\LFLF_0087\SCRP_0137
+local variable L.0
+
+	override &[00004387]
+	if !(V.518 is 2) jump &[00000049]
+	if !(L.0 is 26) jump &[00000033]
+	jump &[00000121]
+	jump &[00000046]
+[00000033]:
+	if !(L.0 is 46) jump &[00000046]
+	jump &[00001226]
+	jump &[00000046]
+[00000046]:
+	jump &[00000121]
+[00000049]:
+	if !(V.518 is 26) jump &[00000085]
+	if !(L.0 is 2) jump &[00000069]
+	jump &[00001923]
+	jump &[00000082]
+[00000069]:
+	if !(L.0 is 46) jump &[00000082]
+	jump &[00002471]
+	jump &[00000082]
+[00000082]:
+	jump &[00000121]
+[00000085]:
+	if !(V.518 is 46) jump &[00000121]
+	if !(L.0 is 2) jump &[00000105]
+	jump &[00003053]
+	jump &[00000118]
+[00000105]:
+	if !(L.0 is 26) jump &[00000118]
+	jump &[00003839]
+	jump &[00000118]
+[00000118]:
+	jump &[00000121]
+[00000121]:
+	if !(!B.715) jump &[00000168]
+	B.715 = 1
+	start-script 138 (48,62,83,83,4,1,1)
+	break-until (!script-running 138)
+	jump &[00000576]
+[00000168]:
+	start-script 138 (66,35,46,31,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (46,31,28,35,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (28,35,38,46,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (38,46,43,54,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (43,54,33,63,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (33,63,37,73,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (37,73,38,79,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (38,79,32,88,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (32,88,28,99,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (28,99,41,112,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (41,112,74,105,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (74,105,83,83,4,1,1)
+	break-until (!script-running 138)
+[00000576]:
+	start-script 138 (83,83,93,65,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (93,65,121,66,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (121,66,136,79,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (136,79,149,107,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (149,107,151,112,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (151,112,199,103,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (199,103,218,117,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (218,117,213,135,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (213,135,198,139,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (198,139,183,134,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (183,134,177,121,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (177,121,183,112,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (183,112,173,91,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (173,91,189,72,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (189,72,215,56,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (215,56,237,51,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (237,51,253,54,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (253,54,267,55,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (267,55,266,63,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00001226]:
+	if !(!B.715) jump &[00001273]
+	B.715 = 1
+	start-script 138 (48,62,143,74,4,1,1)
+	break-until (!script-running 138)
+	jump &[00001409]
+[00001273]:
+	start-script 138 (66,35,80,23,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (80,23,99,34,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (99,34,101,66,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (101,66,143,74,4,1,1)
+	break-until (!script-running 138)
+[00001409]:
+	start-script 138 (143,74,147,80,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (147,80,185,113,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (185,113,249,129,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (249,129,274,141,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (274,141,262,160,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (262,160,248,163,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (248,163,229,151,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (229,151,239,140,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (239,140,255,139,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (255,139,268,150,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (268,150,253,158,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (253,158,227,157,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (227,157,199,149,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (199,149,187,169,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (187,169,176,168,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00001923]:
+	start-script 138 (266,63,254,51,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (254,51,233,66,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (233,66,220,47,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (220,47,212,86,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (212,86,204,57,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (204,57,182,84,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (182,84,162,55,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (162,55,119,89,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (119,89,97,55,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (97,55,140,141,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (140,141,40,65,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (40,65,40,44,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (40,44,49,34,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (49,34,55,29,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (55,29,68,26,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (68,26,66,35,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00002471]:
+	start-script 138 (266,63,248,58,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (248,58,239,81,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (239,81,221,64,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (221,64,178,83,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (178,83,223,124,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (223,124,175,105,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (175,105,194,151,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (194,151,143,115,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (143,115,100,130,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (100,130,75,147,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (75,147,73,138,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (73,138,67,133,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (67,133,86,122,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (86,122,139,108,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (139,108,184,130,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (184,130,197,165,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (197,165,176,168,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00003053]:
+	start-script 138 (176,168,188,164,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (188,164,194,152,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (194,152,185,136,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (185,136,170,131,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (170,131,159,142,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (159,142,179,154,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (179,154,189,160,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (189,160,202,143,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (202,143,184,105,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (184,105,155,97,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (155,97,150,116,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (150,116,164,132,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (164,132,188,121,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (188,121,187,82,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (187,82,156,63,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (156,63,124,79,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (124,79,123,109,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (123,109,160,98,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (160,98,151,47,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (151,47,119,41,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (119,41,97,21,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (97,21,77,25,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (77,25,66,35,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00003839]:
+	start-script 138 (176,168,195,162,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (195,162,197,125,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (197,125,175,102,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (175,102,161,115,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (161,115,166,125,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (166,125,210,119,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (210,119,243,119,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (243,119,273,131,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (273,131,287,104,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (287,104,293,77,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (293,77,287,61,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (287,61,274,49,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (274,49,234,32,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (234,32,230,50,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (230,50,236,58,4,1,1)
+	break-until (!script-running 138)
+	start-script 138 (236,58,266,63,4,1,1)
+	break-until (!script-running 138)
+	break-here
+	jump &[00004387]
+[00004387]:
+	if !(override-hit) jump &[00004400]
+	min-jiffies = V.520
+	jump &[00004402]
+[00004400]:
+	override off
+[00004402]:
+	end-script
+}
+
+script 138 { ; SCRP LECF_0002\LFLF_0087\SCRP_0138
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.9
+local variable L.10
+local variable L.11
+local variable L.12
+local variable L.13
+local variable L.14
+
+	V.520 = min-jiffies
+	min-jiffies = L.6
+	V.100 = (camera-x - 160)
+	L.0 -= V.100
+	L.2 -= V.100
+	if !(L.2 >= L.0) jump &[00000065]
+	L.7 = 1
+	L.9 = (L.2 - L.0)
+	jump &[00000081]
+[00000065]:
+	L.7 = 65535
+	L.9 = (L.0 - L.2)
+[00000081]:
+	if !(L.3 >= L.1) jump &[00000107]
+	L.8 = 1
+	L.10 = (L.3 - L.1)
+	jump &[00000123]
+[00000107]:
+	L.8 = 65535
+	L.10 = (L.1 - L.3)
+[00000123]:
+	if !(L.9 > L.10) jump &[00000138]
+	L.11 = L.9
+	jump &[00000143]
+[00000138]:
+	L.11 = L.10
+[00000143]:
+	L.12 = L.0
+	L.13 = L.1
+	L.0 = 0
+	L.1 = 0
+	for L.14 = 0 to L.11 ++ {
+		sleep-for 1 jiffies
+		L.0 += L.9
+		L.1 += L.10
+		if (L.0 > L.11) {
+			L.0 -= L.11
+			L.12 += L.7
+		}
+		if (L.1 > L.11) {
+			L.1 -= L.11
+			L.13 += L.8
+		}
+		start-script 139 (L.12,L.13,L.4,L.5)
+	}
+	min-jiffies = V.520
+	end-script
+}
+
+script 139 { ; SCRP LECF_0002\LFLF_0087\SCRP_0139
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+
+	L.4 = (L.0 - (L.3 / 2))
+	L.6 = (L.4 + L.3)
+	L.5 = (L.1 - (L.3 / 2))
+	L.7 = (L.5 + L.3)
+	draw-box L.4,L.5 to L.6,L.7 color L.2
+	end-script
+}
+
+room map {
+
+	object 767 { ; VERB LECF_0002\LFLF_0087\ROOM\OBCD_0767
+		name is "Scabb Island"
+
+		verb 11 {
+			V.298 = 2
+			if !(!B.714) jump &[00000027]
+			start-script 124 (767)
+			jump &[00000035]
+[00000027]:
+			come-out 44 in-room 7 walk-to 716,49
+[00000035]:
+			end-object
+		}
+	}
+
+	object 768 { ; VERB LECF_0002\LFLF_0087\ROOM\OBCD_0768
+		name is "Booty Island"
+
+		verb 11 {
+			V.298 = 46
+			if !(!B.713) jump &[00000027]
+			start-script 124 (768)
+			jump &[00000035]
+[00000027]:
+			come-out 459 in-room 47 walk-to 24,134
+[00000035]:
+			end-object
+		}
+	}
+
+	object 769 { ; VERB LECF_0002\LFLF_0087\ROOM\OBCD_0769
+		name is "Phatt Island"
+
+		verb 11 {
+			V.298 = 26
+			if !(B.226) jump &[00000029]
+			come-out 257 in-room 27 walk-to 469,131
+			jump &[00000035]
+[00000029]:
+			start-script 124 (769)
+[00000035]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0087\ROOM\EXCD
+		V.489 = 0
+		set-screen 0 to 144
+		start-script 16 (2)
+		build-sentence-script = 4
+		stop-script 23
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0087\ROOM\ENCD
+		start-script 16 (1)
+		set-screen 0 to 200
+		start-script 23 ()
+		V.191 = 0
+		build-sentence-script = 206
+		if !(V.489 is 5) jump &[00000048]
+		build-sentence-script = 204
+		jump &[00000068]
+[00000048]:
+		if !(V.489 is 4) jump &[00000063]
+		build-sentence-script = 205
+		jump &[00000068]
+[00000063]:
+		build-sentence-script = 206
+[00000068]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		V.106 = 0
+		if (L.0 <= L.5) {
+			if (L.0 >= L.4) {
+				if (L.1 <= L.3) {
+					if (L.1 >= L.2) {
+						V.106 = 1
+					}
+				}
+			}
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		start-script 200 (cursor-x,cursor-y,17,180,24,296)
+		if (!V.106) {
+			stop-script 0
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,24,49)
+		if (V.106) {
+			L.0 = 0
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,50,75)
+		if (V.106) {
+			L.0 = 1
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,76,102)
+		if (V.106) {
+			L.0 = 2
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,103,130)
+		if (V.106) {
+			L.0 = 3
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,131,157)
+		if (V.106) {
+			L.0 = 4
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,158,184)
+		if (V.106) {
+			L.0 = 5
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,185,211)
+		if (V.106) {
+			L.0 = 6
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,212,236)
+		if (V.106) {
+			L.0 = 7
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,237,267)
+		if (V.106) {
+			L.0 = 8
+		}
+		start-script 200 (cursor-x,cursor-y,17,180,267,296)
+		if (V.106) {
+			L.0 = 9
+		}
+		start-script 200 (cursor-x,cursor-y,17,35,24,296)
+		if (V.106) {
+			L.1 = 0
+		}
+		start-script 200 (cursor-x,cursor-y,36,52,24,296)
+		if (V.106) {
+			L.1 = 1
+		}
+		start-script 200 (cursor-x,cursor-y,53,68,24,296)
+		if (V.106) {
+			L.1 = 2
+		}
+		start-script 200 (cursor-x,cursor-y,69,83,24,296)
+		if (V.106) {
+			L.1 = 3
+		}
+		start-script 200 (cursor-x,cursor-y,84,97,24,296)
+		if (V.106) {
+			L.1 = 4
+		}
+		start-script 200 (cursor-x,cursor-y,98,115,24,296)
+		if (V.106) {
+			L.1 = 5
+		}
+		start-script 200 (cursor-x,cursor-y,116,132,24,296)
+		if (V.106) {
+			L.1 = 6
+		}
+		start-script 200 (cursor-x,cursor-y,133,148,24,296)
+		if (V.106) {
+			L.1 = 7
+		}
+		start-script 200 (cursor-x,cursor-y,149,164,24,296)
+		if (V.106) {
+			L.1 = 8
+		}
+		start-script 200 (cursor-x,cursor-y,165,180,24,296)
+		if (V.106) {
+			L.1 = 9
+		}
+		V.106 = (((L.1 * 10) + L.0) + 1)
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+
+		if (V.106 is L.0) {
+			V.106 = 0
+		}
+		if (V.106 is L.1) {
+			V.106 = 0
+		}
+		if (V.106 is L.2) {
+			V.106 = 0
+		}
+		if (V.106 is L.3) {
+			V.106 = 0
+		}
+		if (V.106 is L.4) {
+			V.106 = 0
+		}
+		if (V.106 is L.5) {
+			V.106 = 0
+		}
+		if (V.106 is L.6) {
+			V.106 = 0
+		}
+		if (V.106 is L.7) {
+			V.106 = 0
+		}
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+
+		if !(V.466 is L.0) jump &[00000023]
+		B.678 = 1
+		jump &[00000074]
+[00000023]:
+		B.678 = 0
+		B.577[L.0] = 1
+		if (!V.466) {
+			for L.1 = 1 to 100 ++ {
+				if (!B.577[L.1]) {
+					stop-script 0
+				}
+			}
+			B.678 = 1
+			V.466 = L.0
+		}
+[00000074]:
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0204
+	local variable L.0
+
+		if (L.0 is 2) {
+			start-script 201 ()
+			start-script 202 (2,3,11,12,13,21,22,23)
+			start-script 202 (85,86,95,96)
+			start-script 202 (29,30,39,40,49,50)
+			if (V.106) {
+				start-script 203 (V.106)
+				print-debug "Map square %n106%"
+				do-animation selected-actor 250
+				put-actor selected-actor in-room 86
+				put-actor selected-actor at 177,102
+				camera-follow selected-actor
+			}
+		}
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.3
+
+		if (L.0 is 2) {
+			L.3 = find-object cursor-x,cursor-y
+			if (L.3) {
+				start-object L.3 verb 11 ()
+			}
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0002\LFLF_0087\ROOM\LSCR_0206
+		start-script 24 (V.102,2)
+		end-script
+	}
+}
+

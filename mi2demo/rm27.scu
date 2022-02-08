@@ -1,0 +1,1530 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 27: Phatt Island Wharf (wharf)
+; */
+
+; Guybrush Arrested
+script 72 { ; SCRP LECF_0001\LFLF_0027\SCRP_0072
+local variable L.0
+local variable L.1
+
+	build-sentence-script = 14
+	start-script 16 (5)
+	cut-scene
+	override &[00000083]
+	B.226 = 1
+	actor 8 default costume 50 talk-color 7
+	put-actor 8 in-room 27
+	put-actor 8 at 280,130
+	do-animation 8 251
+	put-actor selected-actor in-room 27
+	put-actor selected-actor at 565,138
+	camera-at 472
+	walk selected-actor to 325,130
+	break-here
+	camera-follow selected-actor
+	wait-for-actor selected-actor
+[00000083]:
+	if (override-hit) {
+		L.0 = 1
+	}
+	end-cut-scene
+	if !(L.0) jump &[00000102]
+	jump &[00002172]
+[00000102]:
+	cursor off
+	userput off
+	override &[00002172]
+	camera-pan-to 288
+	do-animation selected-actor 251
+	wait-for-camera
+	sleep-for 30 jiffies
+	do-animation 8 249
+	sleep-for 30 jiffies
+	do-animation 8 251
+	sleep-for 60 jiffies
+	do-animation 8 249
+	say-line 8 "Excuse me, sir."
+	wait-for-message
+	do-animation selected-actor 248
+	break-here 3
+	say-line "Yes?"
+	wait-for-message
+	say-line 8 "Aren't you Guybrush Threepwood?"
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07That's right.  I'm the man who swashed the ghost pirate \\xFE\\x08     LeChuck's buckles." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.176 += 8
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07Who wants to know?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07No, my name is Smith.  You must have me confused with \\xFE\\x08     someone else." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.176 += 8
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'm really in a hurry." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 120) jump &[00000751]
+	say-line 8 "I'm sure that's a very interesting story, but we don't have time for that now."
+	wait-for-message
+	jump &[00001565]
+	jump &[00000867]
+[00000751]:
+	if !(V.175 is 121) jump &[00000764]
+	jump &[00001522]
+	jump &[00000867]
+[00000764]:
+	if !(V.175 is 122) jump &[00000818]
+	say-line 8 "Smith, eh?\\xFF\\x03That's an unusual name."
+	wait-for-message
+	jump &[00000867]
+	jump &[00000867]
+[00000818]:
+	if !(V.175 is 123) jump &[00000867]
+	walk selected-actor to 600,130
+	break-here 2
+	say-line 8 "Hold on, sir."
+	do-animation selected-actor 255
+	wait-for-message
+	do-animation selected-actor 244
+	jump &[00001522]
+	jump &[00000867]
+[00000867]:
+	say-line 8 "Perhaps you have some identification?"
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07Err^ I must have left it in my other pants." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07Why yes, I-- GOOD HEAVENS!!  My wallet's been stolen!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Look behind you, a three-headed monkey!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07My ID is on my ship.  Wait here while I go and get it." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 120) jump &[00001400]
+	say-line 8 "That's the second lamest excuse I've ever heard."
+	wait-for-message
+	jump &[00001565]
+	jump &[00001474]
+[00001400]:
+	if !(V.175 is 121) jump &[00001441]
+	say-line 8 "Of course it has, sir."
+	wait-for-message
+	jump &[00001565]
+	jump &[00001474]
+[00001441]:
+	if !(V.175 is 122) jump &[00001461]
+	do-animation 8 244
+	sleep-for 30 jiffies
+	jump &[00001474]
+	jump &[00001474]
+[00001461]:
+	if !(V.175 is 123) jump &[00001474]
+	jump &[00001474]
+	jump &[00001474]
+[00001474]:
+	walk selected-actor to 600,130
+	break-here 2
+	do-animation 8 245
+	say-line 8 "Nice try, Guybrush."
+	do-animation selected-actor 255
+	wait-for-message
+	do-animation selected-actor 244
+	jump &[00001565]
+[00001522]:
+	say-line 8 "I'm with the local constabulary, sir."
+	wait-for-message
+[00001565]:
+	say-line 8 "You'd better come with me, governor Phatt would like a word with you."
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07All right, I'll come with you." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07Am I under arrest?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'm really very busy.  Could we do this another time?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 120) jump &[00001934]
+	jump &[00002046]
+	jump &[00002046]
+[00001934]:
+	if !(V.175 is 121) jump &[00002024]
+	say-line 8 "If you want to put it that way, sir, yes."
+	wait-for-message
+	say-line "Oh.\\xFF\\x03All right, let's go."
+	wait-for-message
+	jump &[00002046]
+	jump &[00002046]
+[00002024]:
+	if !(V.175 is 122) jump &[00002046]
+	walk selected-actor to 600,130
+	break-here 2
+	jump &[00002069]
+	jump &[00002046]
+[00002046]:
+	walk 8 to-object 250
+	break-here 2
+	walk selected-actor to 600,130
+	break-here 2
+	do-animation 8 255
+	do-animation 8 245
+	break-here 2
+[00002069]:
+	do-animation 8 6
+	break-here 5
+	do-animation 8 7
+	break-here 4
+	do-animation selected-actor 255
+	do-animation selected-actor 11
+	break-here 2
+	do-animation selected-actor 3
+	do-animation selected-actor 244
+	say-line "Coming!"
+	do-animation 8 8
+	break-here 2
+	do-animation 8 3
+	wait-for-message
+	walk selected-actor to-object 250
+	L.1 = actor-x 8
+	break-until (actor-x selected-actor < L.1)
+	break-here 2
+	walk 8 to-object 250
+	break-here 15
+	current-room 42
+	sleep-for 180 jiffies
+[00002172]:
+	override &[00008768]
+	for L.1 = 120 to 128 ++ {
+		verb L.1 off
+	}
+	cursor off
+	userput off
+	state-of 418 is 1
+	put-actor 8 in-room 44
+	put-actor 8 at 253,105
+	put-actor selected-actor in-room 44
+	put-actor selected-actor at 116,119
+	camera-follow selected-actor
+	do-animation 8 248
+	do-animation 8 3
+	do-animation selected-actor 251
+	do-animation selected-actor 3
+	sleep-for 120 jiffies
+	fades 129
+	current-room 45
+	sleep-for 60 jiffies
+	B.708 = 1
+	say-line 5 "Well, Mr.--\\xFF\\x03--oh, excuse me."
+	wait-for-message
+	B.708 = 0
+	draw-object 428 
+	draw-object 430 
+	break-here 3
+	jiffy2 = 0
+	do {
+		for L.1 = 1 to 10 ++ {
+			draw-object 428 
+			V.100 = ((L.1 - ((L.1 / 2) * 2)) + 431)
+			draw-object V.100 
+			V.100 = L.1
+			if (V.100 > 5) {
+				V.100 -= 5
+			}
+			draw-object 429 image V.100
+			break-here
+		}
+	} until (jiffy2 >= 120)
+	B.709 = 1
+	B.708 = 1
+	B.708 = 0
+	draw-object 428 
+	draw-object 436 image 1
+	break-here
+	draw-object 428 
+	draw-object 436 image 2
+	break-here
+	draw-object 428 
+	draw-object 437 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 437 image 2
+	draw-object 439 
+	break-here
+	B.708 = 1
+	sleep-for 30 jiffies
+	B.708 = 0
+	draw-object 428 
+	draw-object 442 image 1
+	if (B.709) {
+		draw-object 440 image 2
+		draw-object 441 image 2
+	}
+	break-here 2
+	draw-object 428 
+	draw-object 442 image 2
+	if (B.709) {
+		draw-object 440 image 2
+		draw-object 441 image 2
+	}
+	break-here 2
+	draw-object 428 
+	draw-object 442 image 3
+	if (B.709) {
+		draw-object 440 image 2
+		draw-object 441 image 2
+	}
+	say-line 5 "--Buuurp--"
+	sleep-for 30 jiffies
+	print-line 
+	draw-object 428 
+	draw-object 433 image 2
+	draw-object 434 image 1
+	if (B.709) {
+		draw-object 440 image 2
+		draw-object 441 image 2
+	}
+	break-here
+	B.708 = 1
+	sleep-for 30 jiffies
+	say-line 5 "Well, Mr. Threepwood, I can't tell you how pleased I am to have you here as my guest."
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07Oh, why is that?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07I can't say as I care much for your method of invitation." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Thank you.  Your home is lovely." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07Would you like to hear the story of the time I blew \\xFE\\x08    LeChuck's top?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.176 += 8
+	V.100 = ((120 + 5) - 1)
+	verb V.100 at 0,V.176 name "\\x07Look, I'm really in quite a rush^" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	jiffy1 = 0
+	B.14 = 1
+[00003218]:
+	if !(jiffy1 > 360) jump &[00003306]
+	B.708 = 0
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 440 image 1
+	draw-object 441 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 439 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 438 
+	break-here
+	B.709 = 0
+	B.708 = 1
+	break-until (V.175)
+	jump &[00003307]
+[00003306]:
+	break-here
+[00003307]:
+	if !(V.175) jump &[00003218]
+	B.14 = 0
+	wait-for-message
+	if !(V.175 is 120) jump &[00003381]
+	say-line 5 "I thought we might talk about a few things."
+	wait-for-message
+	jump &[00003905]
+	jump &[00003905]
+[00003381]:
+	if !(V.175 is 121) jump &[00003533]
+	V.519 = 447
+	say-line 5 "I simply wanted to insure that you didn't slip away before we had a chance to meet.\\xFF\\x03There's something I'd like to discuss."
+	wait-for-message
+	V.519 = 0
+	jump &[00003905]
+	jump &[00003905]
+[00003533]:
+	if !(V.175 is 122) jump &[00003610]
+	B.718 = 1
+	say-line 5 "You have an eye for the finer things, Mr. Threepwood."
+	wait-for-message
+	jump &[00005393]
+	jump &[00003905]
+[00003610]:
+	if !(V.175 is 123) jump &[00003826]
+	say-line 5 "Ha ha ha"
+	B.719 = 1
+	wait-for-message
+	B.719 = 0
+	say-line 5 "Funny you should mention LeChuck, as he's the reason I brought you here."
+	wait-for-message
+	say-line "You wanted to thank me for getting rid of him, eh?\\xFF\\x03Well, no thanks are necessary.\\xFF\\x03You see, I--"
+	wait-for-message
+	jump &[00006861]
+	jump &[00003905]
+[00003826]:
+	if !(V.175 is 124) jump &[00003905]
+	B.718 = 1
+	say-line 5 "Oh, do stay a while."
+	wait-for-message
+	B.718 = 0
+	say-line 5 "We have much to discuss."
+	wait-for-message
+	jump &[00003905]
+	jump &[00003905]
+[00003905]:
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07Such as how much it must cost to keep you in finery?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07Such as how much it must cost to keep you in food?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Such as why there's a wanted poster on the wharf with \\xFE\\x08    my picture on it?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.176 += 8
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07Such as why there's a ten-foot guard blocking the door?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 5) - 1)
+	verb V.100 at 0,V.176 name "\\x07Want to hear about me destroying the evil LeChuck?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	jiffy1 = 0
+	B.14 = 1
+[00004482]:
+	if !(jiffy1 > 300) jump &[00004570]
+	B.708 = 0
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 440 image 1
+	draw-object 441 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 439 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 438 
+	break-here
+	B.709 = 0
+	B.708 = 1
+	break-until (V.175)
+	jump &[00004571]
+[00004570]:
+	break-here
+[00004571]:
+	if !(V.175) jump &[00004482]
+	B.14 = 0
+	wait-for-message
+	if !(V.175 is 120) jump &[00004596]
+	jump &[00005393]
+	jump &[00004838]
+[00004596]:
+	if !(V.175 is 121) jump &[00004678]
+	V.519 = 446
+	say-line 5 "Be careful upon whose toes you tread, Mr. Threepwood."
+	wait-for-message
+	V.519 = 0
+	jump &[00004838]
+	jump &[00004838]
+[00004678]:
+	if !(V.175 is 122) jump &[00004786]
+[00004685]:
+	say-line 5 "Such as your future, Mr. Threepwood."
+	wait-for-message
+	V.519 = 446
+	say-line 5 "And that of the ghost pirate LeChuck."
+	wait-for-message
+	V.519 = 0
+	jump &[00006826]
+	jump &[00004838]
+[00004786]:
+	if !(V.175 is 123) jump &[00004799]
+	jump &[00004685]
+	jump &[00004838]
+[00004799]:
+	if !(V.175 is 124) jump &[00004838]
+	say-line 5 "`Destroying,` is it?"
+	wait-for-message
+	jump &[00006861]
+	jump &[00004838]
+[00004838]:
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07At least I can SEE your toes." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'm sorry.  I just meant that you seem to live so WELL^" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 120) jump &[00005364]
+	say-line 5 "Why, you--\\xFF\\x03--excuse me."
+	wait-for-message
+	B.708 = 0
+	draw-object 428 
+	draw-object 430 
+	break-here 3
+	jiffy2 = 0
+	do {
+		for L.1 = 1 to 10 ++ {
+			draw-object 428 
+			V.100 = ((L.1 - ((L.1 / 2) * 2)) + 431)
+			draw-object V.100 
+			V.100 = L.1
+			if (V.100 > 5) {
+				V.100 -= 5
+			}
+			draw-object 429 image V.100
+			break-here
+		}
+	} until (jiffy2 >= 90)
+	B.709 = 1
+	B.708 = 1
+	B.708 = 0
+	draw-object 428 
+	draw-object 436 image 1
+	break-here
+	draw-object 428 
+	draw-object 436 image 2
+	break-here
+	draw-object 428 
+	draw-object 437 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 437 image 2
+	draw-object 439 
+	break-here
+	B.708 = 1
+	say-line 5 "Let's get down to why you're here, shall we?\\xFF\\x03I intend to SELL you.\\xFF\\x03To the ghost pirate LeChuck."
+	wait-for-message
+	jump &[00006826]
+	jump &[00005393]
+[00005364]:
+	if !(V.175 is 121) jump &[00005393]
+	say-line 5 "Ah, I see."
+	wait-for-message
+	jump &[00005393]
+	jump &[00005393]
+[00005393]:
+	V.519 = 447
+	say-line 5 "I admit my tastes run to the expensive."
+	wait-for-message
+	V.519 = 0
+	B.718 = 0
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07To the exPANsive is more like it." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07How do you manage to afford it?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	jiffy1 = 0
+	B.14 = 1
+[00005643]:
+	if !(jiffy1 > 200) jump &[00005829]
+	B.708 = 0
+	draw-object 428 
+	draw-object 430 
+	break-here 3
+	jiffy2 = 0
+	do {
+		for L.1 = 1 to 10 ++ {
+			draw-object 428 
+			V.100 = ((L.1 - ((L.1 / 2) * 2)) + 431)
+			draw-object V.100 
+			V.100 = L.1
+			if (V.100 > 5) {
+				V.100 -= 5
+			}
+			draw-object 429 image V.100
+			break-here
+		}
+	} until (jiffy2 >= 60)
+	B.709 = 1
+	B.708 = 1
+	B.708 = 0
+	draw-object 428 
+	draw-object 436 image 1
+	break-here
+	draw-object 428 
+	draw-object 436 image 2
+	break-here
+	draw-object 428 
+	draw-object 437 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 437 image 2
+	draw-object 439 
+	break-here
+	B.708 = 1
+	break-until (V.175)
+	jump &[00005830]
+[00005829]:
+	break-here
+[00005830]:
+	if !(V.175) jump &[00005643]
+	B.14 = 0
+	wait-for-message
+	if (V.175 is 120) {
+		sleep-for 30 jiffies
+		say-line 5 "I am not a patient man, Mr. Threepwood."
+		wait-for-message
+	}
+	say-line 5 "Yes, I've had to indulge in a bit of creative financing.\\xFF\\x03But I've just made a deal that will keep the bill collectors out of here for a long time."
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07Selling your old clothes to make circus tents?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07Melting down your silverware to build an oil pipeline?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Renting yourself out to ship captains as ballast?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07Selling advertizing space on your stomach?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 5) - 1)
+	verb V.100 at 0,V.176 name "\\x07Oh really?  What's that?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	jiffy1 = 0
+	B.14 = 1
+[00006554]:
+	if !(jiffy1 > 600) jump &[00006642]
+	B.708 = 0
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 440 image 1
+	draw-object 441 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 439 
+	break-here
+	draw-object 428 
+	draw-object 433 image 1
+	draw-object 438 
+	break-here
+	B.709 = 0
+	B.708 = 1
+	break-until (V.175)
+	jump &[00006643]
+[00006642]:
+	break-here
+[00006643]:
+	if !(V.175) jump &[00006554]
+	B.14 = 0
+	wait-for-message
+	if (V.175 < 124) {
+		sleep-for 30 jiffies
+		say-line 5 "I'll be selling something which I believe I shall be GLAD to be rid of."
+		wait-for-message
+	}
+	V.519 = 446
+	say-line 5 "I'm selling YOU, Mr. Threepwood."
+	wait-for-message
+	V.519 = 0
+	say-line 5 "To the ghost pirate, LeChuck."
+	wait-for-message
+[00006826]:
+	say-line "LeChuck's dead.\\xFF\\x03I killed him."
+	wait-for-message
+[00006861]:
+	say-line 5 "Perhaps you didn't kill him quite so thoroughly as you imagine.\\xFF\\x03He looked perfectly healthy the last time I saw him."
+	wait-for-message
+	sleep-for 30 jiffies
+	say-line "Last time you saw him?!?"
+	wait-for-message
+	say-line "Oh, no!\\xFF\\x03LeChuck's back!"
+	B.708 = 0
+	draw-object 428 
+	draw-object 430 
+	break-here 3
+	do {
+		for L.1 = 1 to 10 ++ {
+			draw-object 428 
+			V.100 = ((L.1 - ((L.1 / 2) * 2)) + 431)
+			draw-object V.100 
+			V.100 = L.1
+			if (V.100 > 5) {
+				V.100 -= 5
+			}
+			draw-object 429 image V.100
+			break-here
+		}
+	} until (!message-going)
+	B.709 = 1
+	B.708 = 0
+	draw-object 428 
+	draw-object 436 image 1
+	break-here
+	draw-object 428 
+	draw-object 436 image 2
+	break-here
+	draw-object 428 
+	draw-object 437 image 1
+	draw-object 438 
+	break-here
+	draw-object 428 
+	draw-object 437 image 2
+	draw-object 439 
+	break-here
+	B.708 = 1
+	say-line 5 "I beg your pardon, did you say something?"
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07I took care of LeChuck once, I can do it again." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07He doesn't scare me.  Just tell me where I can find him." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Could I hide out here for a while?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 120) jump &[00007608]
+	say-line 5 "You'll get your chance."
+	wait-for-message
+	jump &[00007754]
+	jump &[00007754]
+[00007608]:
+	if !(V.175 is 121) jump &[00007683]
+	V.519 = 447
+	say-line 5 "I rather think he'll find YOU, Mr. Threepwood."
+	wait-for-message
+	V.519 = 0
+	jump &[00007754]
+	jump &[00007754]
+[00007683]:
+	if !(V.175 is 122) jump &[00007754]
+	say-line 5 "You can hide out until LeChuck comes to pick you up."
+	wait-for-message
+	jump &[00007754]
+	jump &[00007754]
+[00007754]:
+	say-line 5 "You see, he's put a sizeable bounty on your head."
+	B.718 = 1
+	wait-for-message
+	say-line "Oh?"
+	wait-for-message
+	B.718 = 0
+	say-line 5 "A bounty I intend to collect."
+	wait-for-message
+	say-line "Oh."
+	wait-for-message
+	start-script 33 ()
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07Whatever bounty LeChuck's offering, I'll double it." on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07I guess that bounty would buy a lot of bacon grease and \\xFE\\x08    pure fat, huh?" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	do {
+		V.100 = random 1
+		break-here
+	} until (V.175)
+	if !(V.175 is 122) jump &[00008195]
+	say-line 5 "Ha ha ha"
+	B.719 = 1
+	wait-for-message
+	B.719 = 0
+	say-line 5 "Very amusing, Mr. Threepwood."
+	wait-for-message
+	jump &[00008297]
+	jump &[00008297]
+[00008195]:
+	if !(V.175 is 121) jump &[00008297]
+	say-line 5 "Why, you!\\xFF\\x03You can figure it out while you wait in jail for LeChuck to pick you up."
+	wait-for-message
+	jump &[00008297]
+	jump &[00008297]
+[00008297]:
+	current-room 44
+	put-actor selected-actor in-room 44
+	put-actor selected-actor at 116,119
+	break-here
+	say-line 5 "Take him away!"
+	wait-for-message
+	say-line 8 "Yes, sir, Governor Phatt."
+	sleep-for 45 jiffies
+	walk 8 to-actor selected-actor within 30
+	wait-for-message
+	wait-for-actor 8
+	do-animation selected-actor face-towards 8
+	say-line 8 "Come on, you little weasel."
+	wait-for-message
+	walk 8 to-object 418
+	walk selected-actor to-object 418
+	break-here 10
+	do-animation selected-actor 255
+	do-animation selected-actor 244
+	break-here 6
+	do-animation 8 255
+	do-animation 8 244
+	start-script 33 ()
+	V.100 = ((120 + 1) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'll be back!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 2) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'll be BACK!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 3) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'LL be back!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.100 = ((120 + 4) - 1)
+	verb V.100 at 0,V.176 name "\\x07I'll BE back!" on key V.177
+	V.176 += 8
+	V.100 -= 120
+	++V.177
+	++V.304
+	B.16[V.100] = 1
+	V.175 = 0
+	break-until (V.175)
+	walk 8 to-actor selected-actor within 30
+	wait-for-actor 8
+	say-line 8 "Come on!"
+	walk 8 to-object 418
+	walk selected-actor to-object 418
+	break-here 6
+[00008768]:
+	fades 33153
+	override &[00009016]
+	for L.1 = 120 to 128 ++ {
+		verb L.1 off
+	}
+	cursor off
+	userput off
+	B.220 = 1
+	state-of 268 is 1
+	state-of 267 is 1
+	state-of 249 is 1
+	put-actor selected-actor in-room 29
+	put-actor selected-actor at 133,115
+	camera-follow selected-actor
+	actor 8 scale 255 255 always-zclip 2
+	put-actor 8 in-room 29
+	put-actor 8 at 140,100
+	do-animation selected-actor 3
+	do-animation 8 3
+	do-animation selected-actor 251
+	do-animation 8 250
+	sleep-for 30 jiffies
+	start-object 268 verb 3 ()
+	sleep-for 30 jiffies
+	say-line 8 "Don't try to escape or anything.\\xFF\\x03Walt will chew you to bits."
+	wait-for-message
+	walk 8 to 235,122
+	wait-for-actor 8
+	say-line 8 "Here, Walt, you take the keys."
+	wait-for-message
+	do-animation 8 11
+	break-here
+	do-animation 7 6
+	break-here
+	walk 8 to 324,120
+	do-animation selected-actor 245
+	wait-for-actor 8
+	put-actor 8 in-room 0
+	do-animation selected-actor 250
+[00009016]:
+	override off
+	state-of 418 is 0
+	print-line " "
+	B.226 = 1
+	B.220 = 1
+	start-object 268 verb 3 ()
+	state-of 267 is 1
+	state-of 249 is 1
+	put-actor selected-actor in-room 29
+	put-actor selected-actor at-object 268
+	camera-follow selected-actor
+	do-animation selected-actor 250
+	do-animation 7 6
+	put-actor 8 in-room 0
+	for L.1 = 16 to 999 ++ {
+		if (owner-of L.1 is selected-actor) {
+			owner-of L.1 is 13
+		}
+	}
+	build-sentence-script = 4
+	start-script 16 (2)
+	cursor on
+	userput on
+	end-script
+}
+
+; Kate is Arrested
+script 103 { ; SCRP LECF_0001\LFLF_0027\SCRP_0103
+local variable L.0
+
+	cut-scene
+	B.542 = 1
+	override &[00000624]
+	if (L.0 is 257) {
+		actor selected-actor ignore-boxes always-zclip 1
+		walk selected-actor to 619,138
+		wait-for-actor selected-actor
+	}
+	put-actor selected-actor in-room 0
+	actor 8 default costume 50 talk-color 7
+	do-animation 8 251
+	actor 5 default costume 85 talk-color 229 ignore-boxes always-zclip 1
+	do-animation 5 248
+	if (L.0 is 257) {
+		put-actor 8 in-room 27
+		put-actor 8 at 280,130
+		camera-pan-to 288
+		wait-for-camera
+	}
+	put-actor 5 in-room 27
+	put-actor 5 at 619,138
+	walk 5 to 565,138
+	if (L.0 is-not 257) {
+		camera-pan-to 472
+	}
+	wait-for-actor 5
+	actor 5 follow-boxes
+	V.158 = actor-x 5
+	V.159 = actor-y 5
+	put-actor 5 at V.158,V.159
+	wait-for-camera
+	put-actor 8 in-room 27
+	put-actor 8 at 280,130
+	walk 5 to 325,130
+	break-here
+	if (L.0 is-not 257) {
+		camera-follow 5
+	}
+	wait-for-actor 5
+	camera-pan-to 288
+	do-animation 5 251
+	wait-for-camera
+	sleep-for 30 jiffies
+	do-animation 8 249
+	sleep-for 30 jiffies
+	do-animation 8 251
+	sleep-for 60 jiffies
+	do-animation 8 249
+	say-line 8 "Excuse me."
+	wait-for-message
+	do-animation 5 248
+	break-here 3
+	say-line "Yes?"
+	wait-for-message
+	say-line 8 "Aren't you Guybrush Threepwood?"
+	wait-for-message
+	say-line 5 "No, my name is Kate Capsize.\\xFF\\x03You must have me confused with someone else."
+	wait-for-message
+	say-line 8 "Kate, eh?\\xFF\\x03That's an unusual name."
+	wait-for-message
+	say-line 8 "Perhaps you have some identification?"
+	wait-for-message
+	say-line 5 "My ID is on my ship.  Wait here while I go and get it."
+	wait-for-message
+	walk 5 to 600,130
+	do-animation 8 6
+	break-here 2
+	say-line 8 "Nice try, Guybrush."
+	do-animation 5 255
+	wait-for-message
+	do-animation 5 244
+	say-line 8 "I don't know how you got out of the jail, but I'm taking you back in."
+	wait-for-message
+	sleep-for 20 jiffies
+	do-animation 5 246
+	sleep-for 60 jiffies
+[00000624]:
+	end-cut-scene
+	B.543 = 1
+	state-of 281 is 1
+	class-of 281 is 32
+	state-of 268 is 0
+	put-actor 5 in-room 0
+	put-actor 8 in-room 0
+	actor selected-actor follow-boxes
+	start-object L.0 verb 11 ()
+	end-script
+}
+
+room wharf {
+
+	object 248 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0248
+		name is "library"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 26 (me,285)
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,285)
+			end-object
+		}
+
+		verb 7 {
+			start-script 32 ()
+			end-object
+		}
+
+		verb 11 {
+			if (state-of 248 is 1) {
+				come-out 285 in-room 30 walk-to 63,118
+			}
+			end-object
+		}
+
+		verb 29 {
+			start-script 103 (me)
+			end-object
+		}
+	}
+
+	object 249 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0249
+		name is "jail"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 26 (me,267)
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,267)
+			end-object
+		}
+
+		verb 7 {
+			start-script 32 ()
+			end-object
+		}
+
+		verb 11 {
+			if (state-of me is 1) {
+				come-out 267 in-room 29 walk-to 65535,65535
+			}
+			end-object
+		}
+	}
+
+	object 250 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0250
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 29 {
+			start-script 103 (me)
+			end-object
+		}
+
+		verb 255 {
+			if (!B.542) {
+				if (state-of 256 is 2) {
+					start-object me verb 29 ()
+				}
+			}
+			come-out 242 in-room 26 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 255 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0255
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 29 {
+			start-script 103 (me)
+			end-object
+		}
+
+		verb 255 {
+			if (!B.542) {
+				if (state-of 256 is 2) {
+					start-object me verb 29 ()
+				}
+			}
+			come-out 246 in-room 26 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 251 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0251
+		name is "alley"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			start-script 200 (me,365,97,17)
+			end-object
+		}
+	}
+
+	object 252 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0252
+		name is "alley"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			start-script 200 (me,449,70,23)
+			end-object
+		}
+	}
+
+	object 254 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0254
+		name is "fisherman"
+
+		verb 11 {
+			come-out 262 in-room 28 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 253 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0253
+		name is "pier"
+
+		verb 11 {
+			come-out 262 in-room 28 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 257 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0257
+		name is "Dread's ship"
+
+		verb 29 {
+			start-script 103 (me)
+			end-object
+		}
+
+		verb 11 {
+			if (!B.542) {
+				if (state-of 256 is 2) {
+					start-object me verb 29 ()
+				}
+			}
+			V.518 = 26
+			put-actor selected-actor in-room 22
+			put-actor selected-actor at 102,116
+			camera-follow selected-actor
+			end-object
+		}
+	}
+
+	object 256 { ; VERB LECF_0001\LFLF_0027\ROOM\OBCD_0256
+		name is "poster"
+
+		verb 8 {
+			if !(state-of 256 is 1) jump &[00000041]
+			say-line "Say, that's me!"
+			jump &[00000062]
+[00000041]:
+			say-line "It's Captain Kate."
+[00000062]:
+			end-object
+		}
+
+		verb 9 {
+			if !(state-of 256 is 2) jump &[00000088]
+			pick-up-object 463 in-room 47
+			draw-object 256 image 1
+			jump &[00000114]
+[00000088]:
+			say-line "It's stuck to the wall."
+[00000114]:
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 463) jump &[00000139]
+			owner-of 463 is 0
+			owner-of 463 is 15
+			draw-object 256 image 2
+			jump &[00000142]
+[00000139]:
+			start-script 3 ()
+[00000142]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0027\ROOM\EXCD
+		stop-sound 36
+		if (B.515) {
+			put-actor 10 in-room 0
+		}
+		actor selected-actor step-dist 8,2
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0027\ROOM\ENCD
+		start-sound 36
+		set-box 3 to 16
+		set-box 12 to 16
+		set-box 17 to 128
+		set-box 23 to 128
+		start-script bak 204 ()
+		if !(B.738) jump &[00000058]
+		class-of 254 is 160
+		class-of 253 is 160
+		class-of 252 is 160
+		jump &[00000066]
+[00000058]:
+		if (!B.515) {
+			start-script 203 ()
+		}
+[00000066]:
+		if !(!script-running 65) jump &[00000096]
+		if !(B.703) jump &[00000091]
+		B.703 = 0
+		start-script 72 ()
+		jump &[00000096]
+[00000091]:
+		if !(!B.268) jump &[00000096]
+[00000096]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0027\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		cut-scene
+		set-box L.3 to 0
+		set-box-path
+		walk selected-actor to L.1,L.2
+		wait-for-actor selected-actor
+		end-cut-scene
+		if !(L.0 is 251) jump &[00000050]
+		come-out 342 in-room 33 walk-to 185,121
+		jump &[00000074]
+[00000050]:
+		if !(L.0 is 252) jump &[00000074]
+		put-actor selected-actor in-room 34
+		put-actor selected-actor at 345,140
+		camera-follow selected-actor
+		jump &[00000074]
+[00000074]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0027\ROOM\LSCR_0201
+		break-until (actor-x selected-actor > 370)
+		do-animation selected-actor 255
+		stop-sentence
+		B.268 = 1
+		camera-pan-to 480
+		wait-for-camera
+		start-script 202 ()
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0027\ROOM\LSCR_0202
+	local variable L.0
+
+[00000008]:
+		L.0 = (actor-x selected-actor)
+		if !(L.0 > 565) jump &[00000034]
+		camera-follow selected-actor
+		jump &[00000051]
+		jump &[00000047]
+[00000034]:
+		if !(L.0 < 370) jump &[00000047]
+		camera-follow selected-actor
+		jump &[00000051]
+[00000047]:
+		break-here
+		jump &[00000008]
+[00000051]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0027\ROOM\LSCR_0203
+		actor 10 default costume 7 ignore-boxes never-zclip step-dist 2,1
+		put-actor 10 in-room 27
+		put-actor 10 at 586,75
+		actor 10 scale 255 255
+		if (owner-of 261 is selected-actor) {
+			class-of 254 is 160
+			B.515 = 1
+			walk 10 to 537,67
+			wait-for-actor 10
+			actor 10 scale 210 210
+			walk 10 to 569,60
+			wait-for-actor 10
+			actor 10 scale 170 170
+			walk 10 to 569,55
+			wait-for-actor 10
+			actor 10 always-zclip 1
+			walk 10 to 529,50
+			wait-for-actor 10
+			put-actor 10 in-room 0
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0027\ROOM\LSCR_0204
+[00000008]:
+		V.100 = actor-box selected-actor
+		if !(V.100 is 27) jump &[00000030]
+		actor selected-actor step-dist 9,3
+		jump &[00000088]
+[00000030]:
+		if !(V.100 is 28) jump &[00000047]
+		actor selected-actor step-dist 10,4
+		jump &[00000088]
+[00000047]:
+		if !(V.100 is 29) jump &[00000064]
+		actor selected-actor step-dist 10,4
+		jump &[00000088]
+[00000064]:
+		if !(V.100 is 30) jump &[00000081]
+		actor selected-actor step-dist 10,4
+		jump &[00000088]
+[00000081]:
+		actor selected-actor step-dist 8,2
+[00000088]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+}
+

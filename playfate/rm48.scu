@@ -877,7 +877,7 @@ room a1-darkro {
 		}
 		end-script
 	}
-
+; Welcome to Atlantis
 	script 202 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0202
 		if !(actor-room V.182 is selected-room) jump &[00000254]
 		cut-scene

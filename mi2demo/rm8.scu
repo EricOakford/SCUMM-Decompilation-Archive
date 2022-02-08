@@ -1,0 +1,2113 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 8: Cartographer's Place (cartograp)
+; */
+
+script 86 { ; SCRP LECF_0001\LFLF_0008\SCRP_0086
+	pick-up-object 678 in-room 63
+	pick-up-object 500 in-room 49
+	pick-up-object 405 in-room 41
+	pick-up-object 196 in-room 19
+	end-script
+}
+
+room cartograp {
+
+	object 69 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0069
+		name is "hastily scratched message"
+
+		verb 8 {
+			start-script 210 ()
+			end-object
+		}
+	}
+
+	object 68 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0068
+		name is ""
+	}
+
+	object 65 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0065
+		name is "monocle"
+
+		verb 91 {
+			V.302 = 810
+			end-object
+		}
+
+		verb 9 {
+			if (class-of me is 32) {
+				B.236 = 1
+				pick-up-object me in-room 0
+			}
+			end-object
+		}
+
+		verb 7 {
+			say-line "I don't think it's my prescription."
+			end-object
+		}
+
+		verb 8 {
+			if !(selected-room is 8) jump &[00000103]
+			if !(owner-of me is selected-actor) jump &[00000097]
+			start-script 211 ()
+			jump &[00000100]
+[00000097]:
+			start-script 200 ()
+[00000100]:
+			jump &[00000134]
+[00000103]:
+			say-line "Everything looks all blurry."
+[00000134]:
+			end-object
+		}
+	}
+
+	object 64 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0064
+		name is "cartographer"
+
+		verb 90 {
+			V.156 = 10
+			end-object
+		}
+
+		verb 9 {
+			say-line "What is this?  Midget wrestling?"
+			end-object
+		}
+
+		verb 10 {
+			start-script 202 ()
+			end-object
+		}
+
+		verb 80 {
+		local variable L.0
+
+			start-script 204 (L.0)
+			end-object
+		}
+
+		verb 8 {
+			if !(B.236) jump &[00000081]
+			say-line "Poor guy."
+			jump &[00000084]
+[00000081]:
+			start-script 200 ()
+[00000084]:
+			end-object
+		}
+	}
+
+	object 60 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0060
+		name is "map"
+
+		verb 8 {
+			start-script 209 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "I can't reach it."
+			end-object
+		}
+	}
+
+	object 61 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0061
+		name is "map"
+
+		verb 8 {
+			start-script 209 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "I can't reach it."
+			end-object
+		}
+	}
+
+	object 62 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0062
+		name is "map"
+
+		verb 8 {
+			start-script 209 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "I can't reach it."
+			end-object
+		}
+	}
+
+	object 66 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0066
+		name is "pile of paper"
+
+		verb 8 {
+			say-line "It's a pile of blank paper."
+			end-object
+		}
+
+		verb 9 {
+			if !(owner-of 67 is selected-actor) jump &[00000073]
+			say-line "I've got enough."
+			jump &[00000084]
+[00000073]:
+			class-of me is 16
+			pick-up-object 67 in-room 0
+[00000084]:
+			end-object
+		}
+	}
+
+	object 67 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0067
+		name is "paper"
+
+		verb 91 {
+			V.302 = 813
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's blank."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 77) jump &[00000045]
+			do-sentence 7 L.0 with me
+			jump &[00000051]
+[00000045]:
+			start-script 3 (7)
+[00000051]:
+			end-object
+		}
+	}
+
+	object 59 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0059
+		name is "bed"
+
+		verb 8 {
+			say-line "Reminds me of a doll house I once had.\\xFF\\x03I mean, my SISTER once had."
+			end-object
+		}
+
+		verb 11 {
+			say-line "It's too small."
+			end-object
+		}
+	}
+
+	object 63 { ; VERB LECF_0001\LFLF_0008\ROOM\OBCD_0063
+		name is "doorway"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			come-out 42 in-room 7 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0008\ROOM\EXCD
+		unlock-sound 35
+		start-script 123 (8,7)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0008\ROOM\ENCD
+		start-script 201 ()
+		end-object
+	}
+
+; Look at Monocle
+	script 200 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0200
+		say-line "Nice monocle."
+		wait-for-message
+		say-line 8 "Thanks.  I can't see thing without it."
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0201
+		if (B.429) {
+			put-actor 8 in-room 0
+			state-of 68 is 1
+			state-of 69 is 1
+			class-of 69 is 32
+			class-of 64 is 160
+			if (!B.514) {
+				B.514 = 1
+				break-here
+				wait-for-actor selected-actor
+				say-line "Where'd he go?"
+			}
+			stop-script 0
+		}
+		actor 8 default costume 24 talk-color 10 ignore-boxes never-zclip talk-animation 16,18
+		put-actor 8 in-room 8
+		put-actor 8 at 161,119
+		do-animation 8 250
+		do-animation 8 3
+		class-of 65 is 160
+		state-of 65 is 1
+		if !(B.236) jump &[00000133]
+		if !(!B.267) jump &[00000127]
+		do-animation 8 21
+		jump &[00000130]
+[00000127]:
+		jump &[00000133]
+[00000130]:
+		jump &[00000337]
+[00000133]:
+		do-animation 8 20
+		do-animation 8 18
+		if !(B.511) jump &[00000309]
+		cut-scene
+		override &[00000296]
+		do-animation 8 23
+		break-here
+		wait-for-actor selected-actor
+		sleep-for 60 jiffies
+		actor 8 talk-animation 4,5
+		do-animation 8 3
+		do-animation 8 23
+		do-animation 8 5
+		sleep-for 60 jiffies
+		say-line 8 "Did you pick up my love potion?"
+		wait-for-message
+		say-line "Oh yeah--love potion."
+		wait-for-message
+		say-line "That's what I was supposed to get."
+		sleep-for 60 jiffies
+		walk selected-actor to-object 63
+		do-animation 8 18
+		wait-for-message
+[00000296]:
+		end-cut-scene
+		do-animation selected-actor 255
+		come-out 42 in-room 7 walk-to 65535,65535
+[00000309]:
+		do-animation 8 6
+		break-here
+		wait-for-actor selected-actor
+		do-animation 8 7
+		do-animation 8 5
+		sleep-for 60 jiffies
+		say-line 8 "Hello."
+[00000337]:
+		start-script 203 ()
+		end-script
+	}
+; Talk to Wally
+	script 202 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+
+		cursor off
+		userput off
+		build-sentence-script = 14
+		stop-script 200
+		stop-script 209
+		stop-script 211
+		stop-script 201
+		stop-script 212
+		L.1 = 0
+		if !(B.468) jump &[00000052]
+		say-line "Hi Wally."
+		jump &[00000065]
+[00000052]:
+		say-line "Excuse me^"
+[00000065]:
+		actor 8 talk-animation 4,5
+		stop-script 203
+		if (V.160) {
+			V.160 = 0
+			do-animation 8 3
+			do-animation 8 5
+		}
+		if !(B.236) jump &[00000106]
+		do-animation 8 21
+		do-animation 8 5
+		do-animation 8 3
+		jump &[00000133]
+[00000106]:
+		if (class-of 65 is 32) {
+			start-script 208 ()
+			break-until (!script-running 208)
+			L.1 = 1
+		}
+[00000133]:
+		wait-for-message
+		if !(!B.453) jump &[00000213]
+		B.453 = 1
+		if !(B.236) jump &[00000156]
+		jump &[00000218]
+		jump &[00000210]
+[00000156]:
+		do-animation 8 5
+		do-animation 8 3
+		if (!L.1) {
+			sleep-for 30 jiffies
+		}
+		say-line 8 "Oh yes.  Hi there.\\xFF\\x03Can I help you?"
+[00000210]:
+		jump &[00000334]
+[00000213]:
+		if !(B.236) jump &[00000279]
+[00000218]:
+		say-line 8 "Who's there?\\xFF\\x03I can't see anything without my monocle."
+		jump &[00000334]
+[00000279]:
+		do-animation 8 5
+		do-animation 8 3
+		if (!L.1) {
+			sleep-for 30 jiffies
+		}
+		if !(B.468) jump &[00000326]
+		say-line 8 "Oh, hello Mr. Brush."
+		jump &[00000334]
+[00000326]:
+		say-line 8 "Yes?"
+[00000334]:
+		wait-for-message
+		start-script 16 (5)
+		if !(B.468) jump &[00000350]
+		jump &[00004872]
+[00000350]:
+		start-script 33 ()
+		if !(B.469) jump &[00000557]
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Did I mention that I'm Guybrush the ghost-busting stud?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07My name's Guybrush.  Who are you?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00000849]
+[00000557]:
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Hi.  I'm Guybrush Threepwood.  Ghost-busting stud." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Hi.  I'm Guybrush.  Who are you?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Excuse me, do you know anything about Big Whoop?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00000849]:
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07Nice place you have here.  Well, goodbye." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = (9 - 1)
+		V.178[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00000990]
+		jump &[00001029]
+		jump &[00001029]
+[00000990]:
+		if !(V.175 is 121) jump &[00001003]
+		jump &[00001076]
+		jump &[00001029]
+[00001003]:
+		if !(V.175 is 122) jump &[00001016]
+		jump &[00001139]
+		jump &[00001029]
+[00001016]:
+		if !(V.175 is 128) jump &[00001029]
+		jump &[00011074]
+		jump &[00001029]
+[00001029]:
+		if !(!B.467) jump &[00001053]
+		B.467 = 1
+		say-line 8 "Uh-huh."
+		jump &[00001071]
+[00001053]:
+		say-line 8 "So I've heard."
+[00001071]:
+		wait-for-message
+		jump &[00011099]
+[00001076]:
+		B.468 = 1
+		override &[00004872]
+		say-line 8 "Wally.\\xFF\\x03Wally B. Feed."
+		wait-for-message
+		say-line 8 "At your service."
+		wait-for-message
+		jump &[00004872]
+[00001139]:
+		B.469 = 1
+		override &[00001221]
+		say-line 8 "Uh-oh.  Who sent you here?\\xFF\\x03I should warn you:  I'm heavily armed."
+		wait-for-message
+[00001221]:
+		override off
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Nobody sent me.  I'm freelance." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07I was sent by the I.R.S.  Let me see your files." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Don't shoot!  I was just asking." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Well, well.  Aren't we jumpy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00001615]
+		jump &[00001673]
+		jump &[00001654]
+[00001615]:
+		if !(V.175 is 121) jump &[00001628]
+		jump &[00001654]
+		jump &[00001654]
+[00001628]:
+		if !(V.175 is 122) jump &[00001641]
+		jump &[00001764]
+		jump &[00001654]
+[00001641]:
+		if !(V.175 is 123) jump &[00001654]
+		jump &[00001935]
+		jump &[00001654]
+[00001654]:
+		override &[00001981]
+		say-line 8 "The who?"
+		wait-for-message
+[00001673]:
+		override &[00001981]
+		say-line 8 "You'd better not try for my files.\\xFF\\x03All my research on Big Whoop is in there."
+		wait-for-message
+		jump &[00001981]
+[00001764]:
+		override &[00001981]
+		say-line 8 "Well, that's a dangerous question."
+		wait-for-message
+[00001809]:
+		override &[00001981]
+		say-line 8 "I've been researching Big Whoop for years.\\xFF\\x03There are a lot of people who'd like to get their hands on my files."
+		wait-for-message
+		jump &[00001981]
+[00001935]:
+		override &[00001981]
+		say-line 8 "You would be too if you were me."
+		wait-for-message
+		jump &[00001809]
+[00001981]:
+		override off
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Are you looking for Big Whoop, too?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Can I see your files?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Where do you think it's burried?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07I'm looking for Big Whoop myself.  Wanna help?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00002369]
+		jump &[00002408]
+		jump &[00002408]
+[00002369]:
+		if !(V.175 is 121) jump &[00002382]
+		jump &[00002531]
+		jump &[00002408]
+[00002382]:
+		if !(V.175 is 122) jump &[00002395]
+		jump &[00002408]
+		jump &[00002408]
+[00002395]:
+		if !(V.175 is 123) jump &[00002408]
+		jump &[00002584]
+		jump &[00002408]
+[00002408]:
+		override &[00002631]
+		say-line 8 "Well^"
+		wait-for-message
+[00002424]:
+		override &[00002631]
+		say-line 8 "I haven't really been able to find out much hard information^"
+		wait-for-message
+		say-line 8 "What do YOU know about it?"
+		wait-for-message
+		jump &[00002631]
+[00002531]:
+		override &[00002631]
+		say-line 8 "Actually, there's not anything in them."
+		wait-for-message
+		jump &[00002424]
+[00002584]:
+		override &[00002631]
+		say-line 8 "I don't know if I'd be much help."
+		wait-for-message
+		jump &[00002424]
+[00002631]:
+		override off
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I know I'm looking for it, and that's about it." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07I know it contains unimaginable wealth." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07I know it's location is a mystery." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07I think it was named by a four-year-old boy." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 0) jump &[00003046]
+		jump &[00003046]
+[00003046]:
+		override &[00003114]
+		say-line 8 "You mean, you never heard of the four men who burried it?"
+		wait-for-message
+[00003114]:
+		override off
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07No.  Tell me all about it." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07No, but I really don't care." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Oh, them?  Yeah, I know about them.  Of course." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00003415]
+		jump &[00003418]
+		jump &[00003418]
+[00003415]:
+		jump &[00004810]
+[00003418]:
+		B.471 = 1
+		B.470 = 0
+		override &[00004015]
+		say-line 8 "Well, all anyone knows for sure is that there was a shipwreck.\\xFF\\x03The merchant vessel Elaine went down in a terrible storm."
+		wait-for-message
+		say-line "Elaine?"
+		wait-for-message
+		actor 8 talk-animation 17,22
+		say-line 8 "Only four crew members survived."
+		wait-for-message
+		actor 8 talk-animation 4,5
+		say-line 8 "They washed up on a remote, deserted island."
+		wait-for-message
+		say-line 8 "And that, supposedly is where they found Big Whoop."
+		wait-for-message
+		say-line "But what IS Big Whoop?"
+		wait-for-message
+		say-line 8 "Whatever it was, it was so wonderful^\\xFF\\x03^or so horrible^\\xFF\\x03^that they never wanted anyone else to find it."
+		wait-for-message
+		actor 8 talk-animation 17,22
+		say-line 8 "So they took the map they made of the island^\\xFF\\x03^and split it up among the four of them."
+		actor 8 talk-animation 4,5
+		wait-for-message
+		say-line 8 "And they all went their separate ways."
+		wait-for-message
+[00004015]:
+		override off
+		actor 8 talk-animation 4,5
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Wow.  That's some story." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Where are they now?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07You don't actually believe that story, do you?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07I love that story.  Well, bye!" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00004394]
+		jump &[00004433]
+		jump &[00004433]
+[00004394]:
+		if !(V.175 is 121) jump &[00004407]
+		jump &[00004639]
+		jump &[00004433]
+[00004407]:
+		if !(V.175 is 122) jump &[00004420]
+		jump &[00004433]
+		jump &[00004433]
+[00004420]:
+		if !(V.175 is 123) jump &[00004433]
+		jump &[00011074]
+		jump &[00004433]
+[00004433]:
+		if !(B.468) jump &[00004446]
+		override &[00004872]
+		jump &[00004451]
+[00004446]:
+		override &[00000350]
+[00004451]:
+		say-line 8 "Of course, it could just be a old legend."
+		wait-for-message
+		say-line 8 "But if I could just see the map of that island^\\xFF\\x03^I bet I could recognize the shape of the land and track it down myself."
+		wait-for-message
+		if !(B.468) jump &[00004636]
+		jump &[00004872]
+		jump &[00004639]
+[00004636]:
+		jump &[00000350]
+[00004639]:
+		override &[00004783]
+		say-line 8 "Well, I don't even know their names."
+		wait-for-message
+		actor 8 talk-animation 17,22
+		say-line 8 "You know, that reminds me^\\xFF\\x03I've got to get to the library and look that up^"
+		actor 8 talk-animation 4,5
+		wait-for-message
+		jump &[00004433]
+[00004783]:
+		override off
+		print-line " "
+		actor 8 talk-animation 4,5
+		if !(B.468) jump &[00004807]
+		jump &[00004872]
+		jump &[00004810]
+[00004807]:
+		jump &[00000350]
+[00004810]:
+		B.470 = 1
+		override &[00011099]
+		say-line 8 "Well, well.\\xFF\\x03Guess you don't need me, then."
+		wait-for-message
+		jump &[00011099]
+[00004872]:
+		override off
+		print-line " "
+		if (B.462) {
+			if (B.456) {
+				if (B.464) {
+					if (B.463) {
+						B.466 = 1
+					}
+				}
+			}
+		}
+		start-script 33 ()
+		if (B.223) {
+			if (!B.472) {
+				V.100 = ((120 + 7) - 1)
+				verb V.100 at 0,V.176 name "\\x07Hey!  I did it!  Largo LaGrand\\x82 left Scabb!" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if !(!B.466) jump &[00005222]
+		if !(B.461) jump &[00005127]
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I have some more questions about Scabb Island." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00005222]
+[00005127]:
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I have some questions about Scabb Island." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00005222]:
+		if !(!B.469) jump &[00005321]
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Do you know anything about Big Whoop?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00005446]
+[00005321]:
+		if (B.470) {
+			if (!B.471) {
+				if (V.304 < 3) {
+					V.100 = ((120 + 6) - 1)
+					verb V.100 at 0,V.176 name "\\x07Could you tell me about the men who burried Big Whoop?" on key V.177
+					V.176 += 8
+					V.100 -= 120
+					++V.177
+					++V.304
+					B.16[V.100] = 1
+				}
+			}
+		}
+[00005446]:
+		if !(B.457) jump &[00005605]
+		if !(B.455) jump &[00005459]
+		jump &[00005486]
+[00005459]:
+		if !(B.454) jump &[00005467]
+		jump &[00005486]
+[00005467]:
+		if !(!B.459) jump &[00005475]
+		jump &[00005486]
+[00005475]:
+		if !(!B.458) jump &[00005483]
+		jump &[00005486]
+[00005483]:
+		jump &[00005602]
+[00005486]:
+		if (V.304 < 3) {
+			V.100 = ((120 + 3) - 1)
+			verb V.100 at 0,V.176 name "\\x07You know, I could just sit and talk about maps all day." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+[00005602]:
+		jump &[00005694]
+[00005605]:
+		if (V.304 < 3) {
+			V.100 = ((120 + 5) - 1)
+			verb V.100 at 0,V.176 name "\\x07What exactly do you do here?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+[00005694]:
+		if !(!B.223) jump &[00005874]
+		if !(!B.456) jump &[00005874]
+		if !(B.270) jump &[00005805]
+		V.100 = ((120 + 8) - 1)
+		verb V.100 at 0,V.176 name "\\x07You know anything about this Largo guy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00005874]
+[00005805]:
+		V.100 = ((120 + 8) - 1)
+		verb V.100 at 0,V.176 name "\\x07How's business?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00005874]:
+		if (B.457) {
+			if (!B.460) {
+				if (V.304 < 3) {
+					V.100 = ((120 + 4) - 1)
+					verb V.100 at 0,V.176 name "\\x07Is longitude the sideways one, or is that latitude?" on key V.177
+					V.176 += 8
+					V.100 -= 120
+					++V.177
+					++V.304
+					B.16[V.100] = 1
+				}
+			}
+		}
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07Thanks.  I gotta go." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = (9 - 1)
+		V.178[V.100] = 1
+		if !(V.304 < 2) jump &[00006273]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		say-line "Would you mind if I just looked around?"
+		wait-for-message
+		say-line 8 "No, no.  Be my guest."
+		wait-for-message
+		if (B.236) {
+			say-line 8 "If you see my monocle, let me know."
+			wait-for-message
+		}
+		jump &[00011099]
+[00006273]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00006306]
+		B.465 = 1
+		jump &[00008915]
+		jump &[00006421]
+[00006306]:
+		if !(V.175 is 121) jump &[00006319]
+		jump &[00001139]
+		jump &[00006421]
+[00006319]:
+		if !(V.175 is 122) jump &[00006332]
+		jump &[00006513]
+		jump &[00006421]
+[00006332]:
+		if !(V.175 is 123) jump &[00006345]
+		jump &[00006715]
+		jump &[00006421]
+[00006345]:
+		if !(V.175 is 124) jump &[00006358]
+		jump &[00006910]
+		jump &[00006421]
+[00006358]:
+		if !(V.175 is 125) jump &[00006371]
+		jump &[00003418]
+		jump &[00006421]
+[00006371]:
+		if !(V.175 is 126) jump &[00006384]
+		jump &[00006421]
+		jump &[00006421]
+[00006384]:
+		if !(V.175 is 127) jump &[00006408]
+		if !(B.270) jump &[00006402]
+		jump &[00010891]
+		jump &[00006405]
+[00006402]:
+		jump &[00010261]
+[00006405]:
+		jump &[00006421]
+[00006408]:
+		if !(V.175 is 128) jump &[00006421]
+		jump &[00011074]
+		jump &[00006421]
+[00006421]:
+		B.472 = 1
+		override &[00011099]
+		say-line 8 "That's great.\\xFF\\x03I guess I can stop with the bricks through his window now."
+		wait-for-message
+		jump &[00011099]
+[00006513]:
+		override &[00007059]
+		++V.511
+		if !(V.511 is 1) jump &[00006548]
+		say-line 8 "Hey!  Me too."
+		jump &[00006710]
+[00006548]:
+		if !(V.511 is 2) jump &[00006575]
+		say-line 8 "Who couldn't?"
+		jump &[00006710]
+[00006575]:
+		if !(V.511 is 3) jump &[00006622]
+		say-line 8 "What else is there to talk about?"
+		jump &[00006710]
+[00006622]:
+		if !(V.511 is 4) jump &[00006662]
+		say-line 8 "Well, hey.  That's my job."
+		jump &[00006710]
+[00006662]:
+		if !(V.511 is 5) jump &[00006702]
+		say-line 8 "Seems almost like we have."
+		jump &[00006710]
+[00006702]:
+		say-line 8 "Yep."
+[00006710]:
+		wait-for-message
+		jump &[00007059]
+[00006715]:
+		B.460 = 1
+		override &[00004872]
+		say-line "I can never remember which is which."
+		wait-for-message
+		say-line 8 "It's so cute when you lay people try to understand geography.\\xFF\\x03I could try to explain it, but it would probably just go over your head."
+		wait-for-message
+		jump &[00004872]
+[00006910]:
+		B.457 = 1
+		B.454 = 1
+		B.455 = 1
+		override &[00007059]
+		say-line 8 "I'm a cartographer."
+		wait-for-message
+		say-line "You do open heart surgery?\\xFF\\x03In here?"
+		wait-for-message
+		say-line 8 "Uh^ no.\\xFF\\x03I'm the map-making sort of cartographer."
+		wait-for-message
+		say-line "Oh."
+		wait-for-message
+[00007059]:
+		override off
+		print-line " "
+		start-script 33 ()
+		if (B.454) {
+			V.100 = ((120 + 1) - 1)
+			verb V.100 at 0,V.176 name "\\x07What kinds of maps do you make?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (B.455) {
+			V.100 = ((120 + 2) - 1)
+			verb V.100 at 0,V.176 name "\\x07Is that all you do?  Make maps?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if !(B.459) jump &[00007262]
+		if !(B.458) jump &[00007262]
+		jump &[00007343]
+[00007262]:
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Ha!  Only sissies use maps." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00007343]:
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Maps.  Huh.  That's interesting.  Well, see ya." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = (4 - 1)
+		V.178[V.100] = 1
+		if !(V.304 < 2) jump &[00007580]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		override &[00011099]
+		say-line "^but unfortunately I don't have all day."
+		wait-for-message
+		jump &[00011074]
+[00007580]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00007608]
+		jump &[00007816]
+		jump &[00007647]
+[00007608]:
+		if !(V.175 is 121) jump &[00007621]
+		jump &[00007647]
+		jump &[00007647]
+[00007621]:
+		if !(V.175 is 122) jump &[00007634]
+		jump &[00007960]
+		jump &[00007647]
+[00007634]:
+		if !(V.175 is 123) jump &[00007647]
+		jump &[00011074]
+		jump &[00007647]
+[00007647]:
+		B.455 = 0
+		override &[00007996]
+		say-line 8 "Well, I do some restoration work too."
+		wait-for-message
+		say-line 8 "I paste them together, re-copy them^\\xFF\\x03^paint little cupids in the corners^\\xFF\\x03^you know.  Artsy-fartsy stuff."
+		wait-for-message
+		jump &[00007960]
+[00007816]:
+		B.454 = 0
+		override &[00007996]
+		say-line 8 "Every kind a pirate could need!\\xFF\\x03My eyes have seen the whole world, and there's not a part of it I haven't put down on paper."
+		wait-for-message
+		jump &[00007960]
+[00007960]:
+		say-line 8 "Maps are very, very important."
+		wait-for-message
+[00007996]:
+		override off
+		print-line " "
+		start-script 33 ()
+		if (!B.459) {
+			V.100 = ((120 + 1) - 1)
+			verb V.100 at 0,V.176 name "\\x07Not to me.  I don't travel." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (!B.458) {
+			V.100 = ((120 + 2) - 1)
+			verb V.100 at 0,V.176 name "\\x07Actually, I prefer to just stop and ask directions." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if !(!B.223) jump &[00008382]
+		if !(!B.456) jump &[00008382]
+		if !(B.270) jump &[00008313]
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07You know anything about this Largo guy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00008382]
+[00008313]:
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07How's business?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00008382]:
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07I'm sure they are.  Well, goodbye." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = (9 - 1)
+		V.178[V.100] = 1
+		if !(V.304 < 2) jump &[00008584]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		override &[00004872]
+		say-line "So you've told me."
+		wait-for-message
+		jump &[00004872]
+[00008584]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00008612]
+		jump &[00008664]
+		jump &[00008664]
+[00008612]:
+		if !(V.175 is 121) jump &[00008625]
+		jump &[00008780]
+		jump &[00008664]
+[00008625]:
+		if !(V.175 is 122) jump &[00008638]
+		jump &[00010891]
+		jump &[00008664]
+[00008638]:
+		if !(V.175 is 123) jump &[00008651]
+		jump &[00010261]
+		jump &[00008664]
+[00008651]:
+		if !(V.175 is 128) jump &[00008664]
+		jump &[00011074]
+		jump &[00008664]
+[00008664]:
+		B.459 = 1
+		override &[00004872]
+		say-line 8 "That's even better!\\xFF\\x03With good maps, you can see the whole world without leaving your livingroom."
+		wait-for-message
+		jump &[00004872]
+[00008780]:
+		B.458 = 1
+		override &[00008901]
+		say-line 8 "That's what Magellan thought."
+		wait-for-message
+		if !(!B.236) jump &[00008839]
+		actor 8 talk-animation 16,18
+		jump &[00008845]
+[00008839]:
+		actor 8 talk-animation 18,18
+[00008845]:
+		say-line 8 "Ha ha ha!"
+		wait-for-message
+		actor 8 talk-animation 4,5
+		do-animation 8 3
+		say-line 8 "Sorry.  Cartographer joke."
+		wait-for-message
+[00008901]:
+		override off
+		actor 8 talk-animation 4,5
+		do-animation 8 3
+		jump &[00004872]
+[00008915]:
+		if !(!B.461) jump &[00008975]
+		B.461 = 1
+		L.0 = 1
+		override &[00008992]
+		say-line 8 "Why?  Thinking about moving here?"
+		jump &[00008990]
+[00008975]:
+		override &[00008992]
+		say-line 8 "Shoot."
+[00008990]:
+		wait-for-message
+[00008992]:
+		override off
+		print-line " "
+		start-script 33 ()
+		if !(!B.462) jump &[00009233]
+		if !(L.0) jump &[00009129]
+		L.0 = 0
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Actually, I'm trying to get off it as soon as possible." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00009233]
+[00009129]:
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07How can I get off this island as soon as possible?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00009233]:
+		if !(!B.223) jump &[00009413]
+		if !(!B.456) jump &[00009413]
+		if !(B.270) jump &[00009344]
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07You know anything about this Largo guy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00009413]
+[00009344]:
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07How's business?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00009413]:
+		if (!B.464) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 4) - 1)
+				verb V.100 at 0,V.176 name "\\x07Where's the Governor's Mansion?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.463) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 5) - 1)
+				verb V.100 at 0,V.176 name "\\x07I'm looking for some room and board." on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if !(B.465) jump &[00009727]
+		B.465 = 0
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07Actually, I'd better not ask too many questions." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00009816]
+[00009727]:
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07Thanks.  That's all I need to know." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00009816]:
+		V.100 = (9 - 1)
+		V.178[V.100] = 1
+		if !(V.304 < 2) jump &[00009950]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		B.466 = 1
+		say-line "Thanks for the low-down."
+		wait-for-message
+		say-line 8 "Anytime."
+		wait-for-message
+		jump &[00004872]
+[00009950]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00009978]
+		jump &[00010043]
+		jump &[00010043]
+[00009978]:
+		if !(V.175 is 121) jump &[00009991]
+		jump &[00010891]
+		jump &[00010043]
+[00009991]:
+		if !(V.175 is 122) jump &[00010004]
+		jump &[00010261]
+		jump &[00010043]
+[00010004]:
+		if !(V.175 is 123) jump &[00010017]
+		jump &[00010362]
+		jump &[00010043]
+[00010017]:
+		if !(V.175 is 124) jump &[00010030]
+		jump &[00010608]
+		jump &[00010043]
+[00010030]:
+		if !(V.175 is 128) jump &[00010043]
+		jump &[00010801]
+		jump &[00010043]
+[00010043]:
+		B.270 = 1
+		B.462 = 1
+		override &[00008992]
+		if !(B.223) jump &[00010109]
+		say-line 8 "Maybe you should talk to Captain Dread."
+		jump &[00010256]
+[00010109]:
+		say-line 8 "Good luck!\\xFF\\x03With the sailing embargo Largo's imposed on Scabb, it's hard to get anywhere."
+		wait-for-message
+		say-line 8 "Which doesn't help my business, let me tell you."
+[00010256]:
+		wait-for-message
+		jump &[00008992]
+[00010261]:
+		B.270 = 1
+		override &[00008992]
+		say-line 8 "Terrible!"
+		wait-for-message
+		say-line 8 "No one needs any maps since no one can go anywhere thanks to Largo."
+		wait-for-message
+		jump &[00008992]
+[00010362]:
+		B.464 = 1
+		B.270 = 1
+		override &[00008992]
+		say-line 8 "There is no Governor on Scabb!\\xFF\\x03This is an anarchist cooperative of pirates, cutthroats, and other criminals."
+		wait-for-message
+		say-line 8 "A haven for roughnecks and rebels like me."
+		wait-for-message
+		if (!B.223) {
+			say-line 8 "The only authority on this island is that bully Largo."
+			wait-for-message
+		}
+		jump &[00008992]
+[00010608]:
+		B.463 = 1
+		B.270 = 1
+		override &[00008992]
+		say-line 8 "Well, I hear there's a new chef down at the Bloody Lip."
+		wait-for-message
+		say-line 8 "And the Swamp Rot Inn has all the comforts of the sea."
+		wait-for-message
+		if (!B.223) {
+			say-line 8 "But I think Largo's booked the whole thing."
+			wait-for-message
+		}
+		jump &[00008992]
+[00010801]:
+		if (B.462) {
+			if (B.456) {
+				if (B.464) {
+					if (B.463) {
+						B.466 = 1
+					}
+				}
+			}
+		}
+		override &[00004872]
+		say-line 8 "Okay.  But don't be shy if you think of a question."
+		wait-for-message
+		jump &[00004872]
+[00010891]:
+		B.456 = 1
+		override &[00008992]
+		say-line 8 "He's just the local hood--shakes down everybody in town.\\xFF\\x03Nobody comes or goes from Scabb because Largo makes them pay through the nose."
+		wait-for-message
+		say-line "Yeah, tell me about it."
+		wait-for-message
+		jump &[00008992]
+[00011074]:
+		override &[00011099]
+		say-line 8 "Okey-dokey."
+		wait-for-message
+		jump &[00011099]
+[00011099]:
+		override off
+		print-line " "
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		start-script bak 203 ()
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !(B.236) jump &[00000016]
+		jump &[00000325]
+[00000016]:
+		actor 8 talk-animation 16,18
+		do-animation 8 18
+		do-animation 8 6
+		if (B.267) {
+			stop-script 0
+		}
+[00000035]:
+		do-animation 8 18
+		do-animation 8 6
+		L.0 = (60 * (4 + (random 10)))
+		sleep-for L.0 jiffies
+		V.160 = 1
+		do-animation 8 10
+		break-here 6
+		V.160 = 0
+		state-of 65 is 0
+		class-of 65 is 32
+		L.1 = ((random 2) + 1)
+		for L.2 = 1 to L.1 ++ {
+			do-animation 8 13
+			L.0 = (30 + (60 * (random 2)))
+			sleep-for L.0 jiffies
+			do-animation 8 12
+			break-here 8
+		}
+		if !(!B.236) jump &[00000174]
+		start-script 208 ()
+		break-until (!script-running 208)
+		jump &[00000199]
+[00000174]:
+		do-animation 8 3
+		do-animation 8 21
+		do-animation 8 22
+		do-animation 8 15
+		actor 8 talk-animation 17,22
+		sleep-for 60 jiffies
+		jump &[00000202]
+[00000199]:
+		jump &[00000035]
+[00000202]:
+		if !(!B.528) jump &[00000285]
+		B.528 = 1
+		say-line 8 "Hey!  Where's my monocle!\\xFF\\x03I can't see a thing without my monocle!"
+		jump &[00000323]
+[00000285]:
+		say-line 8 "Dang!  I've lost my monocle again!"
+[00000323]:
+		wait-for-message
+[00000325]:
+		do-animation 8 21
+		do-animation 8 22
+		do-animation 8 15
+		start-script 212 ()
+		do {
+			L.0 = (60 * (random 5))
+			sleep-for L.0 jiffies
+			actor 8 talk-animation 4,5
+			wait-for-message
+			do-animation 8 5
+			do-animation 8 3
+			L.0 = (60 * (random 2))
+			sleep-for L.0 jiffies
+			do-animation 8 15
+			L.0 = (60 * (random 5))
+			sleep-for L.0 jiffies
+			actor 8 talk-animation 17,22
+			wait-for-message
+			do-animation 8 22
+			do-animation 8 3
+			L.0 = (60 * (random 2))
+			sleep-for L.0 jiffies
+			do-animation 8 15
+		}
+		end-script
+	}
+; Give Something to Wally
+	script 204 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0204
+	local variable L.0
+
+		userput off
+		do-animation selected-actor 10
+		if (B.236) {
+			if (L.0 is-not 65) {
+				if (L.0 is-not 287) {
+					stop-script 212
+					say-line 8 "What is that?  I can't see a thing!"
+					sleep-for 30 jiffies
+					do-animation selected-actor 3
+					userput on
+					wait-for-message
+					say-line 8 "All I want is my monocle."
+					wait-for-message
+					start-script 212 ()
+					stop-script 0
+				}
+			}
+		}
+		if !(L.0 is 65) jump &[00000210]
+		B.236 = 0
+		owner-of 65 is 0
+		owner-of 65 is 15
+		stop-script 203
+		stop-script 212
+		print-line " "
+		do-animation 8 14
+		break-here
+		do-animation selected-actor 3
+		break-here 4
+		do-animation 8 20
+		do-animation 8 3
+		say-line 8 "Oh, there it is.  Thanks."
+		wait-for-message
+		userput on
+		start-script 203 ()
+		stop-script 0
+		jump &[00000474]
+[00000210]:
+		if !(L.0 is 287) jump &[00000364]
+		if !(B.236) jump &[00000305]
+		B.236 = 0
+		B.267 = 1
+		owner-of 287 is 0
+		stop-script 203
+		stop-script 212
+		print-line " "
+		do-animation 8 14
+		break-here
+		do-animation selected-actor 3
+		userput on
+		break-here 4
+		do-animation 8 20
+		do-animation 8 3
+		say-line 8 "Ah, that'll work.  Thanks."
+		wait-for-message
+		start-script 203 ()
+		stop-script 0
+		jump &[00000361]
+[00000305]:
+		say-line 8 "No thanks.  I already have a perfectly good monocle."
+[00000361]:
+		jump &[00000474]
+[00000364]:
+		if !(L.0 is 678) jump &[00000380]
+		chain-script 205 (678)
+		jump &[00000474]
+[00000380]:
+		if !(L.0 is 67) jump &[00000396]
+		chain-script 205 (67)
+		jump &[00000474]
+[00000396]:
+		if !(L.0 is 232) jump &[00000412]
+		chain-script 205 (232)
+		jump &[00000474]
+[00000412]:
+		if !(L.0 is 500) jump &[00000428]
+		chain-script 205 (500)
+		jump &[00000474]
+[00000428]:
+		if !(L.0 is 405) jump &[00000444]
+		chain-script 205 (405)
+		jump &[00000474]
+[00000444]:
+		if !(L.0 is 196) jump &[00000460]
+		chain-script 205 (196)
+		jump &[00000474]
+[00000460]:
+		say-line 8 "No thanks."
+[00000474]:
+		sleep-for 30 jiffies
+		do-animation selected-actor 3
+		userput on
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+
+		userput on
+		cut-scene
+		stop-script 203
+		if (owner-of 678 is selected-actor) {
+			++L.1
+		}
+		if (owner-of 500 is selected-actor) {
+			++L.1
+		}
+		if (owner-of 405 is selected-actor) {
+			++L.1
+		}
+		if (owner-of 196 is selected-actor) {
+			++L.1
+		}
+		override &[00000893]
+		if (class-of 65 is 32) {
+			start-script 208 ()
+			break-until (!script-running 208)
+		}
+		start-script 206 ()
+		break-until (!script-running 206)
+		if !(L.0 is 67) jump &[00000209]
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line 8 "No thanks."
+		wait-for-message
+		do-animation 8 3
+		actor 8 talk-animation 4,5
+		say-line 8 "I have all the paper I need."
+		start-script 207 ()
+		break-until (!script-running 207)
+		wait-for-message
+		jump &[00001400]
+		jump &[00000317]
+[00000209]:
+		if !(L.0 is 232) jump &[00000317]
+		do-animation 8 18
+		sleep-for 30 jiffies
+		say-line "Pretty nice map, eh?"
+		sleep-for 60 jiffies
+		do-animation 8 3
+		actor 8 talk-animation 4,5
+		start-script 207 ()
+		break-until (!script-running 207)
+		do-animation 8 5
+		wait-for-message
+		say-line 8 "Of course it is.\\xFF\\x03I made it."
+		wait-for-message
+		jump &[00001400]
+		jump &[00000317]
+[00000317]:
+		if !(!B.430) jump &[00000410]
+		B.430 = 1
+		say-line 8 "What's this?  A map?"
+		wait-for-message
+		say-line 8 "Hmmm^"
+		wait-for-message
+		do-animation 8 7
+		actor 8 talk-animation 4,5
+		say-line 8 "Looks like only part of a map."
+		jump &[00000520]
+[00000410]:
+		if !(L.1 is 1) jump &[00000489]
+		say-line 8 "I can't make anything out of this."
+		wait-for-message
+		do-animation 8 7
+		actor 8 talk-animation 4,5
+		say-line 8 "It's incomplete."
+		jump &[00000520]
+[00000489]:
+		actor 8 talk-animation 4,5
+		say-line 8 "Got any more of this?"
+[00000520]:
+		wait-for-message
+		do-animation 8 7
+		if !(L.1 is 2) jump &[00000618]
+		say-line "I've got another piece right here!"
+		start-script 206 (1)
+		break-until (!script-running 206)
+		wait-for-message
+		say-line 8 "Hmmm^\\xFF\\x03Still not enough."
+		jump &[00000811]
+[00000618]:
+		if !(L.1 is 3) jump &[00000742]
+		say-line "I've got some more pieces right here!"
+		start-script 206 (1)
+		break-until (!script-running 206)
+		wait-for-message
+		say-line 8 "Hmmm^\\xFF\\x03Almost, but a critical part is still missing."
+		jump &[00000811]
+[00000742]:
+		if !(L.1 is 4) jump &[00000811]
+		say-line "I've got the rest of it right here."
+		start-script 206 (1)
+		break-until (!script-running 206)
+		wait-for-message
+		jump &[00000954]
+		jump &[00000811]
+[00000811]:
+		wait-for-message
+		start-script 207 ()
+		say-line 8 "Come back when you have the whole thing.\\xFF\\x03Maybe I can help you then."
+		wait-for-message
+		jump &[00001400]
+[00000893]:
+		override off
+		print-line " "
+		stop-script 206
+		stop-script 207
+		stop-script 208
+		do-animation selected-actor 3
+		do-animation 8 3
+		actor 8 talk-animation 4,5
+		class-of 65 is 160
+		state-of 65 is 1
+		do-animation 8 20
+		B.430 = 1
+		if !(L.1 is 4) jump &[00000951]
+		jump &[00001377]
+		jump &[00000954]
+[00000951]:
+		jump &[00001400]
+[00000954]:
+		override &[00001377]
+		say-line 8 "Hmmm^\\xFF\\x03Very interesting^"
+		wait-for-message
+		say-line "Can you put it all together into one map for me?"
+		sleep-for 30 jiffies
+		actor 8 talk-animation 4,5
+		do-animation 8 3
+		do-animation 8 23
+		do-animation 8 5
+		wait-for-message
+		say-line 8 "I don't suppose you have any money on you?"
+		wait-for-message
+		say-line "I expect to have some real soon."
+		wait-for-message
+		say-line 8 "I'll do it for you if you'll run an errand for me.\\xFF\\x03Go to the International House of Mojo and ask the fortune teller if my love potion's ready."
+		wait-for-message
+		say-line "Okay."
+		wait-for-message
+		walk selected-actor to-object 63
+		actor 8 talk-animation 16,18
+		say-line 8 "I'll try to have this done for you when you come back."
+		wait-for-message
+		break-here
+[00001377]:
+		override off
+		B.511 = 1
+		owner-of 678 is 0
+		owner-of 500 is 0
+		owner-of 405 is 0
+		owner-of 196 is 0
+[00001400]:
+		override off
+		start-script 203 ()
+		end-cut-scene
+		if (B.511) {
+			do-animation selected-actor 255
+			come-out 42 in-room 7 walk-to 65535,65535
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0206
+	local variable L.0
+
+		actor 8 talk-animation 16,18
+		do-animation selected-actor 10
+		break-here
+		if !(L.0) jump &[00000030]
+		do-animation 8 24
+		jump &[00000033]
+[00000030]:
+		do-animation 8 9
+[00000033]:
+		break-here
+		do-animation selected-actor 3
+		break-here 2
+		do-animation 8 3
+		do-animation 8 23
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0207
+		actor 8 talk-animation 4,5
+		do-animation 8 8
+		do-animation selected-actor 10
+		break-here 2
+		do-animation selected-actor 3
+		break-here 2
+		do-animation 8 3
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0208
+		class-of 65 is 160
+		if (V.109 is 65) {
+			V.109 = 0
+		}
+		do-animation 8 11
+		break-here
+		state-of 65 is 1
+		break-here 5
+		do-animation 8 5
+		do-animation 8 3
+		end-script
+	}
+; Look at Map
+	script 209 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0209
+		say-line "Nice map."
+		wait-for-message
+		V.100 = (6 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000065]
+		say-line 8 "Yep."
+		jump &[00000199]
+[00000065]:
+		if !(V.100 is 2) jump &[00000086]
+		say-line 8 "Uh-huh."
+		jump &[00000199]
+[00000086]:
+		if !(V.100 is 3) jump &[00000107]
+		say-line 8 "Thanks."
+		jump &[00000199]
+[00000107]:
+		if !(V.100 is 4) jump &[00000135]
+		say-line 8 "I like it too."
+		jump &[00000199]
+[00000135]:
+		if !(V.100 is 5) jump &[00000164]
+		say-line 8 "Drew it myself."
+		jump &[00000199]
+[00000164]:
+		if !(V.100 is 6) jump &[00000199]
+		say-line 8 "Not for sale, though."
+		jump &[00000199]
+[00000199]:
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0210
+		if !(!B.510) jump &[00000214]
+		B.510 = 1
+		cut-scene
+		override &[00000205]
+		say-line "Someone's hastily scratched a message here^\\xFF\\x03It just says, `LeChuck.`"
+		wait-for-message
+		do-animation selected-actor 246
+		say-line "Oh, no!\\xFF\\x03LeChuck's kidnapped the cartographer!"
+		wait-for-message
+		do-animation selected-actor 245
+		say-line "The poor little guy^\\xFF\\x03Hey!  He has my map!"
+		wait-for-message
+[00000205]:
+		print-line " "
+		end-cut-scene
+		jump &[00000241]
+[00000214]:
+		say-line "It just says, `LeChuck.`"
+[00000241]:
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0211
+		say-line "Everything looks all blurry."
+		wait-for-message
+		say-line 8 "Yeah, me too."
+		end-script
+	}
+; Wally Can't Find His Monocle
+	script 212 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0212
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		L.0 = (60 * (3 + (random 3)))
+		sleep-for L.0 jiffies
+[00000028]:
+		if !(V.317 > 24) jump &[00000042]
+		L.1 = random 24
+		jump &[00000050]
+[00000042]:
+		L.1 = V.317
+		++V.317
+[00000050]:
+		if !(L.1 is-not L.2) jump &[00000028]
+		L.2 = L.1
+		wait-for-message
+		wait-for-message
+		if !(L.1 is 0) jump &[00000086]
+		say-line 8 "Oh no."
+		jump &[00001101]
+[00000086]:
+		if !(L.1 is 1) jump &[00000120]
+		say-line 8 "Where is that thing?"
+		jump &[00001101]
+[00000120]:
+		if !(L.1 is 2) jump &[00000162]
+		say-line 8 "I swear I put it right here."
+		jump &[00001101]
+[00000162]:
+		if !(L.1 is 3) jump &[00000200]
+		say-line 8 "I hope I didn't lose it."
+		jump &[00001101]
+[00000200]:
+		if !(L.1 is 4) jump &[00000253]
+		say-line 8 "I'll never be able to afford a new one."
+		jump &[00001101]
+[00000253]:
+		if !(L.1 is 5) jump &[00000293]
+		say-line 8 "How am I supposed to work?"
+		jump &[00001101]
+[00000293]:
+		if !(L.1 is 6) jump &[00000312]
+		say-line 8 "Dang."
+		jump &[00001101]
+[00000312]:
+		if !(L.1 is 7) jump &[00000342]
+		say-line 8 "I'm such a dope."
+		jump &[00001101]
+[00000342]:
+		if !(L.1 is 8) jump &[00000382]
+		say-line 8 "Can't I do anything right?"
+		jump &[00001101]
+[00000382]:
+		if !(L.1 is 9) jump &[00000406]
+		say-line 8 "Aw, shoot."
+		jump &[00001101]
+[00000406]:
+		if !(L.1 is 10) jump &[00000476]
+		say-line 8 "I bet my mom would help me find it^\\xFF\\x03^if she were alive."
+		jump &[00001101]
+[00000476]:
+		if !(L.1 is 11) jump &[00000510]
+		say-line 8 "For crying out loud."
+		jump &[00001101]
+[00000510]:
+		if !(L.1 is 12) jump &[00000575]
+		say-line 8 "I hope it didn't roll onto the floor^\\xFF\\x03Nobody move!"
+		jump &[00001101]
+[00000575]:
+		if !(L.1 is 13) jump &[00000628]
+		say-line 8 "I can't belive somebody would STEAL it^"
+		jump &[00001101]
+[00000628]:
+		if !(L.1 is 14) jump &[00000699]
+		say-line 8 "I'd go for help, but I'm afraid to walk around like this."
+		jump &[00001101]
+[00000699]:
+		if !(L.1 is 15) jump &[00000736]
+		say-line 8 "I'm stuck here forever!"
+		jump &[00001101]
+[00000736]:
+		if !(L.1 is 16) jump &[00000787]
+		say-line 8 "I'm going to starve to death in here!"
+		jump &[00001101]
+[00000787]:
+		if !(L.1 is 17) jump &[00000843]
+		say-line 8 "I'm going to die hungry, blind, and alone."
+		jump &[00001101]
+[00000843]:
+		if !(L.1 is 18) jump &[00000864]
+		say-line 8 "Why me?"
+		jump &[00001101]
+[00000864]:
+		if !(L.1 is 19) jump &[00000898]
+		say-line 8 "I never hurt anyone."
+		jump &[00001101]
+[00000898]:
+		if !(L.1 is 20) jump &[00000918]
+		say-line 8 "Rats!."
+		jump &[00001101]
+[00000918]:
+		if !(L.1 is 21) jump &[00000944]
+		say-line 8 "This stinks."
+		jump &[00001101]
+[00000944]:
+		if !(L.1 is 22) jump &[00001044]
+		say-line 8 "If I don't find it soon I'm going to loose all the monocle-grabbing muscles in my eye."
+		jump &[00001101]
+[00001044]:
+		if !(L.1 is 23) jump &[00001082]
+		say-line 8 "Here monocle.  Here boy."
+		jump &[00001101]
+[00001082]:
+		if !(L.1 is 24) jump &[00001101]
+		say-line 8 "Shit."
+		jump &[00001101]
+[00001101]:
+		wait-for-message
+		jump &[00000008]
+		end-script
+	}
+}
+

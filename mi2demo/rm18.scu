@@ -1,0 +1,852 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 18: Cemetery Crypt (crypt)
+; */
+
+script 116 { ; SCRP LECF_0001\LFLF_0018\SCRP_0116
+local variable L.0
+local variable L.1
+
+	if (B.694) {
+		stop-script 0
+	}
+	L.1 = 1
+[00000020]:
+	do {
+		L.0 = random 4
+	} until (!V.495[L.0])
+	V.495[L.0] = L.1
+	if !(L.1 is 1) jump &[00000059]
+	V.517 = (179 + L.0)
+	jump &[00000070]
+[00000059]:
+	V.100 = (179 + L.0)
+[00000070]:
+	++L.1
+	if !(L.1 > 5) jump &[00000020]
+	B.694 = 1
+	end-script
+}
+
+script 117 { ; SCRP LECF_0001\LFLF_0018\SCRP_0117
+local variable L.1
+
+	if (!B.694) {
+		start-script 116 ()
+	}
+	L.1 = V.495[L.0]
+	wait-for-message
+	if !(L.1 is 1) jump &[00000052]
+	say-line "-Rapp Scallion"
+	jump &[00000187]
+[00000052]:
+	if !(L.1 is 2) jump &[00000086]
+	say-line "-Commander Buttonhead"
+	jump &[00000187]
+[00000086]:
+	if !(L.1 is 3) jump &[00000110]
+	say-line "-Lace Toady"
+	jump &[00000187]
+[00000110]:
+	if !(L.1 is 4) jump &[00000147]
+	say-line "-The Bossy Little Dynamo"
+	jump &[00000187]
+[00000147]:
+	if !(L.1 is 5) jump &[00000187]
+	say-line "-Sorry-Ass, Candy-butt Girl"
+	jump &[00000187]
+[00000187]:
+	wait-for-message
+	end-script
+}
+
+script 118 { ; SCRP LECF_0001\LFLF_0018\SCRP_0118
+local variable L.0
+
+	if !(L.0 is 0) jump &[00000059]
+	say-line "`Tim is the meanest boy in the world.`"
+	jump &[00000244]
+[00000059]:
+	if !(L.0 is 1) jump &[00000101]
+	say-line "`Have you hugged Tami today?`"
+	jump &[00000244]
+[00000101]:
+	if !(L.0 is 2) jump &[00000151]
+	say-line "`Look, no more Mills jokes, alright?`"
+	jump &[00000244]
+[00000151]:
+	if !(L.0 is 3) jump &[00000199]
+	say-line "`What kind of the fish is on dock?`"
+	jump &[00000244]
+[00000199]:
+	if !(L.0 is 4) jump &[00000244]
+	say-line "`Miss New York was a TOTAL arf!`"
+	jump &[00000244]
+[00000244]:
+	end-script
+}
+
+script 134 { ; SCRP LECF_0001\LFLF_0018\SCRP_0134
+local variable L.0
+
+	L.0 = 1
+[00000013]:
+	if !(L.0 is 1) jump &[00000023]
+	jump &[00001543]
+[00000023]:
+	if !(L.0 is 2) jump &[00000033]
+	jump &[00001543]
+[00000033]:
+	if !(L.0 is 3) jump &[00000043]
+	jump &[00001543]
+[00000043]:
+	if !(L.0 is 4) jump &[00000053]
+	jump &[00001543]
+[00000053]:
+	if !(L.0 is 5) jump &[00000063]
+	jump &[00001543]
+[00000063]:
+	if !(L.0 is 6) jump &[00000073]
+	jump &[00001543]
+[00000073]:
+	if !(L.0 is 7) jump &[00000083]
+	jump &[00001543]
+[00000083]:
+	if !(L.0 is 8) jump &[00000093]
+	jump &[00001543]
+[00000093]:
+	if !(L.0 is 9) jump &[00000103]
+	jump &[00001543]
+[00000103]:
+	if !(L.0 is 10) jump &[00000113]
+	jump &[00001543]
+[00000113]:
+	if !(L.0 is 11) jump &[00000123]
+	jump &[00001543]
+[00000123]:
+	if !(L.0 is 12) jump &[00000133]
+	jump &[00001543]
+[00000133]:
+	if !(L.0 is 13) jump &[00000143]
+	jump &[00001543]
+[00000143]:
+	if !(L.0 is 14) jump &[00000153]
+	jump &[00001543]
+[00000153]:
+	if !(L.0 is 15) jump &[00000163]
+	jump &[00001543]
+[00000163]:
+	if !(L.0 is 16) jump &[00000173]
+	jump &[00001543]
+[00000173]:
+	if !(L.0 is 17) jump &[00000183]
+	jump &[00001543]
+[00000183]:
+	if !(L.0 is 18) jump &[00000193]
+	jump &[00001543]
+[00000193]:
+	if !(L.0 is 19) jump &[00000203]
+	jump &[00001543]
+[00000203]:
+	if !(L.0 is 20) jump &[00000213]
+	jump &[00001543]
+[00000213]:
+	if !(L.0 is 21) jump &[00000223]
+	jump &[00001543]
+[00000223]:
+	if !(L.0 is 22) jump &[00000233]
+	jump &[00001543]
+[00000233]:
+	if !(L.0 is 23) jump &[00000243]
+	jump &[00001543]
+[00000243]:
+	if !(L.0 is 24) jump &[00000253]
+	jump &[00001543]
+[00000253]:
+	if !(L.0 is 25) jump &[00000263]
+	jump &[00001543]
+[00000263]:
+	if !(L.0 is 26) jump &[00000273]
+	jump &[00001543]
+[00000273]:
+	if !(L.0 is 27) jump &[00000283]
+	jump &[00001543]
+[00000283]:
+	if !(L.0 is 28) jump &[00000293]
+	jump &[00001543]
+[00000293]:
+	if !(L.0 is 29) jump &[00000303]
+	jump &[00001543]
+[00000303]:
+	if !(L.0 is 30) jump &[00000313]
+	jump &[00001543]
+[00000313]:
+	if !(L.0 is 31) jump &[00000323]
+	jump &[00001543]
+[00000323]:
+	if !(L.0 is 32) jump &[00000333]
+	jump &[00001543]
+[00000333]:
+	if !(L.0 is 33) jump &[00000343]
+	jump &[00001543]
+[00000343]:
+	if !(L.0 is 34) jump &[00000353]
+	jump &[00001543]
+[00000353]:
+	if !(L.0 is 35) jump &[00000363]
+	jump &[00001543]
+[00000363]:
+	if !(L.0 is 36) jump &[00000373]
+	jump &[00001543]
+[00000373]:
+	if !(L.0 is 37) jump &[00000388]
+	V.493 = 37
+	jump &[00001543]
+[00000388]:
+	if !(L.0 is 38) jump &[00000398]
+	jump &[00001543]
+[00000398]:
+	if !(L.0 is 39) jump &[00000408]
+	jump &[00001543]
+[00000408]:
+	if !(L.0 is 40) jump &[00000418]
+	jump &[00001543]
+[00000418]:
+	if !(L.0 is 41) jump &[00000428]
+	jump &[00001543]
+[00000428]:
+	if !(L.0 is 42) jump &[00000438]
+	jump &[00001543]
+[00000438]:
+	if !(L.0 is 43) jump &[00000448]
+	jump &[00001543]
+[00000448]:
+	if !(L.0 is 44) jump &[00000458]
+	jump &[00001543]
+[00000458]:
+	if !(L.0 is 45) jump &[00000468]
+	jump &[00001543]
+[00000468]:
+	if !(L.0 is 46) jump &[00000478]
+	jump &[00001543]
+[00000478]:
+	if !(L.0 is 47) jump &[00000488]
+	jump &[00001543]
+[00000488]:
+	if !(L.0 is 48) jump &[00000498]
+	jump &[00001543]
+[00000498]:
+	if !(L.0 is 49) jump &[00000508]
+	jump &[00001543]
+[00000508]:
+	if !(L.0 is 50) jump &[00000518]
+	jump &[00001543]
+[00000518]:
+	if !(L.0 is 51) jump &[00000528]
+	jump &[00001543]
+[00000528]:
+	if !(L.0 is 52) jump &[00000538]
+	jump &[00001543]
+[00000538]:
+	if !(L.0 is 53) jump &[00000548]
+	jump &[00001543]
+[00000548]:
+	if !(L.0 is 54) jump &[00000558]
+	jump &[00001543]
+[00000558]:
+	if !(L.0 is 55) jump &[00000573]
+	V.491 = 55
+	jump &[00001543]
+[00000573]:
+	if !(L.0 is 56) jump &[00000583]
+	jump &[00001543]
+[00000583]:
+	if !(L.0 is 57) jump &[00000593]
+	jump &[00001543]
+[00000593]:
+	if !(L.0 is 58) jump &[00000603]
+	jump &[00001543]
+[00000603]:
+	if !(L.0 is 59) jump &[00000613]
+	jump &[00001543]
+[00000613]:
+	if !(L.0 is 60) jump &[00000623]
+	jump &[00001543]
+[00000623]:
+	if !(L.0 is 61) jump &[00000633]
+	jump &[00001543]
+[00000633]:
+	if !(L.0 is 62) jump &[00000643]
+	jump &[00001543]
+[00000643]:
+	if !(L.0 is 63) jump &[00000653]
+	jump &[00001543]
+[00000653]:
+	if !(L.0 is 64) jump &[00000663]
+	jump &[00001543]
+[00000663]:
+	if !(L.0 is 65) jump &[00000673]
+	jump &[00001543]
+[00000673]:
+	if !(L.0 is 66) jump &[00000683]
+	jump &[00001543]
+[00000683]:
+	if !(L.0 is 67) jump &[00000693]
+	jump &[00001543]
+[00000693]:
+	if !(L.0 is 68) jump &[00000703]
+	jump &[00001543]
+[00000703]:
+	if !(L.0 is 69) jump &[00000713]
+	jump &[00001543]
+[00000713]:
+	if !(L.0 is 70) jump &[00000723]
+	jump &[00001543]
+[00000723]:
+	if !(L.0 is 71) jump &[00000733]
+	jump &[00001543]
+[00000733]:
+	if !(L.0 is 72) jump &[00000743]
+	jump &[00001543]
+[00000743]:
+	if !(L.0 is 73) jump &[00000753]
+	jump &[00001543]
+[00000753]:
+	if !(L.0 is 74) jump &[00000763]
+	jump &[00001543]
+[00000763]:
+	if !(L.0 is 75) jump &[00000773]
+	jump &[00001543]
+[00000773]:
+	if !(L.0 is 76) jump &[00000783]
+	jump &[00001543]
+[00000783]:
+	if !(L.0 is 77) jump &[00000793]
+	jump &[00001543]
+[00000793]:
+	if !(L.0 is 81) jump &[00000803]
+	jump &[00001543]
+[00000803]:
+	if !(L.0 is 82) jump &[00000813]
+	jump &[00001543]
+[00000813]:
+	if !(L.0 is 83) jump &[00000823]
+	jump &[00001543]
+[00000823]:
+	if !(L.0 is 84) jump &[00000833]
+	jump &[00001543]
+[00000833]:
+	if !(L.0 is 85) jump &[00000843]
+	jump &[00001543]
+[00000843]:
+	if !(L.0 is 86) jump &[00000853]
+	jump &[00001543]
+[00000853]:
+	if !(L.0 is 101) jump &[00000863]
+	jump &[00001543]
+[00000863]:
+	if !(L.0 is 102) jump &[00000873]
+	jump &[00001543]
+[00000873]:
+	if !(L.0 is 103) jump &[00000883]
+	jump &[00001543]
+[00000883]:
+	if !(L.0 is 104) jump &[00000893]
+	jump &[00001543]
+[00000893]:
+	if !(L.0 is 105) jump &[00000903]
+	jump &[00001543]
+[00000903]:
+	if !(L.0 is 106) jump &[00000913]
+	jump &[00001543]
+[00000913]:
+	if !(L.0 is 107) jump &[00000923]
+	jump &[00001543]
+[00000923]:
+	if !(L.0 is 108) jump &[00000933]
+	jump &[00001543]
+[00000933]:
+	if !(L.0 is 109) jump &[00000943]
+	jump &[00001543]
+[00000943]:
+	if !(L.0 is 110) jump &[00000953]
+	jump &[00001543]
+[00000953]:
+	if !(L.0 is 111) jump &[00000963]
+	jump &[00001543]
+[00000963]:
+	if !(L.0 is 112) jump &[00000973]
+	jump &[00001543]
+[00000973]:
+	if !(L.0 is 121) jump &[00000983]
+	jump &[00001543]
+[00000983]:
+	if !(L.0 is 122) jump &[00000993]
+	jump &[00001543]
+[00000993]:
+	if !(L.0 is 123) jump &[00001003]
+	jump &[00001543]
+[00001003]:
+	if !(L.0 is 124) jump &[00001013]
+	jump &[00001543]
+[00001013]:
+	if !(L.0 is 125) jump &[00001023]
+	jump &[00001543]
+[00001023]:
+	if !(L.0 is 141) jump &[00001033]
+	jump &[00001543]
+[00001033]:
+	if !(L.0 is 142) jump &[00001043]
+	jump &[00001543]
+[00001043]:
+	if !(L.0 is 143) jump &[00001053]
+	jump &[00001543]
+[00001053]:
+	if !(L.0 is 144) jump &[00001063]
+	jump &[00001543]
+[00001063]:
+	if !(L.0 is 145) jump &[00001073]
+	jump &[00001543]
+[00001073]:
+	if !(L.0 is 146) jump &[00001083]
+	jump &[00001543]
+[00001083]:
+	if !(L.0 is 147) jump &[00001098]
+	V.494 = 147
+	jump &[00001543]
+[00001098]:
+	if !(L.0 is 148) jump &[00001108]
+	jump &[00001543]
+[00001108]:
+	if !(L.0 is 149) jump &[00001118]
+	jump &[00001543]
+[00001118]:
+	if !(L.0 is 150) jump &[00001133]
+	V.492 = 150
+	jump &[00001543]
+[00001133]:
+	if !(L.0 is 151) jump &[00001143]
+	jump &[00001543]
+[00001143]:
+	if !(L.0 is 152) jump &[00001153]
+	jump &[00001543]
+[00001153]:
+	if !(L.0 is 153) jump &[00001163]
+	jump &[00001543]
+[00001163]:
+	if !(L.0 is 154) jump &[00001173]
+	jump &[00001543]
+[00001173]:
+	if !(L.0 is 155) jump &[00001183]
+	jump &[00001543]
+[00001183]:
+	if !(L.0 is 156) jump &[00001193]
+	jump &[00001543]
+[00001193]:
+	if !(L.0 is 157) jump &[00001203]
+	jump &[00001543]
+[00001203]:
+	if !(L.0 is 158) jump &[00001213]
+	jump &[00001543]
+[00001213]:
+	if !(L.0 is 159) jump &[00001223]
+	jump &[00001543]
+[00001223]:
+	if !(L.0 is 160) jump &[00001233]
+	jump &[00001543]
+[00001233]:
+	if !(L.0 is 161) jump &[00001243]
+	jump &[00001543]
+[00001243]:
+	if !(L.0 is 162) jump &[00001253]
+	jump &[00001543]
+[00001253]:
+	if !(L.0 is 163) jump &[00001263]
+	jump &[00001543]
+[00001263]:
+	if !(L.0 is 164) jump &[00001273]
+	jump &[00001543]
+[00001273]:
+	if !(L.0 is 165) jump &[00001283]
+	jump &[00001543]
+[00001283]:
+	if !(L.0 is 166) jump &[00001293]
+	jump &[00001543]
+[00001293]:
+	if !(L.0 is 167) jump &[00001303]
+	jump &[00001543]
+[00001303]:
+	if !(L.0 is 168) jump &[00001313]
+	jump &[00001543]
+[00001313]:
+	if !(L.0 is 169) jump &[00001323]
+	jump &[00001543]
+[00001323]:
+	if !(L.0 is 170) jump &[00001333]
+	jump &[00001543]
+[00001333]:
+	if !(L.0 is 171) jump &[00001343]
+	jump &[00001543]
+[00001343]:
+	if !(L.0 is 172) jump &[00001353]
+	jump &[00001543]
+[00001353]:
+	if !(L.0 is 173) jump &[00001363]
+	jump &[00001543]
+[00001363]:
+	if !(L.0 is 181) jump &[00001373]
+	jump &[00001543]
+[00001373]:
+	if !(L.0 is 182) jump &[00001383]
+	jump &[00001543]
+[00001383]:
+	if !(L.0 is 183) jump &[00001393]
+	jump &[00001543]
+[00001393]:
+	if !(L.0 is 184) jump &[00001403]
+	jump &[00001543]
+[00001403]:
+	if !(L.0 is 185) jump &[00001413]
+	jump &[00001543]
+[00001413]:
+	if !(L.0 is 186) jump &[00001423]
+	jump &[00001543]
+[00001423]:
+	if !(L.0 is 187) jump &[00001433]
+	jump &[00001543]
+[00001433]:
+	if !(L.0 is 188) jump &[00001443]
+	jump &[00001543]
+[00001443]:
+	if !(L.0 is 189) jump &[00001453]
+	jump &[00001543]
+[00001453]:
+	if !(L.0 is 201) jump &[00001463]
+	jump &[00001543]
+[00001463]:
+	if !(L.0 is 202) jump &[00001473]
+	jump &[00001543]
+[00001473]:
+	if !(L.0 is 203) jump &[00001483]
+	jump &[00001543]
+[00001483]:
+	if !(L.0 is 204) jump &[00001493]
+	jump &[00001543]
+[00001493]:
+	if !(L.0 is 221) jump &[00001503]
+	jump &[00001543]
+[00001503]:
+	if !(L.0 is 222) jump &[00001513]
+	jump &[00001543]
+[00001513]:
+	if !(L.0 is 223) jump &[00001523]
+	jump &[00001543]
+[00001523]:
+	if !(L.0 is 224) jump &[00001533]
+	jump &[00001543]
+[00001533]:
+	if !(L.0 is 225) jump &[00001543]
+	jump &[00001543]
+[00001543]:
+	++L.0
+	if !(L.0 > 240) jump &[00000013]
+	end-script
+}
+
+room crypt {
+
+	object 179 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0179
+		name is "coffin"
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000026]
+			start-script 203 ()
+			jump &[00000035]
+[00000026]:
+			start-script 201 (0,me)
+[00000035]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 202 (0,me)
+			end-object
+		}
+
+		verb 3 {
+			start-script 204 (me)
+			end-object
+		}
+	}
+
+	object 180 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0180
+		name is "coffin"
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000026]
+			start-script 203 ()
+			jump &[00000035]
+[00000026]:
+			start-script 201 (1,me)
+[00000035]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 202 (1,me)
+			end-object
+		}
+
+		verb 3 {
+			start-script 204 (me)
+			end-object
+		}
+	}
+
+	object 181 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0181
+		name is "coffin"
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000026]
+			start-script 203 ()
+			jump &[00000035]
+[00000026]:
+			start-script 201 (2,me)
+[00000035]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 202 (2,me)
+			end-object
+		}
+
+		verb 3 {
+			start-script 204 (me)
+			end-object
+		}
+	}
+
+	object 182 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0182
+		name is "coffin"
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000026]
+			start-script 203 ()
+			jump &[00000035]
+[00000026]:
+			start-script 201 (3,me)
+[00000035]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 202 (3,me)
+			end-object
+		}
+
+		verb 3 {
+			start-script 204 (me)
+			end-object
+		}
+	}
+
+	object 183 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0183
+		name is "coffin"
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000026]
+			start-script 203 ()
+			jump &[00000035]
+[00000026]:
+			start-script 201 (4,me)
+[00000035]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 202 (4,me)
+			end-object
+		}
+
+		verb 3 {
+			start-script 204 (me)
+			end-object
+		}
+	}
+
+	object 184 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0184
+		name is "cemetery"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 2 {
+			say-line "It's already open."
+			end-object
+		}
+
+		verb 3 {
+			say-line "Close myself in down here?  No thanks."
+			end-object
+		}
+
+		verb 255 {
+			come-out 152 in-room 16 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 185 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0185
+		name is "feet"
+
+		verb 8 {
+			say-line "Talk about your slip-shod internments."
+			end-object
+		}
+
+		verb 9 {
+			say-line "No way.  That might bring them all down."
+			end-object
+		}
+	}
+
+	object 186 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0186
+		name is "coffin"
+
+		verb 8 {
+			say-line "`Old Bill the acrobat,\\xFF\\x01He lies in here dead.\\xFF\\x03He died like we buried him^\\xFF\\x03Propped up on his head.`"
+			end-object
+		}
+
+		verb 9 {
+			say-line "I wouldn't want to upset it's balance."
+			end-object
+		}
+	}
+
+	object 187 { ; VERB LECF_0001\LFLF_0018\ROOM\OBCD_0187
+		name is "ashes"
+
+		verb 91 {
+			V.302 = 899
+			end-object
+		}
+
+		verb 8 {
+			say-line "Silty."
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0018\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0018\ROOM\ENCD
+		if (!B.694) {
+			start-script 116 ()
+		}
+		end-object
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0018\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		class-of L.1 is 147
+		if (!B.693) {
+			B.693 = 1
+			say-line "It's enscribed with a quote^"
+			wait-for-message
+		}
+		start-script 118 (L.0)
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0018\ROOM\LSCR_0202
+	local variable L.1
+
+		if (state-of L.1 is 1) {
+			stop-script 0
+		}
+		if !(class-of L.1 is 19) jump &[00000034]
+		jump &[00000175]
+[00000034]:
+		if !(!B.729) jump &[00000042]
+		jump &[00000175]
+[00000042]:
+		if !(V.495[L.0] is 1) jump &[00000120]
+		if !(B.536) jump &[00000112]
+		say-line "I think I should just let him rest in peace now."
+		stop-script 0
+		jump &[00000117]
+[00000112]:
+		start-script 203 ()
+		stop-script 0
+[00000117]:
+		jump &[00000175]
+[00000120]:
+		say-line "I don't think there's anyone of interest in there."
+		stop-script 0
+[00000175]:
+		say-line "I'm not opening up one of these without good reason!"
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0018\ROOM\LSCR_0203
+		cut-scene
+		override &[00000056]
+		start-script 205 (V.517)
+		break-until (!script-running 205)
+		if (!B.728) {
+			B.728 = 1
+			say-line "Yowsa."
+			wait-for-message
+		}
+		break-here
+[00000056]:
+		override off
+		print-line " "
+		V.514 = actor-x selected-actor
+		V.515 = actor-y selected-actor
+		V.516 = (248 + (actor-facing selected-actor))
+		V.100 = 65516
+		put-actor selected-actor in-room 19
+		put-actor selected-actor at V.100,180
+		end-cut-scene
+		camera-follow selected-actor
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0018\ROOM\LSCR_0204
+	local variable L.0
+
+		cut-scene
+		print-line " "
+		do-animation selected-actor 11
+		break-here
+		state-of L.0 is 0
+		sleep-for 30 jiffies
+		do-animation selected-actor 3
+		end-cut-scene
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0018\ROOM\LSCR_0205
+	local variable L.0
+
+		cut-scene
+		print-line " "
+		do-animation selected-actor 11
+		break-here
+		state-of L.0 is 1
+		sleep-for 30 jiffies
+		end-cut-scene
+		end-script
+	}
+}
+

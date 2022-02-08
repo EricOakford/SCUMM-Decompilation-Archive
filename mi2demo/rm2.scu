@@ -1,0 +1,143 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 2: Scabb Island (scabb-isl)
+; */
+
+room scabb-isl {
+
+	object 16 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0016
+		name is "Cemetery"
+
+		verb 11 {
+			come-out 150 in-room 16 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 20 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0020
+		name is "Dred's Ship"
+
+		verb 11 {
+			V.518 = 2
+			put-actor selected-actor in-room 22
+			put-actor selected-actor at 102,116
+			camera-follow selected-actor
+			end-object
+		}
+	}
+
+	object 17 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0017
+		name is "Woodtick"
+
+		verb 11 {
+			start-script 123 (2,7)
+			come-out 44 in-room 7 walk-to 696,49
+			end-object
+		}
+	}
+
+	object 18 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0018
+		name is "House@@@@@"
+
+		verb 11 {
+			come-out 235 in-room 23 walk-to 85,115
+			end-object
+		}
+	}
+
+	object 19 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0019
+		name is "Beach"
+
+		verb 11 {
+			come-out 22 in-room 4 walk-to 30,123
+			end-object
+		}
+	}
+
+	object 21 { ; VERB LECF_0001\LFLF_0002\ROOM\OBCD_0021
+		name is "Swamp"
+
+		verb 11 {
+			come-out 199 in-room 20 walk-to 25,95
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0002\ROOM\EXCD
+		stop-sound 40
+		B.211 = 0
+		V.191 = 0
+		actor selected-actor costume 1 step-dist 8,2
+		stop-script 23
+		set-screen 0 to 144
+		start-script 16 (2)
+		build-sentence-script = 4
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0002\ROOM\ENCD
+		sound-kludge 11
+		sound-kludge 65535
+		start-sound 40
+		start-script 16 (1)
+		set-screen 0 to 200
+		build-sentence-script = 200
+		actor selected-actor costume 2 step-dist 2,2
+		if (B.491) {
+			class-of 18 is 160
+		}
+		if (class-of 18 is 6) {
+			new-name-of 18 is "boathouse"
+		}
+		if (!script-running 124) {
+			start-script 201 ()
+		}
+		if (!B.211) {
+			break-here
+			start-script 23 ()
+			break-here
+			V.191 = selected-actor
+			sleep-for 120 jiffies
+			V.191 = 0
+		}
+		end-object
+	}
+	script 200 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		L.2 = find-object cursor-x,cursor-y
+		if !(L.2 is 17) jump &[00000061]
+		if !(actor-x selected-actor < 200) jump &[00000044]
+		walk selected-actor to 179,44
+		jump &[00000049]
+[00000044]:
+		walk selected-actor to-object 17
+[00000049]:
+		wait-for-actor selected-actor
+		start-object 17 verb 11 ()
+		jump &[00000070]
+[00000061]:
+		chain-script 34 (L.0,L.1)
+[00000070]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0201
+		if !(B.491) jump &[00000044]
+		do-animation 8 250
+		actor 8 default costume 23 ignore-boxes always-zclip 1
+		put-actor 8 in-room 2
+		put-actor 8 at 198,25
+		class-of 20 is 32
+		jump &[00000054]
+[00000044]:
+		put-actor 8 in-room 0
+		class-of 20 is 160
+[00000054]:
+		end-script
+	}
+}
+

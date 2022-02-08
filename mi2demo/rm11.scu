@@ -1,0 +1,523 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 11: Bloody Lip Grill (grill)
+; */
+
+room grill {
+
+	object 93 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0093
+		name is "door"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			walk selected-actor to 254,119
+			if !(B.246) jump &[00000114]
+			if !(!B.491) jump &[00000083]
+			say-line "The barkeep would be mad if I left work early."
+			jump &[00000111]
+[00000083]:
+			say-line "The barkeep might see me."
+[00000111]:
+			jump &[00000142]
+[00000114]:
+			say-line "The barkeep might see me."
+[00000142]:
+			end-object
+		}
+	}
+
+	object 94 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0094
+		name is "window"
+
+		verb 8 {
+			say-line "There's no glass in the window."
+			end-object
+		}
+
+		verb 11 {
+			start-script 210 ()
+			end-object
+		}
+	}
+
+	object 95 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0095
+		name is "window"
+
+		verb 8 {
+			say-line "All I can see is water."
+			end-object
+		}
+	}
+
+	object 96 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0096
+		name is "window"
+
+		verb 8 {
+			say-line "All I can see is water."
+			end-object
+		}
+	}
+
+	object 97 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0097
+		name is ""
+	}
+
+	object 98 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0098
+		name is "canned goods"
+
+		verb 8 {
+			say-line "Yuck.  It's all cans of fruit cocktail."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I hate fruit cocktail."
+			end-object
+		}
+	}
+
+	object 101 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0101
+		name is "cook"
+
+		verb 90 {
+			V.156 = 10
+			end-object
+		}
+
+		verb 8 {
+			say-line "He looks really into his cooking."
+			end-object
+		}
+
+		verb 10 {
+			start-script 201 ()
+			end-object
+		}
+	}
+
+	object 99 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0099
+		name is "vichyssoise@@@@@@@@@"
+
+		verb 8 {
+			if !(B.243) jump &[00000055]
+			say-line "Yuck.  There's a rat swimming in it."
+			jump &[00000091]
+[00000055]:
+			say-line "It's a cold potato and leek soup."
+[00000091]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "It's too heavy."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 135) jump &[00000165]
+			owner-of 135 is 0
+			owner-of 135 is 14
+			B.243 = 1
+			new-name-of 99 is "vichyssoise av\\x82c rat"
+			class-of 99 is 6
+			jump &[00000171]
+[00000165]:
+			start-script 3 (7)
+[00000171]:
+			end-object
+		}
+	}
+
+	object 100 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0100
+		name is "stove"
+
+		verb 8 {
+			say-line "It's off."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I'll bet it weighs half a ton."
+			end-object
+		}
+	}
+
+	object 102 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0102
+		name is "knife"
+
+		verb 91 {
+			V.302 = 864
+			end-object
+		}
+
+		verb 8 {
+			say-line "Sharp."
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object 102 in-room 0
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 119) jump &[00000047]
+			start-object 119 verb 7 (me)
+			jump &[00000180]
+[00000047]:
+			if !(L.0 is 130) jump &[00000065]
+			start-object 130 verb 7 (me)
+			jump &[00000180]
+[00000065]:
+			if !(L.0 is 108) jump &[00000081]
+			do-sentence 7 L.0 with me
+			jump &[00000180]
+[00000081]:
+			if !(L.0 is 11) jump &[00000113]
+			if !(selected-room is 54) jump &[00000107]
+			start-script V.252[11] (36)
+			jump &[00000110]
+[00000107]:
+			jump &[00000113]
+[00000110]:
+			jump &[00000180]
+[00000113]:
+			say-line "My scoutmaster would kill me if he saw me use a knife like that."
+[00000180]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0011\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0011\ROOM\ENCD
+		if (class-of 99 is 6) {
+			new-name-of 99 is "vichyssoise av\\x82c rat"
+		}
+		if !(!B.263) jump &[00000070]
+		if !(B.738) jump &[00000064]
+		class-of 101 is 160
+		put-actor 9 in-room 0
+		jump &[00000067]
+[00000064]:
+		start-script 200 ()
+[00000067]:
+		jump &[00000080]
+[00000070]:
+		class-of 101 is 160
+		put-actor 9 in-room 0
+[00000080]:
+		if (V.102 is 7) {
+			start-script 211 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0200
+		actor 9 default costume 33 talk-color 12 step-dist 6,2 ignore-boxes always-zclip 1
+		do-animation 9 250
+		put-actor 9 in-room 11
+		put-actor 9 at 114,128
+		start-script bak 203 ()
+		end-script
+	}
+; Talk to Cook
+	script 201 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0201
+		say-line "Excuse me."
+		stop-script 203
+		if !(script-running 204) jump &[00000041]
+		start-script 202 (204)
+		jump &[00000136]
+[00000041]:
+		if !(script-running 205) jump &[00000059]
+		start-script 202 (205)
+		jump &[00000136]
+[00000059]:
+		if !(script-running 206) jump &[00000077]
+		start-script 202 (206)
+		jump &[00000136]
+[00000077]:
+		if !(script-running 207) jump &[00000095]
+		start-script 202 (207)
+		jump &[00000136]
+[00000095]:
+		if !(script-running 208) jump &[00000117]
+		break-until (!script-running 208)
+		jump &[00000136]
+[00000117]:
+		if (script-running 209) {
+			break-until (!script-running 209)
+		}
+[00000136]:
+		break-until (!script-running 202)
+		wait-for-message
+		if !(!B.251) jump &[00000192]
+		B.251 = 1
+		say-line 9 "Don't bug me.  I'm cooking."
+		jump &[00000221]
+[00000192]:
+		say-line 9 "I said, `Leave me alone.`"
+[00000221]:
+		wait-for-message
+		start-script bak 203 ()
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0202
+	local variable L.0
+
+		break-until (!script-running L.0)
+		do-animation 9 9
+		break-here 6
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0203
+[00000008]:
+		start-script bak 204 ()
+		break-until (!script-running 204)
+		V.100 = (2 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000059]
+		jump &[00000072]
+		jump &[00000072]
+[00000059]:
+		if !(V.100 is 2) jump &[00000072]
+		jump &[00000214]
+		jump &[00000072]
+[00000072]:
+		start-script bak 205 ()
+		break-until (!script-running 205)
+		V.100 = (8 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000123]
+		jump &[00000072]
+		jump &[00000214]
+[00000123]:
+		if !(V.100 is 2) jump &[00000136]
+		jump &[00000072]
+		jump &[00000214]
+[00000136]:
+		if !(V.100 is 3) jump &[00000149]
+		jump &[00000372]
+		jump &[00000214]
+[00000149]:
+		if !(V.100 is 4) jump &[00000162]
+		jump &[00000372]
+		jump &[00000214]
+[00000162]:
+		if !(V.100 is 5) jump &[00000175]
+		jump &[00000214]
+		jump &[00000214]
+[00000175]:
+		if !(V.100 is 6) jump &[00000188]
+		jump &[00000214]
+		jump &[00000214]
+[00000188]:
+		if !(V.100 is 7) jump &[00000201]
+		jump &[00000214]
+		jump &[00000214]
+[00000201]:
+		if !(V.100 is 8) jump &[00000214]
+		jump &[00000356]
+		jump &[00000214]
+[00000214]:
+		start-script bak 206 ()
+		break-until (!script-running 206)
+		V.100 = (8 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000265]
+		jump &[00000372]
+		jump &[00000356]
+[00000265]:
+		if !(V.100 is 2) jump &[00000278]
+		jump &[00000372]
+		jump &[00000356]
+[00000278]:
+		if !(V.100 is 3) jump &[00000291]
+		jump &[00000072]
+		jump &[00000356]
+[00000291]:
+		if !(V.100 is 4) jump &[00000304]
+		jump &[00000072]
+		jump &[00000356]
+[00000304]:
+		if !(V.100 is 5) jump &[00000317]
+		jump &[00000214]
+		jump &[00000356]
+[00000317]:
+		if !(V.100 is 6) jump &[00000330]
+		jump &[00000214]
+		jump &[00000356]
+[00000330]:
+		if !(V.100 is 7) jump &[00000343]
+		jump &[00000214]
+		jump &[00000356]
+[00000343]:
+		if !(V.100 is 8) jump &[00000356]
+		jump &[00000356]
+		jump &[00000356]
+[00000356]:
+		start-script bak 209 ()
+		break-until (!script-running 209)
+		jump &[00000008]
+[00000372]:
+		start-script bak 207 ()
+		break-until (!script-running 207)
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000423]
+		jump &[00000372]
+		jump &[00000475]
+[00000423]:
+		if !(V.100 is 2) jump &[00000436]
+		jump &[00000475]
+		jump &[00000475]
+[00000436]:
+		if !(V.100 is 3) jump &[00000449]
+		jump &[00000475]
+		jump &[00000475]
+[00000449]:
+		if !(V.100 is 4) jump &[00000462]
+		jump &[00000655]
+		jump &[00000475]
+[00000462]:
+		if !(V.100 is 5) jump &[00000475]
+		jump &[00000372]
+		jump &[00000475]
+[00000475]:
+		start-script bak 206 ()
+		break-until (!script-running 206)
+		V.100 = (4 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000526]
+		jump &[00000475]
+		jump &[00000565]
+[00000526]:
+		if !(V.100 is 2) jump &[00000539]
+		jump &[00000475]
+		jump &[00000565]
+[00000539]:
+		if !(V.100 is 3) jump &[00000552]
+		jump &[00000565]
+		jump &[00000565]
+[00000552]:
+		if !(V.100 is 4) jump &[00000565]
+		jump &[00000372]
+		jump &[00000565]
+[00000565]:
+		start-script bak 205 ()
+		break-until (!script-running 205)
+		V.100 = (4 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000616]
+		jump &[00000565]
+		jump &[00000655]
+[00000616]:
+		if !(V.100 is 2) jump &[00000629]
+		jump &[00000475]
+		jump &[00000655]
+[00000629]:
+		if !(V.100 is 3) jump &[00000642]
+		jump &[00000475]
+		jump &[00000655]
+[00000642]:
+		if !(V.100 is 4) jump &[00000655]
+		jump &[00000372]
+		jump &[00000655]
+[00000655]:
+		start-script bak 208 ()
+		break-until (!script-running 208)
+		jump &[00000008]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0204
+		do-animation 9 11
+		break-here 6
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0205
+		do-animation 9 6
+		break-here 7
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0206
+		do-animation 9 7
+		break-here 6
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0207
+		do-animation 9 10
+		break-here 8
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0208
+		do-animation 9 8
+		break-here 14
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0209
+		do-animation 9 9
+		break-here 6
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0210
+		cut-scene
+		actor selected-actor costume 115
+		do-animation selected-actor 9
+		break-here 10
+		end-cut-scene
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		come-out 49 in-room 7 walk-to 65535,65535
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0211
+		cut-scene
+		put-actor selected-actor in-room 11
+		put-actor selected-actor at 109,104
+		actor selected-actor costume 115 follow-boxes
+		do-animation selected-actor 250
+		if !(!B.710) jump &[00000136]
+		B.710 = 1
+		put-actor selected-actor at 100,115
+		do-animation selected-actor 6
+		break-here 14
+		do-animation selected-actor 7
+		break-here 8
+		do-animation selected-actor 8
+		break-here 28
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		jump &[00000183]
+[00000136]:
+		do-animation selected-actor 251
+		do-animation selected-actor 10
+		break-here 10
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		break-here 3
+		do-animation selected-actor 246
+		break-here 3
+[00000183]:
+		end-cut-scene
+		end-script
+	}
+}
+

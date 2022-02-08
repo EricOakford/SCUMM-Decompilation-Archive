@@ -1,0 +1,1015 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 15: Woodtick Woodshop (woodshop)
+; */
+
+room woodshop {
+
+	object 148 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0148
+		name is "stool"
+
+		verb 8 {
+			start-script 202 (148,8)
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000077]
+			say-line "No thanks.  I don't touch other people's stools."
+			jump &[00000086]
+[00000077]:
+			start-script 202 (148,9)
+[00000086]:
+			end-object
+		}
+
+		verb 7 {
+			if !(B.531) jump &[00000123]
+			say-line "I don't have time to sit."
+			jump &[00000132]
+[00000123]:
+			start-script 202 (148,7)
+[00000132]:
+			end-object
+		}
+	}
+
+	object 147 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0147
+		name is "workbench"
+
+		verb 8 {
+			start-script 202 (147,8)
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000052]
+			say-line "It's too heavy to move."
+			jump &[00000061]
+[00000052]:
+			start-script 202 (147,9)
+[00000061]:
+			end-object
+		}
+	}
+
+	object 140 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0140
+		name is "hammer"
+
+		verb 91 {
+			V.302 = 806
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(owner-of me is selected-actor) jump &[00000088]
+			if !(valid-verb L.0, 18) jump &[00000047]
+			do-sentence 18 L.0 with 0
+			jump &[00000085]
+[00000047]:
+			say-line "I don't think I should hammer that."
+[00000085]:
+			jump &[00000143]
+[00000088]:
+			if !(B.531) jump &[00000134]
+			say-line "I don't think I should hammer that."
+			jump &[00000143]
+[00000134]:
+			start-script 202 (140,7)
+[00000143]:
+			end-object
+		}
+
+		verb 19 {
+			if !(selected-room is 51) jump &[00000171]
+			if !(B.259) jump &[00000165]
+			do-sentence 19 563 with 0
+			jump &[00000168]
+[00000165]:
+			jump &[00000171]
+[00000168]:
+			jump &[00000218]
+[00000171]:
+			say-line "Good practice, but I think I need some wood."
+[00000218]:
+			end-object
+		}
+
+		verb 8 {
+			if !(owner-of me is selected-actor) jump &[00000254]
+			say-line "It says, `Woody.`"
+			jump &[00000263]
+[00000254]:
+			start-script 202 (140,8)
+[00000263]:
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000288]
+			if (owner-of me is 15) {
+				pick-up-object me in-room 0
+			}
+			jump &[00000377]
+[00000288]:
+			if !(!B.738) jump &[00000305]
+			start-script 202 (140,9)
+			jump &[00000377]
+[00000305]:
+			if (owner-of me is 15) {
+				say-line 11 "Just bring the hammer back when you're done with it."
+				pick-up-object me in-room 0
+			}
+[00000377]:
+			end-object
+		}
+	}
+
+	object 141 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0141
+		name is "nails"
+
+		verb 91 {
+			V.302 = 816
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(owner-of me is selected-actor) jump &[00000086]
+			if !(valid-verb L.0, 19) jump &[00000047]
+			do-sentence 19 L.0 with 0
+			jump &[00000083]
+[00000047]:
+			say-line "I don't think I should nail that."
+[00000083]:
+			jump &[00000139]
+[00000086]:
+			if !(B.531) jump &[00000130]
+			say-line "I don't think I should nail that."
+			jump &[00000139]
+[00000130]:
+			start-script 202 (141,7)
+[00000139]:
+			end-object
+		}
+
+		verb 18 {
+			if !(selected-room is 51) jump &[00000167]
+			if !(B.259) jump &[00000161]
+			do-sentence 19 563 with 0
+			jump &[00000164]
+[00000161]:
+			jump &[00000167]
+[00000164]:
+			jump &[00000214]
+[00000167]:
+			say-line "Good practice, but I think I need some wood."
+[00000214]:
+			end-object
+		}
+
+		verb 8 {
+			if !(owner-of me is selected-actor) jump &[00000294]
+			say-line "Nothing like a pocket full of nails to keep you on your toes."
+			jump &[00000303]
+[00000294]:
+			start-script 202 (141,8)
+[00000303]:
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000328]
+			if (owner-of me is 15) {
+				pick-up-object me in-room 0
+			}
+			jump &[00000402]
+[00000328]:
+			if !(!B.738) jump &[00000345]
+			start-script 202 (141,9)
+			jump &[00000402]
+[00000345]:
+			if (owner-of me is 15) {
+				say-line 11 "Replace the nails you borrow, please."
+				pick-up-object me in-room 0
+			}
+[00000402]:
+			end-object
+		}
+	}
+
+	object 142 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0142
+		name is "chair"
+
+		verb 8 {
+			start-script 202 (142,8)
+			end-object
+		}
+
+		verb 7 {
+			if !(B.531) jump &[00000054]
+			say-line "I don't have time to sit."
+			jump &[00000063]
+[00000054]:
+			start-script 202 (142,7)
+[00000063]:
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000148]
+			say-line "I may be a lazy guy, but carrying around my own place to sit is too much."
+			jump &[00000157]
+[00000148]:
+			start-script 202 (142,9)
+[00000157]:
+			end-object
+		}
+	}
+
+	object 144 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0144
+		name is "ladder"
+
+		verb 8 {
+			start-script 202 (286,8)
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000069]
+			say-line "I don't think it would fit in my pocket."
+			jump &[00000078]
+[00000069]:
+			start-script 202 (286,9)
+[00000078]:
+			end-object
+		}
+
+		verb 6 {
+			if !(B.531) jump &[00000114]
+			say-line "I don't want to move it."
+			jump &[00000120]
+[00000114]:
+			start-script 202 (6)
+[00000120]:
+			end-object
+		}
+
+		verb 7 {
+			if !(B.531) jump &[00000154]
+			say-line "I'm afraid of heights."
+			jump &[00000163]
+[00000154]:
+			start-script 202 (286,7)
+[00000163]:
+			end-object
+		}
+	}
+
+	object 145 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0145
+		name is "sign"
+
+		verb 8 {
+			say-line "It says `Out on housecall.`\\xFF\\x03`Please come again.`"
+			end-object
+		}
+
+		verb 9 {
+			say-line "I don't want it."
+			end-object
+		}
+
+		verb 6 {
+			say-line "I don't feel like it."
+			end-object
+		}
+	}
+
+	object 146 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0146
+		name is "calendar"
+
+		verb 8 {
+			start-script 202 (146,8)
+			end-object
+		}
+
+		verb 9 {
+			if !(B.531) jump &[00000071]
+			say-line "I can't.  He's lacquered it onto the wall."
+			jump &[00000080]
+[00000071]:
+			start-script 202 (146,9)
+[00000080]:
+			end-object
+		}
+	}
+
+	object 139 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0139
+		name is "door"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			come-out 48 in-room 7 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 143 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0143
+		name is "woodsmith"
+
+		verb 90 {
+			V.156 = 10
+			end-object
+		}
+
+		verb 8 {
+			say-line "He looks buff."
+			end-object
+		}
+
+		verb 7 {
+			say-line "I don't think he'd like that."
+			end-object
+		}
+
+		verb 10 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 80 {
+		local variable L.0
+
+			if !(L.0 is 669) jump &[00000085]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000085]:
+			if !(L.0 is 670) jump &[00000101]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000101]:
+			if !(L.0 is 664) jump &[00000117]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000117]:
+			if !(L.0 is 665) jump &[00000133]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000133]:
+			if !(L.0 is 666) jump &[00000149]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000149]:
+			if !(L.0 is 667) jump &[00000165]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000165]:
+			if !(L.0 is 668) jump &[00000181]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000181]:
+			if !(L.0 is 671) jump &[00000197]
+			start-script 201 (L.0)
+			jump &[00000473]
+[00000197]:
+			if !(L.0 is 271) jump &[00000227]
+			say-line 11 "Hey, nice stick."
+			jump &[00000473]
+[00000227]:
+			if !(L.0 is 46) jump &[00000264]
+			say-line 11 "Thanks.  Don't need it."
+			jump &[00000473]
+[00000264]:
+			if !(L.0 is 523) jump &[00000307]
+			say-line 11 "No, thanks.\\xFF\\x03I've got my own."
+			jump &[00000473]
+[00000307]:
+			if !(L.0 is 140) jump &[00000344]
+			if !(owner-of 140 is selected-actor) jump &[00000332]
+			start-script 205 ()
+			jump &[00000341]
+[00000332]:
+			start-script 202 (140,9)
+[00000341]:
+			jump &[00000473]
+[00000344]:
+			if !(L.0 is 141) jump &[00000416]
+			if !(owner-of 141 is selected-actor) jump &[00000404]
+			say-line 11 "No, thanks.\\xFF\\x03Got plenty of my own."
+			jump &[00000413]
+[00000404]:
+			start-script 202 (141,9)
+[00000413]:
+			jump &[00000473]
+[00000416]:
+			if !(L.0 is 149) jump &[00000458]
+			say-line 11 "Sorry, I don't give refunds."
+			jump &[00000473]
+[00000458]:
+			say-line 11 "No, thanks."
+[00000473]:
+			end-object
+		}
+	}
+
+	object 149 { ; VERB LECF_0001\LFLF_0015\ROOM\OBCD_0149
+		name is "wood polish"
+
+		verb 91 {
+			V.302 = 858
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(valid-verb L.0, 27) jump &[00000034]
+			start-object L.0 verb 27 ()
+			jump &[00000037]
+[00000034]:
+			start-script 3 ()
+[00000037]:
+			end-object
+		}
+
+		verb 8 {
+			say-line "If only I could use this stuff on my lines^"
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0015\ROOM\EXCD
+		unlock-sound 44
+		start-script 123 (15,7)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0015\ROOM\ENCD
+		if !(B.531) jump &[00000042]
+		B.532 = 1
+		state-of 145 is 1
+		class-of 145 is 32
+		put-actor 11 in-room 0
+		class-of 143 is 160
+		jump &[00000063]
+[00000042]:
+		start-script 200 ()
+		state-of 145 is 0
+		class-of 145 is 160
+		class-of 143 is 32
+[00000063]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0200
+		do-animation 11 251
+		actor 11 default costume 28 talk-color 249 ignore-boxes always-zclip 1
+		put-actor 11 in-room 15
+		put-actor 11 at 170,110
+		start-script 203 ()
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0201
+	local variable L.0
+
+		cut-scene
+		if !(L.0 is 669) jump &[00000028]
+		B.264 = 1
+		jump &[00000048]
+[00000028]:
+		if !(L.0 is 670) jump &[00000043]
+		B.264 = 1
+		jump &[00000048]
+[00000043]:
+		B.264 = 0
+[00000048]:
+		override &[00000521]
+		say-line "Excuse me^ could you take a look at this?"
+		walk selected-actor to-actor 11 within 255
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		wait-for-message
+		do-animation selected-actor 10
+		break-here
+		do-animation 11 248
+		do-animation 11 6
+		break-here 7
+		actor 11 stand-animation 9 talk-animation 10,11
+		break-here
+		do-animation 11 9
+		do-animation selected-actor 3
+		wait-for-message
+		do-animation 11 7
+		break-here 16
+		do-animation 11 9
+		break-here
+		if !(L.0 is 670) jump &[00000247]
+		say-line 11 "Hmmm^ looks like a valuable antique.\\xFF\\x03Be careful with it."
+		wait-for-message
+		jump &[00000487]
+		jump &[00000280]
+[00000247]:
+		if !(L.0 is-not 669) jump &[00000280]
+		say-line 11 "Looks fine to me."
+		wait-for-message
+		jump &[00000487]
+[00000280]:
+		say-line 11 "Hmmm^ looks like a massive fracture."
+		wait-for-message
+		say-line 11 "If you're gonna be using this, I'd better reinforce it for ya."
+		wait-for-message
+		do-animation 11 9
+		break-here
+		do-animation 11 3
+		do-animation 11 251
+		start-script 203 ()
+		sleep-for 120 jiffies
+		wait-for-message
+		stop-script 203
+		do-animation 11 248
+		do-animation 11 9
+		say-line 11 "Here ya go, Boy.\\xFF\\x03Steel shank^\\xFF\\x03Alloy splints^\\xFF\\x03Better than new."
+		wait-for-message
+[00000487]:
+		do-animation 11 8
+		do-animation selected-actor 10
+		break-here 7
+		actor 11 stand-animation 3 talk-animation 4,5
+		do-animation 11 248
+		do-animation 11 3
+		do-animation selected-actor 3
+		wait-for-message
+[00000521]:
+		if !(override-hit) jump &[00000555]
+		print-line " "
+		do-animation selected-actor 3
+		put-actor selected-actor at-object 143
+		do-animation selected-actor 249
+		stop-script 203
+		do-animation 11 3
+		do-animation 11 248
+		jump &[00000557]
+[00000555]:
+		override off
+[00000557]:
+		if (B.264) {
+			owner-of 669 is 0
+			owner-of 670 is 0
+			if (owner-of 671 is-not selected-actor) {
+				pick-up-object 671 in-room 61
+			}
+		}
+		end-cut-scene
+		start-script 203 ()
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+
+		if !(L.1 is 8) jump &[00000329]
+		if !(L.0 is 140) jump &[00000068]
+		say-line "It says, `Woody.`"
+		if (!B.531) {
+			wait-for-message
+			say-line 11 "That's me."
+		}
+		stop-script 0
+		jump &[00000317]
+[00000068]:
+		if !(L.0 is 141) jump &[00000108]
+		say-line "Pounds and pounds of nails."
+		jump &[00000317]
+[00000108]:
+		if !(L.0 is 142) jump &[00000147]
+		say-line "Comfortable looking chair."
+		jump &[00000317]
+[00000147]:
+		if !(L.0 is 286) jump &[00000204]
+		say-line "`CAUTION:  Do not stand or sit on top rung.`"
+		jump &[00000317]
+[00000204]:
+		if !(L.0 is 146) jump &[00000243]
+		say-line "Oh boy, it's Buzzsaw Girl!"
+		jump &[00000317]
+[00000243]:
+		if !(L.0 is 147) jump &[00000279]
+		say-line "Nice, sturdy workbench."
+		jump &[00000317]
+[00000279]:
+		if !(L.0 is 148) jump &[00000317]
+		say-line "What a cute little stool."
+		jump &[00000317]
+[00000317]:
+		if (B.531) {
+			stop-script 0
+		}
+		wait-for-message
+		jump &[00000584]
+[00000329]:
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000431]
+		if !(class-of L.0 is 137) jump &[00000401]
+		say-line 11 "Hey!  Don't touch those!"
+		jump &[00000428]
+[00000401]:
+		say-line 11 "Hey!  Don't touch that!"
+[00000428]:
+		jump &[00000584]
+[00000431]:
+		if !(V.100 is 2) jump &[00000465]
+		say-line 11 "Get away from there!"
+		jump &[00000584]
+[00000465]:
+		if !(V.100 is 3) jump &[00000496]
+		say-line 11 "Oh, no you don't!"
+		jump &[00000584]
+[00000496]:
+		if !(V.100 is 4) jump &[00000541]
+		say-line 11 "Get your hands away from there!"
+		jump &[00000584]
+[00000541]:
+		if !(V.100 is 5) jump &[00000584]
+		say-line 11 "What do you think your doing?"
+		jump &[00000584]
+[00000584]:
+		if (!actor-moving selected-actor) {
+			do-animation selected-actor face-towards 11
+		}
+		break-here
+		wait-for-message
+		if !(L.0 is 140) jump &[00000631]
+		say-line 11 "It's not a toy."
+		jump &[00000900]
+[00000631]:
+		if !(L.0 is 141) jump &[00000664]
+		say-line 11 "I need all of them."
+		jump &[00000900]
+[00000664]:
+		if !(L.0 is 142) jump &[00000696]
+		say-line 11 "It's not for sale."
+		jump &[00000900]
+[00000696]:
+		if !(L.0 is 286) jump &[00000764]
+		say-line 11 "I don't lend out my ladder.\\xFF\\x03Been sued too many times."
+		jump &[00000900]
+[00000764]:
+		if !(L.0 is 146) jump &[00000804]
+		say-line 11 "No one touches her but me."
+		jump &[00000900]
+[00000804]:
+		if !(L.0 is 147) jump &[00000859]
+		say-line 11 "Everything's laid out just how I need it."
+		jump &[00000900]
+[00000859]:
+		if !(L.0 is 148) jump &[00000900]
+		say-line 11 "It's adjusted to my height."
+		jump &[00000900]
+[00000900]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0203
+		do-animation 11 3
+		break-here
+		do-animation 11 247
+		break-here
+[00000016]:
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000066]
+[00000048]:
+		do-animation 11 13
+		break-here 12
+		jump &[00000128]
+[00000066]:
+		if !(V.100 is 2) jump &[00000083]
+[00000073]:
+		do-animation 11 12
+		break-here 4
+		jump &[00000128]
+[00000083]:
+		if !(V.100 is 3) jump &[00000102]
+		do-animation 11 14
+		break-here 2
+		sleep-for 20 jiffies
+		jump &[00000128]
+[00000102]:
+		if !(V.100 is 4) jump &[00000115]
+		jump &[00000048]
+		jump &[00000128]
+[00000115]:
+		if !(V.100 is 5) jump &[00000128]
+		jump &[00000073]
+		jump &[00000128]
+[00000128]:
+		jump &[00000016]
+		end-script
+	}
+; Talk to Woody
+	script 204 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0204
+		cursor off
+		userput off
+		stop-sentence
+		V.155 = 65535
+		build-sentence-script = 14
+		start-script 16 (5)
+		say-line "Ahem^"
+		wait-for-message
+		stop-script 203
+		do-animation 11 14
+		break-here 2
+		do-animation 11 3
+		break-here
+		do-animation 11 face-towards selected-actor
+		break-here 2
+		walk 1 to-object 143
+		wait-for-actor selected-actor
+		say-line 11 "Can I help you with something?"
+		do-animation 11 244
+		if !(B.223) jump &[00000120]
+		if !(!B.698) jump &[00000120]
+		B.698 = 1
+		jump &[00000933]
+[00000120]:
+		start-script 33 ()
+		if (!B.223) {
+			if (!B.278) {
+				V.100 = ((120 + 1) - 1)
+				verb V.100 at 0,V.176 name "\\x07Yes.  Do you know anything about Largo?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.279) {
+			V.100 = ((120 + 2) - 1)
+			verb V.100 at 0,V.176 name "\\x07I was wondering what you do here?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (!B.280) {
+			V.100 = ((120 + 4) - 1)
+			verb V.100 at 0,V.176 name "\\x07How much wood could a woodchuck chuck if a woodchuck \\xFE\\x08  could chuck wood?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+			V.176 += 8
+		}
+		if (B.526) {
+			if (owner-of 149 is 15) {
+				if (V.305 > 0) {
+					V.100 = ((120 + 5) - 1)
+					verb V.100 at 0,V.176 name "\\x07Could I buy some wood polish?" on key V.177
+					V.176 += 8
+					V.100 -= 120
+					++V.177
+					++V.304
+					B.16[V.100] = 1
+				}
+			}
+		}
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07I'd just like to browse, thanks." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		if !(V.304 < 2) jump &[00000762]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		say-line "Actually, I think I'll just look around."
+		wait-for-message
+		jump &[00002280]
+[00000762]:
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00000795]
+		B.278 = 1
+		jump &[00001200]
+		jump &[00000933]
+[00000795]:
+		if !(V.175 is 121) jump &[00000813]
+		B.279 = 1
+		jump &[00001355]
+		jump &[00000933]
+[00000813]:
+		if !(V.175 is 122) jump &[00000826]
+		jump &[00002280]
+		jump &[00000933]
+[00000826]:
+		if !(V.175 is 123) jump &[00000844]
+		B.280 = 1
+		jump &[00001417]
+		jump &[00000933]
+[00000844]:
+		if !(V.175 is 124) jump &[00000933]
+		say-line 11 "That's one piece of eight."
+		wait-for-message
+		do-animation selected-actor 10
+		break-here 2
+		V.305 -= 1
+		start-object 79 verb 250 ()
+		pick-up-object 149 in-room 0
+		do-animation selected-actor 3
+		say-line 11 "Anything else?"
+		wait-for-message
+		jump &[00000120]
+		jump &[00000933]
+[00000933]:
+		override &[00001190]
+		say-line "Did you hear about how I booted Largo off Scabb Island?"
+		wait-for-message
+		say-line 11 "Yes, as a matter of fact, I did hear about Largo leaving.\\xFF\\x03But I heard that Marty was the one who kicked him out."
+		wait-for-message
+		say-line "I kicked out Largo."
+		wait-for-message
+		say-line 11 "You wouldn't stand up to a bully like that!"
+		wait-for-message
+[00001190]:
+		print-line " "
+		override off
+		jump &[00000120]
+[00001200]:
+		override &[00001345]
+		say-line 11 "Yah, who doesn't know about that bossy butt?"
+		wait-for-message
+		say-line 11 "I wish I could make him disappear ^\\xFF\\x03^ but there's too much work to do here already."
+		wait-for-message
+[00001345]:
+		print-line " "
+		override off
+		jump &[00002216]
+[00001355]:
+		override &[00001407]
+		say-line 11 "I fix broken things made of wood."
+		wait-for-message
+		say-line "Oh."
+		wait-for-message
+[00001407]:
+		print-line " "
+		override off
+		jump &[00002216]
+[00001417]:
+		override &[00002206]
+		say-line 11 "A woodchuck could chuck no amount of wood since a woodchuck can't chuck wood."
+		wait-for-message
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07But if a woodchuck could chuck and would chuck \\xFE\\x08  some amount of wood, what amount of wood \\xFE\\x08  would a woodchuck chuck?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.176 += 16
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Oh.  Shut up." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00001897]
+		say-line 11 "Even if a woodchuck could chuck wood.  And even if a woodchuck would chuck wood.  Should a woodchuck chuck wood?"
+		wait-for-message
+		jump &[00001912]
+[00001897]:
+		if !(V.175 is 121) jump &[00001912]
+		wait-for-message
+		jump &[00002206]
+		jump &[00001912]
+[00001912]:
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07A woodchuck should chuck if a woodchuck could \\xFE\\x08  chuck wood, as long as a woodchuck would \\xFE\\x08  chuck wood." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.176 += 16
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Oh.  Shut up." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00002191]
+		say-line 11 "Oh.  Shut up."
+		wait-for-message
+		jump &[00002206]
+[00002191]:
+		if !(V.175 is 121) jump &[00002206]
+		wait-for-message
+		jump &[00002206]
+		jump &[00002206]
+[00002206]:
+		print-line " "
+		override off
+		jump &[00002216]
+[00002216]:
+		override &[00002270]
+		say-line 11 "Is there anything else I can help you with?"
+		wait-for-message
+[00002270]:
+		print-line " "
+		override off
+		jump &[00000120]
+[00002280]:
+		start-script 203 ()
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0205
+		cut-scene
+		override &[00000229]
+		stop-script 203
+		do-animation 11 14
+		break-here 2
+		do-animation 11 3
+		break-here
+		do-animation 11 244
+		break-here
+		do-animation selected-actor 10
+		say-line 11 "Funny.\\xFF\\x03That looks just like my hammer ^\\xFF\\x03^ which I have been missing."
+		wait-for-message
+		do-animation selected-actor 3
+		say-line 11 "Just put it back on the hook and I won't press charges."
+		wait-for-message
+		walk selected-actor to-object 140
+		wait-for-actor selected-actor
+		do-animation selected-actor 10
+		sleep-for 20 jiffies
+		owner-of 140 is 0
+		owner-of 140 is 15
+		state-of 140 is 0
+		class-of 140 is 32
+		sleep-for 20 jiffies
+		do-animation selected-actor 3
+		start-script 203 ()
+		do-animation selected-actor 246
+[00000229]:
+		if !(override-hit) jump &[00000277]
+		print-line " "
+		owner-of 140 is 0
+		owner-of 140 is 15
+		state-of 140 is 0
+		class-of 140 is 32
+		start-script 203 ()
+		put-actor selected-actor at-object 140
+		do-animation selected-actor 3
+		do-animation selected-actor 246
+		jump &[00000279]
+[00000277]:
+		override off
+[00000279]:
+		end-cut-scene
+		end-script
+	}
+}
+

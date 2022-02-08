@@ -1,0 +1,694 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 52: Guard Kiosk (kiosk)
+; */
+
+room kiosk {
+
+	object 577 { ; VERB LECF_0002\LFLF_0052\ROOM\OBCD_0577
+		name is "kiosk"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 11 {
+			say-line "Nothing inside."
+			end-object
+		}
+	}
+
+	object 578 { ; VERB LECF_0002\LFLF_0052\ROOM\OBCD_0578
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 579 { ; VERB LECF_0002\LFLF_0052\ROOM\OBCD_0579
+		name is "land"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			start-script 206 (2)
+			come-out 581 in-room 53 walk-to 102,130
+			end-object
+		}
+	}
+
+	object 580 { ; VERB LECF_0002\LFLF_0052\ROOM\OBCD_0580
+		name is "gate"
+
+		verb 7 {
+			if !(state-of me is 3) jump &[00000026]
+			start-script 202 ()
+			jump &[00000029]
+[00000026]:
+			start-script 203 ()
+[00000029]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0052\ROOM\EXCD
+		actor selected-actor follow-boxes
+		V.252[7] = 0
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0052\ROOM\ENCD
+		class-of 449 is 6
+		state-of 580 is 3
+		if (!script-running 65) {
+			start-script 200 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0200
+		actor 7 default costume 3 talk-color 14 name "guard"
+		class-of 7 is 141 133
+		do-animation 7 248
+		put-actor 7 in-room 52
+		put-actor 7 at 174,122
+		if !(!B.342) jump &[00000077]
+		B.342 = 1
+		start-script 206 (1)
+		actor 7 init-animation 1 stand-animation 3
+		do-animation 7 1
+		start-script 204 ()
+		jump &[00000096]
+[00000077]:
+		start-script 206 (0)
+		actor 7 init-animation 10 stand-animation 8
+		do-animation 7 10
+		start-script 201 ()
+[00000096]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0201
+	local variable L.0
+
+		cursor off
+		userput off
+		stop-sentence
+		V.155 = 65535
+		build-sentence-script = 14
+		start-script 16 (5)
+		break-here
+		if (actor-y selected-actor > 119) {
+			walk selected-actor to 129,119
+		}
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		say-line 7 "Is there something I can help you with?"
+		wait-for-message
+[00000103]:
+		start-script 33 ()
+		if (B.682) {
+			V.100 = ((120 + 8) - 1)
+			verb V.100 at 0,V.176 name "\\x07I'm here for the Governor's party." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if !(!B.338) jump &[00000484]
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Nice costume.  Almost scared me to death." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		if !(!B.345) jump &[00000388]
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07What are you guarding here?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00000481]
+[00000388]:
+		if (!B.344) {
+			V.100 = ((120 + 4) - 1)
+			verb V.100 at 0,V.176 name "\\x07Elaine Marley?  From M\\x88l\\x82e Island?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+[00000481]:
+		jump &[00000940]
+[00000484]:
+		if !(!B.339) jump &[00000668]
+		if (!B.682) {
+			V.100 = ((120 + 5) - 1)
+			verb V.100 at 0,V.176 name "\\x07Party?  What party?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if (B.345) {
+			if (!B.344) {
+				V.100 = ((120 + 4) - 1)
+				verb V.100 at 0,V.176 name "\\x07Elaine Marley?  From M\\x88l\\x82e Island?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		jump &[00000940]
+[00000668]:
+		if (!B.344) {
+			V.100 = ((120 + 4) - 1)
+			verb V.100 at 0,V.176 name "\\x07Elaine Marley?  From M\\x88l\\x82e Island?" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+		if !(!B.340) jump &[00000852]
+		V.100 = ((120 + 6) - 1)
+		verb V.100 at 0,V.176 name "\\x07You mentioned a party before^" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00000940]
+[00000852]:
+		if (!B.341) {
+			V.100 = ((120 + 6) - 1)
+			verb V.100 at 0,V.176 name "\\x07You mentioned a party before^" on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+		}
+[00000940]:
+		V.100 = ((120 + 7) - 1)
+		verb V.100 at 0,V.176 name "\\x07I must be going.  Sorry to disturb you." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 127) jump &[00001061]
+		jump &[00001923]
+		jump &[00001152]
+[00001061]:
+		if !(V.175 is 120) jump &[00001074]
+		jump &[00001668]
+		jump &[00001152]
+[00001074]:
+		if !(V.175 is 121) jump &[00001087]
+		jump &[00001603]
+		jump &[00001152]
+[00001087]:
+		if !(V.175 is 122) jump &[00001100]
+		jump &[00001152]
+		jump &[00001152]
+[00001100]:
+		if !(V.175 is 123) jump &[00001113]
+		jump &[00001203]
+		jump &[00001152]
+[00001113]:
+		if !(V.175 is 124) jump &[00001126]
+		jump &[00001785]
+		jump &[00001152]
+[00001126]:
+		if !(V.175 is 125) jump &[00001139]
+		jump &[00001923]
+		jump &[00001152]
+[00001139]:
+		if !(V.175 is 126) jump &[00001152]
+		jump &[00003649]
+		jump &[00001152]
+[00001152]:
+		B.343 = 1
+		override &[00001193]
+		say-line 7 "Elaine Marley, of course."
+		wait-for-message
+[00001193]:
+		print-line " "
+		override off
+		jump &[00000103]
+[00001203]:
+		B.344 = 1
+		override &[00001593]
+		say-line 7 "Yup.  The same heroic Elaine Marley who killed the Ghost Pirate LeChuck."
+		wait-for-message
+		say-line "But, I killed LeChuck!"
+		wait-for-message
+		say-line 7 "Why would Governor Marley lie?"
+		wait-for-message
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Jealousy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Revenge?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Penis envy?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00001572]
+		jump &[00001572]
+[00001572]:
+		say-line 7 "In your dreams."
+		wait-for-message
+[00001593]:
+		print-line " "
+		override off
+		jump &[00000103]
+[00001603]:
+		B.345 = 1
+		override &[00001658]
+		say-line 7 "I'm guarding Governor Marley's mansion."
+		wait-for-message
+[00001658]:
+		print-line " "
+		override off
+		jump &[00000103]
+[00001668]:
+		B.338 = 1
+		override &[00001775]
+		say-line 7 "Thanks."
+		wait-for-message
+		say-line 7 "You'll need a costume too if you plan to get past me for the Governer's party."
+		wait-for-message
+[00001775]:
+		print-line " "
+		override off
+		jump &[00000103]
+[00001785]:
+		B.339 = 1
+		B.682 = 1
+		override &[00001913]
+		say-line 7 "Governor Marley is having a huge Mardi Gras party."
+		wait-for-message
+		say-line 7 "But you must have an invitation and wear a costume."
+		wait-for-message
+[00001913]:
+		print-line " "
+		override off
+		jump &[00002044]
+[00001923]:
+		override &[00002034]
+		say-line 7 "You mean Governor Marley's Mardi Gras fish fry?"
+		wait-for-message
+		say-line 7 "It's invitation only and costumes are required."
+		wait-for-message
+[00002034]:
+		print-line " "
+		override off
+		jump &[00002044]
+[00002044]:
+		start-script 33 ()
+		if !(!B.341) jump &[00002236]
+		if !(owner-of 345 is selected-actor) jump &[00002155]
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I've got my invitation right here." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00002236]
+[00002155]:
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07I don't have an invitation." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00002236]:
+		if !(!B.340) jump &[00002412]
+		if !(owner-of 542 is selected-actor) jump &[00002339]
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07I have my costume right here." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		jump &[00002412]
+[00002339]:
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07This is my costume." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00002412]:
+		V.100 = ((120 + 5) - 1)
+		verb V.100 at 0,V.176 name "\\x07Uh, I didn't want to go anyway." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00002525]
+		jump &[00002603]
+		jump &[00002603]
+[00002525]:
+		if !(V.175 is 121) jump &[00002538]
+		jump &[00002767]
+		jump &[00002603]
+[00002538]:
+		if !(V.175 is 122) jump &[00002551]
+		jump &[00002929]
+		jump &[00002603]
+[00002551]:
+		if !(V.175 is 123) jump &[00002564]
+		jump &[00002814]
+		jump &[00002603]
+[00002564]:
+		if !(V.175 is 124) jump &[00002603]
+		do-animation 7 11
+		say-line 7 "Suit yourself."
+		wait-for-message
+		do-animation 7 8
+		jump &[00003649]
+		jump &[00002603]
+[00002603]:
+		B.341 = 1
+		override &[00002703]
+		walk selected-actor to 129,119
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		do-animation selected-actor 10
+		do-animation 7 9
+		sleep-for 60 jiffies
+		do-animation selected-actor 3
+		do-animation 7 8
+		say-line 7 "Well, what do you know?\\xFF\\x03You do have an invitation."
+		wait-for-message
+[00002703]:
+		if !(override-hit) jump &[00002723]
+		print-line " "
+		do-animation selected-actor 3
+		do-animation 7 8
+		jump &[00002725]
+[00002723]:
+		override off
+[00002725]:
+		if !(!B.340) jump &[00002764]
+		say-line 7 "Do you have a costume?"
+		wait-for-message
+		jump &[00002044]
+		jump &[00002767]
+[00002764]:
+		jump &[00003497]
+[00002767]:
+		override &[00002804]
+		say-line 7 "Then you can't go past me."
+		wait-for-message
+[00002804]:
+		print-line " "
+		override off
+		jump &[00003649]
+[00002814]:
+		override &[00002919]
+		say-line 7 "Nobody would willingly wear such a dopey costume."
+		wait-for-message
+		say-line 7 "Come back when you have a real costume."
+		wait-for-message
+[00002919]:
+		print-line " "
+		override off
+		jump &[00003649]
+[00002929]:
+		B.340 = 1
+		override &[00003375]
+		if !(B.518) jump &[00002947]
+		jump &[00003203]
+[00002947]:
+		say-line 7 "Better put it on."
+		wait-for-message
+		say-line "Well, if you insist.\\xFF\\x03But you'll have to try to restrain yourself."
+		wait-for-message
+		actor selected-actor costume 55
+		do-animation selected-actor 6
+		break-here 10
+		say-line 7 "No, no!  Not here!"
+		wait-for-message
+		L.0 = 255
+		do {
+			palette intensity [rgb] 255 L.0 L.0 in-slot 193 to 195
+			L.0 -= 10
+			break-here
+		} until (L.0 <= 200)
+		do-animation 7 9
+		say-line 7 "Go in the bushes or something."
+		sleep-for 60 jiffies
+		do-animation selected-actor 7
+		break-here 9
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		do-animation selected-actor 3
+		walk selected-actor to 0,119
+		wait-for-message
+		do-animation 7 8
+[00003203]:
+		actor selected-actor ignore-boxes always-zclip 1
+		V.100 = 65516
+		walk selected-actor to V.100,119
+		sleep-for 30 jiffies
+		wait-for-actor selected-actor
+		say-line 7 "Geeze^"
+		wait-for-message
+		palette intensity [rgb] 255 255 255 in-slot 193 to 195
+		actor selected-actor costume 42
+		V.100 = (129 - 55)
+		walk selected-actor to V.100,119
+		break-until (actor-x selected-actor > 15)
+		say-line 7 "Oh, that is nice."
+		wait-for-actor selected-actor
+		actor selected-actor follow-boxes
+		walk selected-actor to 129,119
+		wait-for-message
+		say-line 7 "And the boots are a nice touch."
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		break-here
+		wait-for-message
+[00003375]:
+		if !(override-hit) jump &[00003444]
+		print-line " "
+		do-animation 7 8
+		palette intensity [rgb] 255 255 255 in-slot 193 to 195
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		actor selected-actor follow-boxes costume 42
+		put-actor selected-actor at 129,119
+		do-animation selected-actor 3
+		do-animation selected-actor face-towards 7
+		jump &[00003446]
+[00003444]:
+		override off
+[00003446]:
+		B.518 = 1
+		if !(B.341) jump &[00003462]
+		jump &[00003497]
+		jump &[00003497]
+[00003462]:
+		say-line 7 "Do you have an invitation?"
+		wait-for-message
+		jump &[00002044]
+[00003497]:
+		owner-of 542 is 0
+		owner-of 345 is 0
+		class-of 580 is 6
+		override &[00003625]
+		do-animation 7 8
+		say-line 7 "Okay, I guess you can go through."
+		sleep-for 30 jiffies
+		walk selected-actor to-object 579
+		do {
+			break-here
+			V.158 = actor-x selected-actor
+		} until (actor-x 7 <= V.158)
+		do-animation 7 245
+		break-until (actor-y selected-actor <= 102)
+		start-script 202 ()
+		break-here 2
+		wait-for-message
+		say-line 7 "Have fun."
+		wait-for-message
+		jump &[00003625]
+[00003625]:
+		override off
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		start-object 579 verb 11 ()
+		stop-script 0
+[00003649]:
+		start-script 205 ()
+		break-until (!script-running 205)
+		build-sentence-script = 4
+		start-script 16 (2)
+		walk selected-actor to-object 578
+		wait-for-actor selected-actor
+		cursor on
+		userput on
+		start-script 206 (3)
+		actor selected-actor follow-boxes
+		put-actor selected-actor in-room 46
+		put-actor selected-actor at 93,50
+		camera-follow selected-actor
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0202
+		state-of 580 is 2
+		break-here
+		state-of 580 is 1
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0203
+		state-of 580 is 2
+		break-here
+		state-of 580 is 3
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0204
+		cut-scene
+		override &[00000235]
+		break-here
+		V.100 = (129 - 3)
+		walk selected-actor to V.100,119
+		wait-for-actor selected-actor
+		do-animation selected-actor face-towards 7
+		break-until (actor-facing selected-actor is 1)
+		actor selected-actor costume 54 talk-animation 6,7
+		do-animation 7 6
+		do-animation selected-actor 6
+		break-here 20
+		actor selected-actor talk-animation 4,5
+		say-line "THE GHOST PIRATE LECHUCK!!!!"
+		wait-for-message
+		do-animation 7 3
+		do-animation 7 7
+		break-here 11
+		actor 7 init-animation 10 stand-animation 8
+		do-animation 7 10
+		break-here
+		say-line 7 "Get a grip.\\xFF\\x03Don't you know a Mardi Gras costume when you see one?"
+		wait-for-message
+[00000235]:
+		if !(override-hit) jump &[00000322]
+		sound-kludge 268 46 0 1
+		sound-kludge 65535
+		print-line " "
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush" talk-animation 4,5
+		V.100 = (129 - 3)
+		put-actor selected-actor at V.100,119
+		do-animation selected-actor face-towards 7
+		actor 7 init-animation 10 stand-animation 8
+		do-animation 7 10
+		jump &[00000324]
+[00000322]:
+		override off
+[00000324]:
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush" talk-animation 4,5
+		V.100 = ((actor-x selected-actor) - 13)
+		V.101 = actor-y selected-actor
+		put-actor selected-actor at V.100,V.101
+		break-here
+		end-cut-scene
+		start-script 201 ()
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0205
+		if (B.340) {
+			do-animation selected-actor 246
+			say-line "I'd rather not wear this costume in public."
+			wait-for-message
+			actor selected-actor ignore-boxes always-zclip 1
+			V.100 = 65516
+			walk selected-actor to V.100,119
+			wait-for-actor selected-actor
+			actor selected-actor costume 1
+			B.340 = 0
+			sleep-for 90 jiffies
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0002\LFLF_0052\ROOM\LSCR_0206
+	local variable L.0
+
+		if (L.0 is 0) {
+			start-sound 46
+			sound-kludge 268 46 0 1
+		}
+		if (L.0 is 1) {
+			start-sound 46
+		}
+		if !(L.0 is 2) jump &[00000047]
+[00000047]:
+		if (L.0 is 3) {
+			stop-sound 46
+		}
+		sound-kludge 65535
+		end-script
+	}
+}
+

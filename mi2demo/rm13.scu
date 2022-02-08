@@ -1,0 +1,1212 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 13: Largo's Room (largos)
+; */
+
+script 135 { ; SCRP LECF_0001\LFLF_0013\SCRP_0135
+local variable L.0
+
+	if !(!B.738) jump &[00000062]
+	if !(!B.743) jump &[00000062]
+	L.0 = actor-costume 6
+	if !(L.0 is 16) jump &[00000032]
+	jump &[00000062]
+[00000032]:
+	if !(L.0 is 103) jump &[00000042]
+	jump &[00000062]
+[00000042]:
+	if !(L.0 is 107) jump &[00000052]
+	jump &[00000062]
+[00000052]:
+	if !(L.0 is 117) jump &[00000062]
+	jump &[00000062]
+[00000062]:
+	end-script
+}
+
+room largos {
+
+	object 114 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0114
+		name is "toupee"
+
+		verb 91 {
+			V.302 = 807
+			end-object
+		}
+
+		verb 8 {
+			say-line "There's strange little white bugs all over it."
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object me in-room 0
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 115) jump &[00000085]
+			do-sentence 7 L.0 with me
+			jump &[00000119]
+[00000085]:
+			say-line "I don't think I should do that."
+[00000119]:
+			end-object
+		}
+	}
+
+	object 115 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0115
+		name is "styrofoam head"
+
+		verb 9 {
+			say-line "I don't like styrofoam.\\xFF\\x03It's bad for the environment."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if (L.0 is 114) {
+				owner-of 114 is 0
+				owner-of 114 is 15
+				state-of 114 is 0
+				class-of 114 is 32
+			}
+			end-object
+		}
+	}
+
+	object 118 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0118
+		name is "drawer"
+
+		verb 3 {
+			say-line "It's stuck open."
+			end-object
+		}
+
+		verb 2 {
+			say-line "It's already open."
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's empty."
+			end-object
+		}
+	}
+
+	object 112 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0112
+		name is "dresser"
+
+		verb 8 {
+			say-line "It's a bit on the tattered side.."
+			end-object
+		}
+	}
+
+	object 113 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0113
+		name is "laundry claim ticket"
+
+		verb 91 {
+			V.302 = 811
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object me in-room 0
+			end-object
+		}
+	}
+
+	object 110 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0110
+		name is "door"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			if !(script-running 208) jump &[00000049]
+			start-script 210 ()
+			jump &[00000058]
+[00000049]:
+			start-script 26 (me,103)
+[00000058]:
+			end-object
+		}
+
+		verb 7 {
+			if !(state-of me is 1) jump &[00000080]
+			do-sentence 3 110 with 0
+			jump &[00000086]
+[00000080]:
+			do-sentence 2 110 with 0
+[00000086]:
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,103)
+			end-object
+		}
+
+		verb 11 {
+			if (state-of me is 1) {
+				come-out 103 in-room 12 walk-to 65535,65535
+			}
+			end-object
+		}
+
+		verb 30 {
+			start-script 207 ()
+			end-object
+		}
+	}
+
+	object 121 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0121
+		name is "Largo LaGrande"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 8 {
+			do-animation selected-actor 244
+			say-line "He's short, but he's mean."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 119) jump &[00000063]
+			start-object 119 verb 23 ()
+			jump &[00000068]
+[00000063]:
+			walk selected-actor to-actor 6 within 255
+[00000068]:
+			end-object
+		}
+
+		verb 255 {
+			walk selected-actor to 165,109
+			end-object
+		}
+	}
+
+	object 123 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0123
+		name is "clean, white shirt"
+
+		verb 8 {
+			say-line "Nice April-fresh\\x0F scent!"
+			end-object
+		}
+
+		verb 9 {
+			state-of me is 0
+			class-of me is 160
+			new-name-of 128 is "clean, white shirt"
+			class-of 128 is 32
+			pick-up-object 128 in-room 14
+			end-object
+		}
+	}
+
+	object 111 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0111
+		name is "bed"
+
+		verb 8 {
+			say-line "Messy, messy, messy."
+			end-object
+		}
+
+		verb 7 {
+			if !(B.223) jump &[00000086]
+			say-line "I'm not sleepy, and that bed is disgusting."
+			jump &[00000168]
+[00000086]:
+			if !(actor-room 6 is 13) jump &[00000134]
+			say-line "I don't have time for that now."
+			jump &[00000168]
+[00000134]:
+			say-line "Largo could be back any minute!"
+[00000168]:
+			end-object
+		}
+	}
+
+	object 119 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0119
+		name is "voodoo doll"
+
+		verb 91 {
+			V.302 = 801
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's little, mean-looking, and ugly.\\xFF\\x03Just like Largo."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 120) jump &[00000087]
+			start-object 119 verb 23 ()
+			jump &[00000199]
+[00000087]:
+			if !(L.0 is 121) jump &[00000102]
+			start-object 119 verb 23 ()
+			jump &[00000199]
+[00000102]:
+			cut-scene
+			say-line "Maybe I'll just use these regulation voodoo pins that came with the doll instead."
+			wait-for-message
+			end-cut-scene
+			start-object 119 verb 23 ()
+[00000199]:
+			end-object
+		}
+
+		verb 6 {
+			if !(!B.223) jump &[00000257]
+			say-line "I should use the pins the voodoo lady gave me."
+			jump &[00000303]
+[00000257]:
+			say-line "I think Largo's out of voodoo range by now."
+[00000303]:
+			end-object
+		}
+
+		verb 23 {
+			if !(B.223) jump &[00000358]
+			say-line "I think Largo's out of voodoo range by now."
+			jump &[00000432]
+[00000358]:
+			if !(actor-room selected-actor is 13) jump &[00000393]
+			stop-script 203
+			stop-script 202
+			stop-script 204
+			stop-script 205
+			stop-script 206
+			do-animation 6 3
+			do-animation selected-actor 3
+			start-script 200 ()
+			jump &[00000432]
+[00000393]:
+			say-line "I think Largo's out of voodoo range."
+[00000432]:
+			end-object
+		}
+	}
+
+	object 120 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0120
+		name is "pins"
+
+		verb 91 {
+			V.302 = 842
+			end-object
+		}
+
+		verb 8 {
+			say-line "Sharp."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(valid-verb L.0, 23) jump &[00000045]
+			do-sentence 23 L.0 with 0
+			jump &[00000080]
+[00000045]:
+			say-line "I don't think I should pin that."
+[00000080]:
+			end-object
+		}
+	}
+
+	object 117 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0117
+		name is "leftovers"
+
+		verb 8 {
+			say-line "They look pretty old."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I'd better not touch them^\\xFF\\x03It looks like somebody's trying to grow penicillin."
+			end-object
+		}
+	}
+
+	object 122 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0122
+		name is "shakey bucket on door jamb"
+
+		verb 8 {
+			say-line "It's a bucket full of mud sitting on the door jamb."
+			end-object
+		}
+
+		verb 9 {
+			state-of me is 0
+			class-of me is 160
+			stop-script 208
+			pick-up-object 124 in-room 14
+			end-object
+		}
+	}
+
+	object 116 { ; VERB LECF_0001\LFLF_0013\ROOM\OBCD_0116
+		name is "painting"
+
+		verb 8 {
+			say-line "I don't see anything special about it.\\xFF\\x03Then again, I never really have understood art."
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0013\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0013\ROOM\ENCD
+		V.285 = 0 0 225 320 320 320
+		V.291 = 0 100 235 200 200 200
+		start-script bak 73 ()
+		set-box 5 to 128
+		set-box 6 to 128
+		if !(B.738) jump &[00000087]
+		if (owner-of 128 is 15) {
+			state-of 123 is 1
+			class-of 123 is 32
+			state-of 113 is 1
+			class-of 113 is 160
+		}
+		jump &[00000129]
+[00000087]:
+		if !(owner-of 113 is 15) jump &[00000129]
+		if !(B.539) jump &[00000118]
+		state-of 113 is 0
+		class-of 113 is 32
+		jump &[00000129]
+[00000118]:
+		state-of 113 is 1
+		class-of 113 is 160
+[00000129]:
+		if !(owner-of 119 is selected-actor) jump &[00000178]
+		if !(!B.223) jump &[00000168]
+		class-of 121 is 32
+		start-script 201 ()
+		start-script 203 ()
+		start-script 202 ()
+		start-script 204 ()
+		jump &[00000175]
+[00000168]:
+		class-of 121 is 160
+[00000175]:
+		jump &[00000209]
+[00000178]:
+		if !(!B.683) jump &[00000201]
+		class-of 121 is 160
+		if (!B.223) {
+			start-script 211 ()
+		}
+		jump &[00000209]
+[00000201]:
+		if (!B.223) {
+			start-script 212 ()
+		}
+[00000209]:
+		end-object
+	}
+; Use Voodoo Doll on Largo
+	script 200 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0200
+		stop-script 202
+		cut-scene
+		B.223 = 1
+		override &[00001802]
+		walk selected-actor to 215,109
+		wait-for-actor selected-actor
+		do-animation selected-actor 244
+		break-until (actor-facing selected-actor is 0)
+		actor selected-actor costume 52
+		do-animation selected-actor 6
+		break-here 12
+		do-animation selected-actor 7
+		break-here 6
+		do-animation 6 13
+		break-here 4
+		do-animation 6 17
+		say-line 6 "YOW!"
+		do-animation 6 15
+		break-here 4
+		wait-for-message
+		say-line "Take that, you stumpy little dim-witted toad!"
+		do-animation 6 245
+		do-animation 6 17
+		do-animation 6 15
+		wait-for-message
+		say-line 6 "What?!?"
+		wait-for-message
+		say-line 6 "Who do you think you are?"
+		do-animation 6 7
+		wait-for-message
+		do-animation 6 3
+		say-line "I'm Guybrush Threepwood.\\xFF\\x03People don't always recognize me^"
+		wait-for-message
+		do-animation selected-actor 11
+		say-line "That's why I carry this."
+		wait-for-message
+		say-line 6 "I'm gonna to tear you limb from limb!"
+		wait-for-message
+		do-animation selected-actor 7
+		break-here
+		walk 6 to-actor selected-actor within 255
+		break-here 5
+		do-animation 6 255
+		do-animation 6 13
+		break-here 4
+		do-animation 6 17
+		say-line 6 "How are you DOING that?"
+		do-animation 6 15
+		wait-for-message
+		do-animation selected-actor 11
+		say-line "Largo LaGrande, you are a no-good, vicious, two-bit thug.\\xFF\\x03I command you to give me back my money and leave this island!"
+		wait-for-message
+		do-animation 6 3
+		say-line 6 "Ha!  I already spent all your money!"
+		wait-for-message
+		say-line "Oh."
+		wait-for-message
+		do-animation selected-actor 12
+		say-line "Well, I command you to leave this island!"
+		wait-for-message
+		say-line 6 "Just you try and make--"
+		sleep-for 60 jiffies
+		do-animation selected-actor 7
+		break-here 6
+		say-line 6 "YOUCH!!!"
+		do-animation 6 13
+		break-here 4
+		do-animation 6 3
+		walk 6 to-object 110
+		walk selected-actor to 186,105
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		break-here 2
+		do-animation selected-actor 7
+		break-here 6
+		do-animation 6 255
+		say-line 6 "AIIIEEE!!!"
+		do-animation 6 13
+		break-here 2
+		do-animation 6 3
+		walk 6 to-object 110
+		if (state-of 110 is-not 1) {
+			wait-for-actor 6
+			do-animation 6 10
+			sleep-for 10 jiffies
+			state-of 110 is 1
+			sleep-for 10 jiffies
+			do-animation 6 3
+		}
+		set-box 5 to 1
+		set-box 6 to 1
+		do-animation selected-actor 10
+		break-here 8
+		do-animation 6 255
+		do-animation 6 13
+		break-here 4
+		do-animation 6 17
+		actor 6 walk-animation 14
+		V.100 = (270 + 8)
+		walk 6 to V.100,110
+		do-animation selected-actor 10
+		break-here 8
+		do-animation 6 255
+		do-animation 6 13
+		break-here 4
+		do-animation 6 17
+		do-animation 6 15
+		V.100 = ((270 + 8) + 8)
+		walk 6 to V.100,110
+		do-animation selected-actor 10
+		break-here 8
+		do-animation selected-actor 8
+		do-animation 6 255
+		do-animation 6 13
+		break-here 4
+		do-animation 6 17
+		do-animation 6 15
+		actor 6 walk-animation 2
+		break-here
+		walk 6 to 270,110
+		wait-for-actor 6
+		put-actor 6 in-room 0
+		break-here 19
+		do-animation selected-actor 9
+		say-line "That'll teach you to mess with the slayer of the Ghost Pirate LeChuck!"
+		break-here 15
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		do-animation selected-actor 4
+		wait-for-message
+		do-animation selected-actor 5
+		put-actor 6 in-room 13
+		put-actor 6 at 270,110
+		walk 6 to 247,107
+		wait-for-actor 6
+		do-animation 6 248
+		say-line 6 "What's that?"
+		wait-for-message
+		walk 6 to 226,103
+		say-line 6 "YOU killed LeChuck?"
+		wait-for-actor 6
+		do-animation 6 7
+		wait-for-message
+		do-animation 6 9
+		say-line "As a matter of fact, I did.\\xFF\\x03Quite an interesting story, actually^"
+		wait-for-message
+		say-line 6 "The fortune teller said SHE did in LeChuck."
+		wait-for-message
+		say-line "She did, did she?"
+		wait-for-message
+		actor selected-actor costume 65
+		do-animation selected-actor 6
+		break-here 12
+		say-line "Does SHE have one of THESE?"
+		do-animation selected-actor 7
+		do-animation 6 17
+		wait-for-message
+		say-line 6 "Is that^"
+		wait-for-message
+		do-animation 6 17
+		say-line "Yes.  LeChuck's beard.\\xFF\\x03Still alive and wriggling."
+		wait-for-message
+		say-line 6 "Let me see that^"
+		wait-for-message
+		actor 6 costume 107
+		start-script 135 ()
+		do-animation 6 6
+		break-here 4
+		actor selected-actor costume 1
+		break-here 11
+		actor 6 costume 16
+		start-script 135 ()
+		do-animation 6 17
+		sleep-for 30 jiffies
+		say-line 6 "Boy, it IS alive!"
+		wait-for-message
+		say-line 6 "We've been looking for a living piece of LeChuck for years!\\xFF\\x03Now we can bring him back to life!"
+		wait-for-message
+		do-animation 6 246
+		say-line 6 "Look out world!"
+		wait-for-message
+		say-line 6 "The most fearsome pirate of all time will soon sail the seas again!"
+		wait-for-message
+		set-box 5 to 1
+		set-box 6 to 1
+		walk 6 to 270,110
+		wait-for-actor 6
+		class-of 121 is 160
+		put-actor 6 in-room 0
+		set-box 5 to 128
+		set-box 6 to 128
+		sleep-for 30 jiffies
+		say-line "Whoops."
+		wait-for-message
+		sleep-for 30 jiffies
+[00001802]:
+		if !(override-hit) jump &[00001867]
+		print-line " "
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		put-actor selected-actor at 186,105
+		do-animation selected-actor 3
+		do-animation selected-actor 249
+		class-of 121 is 160
+		put-actor 6 in-room 0
+		set-box 5 to 128
+		set-box 6 to 128
+		jump &[00001869]
+[00001867]:
+		override off
+[00001869]:
+		stop-script 79
+		end-cut-scene
+		B.706 = 1
+		fades 257
+		put-actor selected-actor in-room 21
+		put-actor selected-actor at 300,112
+		current-room 21
+		camera-at 480
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0201
+		actor 6 default costume 16 talk-color 10 name "Largo"
+		start-script 135 ()
+		do-animation 6 248
+		put-actor 6 in-room 13
+		put-actor 6 at 135,109
+		start-script bak 79 (6)
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0202
+		break-here
+		do {
+			if (actor-x selected-actor < 170) {
+				start-script 205 ()
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0203
+		break-here
+		start-script 205 ()
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0204
+		do {
+			if (message-going) {
+				stop-script 202
+				stop-script 203
+				wait-for-message
+				start-script 205 ()
+				stop-script 0
+			}
+			break-here
+		}
+		end-script
+	}
+; Caught by Largo
+	script 205 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		stop-script 202
+		stop-script 203
+		stop-script 204
+		start-script 206 ()
+		if !(!B.684) jump &[00000334]
+		cut-scene
+		B.684 = 1
+		override &[00000271]
+		do-animation 6 245
+		do-animation selected-actor 255
+		stop-sentence
+		start-script 11 ()
+		say-line 6 "HEY!  What are you doing in here?!?"
+		do-animation selected-actor face-towards 6
+		wait-for-message
+		say-line "I ^\\xFF\\x03uh ^ "
+		wait-for-message
+		do-animation 6 7
+		say-line 6 "Get out of my room!"
+		break-here 4
+		do-animation 6 8
+		walk selected-actor to-object 110
+		wait-for-actor selected-actor
+		if (state-of 110 is-not 1) {
+			do-animation selected-actor 10
+			sleep-for 10 jiffies
+			start-script 26 (110,103)
+			sleep-for 10 jiffies
+			do-animation selected-actor 3
+		}
+		actor selected-actor always-zclip 2
+		set-box 5 to 1
+		set-box 6 to 1
+		walk selected-actor to 270,110
+		wait-for-actor selected-actor
+		camera-follow 6
+		put-actor selected-actor in-room 0
+		do-animation 6 9
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		set-box 5 to 128
+		set-box 6 to 128
+		wait-for-message
+		say-line 6 "And stay out!"
+		wait-for-message
+[00000271]:
+		if !(override-hit) jump &[00000328]
+		print-line " "
+		set-box 5 to 128
+		set-box 6 to 128
+		start-script 26 (110,103)
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		do-animation selected-actor 255
+		do-animation selected-actor 3
+		jump &[00000330]
+[00000328]:
+		override off
+[00000330]:
+		end-cut-scene
+		jump &[00001431]
+[00000334]:
+		do-animation 6 245
+		do-animation 6 7
+		break-here 4
+		do-animation 6 8
+		L.1 = 0
+[00000352]:
+		V.100 = (13 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000414]
+		L.2 = 1
+		say-line 6 "Stop bothering me!"
+		jump &[00001051]
+[00000414]:
+		if !(V.100 is 2) jump &[00000447]
+		L.2 = 2
+		say-line 6 "You're a pain!"
+		jump &[00001051]
+[00000447]:
+		if !(V.100 is 3) jump &[00000498]
+		L.2 = 3
+		say-line 6 "Why are you following me around?"
+		jump &[00001051]
+[00000498]:
+		if !(V.100 is 4) jump &[00000555]
+		L.2 = 4
+		say-line 6 "Every time I turn around you're there."
+		jump &[00001051]
+[00000555]:
+		if !(V.100 is 5) jump &[00000611]
+		L.2 = 5
+		say-line 6 "I can't believe you're in here again."
+		jump &[00001051]
+[00000611]:
+		if !(V.100 is 6) jump &[00000668]
+		L.2 = 6
+		say-line 6 "Didn't I kick you out of here before?!"
+		jump &[00001051]
+[00000668]:
+		if !(V.100 is 7) jump &[00000743]
+		L.2 = 7
+		say-line 6 "It's people like you who make people like me who we are."
+		jump &[00001051]
+[00000743]:
+		if !(V.100 is 8) jump &[00000789]
+		L.2 = 8
+		say-line 6 "You're invading my privacy."
+		jump &[00001051]
+[00000789]:
+		if !(V.100 is 9) jump &[00000835]
+		L.2 = 9
+		say-line 6 "A man's room is his castle."
+		jump &[00001051]
+[00000835]:
+		if !(V.100 is 10) jump &[00000885]
+		L.2 = 10
+		say-line 6 "Why can't you leave me alone?!?"
+		jump &[00001051]
+[00000885]:
+		if !(V.100 is 11) jump &[00000944]
+		L.2 = 11
+		say-line 6 "I oughta beat you up for coming in here."
+		jump &[00001051]
+[00000944]:
+		if !(V.100 is 12) jump &[00001000]
+		L.2 = 12
+		say-line 6 "You have some nerve, barging in here."
+		jump &[00001051]
+[00001000]:
+		if !(V.100 is 13) jump &[00001051]
+		L.2 = 13
+		say-line 6 "How dare you come in here again."
+		jump &[00001051]
+[00001051]:
+		if !(L.2 is L.1) jump &[00001064]
+		jump &[00000352]
+		jump &[00001074]
+[00001064]:
+		L.1 = L.2
+		++L.0
+		wait-for-message
+[00001074]:
+		if !(L.0 is 3) jump &[00000352]
+		V.100 = (3 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00001139]
+		say-line 6 "Get out of my face!"
+		jump &[00001200]
+[00001139]:
+		if !(V.100 is 2) jump &[00001169]
+		say-line 6 "Get out of here!"
+		jump &[00001200]
+[00001169]:
+		if !(V.100 is 3) jump &[00001200]
+		say-line 6 "Get away from me!"
+		jump &[00001200]
+[00001200]:
+		wait-for-message
+		do-animation 6 9
+		cut-scene
+		stop-sentence
+		do-animation selected-actor 255
+		start-script 11 ()
+		do-animation selected-actor 3
+		do-animation selected-actor face-towards 6
+		wait-for-message
+		V.100 = (4 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00001273]
+		say-line "Oops."
+		jump &[00001328]
+[00001273]:
+		if !(V.100 is 2) jump &[00001292]
+		say-line "Yikes."
+		jump &[00001328]
+[00001292]:
+		if !(V.100 is 3) jump &[00001311]
+		say-line "Sorry."
+		jump &[00001328]
+[00001311]:
+		if !(V.100 is 4) jump &[00001328]
+		say-line "Bye."
+		jump &[00001328]
+[00001328]:
+		sleep-for 60 jiffies
+		walk selected-actor to-object 110
+		wait-for-actor selected-actor
+		if (state-of 110 is-not 1) {
+			do-animation selected-actor 10
+			sleep-for 10 jiffies
+			start-script 26 (110,103)
+			sleep-for 10 jiffies
+			do-animation selected-actor 3
+		}
+		actor selected-actor always-zclip 2
+		set-box 5 to 1
+		set-box 6 to 1
+		walk selected-actor to 270,110
+		wait-for-actor selected-actor
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		set-box 5 to 128
+		set-box 6 to 128
+		end-cut-scene
+[00001431]:
+		come-out 103 in-room 12 walk-to 65535,65535
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0206
+		do {
+			if (actor-x selected-actor < 170) {
+				cut-scene
+				V.100 = (actor-y selected-actor)
+				walk selected-actor to 171,V.100
+				say-line "I don't want to lock myself into a corner."
+				wait-for-actor selected-actor
+				do-animation selected-actor 244
+				sleep-for 60 jiffies
+				end-cut-scene
+			}
+			break-here
+		}
+		end-script
+	}
+; Put Bucket On Door
+	script 207 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0207
+		cut-scene
+		stop-script 211
+		override &[00000142]
+		if (state-of 110 is 1) {
+			do-animation selected-actor 10
+			sleep-for 20 jiffies
+			start-script 27 (110,103)
+			sleep-for 20 jiffies
+			do-animation selected-actor 3
+			break-here 2
+		}
+		owner-of 124 is 0
+		owner-of 124 is 15
+		do-animation selected-actor 12
+		print-line center color 4 "do kool animation of gb putting bucket on door."
+		state-of 122 is 1
+		class-of 122 is 32
+		wait-for-message
+		do-animation selected-actor 3
+[00000142]:
+		if !(override-hit) jump &[00000194]
+		print-line " "
+		if (state-of 110 is 1) {
+			state-of 110 is 0
+		}
+		do-animation selected-actor 3
+		owner-of 124 is 0
+		owner-of 124 is 15
+		state-of 122 is 1
+		class-of 122 is 32
+		jump &[00000196]
+[00000194]:
+		override off
+[00000196]:
+		start-script 208 ()
+		end-cut-scene
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0208
+		jiffy3 = 0
+[00000013]:
+		if !(jiffy3 < 7200) jump &[00000038]
+		if (actor-x selected-actor < 175) {
+			chain-script 209 ()
+		}
+		jump &[00000041]
+[00000038]:
+		chain-script 209 ()
+[00000041]:
+		break-here
+		jump &[00000013]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0209
+		cut-scene
+		override &[00000279]
+		say-line "I think I hear Largo coming."
+		walk selected-actor to 119,110
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		sleep-for 90 jiffies
+		set-box 5 to 1
+		set-box 6 to 1
+		actor 6 default costume 16 talk-color 10 name "Largo" always-zclip 2
+		start-script 135 ()
+		do-animation 6 248
+		put-actor 6 in-room 13
+		put-actor 6 at 270,110
+		start-script bak 79 (6)
+		do-animation 6 10
+		start-script 26 (110,103)
+		break-here
+		do-animation 6 3
+		break-here
+		walk 6 to 226,103
+		wait-for-actor 6
+		do-animation 6 244
+		print-line center color 4 "do kool animation of largo getting bucket on head."
+		state-of 122 is 0
+		class-of 122 is 160
+		wait-for-message
+		say-line 6 "Now I'll have to get my clothes cleaned."
+		wait-for-message
+		walk 6 to 270,110
+		wait-for-actor 6
+		put-actor 6 in-room 0
+		set-box 5 to 128
+		set-box 6 to 128
+[00000279]:
+		if !(override-hit) jump &[00000325]
+		state-of 122 is 0
+		class-of 122 is 160
+		print-line " "
+		put-actor 6 in-room 0
+		put-actor selected-actor at 119,110
+		do-animation selected-actor 249
+		set-box 5 to 128
+		set-box 6 to 128
+		jump &[00000327]
+[00000325]:
+		override off
+[00000327]:
+		stop-script 79
+		owner-of 124 is 0
+		B.538 = 1
+		B.743 = 1
+		end-cut-scene
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0210
+		cut-scene
+		stop-script 208
+		do-animation selected-actor 12
+		say-line "I don't want to leave this up here."
+		sleep-for 20 jiffies
+		state-of 122 is 0
+		class-of 122 is 160
+		pick-up-object 124 in-room 14
+		sleep-for 20 jiffies
+		do-animation selected-actor 3
+		start-script 211 ()
+		end-cut-scene
+		start-script 26 (me,103)
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0211
+		if !(!B.576) jump &[00000020]
+		sleep-for 1800 jiffies
+		jump &[00000024]
+[00000020]:
+		sleep-for 10800 jiffies
+[00000024]:
+		cut-scene
+		do-animation selected-actor 255
+		do-animation selected-actor 3
+		stop-sentence
+		start-script 11 ()
+		set-box 5 to 1
+		set-box 6 to 1
+		actor 6 default costume 16 talk-color 10 name "Largo" always-zclip 2
+		start-script 135 ()
+		do-animation 6 248
+		put-actor 6 in-room 13
+		put-actor 6 at 270,110
+		start-script bak 79 (6)
+		if (state-of 110 is 0) {
+			do-animation 6 10
+			start-script 26 (110,103)
+			break-here
+		}
+		do-animation selected-actor face-towards 6
+		walk 6 to 226,103
+		sleep-for 45 jiffies
+		if !(!B.576) jump &[00000376]
+		B.576 = 1
+		walk selected-actor to 102,116
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		wait-for-actor 6
+		do-animation 6 244
+		actor 6 always-zclip 1
+		walk 6 to 125,115
+		say-line 6 "Who let you into my room?!!"
+		wait-for-message
+		break-here 2
+		say-line "I ^ uh ^ thought it was my room?"
+		walk selected-actor to 121,108
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		walk 6 to 150,109
+		wait-for-actor 6
+		do-animation 6 244
+		wait-for-message
+		say-line 6 "Well, it ain't."
+		walk selected-actor to 137,103
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		walk 6 to 166,104
+		wait-for-actor 6
+		do-animation 6 244
+		wait-for-message
+		say-line 6 "So, get the $#*&# out of here!"
+		walk selected-actor to-object 110
+		break-here 5
+		do-animation 6 245
+		break-here 5
+		walk 6 to-object 110
+		jump &[00000571]
+[00000376]:
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000419]
+		say-line 6 "HEY!"
+		jump &[00000521]
+[00000419]:
+		if !(V.100 is 2) jump &[00000441]
+		say-line 6 "GET OUT!"
+		jump &[00000521]
+[00000441]:
+		if !(V.100 is 3) jump &[00000463]
+		say-line 6 "GO AWAY!"
+		jump &[00000521]
+[00000463]:
+		if !(V.100 is 4) jump &[00000495]
+		say-line 6 "Stop pestering me!"
+		jump &[00000521]
+[00000495]:
+		if !(V.100 is 5) jump &[00000521]
+		say-line 6 "You again?!!"
+		jump &[00000521]
+[00000521]:
+		walk selected-actor to 160,116
+		wait-for-actor selected-actor
+		walk 6 to 155,115
+		walk selected-actor to-object 110
+		wait-for-message
+		say-line "I was just leaving."
+		walk 6 to-object 110
+[00000571]:
+		wait-for-actor selected-actor
+		walk selected-actor to 270,110
+		wait-for-actor selected-actor
+		put-actor 6 in-room 0
+		stop-script 79
+		set-box 5 to 128
+		set-box 6 to 128
+		B.683 = 1
+		end-cut-scene
+		come-out 103 in-room 12 walk-to 65535,65535
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0013\ROOM\LSCR_0212
+		cut-scene
+		start-script 201 ()
+		break-until (!script-running 201)
+		do-animation 6 245
+		do-animation selected-actor 3
+		sleep-for 30 jiffies
+		V.100 = (6 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000110]
+		say-line 6 "What are you doing in here again?!"
+		jump &[00000293]
+[00000110]:
+		if !(V.100 is 2) jump &[00000144]
+		say-line 6 "Get out of my room!!"
+		jump &[00000293]
+[00000144]:
+		if !(V.100 is 3) jump &[00000169]
+		say-line 6 "Scram, kid!"
+		jump &[00000293]
+[00000169]:
+		if !(V.100 is 4) jump &[00000198]
+		say-line 6 "Leave me alone!"
+		jump &[00000293]
+[00000198]:
+		if !(V.100 is 5) jump &[00000247]
+		say-line 6 "Can't you give a guy some privacy?!"
+		jump &[00000293]
+[00000247]:
+		if !(V.100 is 6) jump &[00000293]
+		say-line 6 "I thought I told you to get out!"
+		jump &[00000293]
+[00000293]:
+		do-animation 6 7
+		break-here 4
+		do-animation 6 8
+		sleep-for 90 jiffies
+		set-box 5 to 1
+		set-box 6 to 1
+		walk selected-actor to 270,110
+		wait-for-actor selected-actor
+		put-actor 6 in-room 0
+		stop-script 79
+		set-box 5 to 128
+		set-box 6 to 128
+		end-cut-scene
+		come-out 103 in-room 12 walk-to 65535,65535
+		end-script
+	}
+}
+

@@ -1,0 +1,1298 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 51: Funeral Parlor (funeral-p)
+; */
+
+room funeral-p {
+
+	object 562 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0562
+		name is "coffin"
+
+		verb 3 {
+			start-script 201 (selected-actor)
+			end-object
+		}
+
+		verb 2 {
+			end-object
+		}
+
+		verb 8 {
+			say-line "Spacious."
+			end-object
+		}
+
+		verb 7 {
+			cut-scene
+			say-line "I'm not ready for that yet."
+			wait-for-message
+			say-line 7 "Hey, take your time.  No hurry."
+			wait-for-message
+			end-cut-scene
+			end-object
+		}
+
+		verb 19 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 102 {
+			stop-script 202
+			end-object
+		}
+	}
+
+	object 568 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0568
+		name is "coffin nail"
+
+		verb 18 {
+			cut-scene
+			override &[00000160]
+			say-line "I nailed them in there pretty good.\\xFF\\x03Don't think I can get them out."
+			wait-for-message
+			say-line 7 "They must have fused with the teflon gasket!\\xFF\\x03Oh Lord, I'm doomed!"
+			wait-for-message
+[00000160]:
+			print-line " "
+			end-cut-scene
+			end-object
+		}
+	}
+
+	object 569 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0569
+		name is "coffin nail"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !(valid-verb 568, L.1) jump &[00000032]
+			start-object 568 verb L.1 (L.0)
+			jump &[00000045]
+[00000032]:
+			if (L.1 is-not 90) {
+				start-script 3 (L.1)
+			}
+[00000045]:
+			end-object
+		}
+	}
+
+	object 570 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0570
+		name is "coffin nail"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !(valid-verb 568, L.1) jump &[00000032]
+			start-object 568 verb L.1 (L.0)
+			jump &[00000045]
+[00000032]:
+			if (L.1 is-not 90) {
+				start-script 3 (L.1)
+			}
+[00000045]:
+			end-object
+		}
+	}
+
+	object 571 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0571
+		name is "coffin nail"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !(valid-verb 568, L.1) jump &[00000032]
+			start-object 568 verb L.1 (L.0)
+			jump &[00000045]
+[00000032]:
+			if (L.1 is-not 90) {
+				start-script 3 (L.1)
+			}
+[00000045]:
+			end-object
+		}
+	}
+
+	object 572 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0572
+		name is "coffin nail"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !(valid-verb 568, L.1) jump &[00000032]
+			start-object 568 verb L.1 (L.0)
+			jump &[00000045]
+[00000032]:
+			if (L.1 is-not 90) {
+				start-script 3 (L.1)
+			}
+[00000045]:
+			end-object
+		}
+	}
+
+	object 563 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0563
+		name is "coffin"
+
+		verb 2 {
+			start-script 200 (selected-actor)
+			end-object
+		}
+
+		verb 3 {
+			end-object
+		}
+
+		verb 8 {
+			say-line "Nice finish."
+			end-object
+		}
+
+		verb 7 {
+			do-sentence 7 562 with 0
+			end-object
+		}
+
+		verb 19 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 102 {
+			stop-script 202
+			end-object
+		}
+	}
+
+	object 564 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0564
+		name is "door"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			override off
+			cut-scene
+			if !(B.259) jump &[00000098]
+			if !(state-of 562 is 0) jump &[00000086]
+			if (!B.432) {
+				B.432 = 1
+				stop-script 206
+				say-line 7 "Are you still out there?\\xFF\\x03Hello?"
+			}
+			jump &[00000098]
+[00000086]:
+			say-line 7 "Bye now!"
+[00000098]:
+			wait-for-message
+			end-cut-scene
+			come-out 456 in-room 47 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 565 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0565
+		name is "bell"
+
+		verb 7 {
+			print-line color 120 at 240,65 "Ding."
+			if (B.260) {
+				cut-scene
+				wait-for-message
+				say-line 7 "Uh^ be there in a minute."
+				wait-for-message
+				end-cut-scene
+			}
+			end-object
+		}
+	}
+
+	object 566 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0566
+		name is "cash register"
+
+		verb 8 {
+			if !(class-of me is 134) jump &[00000035]
+			say-line "It's locked."
+			jump &[00000049]
+[00000035]:
+			say-line "It's empty."
+[00000049]:
+			end-object
+		}
+
+		verb 24 {
+			if !(class-of me is 134) jump &[00000065]
+			start-script 211 ()
+			jump &[00000088]
+[00000065]:
+			say-line "It's open and empty."
+[00000088]:
+			end-object
+		}
+	}
+
+	object 567 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0567
+		name is "crypt key"
+
+		verb 91 {
+			V.302 = 824
+			end-object
+		}
+
+		verb 8 {
+			say-line "`Stan's Kozy Krypts\\x0F -- A Place to Spend Eternity, Not a Fortune.`"
+			end-object
+		}
+
+		verb 9 {
+			if !(owner-of me is 15) jump &[00000111]
+			if !(B.260) jump &[00000108]
+			pick-up-object me in-room 0
+			jump &[00000111]
+[00000108]:
+			start-script 207 ()
+[00000111]:
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			do-sentence 7 L.0 with me
+			end-object
+		}
+	}
+
+	object 573 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0573
+		name is ""
+	}
+
+	object 574 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0574
+		name is ""
+	}
+
+	object 575 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0575
+		name is ""
+	}
+
+	object 576 { ; VERB LECF_0002\LFLF_0051\ROOM\OBCD_0576
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0051\ROOM\EXCD
+		if (!B.260) {
+			B.259 = 0
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0051\ROOM\ENCD
+		if !(state-of 562 is 1) jump &[00000037]
+		class-of 562 is 32
+		class-of 563 is 160
+		jump &[00000051]
+[00000037]:
+		class-of 562 is 160
+		class-of 563 is 32
+[00000051]:
+		start-script bak rec 85 (573)
+		start-script bak rec 85 (574)
+		start-script bak rec 85 (575)
+		start-script bak rec 85 (576)
+		start-script 202 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0200
+	local variable L.0
+
+		if (L.0) {
+			do-animation L.0 10
+		}
+		break-here
+		if (class-of 563 is 134) {
+			say-line L.0 "It's nailed shut!"
+			wait-for-message
+			do-animation L.0 3
+			stop-script 0
+		}
+		state-of 562 is 1
+		class-of 562 is 32
+		class-of 563 is 160
+		if (B.259) {
+			actor 7 costume 27
+			do-animation 7 9
+		}
+		if (L.0) {
+			do-animation L.0 12
+		}
+		break-here 4
+		if (L.0) {
+			do-animation L.0 3
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0201
+	local variable L.0
+
+		if (L.0) {
+			do-animation L.0 12
+		}
+		break-here 3
+		state-of 562 is 0
+		class-of 562 is 160
+		class-of 563 is 32
+		if (B.259) {
+			actor 7 costume 0
+			if (!B.431) {
+				B.431 = 1
+				say-line 7 "Sure, sure.  Try out the lid operation.\\xFF\\x03It's just as roomy closed."
+			}
+		}
+		if (L.0) {
+			do-animation L.0 3
+		}
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0202
+	local variable L.0
+
+		if (B.260) {
+			actor 7 costume 0 talk-color 13 ignore-boxes always-zclip 1
+			put-actor 7 in-room 51
+			put-actor 7 at 78,126
+			do-animation 7 250
+			chain-script 206 ()
+		}
+		actor 7 default costume 27 talk-color 13
+		put-actor 7 in-room 51
+		put-actor 7 at-object 566
+		do-animation 7 249
+		if !(script-running 65) jump &[00000068]
+		jump &[00005276]
+[00000068]:
+		if !(!B.257) jump &[00000758]
+		B.257 = 1
+		cut-scene
+		override &[00000754]
+		break-here
+		wait-for-actor selected-actor
+		do-animation 7 244
+		sleep-for 30 jiffies
+		say-line 7 "HOWDY!!!"
+		walk 7 to 71,134
+		wait-for-message
+		say-line 7 "Welcome to Stan's Previously Owned Coffins!\\xFF\\x03We handle the dead for a lot less bread."
+		wait-for-actor 7
+		do-animation 7 face-towards selected-actor
+		wait-for-message
+		say-line 7 "What are you looking for, son?"
+		sleep-for 30 jiffies
+		walk 7 to 33,132
+		wait-for-actor 7
+		walk selected-actor to 125,127
+		walk 7 to 24,137
+		wait-for-actor 7
+		do-animation 7 245
+		wait-for-actor selected-actor
+		walk selected-actor to 180,127
+		walk 7 to 125,127
+		wait-for-message
+		say-line 7 "Need a bin for your next of kin?"
+		wait-for-actor selected-actor
+		do-animation selected-actor 244
+		wait-for-message
+		walk 7 to-actor selected-actor within 36
+		say-line 7 "Want a family plot without spending a lot?"
+		wait-for-message
+		walk 7 to-actor selected-actor within 28
+		say-line 7 "You're in luck!"
+		wait-for-message
+		say-line 7 "Just look at all this quality merchandise!"
+		walk 7 to 138,118
+		wait-for-actor 7
+		do-animation 7 244
+		wait-for-message
+		do-animation 7 245
+		say-line 7 "Never before touched by a living soul."
+		wait-for-message
+		say-line 7 "Most of it used only for a few hours^"
+		walk 7 to 194,106
+		wait-for-actor 7
+		do-animation selected-actor 247
+		do-animation 7 251
+		wait-for-message
+		do-animation 7 246
+		say-line 7 "^premature burial, you know.  That sort of thing."
+		sleep-for 60 jiffies
+		walk 7 to 207,126
+		sleep-for 30 jiffies
+		do-animation selected-actor 245
+		wait-for-actor 7
+		do-animation 7 244
+		wait-for-message
+		say-line 7 "Well, speak up.  Or are you dead?\\xFF\\x03Either way, you came to the right place."
+		wait-for-message
+[00000754]:
+		end-cut-scene
+		jump &[00000934]
+[00000758]:
+		cut-scene
+		override &[00000933]
+		break-here
+		wait-for-actor selected-actor
+		do-animation 7 244
+		sleep-for 30 jiffies
+		if !(!B.258) jump &[00000892]
+		B.258 = 1
+		say-line 7 "Well, well, well.\\xFF\\x03I knew you'd come back."
+		wait-for-message
+		walk 7 to 207,126
+		walk selected-actor to 180,127
+		say-line 7 "My customers always do.\\xFF\\x03^EVENTUALLY."
+		jump &[00000927]
+[00000892]:
+		say-line 7 "Hey, welcome back!"
+		walk 7 to 207,126
+		walk selected-actor to 180,127
+[00000927]:
+		wait-for-actor selected-actor
+		wait-for-message
+[00000933]:
+		end-cut-scene
+[00000934]:
+		print-line " "
+		do-animation 7 255
+		do-animation selected-actor 255
+		put-actor 7 at 207,126
+		put-actor selected-actor at 180,127
+		do-animation 7 face-towards selected-actor
+		do-animation selected-actor face-towards 7
+		build-sentence-script = 14
+		start-script 16 (5)
+		cursor off
+		userput off
+[00000983]:
+		override off
+		print-line " "
+		start-script 33 ()
+		if !(V.301) jump &[00001181]
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Could you show me that coffin again?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		if (!B.437) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 2) - 1)
+				verb V.100 at 0,V.176 name "\\x07How much is that coffin?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		jump &[00001270]
+[00001181]:
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07I'm looking for a good used coffin." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+[00001270]:
+		if (!B.435) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 3) - 1)
+				verb V.100 at 0,V.176 name "\\x07Actually, I'd just like to browse." on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.438) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 4) - 1)
+				verb V.100 at 0,V.176 name "\\x07Didn't you used to be a used ship salesman?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.433) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 5) - 1)
+				verb V.100 at 0,V.176 name "\\x07Do you do funerals?" on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.436) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 6) - 1)
+				verb V.100 at 0,V.176 name "\\x07I'm not actually in the market for a coffin yet." on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		if (!B.434) {
+			if (V.304 < 3) {
+				V.100 = ((120 + 7) - 1)
+				verb V.100 at 0,V.176 name "\\x07I need to get something embalmed." on key V.177
+				V.176 += 8
+				V.100 -= 120
+				++V.177
+				++V.304
+				B.16[V.100] = 1
+			}
+		}
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07I gotta go.  See you later." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = (1 - 1)
+		V.178[V.100] = 562
+		V.100 = (1 - 1)
+		V.178[V.100] = 563
+		V.100 = (9 - 1)
+		V.178[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		if (V.175 is-not 120) {
+			start-script 209 ()
+		}
+		if !(V.175 is 120) jump &[00001946]
+		jump &[00002069]
+		jump &[00002069]
+[00001946]:
+		if !(V.175 is 121) jump &[00001959]
+		jump &[00003487]
+		jump &[00002069]
+[00001959]:
+		if !(V.175 is 122) jump &[00001972]
+		jump &[00004599]
+		jump &[00002069]
+[00001972]:
+		if !(V.175 is 123) jump &[00001985]
+		jump &[00005048]
+		jump &[00002069]
+[00001985]:
+		if !(V.175 is 124) jump &[00001998]
+		jump &[00004084]
+		jump &[00002069]
+[00001998]:
+		if !(V.175 is 125) jump &[00002011]
+		jump &[00004751]
+		jump &[00002069]
+[00002011]:
+		if !(V.175 is 126) jump &[00002024]
+		jump &[00004384]
+		jump &[00002069]
+[00002024]:
+		if !(V.175 is 128) jump &[00002069]
+		say-line 7 "Maybe sooner than you think."
+		jump &[00005187]
+		jump &[00002069]
+[00002069]:
+		++V.301
+		override &[00003106]
+		if !(V.301 is 1) jump &[00002337]
+		say-line 7 "Amazing!\\xFF\\x03When you first walked in here I said, `Now THERE'S a guy who needs a good used coffin!`"
+		wait-for-message
+		say-line 7 "There happens to be an excellent deal right behind you."
+		wait-for-message
+		V.158 = ((actor-x selected-actor) - 20)
+		V.159 = actor-y selected-actor
+		walk selected-actor to V.158,V.159
+		wait-for-actor selected-actor
+		do-animation 7 13
+		sleep-for 75 jiffies
+		do-animation 7 3
+		say-line 7 "Let's go take a look-see."
+		sleep-for 60 jiffies
+		walk selected-actor to 105,121
+		walk 7 to 70,128
+		jump &[00002361]
+[00002337]:
+		start-script 210 ()
+		sleep-for 30 jiffies
+		walk selected-actor to 105,121
+		sleep-for 30 jiffies
+		walk 7 to 70,128
+[00002361]:
+		if !(actor-x 7 < 110) jump &[00002396]
+		walk 7 to 70,128
+		walk selected-actor to 105,121
+		wait-for-actor 7
+		wait-for-actor selected-actor
+		jump &[00003106]
+[00002396]:
+		wait-for-actor 7
+		do-animation 7 face-towards selected-actor
+		wait-for-actor selected-actor
+		do-animation selected-actor face-towards 7
+		if !(V.301 is 1) jump &[00002648]
+		do-animation 7 247
+		say-line 7 "Now this here^"
+		wait-for-message
+		if (state-of 562 is 0) {
+			start-script 200 (7)
+			break-until (!script-running 200)
+		}
+		do-animation 7 face-towards selected-actor
+		say-line 7 "^is the Cadillac of Coffins."
+		wait-for-message
+		say-line 7 "Look at all that leg room!"
+		sleep-for 30 jiffies
+		wait-for-message
+		do-animation 7 247
+		say-line 7 "There's room in there for Long John Silver himself!"
+		wait-for-message
+		do-animation 7 face-towards selected-actor
+		say-line 7 "Here--let me get in and show you."
+		jump &[00003038]
+[00002648]:
+		if !(V.301 is 2) jump &[00002803]
+		say-line 7 "Now this isn't just your average sixty-gallon coffin.\\xFF\\x03This has the full seventy-five gallons you need to avoid unsightly bone readjustments."
+		jump &[00003038]
+[00002803]:
+		if !(V.301 is 3) jump &[00002904]
+		say-line 7 "Good solid construction on this baby.\\xFF\\x03`It keeps out the worms\\xFF\\x01While your body firms.`"
+		jump &[00003038]
+[00002904]:
+		if !(V.301 is 4) jump &[00002997]
+		say-line 7 "I have to warn you, I've got five other dead guys coming to look at this today."
+		jump &[00003038]
+[00002997]:
+		if !(V.301 < 7) jump &[00003035]
+		say-line 7 "Have you decided to buy?"
+		jump &[00003038]
+[00003035]:
+		jump &[00003106]
+[00003038]:
+		if (V.301 > 1) {
+			wait-for-message
+			say-line "Could you get in and show me how big it is again?"
+			wait-for-message
+			start-script 210 ()
+		}
+		wait-for-message
+[00003106]:
+		if !(override-hit) jump &[00003144]
+		print-line " "
+		do-animation 7 255
+		do-animation selected-actor 255
+		put-actor 7 at 70,128
+		put-actor selected-actor at 105,121
+		do-animation selected-actor face-towards 7
+		jump &[00003148]
+[00003144]:
+		override off
+		wait-for-message
+[00003148]:
+		do-animation 7 247
+		break-here
+		if (state-of 562 is 0) {
+			start-script 200 (7)
+			break-until (!script-running 200)
+			break-here
+		}
+		B.259 = 1
+		actor 7 ignore-boxes never-zclip
+		V.158 = actor-x 7
+		V.159 = ((actor-y 7) - 10)
+		put-actor 7 at V.158,V.159
+		actor 7 elevation 65526
+		do-animation 7 6
+		break-here 7
+		actor 7 always-zclip 1 ignore-boxes talk-animation 7,9
+		do-animation 7 249
+		do-animation 7 9
+		sleep-for 30 jiffies
+		start-script 203 ()
+		wait-for-message
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		L.0 = (60 * (5 + V.301))
+		if (L.0 > 600) {
+			L.0 = 600
+		}
+[00003298]:
+		sleep-for L.0 jiffies
+		if !(V.108 is-not 11) jump &[00003311]
+		jump &[00003298]
+[00003311]:
+		override off
+		do-animation selected-actor 255
+		cursor off
+		userput off
+		stop-sentence
+		build-sentence-script = 14
+		start-script 16 (5)
+		stop-script 203
+		wait-for-message
+		break-until (!script-running 200)
+		break-until (!script-running 201)
+		if (state-of 562 is 0) {
+			start-script 200 ()
+			break-until (!script-running 200)
+		}
+		actor 7 ignore-boxes never-zclip
+		do-animation 7 250
+		do-animation 7 14
+		B.259 = 0
+		walk selected-actor to 105,121
+		break-here 3
+		actor 7 follow-boxes talk-animation 4,5 elevation 0
+		put-actor 7 at 70,128
+		do-animation 7 3
+		do-animation 7 face-towards selected-actor
+		say-line 7 "Can I show you anything else?"
+		wait-for-actor selected-actor
+		do-animation 7 face-towards selected-actor
+		do-animation selected-actor face-towards 7
+		sleep-for 30 jiffies
+		wait-for-message
+		jump &[00000983]
+[00003487]:
+		B.437 = 1
+		override &[00000983]
+		say-line 7 "Well, it's complicated^\\xFF\\x03Pricing here at Stan's works on a sliding scale^\\xFF\\x03^based on one's ability to pay^"
+		wait-for-message
+		say-line 7 "^so as to make a decent funeral affordable to even our poorest customers."
+		wait-for-message
+		say-line "That's very considerate of you."
+		wait-for-message
+		say-line 7 "So, how much dough do you have on you?"
+		wait-for-message
+		if !(V.305 > 1) jump &[00003936]
+		say-line "I have %n305% pieces of eight."
+		wait-for-message
+		if !(V.305 < 500) jump &[00003818]
+		jump &[00004006]
+[00003818]:
+		V.482 = (V.305 + 50)
+		say-line 7 "Oooh, that hurts.\\xFF\\x03They JUST raised the casket tax.\\xFF\\x03Now that baby's going for %n482% pieces of eight."
+		jump &[00004079]
+[00003936]:
+		say-line "Actually, I'm one of those poor customers you were talking about."
+		wait-for-message
+[00004006]:
+		say-line 7 "I see.\\xFF\\x03I think cremation might be more appropriate in this instance."
+[00004079]:
+		wait-for-message
+		jump &[00000983]
+[00004084]:
+		B.433 = 1
+		override &[00004366]
+		say-line 7 "Of course we do funerals!\\xFF\\x03And not just those somber, all-black, three-handkerchief affairs^"
+		wait-for-message
+		say-line 7 "We do it in a rowdy Mardi Gras style, with music and dancing and pall bearer races^"
+		sleep-for 60 jiffies
+		do-animation 7 247
+		sleep-for 60 jiffies
+		do-animation 7 245
+		sleep-for 60 jiffies
+		do-animation 7 246
+		sleep-for 60 jiffies
+		do-animation 7 244
+		wait-for-message
+		say-line 7 "I like to say we put the FUN in FUNerals.\\xFF\\x03Heh heh."
+		wait-for-message
+[00004366]:
+		override off
+		if (!actor-moving 7) {
+			do-animation 7 face-towards selected-actor
+		}
+		jump &[00000983]
+[00004384]:
+		B.434 = 1
+		override &[00000983]
+		say-line 7 "Well, you came to the right place!\\xFF\\x03`Your loved ones deserve\\xFF\\x01Stan's special preserve.`"
+		wait-for-message
+		say-line 7 "`You won't smell a whiff\\xFF\\x01When we're done with your stiff.`"
+		wait-for-message
+		say-line "I never knew morticians were so clever."
+		wait-for-message
+		jump &[00000983]
+[00004599]:
+		B.435 = 1
+		override &[00000983]
+		say-line 7 "Sorry^\\xFF\\x03Health regulations prohibit me from allowing uncertified persons free access to used interment paraphernalia."
+		wait-for-message
+		say-line "Aw, shucks."
+		wait-for-message
+		jump &[00000983]
+[00004751]:
+		B.436 = 1
+		override &[00000983]
+		say-line 7 "It's never too early to make funeral arangements.\\xFF\\x03Making plot reservations now insures you a space at our popular Scabb Island Internment Park\\x0F^"
+		wait-for-message
+		say-line 7 "^as well as entitling you to discounts on park rentals."
+		wait-for-message
+		say-line "Rentals?"
+		wait-for-message
+		say-line 7 "You know--for barbecues, parties--that sort of thing."
+		wait-for-message
+		jump &[00000983]
+[00005048]:
+		B.438 = 1
+		override &[00000983]
+		say-line 7 "Well, yeah.\\xFF\\x03But I decided to get into a business where unsatisfied customers are less likely to come back and complain."
+		wait-for-message
+		jump &[00000983]
+[00005187]:
+		stop-script 209
+		sleep-for 60 jiffies
+		V.158 = actor-x selected-actor
+		V.159 = ((actor-y selected-actor) + 8)
+		if (actor-x 7 < V.158) {
+			walk selected-actor to V.158,V.159
+			wait-for-actor selected-actor
+			do-animation 7 246
+		}
+		walk selected-actor to-object 564
+		wait-for-message
+		walk 7 to-object 566
+		wait-for-actor selected-actor
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		come-out 456 in-room 47 walk-to 65535,65535
+[00005276]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+
+		L.1 = 64537
+		start-script 208 ()
+[00000016]:
+		wait-for-message
+		break-here
+[00000019]:
+		if !(V.347 > 20) jump &[00000033]
+		L.0 = random 20
+		jump &[00000038]
+[00000033]:
+		L.0 = V.347
+[00000038]:
+		if !(L.0 is L.1) jump &[00000051]
+		jump &[00000019]
+		jump &[00000056]
+[00000051]:
+		L.1 = L.0
+[00000056]:
+		if !(L.0 is 0) jump &[00000136]
+		say-line 7 "Yes, a man can really rest in peace AND comfort with one of these."
+		jump &[00001722]
+[00000136]:
+		if !(L.0 is 1) jump &[00000212]
+		say-line 7 "Why should a man's coffin be any smaller than his bunk at sea?"
+		jump &[00001722]
+[00000212]:
+		if !(L.0 is 2) jump &[00000276]
+		say-line 7 "I could spend a lot of time in a coffin like this."
+		jump &[00001722]
+[00000276]:
+		if !(L.0 is 3) jump &[00000330]
+		say-line 7 "Look at how freely I can wiggle my toes."
+		jump &[00001722]
+[00000330]:
+		if !(L.0 is 4) jump &[00000380]
+		say-line 7 "This thing's bigger than my kitchen!"
+		jump &[00001722]
+[00000380]:
+		if !(L.0 is 5) jump &[00000459]
+		say-line 7 "You know, a person's coffin should reflect their station in life."
+		jump &[00001722]
+[00000459]:
+		if !(L.0 is 6) jump &[00000584]
+		say-line 7 "If you're thinking about one of those cheaper models, first ask yourself,\\xFF\\x03`Isn't my loved one worth the best?`"
+		jump &[00001722]
+[00000584]:
+		if !(L.0 is 7) jump &[00000635]
+		say-line 7 "This is truly the casket of captains."
+		jump &[00001722]
+[00000635]:
+		if !(L.0 is 8) jump &[00000761]
+		say-line 7 "When you've spent your life on something as big as the ocean,\\xFF\\x03how can you spend your death in anything smaller?"
+		jump &[00001722]
+[00000761]:
+		if !(L.0 is 9) jump &[00000831]
+		say-line 7 "There's enough room in here for a pirate AND his parrot."
+		jump &[00001722]
+[00000831]:
+		if !(L.0 is 10) jump &[00000896]
+		say-line 7 "Feel free to join me.  There's room for both of us!"
+		jump &[00001722]
+[00000896]:
+		if !(L.0 is 11) jump &[00000944]
+		say-line 7 "I could just stay in here all day."
+		jump &[00001722]
+[00000944]:
+		if !(L.0 is 12) jump &[00001046]
+		say-line 7 "If you should ever need to turn in your grave^\\xFF\\x03^you could in here with comfort an ease."
+		jump &[00001722]
+[00001046]:
+		if !(L.0 is 13) jump &[00001133]
+		say-line 7 "Even though it is used, you'll notice it still has that new coffin smell."
+		jump &[00001722]
+[00001133]:
+		if !(L.0 is 14) jump &[00001256]
+		say-line 7 "I don't mean to scare you, but anything smaller than this and we might have to cut off your loved one's feet."
+		jump &[00001722]
+[00001256]:
+		if !(L.0 is 15) jump &[00001345]
+		say-line 7 "Take it from me, I'm as claustrophobic as they come, and I love it in here."
+		jump &[00001722]
+[00001345]:
+		if !(L.0 is 16) jump &[00001432]
+		say-line 7 "This baby's so nice, it should be illegal--\\xFF\\x03It makes people want to die."
+		jump &[00001722]
+[00001432]:
+		if !(L.0 is 17) jump &[00001494]
+		say-line 7 "I've got one of these in the back for when I go."
+		jump &[00001722]
+[00001494]:
+		if !(L.0 is 18) jump &[00001560]
+		say-line 7 "Just take a look at this convenient beverage holder."
+		jump &[00001722]
+[00001560]:
+		if !(L.0 is 19) jump &[00001652]
+		say-line 7 "We also stock an excellent worm repellent that I might just throw in for free."
+		jump &[00001722]
+[00001652]:
+		if !(L.0 is 20) jump &[00001722]
+		say-line 7 "You gotta admit, it's cozy.\\xFF\\x03Do I not look cozy in here?"
+		jump &[00001722]
+[00001722]:
+		++V.347
+		jump &[00000016]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+
+		if (B.260) {
+			say-line "It's already nailed shut."
+			stop-script 0
+		}
+		if (owner-of 140 is-not selected-actor) {
+			say-line "But I don't have a hammer."
+			stop-script 0
+		}
+		if (owner-of 141 is-not selected-actor) {
+			say-line "But I don't have any nails."
+			stop-script 0
+		}
+		cut-scene
+		stop-script 202
+		stop-script 203
+		B.260 = 1
+		class-of 563 is 134
+		if (state-of 562 is 1) {
+			say-line "But it's open."
+			wait-for-message
+			say-line 7 "It's just as roomy closed.\\xFF\\x03Here, let me show you^"
+			wait-for-message
+			start-script 201 ()
+			break-until (!script-running 201)
+			say-line 7 "See?"
+			wait-for-message
+			start-script 203 ()
+			wait-for-message
+		}
+		L.1 = min-jiffies
+		min-jiffies = 2
+		for L.0 = 568 to 572 ++ {
+			start-script 205 (L.0)
+			break-until (!script-running 205)
+		}
+		min-jiffies = L.1
+		owner-of 141 is 0
+		stop-script 203
+		start-script 206 ()
+		walk selected-actor to 105,121
+		wait-for-actor selected-actor
+		do-animation selected-actor 246
+		end-cut-scene
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+
+		class-of L.0 is 32
+		walk selected-actor to-object L.0
+		wait-for-actor selected-actor
+		state-of L.0 is 1
+		for L.1 = 1 to 5 ++ {
+			do-animation selected-actor 12
+			break-here
+			do-animation selected-actor 3
+			break-here
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		L.1 = 64537
+[00000013]:
+		wait-for-message
+[00000015]:
+		if !(V.348 > 21) jump &[00000050]
+		V.100 = (21 - 4)
+		L.0 = ((random V.100) + 4)
+		jump &[00000055]
+[00000050]:
+		L.0 = V.348
+[00000055]:
+		if !(L.0 is L.1) jump &[00000068]
+		jump &[00000015]
+		jump &[00000073]
+[00000068]:
+		L.1 = L.0
+[00000073]:
+		if !(L.0 is 0) jump &[00000150]
+		say-line 7 "I here you knocking up there.\\xFF\\x03That's solid oak you're hearing!"
+		jump &[00001111]
+[00000150]:
+		if !(L.0 is 1) jump &[00000192]
+		say-line 7 "Yes it sure is nice in here."
+		jump &[00001111]
+[00000192]:
+		if !(L.0 is 2) jump &[00000236]
+		say-line 7 "Hey!  I think the lid's stuck!"
+		jump &[00001111]
+[00000236]:
+		if !(L.0 is 3) jump &[00000347]
+		say-line 7 "Uh^  Excuse me, freind^\\xFF\\x03Could you see if the clasp is closed on this thing?\\xFF\\x03I seem to be stuck^"
+		jump &[00001111]
+[00000347]:
+		if !(L.0 is 4) jump &[00000367]
+		say-line 7 "Hello?"
+		jump &[00001111]
+[00000367]:
+		if !(L.0 is 5) jump &[00000408]
+		say-line 7 "Is there anybody out there?"
+		jump &[00001111]
+[00000408]:
+		if !(L.0 is 6) jump &[00000430]
+		say-line 7 "Yoo-hoo?"
+		jump &[00001111]
+[00000430]:
+		if !(L.0 is 7) jump &[00000449]
+		say-line 7 "Help!"
+		jump &[00001111]
+[00000449]:
+		if !(L.0 is 8) jump &[00000487]
+		say-line 7 "I can't get out of here!"
+		jump &[00001111]
+[00000487]:
+		if !(L.0 is 9) jump &[00000547]
+		say-line 7 "Okay, a joke's a joke, now GET ME OUT OF HERE!"
+		jump &[00001111]
+[00000547]:
+		if !(L.0 is 10) jump &[00000588]
+		say-line 7 "Open this coffin right now!"
+		jump &[00001111]
+[00000588]:
+		if !(L.0 is 11) jump &[00000610]
+		say-line 7 "Anybody?"
+		jump &[00001111]
+[00000610]:
+		if !(L.0 is 12) jump &[00000651]
+		say-line 7 "I really am claustrophobic."
+		jump &[00001111]
+[00000651]:
+		if !(L.0 is 13) jump &[00000697]
+		say-line 7 "Someone's going to pay for this."
+		jump &[00001111]
+[00000697]:
+		if !(L.0 is 14) jump &[00000769]
+		say-line 7 "I'd bust out of here, but the dang thing's built too well."
+		jump &[00001111]
+[00000769]:
+		if !(L.0 is 15) jump &[00000854]
+		say-line 7 "Well, if I had to be stuck in a coffin, at least it's the deluxe model."
+		jump &[00001111]
+[00000854]:
+		if !(L.0 is 16) jump &[00000902]
+		say-line 7 "It really is pretty roomy in here."
+		jump &[00001111]
+[00000902]:
+		if !(L.0 is 17) jump &[00000938]
+		say-line 7 "Maybe I'll take a nap."
+		jump &[00001111]
+[00000938]:
+		if !(L.0 is 18) jump &[00000985]
+		say-line 7 "I hope this thing's not airtight."
+		jump &[00001111]
+[00000985]:
+		if !(L.0 is 19) jump &[00001012]
+		say-line 7 "I'm not dead!"
+		jump &[00001111]
+[00001012]:
+		if !(L.0 is 20) jump &[00001055]
+		say-line 7 "I'm losing valuable business."
+		jump &[00001111]
+[00001055]:
+		if !(L.0 is 21) jump &[00001111]
+		say-line 7 "Let me out!  I need to go to the bathroom."
+		jump &[00001111]
+[00001111]:
+		++V.348
+		jump &[00000013]
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0207
+		cut-scene
+		if (state-of 562 is 0) {
+			start-script 200 ()
+			break-until (!script-running 200)
+		}
+		do-animation 7 face-towards selected-actor
+		say-line 7 "Hey, kid.  Don't be touching that."
+		wait-for-message
+		end-cut-scene
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0208
+[00000008]:
+		if !(actor-x selected-actor < 96) jump &[00000026]
+		do-animation 7 250
+		jump &[00000029]
+[00000026]:
+		do-animation 7 249
+[00000029]:
+		break-here
+		if !(!script-running 203) jump &[00000008]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0209
+	local variable L.0
+
+		if (actor-x 7 < 110) {
+			walk 7 to 207,126
+			L.0 = (actor-x selected-actor)
+			break-until (actor-x 7 > L.0)
+			do-animation selected-actor 246
+			sleep-for 30 jiffies
+			walk selected-actor to 180,127
+			wait-for-actor 7
+			do-animation 7 244
+			wait-for-actor selected-actor
+			do-animation selected-actor face-towards 7
+		}
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0210
+		V.100 = (10 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000052]
+		say-line 7 "Sure!"
+		jump &[00000328]
+[00000052]:
+		if !(V.100 is 2) jump &[00000077]
+		say-line 7 "Okey-dokey!"
+		jump &[00000328]
+[00000077]:
+		if !(V.100 is 3) jump &[00000100]
+		say-line 7 "Alrighty^"
+		jump &[00000328]
+[00000100]:
+		if !(V.100 is 4) jump &[00000123]
+		say-line 7 "Yessiree!"
+		jump &[00000328]
+[00000123]:
+		if !(V.100 is 5) jump &[00000151]
+		say-line 7 "Heck, why not?"
+		jump &[00000328]
+[00000151]:
+		if !(V.100 is 6) jump &[00000177]
+		say-line 7 "No problemo!"
+		jump &[00000328]
+[00000177]:
+		if !(V.100 is 7) jump &[00000214]
+		say-line 7 "What an excellent idea!"
+		jump &[00000328]
+[00000214]:
+		if !(V.100 is 8) jump &[00000268]
+		say-line 7 "I was just going to suggest that myself."
+		jump &[00000328]
+[00000268]:
+		if !(V.100 is 9) jump &[00000292]
+		say-line 7 "Of course!"
+		jump &[00000328]
+[00000292]:
+		if !(V.100 is 10) jump &[00000328]
+		say-line 7 "Hey, anything you say!"
+		jump &[00000328]
+[00000328]:
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0002\LFLF_0051\ROOM\LSCR_0211
+		cut-scene
+		class-of 566 is 6
+		override &[00000176]
+		do-animation selected-actor 10
+		print-line color 136 at 235,80 "CRASH!"
+		sleep-for 60 jiffies
+		do-animation selected-actor 3
+		print-line color 120 at 240,65 "Ding."
+		wait-for-message
+		say-line "Dang.  Looks like it's empty."
+		wait-for-message
+		say-line 7 "Of course it is!\\xFF\\x03I just went to the bank!\\xFF\\x03Now get me out of here!"
+		wait-for-message
+[00000176]:
+		print-line " "
+		end-cut-scene
+		end-script
+	}
+}
+

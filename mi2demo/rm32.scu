@@ -1,0 +1,1191 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 32: Library Cardfile (cards)
+; */
+
+room cards {
+
+	object 318 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0318
+		name is ""
+	}
+
+	object 311 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0311
+		name is ""
+	}
+
+	object 312 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0312
+		name is ""
+	}
+
+	object 337 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0337
+		name is ""
+	}
+
+	object 338 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0338
+		name is ""
+	}
+
+	object 339 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0339
+		name is ""
+	}
+
+	object 340 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0340
+		name is ""
+	}
+
+	object 341 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0341
+		name is ""
+	}
+
+	object 323 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0323
+		name is ""
+	}
+
+	object 322 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0322
+		name is ""
+	}
+
+	object 324 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0324
+		name is ""
+	}
+
+	object 319 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0319
+		name is ""
+	}
+
+	object 321 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0321
+		name is ""
+	}
+
+	object 320 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0320
+		name is ""
+	}
+
+	object 325 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0325
+		name is ""
+	}
+
+	object 326 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0326
+		name is ""
+	}
+
+	object 327 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0327
+		name is ""
+	}
+
+	object 328 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0328
+		name is ""
+	}
+
+	object 329 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0329
+		name is ""
+	}
+
+	object 330 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0330
+		name is ""
+	}
+
+	object 331 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0331
+		name is ""
+	}
+
+	object 332 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0332
+		name is ""
+	}
+
+	object 333 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0333
+		name is ""
+	}
+
+	object 334 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0334
+		name is ""
+	}
+
+	object 335 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0335
+		name is ""
+	}
+
+	object 336 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0336
+		name is ""
+	}
+
+	object 313 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0313
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	}
+
+	object 314 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0314
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	}
+
+	object 315 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0315
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	}
+
+	object 316 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0316
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	}
+
+	object 317 { ; VERB LECF_0001\LFLF_0032\ROOM\OBCD_0317
+		name is "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0032\ROOM\EXCD
+		*41 = " "
+		*42 = " "
+		start-script 16 (2)
+		build-sentence-script = 4
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0032\ROOM\ENCD
+		camera-at 192
+		start-script 201 ()
+		if (!script-running 65) {
+			start-script 16 (5)
+			start-script 33 ()
+			V.100 = ((120 + 1) - 1)
+			verb V.100 at 0,V.176 name "\\x07I think I'll try a different drawer." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+			V.100 = ((120 + 2) - 1)
+			verb V.100 at 0,V.176 name "\\x07I've had it with this card catalog." on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+			V.100 = ((120 + 3) - 1)
+			verb V.100 at 0,V.176 name "\\x07 " on key V.177
+			V.176 += 8
+			V.100 -= 120
+			++V.177
+			++V.304
+			B.16[V.100] = 1
+			verb 122 off
+			state-of 312 is 0
+			state-of 311 is 0
+			V.160 = 0
+			build-sentence-script = 200
+			V.161 = 317
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		if !(L.0 is 2) jump &[00000164]
+		start-script 204 ()
+		if !(!V.106) jump &[00000142]
+		L.3 = find-object cursor-x,cursor-y
+		if !(L.3 is 337) jump &[00000067]
+		V.329 -= 4
+[00000042]:
+		for L.4 = 120 to 128 ++ {
+			verb L.4 off
+		}
+		current-room 32
+		jump &[00000142]
+[00000067]:
+		if !(L.3 is 338) jump &[00000085]
+		V.329 -= 5
+		jump &[00000042]
+		jump &[00000142]
+[00000085]:
+		if !(L.3 is 339) jump &[00000103]
+		V.329 -= 1
+		jump &[00000042]
+		jump &[00000142]
+[00000103]:
+		if !(L.3 is 340) jump &[00000121]
+		V.329 += 3
+		jump &[00000042]
+		jump &[00000142]
+[00000121]:
+		if !(L.3 is 341) jump &[00000139]
+		V.329 += 4
+		jump &[00000042]
+		jump &[00000142]
+[00000139]:
+		jump &[00000251]
+[00000142]:
+		if !(V.106 is V.160) jump &[00000158]
+		start-script 205 (0)
+		jump &[00000164]
+[00000158]:
+		start-script 205 (V.106)
+[00000164]:
+		if !(L.0 is 1) jump &[00000305]
+		L.5 = (V.160 + (V.329 * (4 * 5)))
+		start-script 205 (0)
+		if (L.1) {
+			verb 122 off
+			if (L.1 is-not 122) {
+				verb 120 off
+				verb 121 off
+			}
+			cut-scene
+			print-line color 15 center at 160,40 "%v16385%"
+			wait-for-message
+			end-cut-scene
+		}
+		if !(L.1 is 120) jump &[00000276]
+[00000251]:
+		for L.4 = 120 to 128 ++ {
+			verb L.4 off
+		}
+		current-room 31
+		jump &[00000305]
+[00000276]:
+		if !(L.1 is 121) jump &[00000289]
+		camera-follow selected-actor
+		jump &[00000305]
+[00000289]:
+		if !(L.1 is 122) jump &[00000305]
+		start-script 206 (L.5)
+		jump &[00000305]
+[00000305]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		state-of 320 is 0
+		state-of 319 is 0
+		state-of 321 is 0
+		state-of 323 is 0
+		state-of 322 is 0
+		state-of 324 is 0
+		for L.0 = 325 to 336 ++ {
+			state-of L.0 is 0
+		}
+		for L.0 = 337 to 341 ++ {
+			class-of L.0 is 32
+		}
+		if !(V.329 < 4) jump &[00000101]
+		draw-object 320 
+		class-of 337 is 160
+		class-of 338 is 160
+		jump &[00000124]
+[00000101]:
+		L.1 = ((325 + V.329) - 4)
+		draw-object L.1 at 0,7
+[00000124]:
+		if (V.329 is 0) {
+			draw-object 321 
+			draw-object 322 
+			class-of 338 is 160
+			class-of 339 is 160
+			class-of 340 is 160
+		}
+		if (V.329 is 4) {
+			draw-object 321 
+			draw-object 323 
+			class-of 338 is 160
+			class-of 339 is 160
+			class-of 340 is 160
+		}
+		if (V.329 is 8) {
+			draw-object 321 
+			draw-object 323 
+			draw-object 324 
+			class-of 338 is 160
+			class-of 339 is 160
+			class-of 340 is 160
+		}
+		if !(V.329 > 7) jump &[00000264]
+		draw-object 319 
+		class-of 340 is 160
+		class-of 341 is 160
+		jump &[00000287]
+[00000264]:
+		L.1 = ((325 + V.329) + 4)
+		draw-object L.1 at 43,7
+[00000287]:
+		L.1 = (325 + V.329)
+		draw-object L.1 at 18,14
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		V.106 = 0
+		if (L.0 <= L.4) {
+			if (L.0 >= L.2) {
+				if (L.1 <= L.5) {
+					if (L.1 >= L.3) {
+						V.106 = 1
+					}
+				}
+			}
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		for L.0 = 0 to 4 ++ {
+			for L.1 = 0 to 3 ++ {
+				L.2 = (112 + ((L.0 * 8) + (L.1 * 32)))
+				L.3 = (L.2 + 32)
+				L.4 = (98 + (((L.0 * 4) + L.1) * 65534))
+				L.5 = (L.4 + 8)
+				L.6 = (((L.0 * 4) + L.1) + 1)
+				if (L.6 is V.160) {
+					L.4 += 65480
+					L.5 += 65480
+					start-script 203 (cursor-x,cursor-y,L.2,L.4,L.3,L.5)
+					if (V.106) {
+						V.106 = (((L.0 * 4) + L.1) + 1)
+						stop-script 0
+					}
+					L.2 = (112 + ((L.0 * 8) + (L.1 * 2)))
+					L.3 = (L.2 + 116)
+					L.4 = (51 + (((L.0 * 4) + L.1) * 65534))
+					L.5 = (L.4 + 58)
+				}
+				start-script 203 (cursor-x,cursor-y,L.2,L.4,L.3,L.5)
+				if (V.106) {
+					V.106 = (((L.0 * 4) + L.1) + 1)
+					stop-script 0
+				}
+			}
+		}
+		V.106 = 0
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		verb 122 off
+		state-of 312 is 0
+		state-of 311 is 0
+		print-line " "
+		print-line " "
+		V.160 = L.0
+		if (!L.0) {
+			stop-script 0
+		}
+		L.0 -= 1
+		L.1 = L.0
+		do {
+			if (L.1 >= 4) {
+				L.1 -= 4
+			}
+		} until (L.1 < 4)
+		L.1 += 1
+		L.3 = (4 - (L.0 / 4))
+		L.2 = (14 + (L.0 / 4))
+		draw-object 312 at L.2,L.3
+		draw-object 312 image L.1
+		if (L.0 < 2) {
+			draw-object 311 
+		}
+		if (L.0 < 4) {
+			draw-object 318 
+		}
+		L.4 = (L.0 / 4)
+		L.5 = (L.0 - (L.4 * 4))
+		L.2 = (112 + ((L.4 * 8) + (L.5 * 2)))
+		L.3 = (51 + (((L.4 * 4) + L.5) * 65534))
+		L.2 -= 32
+		L.6 = (L.2 + 116)
+		L.2 += 5
+		L.3 += 5
+		L.0 += 1
+		L.0 = (L.0 + (V.329 * (4 * 5)))
+		start-script 88 (317,L.0)
+		if (class-of 317 is 9) {
+			verb 122 name "\\x07Hmmm.  `%o161%.`  \\xFE\\x08   I'll have to remember that." on
+		}
+		break-here
+		charset 5
+		start-script 207 (L.0)
+		if !(class-of 317 is 137) jump &[00000386]
+		print-line left color 75 at L.2,L.3 clipped L.6 "%s42%\\xFE\\x01%s41%\\xFF\\x02"
+		jump &[00000421]
+[00000386]:
+		print-line left color 75 at L.2,L.3 clipped L.6 "%s42%\\xFE\\x01`%o161%`\\xFE\\x01%s41%\\xFF\\x02"
+[00000421]:
+		charset 2
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		for L.2 = 0 to 3 ++ {
+			if (V.330[L.2] is L.0) {
+				stop-script 0
+			}
+		}
+		L.1 = 3
+[00000039]:
+		if !(V.330[L.1] is 0) jump &[00000173]
+[00000048]:
+		for L.2 = 0 to 2 ++ {
+			if (L.1 <= L.2) {
+				V.100 = (L.2 + 1)
+				L.4 = V.330[V.100]
+				V.330[L.2] = L.4
+				L.3 = (313 + L.2)
+				if (owner-of L.3 is 15) {
+					pick-up-object L.3 in-room 0
+					owner-of L.3 is 14
+				}
+				start-script 88 (L.3,L.4)
+			}
+		}
+		V.330[3] = L.0
+		if (owner-of 316 is 15) {
+			pick-up-object 316 in-room 0
+			owner-of 316 is 14
+		}
+		start-script 88 (316,L.0)
+		stop-script 0
+[00000173]:
+		--L.1
+		if !(L.1 < 0) jump &[00000039]
+		L.1 = 0
+		jump &[00000048]
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0032\ROOM\LSCR_0207
+	local variable L.0
+
+		*41 = " "
+		*42 = " "
+		if !(L.0 is 1) jump &[00000094]
+		*42 = "Adult Entertainment"
+		*41 = "Memoirs of a woman of dubious pleasure."
+		jump &[00005732]
+[00000094]:
+		if !(L.0 is 2) jump &[00000138]
+		*42 = "Animatronics"
+		*41 = "by Walt Whimsy"
+		jump &[00005732]
+[00000138]:
+		if !(L.0 is 3) jump &[00000182]
+		*42 = "Animatronics"
+		*41 = "by Walt Whimsy"
+		jump &[00005732]
+[00000182]:
+		if !(L.0 is 4) jump &[00000222]
+		*42 = "Archaeology"
+		*41 = "by I. Jones"
+		jump &[00005732]
+[00000222]:
+		if !(L.0 is 5) jump &[00000239]
+		*42 = "Art"
+		jump &[00005732]
+[00000239]:
+		if !(L.0 is 6) jump &[00000295]
+		*42 = "Art/Philosophy"
+		*41 = "Philosophy/art textbook."
+		jump &[00005732]
+[00000295]:
+		if !(L.0 is 7) jump &[00000318]
+		*42 = "Beverages"
+		jump &[00005732]
+[00000318]:
+		if !(L.0 is 8) jump &[00000358]
+		*42 = "Big Whoop"
+		*41 = "See: Treasure"
+		jump &[00005732]
+[00000358]:
+		if !(L.0 is 9) jump &[00000411]
+		*42 = "Biography"
+		*41 = "The Herman Toothrot story."
+		jump &[00005732]
+[00000411]:
+		if !(L.0 is 10) jump &[00000453]
+		*42 = "Biography"
+		*41 = "The Stan story."
+		jump &[00005732]
+[00000453]:
+		if !(L.0 is 11) jump &[00000509]
+		*42 = "Biography"
+		*41 = "The Fettucini Brothers story."
+		jump &[00005732]
+[00000509]:
+		if !(L.0 is 12) jump &[00000567]
+		*42 = "Biography"
+		*41 = "Journal of Captain Twiddlymore."
+		jump &[00005732]
+[00000567]:
+		if !(L.0 is 13) jump &[00000605]
+		*42 = "Biography"
+		*41 = "by L. Phatt"
+		jump &[00005732]
+[00000605]:
+		if !(L.0 is 14) jump &[00000628]
+		*42 = "Biography"
+		jump &[00005732]
+[00000628]:
+		if !(L.0 is 15) jump &[00000698]
+		*42 = "Biography"
+		*41 = "Questionable memoirs of Guybrush Threepwood"
+		jump &[00005732]
+[00000698]:
+		if !(L.0 is 16) jump &[00000751]
+		*42 = "Biography"
+		*41 = "Memoirs of Captain Gilbert"
+		jump &[00005732]
+[00000751]:
+		if !(L.0 is 17) jump &[00000769]
+		*42 = "Body"
+		jump &[00005732]
+[00000769]:
+		if !(L.0 is 18) jump &[00000792]
+		*42 = "Breakfast"
+		jump &[00005732]
+[00000792]:
+		if !(L.0 is 19) jump &[00000829]
+		*42 = "Bugs"
+		*41 = "by The Pit Crew"
+		jump &[00005732]
+[00000829]:
+		if !(L.0 is 20) jump &[00000867]
+		*42 = "Business"
+		*41 = "by Bluebeard"
+		jump &[00005732]
+[00000867]:
+		if !(L.0 is 21) jump &[00000918]
+		*42 = "Cannibalism"
+		*41 = "Living with cannibals."
+		jump &[00005732]
+[00000918]:
+		if !(L.0 is 22) jump &[00000959]
+		*42 = "Cannibalism"
+		*41 = "by Lemonhead"
+		jump &[00005732]
+[00000959]:
+		if !(L.0 is 23) jump &[00001008]
+		*42 = "Cannibalism"
+		*41 = "See Also:  Self Help"
+		jump &[00005732]
+[00001008]:
+		if !(L.0 is 24) jump &[00001044]
+		*42 = "Captains"
+		*41 = "Reference."
+		jump &[00005732]
+[00001044]:
+		if !(L.0 is 25) jump &[00001077]
+		*42 = "Cheese"
+		*41 = "Reference"
+		jump &[00005732]
+[00001077]:
+		if !(L.0 is 26) jump &[00001107]
+		*42 = "Children's Books"
+		jump &[00005732]
+[00001107]:
+		if !(L.0 is 27) jump &[00001137]
+		*42 = "Children's Books"
+		jump &[00005732]
+[00001137]:
+		if !(L.0 is 28) jump &[00001167]
+		*42 = "Children's Books"
+		jump &[00005732]
+[00001167]:
+		if !(L.0 is 29) jump &[00001200]
+		*42 = "Circuses"
+		*41 = "Fiction"
+		jump &[00005732]
+[00001200]:
+		if !(L.0 is 30) jump &[00001267]
+		*42 = "Circuses"
+		*41 = "The origin of the human cannonball trick."
+		jump &[00005732]
+[00001267]:
+		if !(L.0 is 31) jump &[00001310]
+		*42 = "Classics"
+		*41 = "by Captain Loogie"
+		jump &[00005732]
+[00001310]:
+		if !(L.0 is 32) jump &[00001375]
+		*42 = "Collectables"
+		*41 = "A guide to collectable memorabilia."
+		jump &[00005732]
+[00001375]:
+		if !(L.0 is 33) jump &[00001396]
+		*42 = "Cooking"
+		jump &[00005732]
+[00001396]:
+		if !(L.0 is 34) jump &[00001417]
+		*42 = "Cooking"
+		jump &[00005732]
+[00001417]:
+		if !(L.0 is 35) jump &[00001437]
+		*42 = "Crafts"
+		jump &[00005732]
+[00001437]:
+		if !(L.0 is 36) jump &[00001458]
+		*42 = "Dancing"
+		jump &[00005732]
+[00001458]:
+		if !(L.0 is 37) jump &[00001524]
+		V.493 = 37
+		*42 = "Disaster"
+		*41 = "From the Lime-Life Disaster series."
+		jump &[00005732]
+[00001524]:
+		if !(L.0 is 38) jump &[00001545]
+		*42 = "Disease"
+		jump &[00005732]
+[00001545]:
+		if !(L.0 is 39) jump &[00001566]
+		*42 = "Disease"
+		jump &[00005732]
+[00001566]:
+		if !(L.0 is 40) jump &[00001597]
+		*42 = "Dogs"
+		*41 = "Reference"
+		jump &[00005732]
+[00001597]:
+		if !(L.0 is 41) jump &[00001637]
+		*42 = "Education"
+		*41 = "by S. Karpman"
+		jump &[00005732]
+[00001637]:
+		if !(L.0 is 42) jump &[00001654]
+		*42 = "Egg"
+		jump &[00005732]
+[00001654]:
+		if !(L.0 is 43) jump &[00001681]
+		*42 = "Entertainment"
+		jump &[00005732]
+[00001681]:
+		if !(L.0 is 44) jump &[00001727]
+		*42 = "Entomology"
+		*41 = "An owner's manual."
+		jump &[00005732]
+[00001727]:
+		if !(L.0 is 45) jump &[00001775]
+		*42 = "Exercise"
+		*41 = "Fitness While Feasting"
+		jump &[00005732]
+[00001775]:
+		if !(L.0 is 46) jump &[00001812]
+		*42 = "Eyesight"
+		*41 = "See: Vision"
+		jump &[00005732]
+[00001812]:
+		if !(L.0 is 47) jump &[00001859]
+		*42 = "Farthington Dynasty"
+		*41 = "See: Games"
+		jump &[00005732]
+[00001859]:
+		if !(L.0 is 48) jump &[00001921]
+		*42 = "Fashion"
+		*41 = "Three years of the popular periodical"
+		jump &[00005732]
+[00001921]:
+		if !(L.0 is 49) jump &[00001942]
+		*42 = "Fiction"
+		jump &[00005732]
+[00001942]:
+		if !(L.0 is 50) jump &[00001963]
+		*42 = "Fiction"
+		jump &[00005732]
+[00001963]:
+		if !(L.0 is 51) jump &[00001984]
+		*42 = "Fiction"
+		jump &[00005732]
+[00001984]:
+		if !(L.0 is 52) jump &[00002038]
+		*42 = "Fiction"
+		*41 = "An anthology of short fiction"
+		jump &[00005732]
+[00002038]:
+		if !(L.0 is 53) jump &[00002059]
+		*42 = "Fiction"
+		jump &[00005732]
+[00002059]:
+		if !(L.0 is 54) jump &[00002080]
+		*42 = "Finance"
+		jump &[00005732]
+[00002080]:
+		if !(L.0 is 55) jump &[00002146]
+		V.491 = 55
+		*42 = "Fish"
+		*41 = "Illustrated guide to fish of the world."
+		jump &[00005732]
+[00002146]:
+		if !(L.0 is 56) jump &[00002167]
+		*42 = "Fishing"
+		jump &[00005732]
+[00002167]:
+		if !(L.0 is 57) jump &[00002201]
+		*42 = "Food"
+		*41 = "by S. Cheese"
+		jump &[00005732]
+[00002201]:
+		if !(L.0 is 58) jump &[00002219]
+		*42 = "Food"
+		jump &[00005732]
+[00002219]:
+		if !(L.0 is 59) jump &[00002237]
+		*42 = "Food"
+		jump &[00005732]
+[00002237]:
+		if !(L.0 is 60) jump &[00002279]
+		*42 = "Food"
+		*41 = "Also see: Canibalism"
+		jump &[00005732]
+[00002279]:
+		if !(L.0 is 61) jump &[00002320]
+		*42 = "Games"
+		*41 = "A critical review."
+		jump &[00005732]
+[00002320]:
+		if !(L.0 is 62) jump &[00002381]
+		*42 = "Games"
+		*41 = "An account of the Farthington Dynasty."
+		jump &[00005732]
+[00002381]:
+		if !(L.0 is 63) jump &[00002422]
+		*42 = "Games"
+		*41 = "by Elroy T. Funbun"
+		jump &[00005732]
+[00002422]:
+		if !(L.0 is 64) jump &[00002486]
+		*42 = "Ghost Pirate LeChuck"
+		*41 = "One of Threepwood's worst."
+		jump &[00005732]
+[00002486]:
+		if !(L.0 is 65) jump &[00002550]
+		*42 = "Ghost Pirate LeChuck"
+		*41 = "One of Threepwood's worst."
+		jump &[00005732]
+[00002550]:
+		if !(L.0 is 66) jump &[00002614]
+		*42 = "Ghost Pirate LeChuck"
+		*41 = "One of Threepwood's worst."
+		jump &[00005732]
+[00002614]:
+		if !(L.0 is 67) jump &[00002641]
+		*42 = "Grave Robbing"
+		jump &[00005732]
+[00002641]:
+		if !(L.0 is 68) jump &[00002728]
+		*42 = "Grog, Addiction to"
+		*41 = "The Horrifying True Story of a Confessed Grogahilic"
+		jump &[00005732]
+[00002728]:
+		if !(L.0 is 69) jump &[00002746]
+		*42 = "Guns"
+		jump &[00005732]
+[00002746]:
+		if !(L.0 is 70) jump &[00002779]
+		*42 = "Hair"
+		*41 = "by Meathook"
+		jump &[00005732]
+[00002779]:
+		if !(L.0 is 71) jump &[00002799]
+		*42 = "Health"
+		jump &[00005732]
+[00002799]:
+		if !(L.0 is 72) jump &[00002869]
+		*42 = "History"
+		*41 = "The Story of the Famous Glass-Bottomed Armada"
+		jump &[00005732]
+[00002869]:
+		if !(L.0 is 73) jump &[00002916]
+		*42 = "History"
+		*41 = "See Also: Scabb Island"
+		jump &[00005732]
+[00002916]:
+		if !(L.0 is 74) jump &[00002937]
+		*42 = "Hogwash"
+		jump &[00005732]
+[00002937]:
+		if !(L.0 is 75) jump &[00002974]
+		*42 = "Humor"
+		*41 = "by N. Falstein"
+		jump &[00005732]
+[00002974]:
+		if !(L.0 is 76) jump &[00002993]
+		*42 = "Humor"
+		jump &[00005732]
+[00002993]:
+		if !(L.0 is 77) jump &[00003071]
+		*42 = "Humor in Death"
+		*41 = "Dozens of things to say on the chopping block."
+		jump &[00005732]
+[00003071]:
+		if !(L.0 is 81) jump &[00003103]
+		*42 = "Idols"
+		*41 = "Reference"
+		jump &[00005732]
+[00003103]:
+		if !(L.0 is 82) jump &[00003123]
+		*42 = "Igloos"
+		jump &[00005732]
+[00003123]:
+		if !(L.0 is 83) jump &[00003142]
+		*42 = "Jello"
+		jump &[00005732]
+[00003142]:
+		if !(L.0 is 84) jump &[00003181]
+		*42 = "Karma"
+		*41 = "and Other Essays"
+		jump &[00005732]
+[00003181]:
+		if !(L.0 is 85) jump &[00003207]
+		*42 = "Keel-Hauling"
+		jump &[00005732]
+[00003207]:
+		if !(L.0 is 86) jump &[00003232]
+		*42 = "Kleptomania"
+		jump &[00005732]
+[00003232]:
+		if !(L.0 is 101) jump &[00003293]
+		*42 = "Language"
+		*41 = "A dictionary of modern slang terms."
+		jump &[00005732]
+[00003293]:
+		if !(L.0 is 102) jump &[00003312]
+		*42 = "Lunch"
+		jump &[00005732]
+[00003312]:
+		if !(L.0 is 103) jump &[00003345]
+		*42 = "Magic"
+		*41 = "See Voodoo"
+		jump &[00005732]
+[00003345]:
+		if !(L.0 is 104) jump &[00003367]
+		*42 = "Manatees"
+		jump &[00005732]
+[00003367]:
+		if !(L.0 is 105) jump &[00003403]
+		*42 = "Manatees"
+		*41 = "-- A Fable"
+		jump &[00005732]
+[00003403]:
+		if !(L.0 is 106) jump &[00003425]
+		*42 = "Military"
+		jump &[00005732]
+[00003425]:
+		if !(L.0 is 107) jump &[00003448]
+		*42 = "Mountains"
+		jump &[00005732]
+[00003448]:
+		if !(L.0 is 108) jump &[00003512]
+		*42 = "Music"
+		*41 = "Predictions of future music by Notrudamus"
+		jump &[00005732]
+[00003512]:
+		if !(L.0 is 109) jump &[00003531]
+		*42 = "Music"
+		jump &[00005732]
+[00003531]:
+		if !(L.0 is 110) jump &[00003550]
+		*42 = "Music"
+		jump &[00005732]
+[00003550]:
+		if !(L.0 is 111) jump &[00003569]
+		*42 = "Music"
+		jump &[00005732]
+[00003569]:
+		if !(L.0 is 112) jump &[00003588]
+		*42 = "Music"
+		jump &[00005732]
+[00003588]:
+		if !(L.0 is 121) jump &[00003609]
+		*42 = "New Age"
+		jump &[00005732]
+[00003609]:
+		if !(L.0 is 122) jump &[00003629]
+		*42 = "Noises"
+		jump &[00005732]
+[00003629]:
+		if !(L.0 is 123) jump &[00003650]
+		*42 = "Noogies"
+		jump &[00005732]
+[00003650]:
+		if !(L.0 is 124) jump &[00003674]
+		*42 = "Numerology"
+		jump &[00005732]
+[00003674]:
+		if !(L.0 is 125) jump &[00003710]
+		*42 = "Obesity"
+		*41 = "By L. Phatt"
+		jump &[00005732]
+[00003710]:
+		if !(L.0 is 141) jump &[00003737]
+		*42 = "Peer Pressure"
+		jump &[00005732]
+[00003737]:
+		if !(L.0 is 142) jump &[00003790]
+		*42 = "Philosophy"
+		*41 = "A philosophical treatise."
+		jump &[00005732]
+[00003790]:
+		if !(L.0 is 143) jump &[00003814]
+		*42 = "Philosophy"
+		jump &[00005732]
+[00003814]:
+		if !(L.0 is 144) jump &[00003872]
+		*42 = "Pillaging"
+		*41 = "From the popular How-To series."
+		jump &[00005732]
+[00003872]:
+		if !(L.0 is 145) jump &[00003932]
+		*42 = "Pillaging"
+		*41 = "Interviews with some of the best."
+		jump &[00005732]
+[00003932]:
+		if !(L.0 is 146) jump &[00003974]
+		*42 = "Poetry"
+		*41 = "Poetry by pirates."
+		jump &[00005732]
+[00003974]:
+		if !(L.0 is 147) jump &[00004003]
+		V.494 = 147
+		*42 = "Quotations"
+		jump &[00005732]
+[00004003]:
+		if !(L.0 is 148) jump &[00004025]
+		*42 = "Ranching"
+		jump &[00005732]
+[00004025]:
+		if !(L.0 is 149) jump &[00004065]
+		*42 = "Recursion"
+		*41 = "See Recursion"
+		jump &[00005732]
+[00004065]:
+		if !(L.0 is 150) jump &[00004132]
+		V.492 = 150
+		*42 = "Recipes, Voodoo"
+		*41 = "101 essential voodoo recipes."
+		jump &[00005732]
+[00004132]:
+		if !(L.0 is 151) jump &[00004173]
+		*42 = "Romance"
+		*41 = "by Elanie Marley"
+		jump &[00005732]
+[00004173]:
+		if !(L.0 is 152) jump &[00004214]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004214]:
+		if !(L.0 is 153) jump &[00004255]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004255]:
+		if !(L.0 is 154) jump &[00004296]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004296]:
+		if !(L.0 is 155) jump &[00004337]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004337]:
+		if !(L.0 is 156) jump &[00004424]
+		*42 = "Romance"
+		*41 = "by E. Marley, an account of her time with Guybrush Threepwood."
+		jump &[00005732]
+[00004424]:
+		if !(L.0 is 157) jump &[00004465]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004465]:
+		if !(L.0 is 158) jump &[00004506]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004506]:
+		if !(L.0 is 159) jump &[00004547]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004547]:
+		if !(L.0 is 160) jump &[00004588]
+		*42 = "Romance"
+		*41 = "by Elaine Marley"
+		jump &[00005732]
+[00004588]:
+		if !(L.0 is 161) jump &[00004645]
+		*42 = "Sailing"
+		*41 = "Perils of showering aboard ship."
+		jump &[00005732]
+[00004645]:
+		if !(L.0 is 162) jump &[00004666]
+		*42 = "Sailing"
+		jump &[00005732]
+[00004666]:
+		if !(L.0 is 163) jump &[00004711]
+		*42 = "Scabb Island"
+		*41 = "An Introduction"
+		jump &[00005732]
+[00004711]:
+		if !(L.0 is 164) jump &[00004776]
+		*42 = "Self-Help"
+		*41 = "See Also:  Social Diseases, Penicillin"
+		jump &[00005732]
+[00004776]:
+		if !(L.0 is 165) jump &[00004832]
+		*42 = "Self-Help"
+		*41 = "Confessions of an Ex-Cannibal"
+		jump &[00005732]
+[00004832]:
+		if !(L.0 is 166) jump &[00004884]
+		*42 = "Sharks"
+		*41 = "A study of Caribbean sharks."
+		jump &[00005732]
+[00004884]:
+		if !(L.0 is 167) jump &[00004926]
+		*42 = "Shipbuilding"
+		*41 = "by G. Steele"
+		jump &[00005732]
+[00004926]:
+		if !(L.0 is 168) jump &[00004967]
+		*42 = "Shipwrecks"
+		*41 = "See: Disaster"
+		jump &[00005732]
+[00004967]:
+		if !(L.0 is 169) jump &[00005023]
+		*42 = "Slang, Pirate"
+		*41 = "A History of Pirate Lingo"
+		jump &[00005732]
+[00005023]:
+		if !(L.0 is 170) jump &[00005046]
+		*42 = "Spiritual"
+		jump &[00005732]
+[00005046]:
+		if !(L.0 is 171) jump &[00005069]
+		*42 = "Spiritual"
+		jump &[00005732]
+[00005069]:
+		if !(L.0 is 172) jump &[00005135]
+		*42 = "Stupidity"
+		*41 = "An analysis of the system, pat pending."
+		jump &[00005732]
+[00005135]:
+		if !(L.0 is 173) jump &[00005160]
+		*42 = "Subtraction"
+		jump &[00005732]
+[00005160]:
+		if !(L.0 is 181) jump &[00005181]
+		*42 = "Tattoos"
+		jump &[00005732]
+[00005181]:
+		if !(L.0 is 182) jump &[00005202]
+		*42 = "Tattoos"
+		jump &[00005732]
+[00005202]:
+		if !(L.0 is 183) jump &[00005246]
+		*42 = "Tattoos"
+		*41 = "Volume One: The Arm"
+		jump &[00005732]
+[00005246]:
+		if !(L.0 is 184) jump &[00005267]
+		*42 = "Tattoos"
+		jump &[00005732]
+[00005267]:
+		if !(L.0 is 185) jump &[00005331]
+		*42 = "Theater"
+		*41 = "Shadow Puppetry for the Two-Hook Pirate"
+		jump &[00005732]
+[00005331]:
+		if !(L.0 is 186) jump &[00005373]
+		*42 = "Travel"
+		*41 = "A pirate handbook."
+		jump &[00005732]
+[00005373]:
+		if !(L.0 is 187) jump &[00005395]
+		*42 = "Treasure"
+		jump &[00005732]
+[00005395]:
+		if !(L.0 is 188) jump &[00005417]
+		*42 = "Treasure"
+		jump &[00005732]
+[00005417]:
+		if !(L.0 is 189) jump &[00005439]
+		*42 = "Treasure"
+		jump &[00005732]
+[00005439]:
+		if !(L.0 is 201) jump &[00005459]
+		*42 = "Vision"
+		jump &[00005732]
+[00005459]:
+		if !(L.0 is 202) jump &[00005503]
+		*42 = "Voodoo"
+		*41 = "See: Recipes, Voodoo"
+		jump &[00005732]
+[00005503]:
+		if !(L.0 is 203) jump &[00005538]
+		*42 = "Wealth"
+		*41 = "by L. Phatt"
+		jump &[00005732]
+[00005538]:
+		if !(L.0 is 204) jump &[00005563]
+		*42 = "Woodworking"
+		jump &[00005732]
+[00005563]:
+		if !(L.0 is 221) jump &[00005600]
+		*42 = "Xylophone"
+		*41 = "See: Music"
+		jump &[00005732]
+[00005600]:
+		if !(L.0 is 222) jump &[00005669]
+		*42 = "Yodeling"
+		*41 = "A study of yodeling as an offensive weapon."
+		jump &[00005732]
+[00005669]:
+		if !(L.0 is 223) jump &[00005690]
+		*42 = "Zippers"
+		jump &[00005732]
+[00005690]:
+		if !(L.0 is 224) jump &[00005711]
+		*42 = "Zoology"
+		jump &[00005732]
+[00005711]:
+		if !(L.0 is 225) jump &[00005732]
+		*42 = "Zoology"
+		jump &[00005732]
+[00005732]:
+		end-script
+	}
+}
+

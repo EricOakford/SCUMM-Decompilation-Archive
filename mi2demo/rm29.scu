@@ -1,0 +1,1013 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 27: Phatt Island Jail (jail)
+; */
+
+script 87 { ; SCRP LECF_0001\LFLF_0029\SCRP_0087
+local variable L.0
+
+	userput off
+	do-animation selected-actor 246
+	break-here
+	B.227 = 1
+	say-line "Hey!  That tickles."
+	for L.0 = 16 to 999 ++ {
+		if (owner-of L.0 is 13) {
+			owner-of L.0 is selected-actor
+			sleep-for 20 jiffies
+		}
+	}
+	userput on
+	end-script
+}
+
+script 100 { ; SCRP LECF_0001\LFLF_0029\SCRP_0100
+	userput off
+	do-animation selected-actor 246
+	break-here
+	say-line "There's a banana in here^"
+	pick-up-object 278 in-room 29
+	wait-for-message
+	say-line "And an organ."
+	pick-up-object 280 in-room 29
+	wait-for-message
+	userput on
+	end-script
+}
+
+script 104 { ; SCRP LECF_0001\LFLF_0029\SCRP_0104
+	userput off
+	class-of 281 is 18
+	do-animation selected-actor 246
+	say-line "All there is is some near grog."
+	pick-up-object 274 in-room 29
+	++V.465
+	userput on
+	end-script
+}
+
+room jail {
+
+	object 277 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0277
+		name is "bone"
+
+		verb 91 {
+			V.302 = 831
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a tibia."
+			end-object
+		}
+
+		verb 9 {
+			if (owner-of 277 is 15) {
+				start-script 90 (277)
+			}
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 272) jump &[00000063]
+			start-script 201 ()
+			jump &[00000069]
+[00000063]:
+			start-script 3 (7)
+[00000069]:
+			end-object
+		}
+	}
+
+	object 271 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0271
+		name is "stick"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 91 {
+			V.302 = 830
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a stick."
+			end-object
+		}
+
+		verb 9 {
+			if (owner-of me is 15) {
+				pick-up-object me in-room 0
+			}
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 270) jump &[00000070]
+			do-sentence 7 L.0 with me
+			jump &[00000118]
+[00000070]:
+			if !(L.0 is 272) jump &[00000083]
+			start-script 202 ()
+			jump &[00000118]
+[00000083]:
+			if !(L.0 is 267) jump &[00000096]
+			start-script 202 ()
+			jump &[00000118]
+[00000096]:
+			if !(L.0 is 590) jump &[00000112]
+			do-sentence 7 L.0 with me
+			jump &[00000118]
+[00000112]:
+			start-script 3 (7)
+[00000118]:
+			end-object
+		}
+	}
+
+	object 269 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0269
+		name is "rock hard mattress"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 8 {
+			say-line "I hope I don't have to sleep here."
+			end-object
+		}
+
+		verb 7 {
+			say-line "I don't want to."
+			end-object
+		}
+
+		verb 9 {
+			if !(state-of me is 0) jump &[00000091]
+			state-of me is 1
+			jump &[00000119]
+[00000091]:
+			say-line "It's already pulled back."
+[00000119]:
+			end-object
+		}
+
+		verb 5 {
+			if !(state-of me is 1) jump &[00000139]
+			state-of me is 0
+			jump &[00000168]
+[00000139]:
+			say-line "That doesn't seem to work."
+[00000168]:
+			end-object
+		}
+	}
+
+	object 273 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0273
+		name is "small key"
+
+		verb 90 {
+			V.156 = 7
+			end-object
+		}
+
+		verb 91 {
+			V.302 = 832
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 268) jump &[00000087]
+			if !(state-of 268 is 0) jump &[00000056]
+			B.220 = 0
+			start-script 26 (268)
+			start-script 200 ()
+			jump &[00000084]
+[00000056]:
+			say-line "The door is already open."
+[00000084]:
+			jump &[00000127]
+[00000087]:
+			if !(L.0 is 282) jump &[00000121]
+			class-of 282 is 160
+			B.543 = 0
+			start-script 26 (268)
+			start-script 200 ()
+			start-script 209 ()
+			jump &[00000127]
+[00000121]:
+			start-script 3 (7)
+[00000127]:
+			end-object
+		}
+
+		verb 9 {
+			start-script 90 (273)
+			end-object
+		}
+	}
+
+	object 270 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0270
+		name is "bone"
+
+		verb 91 {
+			V.302 = 831
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a tibia."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I can't reach it."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 271) jump &[00000065]
+			start-script 203 ()
+			jump &[00000071]
+[00000065]:
+			start-script 3 (7)
+[00000071]:
+			end-object
+		}
+	}
+
+	object 266 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0266
+		name is "dead prisoner"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 8 {
+			say-line "A fine example of dieting gone horribly wrong."
+			end-object
+		}
+
+		verb 9 {
+			say-line "He's not exactly my type."
+			end-object
+		}
+
+		verb 7 {
+			say-line "No, thanks."
+			end-object
+		}
+
+		verb 10 {
+			say-line "Hey, who's your tailor?"
+			end-object
+		}
+	}
+
+	object 272 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0272
+		name is "jail dog"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 80 {
+		local variable L.0
+
+			if !(L.0 is 277) jump &[00000027]
+			start-script 201 ()
+			jump &[00000046]
+[00000027]:
+			if !(L.0 is 271) jump &[00000040]
+			start-script 202 ()
+			jump &[00000046]
+[00000040]:
+			start-script 3 (4)
+[00000046]:
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 277) jump &[00000063]
+			do-sentence 7 L.0 with me
+			jump &[00000085]
+[00000063]:
+			if !(L.0 is 271) jump &[00000079]
+			do-sentence 7 L.0 with me
+			jump &[00000085]
+[00000079]:
+			start-script 3 (7)
+[00000085]:
+			end-object
+		}
+
+		verb 8 {
+			say-line "What a ferocious-looking dog."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I wouldn't want to make it angry."
+			end-object
+		}
+
+		verb 10 {
+			say-line "Hello, little doggie."
+			end-object
+		}
+	}
+
+	object 282 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0282
+		name is "cell door"
+
+		verb 90 {
+			V.156 = 2
+			end-object
+		}
+
+		verb 2 {
+			say-line "The door is locked."
+			end-object
+		}
+	}
+
+	object 267 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0267
+		name is "door"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 26 (me,249)
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,249)
+			end-object
+		}
+
+		verb 7 {
+			start-script 32 ()
+			end-object
+		}
+
+		verb 11 {
+			if (state-of me is 1) {
+				come-out 249 in-room 27 walk-to 65535,65535
+			}
+			end-object
+		}
+	}
+
+	object 276 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0276
+		name is "stick"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 11 {
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a stick."
+			end-object
+		}
+
+		verb 9 {
+			start-script 210 ()
+			end-object
+		}
+	}
+
+	object 268 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0268
+		name is "cell door"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			if !(state-of 268 is 0) jump &[00000083]
+			if !(!B.220) jump &[00000061]
+			state-of 268 is 1
+			start-script 200 ()
+			jump &[00000083]
+[00000061]:
+			say-line "The door is locked."
+[00000083]:
+			end-object
+		}
+
+		verb 3 {
+			if (state-of 268 is 1) {
+				state-of 268 is 0
+				start-script 200 ()
+			}
+			end-object
+		}
+
+		verb 7 {
+			if !(state-of 268 is 0) jump &[00000124]
+			start-object 268 verb 2 ()
+			jump &[00000129]
+[00000124]:
+			start-object 268 verb 3 ()
+[00000129]:
+			end-object
+		}
+	}
+
+	object 283 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0283
+		name is ""
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 11 {
+			start-object 267 verb 11 ()
+			end-object
+		}
+
+		verb 255 {
+			end-object
+		}
+	}
+
+	object 274 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0274
+		name is "bottle o' near-grog@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 91 {
+			V.302 = 835
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a plastic recycleable bottle of near-grog."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0) jump &[00000111]
+			if !(L.0 is 385) jump &[00000086]
+			do-sentence 7 L.0 with me
+			jump &[00000108]
+[00000086]:
+			if !(L.0 is 384) jump &[00000102]
+			do-sentence 7 L.0 with me
+			jump &[00000108]
+[00000102]:
+			start-script 3 (7)
+[00000108]:
+			jump &[00000144]
+[00000111]:
+			++V.465
+			say-line "I'll only drink part of it."
+[00000144]:
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object me in-room 0
+			end-object
+		}
+	}
+
+	object 275 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0275
+		name is "vanilla envelope"
+
+		verb 91 {
+			V.302 = 833
+			end-object
+		}
+
+		verb 8 {
+			say-line "Mr. Guybrush Threepwood\\xFF\\x03Arrested for infractions too numerous to list."
+			end-object
+		}
+
+		verb 2 {
+			if !(!B.227) jump &[00000100]
+			start-script 87 ()
+			jump &[00000114]
+[00000100]:
+			say-line "It's empty."
+[00000114]:
+			end-object
+		}
+
+		verb 3 {
+			say-line "OK."
+			end-object
+		}
+
+		verb 9 {
+			if (owner-of me is 15) {
+				pick-up-object me in-room 0
+			}
+			end-object
+		}
+	}
+
+	object 279 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0279
+		name is "gorilla envelope"
+
+		verb 91 {
+			V.302 = 828
+			end-object
+		}
+
+		verb 8 {
+			say-line "Mr. Willy Gorilla\\xFF\\x03Arrested for grinding his organ in public."
+			end-object
+		}
+
+		verb 2 {
+			if !(owner-of 280 is-not selected-actor) jump &[00000097]
+			start-script 100 ()
+			jump &[00000111]
+[00000097]:
+			say-line "It's empty."
+[00000111]:
+			end-object
+		}
+
+		verb 3 {
+			say-line "OK."
+			end-object
+		}
+
+		verb 9 {
+			if (owner-of me is 15) {
+				pick-up-object me in-room 0
+			}
+			end-object
+		}
+	}
+
+	object 278 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0278
+		name is "banana"
+
+		verb 91 {
+			V.302 = 856
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(valid-verb L.0, 26) jump &[00000035]
+			do-sentence 26 L.0 with me
+			jump &[00000041]
+[00000035]:
+			start-script 3 (7)
+[00000041]:
+			end-object
+		}
+	}
+
+	object 280 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0280
+		name is "organ"
+
+		verb 91 {
+			V.302 = 857
+			end-object
+		}
+
+		verb 8 {
+			say-line "What a big organ!"
+			end-object
+		}
+
+		verb 7 {
+			say-line "I don't know how to play."
+			end-object
+		}
+	}
+
+	object 281 { ; VERB LECF_0001\LFLF_0029\ROOM\OBCD_0281
+		name is "manilla envelope"
+
+		verb 91 {
+			V.302 = 874
+			end-object
+		}
+
+		verb 2 {
+			if !(class-of 281 is 146) jump &[00000029]
+			start-script 104 ()
+			jump &[00000043]
+[00000029]:
+			say-line "It's empty."
+[00000043]:
+			end-object
+		}
+
+		verb 3 {
+			say-line "OK."
+			end-object
+		}
+
+		verb 9 {
+			start-script 90 (281)
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0029\ROOM\EXCD
+		stop-sound 38
+		build-sentence-script = 4
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0029\ROOM\ENCD
+		start-sound 38
+		if !(!B.220) jump &[00000062]
+		put-actor 7 in-room 0
+		put-actor selected-actor at 272,94
+		do-animation selected-actor 248
+		if !(B.543) jump &[00000048]
+		state-of 268 is 0
+		class-of 282 is 32
+		jump &[00000052]
+[00000048]:
+		state-of 268 is 1
+[00000052]:
+		class-of 272 is 160
+		jump &[00000080]
+[00000062]:
+		start-script 204 ()
+		break-until (!script-running 72)
+		build-sentence-script = 205
+[00000080]:
+		start-script 200 ()
+		if (B.543) {
+			start-script 206 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0200
+		if (B.220) {
+			if (!script-running 72) {
+				state-of 268 is 0
+			}
+		}
+		if !(state-of 268 is 0) jump &[00000045]
+		set-box 4 to 128
+		jump &[00000049]
+[00000045]:
+		set-box 4 to 0
+[00000049]:
+		set-box-path
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0201
+		cut-scene
+		class-of 272 is 160
+		override &[00000188]
+		actor selected-actor costume 60 talk-animation 10,0
+		say-line "Here doggie, doggie."
+		do-animation 7 6
+		wait-for-message
+		say-line "Here boy^"
+		do-animation 7 10
+		break-here
+		actor 7 walk-animation 17 stand-animation 10
+		walk 7 to 218,122
+		break-here 3
+		do-animation selected-actor 11
+		break-here 12
+		wait-for-actor 7
+		actor 7 walk-animation 15 stand-animation 3
+		do-animation 7 20
+		break-here 14
+		draw-object 273 at 24,15
+		class-of 273 is 32
+		break-here 2
+		do-animation 7 14
+		break-here 3
+		do-animation selected-actor 12
+		break-here 3
+		do-animation 7 249
+		do-animation 7 13
+		break-here 6
+		walk 7 to 330,120
+		wait-for-actor 7
+[00000188]:
+		override off
+		actor selected-actor costume 1 talk-animation 4,5
+		do-animation selected-actor 3
+		print-line " "
+		owner-of 277 is 0
+		put-actor 7 in-room 0
+		draw-object 273 at 24,15
+		class-of 273 is 32
+		end-cut-scene
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0202
+		if (actor-room 7 is-not selected-room) {
+			chain-script 3 (7)
+		}
+		cut-scene
+		class-of 272 is 160
+		actor selected-actor costume 60
+		do-animation selected-actor 6
+		break-here 27
+		actor selected-actor costume 1
+		do-animation selected-actor 3
+		owner-of 271 is 0
+		owner-of 271 is 15
+		do-animation 7 19
+		break-here 3
+		draw-object 273 at 30,15
+		class-of 273 is 32
+		end-cut-scene
+		do-animation 7 249
+		do-animation 7 12
+		break-here 6
+		walk 7 to 330,120
+		wait-for-actor 7
+		sleep-for 60 jiffies
+		actor 7 walk-animation 16 stand-animation 9
+		walk 7 to 222,123
+		wait-for-actor 7
+		do-animation 7 18
+		break-here 3
+		draw-object 276 
+		class-of 276 is 32
+		do-animation 7 8
+		sleep-for 30 jiffies
+		actor 7 walk-animation 2 stand-animation 3
+		walk 7 to 266,122
+		wait-for-actor 7
+		do-animation 7 248
+		do-animation 7 12
+		break-here 6
+		do-animation 7 3
+		break-here
+		cut-scene
+		class-of 273 is 160
+		do-animation 7 21
+		break-here 4
+		state-of 273 is 0
+		break-here 6
+		do-animation 7 6
+		class-of 272 is 32
+		end-cut-scene
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0203
+		cut-scene
+		override &[00000192]
+		actor selected-actor costume 60 talk-animation 14,0
+		do-animation selected-actor 7
+		break-here 5
+		print-line color 15 center at 100,60 "Watch me flip it right into my pocket!"
+		break-here 14
+		wait-for-message
+		say-line "They don't call me the Bone Master for nothing."
+		wait-for-message
+		do-animation selected-actor 8
+		break-here 3
+		draw-object 270 
+		break-here 10
+		sleep-for 30 jiffies
+		draw-object 277 
+		do-animation selected-actor 9
+		break-here 5
+[00000192]:
+		override off
+		draw-object 270 
+		class-of 270 is 160
+		draw-object 277 
+		class-of 277 is 32
+		actor selected-actor costume 1 talk-animation 4,5
+		do-animation selected-actor 3
+		print-line " "
+		end-cut-scene
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0204
+		actor 7 default costume 5 talk-color 6 sound 5 always-zclip 2
+		do-animation 7 248
+		put-actor 7 in-room 29
+		put-actor 7 at 266,122
+		class-of 272 is 32
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		if (L.0 is 2) {
+			if (V.109 is 271) {
+				L.3 = find-object cursor-x,cursor-y
+				if (L.3 is 267) {
+					stop-sentence
+					do-sentence 7 271 with 272
+					stop-script 0
+				}
+			}
+		}
+		class-of 270 is 144
+		if (V.109 is 271) {
+			if (V.110 is 270) {
+				class-of 270 is 16
+			}
+		}
+		if (V.109 is 270) {
+			if (V.110 is 271) {
+				class-of 270 is 16
+			}
+		}
+		chain-script 4 (L.0,L.1,L.2)
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0206
+		actor 5 default costume 85 talk-color 229
+		do-animation 5 248
+		put-actor 5 in-room 29
+		put-actor 5 at 129,120
+		start-script bak 207 ()
+		start-script 208 ()
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0207
+		do {
+			walk 5 to 94,120
+			wait-for-actor 5
+			walk 5 to 165,120
+			wait-for-actor 5
+		}
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0208
+	local variable L.0
+
+[00000008]:
+		L.0 = ((random 125) + 45)
+		sleep-for L.0 jiffies
+		if !(!message-going) jump &[00000237]
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000075]
+		say-line 5 "Idiots!"
+		jump &[00000235]
+[00000075]:
+		if !(V.100 is 2) jump &[00000095]
+		say-line 5 "Fools!"
+		jump &[00000235]
+[00000095]:
+		if !(V.100 is 3) jump &[00000148]
+		say-line 5 "Who is this Peepwind character, anyway?"
+		jump &[00000235]
+[00000148]:
+		if !(V.100 is 4) jump &[00000191]
+		say-line 5 "They can't keep me locked up!"
+		jump &[00000235]
+[00000191]:
+		if !(V.100 is 5) jump &[00000235]
+		say-line 5 "I'll figure a way out of here!"
+		jump &[00000235]
+[00000235]:
+		wait-for-message
+[00000237]:
+		jump &[00000008]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0209
+		cut-scene
+		stop-script 207
+		stop-script 208
+		wait-for-actor 5
+		do-animation 5 247
+		break-here 3
+		say-line 5 "Hey!"
+		wait-for-message
+		say-line "Uh, oh!"
+		wait-for-message
+		walk selected-actor to 248,117
+		walk 5 to 199,117
+		wait-for-actor selected-actor
+		do-animation selected-actor 244
+		say-line "I can explain, I--"
+		wait-for-actor 5
+		do-animation 5 249
+		say-line 5 "Thanks for letting me out of there!\\xFF\\x03You'll have to excuse me if I don't stick around."
+		wait-for-message
+		if (state-of 267 is 0) {
+			walk 5 to-object 267
+			wait-for-actor 5
+			me = 267
+			start-object 267 verb 2 ()
+		}
+		say-line 5 "I've got to find out who FRAMED me!"
+		walk 5 to 330,120
+		wait-for-actor 5
+		do-animation selected-actor 245
+		end-cut-scene
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0029\ROOM\LSCR_0210
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		L.0 = actor-box selected-actor
+		if !(L.0 < 6) jump &[00000113]
+		if !(L.0 > 3) jump &[00000107]
+		walk selected-actor to 165,118
+		break-until (!actor-moving selected-actor)
+		L.1 = actor-x selected-actor
+		L.2 = actor-y selected-actor
+		if (L.1 is-not 165) {
+			stop-script 0
+		}
+		if (L.2 is-not 118) {
+			stop-script 0
+		}
+		do-animation selected-actor 249
+		do-animation selected-actor 11
+		sleep-for 20 jiffies
+		state-of 276 is 0
+		class-of 276 is 160
+		pick-up-object 271 in-room 0
+		do-animation selected-actor 3
+		jump &[00000110]
+[00000107]:
+		jump &[00000113]
+[00000110]:
+		jump &[00000190]
+[00000113]:
+		walk selected-actor to 226,120
+		break-until (!actor-moving selected-actor)
+		L.1 = actor-x selected-actor
+		L.2 = actor-y selected-actor
+		if (L.1 is-not 226) {
+			stop-script 0
+		}
+		if (L.2 is-not 120) {
+			stop-script 0
+		}
+		do-animation selected-actor 248
+		do-animation selected-actor 11
+		sleep-for 20 jiffies
+		state-of 276 is 0
+		class-of 276 is 160
+		pick-up-object 271 in-room 0
+		do-animation selected-actor 3
+[00000190]:
+		end-script
+	}
+}
+

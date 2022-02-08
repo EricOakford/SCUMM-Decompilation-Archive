@@ -1,0 +1,92 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 71: LeChuck's Dock (le-dock)
+; */
+
+room le-dock {
+
+	object 696 { ; VERB LECF_0002\LFLF_0071\ROOM\OBCD_0696
+		name is "passage"
+
+		verb 11 {
+			come-out 699 in-room 72 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 697 { ; VERB LECF_0002\LFLF_0071\ROOM\OBCD_0697
+		name is "shipping crate"
+
+		verb 2 {
+			state-of me is 1
+			end-object
+		}
+
+		verb 3 {
+			state-of me is 0
+			end-object
+		}
+
+		verb 8 {
+			if !(state-of me is 1) jump &[00000083]
+			if !(B.689) jump &[00000052]
+			say-line "It's empty."
+			jump &[00000080]
+[00000052]:
+			say-line "It's full of voodoo crap."
+[00000080]:
+			jump &[00000116]
+[00000083]:
+			say-line "It's the crate I came here in."
+[00000116]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "I'm not hauling LeChuck's stuff anywhere.\\xFF\\x03Especially the way he tips."
+			end-object
+		}
+
+		verb 7 {
+			say-line "I'm not getting back in there!"
+			end-object
+		}
+	}
+
+	object 698 { ; VERB LECF_0002\LFLF_0071\ROOM\OBCD_0698
+		name is "more voodoo crap"
+
+		verb 91 {
+			V.302 = 855
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0071\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0071\ROOM\ENCD
+		start-sound 30
+		V.285 = 0 0 170 273 480 640
+		V.291 = 0 120 255 100 255 255
+		start-script 73 ()
+		start-script 200 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0071\ROOM\LSCR_0200
+[00000008]:
+		if !(actor-box selected-actor is 7) jump &[00000030]
+		actor selected-actor step-dist 16,8
+		jump &[00000037]
+[00000030]:
+		actor selected-actor step-dist 8,2
+[00000037]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+}
+

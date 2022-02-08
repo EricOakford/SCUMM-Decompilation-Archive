@@ -464,7 +464,7 @@ room th-dig-ex {
 		}
 		end-script
 	}
-: After Digging Out
+; After Digging Out
 	script 202 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0202
 		cut-scene
 		sound-kludge 272

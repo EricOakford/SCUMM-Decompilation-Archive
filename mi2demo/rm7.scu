@@ -1,0 +1,1029 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 7: Woodtick (woodtick)
+; */
+
+script 102 { ; SCRP LECF_0001\LFLF_0007\SCRP_0102
+local variable L.0
+
+	sleep-for 18000 jiffies
+	do {
+		break-here
+		if (selected-room is-not 15) {
+			if (selected-room is-not 14) {
+				if (selected-room is-not 7) {
+					L.0 = 1
+				}
+			}
+		}
+	} until (L.0)
+	B.531 = 0
+	B.532 = 0
+	class-of 130 is 6
+	stop-script 102
+	end-script
+}
+
+script 123 { ; SCRP LECF_0001\LFLF_0007\SCRP_0123
+local variable L.0
+local variable L.1
+
+	if !(L.0 is 7) jump &[00000081]
+	sound-kludge 270 32 0
+	V.100 = ((random 4) + 1)
+	sound-kludge 271 263 32 V.100 4 400
+	sound-kludge 271 65535
+	sound-kludge 270 32 1
+	jump &[00000302]
+[00000081]:
+	if !(L.0 is 8) jump &[00000138]
+	sound-kludge 270 35 0
+	sound-kludge 271 268 35 0 1
+	sound-kludge 271 65535
+	sound-kludge 270 35 1
+	jump &[00000302]
+[00000138]:
+	if !(L.0 is 14) jump &[00000185]
+	sound-kludge 268 43 0 1
+	sound-kludge 270 43 1
+	stop-sound 43
+	lock-sound 32
+	load-sound 32
+	start-sound 32
+	stop-script 0
+	jump &[00000302]
+[00000185]:
+	if !(L.0 is 9) jump &[00000220]
+	sound-kludge 268 34 0 1
+	sound-kludge 270 34 1
+	jump &[00000302]
+[00000220]:
+	if !(L.0 is 11) jump &[00000255]
+	sound-kludge 268 34 0 1
+	sound-kludge 270 34 1
+	jump &[00000302]
+[00000255]:
+	if !(L.0 is 15) jump &[00000290]
+	sound-kludge 268 44 0 1
+	sound-kludge 270 44 1
+	jump &[00000302]
+[00000290]:
+	load-sound 32
+	start-sound 32
+	sound-kludge 65535
+	stop-script 0
+[00000302]:
+	if !(L.1 is 15) jump &[00000329]
+	lock-sound 44
+	load-sound 44
+	sound-kludge 271 8 44
+	jump &[00000467]
+[00000329]:
+	if !(L.1 is 8) jump &[00000356]
+	lock-sound 35
+	load-sound 35
+	sound-kludge 271 8 35
+	jump &[00000467]
+[00000356]:
+	if !(L.1 is 14) jump &[00000383]
+	lock-sound 43
+	load-sound 43
+	sound-kludge 271 8 43
+	jump &[00000467]
+[00000383]:
+	if !(L.1 is 9) jump &[00000410]
+	lock-sound 34
+	load-sound 34
+	sound-kludge 271 8 34
+	jump &[00000467]
+[00000410]:
+	if !(L.1 is 7) jump &[00000467]
+	lock-sound 32
+	load-sound 32
+	sound-kludge 271 8 32
+	V.100 = ((random 6) + 1)
+	sound-kludge 271 268 32 0 V.100
+	jump &[00000467]
+[00000467]:
+	sound-kludge 271 65535
+	sound-kludge 65535
+	end-script
+}
+
+room woodtick {
+
+	object 41 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0041
+		name is "ship"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			if (class-of 130 is 134) {
+				if (!script-running 102) {
+					start-script 102 ()
+				}
+			}
+			stop-sound 32
+			come-out 105 in-room 12 walk-to 221,87
+			end-object
+		}
+	}
+
+	object 42 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0042
+		name is "door"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 8 {
+			say-line "What a dinky little door."
+			end-object
+		}
+
+		verb 11 {
+			if (class-of 130 is 134) {
+				if (!script-running 102) {
+					start-script 102 ()
+				}
+			}
+			V.160 = 8
+			B.683 = 0
+			start-script 123 (7,8)
+			come-out 63 in-room 8 walk-to 51,112
+			end-object
+		}
+
+		verb 2 {
+			if (sputm-debug > 1) {
+				start-sound 32
+			}
+			end-object
+		}
+	}
+
+	object 43 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0043
+		name is "hatch"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 11 {
+			start-script 200 ()
+			end-object
+		}
+	}
+
+	object 44 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0044
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			if (class-of 130 is 134) {
+				if (!script-running 102) {
+					start-script 102 ()
+				}
+			}
+			B.683 = 0
+			come-out 17 in-room 2 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 45 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0045
+		name is "ship"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 11 {
+			B.683 = 0
+			start-script 123 (7,14)
+			come-out 126 in-room 14 walk-to 192,134
+			end-object
+		}
+	}
+
+	object 46 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0046
+		name is "shovel"
+
+		verb 91 {
+			V.302 = 808
+			end-object
+		}
+
+		verb 8 {
+			say-line "`THRIFTY-DIG\\x0F -- For the treasure hunter on a budget.`"
+			end-object
+		}
+
+		verb 9 {
+			pick-up-object me in-room 0
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(selected-room is 54) jump &[00000103]
+			if !(L.0 is 11) jump &[00000103]
+			start-script V.252[11] (36)
+			jump &[00000151]
+[00000103]:
+			if !(valid-verb L.0, 22) jump &[00000124]
+			do-sentence 22 L.0 with me
+			jump &[00000151]
+[00000124]:
+			say-line "I can't dig that, Daddy."
+[00000151]:
+			end-object
+		}
+	}
+
+	object 47 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0047
+		name is "sign"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 2 {
+			if (sputm-debug > 1) {
+				start-script 128 ()
+			}
+			end-object
+		}
+
+		verb 9 {
+			if !(state-of 46 is 0) jump &[00000080]
+			pick-up-object 46 in-room 0
+			say-line "Oops^\\xFF\\x03^I think I broke the sign."
+			jump &[00000116]
+[00000080]:
+			say-line "I'd better not do anymore damage."
+[00000116]:
+			end-object
+		}
+
+		verb 8 {
+			say-line "`No Trezer huntin zone`"
+			end-object
+		}
+	}
+
+	object 48 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0048
+		name is "door"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			B.683 = 0
+			start-script 123 (7,15)
+			come-out 139 in-room 15 walk-to 99,112
+			end-object
+		}
+	}
+
+	object 49 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0049
+		name is "window"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 8 {
+			say-line "There's no glass in the window."
+			end-object
+		}
+
+		verb 11 {
+			start-script 201 ()
+			end-object
+		}
+	}
+
+	object 50 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0050
+		name is "riches"
+
+		verb 91 {
+			V.302 = 887
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 51 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0051
+		name is "riches"
+
+		verb 91 {
+			V.302 = 886
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 52 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0052
+		name is "riches"
+
+		verb 91 {
+			V.302 = 892
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 53 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0053
+		name is "riches"
+
+		verb 91 {
+			V.302 = 888
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 54 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0054
+		name is "riches"
+
+		verb 91 {
+			V.302 = 889
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 55 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0055
+		name is "riches"
+
+		verb 91 {
+			V.302 = 890
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 56 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0056
+		name is "riches"
+
+		verb 91 {
+			V.302 = 891
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 57 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0057
+		name is "riches"
+
+		verb 91 {
+			V.302 = 893
+			end-object
+		}
+
+		verb 7 {
+			say-line "I intend to."
+			end-object
+		}
+
+		verb 8 {
+			start-script 205 ()
+			end-object
+		}
+	}
+
+	object 58 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0058
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0007\ROOM\EXCD
+		unlock-sound 32
+		if (V.160 is-not 8) {
+			if (B.511) {
+				B.511 = 0
+				B.429 = 1
+			}
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0007\ROOM\ENCD
+		if (B.738) {
+			state-of 58 is 1
+		}
+		class-of 17 is 6
+		V.160 = 0
+		if !(V.102 is 9) jump &[00000061]
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		if (!actor-moving selected-actor) {
+			do-animation selected-actor 3
+		}
+		jump &[00000071]
+[00000061]:
+		if (V.102 is 11) {
+			start-script 202 ()
+		}
+[00000071]:
+		if (B.530) {
+			start-script 203 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0200
+		userput off
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		userput on
+		if (class-of 130 is 134) {
+			if (!script-running 102) {
+				start-script 102 ()
+			}
+		}
+		B.683 = 0
+		start-script 123 (7,9)
+		come-out 74 in-room 9 walk-to 120,107
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0201
+		actor selected-actor costume 116
+		cut-scene
+		if !(!B.711) jump &[00000053]
+		B.711 = 1
+		do-animation selected-actor 6
+		break-here 5
+		actor selected-actor ignore-boxes never-zclip
+		break-here 6
+		jump &[00000070]
+[00000053]:
+		do-animation selected-actor 10
+		break-here 5
+		actor selected-actor ignore-boxes never-zclip
+		break-here 2
+[00000070]:
+		end-cut-scene
+		if (class-of 130 is 134) {
+			if (!script-running 102) {
+				start-script 102 ()
+			}
+		}
+		B.683 = 0
+		come-out 94 in-room 11 walk-to 65535,65535
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0202
+		do-animation selected-actor 250
+		actor selected-actor costume 116
+		cut-scene
+		break-here
+		actor selected-actor ignore-boxes never-zclip
+		if !(!B.712) jump &[00000101]
+		B.712 = 1
+		do-animation selected-actor 8
+		break-here 4
+		actor selected-actor follow-boxes
+		break-here 24
+		do-animation selected-actor 9
+		break-here 17
+		jump &[00000121]
+[00000101]:
+		do-animation selected-actor 7
+		break-here 2
+		actor selected-actor follow-boxes always-zclip 1
+		break-here 7
+[00000121]:
+		end-cut-scene
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		end-script
+	}
+; Largo Shows Up
+	script 203 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0203
+		cursor off
+		userput off
+		B.530 = 0
+		pick-up-object 50 in-room 7
+		pick-up-object 51 in-room 7
+		pick-up-object 52 in-room 7
+		pick-up-object 53 in-room 7
+		pick-up-object 54 in-room 7
+		pick-up-object 55 in-room 7
+		pick-up-object 56 in-room 7
+		pick-up-object 57 in-room 7
+		lock-costume 16
+		load-costume 16
+		actor 6 default costume 16 talk-color 10 name "Largo"
+		start-script 135 ()
+		break-here
+		break-until (actor-x selected-actor < 735)
+		cursor on
+		userput on
+[00000091]:
+		if !(actor-x selected-actor < 670) jump &[00000106]
+		jump &[00000125]
+[00000106]:
+		if !(actor-x selected-actor > 735) jump &[00000121]
+		jump &[00000211]
+[00000121]:
+		break-here
+		jump &[00000091]
+[00000125]:
+		cut-scene
+		override &[00000176]
+		put-actor 6 in-room 7
+		put-actor 6 at 456,70
+		walk 6 to 571,71
+		walk selected-actor to 600,70
+		wait-for-actor 6
+		say-line 6 "Outta my way!"
+		wait-for-message
+[00000176]:
+		if !(override-hit) jump &[00000200]
+		put-actor selected-actor at 600,70
+		do-animation selected-actor 248
+		V.161 = 1
+		jump &[00000207]
+[00000200]:
+		override off
+		V.161 = 0
+[00000207]:
+		end-cut-scene
+		chain-script 204 ()
+[00000211]:
+		cut-scene
+		override &[00000320]
+		put-actor 6 in-room 7
+		put-actor 6 at-object 44
+		walk 6 to 697,49
+		break-until (proximity selected-actor,6 < 30)
+		walk selected-actor to 571,70
+		wait-for-actor 6
+		say-line 6 "Hey you!"
+		do-animation 6 7
+		break-here 4
+		wait-for-message
+		walk 6 to 600,71
+		say-line 6 "Stop right there!"
+		wait-for-actor selected-actor
+		do-animation selected-actor 245
+		wait-for-actor 6
+		do-animation 6 248
+		wait-for-message
+[00000320]:
+		if !(override-hit) jump &[00000344]
+		put-actor selected-actor at 571,70
+		do-animation selected-actor 249
+		V.161 = 1
+		jump &[00000351]
+[00000344]:
+		override off
+		V.161 = 0
+[00000351]:
+		end-cut-scene
+		chain-script 204 ()
+		end-script
+	}
+; Largo Sticks Up Guybrush
+	script 204 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0204
+	local variable L.1
+	local variable L.2
+
+		if !(V.161) jump &[00000016]
+		jump &[00002143]
+[00000016]:
+		cursor off
+		userput off
+		L.2 = (248 + (actor-facing 6))
+		override &[00002025]
+		say-line 6 "You ain't from these parts, are ya?"
+		do-animation 6 7
+		break-here 4
+		do-animation 6 3
+		wait-for-message
+		say-line 6 "This here's a toll bridge.  You gotta pay."
+		wait-for-message
+		build-sentence-script = 14
+		start-script 16 (5)
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Is this some sort of bribe situation?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Sure.  Take my money.  I don't want any trouble." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Who's gonna make me, shorty?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Move it, or I cuts my way through." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00000599]
+		say-line 6 "No, more like extortion.\\xFF\\x03Here--allow me to demonstrate."
+		jump &[00000691]
+[00000599]:
+		if !(V.175 is 121) jump &[00000673]
+		L.1 = 1
+		say-line 6 "Aw, there goes all my fun.\\xFF\\x03Now I don't get to do this."
+		jump &[00000691]
+[00000673]:
+		say-line 6 "Tough guy, eh?"
+[00000691]:
+		lock-costume 103
+		load-costume 103
+		lock-costume 102
+		load-costume 102
+		wait-for-message
+		actor selected-actor costume 102 ignore-boxes always-zclip 1
+		if !(actor-facing selected-actor is 0) jump &[00000733]
+		do-animation selected-actor 249
+		jump &[00000737]
+[00000733]:
+		do-animation selected-actor 248
+[00000737]:
+		actor 6 costume 103 ignore-boxes always-zclip 1
+		start-script 135 ()
+		do-animation 6 6
+		do-animation selected-actor 6
+		break-here 4
+		do-animation 6 7
+		do-animation selected-actor 7
+		break-here 12
+		actor selected-actor ignore-boxes never-zclip
+		do-animation 6 8
+		do-animation selected-actor 8
+		break-here 15
+		do-animation selected-actor 10
+		do-animation 6 10
+		print-line color 15 at 125,106 "Help!"
+		wait-for-message
+		do-animation selected-actor 11
+		do-animation 6 11
+		do-animation selected-actor 10
+		do-animation 6 10
+		print-line color 15 at 125,106 "Police!"
+		wait-for-message
+		do-animation selected-actor 11
+		do-animation 6 11
+		do-animation 6 14
+		do-animation selected-actor 14
+		say-line 6 "Ha ha ha!\\xFF\\x03Scream as loud as you want!\\xFF\\x03There are no police on Scabb Island!"
+		wait-for-message
+		do-animation 6 11
+		do-animation selected-actor 11
+		build-sentence-script = 206
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Then who keeps up the law and maintains order?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Then who eats the donuts and roughs-up the transients?" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Please!  Not in my new coat!" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Okay, put me down now and I won't have to hurt you." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		break-until (V.175)
+		do-animation 6 14
+		do-animation selected-actor 14
+		if !(V.175 is 120) jump &[00001402]
+		jump &[00001441]
+		jump &[00001441]
+[00001402]:
+		if !(V.175 is 121) jump &[00001415]
+		jump &[00001480]
+		jump &[00001441]
+[00001415]:
+		if !(V.175 is 122) jump &[00001428]
+		jump &[00001537]
+		jump &[00001441]
+[00001428]:
+		if !(V.175 is 123) jump &[00001441]
+		jump &[00001586]
+		jump &[00001441]
+[00001441]:
+		say-line 6 "I'm the only law on this island!"
+		jump &[00001654]
+[00001480]:
+		say-line 6 "I roughs-up what needs roughing-up on this island!"
+		jump &[00001654]
+[00001537]:
+		say-line 6 "Maybe I should make you one out of cement!"
+		jump &[00001654]
+[00001586]:
+		say-line 6 "Ha ha ha!\\xFF\\x03That's a good one.  Maybe I won't kill you right now."
+[00001654]:
+		wait-for-message
+		do-animation 6 12
+		do-animation selected-actor 12
+		break-here 2
+		actor selected-actor always-zclip 1
+		do-animation selected-actor 15
+		break-here 4
+		do-animation selected-actor 3
+		unlock-costume 103
+		actor 6 costume 16 follow-boxes
+		start-script 135 ()
+		do-animation 6 L.2
+		do-animation 6 7
+		break-here 2
+		say-line 6 "Hey!  Yer loaded!"
+		wait-for-message
+		say-line 6 "This is my lucky night!"
+		wait-for-message
+		walk 6 to 697,49
+		do {
+			break-here
+			V.158 = actor-x 6
+		} until (actor-x selected-actor < V.158)
+		do-animation selected-actor 244
+		wait-for-actor 6
+		do-animation 6 244
+		break-here 2
+		do-animation 6 7
+		say-line 6 "Remember^\\xFF\\x03Wherever you go^\\xFF\\x03On sea or on land,"
+		wait-for-message
+		say-line 6 "You can't ever hide\\xFF\\x03From Largo LaGrand\\x82!"
+		wait-for-message
+		walk 6 to-object 44
+		wait-for-actor 6
+		do-animation selected-actor 13
+		break-here 27
+		unlock-costume 102
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		do-animation selected-actor 249
+		say-line "Tough town.\\xFF\\x03I guess I should have got those traveler's checks."
+[00002025]:
+		if !(override-hit) jump &[00002126]
+		print-line " "
+		actor selected-actor default costume 1 talk-color 15 name "Guybrush"
+		put-actor selected-actor at 600,70
+		do-animation selected-actor 249
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		jump &[00002128]
+[00002126]:
+		override off
+[00002128]:
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+[00002143]:
+		put-actor 6 in-room 0
+		unlock-costume 16
+		unlock-costume 103
+		unlock-costume 102
+		owner-of 50 is 0
+		owner-of 51 is 0
+		owner-of 52 is 0
+		owner-of 53 is 0
+		owner-of 54 is 0
+		owner-of 55 is 0
+		owner-of 56 is 0
+		owner-of 57 is 0
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0205
+	local variable L.0
+
+		if !(V.163) jump &[00000020]
+		L.0 = random 16
+		jump &[00000040]
+[00000020]:
+		L.0 = V.162
+		++V.162
+		if (V.162 > 16) {
+			V.163 = 1
+		}
+[00000040]:
+		if !(L.0 is 0) jump &[00000102]
+		say-line "This should be plenty of money to charter a ship."
+		jump &[00001014]
+[00000102]:
+		if !(L.0 is 1) jump &[00000161]
+		say-line "I think I'm pretty well prepared, financially."
+		jump &[00001014]
+[00000161]:
+		if !(L.0 is 2) jump &[00000219]
+		say-line "I should be set for the whole trip with this."
+		jump &[00001014]
+[00000219]:
+		if !(L.0 is 3) jump &[00000241]
+		say-line "I'm rich."
+		jump &[00001014]
+[00000241]:
+		if !(L.0 is 4) jump &[00000271]
+		say-line "Look at all this!"
+		jump &[00001014]
+[00000271]:
+		if !(L.0 is 5) jump &[00000349]
+		say-line "I've got enough to buy my own ship--in five different currencies."
+		jump &[00001014]
+[00000349]:
+		if !(L.0 is 6) jump &[00000414]
+		say-line "I'll be traveling first class on this treasure hunt."
+		jump &[00001014]
+[00000414]:
+		if !(L.0 is 7) jump &[00000469]
+		say-line "It sure took a long time to save all this."
+		jump &[00001014]
+[00000469]:
+		if !(L.0 is 8) jump &[00000519]
+		say-line "No more part-time circus work for me."
+		jump &[00001014]
+[00000519]:
+		if !(L.0 is 9) jump &[00000608]
+		say-line "Of course, this is only a fraction of what I'll have after I find Big Whoop."
+		jump &[00001014]
+[00000608]:
+		if !(L.0 is 10) jump &[00000660]
+		say-line "Hmmm^  Maybe I should get a money belt."
+		jump &[00001014]
+[00000660]:
+		if !(L.0 is 11) jump &[00000702]
+		say-line "I wonder what I'll buy first^"
+		jump &[00001014]
+[00000702]:
+		if !(L.0 is 12) jump &[00000739]
+		say-line "Boy, this stuff's heavy."
+		jump &[00001014]
+[00000739]:
+		if !(L.0 is 13) jump &[00000792]
+		say-line "I could just look at this money all day."
+		jump &[00001014]
+[00000792]:
+		if !(L.0 is 14) jump &[00000825]
+		say-line "Money, money, money."
+		jump &[00001014]
+[00000825]:
+		if !(L.0 is 15) jump &[00000925]
+		say-line "I'm confused by this strange urge to squander my wealth on immoral and dangerous vices."
+		jump &[00001014]
+[00000925]:
+		if !(L.0 is 16) jump &[00001014]
+		say-line "I wish all those girls who wouldn't go out with me in school could see this!"
+		jump &[00001014]
+[00001014]:
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		if (L.0 is 1) {
+			if (L.1) {
+				for V.100 = 120 to 128 ++ {
+					verb V.100 off
+				}
+				cursor off
+				userput off
+			}
+			if (L.1 >= 120) {
+				if (L.1 <= 128) {
+					do-animation selected-actor 10
+					do-animation 6 10
+					print-line color 15 at 125,106 "%v16385%"
+					wait-for-message
+					do-animation selected-actor 11
+					do-animation 6 11
+					break-here 2
+				}
+				print-line 
+				V.175 = L.1
+			}
+		}
+		end-script
+	}
+}
+

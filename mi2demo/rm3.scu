@@ -1,0 +1,69 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 3: Sky (sky)
+; */
+
+script 77 { ; SCRP LECF_0001\LFLF_0003\SCRP_0077
+	cursor off
+	userput off
+	start-script 16 (1)
+	override &[00000053]
+	current-room 3
+	sleep-for 300 jiffies
+	actor 1 costume 1
+	put-actor 1 in-room 4
+	put-actor 1 at 591,140
+	do-animation 1 248
+	break-here
+	camera-follow 1
+	sleep-for 240 jiffies
+[00000053]:
+	if !(override-hit) jump &[00000103]
+	fades 33153
+	B.333 = 0
+	B.334 = 0
+	cursor on
+	userput on
+	current-room 0
+	start-script 16 (2)
+	start-script 22 ()
+	B.530 = 1
+	come-out 44 in-room 7 walk-to 696,49
+	jump &[00000138]
+[00000103]:
+	override off
+	cursor on
+	userput on
+	fades 129
+	current-room 0
+	B.334 = 1
+	put-actor 1 in-room 5
+	put-actor 1 at 247,139
+	start-script 16 (2)
+	camera-follow selected-actor
+[00000138]:
+	end-script
+}
+
+room sky {
+
+	exit { ; EXCD LECF_0001\LFLF_0003\ROOM\EXCD
+		set-screen 0 to 144
+		if (script-running 65) {
+			start-script 16 (2)
+		}
+		actor 1 costume 1
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
+		if (script-running 65) {
+			start-script 16 (1)
+		}
+		set-screen 0 to 200
+		actor 1 costume 0
+		end-object
+	}
+}
+

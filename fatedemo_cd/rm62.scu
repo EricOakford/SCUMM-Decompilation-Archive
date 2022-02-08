@@ -1,7 +1,7 @@
 ;/**
 ; * Indiana Jones and the Fate of Atlantis: CD Demo
 ; * 
-; * Room 68: German Research Lab (nazi-labo)
+; * Room 62: German Research Lab (nazi-labo)
 ; */
 
 room nazi-labo {
@@ -214,6 +214,7 @@ room nazi-labo {
 		}
 		end-script
 	}
+
 ; Kerner and Ubermann Cutscene
 	script 206 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0206
 	local variable L.2

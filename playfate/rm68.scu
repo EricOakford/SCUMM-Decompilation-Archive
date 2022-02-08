@@ -2088,6 +2088,7 @@ local variable L.1
 	end-script
 }
 
+; Default Sentence Script
 script 2 { ; SCRP LECF_0001\LFLF_0068\SCRP_0002
 local variable L.0
 local variable L.1

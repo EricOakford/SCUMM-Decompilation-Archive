@@ -1,0 +1,349 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 12: Woodtick Inn (inn)
+; */
+
+room inn {
+
+	object 106 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0106
+		name is "innkeeper"
+
+		verb 90 {
+			V.156 = 10
+			end-object
+		}
+
+		verb 8 {
+			say-line "Busy guy."
+			wait-for-message
+			stop-script 204
+			do-animation 7 11
+			say-line 7 "Time is money."
+			wait-for-message
+			start-script 204 ()
+			end-object
+		}
+
+		verb 10 {
+			start-script 202 ()
+			end-object
+		}
+	}
+
+	object 104 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0104
+		name is "guest registry"
+
+		verb 8 {
+			start-script 200 ()
+			end-object
+		}
+	}
+
+	object 105 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0105
+		name is "stairway"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			come-out 41 in-room 7 walk-to 105,77
+			end-object
+		}
+	}
+
+	object 103 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0103
+		name is "door"
+
+		verb 90 {
+			if !(state-of me is 0) jump &[00000028]
+			V.156 = 2
+			jump &[00000033]
+[00000028]:
+			V.156 = 3
+[00000033]:
+			end-object
+		}
+
+		verb 2 {
+			start-script 26 (me,110)
+			end-object
+		}
+
+		verb 3 {
+			start-script 27 (me,110)
+			end-object
+		}
+
+		verb 7 {
+			start-script 32 ()
+			end-object
+		}
+
+		verb 11 {
+			if (state-of me is 1) {
+				come-out 110 in-room 13 walk-to 65535,65535
+			}
+			end-object
+		}
+	}
+
+	object 107 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0107
+		name is "alligator"
+
+		verb 8 {
+			say-line "Isn't that cute."
+			end-object
+		}
+
+		verb 7 {
+			say-line "I can't wake him up."
+			end-object
+		}
+
+		verb 9 {
+			say-line "I think it's better to just let sleeping alligators lie."
+			end-object
+		}
+	}
+
+	object 108 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0108
+		name is "rope"
+
+		verb 8 {
+			say-line "It's tied to the post."
+			end-object
+		}
+
+		verb 7 {
+		local variable L.0
+
+			if !(L.0 is 102) jump &[00000047]
+			start-script 206 ()
+			jump &[00000053]
+[00000047]:
+			start-script 3 (7)
+[00000053]:
+			end-object
+		}
+
+		verb 9 {
+			if !(B.738) jump &[00000065]
+			start-script 206 ()
+			jump &[00000091]
+[00000065]:
+			say-line "It's securely fastened."
+[00000091]:
+			end-object
+		}
+	}
+
+	object 109 { ; VERB LECF_0001\LFLF_0012\ROOM\OBCD_0109
+		name is "bowl@@@@@@@@@@@@@"
+
+		verb 8 {
+			if !(class-of 109 is 147) jump &[00000048]
+			say-line "I love Cheese Squigglies."
+			jump &[00000119]
+[00000048]:
+			class-of 109 is 147
+			new-name-of 109 is "Cheese Squigglies"
+			say-line "Cheese Squigglies!\\xFF\\x03One of my favorites!"
+[00000119]:
+			end-object
+		}
+
+		verb 9 {
+			if !(owner-of 132 is 14) jump &[00000148]
+			owner-of 132 is 15
+			start-script 90 (132,14)
+			jump &[00000173]
+[00000148]:
+			say-line "I don't need any more."
+[00000173]:
+			if (class-of 109 is 19) {
+				start-object 109 verb 8 ()
+			}
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0012\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0012\ROOM\ENCD
+		if (class-of 109 is 147) {
+			new-name-of 109 is "Cheese Squigglies"
+		}
+		start-script 201 ()
+		start-script 203 ()
+		V.285 = 0 0 73 255 320 320
+		V.291 = 0 128 255 255 75 128
+		start-script bak 73 ()
+		end-object
+	}
+; Look at Guest Registry
+	script 200 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0200
+		say-line "Hmmm^ only one guest."
+		wait-for-message
+		if (!B.311) {
+			stop-script 204
+			do-animation 7 11
+			say-line 7 "Yeah, but he eats like thirty."
+			wait-for-message
+			start-script 204 ()
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0201
+		if !(B.311) jump &[00000026]
+		put-actor 7 in-room 0
+		class-of 106 is 160
+		jump &[00000054]
+[00000026]:
+		actor 7 default costume 21 talk-color 14 ignore-boxes always-zclip 2 animation-speed 0
+		put-actor 7 in-room 12
+		put-actor 7 at 119,101
+		start-script bak 204 ()
+		start-script bak 205 ()
+[00000054]:
+		end-script
+	}
+; Talk to innkeeper
+	script 202 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0202
+		say-line "Excuse me, I'd like a room please."
+		wait-for-message
+		stop-script 204
+		do-animation 7 11
+		say-line 7 "Sorry, we only have one and it's full."
+		wait-for-message
+		start-script 204 ()
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0203
+		if !(B.311) jump &[00000031]
+		class-of 109 is 32
+		set-box 11 to 0
+		set-box 12 to 0
+		jump &[00000062]
+[00000031]:
+		set-box 11 to 128
+		set-box 12 to 128
+		do-animation 8 250
+		actor 8 default costume 45 ignore-boxes never-zclip
+		put-actor 8 in-room 12
+		put-actor 8 at 220,136
+		do-animation 8 6
+[00000062]:
+		set-box-path
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+
+		actor 7 stand-animation 11 talk-animation 6,7
+[00000016]:
+		do-animation 7 12
+		stop-script 0
+		L.0 = random 5
+		if !(L.0 < 4) jump &[00000038]
+		jump &[00000054]
+		jump &[00000054]
+[00000038]:
+		if !(L.0 is 4) jump &[00000051]
+		jump &[00000076]
+		jump &[00000054]
+[00000051]:
+		jump &[00000102]
+[00000054]:
+		do-animation 7 12
+		L.1 = (60 * (random 5))
+		sleep-for L.1 jiffies
+		jump &[00000016]
+[00000076]:
+		do-animation 7 13
+		L.1 = (60 * (1 + (random 4)))
+		sleep-for L.1 jiffies
+		jump &[00000016]
+[00000102]:
+		do-animation 7 10
+		break-here 8
+		jump &[00000016]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0205
+[00000008]:
+		break-until (actor-x selected-actor < 35)
+		cut-scene
+		do-animation selected-actor 255
+		stop-script 204
+		actor 7 talk-animation 9,8
+		say-line 7 "Hold it right there!"
+		wait-for-message
+		do-animation selected-actor 246
+		if !(!B.312) jump &[00000124]
+		B.312 = 1
+		say-line 7 "That's a private room.\\xFF\\x03No going up there."
+		jump &[00000158]
+[00000124]:
+		say-line 7 "I told you, no going up there!"
+[00000158]:
+		break-here
+		walk selected-actor to 160,130
+		break-until (actor-y selected-actor >= 35)
+		actor 7 talk-animation 6,7
+		wait-for-message
+		start-script bak 204 ()
+		end-cut-scene
+		jump &[00000008]
+		end-script
+	}
+; Pegbiter Runs Off
+	script 206 { ; LSCR LECF_0001\LFLF_0012\ROOM\LSCR_0206
+		cut-scene
+		do-animation 8 7
+		break-here 5
+		sleep-for 60 jiffies
+		stop-script 204
+		stop-script 205
+		do-animation 7 11
+		actor 7 animation-speed 0
+		do-animation 8 8
+		break-here 8
+		override &[00000195]
+		sleep-for 60 jiffies
+		say-line 7 "Hey!\\xFF\\x03How'd old Pegbiter get loose?"
+		wait-for-message
+		actor 7 stand-animation 3 talk-animation 4,5
+		do-animation 7 3
+		do-animation 7 5
+		break-here
+		walk 7 to 70,90
+		wait-for-actor 7
+		actor 7 follow-boxes
+		walk 7 to-object 105
+		say-line 7 "I'd better go catch him^\\xFF\\x03^before he catches somebody else."
+		wait-for-actor 7
+		wait-for-message
+[00000195]:
+		end-cut-scene
+		print-line " "
+		put-actor 7 in-room 0
+		put-actor 8 in-room 0
+		class-of 107 is 160
+		class-of 108 is 160
+		B.311 = 1
+		start-script 203 ()
+		start-script 201 ()
+		end-script
+	}
+}
+

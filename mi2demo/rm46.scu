@@ -1,0 +1,186 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 46: Booty Island (booty-isl)
+; */
+
+room booty-isl {
+
+	object 453 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0453
+		name is "Dred's Ship"
+
+		verb 11 {
+			V.518 = 46
+			put-actor selected-actor in-room 22
+			put-actor selected-actor at 102,116
+			camera-follow selected-actor
+			end-object
+		}
+	}
+
+	object 448 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0448
+		name is "Ville de la Booty"
+
+		verb 11 {
+			come-out 459 in-room 47 walk-to 24,134
+			end-object
+		}
+	}
+
+	object 449 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0449
+		name is "Small Structure"
+
+		verb 11 {
+			if !(actor-x selected-actor >= 80) jump &[00000031]
+			come-out 578 in-room 52 walk-to 90,120
+			jump &[00000045]
+[00000031]:
+			put-actor selected-actor in-room 52
+			put-actor selected-actor at 249,88
+			camera-follow selected-actor
+[00000045]:
+			end-object
+		}
+	}
+
+	object 450 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0450
+		name is "Mansion@@@@@@@@@@@"
+
+		verb 11 {
+			come-out 584 in-room 53 walk-to 698,124
+			end-object
+		}
+	}
+
+	object 451 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0451
+		name is "Cliff"
+
+		verb 11 {
+			come-out 640 in-room 59 walk-to 156,51
+			end-object
+		}
+	}
+
+	object 452 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0452
+		name is "Big but Undrawn Tree"
+
+		verb 11 {
+			come-out 644 in-room 61 walk-to 19,138
+			end-object
+		}
+	}
+
+	object 454 { ; VERB LECF_0002\LFLF_0046\ROOM\OBCD_0454
+		name is "Ville de la Booty"
+
+		verb 11 {
+			if !(B.738) jump &[00000024]
+			come-out 460 in-room 47 walk-to 528,140
+			jump &[00000032]
+[00000024]:
+			come-out 470 in-room 48 walk-to 470,142
+[00000032]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0046\ROOM\EXCD
+		B.211 = 0
+		V.191 = 0
+		actor selected-actor costume V.160 step-dist 8,2
+		stop-script 23
+		set-screen 0 to 144
+		start-script 16 (2)
+		build-sentence-script = 4
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0046\ROOM\ENCD
+		start-script 16 (1)
+		set-screen 0 to 200
+		build-sentence-script = 201
+		V.160 = actor-costume selected-actor
+		actor selected-actor costume 2 step-dist 2,2
+		if !(script-running 68) jump &[00000091]
+		for V.100 = 1 to 33 ++ {
+			set-box V.100 to 128
+		}
+		for V.100 = 34 to 42 ++ {
+			set-box V.100 to 0
+		}
+		jump &[00000131]
+[00000091]:
+		for V.100 = 1 to 33 ++ {
+			set-box V.100 to 0
+		}
+		for V.100 = 34 to 42 ++ {
+			set-box V.100 to 128
+		}
+[00000131]:
+		if (class-of 450 is 6) {
+			new-name-of 450 is "Governor's Mansion"
+			class-of 449 is 160
+		}
+		if (class-of 449 is 6) {
+			new-name-of 449 is "Guard Kiosk"
+		}
+		if (class-of 580 is 134) {
+			if (actor-room selected-actor is selected-room) {
+				start-script 200 ()
+			}
+		}
+		if (!script-running 124) {
+			start-script 202 ()
+		}
+		if (!B.211) {
+			break-here
+			start-script 23 ()
+			break-here
+			V.191 = selected-actor
+			sleep-for 120 jiffies
+			V.191 = 0
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0046\ROOM\LSCR_0200
+		do {
+			break-until (proximity selected-actor,449 <= 2)
+			stop-sentence
+			do-sentence 11 449 with 0
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0002\LFLF_0046\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		L.2 = find-object cursor-x,cursor-y
+		if !(L.2 is 449) jump &[00000061]
+		if !(actor-x selected-actor < 81) jump &[00000044]
+		walk selected-actor to 77,42
+		jump &[00000049]
+[00000044]:
+		walk selected-actor to-object 449
+[00000049]:
+		wait-for-actor selected-actor
+		start-object 449 verb 11 ()
+		jump &[00000070]
+[00000061]:
+		chain-script 34 (L.0,L.1)
+[00000070]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0002\LFLF_0046\ROOM\LSCR_0202
+		do-animation 8 250
+		actor 8 default costume 23 ignore-boxes always-zclip 1
+		put-actor 8 in-room 46
+		put-actor 8 at 251,162
+		break-here
+		end-script
+	}
+}
+

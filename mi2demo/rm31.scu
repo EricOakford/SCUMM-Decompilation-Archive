@@ -1,0 +1,1154 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 31: Library Catalog (catalog)
+; */
+
+script 89 { ; SCRP LECF_0001\LFLF_0031\SCRP_0089
+local variable L.0
+
+	cut-scene
+	override &[00010020]
+	if !(L.0 is 1) jump &[00000063]
+	say-line "`Zelda Carbuncle Tells All`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000063]:
+	if !(L.0 is 2) jump &[00000151]
+	say-line "`Animatronics`"
+	wait-for-message
+	say-line "It's technical stuff, I can't understand a word of it."
+	wait-for-message
+	jump &[00010020]
+[00000151]:
+	if !(L.0 is 3) jump &[00000244]
+	say-line "`Under the Surface`"
+	wait-for-message
+	say-line "It's technical stuff, I can't understand a word of it."
+	wait-for-message
+	jump &[00010020]
+[00000244]:
+	if !(L.0 is 4) jump &[00000286]
+	say-line "`X Never Marks the Spot`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000286]:
+	if !(L.0 is 5) jump &[00000330]
+	say-line "`Vagueness as an Art Form`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000330]:
+	if !(L.0 is 6) jump &[00000373]
+	say-line "`Idealism or Surrealism?`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000373]:
+	if !(L.0 is 7) jump &[00000529]
+	say-line "`Beverages for Everyone`"
+	wait-for-message
+	say-line "You know, I don't believe there's a man, woman, or child alive who doesn't occasionally enjoy a lovely beverage."
+	wait-for-message
+	jump &[00010020]
+[00000529]:
+	if !(L.0 is 8) jump &[00000539]
+	jump &[00010020]
+[00000539]:
+	if !(L.0 is 9) jump &[00000575]
+	say-line "`Both Hands Empty`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000575]:
+	if !(L.0 is 10) jump &[00000612]
+	say-line "`Both Hands Moving`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000612]:
+	if !(L.0 is 11) jump &[00000648]
+	say-line "`Both Heads Empty`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000648]:
+	if !(L.0 is 12) jump &[00000690]
+	say-line "`A Fistful of Barnacles`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000690]:
+	if !(L.0 is 13) jump &[00000731]
+	say-line "`Lick the Silver Spoon`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000731]:
+	if !(L.0 is 14) jump &[00000768]
+	say-line "`Me and Blackbeard`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000768]:
+	if !(L.0 is 15) jump &[00000859]
+	say-line "`The Time I Blew Up LeChuck`"
+	wait-for-message
+	say-line "I can't believe I'm reading my own memoirs."
+	wait-for-message
+	jump &[00010020]
+[00000859]:
+	if !(L.0 is 16) jump &[00000893]
+	say-line "`Yikes!`"
+	wait-for-message
+	say-line "Yikes!"
+	wait-for-message
+	jump &[00010020]
+[00000893]:
+	if !(L.0 is 17) jump &[00000931]
+	say-line "`Unusual Birthmarks`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000931]:
+	if !(L.0 is 18) jump &[00000974]
+	say-line "`Breakfast at Meathook's`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00000974]:
+	if !(L.0 is 19) jump &[00001034]
+	say-line "`Crash! True Life Stories of Game Testers`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001034]:
+	if !(L.0 is 20) jump &[00001094]
+	say-line "`How to Make Friends and Influence People`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001094]:
+	if !(L.0 is 21) jump &[00001128]
+	say-line "`Friend or Foe?`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001128]:
+	if !(L.0 is 22) jump &[00001170]
+	say-line "`How to Serve Man`"
+	wait-for-message
+	say-line "Yum!"
+	wait-for-message
+	jump &[00010020]
+[00001170]:
+	if !(L.0 is 23) jump &[00001180]
+	jump &[00010020]
+[00001180]:
+	if !(L.0 is 24) jump &[00001302]
+	say-line "`Pirate Captains and Their Ships`"
+	wait-for-message
+	say-line "Captain Hazelwood:  The Valdez"
+	wait-for-message
+	say-line "Captain Fitzhuge:   The Mad Monkey"
+	wait-for-message
+	jump &[00010020]
+[00001302]:
+	if !(L.0 is 25) jump &[00001351]
+	say-line "`Guide to Cheeses of the World`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001351]:
+	if !(L.0 is 26) jump &[00001442]
+	say-line "`The Sinister and Extremely Exil Shodowbeast`"
+	wait-for-message
+	say-line "Hmm^ Good bedtime reading^"
+	wait-for-message
+	jump &[00010020]
+[00001442]:
+	if !(L.0 is 27) jump &[00001499]
+	say-line "`Treasury of Pirate Children's Stories`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001499]:
+	if !(L.0 is 28) jump &[00001537]
+	say-line "`You Can Pirate Too`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001537]:
+	if !(L.0 is 29) jump &[00001595]
+	say-line "`Alfredo and Bill's Excellent Adventure`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001595]:
+	if !(L.0 is 30) jump &[00001637]
+	say-line "`Damn the Human Torpedo`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001637]:
+	if !(L.0 is 31) jump &[00001704]
+	say-line "`Great Expectorations`"
+	wait-for-message
+	say-line "This is very^"
+	wait-for-message
+	say-line "^thick."
+	wait-for-message
+	jump &[00010020]
+[00001704]:
+	if !(L.0 is 32) jump &[00001749]
+	say-line "`Junk, Junk, and More Junk`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001749]:
+	if !(L.0 is 33) jump &[00001810]
+	say-line "`Noteworthy Pirate Foods`"
+	wait-for-message
+	say-line "Hey, it's blank!"
+	wait-for-message
+	jump &[00010020]
+[00001810]:
+	if !(L.0 is 34) jump &[00001865]
+	say-line "`Viscous Fluids You Can Make at Home`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001865]:
+	if !(L.0 is 35) jump &[00001922]
+	say-line "`Crochet Eyepatches for Fun and Profit`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00001922]:
+	if !(L.0 is 36) jump &[00002079]
+	say-line "`Dancing Skeltons and Other Hallucinations`"
+	wait-for-message
+	say-line "`Usually, dreaming of dancing skeletons is linked to premonitions of future events^`"
+	wait-for-message
+	say-line "Hmmm^"
+	wait-for-message
+	jump &[00010020]
+[00002079]:
+	if !(L.0 is 37) jump &[00002268]
+	V.493 = 37
+	say-line "`Great Shipwrecks of Our Century`"
+	wait-for-message
+	if (!V.466) {
+		do {
+			V.466 = ((random 99) + 1)
+		} until (!B.577[V.466])
+	}
+	V.100 = ((V.466 - 1) / 10)
+	V.481 = (V.466 - (V.100 * 10))
+	V.100 = ((10 - V.100) + 32)
+	V.481 = ((10 - V.481) + 82)
+	say-line "Says here the Mad Monkey sank at %n100%N, %n481%W."
+	wait-for-message
+	jump &[00010020]
+[00002268]:
+	if !(L.0 is 38) jump &[00002317]
+	say-line "`Facinating Facts About Scurvy`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002317]:
+	if !(L.0 is 39) jump &[00002363]
+	say-line "`Shipboard Diseases`"
+	wait-for-message
+	say-line "Gross."
+	wait-for-message
+	jump &[00010020]
+[00002363]:
+	if !(L.0 is 40) jump &[00002464]
+	say-line "`Dog English Dictionary`"
+	wait-for-message
+	say-line "It says here that `Arf` has twenty-seven meanings in Dog."
+	wait-for-message
+	jump &[00010020]
+[00002464]:
+	if !(L.0 is 41) jump &[00002522]
+	say-line "`Preparing for the Pirate Aptitude Test`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002522]:
+	if !(L.0 is 42) jump &[00002620]
+	say-line "`How to Test Games on One Egg Per Day`"
+	wait-for-message
+	say-line "I think it only works during the summer."
+	wait-for-message
+	jump &[00010020]
+[00002620]:
+	if !(L.0 is 43) jump &[00002656]
+	say-line "`Quiet on the Set`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002656]:
+	if !(L.0 is 44) jump &[00002688]
+	say-line "`Tomato Worms`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002688]:
+	if !(L.0 is 45) jump &[00002745]
+	say-line "`Governor Phatt's Face Workout`"
+	wait-for-message
+	say-line "Gross."
+	wait-for-message
+	jump &[00010020]
+[00002745]:
+	if !(L.0 is 46) jump &[00002755]
+	jump &[00010020]
+[00002755]:
+	if !(L.0 is 47) jump &[00002765]
+	jump &[00010020]
+[00002765]:
+	if !(L.0 is 48) jump &[00002814]
+	say-line "`Summer Swashbuckling Fashions`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002814]:
+	if !(L.0 is 49) jump &[00002842]
+	say-line "`E Ticket`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002842]:
+	if !(L.0 is 50) jump &[00002885]
+	say-line "`Five More Than I Needed`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002885]:
+	if !(L.0 is 51) jump &[00002918]
+	say-line "`Hedgehog Days`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002918]:
+	if !(L.0 is 52) jump &[00002962]
+	say-line "`Not So Much As A Dubloon`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00002962]:
+	if !(L.0 is 53) jump &[00003038]
+	say-line "`Very Very Short Stories`"
+	wait-for-message
+	say-line "Yep, these are short all right."
+	wait-for-message
+	jump &[00010020]
+[00003038]:
+	if !(L.0 is 54) jump &[00003081]
+	say-line "`Easy Ways to Make Money`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00003081]:
+	if !(L.0 is 55) jump &[00003166]
+	V.491 = 55
+	say-line "`Big Book of Fish`"
+	wait-for-message
+	say-line "It's a bunch of neat pictures of big fish."
+	wait-for-message
+	jump &[00010020]
+[00003166]:
+	if !(L.0 is 56) jump &[00003214]
+	say-line "`Limpet Fishing: The Lost Art`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00003214]:
+	if !(L.0 is 57) jump &[00003254]
+	say-line "`I Married A Muenster`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00003254]:
+	if !(L.0 is 58) jump &[00003294]
+	say-line "`Life-Size and Larger`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00003294]:
+	if !(L.0 is 59) jump &[00003344]
+	say-line "`Rats as a Protein Source`"
+	wait-for-message
+	say-line "Ick."
+	wait-for-message
+	jump &[00010020]
+[00003344]:
+	if !(L.0 is 60) jump &[00003354]
+	jump &[00010020]
+[00003354]:
+	if !(L.0 is 61) jump &[00003451]
+	say-line "`Hal Barwood on Monkey 2`"
+	wait-for-message
+	say-line "`Less is more, guys!`"
+	wait-for-message
+	say-line "`You can't polish a turd.`"
+	wait-for-message
+	jump &[00010020]
+[00003451]:
+	if !(L.0 is 62) jump &[00003492]
+	say-line "`Kings of Shuffleboard`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00003492]:
+	if !(L.0 is 63) jump &[00003609]
+	say-line "`Play Winning Checkers`"
+	wait-for-message
+	say-line "Y'know, I like checkers. It's just plain fun, y'know? Good ol' family fun."
+	wait-for-message
+	jump &[00010020]
+[00003609]:
+	if !(L.0 is 64) jump &[00003695]
+	say-line "`When I Blew Up LeChuck`"
+	wait-for-message
+	say-line "The catalog was right, this IS pretty bad."
+	wait-for-message
+	jump &[00010020]
+[00003695]:
+	if !(L.0 is 65) jump &[00003782]
+	say-line "`Where I Blew Up LeChuck`"
+	wait-for-message
+	say-line "The catalog was right, this IS pretty bad."
+	wait-for-message
+	jump &[00010020]
+[00003782]:
+	if !(L.0 is 66) jump &[00003867]
+	say-line "`Why I Blew Up LeChuck`"
+	wait-for-message
+	say-line "The catalog was right, this IS pretty bad."
+	wait-for-message
+	jump &[00010020]
+[00003867]:
+	if !(L.0 is 67) jump &[00003946]
+	say-line "`Grave Robbing: The Greatest Sin of Them All`"
+	wait-for-message
+	say-line "I had no idea^"
+	wait-for-message
+	jump &[00010020]
+[00003946]:
+	if !(L.0 is 68) jump &[00004011]
+	say-line "`I Am Blackbeard's Liver`"
+	wait-for-message
+	say-line "Just say no to grog."
+	wait-for-message
+	jump &[00010020]
+[00004011]:
+	if !(L.0 is 69) jump &[00004103]
+	say-line "`Loose Cannon: The Life of T. Bratcher`"
+	wait-for-message
+	say-line "Wow^"
+	wait-for-message
+	say-line "Who is this guy, anyway?"
+	wait-for-message
+	jump &[00010020]
+[00004103]:
+	if !(L.0 is 70) jump &[00004191]
+	say-line "`Tattoos: Cure for Baldness or Ego-stoker?`"
+	wait-for-message
+	say-line "And a nifty tattoo it is."
+	wait-for-message
+	jump &[00010020]
+[00004191]:
+	if !(L.0 is 71) jump &[00004256]
+	say-line "`Diseases You Can Get From Your Parrot`"
+	wait-for-message
+	say-line "Gross."
+	wait-for-message
+	jump &[00010020]
+[00004256]:
+	if !(L.0 is 72) jump &[00004304]
+	say-line "`Careful With Those Cannonballs!`"
+	wait-for-message
+	jump &[00010020]
+[00004304]:
+	if !(L.0 is 73) jump &[00004314]
+	jump &[00010020]
+[00004314]:
+	if !(L.0 is 74) jump &[00004355]
+	say-line "`Rememberance of Molly`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004355]:
+	if !(L.0 is 75) jump &[00004566]
+	say-line "`Bad Puns For Bad Pirates`"
+	wait-for-message
+	say-line "heh."
+	wait-for-message
+	say-line "Heh, heh."
+	wait-for-message
+	say-line "Hooo ha ha ha ha."
+	wait-for-message
+	say-line "AHAHAHA!!!"
+	wait-for-message
+	say-line "HOOHAHA-- `He was stumped!` --HAHAHAHA!!"
+	wait-for-message
+	say-line "Ahaha."
+	wait-for-message
+	say-line "Aheh."
+	wait-for-message
+	say-line "Oh, well, I guess it wasn't that funny."
+	wait-for-message
+	jump &[00010020]
+[00004566]:
+	if !(L.0 is 76) jump &[00004603]
+	say-line "`Dumb Pirate Jokes`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004603]:
+	if !(L.0 is 77) jump &[00004661]
+	say-line "`So You're Going To Be Executed^`"
+	wait-for-message
+	say-line "Gulp."
+	wait-for-message
+	jump &[00010020]
+[00004661]:
+	if !(L.0 is 81) jump &[00004707]
+	say-line "`Tikis of the South Pacific`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004707]:
+	if !(L.0 is 82) jump &[00004755]
+	say-line "`Igloo Construction Made Easy`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004755]:
+	if !(L.0 is 83) jump &[00004793]
+	say-line "`The Story of Jello`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004793]:
+	if !(L.0 is 84) jump &[00004878]
+	say-line "`My Karma Just Ran Over Your Dogma`"
+	wait-for-message
+	say-line "Hey^ I feel so^"
+	wait-for-message
+	say-line "^centered."
+	wait-for-message
+	jump &[00010020]
+[00004878]:
+	if !(L.0 is 85) jump &[00004922]
+	say-line "`Methodology and Practice`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00004922]:
+	if !(L.0 is 86) jump &[00005062]
+	say-line "`Kleptomania`"
+	wait-for-message
+	say-line "It says here that kleptomania is a nigh-irresistable compulsion to take anything not nailed down."
+	wait-for-message
+	say-line "Hmmm^"
+	wait-for-message
+	jump &[00010020]
+[00005062]:
+	if !(L.0 is 101) jump &[00005264]
+	say-line "`Hip Lingo for Pirates`"
+	wait-for-message
+	say-line "Hmmm^"
+	wait-for-message
+	say-line "`Aaargh.`"
+	wait-for-message
+	say-line "`Yaarr.`"
+	wait-for-message
+	say-line "`Shiver my timbers.`"
+	wait-for-message
+	say-line "`David Jones' locker.`"
+	wait-for-message
+	say-line "`Dead men don't tell stories.`"
+	wait-for-message
+	say-line "I should brush up on some of these."
+	wait-for-message
+	jump &[00010020]
+[00005264]:
+	if !(L.0 is 102) jump &[00005323]
+	say-line "`Afternoon at Meathook's`"
+	wait-for-message
+	say-line "Fascinating..."
+	wait-for-message
+	jump &[00010020]
+[00005323]:
+	if !(L.0 is 103) jump &[00005333]
+	jump &[00010020]
+[00005333]:
+	if !(L.0 is 104) jump &[00005377]
+	say-line "`Damp Damsels of the Deep`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005377]:
+	if !(L.0 is 105) jump &[00005423]
+	say-line "`The Sailor and the Sea Cow`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005423]:
+	if !(L.0 is 106) jump &[00005479]
+	say-line "`The Steath Sailer: Why It Won't Sail`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005479]:
+	if !(L.0 is 107) jump &[00005566]
+	say-line "`The Majesty of the Sierras`"
+	wait-for-message
+	say-line "Sierras?"
+	wait-for-message
+	say-line "Majestic?"
+	wait-for-message
+	say-line "I think not."
+	wait-for-message
+	jump &[00010020]
+[00005566]:
+	if !(L.0 is 108) jump &[00005597]
+	say-line "`Elvis Lives`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005597]:
+	if !(L.0 is 109) jump &[00005663]
+	say-line "`Grammy Award Winners of the Renaissance Period`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005663]:
+	if !(L.0 is 110) jump &[00005695]
+	say-line "`Volume First`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005695]:
+	if !(L.0 is 111) jump &[00005789]
+	say-line "`World's Worst Pirate Songs`"
+	wait-for-message
+	say-line "Hey, `A Thousand Bottles of Beer on the Wall.`"
+	wait-for-message
+	jump &[00010020]
+[00005789]:
+	if !(L.0 is 112) jump &[00005832]
+	say-line "`Xylophone For Beginners`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00005832]:
+	if !(L.0 is 121) jump &[00005919]
+	say-line "`Dianetics by L. Ron Gilbert`"
+	wait-for-message
+	say-line "Who does this guy think he is, anyway?"
+	wait-for-message
+	jump &[00010020]
+[00005919]:
+	if !(L.0 is 122) jump &[00006015]
+	say-line "`BAOOOGA: A Difinative Guide to Cartoon Noises`"
+	wait-for-message
+	say-line "Wait^ I've heard this before^"
+	wait-for-message
+	jump &[00010020]
+[00006015]:
+	if !(L.0 is 123) jump &[00006060]
+	say-line "`How to Give Great Noogies`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006060]:
+	if !(L.0 is 124) jump &[00006104]
+	say-line "`Numerology for Beginners`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006104]:
+	if !(L.0 is 125) jump &[00006142]
+	say-line "`More of Me to Love`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006142]:
+	if !(L.0 is 141) jump &[00006238]
+	say-line "`Read This Book, Everyone Else Already Has`"
+	wait-for-message
+	say-line "Now I feel like one of the crowd."
+	wait-for-message
+	jump &[00010020]
+[00006238]:
+	if !(L.0 is 142) jump &[00006269]
+	say-line "`Deliberance`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006269]:
+	if !(L.0 is 143) jump &[00006328]
+	say-line "`Rastafarian Philosophy`"
+	wait-for-message
+	say-line "I don't get it."
+	wait-for-message
+	jump &[00010020]
+[00006328]:
+	if !(L.0 is 144) jump &[00006367]
+	say-line "`All about Pillaging`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006367]:
+	if !(L.0 is 145) jump &[00006446]
+	say-line "`Masters of Pillaging`"
+	wait-for-message
+	say-line "Wow!"
+	wait-for-message
+	say-line "These guys are real pirates!"
+	wait-for-message
+	jump &[00010020]
+[00006446]:
+	if !(L.0 is 146) jump &[00006528]
+	say-line "`Clean Sheets`"
+	wait-for-message
+	say-line "This is some of the worst poetry I've ever read."
+	wait-for-message
+	jump &[00010020]
+[00006528]:
+	if !(L.0 is 147) jump &[00006697]
+	V.494 = 147
+	say-line "`Famous Pirate Quotations`"
+	wait-for-message
+	if (!B.694) {
+		start-script 116 ()
+	}
+	B.729 = 1
+	start-script 118 (0)
+	start-script 117 (0)
+	break-until (!script-running 117)
+	start-script 118 (1)
+	start-script 117 (1)
+	break-until (!script-running 117)
+	start-script 118 (2)
+	start-script 117 (2)
+	break-until (!script-running 117)
+	start-script 118 (3)
+	start-script 117 (3)
+	break-until (!script-running 117)
+	start-script 118 (4)
+	start-script 117 (4)
+	break-until (!script-running 117)
+	jump &[00010020]
+[00006697]:
+	if !(L.0 is 148) jump &[00006750]
+	say-line "`Louse Ranching For Fun and Profit`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00006750]:
+	if !(L.0 is 149) jump &[00006760]
+	jump &[00010020]
+[00006760]:
+	if !(L.0 is 150) jump &[00006898]
+	V.492 = 150
+	say-line "`The Joy of Hex`"
+	wait-for-message
+	say-line "I think it's meant for advanced voodoo practitioners."
+	wait-for-message
+	say-line "The writing's way too technical for me."
+	wait-for-message
+	jump &[00010020]
+[00006898]:
+	if !(L.0 is 151) jump &[00006948]
+	say-line "`Amour's Agonizing Adieu`"
+	wait-for-message
+	say-line "Argh!"
+	wait-for-message
+	jump &[00010020]
+[00006948]:
+	if !(L.0 is 152) jump &[00007005]
+	say-line "`Desire's Distasteful Denoument`"
+	wait-for-message
+	say-line "Dumb!"
+	wait-for-message
+	jump &[00010020]
+[00007005]:
+	if !(L.0 is 153) jump &[00007067]
+	say-line "`Fascination's Final Frenzy`"
+	wait-for-message
+	say-line "Fiddle-sticks!"
+	wait-for-message
+	jump &[00010020]
+[00007067]:
+	if !(L.0 is 154) jump &[00007125]
+	say-line "`Infatuation's Infinite Insolence`"
+	wait-for-message
+	say-line "Ick!"
+	wait-for-message
+	jump &[00010020]
+[00007125]:
+	if !(L.0 is 155) jump &[00007190]
+	say-line "`Love's Lingering Lastitude`"
+	wait-for-message
+	say-line "Truly disgusting."
+	wait-for-message
+	jump &[00010020]
+[00007190]:
+	if !(L.0 is 156) jump &[00007337]
+	say-line "`Next To Nothing`"
+	wait-for-message
+	say-line "If you can't say something nice, you're not supposed to say anything at all."
+	wait-for-message
+	say-line "Much less write a whole BOOK."
+	wait-for-message
+	jump &[00010020]
+[00007337]:
+	if !(L.0 is 157) jump &[00007413]
+	say-line "`Passion's Persistent Presence`"
+	wait-for-message
+	say-line "Why would she write this?"
+	wait-for-message
+	jump &[00010020]
+[00007413]:
+	if !(L.0 is 158) jump &[00007464]
+	say-line "`Sin's Sordid Swan Song`"
+	wait-for-message
+	say-line "Stupid!"
+	wait-for-message
+	jump &[00010020]
+[00007464]:
+	if !(L.0 is 159) jump &[00007521]
+	say-line "`Romances Wreched Residue`"
+	wait-for-message
+	say-line "Ridiculous!"
+	wait-for-message
+	jump &[00010020]
+[00007521]:
+	if !(L.0 is 160) jump &[00007579]
+	say-line "`Yearning's Yellowing Yesterdays`"
+	wait-for-message
+	say-line "Yuck!"
+	wait-for-message
+	jump &[00010020]
+[00007579]:
+	if !(L.0 is 161) jump &[00007620]
+	say-line "`If I Only Had A Drain`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007620]:
+	if !(L.0 is 162) jump &[00007652]
+	say-line "`Safe Sailing`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007652]:
+	if !(L.0 is 163) jump &[00007774]
+	say-line "`Scabb Island History`"
+	wait-for-message
+	say-line "Says here that Scabb was first settled as a quarantine island for skin diseases."
+	wait-for-message
+	jump &[00010020]
+[00007774]:
+	if !(L.0 is 164) jump &[00007818]
+	say-line "`Pirates Who Love to Much`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007818]:
+	if !(L.0 is 165) jump &[00007881]
+	say-line "`Not Eating People and Feeling Good About It`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007881]:
+	if !(L.0 is 166) jump &[00007920]
+	say-line "`Killers of the Deep`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007920]:
+	if !(L.0 is 167) jump &[00007959]
+	say-line "`Modern Shipbuilding`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00007959]:
+	if !(L.0 is 168) jump &[00007969]
+	jump &[00010020]
+[00007969]:
+	if !(L.0 is 169) jump &[00008047]
+	say-line "`Shiver Me Timbers`"
+	wait-for-message
+	say-line "Arr, Matey, and a good book it is, too!"
+	wait-for-message
+	jump &[00010020]
+[00008047]:
+	if !(L.0 is 170) jump &[00008092]
+	say-line "`Gift of the Lizard People`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00008092]:
+	if !(L.0 is 171) jump &[00008132]
+	say-line "`Over the Crow's Nest`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00008132]:
+	if !(L.0 is 172) jump &[00008256]
+	say-line "`Walk Thru Walls: The Intelligence Avoider`"
+	wait-for-message
+	say-line "I certainly don't need this^"
+	wait-for-message
+	say-line "I can walk straight already."
+	wait-for-message
+	jump &[00010020]
+[00008256]:
+	if !(L.0 is 173) jump &[00008351]
+	say-line "`Subtraction: Addition's Tricky Partener`"
+	wait-for-message
+	say-line "I can't really grasp this concept."
+	wait-for-message
+	jump &[00010020]
+[00008351]:
+	if !(L.0 is 181) jump &[00008429]
+	say-line "`Tattoos: Why Chicks Dig Them`"
+	wait-for-message
+	say-line "Hmm^ Maybe I should get one."
+	wait-for-message
+	jump &[00010020]
+[00008429]:
+	if !(L.0 is 182) jump &[00008513]
+	say-line "`Tattoos-Related Skin Infections`"
+	wait-for-message
+	say-line "Hmm^ Maybe I shouldn't get one."
+	wait-for-message
+	jump &[00010020]
+[00008513]:
+	if !(L.0 is 183) jump &[00008598]
+	say-line "`Tattoos of the Great Pirates`"
+	wait-for-message
+	say-line "Impressive^"
+	wait-for-message
+	say-line "^but^"
+	wait-for-message
+	say-line "^painful."
+	wait-for-message
+	jump &[00010020]
+[00008598]:
+	if !(L.0 is 184) jump &[00008698]
+	say-line "`A Child's First Book of Tattoos`"
+	wait-for-message
+	say-line "When are you too young for a tattoo?"
+	wait-for-message
+	say-line "Never!"
+	wait-for-message
+	jump &[00010020]
+[00008698]:
+	if !(L.0 is 185) jump &[00008750]
+	say-line "`Beyond Hearts and Question Marks`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00008750]:
+	if !(L.0 is 186) jump &[00008803]
+	say-line "`The Caribbean on No Dollars A Day`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00008803]:
+	if !(L.0 is 187) jump &[00008887]
+	say-line "`Falstein's Treasury of Treasure`"
+	wait-for-message
+	say-line "Not quite what I'm looking for."
+	wait-for-message
+	jump &[00010020]
+[00008887]:
+	if !(L.0 is 188) jump &[00009459]
+	say-line "`Inky Island: Unclaimed Bonanza or Myth?`"
+	wait-for-message
+	say-line "This is fascinating!"
+	wait-for-message
+	say-line "It says here there were four pirates:"
+	wait-for-message
+	say-line "Rapp Scallion (the cook)^"
+	wait-for-message
+	say-line "^Young Lindy (the cabin boy)^"
+	wait-for-message
+	say-line "^Mister Rogers (the first mate)^"
+	wait-for-message
+	say-line "^and Captain-- Good Heavens!"
+	wait-for-message
+	say-line "Captain Marley!"
+	wait-for-message
+	say-line "(Wonder if there's any relation?)"
+	wait-for-message
+	say-line "They buried their treasure along with plenty of--"
+	wait-for-message
+	say-line "-- uh, oh--"
+	wait-for-message
+	say-line "--booby traps on a place believed to be called Inky Island."
+	wait-for-message
+	say-line "They made a map which they divided into four pieces, each man taking one."
+	wait-for-message
+	say-line "All four pirates have since disappeared!"
+	wait-for-message
+	jump &[00010020]
+[00009459]:
+	if !(L.0 is 189) jump &[00009531]
+	say-line "`Long Lost Treasures`"
+	wait-for-message
+	say-line "Not quite what I'm looking for."
+	wait-for-message
+	jump &[00010020]
+[00009531]:
+	if !(L.0 is 201) jump &[00009558]
+	say-line "`Patches`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009558]:
+	if !(L.0 is 202) jump &[00009568]
+	jump &[00010020]
+[00009568]:
+	if !(L.0 is 203) jump &[00009612]
+	say-line "`Opulence as a Social Art`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009612]:
+	if !(L.0 is 204) jump &[00009646]
+	say-line "`Out On a Plank`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009646]:
+	if !(L.0 is 221) jump &[00009656]
+	jump &[00010020]
+[00009656]:
+	if !(L.0 is 222) jump &[00009710]
+	say-line "`Yodeling from the Top of the Lungs`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009710]:
+	if !(L.0 is 223) jump &[00009743]
+	say-line "`Zipper Theory`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009743]:
+	if !(L.0 is 224) jump &[00009787]
+	say-line "`Just one of the Primates`"
+	wait-for-message
+	jump &[00009945]
+	jump &[00010020]
+[00009787]:
+	if !(L.0 is 225) jump &[00009894]
+	say-line "`Zoo Animals More Intelligent Than Humans`"
+	wait-for-message
+	say-line "It's too thick, I don't have time to read it."
+	wait-for-message
+	jump &[00010020]
+[00009894]:
+	say-line "`1001 Pirate Songs, a Book You Shouldn't Have`"
+	wait-for-message
+[00009945]:
+	say-line "This is a pretty useless book, I'm not even sure why I checked it out."
+	wait-for-message
+[00010020]:
+	print-line " "
+	end-cut-scene
+	end-script
+}
+
+room catalog {
+
+	object 299 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0299
+		name is ""
+	}
+
+	object 300 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0300
+		name is ""
+	}
+
+	object 301 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0301
+		name is ""
+	}
+
+	object 302 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0302
+		name is ""
+	}
+
+	object 303 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0303
+		name is ""
+	}
+
+	object 304 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0304
+		name is ""
+	}
+
+	object 305 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0305
+		name is ""
+	}
+
+	object 306 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0306
+		name is ""
+	}
+
+	object 307 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0307
+		name is ""
+	}
+
+	object 308 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0308
+		name is ""
+	}
+
+	object 309 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0309
+		name is ""
+	}
+
+	object 310 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0310
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0031\ROOM\EXCD
+		set-screen 0 to 144
+		start-script 16 (2)
+		build-sentence-script = 4
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0031\ROOM\ENCD
+		start-script 16 (1)
+		set-screen 0 to 200
+		build-sentence-script = 200
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0031\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.3
+
+		if !(L.0 is 2) jump &[00000046]
+		L.3 = find-object cursor-x,cursor-y
+		if !(L.3) jump &[00000043]
+		V.329 = (L.3 - 299)
+		current-room 32
+		jump &[00000046]
+[00000043]:
+		camera-follow selected-actor
+[00000046]:
+		end-script
+	}
+}
+

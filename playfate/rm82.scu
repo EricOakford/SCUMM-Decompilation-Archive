@@ -1922,7 +1922,7 @@ room sal-under {
 		current-room 42
 		end-script
 	}
-
+; Hose Cut
 	script 202 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0202
 	local variable L.0
 	local variable L.1

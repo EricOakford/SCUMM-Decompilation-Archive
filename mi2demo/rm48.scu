@@ -1,0 +1,1610 @@
+;/**
+; * Monkey Island 2: LeChuck's Revenge Demo
+; * 
+; * Room 48: Ville de la Booty Spitting Contest (spitvile)
+; */
+
+room spitvile {
+
+	object 467 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0467
+		name is "flag"
+
+		verb 91 {
+			V.302 = 871
+			end-object
+		}
+
+		verb 8 {
+			say-line "`First Place`"
+			end-object
+		}
+
+		verb 9 {
+			start-script 206 (me)
+			end-object
+		}
+	}
+
+	object 466 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0466
+		name is "flag"
+
+		verb 91 {
+			V.302 = 872
+			end-object
+		}
+
+		verb 8 {
+			say-line "`Second Place`"
+			end-object
+		}
+
+		verb 9 {
+			start-script 206 (me)
+			end-object
+		}
+	}
+
+	object 468 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0468
+		name is "flag"
+
+		verb 91 {
+			V.302 = 873
+			end-object
+		}
+
+		verb 8 {
+			say-line "`Third Place`"
+			end-object
+		}
+
+		verb 9 {
+			start-script 206 (me)
+			end-object
+		}
+	}
+
+	object 479 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0479
+		name is "crowd"
+
+		verb 8 {
+			say-line "Ah, the whole world loves a spitting contest."
+			end-object
+		}
+
+		verb 5 {
+			say-line "I'm not looking for a fight."
+			end-object
+		}
+
+		verb 10 {
+			start-script 202 ()
+			end-object
+		}
+	}
+
+	object 489 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0489
+		name is ""
+	}
+
+	object 481 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0481
+		name is ""
+	}
+
+	object 490 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0490
+		name is ""
+	}
+
+	object 483 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0483
+		name is ""
+	}
+
+	object 491 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0491
+		name is ""
+	}
+
+	object 485 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0485
+		name is ""
+	}
+
+	object 492 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0492
+		name is ""
+	}
+
+	object 488 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0488
+		name is ""
+	}
+
+	object 487 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0487
+		name is ""
+	}
+
+	object 473 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0473
+		name is ""
+	}
+
+	object 471 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0471
+		name is ""
+	}
+
+	object 475 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0475
+		name is "fault line"
+
+		verb 90 {
+			V.156 = 8
+			end-object
+		}
+
+		verb 255 {
+			start-script 202 ()
+			end-object
+		}
+	}
+
+	object 482 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0482
+		name is ""
+	}
+
+	object 477 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0477
+		name is "banner"
+
+		verb 8 {
+			say-line "`Pirates' Spit Contest`"
+			end-object
+		}
+	}
+
+	object 484 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0484
+		name is ""
+	}
+
+	object 469 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0469
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			if (script-running 205) {
+				start-script 211 ()
+			}
+			come-out 460 in-room 47 walk-to 528,140
+			end-object
+		}
+	}
+
+	object 486 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0486
+		name is ""
+	}
+
+	object 472 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0472
+		name is ""
+	}
+
+	object 474 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0474
+		name is ""
+	}
+
+	object 470 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0470
+		name is "path"
+
+		verb 90 {
+			V.156 = 64537
+			end-object
+		}
+
+		verb 255 {
+			come-out 454 in-room 46 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 476 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0476
+		name is "banner"
+
+		verb 8 {
+			say-line "`Pirates' Spit Contest`"
+			end-object
+		}
+	}
+
+	object 478 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0478
+		name is "banners"
+
+		verb 8 {
+			say-line "`SPIT FUN SPIT FUN`"
+			end-object
+		}
+	}
+
+	object 480 { ; VERB LECF_0002\LFLF_0048\ROOM\OBCD_0480
+		name is "spit plaque"
+
+		verb 91 {
+			V.302 = 870
+			end-object
+		}
+
+		verb 8 {
+			say-line "It's a plaque with an old-looking gob of something on it."
+			end-object
+		}
+
+		verb 7 {
+			say-line "For what?  A paperweight?"
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0002\LFLF_0048\ROOM\EXCD
+		V.504 = 0
+		unlock-costume 90
+		unlock-costume 91
+		B.567 = 0
+		V.252[9] = 0
+		end-object
+	}
+
+	enter { ; ENCD LECF_0002\LFLF_0048\ROOM\ENCD
+		V.161 = 0
+		V.162 = 0
+		if (V.102 is-not 47) {
+			B.567 = 0
+		}
+		if !(B.568) jump &[00000077]
+		V.163 = 390
+		V.164 = 364
+		V.165 = 334
+		draw-object 468 at 42,12
+		draw-object 466 at 45,12
+		draw-object 467 at 48,12
+		jump &[00000092]
+[00000077]:
+		V.163 = 420
+		V.164 = 390
+		V.165 = 364
+[00000092]:
+		lock-costume 90
+		load-costume 90
+		lock-costume 91
+		load-costume 91
+		start-script 200 ()
+		start-script 207 ()
+		start-script bak 201 ()
+		V.504 = 205
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0200
+		draw-object 472 image 4
+		draw-object 473 
+		draw-object 471 
+		draw-object 481 
+		draw-object 489 
+		draw-object 482 image 4
+		draw-object 483 
+		draw-object 490 
+		draw-object 484 
+		draw-object 485 
+		draw-object 491 image 2
+		draw-object 486 
+		draw-object 487 
+		draw-object 492 
+		draw-object 488 
+		start-script 204 ()
+		start-script 203 ()
+		start-script 215 ()
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0201
+		if !(V.102 is 46) jump &[00000022]
+		break-here
+		camera-at 320
+		jump &[00000038]
+[00000022]:
+		break-until (actor-x selected-actor > 175)
+		camera-pan-to 320
+[00000038]:
+		break-until (actor-x selected-actor <= 175)
+		camera-pan-to 160
+		jump &[00000022]
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+
+		if (script-running 205) {
+			cursor off
+			userput off
+			break-until (!script-running 205)
+		}
+		stop-script 209
+		stop-script 208
+		do-animation 9 255
+		do-animation 9 face-towards selected-actor
+		if (B.570) {
+			wait-for-message
+			say-line 9 "Sorry, kid.\\xFF\\x03Only one plaque to a spitter."
+			wait-for-message
+			start-script bak 208 ()
+			start-script 209 ()
+			stop-script 0
+		}
+		cursor off
+		userput off
+		do-animation selected-actor 245
+		wait-for-camera
+		if !(!B.566) jump &[00000984]
+		B.566 = 1
+		override &[00001224]
+		say-line "I'll give it a try."
+		break-here
+		do-animation 9 255
+		do-animation 9 face-towards selected-actor
+		wait-for-message
+		say-line 9 "A volunteer!"
+		sleep-for 30 jiffies
+		walk 9 to 270,118
+		wait-for-actor 9
+		do-animation 9 244
+		wait-for-message
+		say-line 9 "What's your name, boy?"
+		wait-for-message
+		build-sentence-script = 14
+		start-script 16 (5)
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Juicious Maximus the Third." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Well, they call me The Phlegm Master." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07I am, of course, Captain Loogie." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Whoops!  Thought this was croquet.  Bye." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00000618]
+		jump &[00000667]
+		jump &[00000667]
+[00000618]:
+		if !(V.175 is 121) jump &[00000631]
+		jump &[00000729]
+		jump &[00000667]
+[00000631]:
+		if !(V.175 is 122) jump &[00000644]
+		jump &[00000798]
+		jump &[00000667]
+[00000644]:
+		if !(V.175 is 123) jump &[00000667]
+		V.460 = 0
+		override &[00003931]
+		jump &[00000881]
+		jump &[00000667]
+[00000667]:
+		V.460 = 1
+		say-line 9 "The Juice Man!\\xFF\\x03Max Mucus!\\xFF\\x03He's juicy to the max!"
+		jump &[00001187]
+[00000729]:
+		V.460 = 2
+		say-line 9 "The Phlegmster!\\xFF\\x03The Phlegmalizer!\\xFF\\x03The Master of Phlegm!"
+		jump &[00001187]
+[00000798]:
+		V.460 = 3
+		say-line 9 "The Loogster!\\xFF\\x03Loog-o-rama!\\xFF\\x03Hockin' the big ones for fame and fortune!"
+		jump &[00001187]
+[00000881]:
+		start-script 217 ()
+		say-line 9 "Oh, no.  Dry tongue at the last minute!"
+		sleep-for 30 jiffies
+		walk 9 to 320,128
+		wait-for-actor 9
+		wait-for-message
+		do-animation 9 247
+		say-line 9 "Well, what about you folks?"
+		wait-for-message
+		jump &[00003931]
+		jump &[00001187]
+[00000984]:
+		override &[00001224]
+		say-line "(ahem)"
+		break-here
+		do-animation 9 255
+		do-animation 9 face-towards selected-actor
+		wait-for-message
+		if !(V.460 is 0) jump &[00001042]
+		say-line 9 "Dribble Boy is back!"
+		jump &[00001187]
+[00001042]:
+		if !(V.460 is 1) jump &[00001086]
+		say-line 9 "Juicious Maximus has returned!"
+		jump &[00001187]
+[00001086]:
+		if !(V.460 is 2) jump &[00001142]
+		say-line 9 "The Phlegm Master, ready for his comeback!"
+		jump &[00001187]
+[00001142]:
+		if !(V.460 is 3) jump &[00001187]
+		say-line 9 "Captain Loogie is in the house!"
+		jump &[00001187]
+[00001187]:
+		sleep-for 30 jiffies
+		start-script 219 ()
+		walk 9 to 448,124
+		wait-for-actor 9
+		do-animation 9 244
+		wait-for-message
+		say-line 9 "Spit away!"
+		wait-for-message
+[00001224]:
+		if !(override-hit) jump &[00001317]
+		for V.100 = 120 to 128 ++ {
+			verb V.100 off
+		}
+		verb 109 off
+		verb 110 off
+		V.178 = 0 0 0 0 0 0 0 0 0
+		B.16 = 0 0 0 0 0 0 0 0 0
+		cursor off
+		userput off
+		print-line " "
+		if (!V.460) {
+			V.460 = 0
+		}
+		do-animation 9 255
+		put-actor 9 at 448,124
+		do-animation 9 248
+		jump &[00001319]
+[00001317]:
+		override off
+[00001319]:
+		actor selected-actor costume 90
+		start-script 216 ()
+		if (build-sentence-script is-not 14) {
+			build-sentence-script = 14
+			start-script 16 (5)
+		}
+[00001346]:
+		override off
+		print-line " "
+		start-script 33 ()
+		V.100 = ((120 + 1) - 1)
+		verb V.100 at 0,V.176 name "\\x07Swish-swish." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 2) - 1)
+		verb V.100 at 0,V.176 name "\\x07Hooooooock!" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 3) - 1)
+		verb V.100 at 0,V.176 name "\\x07Chwwwwwwk!" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 4) - 1)
+		verb V.100 at 0,V.176 name "\\x07Ptooie!" on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		V.100 = ((120 + 9) - 1)
+		verb V.100 at 0,V.176 name "\\x07Spit?  That's gross!  I'm outta here." on key V.177
+		V.176 += 8
+		V.100 -= 120
+		++V.177
+		++V.304
+		B.16[V.100] = 1
+		B.13 = 1
+		V.175 = 0
+		do {
+			V.100 = random 1
+			break-here
+		} until (V.175)
+		if !(V.175 is 120) jump &[00001736]
+		jump &[00001841]
+		jump &[00001841]
+[00001736]:
+		if !(V.175 is 121) jump &[00001749]
+		jump &[00001856]
+		jump &[00001841]
+[00001749]:
+		if !(V.175 is 122) jump &[00001762]
+		jump &[00001873]
+		jump &[00001841]
+[00001762]:
+		if !(V.175 is 123) jump &[00001775]
+		jump &[00001883]
+		jump &[00001841]
+[00001775]:
+		if !(V.175 is 128) jump &[00001841]
+		override &[00003931]
+		actor selected-actor costume 1
+		say-line "Spit?  That's gross!  I'm outta here."
+		wait-for-message
+		jump &[00000881]
+		jump &[00001841]
+[00001841]:
+		do-animation selected-actor 6
+		break-here 8
+		jump &[00001346]
+[00001856]:
+		do-animation selected-actor 11
+		break-here 10
+		jump &[00001346]
+[00001873]:
+		do-animation selected-actor 10
+		break-here 3
+		jump &[00001346]
+[00001883]:
+		start-script 217 ()
+		L.0 = 343
+		if !(B.738) jump &[00001904]
+		L.0 += 60
+		jump &[00001929]
+[00001904]:
+		if !(V.160) jump &[00001917]
+		L.0 += 30
+		jump &[00001919]
+[00001917]:
+		stop-script 203
+[00001919]:
+		if (B.567) {
+			L.0 += 30
+		}
+[00001929]:
+		if !(L.0 >= V.163) jump &[00001944]
+		B.570 = 1
+		jump &[00002387]
+[00001944]:
+		if !(!B.569) jump &[00002387]
+		B.569 = 1
+		L.0 = 0
+		override &[00003931]
+		do-animation selected-actor 8
+		break-here 31
+		say-line 9 "Misfire!  Misfire!"
+		do-animation selected-actor 9
+		break-here 13
+		actor selected-actor costume 1
+		wait-for-message
+		walk 9 to 320,128
+		say-line 9 "Everybody run!"
+		wait-for-actor 9
+		do-animation 9 244
+		wait-for-message
+		if !(V.460 is 1) jump &[00002140]
+		say-line 9 "Maybe a little over the max on the juice, there."
+		jump &[00002288]
+[00002140]:
+		if !(V.460 is 2) jump &[00002190]
+		say-line 9 "Well, so much for the Phlegm Master."
+		jump &[00002288]
+[00002190]:
+		if !(V.460 is 3) jump &[00002233]
+		say-line 9 "Gee, that's too bad, Captain."
+		jump &[00002288]
+[00002233]:
+		if !(V.460 is 0) jump &[00002288]
+		say-line 9 "Well, better luck next time, Dribble Boy."
+		jump &[00002288]
+[00002288]:
+		wait-for-message
+		do-animation 9 247
+		say-line 9 "Let's give him a big hand anyway, folks."
+		wait-for-message
+		say-line 9 "At least he tried."
+		start-script 220 ()
+		walk selected-actor to 235,138
+		wait-for-actor selected-actor
+		do-animation selected-actor 246
+		wait-for-message
+		jump &[00003931]
+		jump &[00003931]
+[00002387]:
+		override &[00003931]
+		V.162 = 1
+		do-animation selected-actor 7
+		break-here 5
+		actor 8 default costume 91 ignore-boxes always-zclip 1 step-dist 12,2
+		put-actor 8 in-room 48
+		put-actor 8 at 288,118
+		do-animation 8 249
+		V.158 = (L.0 + 12)
+		walk 8 to V.158,123
+		break-until (actor-x 8 >= L.0)
+		put-actor 8 at L.0,123
+		do-animation 8 7
+		break-here 3
+		V.162 = 0
+		actor selected-actor costume selected-actor
+		if !(L.0 >= V.163) jump &[00003090]
+		do-animation 9 246
+		say-line 9 "He's cleared first place!"
+		start-script 219 ()
+		break-until (actor-facing 9 is 2)
+		do-animation 9 8
+		wait-for-message
+		put-actor 8 in-room 0
+		say-line 9 "That was truly awe-inspiring!\\xFF\\x03Sports fans, we've seen something incredible here today!"
+		walk 9 to 270,118
+		wait-for-actor 9
+		do-animation 9 244
+		wait-for-message
+		say-line 9 "Let me congratulate you and give you this fine commemorative plaque."
+		wait-for-message
+		do-animation 9 10
+		do-animation selected-actor 10
+		break-here 2
+		do-animation 9 3
+		do-animation selected-actor 3
+		if !(V.460 is 0) jump &[00002812]
+		V.460 = 2
+		say-line 9 "I think you've earned the title `Phlegm Master` now."
+		jump &[00002938]
+[00002812]:
+		if !(V.460 is 2) jump &[00002861]
+		say-line 9 "You truly are the Master of Phlegm."
+		jump &[00002938]
+[00002861]:
+		if !(V.460 is 3) jump &[00002904]
+		say-line 9 "I salute you, Captain Loogie."
+		jump &[00002938]
+[00002904]:
+		if !(V.460 is 1) jump &[00002938]
+		say-line 9 "Way to go, Juicious."
+		jump &[00002938]
+[00002938]:
+		wait-for-message
+		do-animation 9 245
+		break-here 2
+		say-line 9 "Come on, let's give him a hand."
+		wait-for-message
+		start-script 219 ()
+		say-line 9 "Of course, there are plenty more prizes for the rest of you.\\xFF\\x03So how about it, gang?"
+		walk 9 to 320,128
+		wait-for-actor 9
+		do-animation 9 247
+		wait-for-message
+		jump &[00003931]
+[00003090]:
+		do-animation 9 9
+		L.1 = 0
+		if !(L.0 > V.461) jump &[00003287]
+		L.1 = 1
+		V.100 = (3 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00003201]
+		say-line 9 "What's this?  A surprise turn-around in performance?"
+		jump &[00003284]
+[00003201]:
+		if !(V.100 is 2) jump &[00003243]
+		say-line 9 "It looks like he's rallying!"
+		jump &[00003284]
+[00003243]:
+		if !(V.100 is 3) jump &[00003284]
+		say-line 9 "Hey, he's been working out!"
+		jump &[00003284]
+[00003284]:
+		jump &[00003602]
+[00003287]:
+		if !(L.0 < V.461) jump &[00003477]
+		V.100 = (3 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00003382]
+		say-line 9 "Oh, and I thought he was going to go all the way."
+		jump &[00003474]
+[00003382]:
+		if !(V.100 is 2) jump &[00003434]
+		say-line 9 "Looks like someone stopped practicing."
+		jump &[00003474]
+[00003434]:
+		if !(V.100 is 3) jump &[00003474]
+		say-line 9 "Oooh, he's slipping folks."
+		jump &[00003474]
+[00003474]:
+		jump &[00003602]
+[00003477]:
+		V.100 = (3 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00003538]
+		say-line 9 "Well, no records here."
+		jump &[00003602]
+[00003538]:
+		if !(V.100 is 2) jump &[00003577]
+		say-line 9 "At least he's consistent."
+		jump &[00003602]
+[00003577]:
+		if !(V.100 is 3) jump &[00003602]
+		say-line 9 "Once again^"
+		jump &[00003602]
+[00003602]:
+		wait-for-message
+		put-actor 8 in-room 0
+		if !(L.0 >= V.164) jump &[00003645]
+		say-line 9 "Looks like second place."
+		jump &[00003729]
+[00003645]:
+		if !(L.0 >= V.165) jump &[00003682]
+		say-line 9 "Looks like third place."
+		jump &[00003729]
+[00003682]:
+		say-line 9 "That doesn't quite qualify."
+		if (L.1) {
+			wait-for-message
+			say-line 9 "^but^"
+		}
+[00003729]:
+		if (L.1) {
+			wait-for-message
+			say-line 9 "I think that deserves a little applause^"
+			sleep-for 60 jiffies
+			start-script 220 ()
+			wait-for-message
+		}
+		if (!B.572) {
+			B.572 = 1
+			wait-for-message
+			say-line 9 "Too bad there are only prizes for first place.\\xFF\\x03Better luck next time."
+		}
+		wait-for-message
+		walk 9 to 320,128
+		wait-for-actor 9
+		do-animation 9 247
+		wait-for-message
+		say-line 9 "Now, how about the rest of you?"
+		wait-for-message
+		jump &[00003931]
+[00003931]:
+		override off
+		print-line " "
+		charset 2
+		put-actor 8 in-room 0
+		V.162 = 0
+		V.461 = L.0
+		actor selected-actor costume 1
+		put-actor 8 in-room 0
+		if (B.570) {
+			pick-up-object 480 in-room 0
+		}
+		if (!script-running 203) {
+			start-script 203 ()
+		}
+		build-sentence-script = 4
+		start-script 16 (2)
+		cursor on
+		userput on
+		start-script bak 208 ()
+		start-script 209 ()
+		walk selected-actor to 235,138
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+[00000008]:
+		V.160 = 0
+		draw-object 474 image 1
+		L.0 = (60 * (8 + (random 3)))
+		sleep-for L.0 jiffies
+		V.160 = 1
+[00000044]:
+		L.1 = (6 + (random 6))
+		for L.4 = 1 to L.1 ++ {
+			do {
+				L.2 = (2 + (random 4))
+			} until (L.2 is-not L.3)
+			L.3 = L.2
+			draw-object 474 image L.2
+			break-here
+		}
+		if !(V.162) jump &[00000112]
+		jump &[00000044]
+[00000112]:
+		jump &[00000008]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0204
+	local variable L.0
+
+		do {
+			draw-object 473 image 1
+			L.0 = (60 * (4 + (random 3)))
+			sleep-for L.0 jiffies
+			draw-object 473 image 2
+			L.0 = (60 * (4 + (random 3)))
+			sleep-for L.0 jiffies
+		}
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0205
+	local variable L.0
+
+		if !(message-going) jump &[00000018]
+		wait-for-message
+		jump &[00000021]
+[00000018]:
+		start-script 209 ()
+[00000021]:
+		sleep-for 60 jiffies
+		stop-script 208
+		stop-script 209
+		start-sound 13
+		shake on
+		break-here
+		if !(B.568) jump &[00000102]
+		sleep-for 30 jiffies
+		shake off
+		break-here
+		say-line 9 "I'm sick of that old codger and his false alarms!"
+		jump &[00000358]
+[00000102]:
+		V.161 = 1
+		draw-object 472 image 7
+		draw-object 482 image 7
+		draw-object 484 image 2
+		draw-object 486 image 2
+		draw-object 488 image 2
+		do-animation 9 255
+		do-animation 9 244
+		sleep-for 30 jiffies
+		shake off
+		if !(!B.573) jump &[00000216]
+		B.573 = 1
+		say-line 9 "Sounds like old Agustus spotted the mail boat!"
+		sleep-for 30 jiffies
+		jump &[00000226]
+[00000216]:
+		say-line 9 "Again?"
+[00000226]:
+		walk 9 to 65511,140
+		do {
+			break-here
+			L.0 = (camera-x - 185)
+		} until (actor-x 9 <= L.0)
+		put-actor 9 in-room 0
+		sleep-for 90 jiffies
+		L.0 = (camera-x - 185)
+		put-actor 9 in-room 48
+		put-actor 9 at L.0,135
+		V.161 = 0
+		V.158 = (L.0 + 50)
+		walk 9 to V.158,135
+		wait-for-actor 9
+		wait-for-message
+		say-line 9 "False alarm."
+		wait-for-message
+		draw-object 472 image 1
+		draw-object 482 image 1
+		draw-object 484 image 1
+		draw-object 486 image 1
+		draw-object 488 image 1
+[00000358]:
+		shake off
+		if (!script-running 202) {
+			wait-for-message
+			say-line 9 "As I was saying^"
+			start-script bak 208 ()
+			start-script 209 ()
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+
+		if (B.570) {
+			say-line "I don't want to push it."
+			stop-script 0
+		}
+		if (!V.161) {
+			do-animation selected-actor 246
+			say-line "Cheat?  With everyone watching?"
+			stop-script 0
+		}
+		if (B.568) {
+			do-animation selected-actor 246
+			say-line "I'd better not move them any farther^\\xFF\\x03^these guys are dumb, but not THAT dumb."
+			stop-script 0
+		}
+		cut-scene
+		B.568 = 1
+		V.461 -= 30
+		V.163 = 390
+		V.164 = 364
+		V.165 = 334
+		L.1 = min-jiffies
+		min-jiffies = 2
+		do-animation selected-actor 251
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		start-script 90 (L.0)
+		do-animation selected-actor 3
+		break-here
+		if (owner-of 468 is-not selected-actor) {
+			walk selected-actor to-object 468
+			wait-for-actor selected-actor
+			do-animation selected-actor 251
+			do-animation selected-actor 11
+			sleep-for 30 jiffies
+			start-script 90 (468)
+			do-animation selected-actor 3
+			break-here
+		}
+		if (owner-of 466 is-not selected-actor) {
+			walk selected-actor to-object 466
+			wait-for-actor selected-actor
+			do-animation selected-actor 251
+			do-animation selected-actor 11
+			sleep-for 30 jiffies
+			start-script 90 (466)
+			do-animation selected-actor 3
+			break-here
+		}
+		if (owner-of 467 is-not selected-actor) {
+			walk selected-actor to-object 467
+			wait-for-actor selected-actor
+			do-animation selected-actor 251
+			do-animation selected-actor 11
+			sleep-for 30 jiffies
+			start-script 90 (467)
+			do-animation selected-actor 3
+			break-here
+		}
+		walk selected-actor to 399,119
+		wait-for-actor selected-actor
+		owner-of 467 is 0
+		owner-of 467 is 15
+		do-animation selected-actor 251
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		draw-object 467 at 48,12
+		do-animation selected-actor 3
+		break-here
+		class-of 467 is 32
+		walk selected-actor to 373,119
+		wait-for-actor selected-actor
+		owner-of 466 is 0
+		owner-of 466 is 15
+		do-animation selected-actor 251
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		draw-object 466 at 45,12
+		do-animation selected-actor 3
+		break-here
+		class-of 466 is 32
+		walk selected-actor to 347,119
+		wait-for-actor selected-actor
+		owner-of 468 is 0
+		owner-of 468 is 15
+		do-animation selected-actor 251
+		do-animation selected-actor 11
+		sleep-for 30 jiffies
+		draw-object 468 at 42,12
+		do-animation selected-actor 3
+		break-here
+		class-of 468 is 32
+		min-jiffies = L.1
+		do-animation selected-actor 245
+		break-here
+		do-animation selected-actor 8
+		sleep-for 60 jiffies
+		do-animation selected-actor 5
+		end-cut-scene
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0207
+		V.252[9] = 210
+		actor 9 default costume 93 name "referee" talk-color 248
+		put-actor 9 in-room 48
+		put-actor 9 at 410,125
+		class-of 9 is 141
+		start-script bak 208 ()
+		start-script 209 ()
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		L.1 = (1 + (random 4))
+		if (camera-x < 170) {
+			if (!B.575) {
+				B.575 = 1
+				L.1 = 1
+			}
+		}
+		if (script-running 105) {
+			L.1 = 1
+		}
+		if !(L.1 is 1) jump &[00000073]
+		walk 9 to 198,125
+		jump &[00000137]
+[00000073]:
+		if !(L.1 is 2) jump &[00000089]
+		walk 9 to 270,118
+		jump &[00000137]
+[00000089]:
+		if !(L.1 is 3) jump &[00000105]
+		walk 9 to 320,128
+		jump &[00000137]
+[00000105]:
+		if !(L.1 is 4) jump &[00000121]
+		walk 9 to 410,125
+		jump &[00000137]
+[00000121]:
+		if !(L.1 is 5) jump &[00000137]
+		walk 9 to 448,124
+		jump &[00000137]
+[00000137]:
+		wait-for-actor 9
+		if !(proximity selected-actor,9 < 25) jump &[00000166]
+		if !(!script-running 105) jump &[00000166]
+		jump &[00000008]
+[00000166]:
+		if !(L.1 is 1) jump &[00000191]
+		do-animation 9 245
+		break-until (actor-facing 9 is 1)
+		jump &[00000256]
+[00000191]:
+		if !(L.1 is 2) jump &[00000216]
+		do-animation 9 245
+		break-until (actor-facing 9 is 1)
+		jump &[00000256]
+[00000216]:
+		if !(L.1 is 3) jump &[00000241]
+		do-animation 9 247
+		break-until (actor-facing 9 is 3)
+		jump &[00000256]
+[00000241]:
+		do-animation 9 244
+		break-until (actor-facing 9 is 0)
+[00000256]:
+		V.100 = (6 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000294]
+		do-animation 9 6
+		jump &[00000333]
+[00000294]:
+		if !(V.100 is 2) jump &[00000307]
+		do-animation 9 7
+		jump &[00000333]
+[00000307]:
+		if !(V.100 is 3) jump &[00000320]
+		do-animation 9 8
+		jump &[00000333]
+[00000320]:
+		if !(V.100 is 4) jump &[00000333]
+		do-animation 9 9
+		jump &[00000333]
+[00000333]:
+		L.0 = (1 + (60 * (random 2)))
+		sleep-for L.0 jiffies
+		if !(script-running 105) jump &[00000365]
+		jump &[00000008]
+[00000365]:
+		wait-for-message
+		if !(script-running 105) jump &[00000379]
+		jump &[00000008]
+[00000379]:
+		L.0 = (1 + (60 * (random 2)))
+		sleep-for L.0 jiffies
+		if !(script-running 105) jump &[00000008]
+		walk 9 to 198,125
+		wait-for-actor 9
+		do-animation 9 245
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0209
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		if !(V.459 > 21) jump &[00000029]
+		do {
+			L.0 = random 21
+		} until (L.0 is-not L.1)
+		jump &[00000034]
+[00000029]:
+		L.0 = V.459
+[00000034]:
+		wait-for-message
+		L.1 = L.0
+		if !(L.0 is 0) jump &[00000085]
+		say-line 9 "Okay, now who's gonna be next?"
+		jump &[00001395]
+[00000085]:
+		if !(L.0 is 1) jump &[00000129]
+		say-line 9 "It's a great day for spitting!"
+		jump &[00001395]
+[00000129]:
+		if !(L.0 is 2) jump &[00000173]
+		say-line 9 "Just look at this juicy crowd!"
+		jump &[00001395]
+[00000173]:
+		if !(L.0 is 3) jump &[00000227]
+		say-line 9 "Step up to the line and test your swill!"
+		jump &[00001395]
+[00000227]:
+		if !(L.0 is 4) jump &[00000257]
+		say-line 9 "Valuable prizes!"
+		jump &[00001395]
+[00000257]:
+		if !(L.0 is 5) jump &[00000326]
+		say-line 9 "Even a child can do it!\\xFF\\x03In fact, they do it very well!"
+		jump &[00001395]
+[00000326]:
+		if !(L.0 is 6) jump &[00000398]
+		say-line 9 "Come on.  It's all paid for by Booty Island Parks and Rec!"
+		jump &[00001395]
+[00000398]:
+		if !(L.0 is 7) jump &[00000453]
+		say-line 9 "Just put your two lips together and blow!"
+		jump &[00001395]
+[00000453]:
+		if !(L.0 is 8) jump &[00000490]
+		say-line 9 "Are you pirates or not?"
+		jump &[00001395]
+[00000490]:
+		if !(L.0 is 9) jump &[00000555]
+		say-line 9 "Two, four, six, eight!\\xFF\\x03Come on, let's expectorate!"
+		jump &[00001395]
+[00000555]:
+		if !(L.0 is 10) jump &[00000615]
+		say-line 9 "Everybody already has the necessary equipment."
+		jump &[00001395]
+[00000615]:
+		if !(L.0 is 11) jump &[00000683]
+		say-line 9 "Turn a disgusting habit into a prestige-winning skill!"
+		jump &[00001395]
+[00000683]:
+		if !(L.0 is 12) jump &[00000736]
+		say-line 9 "Don't let this grass wither up and die!"
+		jump &[00001395]
+[00000736]:
+		if !(L.0 is 13) jump &[00000809]
+		say-line 9 "What was that?  Did I hear somebody swallow?\\xFF\\x03What a waste!"
+		jump &[00001395]
+[00000809]:
+		if !(L.0 is 14) jump &[00000863]
+		say-line 9 "Thousands will spit.  Hundreds will win!"
+		jump &[00001395]
+[00000863]:
+		if !(L.0 is 15) jump &[00000946]
+		say-line 9 "No volunteers?  If Blackbeard were here he'd shoot you all right now."
+		jump &[00001395]
+[00000946]:
+		if !(L.0 is 16) jump &[00000986]
+		say-line 9 "Don't be shy!  Let it fly!"
+		jump &[00001395]
+[00000986]:
+		if !(L.0 is 17) jump &[00001063]
+		say-line 9 "I know you want to volunteer^\\xFF\\x03^it's on the tip of your tongue."
+		jump &[00001395]
+[00001063]:
+		if !(L.0 is 18) jump &[00001168]
+		say-line 9 "You think spitting is gross?\\xFF\\x03I'll tell you what's gross--\\xFF\\x03Swallowing that stuff is gross."
+		jump &[00001395]
+[00001168]:
+		if !(L.0 is 19) jump &[00001248]
+		say-line 9 "Prove to me that you guys are at least as fun as a pack of llamas."
+		jump &[00001395]
+[00001248]:
+		if !(L.0 is 20) jump &[00001326]
+		say-line 9 "I hear there are some scouts here from the pro spitting circuit^"
+		jump &[00001395]
+[00001326]:
+		if !(L.0 is 21) jump &[00001395]
+		say-line 9 "This may be your last chance at popularity and success!"
+		jump &[00001395]
+[00001395]:
+		++V.459
+		wait-for-message
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0210
+	local variable L.0
+
+		if !(L.0 is 90) jump &[00000023]
+		V.156 = 10
+		jump &[00000108]
+[00000023]:
+		if !(L.0 is 10) jump &[00000039]
+		do-sentence 11 475 with 0
+		jump &[00000108]
+[00000039]:
+		if !(L.0 is 8) jump &[00000092]
+		say-line "Sure looks enthousiastic about spitting."
+		jump &[00000108]
+[00000092]:
+		if !(L.0 is 11) jump &[00000102]
+		jump &[00000108]
+[00000102]:
+		start-script 3 (L.0)
+[00000108]:
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0211
+		walk selected-actor to 25,135
+		wait-for-actor selected-actor
+		do-animation selected-actor 246
+		say-line "I'm not stupid enough to fall for my own trick!"
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0212
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		if !(L.0 is 489) jump &[00000035]
+		L.5 = 1
+		L.3 = 3
+		L.4 = 4
+		stop-script 215
+		jump &[00000137]
+[00000035]:
+		if !(L.0 is 490) jump &[00000060]
+		L.5 = 1
+		L.3 = 2
+		L.4 = 3
+		jump &[00000137]
+[00000060]:
+		if !(L.0 is 491) jump &[00000085]
+		L.5 = 2
+		L.3 = 1
+		L.4 = 2
+		jump &[00000137]
+[00000085]:
+		if !(L.0 is 492) jump &[00000110]
+		L.5 = 1
+		L.3 = 2
+		L.4 = 3
+		jump &[00000137]
+[00000110]:
+		if !(L.0 is 473) jump &[00000137]
+		L.5 = 1
+		L.3 = 3
+		L.4 = 4
+		stop-script 204
+		jump &[00000137]
+[00000137]:
+		V.106 = (10 - 5)
+		V.106 = ((random V.106) + 5)
+		L.1 = V.106
+		for L.2 = 1 to L.1 ++ {
+			draw-object L.0 image L.3
+			break-here
+			draw-object L.0 image L.4
+			break-here
+		}
+		draw-object L.0 image L.5
+		if !(L.0 is 473) jump &[00000215]
+		start-script 204 ()
+		jump &[00000228]
+[00000215]:
+		if !(L.0 is 489) jump &[00000228]
+		start-script 215 ()
+		jump &[00000228]
+[00000228]:
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0213
+		do {
+			draw-object 488 image 2
+			break-here
+			draw-object 488 image 3
+			break-here
+			draw-object 488 image 1
+			break-here
+			draw-object 488 image 3
+			break-here
+			draw-object 488 image 2
+			break-here
+			draw-object 488 image 1
+			break-here
+			draw-object 488 image 3
+			break-here
+			draw-object 488 image 1
+			break-here
+		}
+		end-script
+	}
+
+	script 214 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0214
+	local variable L.0
+
+		do {
+			draw-object L.0 image 2
+			break-here
+			draw-object L.0 image 4
+			break-here
+			draw-object L.0 image 6
+			break-here
+			draw-object L.0 image 1
+			break-here
+			draw-object L.0 image 5
+			break-here
+			draw-object L.0 image 1
+			break-here
+			draw-object L.0 image 3
+			break-here
+			draw-object L.0 image 4
+			break-here
+		}
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0215
+	local variable L.0
+
+		do {
+			draw-object 489 image 1
+			L.0 = (60 * (6 + (random 4)))
+			sleep-for L.0 jiffies
+			draw-object 489 image 2
+			L.0 = (60 * (6 + (random 4)))
+			sleep-for L.0 jiffies
+		}
+		end-script
+	}
+
+	script 216 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0216
+	local variable L.0
+	local variable L.1
+
+		start-script 219 ()
+[00000011]:
+		L.0 = (60 * (3 + (random 3)))
+		sleep-for L.0 jiffies
+		L.1 = random 1
+		if !(L.1) jump &[00000046]
+		start-script 218 ()
+		jump &[00000049]
+[00000046]:
+		start-script 220 ()
+[00000049]:
+		jump &[00000011]
+		end-script
+	}
+
+	script 217 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0217
+		stop-script 216
+		stop-script 218
+		stop-script 212
+		stop-script 215
+		stop-script 204
+		stop-script 213
+		stop-script 214
+		draw-object 472 image 4
+		draw-object 473 
+		draw-object 489 
+		draw-object 482 image 4
+		draw-object 490 
+		draw-object 484 
+		draw-object 491 image 2
+		draw-object 486 
+		draw-object 492 
+		draw-object 488 
+		print-line " "
+		end-script
+	}
+
+	script 218 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0218
+	local variable L.1
+
+		if !(V.512 > 14) jump &[00000022]
+		L.1 = random 14
+		jump &[00000027]
+[00000022]:
+		L.1 = V.512
+[00000027]:
+		if !(L.1 is 0) jump &[00000188]
+		if !(V.460 is 1) jump &[00000072]
+		*29 = "We're with ya, Juicious!"
+		jump &[00000185]
+[00000072]:
+		if !(V.460 is 2) jump &[00000109]
+		*29 = "Alright, Phlegm-master!"
+		jump &[00000185]
+[00000109]:
+		if !(V.460 is 3) jump &[00000145]
+		*29 = "C'mon, Captain Loogie!"
+		jump &[00000185]
+[00000145]:
+		if !(V.460 is 0) jump &[00000185]
+		*29 = "You show 'em, Dribble Boy!"
+		jump &[00000185]
+[00000185]:
+		jump &[00000653]
+[00000188]:
+		if !(L.1 is 1) jump &[00000211]
+		*29 = "Let's go!"
+		jump &[00000653]
+[00000211]:
+		if !(L.1 is 2) jump &[00000230]
+		*29 = "Spit!"
+		jump &[00000653]
+[00000230]:
+		if !(L.1 is 3) jump &[00000252]
+		*29 = "Come on!"
+		jump &[00000653]
+[00000252]:
+		if !(L.1 is 4) jump &[00000278]
+		*29 = "Let 'er rip!"
+		jump &[00000653]
+[00000278]:
+		if !(L.1 is 5) jump &[00000306]
+		*29 = "You can do it!"
+		jump &[00000653]
+[00000306]:
+		if !(L.1 is 6) jump &[00000344]
+		*29 = "Better not blow it, man."
+		jump &[00000653]
+[00000344]:
+		if !(L.1 is 7) jump &[00000394]
+		*29 = "Hey spitter hey spitter hey spitter^"
+		jump &[00000653]
+[00000394]:
+		if !(L.1 is 8) jump &[00000418]
+		*29 = "You stink!"
+		jump &[00000653]
+[00000418]:
+		if !(L.1 is 9) jump &[00000444]
+		*29 = "Hummm, baby!"
+		jump &[00000653]
+[00000444]:
+		if !(L.1 is 10) jump &[00000467]
+		*29 = "Right on!"
+		jump &[00000653]
+[00000467]:
+		if !(L.1 is 11) jump &[00000506]
+		*29 = "What are you waiting for?"
+		jump &[00000653]
+[00000506]:
+		if !(L.1 is 12) jump &[00000559]
+		*29 = "I don't think he's got the lips for it."
+		jump &[00000653]
+[00000559]:
+		if !(L.1 is 13) jump &[00000603]
+		*29 = "C'mon!  What are you?  Afraid?"
+		jump &[00000653]
+[00000603]:
+		if !(L.1 is 14) jump &[00000653]
+		*29 = "Shouldn't he be disqualified by now?"
+		jump &[00000653]
+[00000653]:
+		V.100 = (3 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000732]
+		start-script bak 213 ()
+		V.158 = ((358 - camera-x) + 160)
+		print-line center at V.158,47 color 249 "%s29%"
+		wait-for-message
+		stop-script 213
+		draw-object 488 image 1
+		jump &[00000846]
+[00000732]:
+		if !(V.100 is 2) jump &[00000789]
+		V.158 = ((378 - camera-x) + 160)
+		start-script bak rec 214 (472)
+		print-line center at V.158,42 color 235 "%s29%"
+		wait-for-message
+		stop-script 214
+		draw-object 472 image 4
+		jump &[00000846]
+[00000789]:
+		if !(V.100 is 3) jump &[00000846]
+		V.158 = ((283 - camera-x) + 160)
+		start-script bak rec 214 (482)
+		print-line center at V.158,44 color 228 "%s29%"
+		wait-for-message
+		stop-script 214
+		draw-object 482 image 4
+		jump &[00000846]
+[00000846]:
+		++V.512
+		wait-for-message
+		end-script
+	}
+
+	script 219 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0219
+		start-script bak rec 212 (489)
+		start-script bak rec 212 (490)
+		start-script bak rec 212 (491)
+		start-script bak rec 212 (492)
+		start-script bak rec 212 (473)
+		end-script
+	}
+
+	script 220 { ; LSCR LECF_0002\LFLF_0048\ROOM\LSCR_0220
+	local variable L.0
+	local variable L.1
+
+		if (!L.0) {
+			L.0 = 3
+		}
+		L.1 = 1
+[00000023]:
+		V.100 = (5 - 1)
+		V.100 = ((random V.100) + 1)
+		if !(V.100 is 1) jump &[00000064]
+		start-script bak rec 212 (489)
+		jump &[00000128]
+[00000064]:
+		if !(V.100 is 2) jump &[00000080]
+		start-script bak rec 212 (490)
+		jump &[00000128]
+[00000080]:
+		if !(V.100 is 3) jump &[00000096]
+		start-script bak rec 212 (491)
+		jump &[00000128]
+[00000096]:
+		if !(V.100 is 4) jump &[00000112]
+		start-script bak rec 212 (492)
+		jump &[00000128]
+[00000112]:
+		if !(V.100 is 5) jump &[00000128]
+		start-script bak rec 212 (473)
+		jump &[00000128]
+[00000128]:
+		++L.1
+		if !(L.1 > L.0) jump &[00000023]
+		end-script
+	}
+}
+
