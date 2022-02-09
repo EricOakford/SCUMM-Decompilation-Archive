@@ -1,0 +1,971 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 20
+; */
+
+script 46 { ; SCRP LECF_0001\LFLF_0020\SCRP_0046
+	userput off
+	cursor off
+	break-here 5 times
+	if ( script-running 6 ) {
+		stop-script 6
+		stop-sound 38
+		stop-talking
+	}
+	if ( script-running 20 ) {
+		userput on
+		cursor on
+		stop-script 0
+	}
+	do-animation V.1 20
+	if ( script-running 201 ) {
+		stop-script 201
+		stop-talking
+		actor V.165 \
+			talk-animation 4 5 \
+		do-animation V.165 26
+		class-of 103 is 18
+	}
+	if !( !R.13 ) jump &[00000139]
+	say-line "\xFF\x0A\x9A\x3F\xFF\x0A\x08\x00\xFF\x0A\xE9\x3F\xFF\x0A\x00\x00What a big key."
+	jump &[00000242]
+[00000139]:
+	if ( (!R.17) or (random 3) > 1 ) {
+		say-line "\xFF\x0A\x83\x7F\xFF\x0A\x08\x00\xFF\x0A\x98\x14\xFF\x0A\x00\x00Hmmm^"
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line "\xFF\x0A\x1B\x94\xFF\x0A\x08\x00\xFF\x0A\x39\x61\xFF\x0A\x00\x00Maybe this key would work on the rocket."
+	}
+[00000242]:
+	wait-for-message
+	sleep-for 15 jiffies
+	do-animation V.1 17
+	if !( (actor-room V.165) != V.4 ) jump &[00001448]
+	class-of 98 is 146
+	start-script 44 ( 98, 2, 3, 4, 5, 6 )
+	start-sound 3500
+	do {
+		V.165 = @37 ( 2, 12 )
+		if ( !V.165 ) {
+			break-here
+		}
+	} until (V.165)
+	actor V.165 \
+		new \
+		costume 37 \
+		step-dist 3,2 \
+		talk-color 48 \
+		text-offset 0,-80 \
+		ignore-turns on \
+		sound [44, 44]
+	put-actor V.165 at 72,91 in-room 20
+	do-animation V.165 5
+	break-here 5 times
+	start-script 20 ( 0, 0 )
+	do-animation V.165 6
+	walk V.165 to 129,108
+[00000438]:
+	wait-for-actor V.165 [ref &[00000438]]
+	do-animation V.165 5
+	actor V.165 \
+		talk-animation 4 5 \
+	do-animation V.1 20
+	break-here
+	if !( !R.14 ) jump &[00001142]
+	if !( !R.10 ) jump &[00000832]
+	say-line V.165 "\xFF\x0A\x54\xF5\xFF\x0A\x08\x00\xFF\x0A\x18\x9F\xFF\x0A\x00\x00I'm Governor Moonbeam. And you must be^?"
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line "\xFF\x0A\x47\x56\xFF\x0A\x02\x00\xFF\x0A\x10\x3E\xFF\x0A\x00\x00Hi! I'm Putt-Putt."
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line V.165 "\xFF\x0A\x6C\x94\xFF\x0A\x09\x00\xFF\x0A\xA9\x28\xFF\x0A\x00\x00Greetings!"
+	wait-for-message
+	sleep-for 15 jiffies
+	break-here 2 times
+	say-line V.165 "\xFF\x0A\xC8\x10\xFF\x0A\x07\x00\xFF\x0A\x28\x21\xFF\x0A\x00\x00Whew!"
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today^"
+	wait-for-message
+	actor V.165 \
+		talk-animation 8 5 \
+	say-line V.165 "\xFF\x0A\xB9\x74\xFF\x0A\x07\x00\xFF\x0A\xF9\x7B\xFF\x0A\x00\x00I'd even trade my favorite key for something cold."
+	R.10 = 1
+	wait-for-message
+	sleep-for 15 jiffies
+	actor V.165 \
+		talk-animation 4 5 \
+	R.10 = 1
+	jump &[00001139]
+[00000832]:
+	say-line V.165 "\xFF\x0A\x15\xBD\xFF\x0A\x09\x00\xFF\x0A\x29\x27\xFF\x0A\x00\x00Hello, Putt-Putt."
+	wait-for-message
+	sleep-for 15 jiffies
+	say-line V.165 "\xFF\x0A\xC8\x10\xFF\x0A\x07\x00\xFF\x0A\x28\x21\xFF\x0A\x00\x00Whew!"
+	wait-for-message
+	if !( (random 3) > 1 or (owner-of 60) == V.1 ) jump &[00001090]
+	say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today^"
+	wait-for-message
+	sleep-for 15 jiffies
+	actor V.165 \
+		talk-animation 8 5 \
+	say-line V.165 "\xFF\x0A\xB9\x74\xFF\x0A\x07\x00\xFF\x0A\xF9\x7B\xFF\x0A\x00\x00I'd even trade my favorite key for something cold."
+	break-here 4 times
+	do-animation V.1 24
+	wait-for-message
+	sleep-for 15 jiffies
+	actor V.165 \
+		talk-animation 4 5 \
+	jump &[00001139]
+[00001090]:
+	say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today!"
+	wait-for-message
+	sleep-for 15 jiffies
+[00001139]:
+	jump &[00001385]
+[00001142]:
+	if !( (random 3) > 2 ) jump &[00001219]
+	say-line V.165 "\xFF\x0A\xB2\xF0\xFF\x0A\x07\x00\xFF\x0A\xE8\x4E\xFF\x0A\x00\x00Thanks again for the ice cream, Putt-Putt."
+	jump &[00001262]
+[00001219]:
+	say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today!"
+[00001262]:
+	wait-for-message
+	sleep-for 15 jiffies
+	if ( (owner-of 99) != V.1 and R.14 ) {
+		actor V.165 \
+			talk-animation 8 5 \
+		say-line V.165 "\xFF\x0A\x3E\xE4\xFF\x0A\x09\x00\xFF\x0A\xE9\x57\xFF\x0A\x00\x00Feel free to take the key in the case."
+		break-here 3 times
+		do-animation V.1 24
+		wait-for-message
+		sleep-for 15 jiffies
+		actor V.165 \
+			talk-animation 4 5 \
+	}
+[00001385]:
+	do-animation V.165 26
+	do-animation V.1 17
+	if !( (owner-of 60) != V.1 ) jump &[00001421]
+	break-here
+	start-script 202
+	jump &[00001445]
+[00001421]:
+	class-of 98 is 18
+	class-of 103 is 32
+	userput on
+	cursor on
+[00001445]:
+	jump &[00001452]
+[00001448]:
+	userput on
+	cursor on
+[00001452]:
+	end-script
+}
+
+; do city-hall-sign
+script 47 { ; SCRP LECF_0001\LFLF_0020\SCRP_0047
+	userput off
+	cursor off
+	do-animation V.1 17
+	if ( script-running 201 ) {
+		stop-script 201
+		stop-talking
+		actor V.165 \
+			talk-animation 4 5 \
+		do-animation V.165 26
+		class-of 103 is 18
+	}
+	start-sound 2000
+	start-script 44 ( 92, 1, 2, 3, 4, 5, 6, 7, 8 )
+	break-here 8 times
+	say-line "\xFF\x0A\x4F\x9F\xFF\x0A\x0A\x00\xFF\x0A\xFD\x23\xFF\x0A\x00\x00It says^"
+	wait-for-message
+	say-line "\xFF\x0A\x4C\xC3\xFF\x0A\x0A\x00\xFF\x0A\x59\x3C\xFF\x0A\x00\x00Moon City Hall."
+	wait-for-message
+	start-sound 3000
+	start-script 44 ( 92, 7, 6, 5, 4, 3, 2, 1 )
+	break-here 8 times
+	userput on
+	cursor on
+	end-script
+}
+
+room room_20 {
+
+	object 94 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0094
+		name is "red-cap"
+
+		verb 7 {
+			start-script 206
+			end-script
+		}
+	}
+
+	object 91 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0091
+		name is "glass-key-case"
+
+		verb 7 {
+			if !( R.14 ) jump &[00000027]
+			start-script 200
+			jump &[00000034]
+[00000027]:
+			start-script 46
+[00000034]:
+			end-script
+		}
+	}
+
+	object 90 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0090
+		name is "manhole"
+
+		verb 7 {
+			start-script 207
+			end-script
+		}
+	}
+
+	object 98 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0098
+		name is "hall-dore"
+
+		verb 7 {
+			if !( class-of 103 is 32 ) jump &[00000034]
+			start-script 202
+			jump &[00000041]
+[00000034]:
+			start-script 203
+[00000041]:
+			end-script
+		}
+	}
+
+	object 92 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0092
+		name is "city-hall-sign"
+
+		verb 7 {
+			start-script 47
+			end-script
+		}
+	}
+
+	object 103 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0103
+		name is "mayor-obj"
+
+		verb 7 {
+			start-script 201
+			end-script
+		}
+
+		verb 2 {
+		local variable L.0
+
+			if ( V.4 == 20 and L.0 == 60 ) {
+				start-script 204
+			}
+			end-script
+		}
+	}
+
+	object 93 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0093
+		name is "city-rocket"
+
+		verb 7 {
+			start-script 208
+			end-script
+		}
+	}
+
+	object 89 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0089
+		name is "city-hall-town-door"
+
+		verb 7 {
+			userput soft-off
+			cursor soft-off
+			if ( script-running 6 ) {
+				stop-script 6
+				stop-script 43
+			}
+			start-script 27
+			if ( V.54 < 200 ) {
+				break-here
+				set-screen 0 to 128
+			}
+			userput soft-on
+			cursor soft-on
+			come-out-door 49 in-room 14 walk -1,-1
+			end-script
+		}
+	}
+
+	object 97 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0097
+		name is "hanger"
+
+		verb 7 {
+			start-script 205
+			end-script
+		}
+	}
+
+	object 99 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0099
+		name is "rocket-key"
+
+		verb 91 {
+			end-script
+			end-script
+		}
+
+		verb 92 {
+			end-script
+			end-script
+		}
+
+		verb 7 {
+			end-script
+		}
+
+		verb 2 {
+		local variable L.0
+
+			if !( V.4 == 15 and (L.0 == 65 or L.0 == 70) ) jump &[00000067]
+			do-sentence 2 65 [129] 99
+			jump &[00000440]
+[00000067]:
+			userput off
+			cursor off
+			if !( V.4 != 14 ) jump &[00000247]
+			say-line "\xFF\x0A\x60\xFF\xFF\x0A\x01\x00\xFF\x0A\xE7\x56\xFF\x0A\x00\x00I don't think you could use it like that."
+			wait-for-message
+			sleep-for 15 jiffies
+			if ( !R.12 ) {
+				say-line "\xFF\x0A\x92\x5D\xFF\x0A\x00\x00\xFF\x0A\xF3\x4D\xFF\x0A\x00\x00Maybe I should use this key^"
+				wait-for-message
+				say-line "\xFF\x0A\x85\xAB\xFF\x0A\x00\x00\xFF\x0A\x3D\x3D\xFF\x0A\x00\x00to get inside the rocket."
+			}
+			jump &[00000434]
+[00000247]:
+			print-line \
+				color 238 \
+				"\xFF\x0A\x60\xFF\xFF\x0A\x01\x00\xFF\x0A\xE7\x56\xFF\x0A\x00\x00I don't think you could use it like that."
+
+			wait-for-message
+			sleep-for 15 jiffies
+			if ( !R.12 ) {
+				print-line \
+					color 238 \
+					"\xFF\x0A\x92\x5D\xFF\x0A\x00\x00\xFF\x0A\xF3\x4D\xFF\x0A\x00\x00Maybe I should use this key^"
+
+				wait-for-message
+				print-line \
+					color 238 \
+					"\xFF\x0A\x85\xAB\xFF\x0A\x00\x00\xFF\x0A\x3D\x3D\xFF\x0A\x00\x00to get inside the rocket."
+
+			}
+[00000434]:
+			wait-for-message
+			userput on
+			cursor on
+[00000440]:
+			end-script
+		}
+	}
+
+	object 101 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0101
+		name is "city-hall-int-left"
+	}
+
+	object 100 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0100
+		name is "city-hall-int-right"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 89 L.1 ) jump &[00000040]
+			start-object [0] 89 verb L.1 ( L.0 )
+			jump &[00000060]
+[00000040]:
+			if ( L.1 != 90 ) {
+				start-script 18 ( L.1 )
+			}
+[00000060]:
+			end-script
+		}
+	}
+
+	object 95 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0095
+		name is ""
+	}
+
+	object 96 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0096
+		name is ""
+	}
+
+	object 158 { ; VERB LECF_0001\LFLF_0020\ROOM\OBCD_0158
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0020\ROOM\EXCD
+		actor V.1 \
+			text-offset 20,-60 \
+		start-script 42 ( 61 )
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0020\ROOM\ENCD
+		V.241 = 101
+		V.242 = 100
+		draw-object 93 image 1
+		draw-object 97 image 1
+		draw-object 98 image 1
+		draw-object 95 image 4
+		draw-object 92 image 1
+		if !( (owner-of 99) == V.1 ) jump &[00000076]
+		draw-object 91 image 3
+		jump &[00000083]
+[00000076]:
+		draw-object 91 image 1
+[00000083]:
+		class-of 103 is 160
+		actor V.1 \
+			text-offset 10,-70 \
+			follow-boxes \
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+
+		userput off
+		cursor off
+		do {
+			if ( !actor-moving V.1 ) jump &[00000024]
+			break-here
+		}
+[00000024]:
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-sound 38
+			stop-talking
+		}
+		if ( (actor-facing V.1) != 1 ) {
+			start-script 20 ( 0, 1 )
+			do {
+				if ( !script-running 20 ) jump &[00000076]
+				break-here
+			}
+		}
+		if !( (owner-of 99) != V.1 ) jump &[00000096]
+		L.1 = 2
+		jump &[00000102]
+[00000096]:
+		L.1 = 4
+[00000102]:
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 36 \
+			ignore-boxes \
+		put-actor L.0 at 301,106 in-room 20
+		draw-object 91 image L.1
+		start-sound 0
+		do-animation L.0 6
+		break-here
+		do-animation V.1 18
+		break-here
+		do-animation V.1 19
+		break-here
+		do-animation V.1 20
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000218]
+			break-here
+		}
+[00000218]:
+		if !( L.1 == 2 ) jump &[00000398]
+		actor V.1 \
+			costume 38 \
+			sound [39, 39]
+		do {
+			if ( (actor V.1 variable 0) == 1 ) jump &[00000267]
+			break-here
+		}
+[00000267]:
+		draw-object 91 image 4
+		do {
+			if ( (actor V.1 variable 0) == 2 ) jump &[00000292]
+			break-here
+		}
+[00000292]:
+		pick-up-object 99 in-room 0
+		start-sound 0
+		do-animation L.0 7
+		actor L.0 \
+			animation-var 0 0
+		start-sound 0
+		do {
+			if ( (actor V.1 variable 0) == 3 ) jump &[00000351]
+			break-here
+		}
+[00000351]:
+		actor V.1 \
+			costume 4 \
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000375]
+			break-here
+		}
+[00000375]:
+		put-actor L.0 at 0,0 in-room 0
+		draw-object 91 image 3
+		jump &[00000489]
+[00000398]:
+		do-animation L.0 7
+		actor L.0 \
+			animation-var 0 0
+		start-sound 0
+		break-here 4 times
+		do-animation V.1 19
+		break-here
+		do-animation V.1 18
+		break-here 3 times
+		do-animation V.1 17
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000469]
+			break-here
+		}
+[00000469]:
+		put-actor L.0 at 0,0 in-room 0
+		draw-object 91 image 3
+[00000489]:
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0201
+		class-of 103 is 146
+		if ( (script-running 47) or (script-running 46) ) {
+			class-of 103 is 18
+			stop-script 0
+		}
+		if ( script-running 20 ) {
+			class-of 103 is 18
+			stop-script 0
+		}
+		do-animation V.1 20
+		if !( !R.14 ) jump &[00000243]
+		say-line V.165 "\xFF\x0A\xC8\x10\xFF\x0A\x07\x00\xFF\x0A\x28\x21\xFF\x0A\x00\x00Whew!"
+		wait-for-message
+		say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today^"
+		wait-for-message
+		sleep-for 15 jiffies
+		actor V.165 \
+			talk-animation 8 5 \
+		say-line V.165 "\xFF\x0A\xB9\x74\xFF\x0A\x07\x00\xFF\x0A\xF9\x7B\xFF\x0A\x00\x00I'd even trade my favorite key for something cold."
+		jump &[00000306]
+[00000243]:
+		say-line V.165 "\xFF\x0A\xB2\xF0\xFF\x0A\x07\x00\xFF\x0A\xE8\x4E\xFF\x0A\x00\x00Thanks again for the ice cream, Putt-Putt."
+[00000306]:
+		wait-for-message
+		actor V.165 \
+			talk-animation 4 5 \
+		do-animation V.165 26
+		do-animation V.1 17
+		class-of 103 is 18
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0202
+		userput off
+		cursor off
+		class-of 98 is 146
+		class-of 103 is 160
+		stop-script 201
+		stop-talking
+		do-animation V.165 12
+		break-here 5 times
+		walk V.165 to 116,96
+[00000058]:
+		wait-for-actor V.165 [ref &[00000058]]
+		actor V.165 \
+			step-dist 4,2 \
+		walk V.165 to 77,91
+[00000088]:
+		wait-for-actor V.165 [ref &[00000088]]
+		put-actor V.165 at 0,0 in-room 0
+		start-script 44 ( 98, 5, 4, 3, 2, 1 )
+		start-sound 2000
+		break-here 5 times
+		class-of 98 is 18
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0203
+		userput off
+		cursor off
+		class-of 98 is 146
+		start-script 44 ( 98, 2, 3, 4, 5, 6 )
+		start-sound 3500
+		do {
+			V.165 = @37 ( 2, 12 )
+			if ( !V.165 ) {
+				break-here
+			}
+		} until (V.165)
+		actor V.165 \
+			new \
+			costume 37 \
+			step-dist 3,2 \
+			talk-color 48 \
+			text-offset 0,-80 \
+			ignore-turns on \
+			sound [44, 44]
+		put-actor V.165 at 72,91 in-room 20
+		do-animation V.165 5
+		break-here 5 times
+		do-animation V.165 6
+		walk V.165 to 129,108
+[00000171]:
+		wait-for-actor V.165 [ref &[00000171]]
+		do-animation V.165 5
+		actor V.165 \
+			talk-animation 4 5 \
+		do-animation V.1 20
+		break-here
+		if !( !R.14 ) jump &[00000875]
+		if !( !R.10 ) jump &[00000565]
+		say-line V.165 "\xFF\x0A\x54\xF5\xFF\x0A\x08\x00\xFF\x0A\x18\x9F\xFF\x0A\x00\x00I'm Governor Moonbeam. And you must be^?"
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line "\xFF\x0A\x47\x56\xFF\x0A\x02\x00\xFF\x0A\x10\x3E\xFF\x0A\x00\x00Hi! I'm Putt-Putt."
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line V.165 "\xFF\x0A\x6C\x94\xFF\x0A\x09\x00\xFF\x0A\xA9\x28\xFF\x0A\x00\x00Greetings!"
+		wait-for-message
+		sleep-for 15 jiffies
+		break-here 2 times
+		say-line V.165 "\xFF\x0A\xC8\x10\xFF\x0A\x07\x00\xFF\x0A\x28\x21\xFF\x0A\x00\x00Whew!"
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today^"
+		wait-for-message
+		actor V.165 \
+			talk-animation 8 5 \
+		say-line V.165 "\xFF\x0A\xB9\x74\xFF\x0A\x07\x00\xFF\x0A\xF9\x7B\xFF\x0A\x00\x00I'd even trade my favorite key for something cold."
+		R.10 = 1
+		wait-for-message
+		sleep-for 15 jiffies
+		actor V.165 \
+			talk-animation 4 5 \
+		R.10 = 1
+		jump &[00000872]
+[00000565]:
+		say-line V.165 "\xFF\x0A\x15\xBD\xFF\x0A\x09\x00\xFF\x0A\x29\x27\xFF\x0A\x00\x00Hello, Putt-Putt."
+		wait-for-message
+		sleep-for 15 jiffies
+		say-line V.165 "\xFF\x0A\xC8\x10\xFF\x0A\x07\x00\xFF\x0A\x28\x21\xFF\x0A\x00\x00Whew!"
+		wait-for-message
+		if !( (random 3) > 1 or (owner-of 60) == V.1 ) jump &[00000823]
+		say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today^"
+		wait-for-message
+		sleep-for 15 jiffies
+		actor V.165 \
+			talk-animation 8 5 \
+		say-line V.165 "\xFF\x0A\xB9\x74\xFF\x0A\x07\x00\xFF\x0A\xF9\x7B\xFF\x0A\x00\x00I'd even trade my favorite key for something cold."
+		break-here 4 times
+		do-animation V.1 24
+		wait-for-message
+		sleep-for 15 jiffies
+		actor V.165 \
+			talk-animation 4 5 \
+		jump &[00000872]
+[00000823]:
+		say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today!"
+		wait-for-message
+		sleep-for 15 jiffies
+[00000872]:
+		jump &[00001118]
+[00000875]:
+		if !( (random 3) > 2 ) jump &[00000952]
+		say-line V.165 "\xFF\x0A\xB2\xF0\xFF\x0A\x07\x00\xFF\x0A\xE8\x4E\xFF\x0A\x00\x00Thanks again for the ice cream, Putt-Putt."
+		jump &[00000995]
+[00000952]:
+		say-line V.165 "\xFF\x0A\xF0\x31\xFF\x0A\x07\x00\xFF\x0A\xC9\x42\xFF\x0A\x00\x00It's so hot out today!"
+[00000995]:
+		wait-for-message
+		sleep-for 15 jiffies
+		if ( (owner-of 99) != V.1 and R.14 ) {
+			actor V.165 \
+				talk-animation 8 5 \
+			say-line V.165 "\xFF\x0A\x3E\xE4\xFF\x0A\x09\x00\xFF\x0A\xE9\x57\xFF\x0A\x00\x00Feel free to take the key in the case."
+			break-here 3 times
+			do-animation V.1 24
+			wait-for-message
+			sleep-for 15 jiffies
+			actor V.165 \
+				talk-animation 4 5 \
+		}
+[00001118]:
+		do-animation V.165 26
+		do-animation V.1 17
+		if !( (owner-of 60) != V.1 ) jump &[00001154]
+		break-here
+		start-script 202
+		jump &[00001178]
+[00001154]:
+		class-of 98 is 18
+		class-of 103 is 32
+		userput on
+		cursor on
+[00001178]:
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0204
+		userput off
+		cursor off
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-sound 38
+			stop-talking
+		}
+		if !( (object-x V.1) != 206 ) jump &[00000092]
+		if ( (actor-facing V.1) != 0 ) {
+			start-script 20 ( 0, 0 )
+			do {
+				if ( !script-running 20 ) jump &[00000075]
+				break-here
+			}
+		}
+		walk V.1 to 206,110
+[00000085]:
+		wait-for-actor V.1 [ref &[00000085]]
+[00000092]:
+		if ( (actor-facing V.1) != 0 ) {
+			start-script 20 ( 0, 0 )
+			do {
+				if ( !script-running 20 ) jump &[00000128]
+				break-here
+			}
+		}
+		if ( script-running 201 ) {
+			stop-script 201
+			stop-talking
+			actor V.165 \
+				talk-animation 4 5 \
+			do-animation V.165 26
+			class-of 103 is 18
+		}
+		actor V.1 \
+			costume 39 \
+			sound [39]
+		do-animation V.1 6
+		do-animation V.1 249
+		do {
+			if ( (actor V.1 variable 0) == 1 ) jump &[00000220]
+			break-here
+		}
+[00000220]:
+		do-animation V.165 20
+		break-here 7 times
+		owner-of 60 is 0
+		owner-of 60 is 15
+		start-sound 0
+		do {
+			if ( (actor V.1 variable 0) == 2 ) jump &[00000270]
+			break-here
+		}
+[00000270]:
+		actor V.1 \
+			costume 4 \
+		do-animation V.1 248
+		do-animation V.1 20
+		do {
+			if ( !sound-running 17 ) jump &[00000306]
+			break-here
+		}
+[00000306]:
+		actor V.165 \
+			talk-animation 24 25 \
+		say-line V.165 "\xFF\x0A\x27\x3C\xFF\x0A\x0A\x00\xFF\x0A\x28\x63\xFF\x0A\x00\x00Ice cream! Why, thank you Putt-Putt."
+		wait-for-message
+		sleep-for 15 jiffies
+		do-animation V.165 21
+		break-here 27 times
+		do-animation V.165 5
+		actor V.165 \
+			talk-animation 8 5 \
+		say-line V.165 "\xFF\x0A\x3E\xE4\xFF\x0A\x09\x00\xFF\x0A\xE9\x57\xFF\x0A\x00\x00Feel free to take the key in the case."
+		break-here 3 times
+		do-animation V.1 24
+		wait-for-message
+		sleep-for 15 jiffies
+		do-animation V.1 20
+		break-here
+		start-script 202
+		break-here 2 times
+		do-animation V.1 17
+		R.14 = 1
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0205
+	local variable L.0
+
+		class-of 97 is 146
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 35 \
+			ignore-boxes \
+			always-zclip 1
+			sound [22, 22, 21]
+		put-actor L.0 at 53,48 in-room 20
+		draw-object 97 image 2
+		do-animation L.0 6
+		break-here
+		draw-object 97 image 3
+		break-here
+		draw-object 97 image 4
+		break-here
+		draw-object 97 image 3
+		break-here
+		draw-object 97 image 2
+		break-here
+		draw-object 97 image 1
+		class-of 97 is 18
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000172]
+			break-here
+		}
+[00000172]:
+		break-here
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0206
+		class-of 94 is 146
+		if !( (random 10) < 7 ) jump &[00000066]
+		start-script 44 ( 95, 1, 2, 3, 4 )
+		break-here
+		start-sound 0
+		break-here 3 times
+		jump &[00000122]
+[00000066]:
+		start-script 44 ( 96, 1, 2, 3, 4, 4, 3, 2, 1 )
+		break-here 3 times
+		start-sound 0
+		break-here 5 times
+		draw-object 95 image 4
+[00000122]:
+		class-of 94 is 18
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0207
+	local variable L.0
+
+		class-of 90 is 146
+		if !( (random 4) < 2 ) jump &[00000117]
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 33 \
+			ignore-boxes \
+			sound [63, 63, 34]
+		put-actor L.0 at 237,133 in-room 20
+		start-sound 0
+		do-animation L.0 6
+		jump &[00000230]
+[00000117]:
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 33 \
+			ignore-boxes \
+			sound [63, 63, 34, 65]
+		put-actor L.0 at 237,133 in-room 20
+		start-sound 0
+		if ( (random 6) > 2 ) {
+			actor L.0 \
+				animation-var 2 random 1
+		}
+		do-animation L.0 7
+[00000230]:
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000244]
+			break-here
+		}
+[00000244]:
+		break-here
+		class-of 90 is 18
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0208
+	local variable L.0
+
+		class-of 93 is 146
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 34 \
+			ignore-boxes \
+		put-actor L.0 at 43,60 in-room 20
+		draw-object 93 image 2
+		do-animation L.0 6
+		break-here
+		start-script 43 ( 61, 10, 40 )
+		do {
+			if ( actor L.0 variable 4 ) jump &[00000120]
+			break-here
+		}
+[00000120]:
+		start-script 42 ( 61 )
+		do {
+			if ( (actor L.0 variable 4) == 2 ) jump &[00000148]
+			break-here
+		}
+[00000148]:
+		start-sound 615
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000169]
+			break-here
+		}
+[00000169]:
+		break-here
+		draw-object 93 image 1
+		class-of 93 is 18
+		end-script
+	}
+}
+

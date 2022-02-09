@@ -1,0 +1,3091 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 7
+; */
+
+; Game Initialization
+script 1 { ; SCRP LECF_0001\LFLF_0007\SCRP_0001
+local variable L.0
+
+	cursor off
+	userput off
+	lock-room 37
+	load-room 37
+	if !( !V.65 ) jump &[00000036]
+	V.60 = 0
+	jump &[00000042]
+[00000036]:
+	V.60 = 1
+[00000042]:
+	V.151 = 0
+	V.152 = 0
+	V.153 = 0
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+	cursor V.154 image 37
+	cursor hotspot V.155 V.156
+	V.240 = 1
+	V.19 = 0
+	V.24 = 27
+	V.42 = 322
+	V.43 = 32
+	V.50 = 0
+	V.57 = 46
+	load-charset 2
+	charset 2
+	V.251[] = "disk"
+	V.207[] = "Putt-Putt Goes To The Moon Demo Version 1.0"
+	V.208[] = "heap=%n40%,ms=%n68%,vs=%n69%"
+	V.93[] = "Game Paused.  Press SPACE to Continue."
+	V.90[] = "Insert Disk %c and Press Button to Continue."
+	V.91[] = "Unable to Find %s, (%c%d) Press Button."
+	V.92[] = "Error reading disk %c, (%c%d) Press Button."
+	V.94[] = "Are you sure you want to restart?  (Y/N)Y"
+	V.95[] = "Are you sure you want to quit?  (Y/N)Y"
+	dim int array V.110[50]
+	V.110[0] = 0
+	V.110[1] = 5
+	V.110[2] = 4
+	V.110[3] = 5
+	V.110[4] = 1
+	V.110[5] = 4
+	V.110[6] = 12
+	V.110[7] = 1
+	V.110[8] = 6
+	V.110[9] = 1
+	V.110[10] = 4
+	V.110[11] = 12
+	V.110[12] = 1
+	V.110[13] = 5
+	V.110[14] = 2
+	V.110[15] = 5
+	V.110[16] = 2
+	V.110[17] = 5
+	V.110[18] = 2
+	V.110[19] = 5
+	V.110[20] = 2
+	V.110[21] = 5
+	V.110[22] = 2
+	V.110[23] = 5
+	V.110[24] = 2
+	V.110[25] = 15
+	V.110[26] = 195
+	V.110[27] = 246
+	V.110[28] = 248
+	V.110[29] = 246
+	V.110[30] = 241
+	V.110[31] = 0
+	V.110[32] = 224
+	V.110[33] = 4
+	V.110[34] = 225
+	V.110[35] = 4
+	V.110[36] = 225
+	V.110[37] = 15
+	V.110[38] = 195
+	V.110[39] = 246
+	V.110[40] = 248
+	V.110[41] = 246
+	V.110[42] = 241
+	V.111[] = "XXXXXXXX"
+	V.111[0] = 13
+	V.111[1] = 18
+	V.111[2] = 17
+	V.111[3] = 17
+	V.111[4] = 255
+	V.111[5] = 18
+	V.111[6] = 17
+	V.111[7] = 17
+	lock-script 12
+	load-script 12
+	lock-script 14
+	load-script 14
+	lock-script 18
+	load-script 18
+	lock-script 15
+	load-script 15
+	lock-script 17
+	load-script 17
+	lock-script 10
+	load-script 10
+	lock-script 19
+	load-script 19
+	lock-script 22
+	load-script 22
+	lock-script 25
+	load-script 25
+	lock-script 26
+	load-script 26
+	lock-script 28
+	load-script 28
+	lock-script 34
+	load-script 34
+	lock-costume 4
+	V.35 = 23
+	V.36 = 24
+	V.28 = 25
+	V.29 = 26
+	V.30 = 28
+	V.33 = 15
+	V.34 = 10
+	V.32 = 14
+	V.223 = 11
+	V.148 = 6
+	V.37 = 9 - V.148
+	V.8 = 12
+	start-script 17
+	fades -32383
+	V.19 = 6
+	V.33 = 15
+	V.32 = 14
+	V.50 = 319
+	current-room 0
+	set-screen 0 to 144
+	start-script 29
+	start-script 22 ( 1 )
+	V.145 = 7
+	V.132 = V.68 + V.69
+	if !( V.132 <= 200 ) jump &[00001325]
+	V.6 = 2
+	print-debug \
+		"machine-speed = FAST-MACHINE"
+
+	jump &[00001415]
+[00001325]:
+	if !( V.132 <= 350 ) jump &[00001376]
+	V.6 = 1
+	print-debug \
+		"machine-speed = MED-MACHINE"
+
+	jump &[00001415]
+[00001376]:
+	V.6 = 0
+	print-debug \
+		"machine-speed = SLOW-MACHINE"
+
+[00001415]:
+	if !( V.39 != 4 ) jump &[00001434]
+	V.60 = 1
+	jump &[00001461]
+[00001434]:
+	V.60 = 0
+	print-debug \
+		"show dialog text"
+
+[00001461]:
+	print-system \
+		color 9 \
+		end
+	V.1 = 1
+	start-script bak 34
+	actor V.1 \
+		default
+		costume 4 \
+		text-offset 20,-60 \
+		ignore-turns on \
+	actor 1 \
+		talk-color 13 \
+	palette 208 132 204 in-slot 13
+	start-script 32 ( 246, 247, 248 )
+	V.227 = 128
+	$ set-volume 128
+	if !( L.0 != 0 ) jump &[00001687]
+	cursor on
+	userput on
+	if ( V.39 == 0 ) {
+		print-system \
+			"Debugging mode not active"
+
+		quit
+	}
+	if !( L.0 == 1000 ) jump &[00001646]
+	L.0 = 15
+	start-script 4 ( 99 )
+	jump &[00001647]
+[00001647]:
+	put-actor V.1 at 160,100 in-room L.0
+	start-script 12
+	camera-follow V.1
+	start-script 39 ( 10 )
+	jump &[00001697]
+[00001687]:
+	start-script 3
+[00001697]:
+	end-script
+}
+
+; What to do Next
+script 4 { ; SCRP LECF_0001\LFLF_0007\SCRP_0004
+	if ( actor-moving V.1 ) {
+		stop-script 0
+	}
+	V.250 = V.32
+	V.32 = 16
+	userput off
+	cursor off
+	if !( V.4 != 14 ) jump &[00000427]
+	if !( (owner-of 99) == V.1 ) jump &[00000232]
+	if !( R.12 ) jump &[00000138]
+	say-line "\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x89\x29\xFF\x0A\x00\x00I'll need to get^"
+	wait-for-message
+	say-line "\xFF\x0A\x91\x29\xFF\x0A\x00\x00\xFF\x0A\x01\x34\xFF\x0A\x00\x00inside the rocket."
+	jump &[00000229]
+[00000138]:
+	say-line "\xFF\x0A\x92\x5D\xFF\x0A\x00\x00\xFF\x0A\xF3\x4D\xFF\x0A\x00\x00Maybe I should use this key^"
+	wait-for-message
+	say-line "\xFF\x0A\x85\xAB\xFF\x0A\x00\x00\xFF\x0A\x3D\x3D\xFF\x0A\x00\x00to get inside the rocket."
+[00000229]:
+	jump &[00000424]
+[00000232]:
+	if !( (owner-of 99) != V.1 and R.15 ) jump &[00000371]
+	say-line "\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x89\x29\xFF\x0A\x00\x00I'll need to get^"
+	wait-for-message
+	if !( R.13 ) jump &[00000332]
+	say-line "\xFF\x0A\xC2\xE8\xFF\x0A\x00\x00\xFF\x0A\xB8\x36\xFF\x0A\x00\x00a key for the rocket."
+	jump &[00000368]
+[00000332]:
+	say-line "\xFF\x0A\x91\x29\xFF\x0A\x00\x00\xFF\x0A\x01\x34\xFF\x0A\x00\x00inside the rocket."
+[00000368]:
+	jump &[00000424]
+[00000371]:
+	say-line "\xFF\x0A\x7A\x1F\xFF\x0A\x01\x00\xFF\x0A\x37\x50\xFF\x0A\x00\x00I need to find a way back to Earth."
+[00000424]:
+	jump &[00000867]
+[00000427]:
+	if !( (owner-of 99) == V.1 ) jump &[00000646]
+	if !( R.12 ) jump &[00000536]
+	print-line \
+		color 238 \
+		"\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x89\x29\xFF\x0A\x00\x00I'll need to get^"
+
+	wait-for-message
+	print-line \
+		color 238 \
+		"\xFF\x0A\x91\x29\xFF\x0A\x00\x00\xFF\x0A\x01\x34\xFF\x0A\x00\x00inside the rocket."
+
+	jump &[00000643]
+[00000536]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\x92\x5D\xFF\x0A\x00\x00\xFF\x0A\xF3\x4D\xFF\x0A\x00\x00Maybe I should use this key^"
+
+	wait-for-message
+	print-line \
+		color 238 \
+		"\xFF\x0A\x85\xAB\xFF\x0A\x00\x00\xFF\x0A\x3D\x3D\xFF\x0A\x00\x00to get inside the rocket."
+
+[00000643]:
+	jump &[00000867]
+[00000646]:
+	if !( (owner-of 99) != V.1 and R.15 ) jump &[00000806]
+	print-line \
+		color 238 \
+		"\xFF\x0A\x08\x00\xFF\x0A\x00\x00\xFF\x0A\x89\x29\xFF\x0A\x00\x00I need to get^"
+
+	wait-for-message
+	if !( R.13 ) jump &[00000759]
+	print-line \
+		color 238 \
+		"\xFF\x0A\xC2\xE8\xFF\x0A\x00\x00\xFF\x0A\xB8\x36\xFF\x0A\x00\x00a key for the rocket."
+
+	jump &[00000803]
+[00000759]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\x91\x29\xFF\x0A\x00\x00\xFF\x0A\x01\x34\xFF\x0A\x00\x00inside the rocket."
+
+[00000803]:
+	jump &[00000867]
+[00000806]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\x7A\x1F\xFF\x0A\x01\x00\xFF\x0A\x37\x50\xFF\x0A\x00\x00I need to find a way back to Earth."
+
+[00000867]:
+	wait-for-message
+	userput on
+	cursor on
+	end-script
+}
+
+script 5 { ; SCRP LECF_0001\LFLF_0007\SCRP_0005
+local variable L.1
+
+	L.1 = 111
+	verb 67 \
+		on \
+		(end-verb)
+	verb 67 \
+		image 111 in-room 35 \
+		(end-verb)
+	end-script
+}
+
+script 6 { ; SCRP LECF_0001\LFLF_0007\SCRP_0006
+	start-script 43 ( 38, 25, 28 )
+	sleep-for 1 seconds
+	start-script 42 ( 38 )
+	if !( V.4 != 14 ) jump &[00000112]
+	say-line "\xFF\x0A\xB1\x6F\xFF\x0A\x01\x00\xFF\x0A\xE6\x5C\xFF\x0A\x00\x00I guess the radio doesn't work on the Moon."
+	jump &[00000181]
+[00000112]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\xB1\x6F\xFF\x0A\x01\x00\xFF\x0A\xE6\x5C\xFF\x0A\x00\x00I guess the radio doesn't work on the Moon."
+
+[00000181]:
+	wait-for-message
+	end-script
+}
+
+script 7 { ; SCRP LECF_0001\LFLF_0007\SCRP_0007
+local variable L.0
+
+	start-script 41 ( 18, 2 )
+	L.0 = 1
+[00000027]:
+	if !( L.0 <= 7 ) jump &[00000073]
+	verb 77 \
+		image L.0 + 122 in-room 35 \
+		at 112,152 \
+		dim \
+		(end-verb)
+	break-here
+	++L.0
+	jump &[00000027]
+[00000073]:
+	L.0 = 6
+[00000079]:
+	if !( L.0 >= 0 ) jump &[00000125]
+	verb 77 \
+		image L.0 + 122 in-room 35 \
+		at 112,152 \
+		dim \
+		(end-verb)
+	break-here
+	--L.0
+	jump &[00000079]
+[00000125]:
+	end-script
+}
+
+script 8 { ; SCRP LECF_0001\LFLF_0007\SCRP_0008
+	verb 68 \
+		image 115 in-room 35 \
+		(end-verb)
+	if !( V.254 ) jump &[00000042]
+	start-script V.254
+	jump &[00000049]
+[00000042]:
+	start-sound 0
+[00000049]:
+	sleep-for 40 jiffies
+	verb 68 \
+		image 114 in-room 35 \
+		(end-verb)
+	end-script
+}
+
+script 9 { ; SCRP LECF_0001\LFLF_0007\SCRP_0009
+	verb 110 \
+		new \
+		at 184,148 \
+		off \
+		(end-verb)
+	verb 111 \
+		new \
+		at 216,148 \
+		off \
+		(end-verb)
+	verb 112 \
+		new \
+		at 248,148 \
+		off \
+		(end-verb)
+	verb 113 \
+		new \
+		at 184,174 \
+		off \
+		(end-verb)
+	verb 114 \
+		new \
+		at 216,174 \
+		off \
+		(end-verb)
+	verb 115 \
+		new \
+		at 248,174 \
+		off \
+		(end-verb)
+	verb 116 \
+		new \
+		at 280,176 \
+		off \
+		(end-verb)
+	verb 117 \
+		new \
+		at 184,174 + 8 \
+		off \
+		(end-verb)
+	end-script
+}
+
+script 10 { ; SCRP LECF_0001\LFLF_0007\SCRP_0010
+local variable L.1
+
+	if !( V.240 == 1 ) jump &[00000339]
+	V.230[0] = 0
+	L.1 = 104
+	verb 110 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	if !( (owner-of 60) == V.1 and V.248 != 60 ) jump &[00000094]
+	V.230[1] = 60
+	L.1 = start-object rec 60 verb 91
+	jump &[00000109]
+[00000094]:
+	V.230[1] = 0
+	L.1 = 105
+[00000109]:
+	verb 111 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	V.230[2] = 0
+	L.1 = 106
+	verb 112 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	verb 117 \
+		off \
+		(end-verb)
+	V.230[3] = 0
+	L.1 = 107
+	verb 113 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	if !( (owner-of 99) == V.1 and V.248 != 99 ) jump &[00000243]
+	V.230[4] = 99
+	L.1 = start-object rec 99 verb 91
+	jump &[00000258]
+[00000243]:
+	V.230[4] = 0
+	L.1 = 108
+[00000258]:
+	verb 114 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	V.230[5] = 0
+	L.1 = 109
+	verb 115 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+	V.230[6] = 0
+	L.1 = 110
+	verb 116 \
+		image L.1 in-room 35 \
+		on \
+		(end-verb)
+[00000339]:
+	end-script
+}
+
+; Say "Can't Talk"
+script 11 { ; SCRP LECF_0001\LFLF_0007\SCRP_0011
+	print-line \
+		"He can't talk to you. The SCUMM DIETY."
+
+	end-script
+}
+
+script 12 { ; SCRP LECF_0001\LFLF_0007\SCRP_0012
+local variable L.0
+local variable L.2
+local variable L.3
+local variable L.4
+
+[00000008]:
+	if !( V.52 > 0 ) jump &[00001155]
+	L.0 = 0
+	if !( V.45 < V.246[V.44] ) jump &[00000166]
+	if !( V.45 < V.54 ) jump &[00000091]
+	L.0 = find-object V.20,V.21
+	if ( !R.9 ) {
+		if ( L.0 == V.242 or L.0 == V.241 ) {
+			L.0 = 0
+		}
+	}
+	jump &[00000166]
+[00000091]:
+	if !( V.44 <= V.244[V.45 - V.54] ) jump &[00000130]
+	if ( class-of V.241 is 32 ) {
+		L.0 = V.241
+	}
+	jump &[00000166]
+[00000130]:
+	if ( V.44 >= V.245[V.45 - V.54] ) {
+		if ( class-of V.242 is 32 ) {
+			L.0 = V.242
+		}
+	}
+[00000166]:
+	if !( L.0 != V.160 ) jump &[00000884]
+	if !( V.160 > 0 ) jump &[00000364]
+	if !( (class-of V.160 is 137) or (class-of V.160 is 138) ) jump &[00000213]
+	jump &[00000291]
+[00000213]:
+	if !( (class-of V.160 is 139) or (class-of V.160 is 140) ) jump &[00000240]
+	jump &[00000291]
+[00000240]:
+	if !( (class-of V.160 is 141) or (class-of V.160 is 142) ) jump &[00000267]
+	jump &[00000291]
+[00000267]:
+	if !( (class-of V.160 is 143) or (class-of V.160 is 144) ) jump &[00000364]
+[00000291]:
+	if !( V.151 > 0 ) jump &[00000340]
+	V.154 = V.151
+	V.151 = 0
+	V.155 = V.152
+	V.152 = 0
+	V.156 = V.153
+	V.153 = 0
+	jump &[00000358]
+[00000340]:
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+[00000358]:
+	L.3 = 1
+[00000364]:
+	V.160 = L.0
+	V.7 = L.0
+	if !( L.0 ) jump &[00000884]
+	if !( (class-of L.0 is 139) or (class-of L.0 is 143) ) jump &[00000409]
+	jump &[00000487]
+[00000409]:
+	if !( (class-of L.0 is 141) or (class-of L.0 is 137) ) jump &[00000436]
+	jump &[00000487]
+[00000436]:
+	if !( (class-of L.0 is 142) or (class-of L.0 is 140) ) jump &[00000463]
+	jump &[00000487]
+[00000463]:
+	if !( (class-of L.0 is 138) or (class-of L.0 is 144) ) jump &[00000789]
+[00000487]:
+	V.151 = V.154
+	V.152 = V.155
+	V.153 = V.156
+	if !( class-of L.0 is 139 ) jump &[00000539]
+	V.154 = 149
+	V.155 = 24
+	V.156 = 16
+	jump &[00000777]
+[00000539]:
+	if !( class-of L.0 is 143 ) jump &[00000573]
+	V.154 = 153
+	V.155 = 5
+	V.156 = 17
+	jump &[00000777]
+[00000573]:
+	if !( class-of L.0 is 137 ) jump &[00000607]
+	V.154 = 147
+	V.155 = 15
+	V.156 = 7
+	jump &[00000777]
+[00000607]:
+	if !( class-of L.0 is 141 ) jump &[00000641]
+	V.154 = 151
+	V.155 = 17
+	V.156 = 23
+	jump &[00000777]
+[00000641]:
+	if !( class-of L.0 is 138 ) jump &[00000675]
+	V.154 = 148
+	V.155 = 22
+	V.156 = 5
+	jump &[00000777]
+[00000675]:
+	if !( class-of L.0 is 140 ) jump &[00000709]
+	V.154 = 150
+	V.155 = 26
+	V.156 = 25
+	jump &[00000777]
+[00000709]:
+	if !( class-of L.0 is 142 ) jump &[00000743]
+	V.154 = 152
+	V.155 = 6
+	V.156 = 23
+	jump &[00000777]
+[00000743]:
+	if !( class-of L.0 is 144 ) jump &[00000777]
+	V.154 = 154
+	V.155 = 8
+	V.156 = 5
+	jump &[00000777]
+[00000777]:
+	L.3 = 1
+	jump &[00000884]
+	jump &[00000826]
+[00000789]:
+	if ( (class-of L.0 is 8) and (class-of L.0 is 18) ) {
+		start-script bak 13 ( L.0 )
+	}
+[00000826]:
+	if ( V.154 in [ 149, 153, 147, 151, 148, 154, 150, 152 ] ) {
+		V.154 = 146
+		V.155 = 16
+		V.156 = 16
+		L.3 = 1
+	}
+[00000884]:
+	if !( V.41 > 320 ) jump &[00001106]
+	if !( class-of L.0 is 145 ) jump &[00001063]
+	if !( V.44 < 24 and V.2 > V.257 + 8 ) jump &[00000980]
+	if ( L.2 != 153 ) {
+		if ( L.4 != 153 ) {
+			cursor hotspot 5 17
+			cursor 153 image 37
+		}
+		L.2 = 153
+		L.3 = 0
+	}
+	jump &[00001060]
+[00000980]:
+	if !( V.44 > 295 and V.2 < V.41 - V.258 - 8 ) jump &[00001057]
+	if ( L.2 != 149 ) {
+		if ( L.4 != 149 ) {
+			cursor hotspot 24 16
+			cursor 149 image 37
+		}
+		L.2 = 149
+		L.3 = 0
+	}
+	jump &[00001060]
+[00001057]:
+	jump &[00001063]
+[00001060]:
+	jump &[00001106]
+[00001063]:
+	if !( L.2 ) jump &[00001100]
+	if !( L.2 == V.154 ) jump &[00001088]
+	L.4 = L.2
+	jump &[00001094]
+[00001088]:
+	L.4 = 0
+[00001094]:
+	L.3 = 1
+[00001100]:
+	L.2 = 0
+[00001106]:
+	if ( L.3 ) {
+		if ( L.4 != V.154 and (!V.248) ) {
+			L.4 = V.154
+			cursor hotspot V.155 V.156
+			cursor V.154 image 37
+		}
+		L.3 = 0
+	}
+[00001155]:
+	break-here
+	jump &[00000008]
+	end-script
+}
+
+script 13 { ; SCRP LECF_0001\LFLF_0007\SCRP_0013
+local variable L.0
+local variable L.1
+
+[00000008]:
+	palette 255 208 12 in-slot 254
+	break-here
+	palette 255 169 9 in-slot 254
+	break-here
+	palette 255 130 6 in-slot 254
+	break-here
+	palette 255 169 9 in-slot 254
+	break-here
+	palette 255 208 12 in-slot 254
+	break-here
+	palette 255 247 15 in-slot 254
+	break-here
+	if !( V.45 < V.246[V.44] ) jump &[00000240]
+	if !( V.45 < V.54 ) jump &[00000165]
+	L.1 = find-object V.20,V.21
+	if ( !R.9 ) {
+		if ( L.1 == V.242 or L.1 == V.241 ) {
+			L.1 = 0
+		}
+	}
+	jump &[00000240]
+[00000165]:
+	if !( V.44 <= V.244[V.45 - V.54] ) jump &[00000204]
+	if ( class-of V.241 is 32 ) {
+		L.1 = V.241
+	}
+	jump &[00000240]
+[00000204]:
+	if ( V.44 >= V.245[V.45 - V.54] ) {
+		if ( class-of V.242 is 32 ) {
+			L.1 = V.242
+		}
+	}
+[00000240]:
+	if !( L.1 != L.0 or (class-of L.0 is 136) or (class-of L.0 is 146) ) jump &[00000008]
+	end-script
+}
+
+script 14 { ; SCRP LECF_0001\LFLF_0007\SCRP_0014
+local variable L.0
+local variable L.1
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+
+	if !( L.0 == 4 ) jump &[00001229]
+	if !( V.39 > 1 ) jump &[00000512]
+	if !( L.1 == 114 ) jump &[00000071]
+	if !( (actor-facing V.1) == 0 ) jump &[00000061]
+	do-animation V.1 249
+	jump &[00000068]
+[00000061]:
+	do-animation V.1 248
+[00000068]:
+	jump &[00000512]
+[00000071]:
+	if !( L.1 == 102 ) jump &[00000090]
+	do-animation V.1 250
+	jump &[00000512]
+[00000090]:
+	if !( L.1 == 98 ) jump &[00000109]
+	do-animation V.1 251
+	jump &[00000512]
+[00000109]:
+	if !( L.1 == 112 ) jump &[00000175]
+	if !( V.243 ) jump &[00000149]
+	print-debug \
+		"Pasters on."
+
+	V.243 = 0
+	jump &[00000172]
+[00000149]:
+	print-debug \
+		"Pasters off."
+
+	V.243 = 1
+[00000172]:
+	jump &[00000512]
+[00000175]:
+	if !( L.1 == 119 ) jump &[00000194]
+	start-script 17
+	jump &[00000512]
+[00000194]:
+	if !( L.1 == 315 ) jump &[00000350]
+	V.6 = V.6 + 1
+	if ( V.6 > 2 ) {
+		V.6 = 0
+	}
+	if !( V.6 == 0 ) jump &[00000266]
+	print-system \
+		"Molasses machine."
+
+	jump &[00000347]
+[00000266]:
+	if !( V.6 == 1 ) jump &[00000304]
+	print-system \
+		"Street legal machine."
+
+	jump &[00000347]
+[00000304]:
+	if !( V.6 == 2 ) jump &[00000346]
+	print-system \
+		"Trans-warp drive machine."
+
+	jump &[00000347]
+[00000347]:
+	jump &[00000512]
+[00000350]:
+	if !( V.6 == 49 ) jump &[00000448]
+	L.4 = V.1 + 1
+[00000369]:
+	if ( L.4 > 12 ) {
+		L.4 = 1
+	}
+	if !( (actor-room L.4) == V.4 ) jump &[00000432]
+	V.1 = L.4
+	print-debug \
+		"Selected actor is %n1%"
+
+	jump &[00000435]
+[00000432]:
+	++L.4
+[00000435]:
+	if !( L.4 == V.1 ) jump &[00000369]
+	jump &[00000512]
+[00000448]:
+	if !( V.6 == 48 ) jump &[00000499]
+	if !( script-running 31 ) jump &[00000489]
+	stop-script 31
+	start-script 22 ( 1 )
+	cursor on
+	userput on
+	camera-follow V.1
+	jump &[00000496]
+[00000489]:
+	start-script 31
+[00000496]:
+	jump &[00000512]
+[00000499]:
+	if !( V.6 == 27 ) jump &[00000511]
+	jump &[00000512]
+[00000512]:
+	if !( L.1 == 83 ) jump &[00000527]
+	jump &[00001225]
+[00000527]:
+	if !( L.1 == 84 ) jump &[00000542]
+	jump &[00000551]
+	jump &[00001225]
+[00000542]:
+	if !( L.1 == 116 ) jump &[00000622]
+[00000551]:
+	if !( V.60 ) jump &[00000589]
+	V.60 = 0
+	print-system \
+		"Text display is ON"
+
+	jump &[00000619]
+[00000589]:
+	V.60 = 1
+	print-system \
+		"Text display is OFF"
+
+[00000619]:
+	jump &[00001225]
+[00000622]:
+	if !( L.1 == 77 ) jump &[00000637]
+	jump &[00000646]
+	jump &[00001225]
+[00000637]:
+	if !( L.1 == 109 ) jump &[00000769]
+[00000646]:
+	if !( V.64 ) jump &[00000735]
+	if !( V.252 ) jump &[00000696]
+	V.252 = 0
+	print-system \
+		"Music is ON"
+
+	start-script 39 ( 1 )
+	jump &[00000732]
+[00000696]:
+	V.252 = 1
+	start-script 39 ( 0 )
+	print-system \
+		"Music is OFF"
+
+[00000732]:
+	jump &[00000766]
+[00000735]:
+	print-system \
+		"No music driver installed."
+
+[00000766]:
+	jump &[00001225]
+[00000769]:
+	if !( L.1 == 22 ) jump &[00000790]
+	print-system \
+		"%s207%"
+
+	jump &[00001225]
+[00000790]:
+	if !( L.1 == 113 ) jump &[00000805]
+	jump &[00000814]
+	jump &[00001225]
+[00000805]:
+	if !( L.1 == 63 ) jump &[00001212]
+[00000814]:
+	print-system \
+		"%s207%"
+
+	print-system \
+		"Main Memory size %n40%K"
+
+	print-system \
+		"EMS Memory size %n76%K"
+
+	if !( V.60 ) jump &[00000905]
+	print-system \
+		"Text Dialog OFF"
+
+	jump &[00000924]
+[00000905]:
+	print-system \
+		"Text Dialog ON"
+
+[00000924]:
+	if !( V.252 ) jump &[00000950]
+	print-system \
+		"Music is OFF"
+
+	jump &[00000966]
+[00000950]:
+	print-system \
+		"Music is ON"
+
+[00000966]:
+	print-system \
+		"Game is FUN"
+
+	if !( V.64 ) jump &[00001036]
+	print-system \
+		"Midi Sound Driver Installed with id %n64%"
+
+	jump &[00001071]
+[00001036]:
+	print-system \
+		"No Midi Sound Driver Installed"
+
+[00001071]:
+	if !( V.65 ) jump &[00001128]
+	print-system \
+		"Digital Sound Driver Installed with id %n65%"
+
+	jump &[00001166]
+[00001128]:
+	print-system \
+		"No Digital Sound Driver Installed"
+
+[00001166]:
+	print-system \
+		"Video Speed %n69%"
+
+	print-system \
+		"Memory Speed %n68%"
+
+	jump &[00001225]
+[00001212]:
+	if ( L.1 ) {
+		L.0 = 1
+	}
+[00001225]:
+	stop-script 0
+[00001229]:
+	V.130 = V.20
+	L.6 = V.130 - V.2 - 160
+	if !( V.21 < 0 ) jump &[00001268]
+	V.131 = V.45
+	jump &[00001274]
+[00001268]:
+	V.131 = V.21
+[00001274]:
+	if !( !V.142 ) jump &[00001989]
+	if !( L.0 == 2 ) jump &[00001452]
+	if !( V.131 < V.246[L.6] ) jump &[00001449]
+	V.132 = find-actor V.130,V.131
+	if ( V.132 ) {
+		if ( V.132 != V.1 ) {
+			if ( V.235[V.132] ) {
+				chain-script [2] V.235[V.132] ( V.132 )
+			}
+		}
+	}
+	V.142 = find-object V.20,V.21
+	if !( (!V.142) or (class-of V.142 is 145) ) jump &[00001418]
+	if ( (find-actor V.130,V.131) == 1 ) {
+		start-script 4
+		start-script 17
+		stop-script 0
+	}
+	jump &[00001449]
+[00001418]:
+	if ( !R.9 ) {
+		if ( V.142 == V.242 or V.142 == V.241 ) {
+			V.142 = 0
+		}
+	}
+[00001449]:
+	jump &[00001794]
+[00001452]:
+	if !( L.0 != 4 ) jump &[00001794]
+	V.132 = find-verb L.6,V.131
+	if !( V.132 == 68 ) jump &[00001495]
+	start-script 8
+	jump &[00001523]
+[00001495]:
+	if ( V.132 == 67 ) {
+		if ( !script-running 6 ) {
+			start-script 6
+		}
+	}
+[00001523]:
+	if !( V.132 >= 110 and V.132 <= 117 ) jump &[00001579]
+	L.3 = V.132 - 110
+	L.5 = V.230[L.3]
+	if ( L.5 > 0 ) {
+		V.142 = L.5
+	}
+	jump &[00001794]
+[00001579]:
+	if !( V.131 < V.246[L.6] ) jump &[00001656]
+	if !( V.132 == 70 ) jump &[00001624]
+	if ( class-of V.242 is 32 ) {
+		V.142 = V.242
+	}
+	jump &[00001653]
+[00001624]:
+	if ( V.132 == 69 ) {
+		if ( class-of V.241 is 32 ) {
+			V.142 = V.241
+		}
+	}
+[00001653]:
+	jump &[00001794]
+[00001656]:
+	if !( V.132 == 66 ) jump &[00001687]
+	if ( !script-running 7 ) {
+		chain-script [0] 7
+	}
+	jump &[00001794]
+[00001687]:
+	if !( V.132 == 71 ) jump &[00001794]
+	if !( V.4 != 14 ) jump &[00001748]
+	say-line "\xFF\x0A\x97\xCC\xFF\x0A\x01\x00\xFF\x0A\xC9\x32\xFF\x0A\x00\x00That's my gas gauge."
+	jump &[00001794]
+[00001748]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\x97\xCC\xFF\x0A\x01\x00\xFF\x0A\xC9\x32\xFF\x0A\x00\x00That's my gas gauge."
+
+[00001794]:
+	if !( !V.142 ) jump &[00001821]
+	if ( L.0 == 2 ) {
+		start-script 17
+	}
+	jump &[00001986]
+[00001821]:
+	if !( (class-of V.142 is 129) and (owner-of V.142) == V.1 ) jump &[00001931]
+	V.248 = V.142
+	V.154 = start-object rec V.142 verb 92
+	if !( V.154 >= 146 ) jump &[00001887]
+	V.155 = 16
+	V.156 = 16
+	jump &[00001905]
+[00001887]:
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+[00001905]:
+	cursor hotspot V.155 V.156
+	cursor V.154 image 37
+	start-script 10
+	jump &[00001986]
+[00001931]:
+	if !( class-of V.142 is 132 ) jump &[00001963]
+	start-script rec V.33 ( 7, V.142 )
+	jump &[00001979]
+[00001963]:
+	start-script V.33 ( 7, V.142 )
+[00001979]:
+	start-script 17
+[00001986]:
+	jump &[00002263]
+[00001989]:
+	if !( L.0 == 2 ) jump &[00002043]
+	V.143 = find-object V.20,V.21
+	if ( !R.9 ) {
+		if ( V.143 == V.242 or V.143 == V.241 ) {
+			V.143 = 0
+		}
+	}
+	jump &[00002133]
+[00002043]:
+	V.132 = find-verb L.6,V.131
+	if !( V.132 == 70 or V.132 == 69 ) jump &[00002133]
+	if !( V.131 < V.246[L.6] ) jump &[00002133]
+	if !( L.6 <= V.244[V.131 - V.54] ) jump &[00002110]
+	V.143 = V.241
+	jump &[00002133]
+[00002110]:
+	if ( L.6 >= V.245[V.131 - V.54] ) {
+		V.143 = V.242
+	}
+[00002133]:
+	if !( !V.143 ) jump &[00002172]
+	if ( L.0 == 2 ) {
+		start-script V.33 ( 2, V.142, 0 )
+	}
+	jump &[00002191]
+[00002172]:
+	start-script V.33 ( 2, V.142, V.143 )
+[00002191]:
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+	V.151 = 0
+	V.152 = 0
+	V.153 = 0
+	cursor hotspot V.155 V.156
+	cursor V.154 image 37
+	V.248 = 0
+	start-script 10
+	start-script 17
+[00002263]:
+	end-script
+}
+
+script 15 { ; SCRP LECF_0001\LFLF_0007\SCRP_0015
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.5
+local variable L.6
+
+	V.7 = L.1
+	L.3 = V.1
+	if !( L.2 ) jump &[00000055]
+	L.5 = class-of L.2 is 32
+	L.6 = class-of L.2 is 18
+	jump &[00000081]
+[00000055]:
+	L.5 = class-of L.1 is 32
+	L.6 = class-of L.1 is 18
+[00000081]:
+	if !( L.0 == 9 ) jump &[00000162]
+	if ( script-running 20 ) {
+		do {
+			if ( !script-running 20 ) jump &[00000112]
+			break-here
+		}
+	}
+	V.253 = 1
+	start-script 20 ( L.1 )
+	do {
+		if ( !script-running 20 ) jump &[00000143]
+		break-here
+	}
+[00000143]:
+	V.253 = 0
+	walk L.3 to L.1,L.2
+	jump &[00000923]
+[00000162]:
+	if !( L.0 == 7 ) jump &[00000715]
+	if !( !class-of L.1 is 146 ) jump &[00000712]
+	if !( (owner-of L.1) != L.3 ) jump &[00000606]
+	if !( class-of L.1 is 132 ) jump &[00000282]
+	if !( (!class-of L.1 is 6) and (!actor-moving L.3) and (!V.253) ) jump &[00000279]
+	if !( !script-running 20 ) jump &[00000279]
+	V.253 = 1
+	start-script 20 ( V.130 )
+	do {
+		if ( !script-running 20 ) jump &[00000273]
+		break-here
+	}
+[00000273]:
+	V.253 = 0
+[00000279]:
+	jump &[00000606]
+[00000282]:
+	if !( class-of L.1 is 133 ) jump &[00000358]
+	if ( script-running 20 ) {
+		do {
+			if ( !script-running 20 ) jump &[00000314]
+			break-here
+		}
+	}
+	V.253 = 1
+	start-script 20 ( V.130 )
+	do {
+		if ( !script-running 20 ) jump &[00000345]
+		break-here
+	}
+[00000345]:
+	walk L.3 to V.130,V.131
+	jump &[00000431]
+[00000358]:
+	if ( script-running 20 ) {
+		do {
+			if ( !script-running 20 ) jump &[00000377]
+			break-here
+		}
+	}
+	if ( (object-x L.3) != (object-x L.1) ) {
+		V.253 = 1
+		start-script 20 ( object-x L.1 )
+		do {
+			if ( !script-running 20 ) jump &[00000421]
+			break-here
+		}
+	}
+	walk L.3 to-object L.1 within 0
+[00000431]:
+	wait-for-actor L.3 [ref &[00000431]]
+	if !( (!class-of L.1 is 145) and (!class-of L.1 is 6) ) jump &[00000600]
+	V.132 = actor-facing L.1
+	if !( V.132 != (actor-facing L.3) ) jump &[00000600]
+	if !( V.132 == 0 ) jump &[00000542]
+	if ( script-running 20 ) {
+		do {
+			if ( !script-running 20 ) jump &[00000511]
+			break-here
+		}
+	}
+	start-script 20 ( 0, 0 )
+	do {
+		if ( !script-running 20 ) jump &[00000539]
+		break-here
+	}
+[00000539]:
+	jump &[00000600]
+[00000542]:
+	if ( (actor-facing L.3) == 0 ) {
+		if ( script-running 20 ) {
+			do {
+				if ( !script-running 20 ) jump &[00000572]
+				break-here
+			}
+		}
+		start-script 20 ( 0, 1 )
+		do {
+			if ( !script-running 20 ) jump &[00000600]
+			break-here
+		}
+	}
+[00000600]:
+	V.253 = 0
+[00000606]:
+	V.7 = L.1
+	if !( valid-verb L.1 7 ) jump &[00000712]
+	if !( (!L.5) or (class-of L.1 is 32) ) jump &[00000712]
+	if !( (!L.6) or (class-of L.1 is 18) ) jump &[00000712]
+	if !( class-of L.1 is 135 ) jump &[00000693]
+	start-object [2] L.1 verb L.0 ( L.2, L.0 )
+	jump &[00000712]
+[00000693]:
+	start-object [0] L.1 verb L.0 ( L.2, L.0 )
+[00000712]:
+	jump &[00000923]
+[00000715]:
+	if !( L.0 == 2 ) jump &[00000922]
+	V.7 = L.1
+	if !( L.2 ) jump &[00000829]
+	if !( (!L.5) or (class-of L.2 is 32) ) jump &[00000826]
+	if !( (!L.6) or (class-of L.2 is 18) ) jump &[00000826]
+	if !( class-of L.1 is 135 ) jump &[00000807]
+	start-object [2] L.1 verb L.0 ( L.2, L.0 )
+	jump &[00000826]
+[00000807]:
+	start-object [0] L.1 verb L.0 ( L.2, L.0 )
+[00000826]:
+	jump &[00000919]
+[00000829]:
+	if !( (!L.5) or (class-of L.1 is 32) ) jump &[00000919]
+	if !( (!L.6) or (class-of L.1 is 18) ) jump &[00000919]
+	if !( class-of L.1 is 135 ) jump &[00000900]
+	start-object [2] L.1 verb L.0 ( 0, L.0 )
+	jump &[00000919]
+[00000900]:
+	start-object [0] L.1 verb L.0 ( 0, L.0 )
+[00000919]:
+	jump &[00000923]
+[00000923]:
+	V.7 = L.1
+	end-script
+}
+
+script 16 { ; SCRP LECF_0001\LFLF_0007\SCRP_0016
+local variable L.0
+local variable L.1
+local variable L.2
+
+	stop-script 4
+	stop-script 6
+	stop-talking
+	V.32 = V.250
+	start-script V.32 ( L.0, L.1, L.2 )
+	end-script
+}
+
+script 17 { ; SCRP LECF_0001\LFLF_0007\SCRP_0017
+	V.141 = V.145
+	V.142 = 0
+	V.143 = 0
+	V.144 = 0
+	V.137 = 0
+	V.138 = 0
+	end-script
+}
+
+script 18 { ; SCRP LECF_0001\LFLF_0007\SCRP_0018
+local variable L.0
+
+	if ( !L.0 ) {
+		L.0 = V.141
+	}
+	if !( L.0 == 7 ) jump &[00000036]
+	jump &[00000188]
+[00000036]:
+	if !( L.0 == 6 ) jump &[00000048]
+	jump &[00000188]
+[00000048]:
+	if !( V.4 != 14 ) jump &[00000121]
+	say-line "\xFF\x0A\x60\xFF\xFF\x0A\x01\x00\xFF\x0A\xE7\x56\xFF\x0A\x00\x00I don't think you could use it like that."
+	jump &[00000188]
+[00000121]:
+	print-line \
+		color 238 \
+		"\xFF\x0A\x60\xFF\xFF\x0A\x01\x00\xFF\x0A\xE7\x56\xFF\x0A\x00\x00I don't think you could use it like that."
+
+[00000188]:
+	stop-sentence
+	if ( V.33 != 15 ) {
+		stop-script 15
+	}
+	start-script 17
+	end-script
+}
+
+script 19 { ; SCRP LECF_0001\LFLF_0007\SCRP_0019
+	if ( V.2 ) {
+		draw-object 140 at (V.2 - 120) / 8,(V.54 - 16) / 8
+		draw-object 141 at (V.2 - 88) / 8,(V.54 - 8) / 8
+	}
+	if ( V.241 ) {
+		verb 69 \
+			image V.241 in-room V.4 \
+			at 0,144 \
+			on \
+			(end-verb)
+	}
+	if ( V.242 ) {
+		verb 70 \
+			image V.242 in-room V.4 \
+			at 288,144 \
+			on \
+			(end-verb)
+	}
+	if ( !V.243 ) {
+		verb 75 \
+			image 144 in-room 36 \
+			at 0,144 \
+			dim \
+			(end-verb)
+		verb 76 \
+			image 145 in-room 36 \
+			at 288,144 \
+			dim \
+			(end-verb)
+	}
+	end-script
+}
+
+script 20 { ; SCRP LECF_0001\LFLF_0007\SCRP_0020
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+	if ( V.1 != 1 ) {
+		stop-script 0
+	}
+	if ( (actor-costume V.1) != 4 ) {
+		stop-script 0
+	}
+	L.3 = actor-facing V.1
+	if !( L.1 ) jump &[00000126]
+	if !( L.1 == 2 ) jump &[00000067]
+	stop-script 0
+	jump &[00000126]
+[00000067]:
+	if !( L.1 == 0 ) jump &[00000103]
+	if !( L.3 == 0 ) jump &[00000094]
+	stop-script 0
+	jump &[00000100]
+[00000094]:
+	L.2 = 248
+[00000100]:
+	jump &[00000126]
+[00000103]:
+	if !( L.3 != 0 ) jump &[00000120]
+	stop-script 0
+	jump &[00000126]
+[00000120]:
+	L.2 = 249
+[00000126]:
+	if ( (object-x V.1) < L.0 and L.3 == 0 ) {
+		L.2 = 249
+	}
+	if ( (object-x V.1) > L.0 and L.3 != 0 ) {
+		L.2 = 248
+	}
+	if ( L.2 ) {
+		userput soft-off
+		do-animation V.1 255
+		R.6 = 1
+		do-animation V.1 6
+		break-here 3 times
+		do-animation V.1 L.2
+		do-animation V.1 7
+		break-here 3 times
+		R.6 = 0
+		do-animation V.1 3
+		userput soft-on
+	}
+	end-script
+}
+
+script 21 { ; SCRP LECF_0001\LFLF_0007\SCRP_0021
+	verb 63 \
+		image 136 in-room 35 \
+		at 0,144 \
+		dim \
+		(end-verb)
+	verb 73 \
+		image 117 in-room 35 \
+		at 40,144 \
+		dim \
+		(end-verb)
+	verb 74 \
+		image 118 in-room 35 \
+		at 24,160 \
+		dim \
+		(end-verb)
+	verb 64 \
+		image 112 in-room 35 \
+		at 152,149 \
+		dim \
+		(end-verb)
+	verb 65 \
+		image 113 in-room 35 \
+		at 280,149 \
+		dim \
+		(end-verb)
+	verb 67 \
+		image 111 in-room 35 \
+		at 88,176 \
+		on \
+		(end-verb)
+	verb 68 \
+		image 114 in-room 35 \
+		at 48,160 \
+		on \
+		(end-verb)
+	verb 71 \
+		image 119 in-room 35 \
+		at 0,162 \
+		on \
+		(end-verb)
+	verb 72 \
+		image 116 in-room 35 \
+		at 8,168 \
+		dim \
+		(end-verb)
+	verb 66 \
+		image 120 in-room 35 \
+		at 96,144 \
+		on \
+		(end-verb)
+	verb 77 \
+		image 122 in-room 35 \
+		at 112,152 \
+		dim \
+		(end-verb)
+	if !( V.27 ) jump &[00000302]
+	start-script V.27
+	jump &[00000312]
+[00000302]:
+	start-script 19
+[00000312]:
+	start-script 10
+	end-script
+}
+
+script 22 { ; SCRP LECF_0001\LFLF_0007\SCRP_0022
+local variable L.0
+
+	V.240 = L.0
+	if !( V.240 == 1 ) jump &[00000052]
+	V.160 = -1
+	start-script 21
+	start-script 12
+	jump &[00000159]
+[00000052]:
+	if !( V.240 == 120 ) jump &[00000070]
+	V.160 = -1
+	jump &[00000159]
+[00000070]:
+	if !( V.240 == 0 ) jump &[00000158]
+	V.132 = 110
+[00000085]:
+	if !( V.132 <= 117 ) jump &[00000110]
+	verb V.132 \
+		off \
+		(end-verb)
+	++V.132
+	jump &[00000085]
+[00000110]:
+	state-of 140 is 0
+	state-of 141 is 0
+	V.132 = 63
+[00000130]:
+	if !( V.132 <= 77 ) jump &[00000155]
+	verb V.132 \
+		off \
+		(end-verb)
+	++V.132
+	jump &[00000130]
+[00000155]:
+	jump &[00000159]
+[00000159]:
+	end-script
+}
+
+; Input Off
+script 23 { ; SCRP LECF_0001\LFLF_0007\SCRP_0023
+	print-debug \
+		"DON'T USE CUT-SCENES."
+
+	V.203 = V.203 + 1
+	cursor soft-off
+	userput soft-off
+	end-script
+}
+
+; Input On
+script 24 { ; SCRP LECF_0001\LFLF_0007\SCRP_0024
+	V.203 = V.203 - 1
+	cursor soft-on
+	userput soft-on
+	end-script
+}
+
+script 25 { ; SCRP LECF_0001\LFLF_0007\SCRP_0025
+local variable L.1
+local variable L.2
+
+	V.165 = 0
+	V.166 = 0
+	V.167 = 0
+	V.168 = 0
+	V.169 = 0
+	V.170 = 0
+	V.171 = 0
+	V.172 = 0
+	V.173 = 0
+	V.174 = 0
+	V.175 = 0
+	V.176 = 0
+	V.177 = 0
+	V.178 = 0
+	V.179 = 0
+	V.180 = 0
+	V.181 = 0
+	V.182 = 0
+	V.183 = 0
+	V.184 = 0
+	V.185 = 0
+	V.186 = 0
+	V.187 = 0
+	V.188 = 0
+	V.189 = 0
+	V.190 = 0
+	V.191 = 0
+	V.192 = 0
+	V.193 = 0
+	V.194 = 0
+	V.195 = 0
+	L.1 = find-all-objects V.4
+	if !( L.1[0] > 0 ) jump &[00000252]
+	L.2 = 1
+[00000220]:
+	if !( L.2 <= L.1[0] ) jump &[00000252]
+	class-of L.1[L.2] is 18
+	++L.2
+	jump &[00000220]
+[00000252]:
+	undim L.1
+	V.254 = 0
+	V.255 = 0
+	R.9 = 0
+	V.248 = 0
+	V.151 = 0
+	V.152 = 0
+	V.153 = 0
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+	cursor hotspot V.155 V.156
+	cursor V.154 image 37
+	start-script 12
+	load-object 140 in-room 36
+	load-object 141 in-room 36
+	if ( V.240 != 0 ) {
+		set-screen 0 to 144
+		start-script 21
+	}
+	put-actor 2 at 0,0 in-room 0
+	put-actor 3 at 0,0 in-room 0
+	put-actor 4 at 0,0 in-room 0
+	put-actor 5 at 0,0 in-room 0
+	put-actor 6 at 0,0 in-room 0
+	put-actor 7 at 0,0 in-room 0
+	put-actor 8 at 0,0 in-room 0
+	put-actor 9 at 0,0 in-room 0
+	put-actor 10 at 0,0 in-room 0
+	put-actor 11 at 0,0 in-room 0
+	put-actor 12 at 0,0 in-room 0
+	V.257 = 160
+	V.258 = V.41 - 160
+	actor V.1 \
+		costume 4 \
+	start-script 32 ( 246, 247, 248 )
+	end-script
+}
+
+script 26 { ; SCRP LECF_0001\LFLF_0007\SCRP_0026
+	start-script 17
+	V.147 = V.38
+	if ( V.240 != 0 and V.54 < 200 and (!V.27) ) {
+		V.27 = 19
+	}
+	if ( V.27 and V.54 != 200 ) {
+		start-script V.27
+	}
+	stop-sentence
+	end-script
+}
+
+script 27 { ; SCRP LECF_0001\LFLF_0007\SCRP_0027
+	V.27 = 0
+	camera-at V.2
+	actor V.1 \
+		costume 0 \
+	stop-script 41
+	stop-script 20
+	if ( script-running 7 ) {
+		stop-script 7
+		stop-sound 18
+		verb 66 \
+			image 120 in-room 35 \
+			at 96,144 \
+			on \
+			(end-verb)
+		verb 77 \
+			image 122 in-room 35 \
+			at 112,152 \
+			dim \
+			(end-verb)
+	}
+	R.6 = 0
+	put-actor 2 at 0,0 in-room 0
+	put-actor 3 at 0,0 in-room 0
+	put-actor 4 at 0,0 in-room 0
+	put-actor 5 at 0,0 in-room 0
+	put-actor 6 at 0,0 in-room 0
+	put-actor 7 at 0,0 in-room 0
+	put-actor 8 at 0,0 in-room 0
+	put-actor 9 at 0,0 in-room 0
+	put-actor 10 at 0,0 in-room 0
+	put-actor 11 at 0,0 in-room 0
+	put-actor 12 at 0,0 in-room 0
+	if ( V.32 == 16 ) {
+		stop-script 4
+		stop-script 6
+		stop-talking
+		V.32 = V.250
+	}
+	stop-talking
+	if ( V.54 < 200 ) {
+		load-object 121 in-room 35
+		draw-object 121 at (V.2 - 160) / 8,(V.54 - 16) / 8
+		draw-object 140 at (V.2 - 120) / 8,(V.54 - 16) / 8
+		draw-object 141 at (V.2 - 88) / 8,(V.54 - 8) / 8
+		verb 69 \
+			image 142 in-room 36 \
+			(end-verb)
+		verb 70 \
+			image 143 in-room 36 \
+			(end-verb)
+		palette intensity 0 in-slot 16 to 191
+	}
+	end-script
+}
+
+script 28 { ; SCRP LECF_0001\LFLF_0007\SCRP_0028
+	V.241 = 0
+	V.242 = 0
+	V.135 = V.4
+	print-line \
+		color 15 \
+		at 160,8 \
+		center \
+		overhead \
+		end
+	stop-script 4
+	stop-script 6
+	stop-sound -2
+	stop-talking
+	V.32 = 14
+	end-script
+}
+
+script 29 { ; SCRP LECF_0001\LFLF_0007\SCRP_0029
+	charset 3
+	charset color 0, 255, 254
+	verb 7 \
+		new \
+		name "clicked on" \
+		key 99 \
+		off \
+		(end-verb)
+	verb 2 \
+		new \
+		name "Use" \
+		key 117 \
+		off \
+		(end-verb)
+	V.132 = 63
+[00000084]:
+	if !( V.132 <= 77 ) jump &[00000109]
+	verb V.132 \
+		new \
+		(end-verb)
+	++V.132
+	jump &[00000084]
+[00000109]:
+	dim byte array V.244[15]
+	dim int array V.245[4]
+	dim byte array V.246[319]
+	V.244[0] = 40, 35, 30, 25, 21, 18, 15, 13, 11, 9, 7, 5, 4, 2, 1, 0
+	V.245[0] = 288, 298, 306, 313, 318
+	V.246[0] = 160
+	V.246[1] = 159
+	V.246[2] = 158
+	V.246[3] = 157
+	V.246[4] = 157
+	V.246[5] = 156
+	V.246[6] = 155
+	V.246[7] = 155
+	V.246[8] = 154
+	V.246[9] = 154
+	V.246[10] = 153
+	V.246[11] = 153
+	V.246[12] = 152
+	V.246[13] = 152
+	V.246[14] = 151
+	V.246[15] = 151
+	V.246[16] = 150
+	V.246[17] = 150
+	V.246[18] = 150
+	V.246[19] = 149
+	V.246[20] = 149
+	V.246[21] = 149
+	V.246[22] = 148
+	V.246[23] = 148
+	V.246[24] = 148
+	V.246[25] = 148
+	V.246[26] = 147
+	V.246[27] = 147
+	V.246[28] = 147
+	V.246[29] = 147
+	V.246[30] = 147
+	V.246[31] = 146
+	V.246[32] = 146
+	V.246[33] = 146
+	V.246[34] = 146
+	V.246[35] = 146
+	V.246[36] = 145
+	V.246[37] = 145
+	V.246[38] = 145
+	V.246[39] = 145
+	V.246[40] = 144
+	V.246[41] = 144
+	V.246[42] = 143
+	V.246[43] = 142
+	V.246[44] = 141
+	V.246[45] = 140
+	V.246[46] = 139
+	V.246[47] = 138
+	V.246[48] = 138
+	V.246[49] = 137
+	V.246[50] = 136
+	V.246[51] = 136
+	V.246[52] = 135
+	V.246[53] = 135
+	V.246[54] = 135
+	V.246[55] = 134
+	V.246[56] = 134
+	V.246[57] = 134
+	V.246[58] = 134
+	V.246[59] = 134
+	V.246[60] = 134
+	V.246[61] = 134
+	V.246[62] = 134
+	V.246[63] = 134
+	V.246[64] = 134
+	V.246[65] = 134
+	V.246[66] = 134
+	V.246[67] = 134
+	V.246[68] = 135
+	V.246[69] = 135
+	V.246[70] = 135
+	V.246[71] = 136
+	V.246[72] = 136
+	V.246[73] = 137
+	V.246[74] = 138
+	V.246[75] = 138
+	V.246[76] = 139
+	V.246[77] = 140
+	V.246[78] = 141
+	V.246[79] = 142
+	V.246[80] = 143
+	V.246[81] = 143
+	V.246[82] = 143
+	V.246[83] = 143
+	V.246[84] = 143
+	V.132 = 85
+[00000984]:
+	if !( V.132 <= 107 ) jump &[00001009]
+	V.246[V.132] = 142
+	++V.132
+	jump &[00000984]
+[00001009]:
+	V.132 = 108
+[00001015]:
+	if !( V.132 <= 236 ) jump &[00001040]
+	V.246[V.132] = 141
+	++V.132
+	jump &[00001015]
+[00001040]:
+	V.132 = 237
+[00001046]:
+	if !( V.132 <= 259 ) jump &[00001071]
+	V.246[V.132] = 142
+	++V.132
+	jump &[00001046]
+[00001071]:
+	V.132 = 260
+[00001077]:
+	if !( V.132 <= 275 ) jump &[00001102]
+	V.246[V.132] = 143
+	++V.132
+	jump &[00001077]
+[00001102]:
+	V.246[276] = 144
+	V.246[277] = 144
+	V.246[278] = 144
+	V.246[279] = 144
+	V.246[280] = 144
+	V.246[281] = 144
+	V.246[282] = 144
+	V.246[283] = 144
+	V.246[284] = 144
+	V.246[285] = 144
+	V.246[286] = 144
+	V.246[287] = 144
+	V.246[288] = 145
+	V.246[289] = 145
+	V.246[290] = 145
+	V.246[291] = 145
+	V.246[292] = 145
+	V.246[293] = 145
+	V.246[294] = 145
+	V.246[295] = 145
+	V.246[296] = 145
+	V.246[297] = 145
+	V.246[298] = 146
+	V.246[299] = 146
+	V.246[300] = 146
+	V.246[301] = 146
+	V.246[302] = 146
+	V.246[303] = 146
+	V.246[304] = 146
+	V.246[305] = 146
+	V.246[306] = 147
+	V.246[307] = 147
+	V.246[308] = 147
+	V.246[309] = 147
+	V.246[310] = 147
+	V.246[311] = 147
+	V.246[312] = 147
+	V.246[313] = 148
+	V.246[314] = 148
+	V.246[315] = 148
+	V.246[316] = 148
+	V.246[317] = 148
+	V.246[318] = 149
+	V.246[319] = 149
+	start-script 9
+	start-script 21
+	charset 2
+	end-script
+}
+
+script 30 { ; SCRP LECF_0001\LFLF_0007\SCRP_0030
+	V.32 = V.249
+	start-script 22 ( 1 )
+	V.154 = 146
+	V.155 = 16
+	V.156 = 16
+	V.151 = 0
+	V.152 = 0
+	V.153 = 0
+	cursor 146 image 37
+	cursor hotspot 16 16
+	start-script 17
+	start-script 12
+	end-script
+}
+
+script 31 { ; SCRP LECF_0001\LFLF_0007\SCRP_0031
+local variable L.0
+
+	cursor off
+	userput off
+	L.0 = 1
+[00000018]:
+	override &[00000075]
+	R.5 = 1
+	print-debug \
+		"this room is # %n16384%."
+
+	current-room L.0
+	camera-at 160
+	sleep-for 2 seconds
+	camera-pan-to 2000
+	wait-for-camera
+	sleep-for 2 seconds
+[00000075]:
+	override off
+	++L.0
+	if !( L.0 == 35 ) jump &[00000018]
+	R.5 = 0
+	cursor on
+	userput on
+	camera-follow V.1
+	end-script
+}
+
+script 32 { ; SCRP LECF_0001\LFLF_0007\SCRP_0032
+local variable L.0
+local variable L.1
+local variable L.2
+
+	palette 193 85 206 in-slot L.0
+	palette 132 42 136 in-slot L.1
+	palette 88 27 93 in-slot L.2
+	actor 1 \
+		talk-color 13 \
+	palette 208 132 204 in-slot 13
+	end-script
+}
+
+script 33 { ; SCRP LECF_0001\LFLF_0007\SCRP_0033
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+	userput soft-off
+	cursor soft-off
+	if ( script-running 20 ) {
+		do {
+			if ( !script-running 20 ) jump &[00000031]
+			break-here
+		}
+	}
+	if !( L.1 ) jump &[00000050]
+	walk V.1 to L.0,L.1
+	jump &[00000061]
+[00000050]:
+	walk V.1 to L.0,object-y V.1
+[00000061]:
+	wait-for-actor V.1 [ref &[00000061]]
+	L.3 = actor-facing V.1
+	if ( L.3 != 0 ) {
+		L.3 = 1
+	}
+	if ( L.3 != L.2 ) {
+		if ( script-running 20 ) {
+			do {
+				if ( !script-running 20 ) jump &[00000120]
+				break-here
+			}
+		}
+		start-script 20 ( 0, L.2 )
+		do {
+			if ( !script-running 20 ) jump &[00000148]
+			break-here
+		}
+	}
+	userput soft-on
+	cursor soft-on
+	end-script
+}
+
+script 34 { ; SCRP LECF_0001\LFLF_0007\SCRP_0034
+	do {
+		sleep-for (random 3) + 3 seconds
+		if ( (actor-costume V.1) == 4 ) {
+			do-animation V.1 15
+		}
+		if ( !random 3 ) {
+			sleep-for 30 jiffies
+			if ( (actor-costume V.1) == 4 and (!R.6) ) {
+				do-animation V.1 15
+			}
+		}
+	}
+	end-script
+}
+
+script 35 { ; SCRP LECF_0001\LFLF_0007\SCRP_0035
+	end-script
+}
+
+script 36 { ; SCRP LECF_0001\LFLF_0007\SCRP_0036
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.9
+local variable L.10
+local variable L.11
+local variable L.12
+
+	if !( L.0 ) jump &[00000086]
+	if !( !L.1 ) jump &[00000065]
+	if !( L.0 > 15 and L.0 != 146 ) jump &[00000062]
+	L.2 = object-x L.0
+	L.3 = object-y L.0
+	L.12 = 1
+	jump &[00000159]
+[00000062]:
+	jump &[00000086]
+[00000065]:
+	L.2 = L.0
+	L.3 = L.1
+	L.12 = 1
+	jump &[00000159]
+[00000086]:
+	if !( L.0 == 146 ) jump &[00000127]
+	if !( V.52 > 0 ) jump &[00000121]
+	L.2 = V.20
+	L.3 = V.21
+	jump &[00000124]
+[00000121]:
+	jump &[00000613]
+[00000124]:
+	jump &[00000159]
+[00000127]:
+	if !( (actor-room L.0) != 0 ) jump &[00000155]
+	L.2 = object-x L.0
+	L.3 = object-y L.0
+	jump &[00000159]
+[00000155]:
+	stop-script 0
+[00000159]:
+	L.11 = 29
+	if ( (actor-facing V.1) == 0 ) {
+		L.11 = 0 - L.11
+	}
+	L.4 = (object-x V.1) + L.11
+	L.5 = (object-y V.1) + -20
+	L.6 = L.2 - L.4
+	if ( (actor-facing V.1) == 0 ) {
+		L.6 = 0 - L.6
+	}
+	L.7 = L.5 - L.3
+	if !( abs(L.6) <= 16 and abs(L.7) < 20 ) jump &[00000278]
+	L.8 = 9
+	jump &[00000580]
+[00000278]:
+	L.9 = L.6 * 100
+	if ( L.7 != 0 ) {
+		L.9 = L.9 / L.7
+	}
+	if !( L.7 >= 0 ) jump &[00000460]
+	if !( L.9 > 90 ) jump &[00000394]
+	if !( L.9 > 377 ) jump &[00000366]
+	if !( L.9 > 1960 ) jump &[00000357]
+	L.8 = 17
+	jump &[00000363]
+[00000357]:
+	L.8 = 18
+[00000363]:
+	jump &[00000391]
+[00000366]:
+	if !( L.9 > 175 ) jump &[00000385]
+	L.8 = 19
+	jump &[00000391]
+[00000385]:
+	L.8 = 20
+[00000391]:
+	jump &[00000457]
+[00000394]:
+	if !( L.9 > -25 ) jump &[00000432]
+	if !( L.9 > 30 ) jump &[00000423]
+	L.8 = 21
+	jump &[00000429]
+[00000423]:
+	L.8 = 22
+[00000429]:
+	jump &[00000457]
+[00000432]:
+	if !( L.9 > -147 ) jump &[00000451]
+	L.8 = 23
+	jump &[00000457]
+[00000451]:
+	L.8 = 24
+[00000457]:
+	jump &[00000580]
+[00000460]:
+	if !( L.9 > 38 ) jump &[00000517]
+	if !( L.9 > 158 ) jump &[00000508]
+	if !( L.9 > 890 ) jump &[00000499]
+	L.8 = 24
+	jump &[00000505]
+[00000499]:
+	L.8 = 25
+[00000505]:
+	jump &[00000514]
+[00000508]:
+	L.8 = 26
+[00000514]:
+	jump &[00000580]
+[00000517]:
+	if !( L.9 > -185 ) jump &[00000555]
+	if !( L.9 > -26 ) jump &[00000546]
+	L.8 = 27
+	jump &[00000552]
+[00000546]:
+	L.8 = 28
+[00000552]:
+	jump &[00000580]
+[00000555]:
+	if !( L.9 > -750 ) jump &[00000574]
+	L.8 = 29
+	jump &[00000580]
+[00000574]:
+	L.8 = 17
+[00000580]:
+	if ( L.8 != L.10 ) {
+		do-animation V.1 L.8
+		L.10 = L.8
+		if ( L.12 ) {
+			stop-script 0
+		}
+	}
+[00000613]:
+	break-here
+	jump &[00000086]
+	end-script
+}
+
+script 37 { ; SCRP LECF_0001\LFLF_0007\SCRP_0037
+local variable L.0
+local variable L.1
+local variable L.2
+
+	L.2 = L.0
+[00000014]:
+	if !( L.2 <= L.1 ) jump &[00000049]
+	if ( (actor-room L.2) == 0 ) {
+		end-script
+		stop-script 0
+	}
+	++L.2
+	jump &[00000014]
+[00000049]:
+	end-script
+	stop-script 0
+	end-script
+}
+
+script 38 { ; SCRP LECF_0001\LFLF_0007\SCRP_0038
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+	L.2 = L.1[0][0]
+	L.3 = 1
+[00000026]:
+	if !( L.3 <= L.2 ) jump &[00000077]
+	do-animation L.0 L.1[L.3][0]
+	if ( L.1[L.3][1] ) {
+		break-here L.1[L.3][1] times
+	}
+	++L.3
+	jump &[00000026]
+[00000077]:
+	end-script
+}
+
+script 39 { ; SCRP LECF_0001\LFLF_0007\SCRP_0039
+local variable L.0
+
+	if !( L.0 ) jump &[00000030]
+	start-script 40 ( L.0 )
+	jump &[00000038]
+[00000030]:
+	stop-script 40
+	stop-sound -1
+[00000038]:
+	end-script
+}
+
+script 40 { ; SCRP LECF_0001\LFLF_0007\SCRP_0040
+local variable L.0
+local variable L.1
+
+	if ( !V.64 ) {
+		stop-script 0
+	}
+	if !( L.0 and L.0 != 1 ) jump &[00000073]
+	start-sound 0
+	L.1 = L.0
+	print-debug \
+		"Starting music %n16385%"
+
+	jump &[00000184]
+[00000073]:
+	break-here
+	do {
+		if ( !sound-running -1 ) jump &[00000086]
+		break-here
+	}
+[00000086]:
+	if !( sound-running -2 ) jump &[00000125]
+	if !( L.1 in [ 2 ] ) jump &[00000122]
+	break-here
+	do {
+		if ( !sound-running -2 ) jump &[00000119]
+		break-here
+	}
+[00000119]:
+	jump &[00000125]
+[00000122]:
+	jump &[00000151]
+[00000125]:
+	L.1 = pick (random-between 1 to 4) of [ 5, 6, 16, 11 ]
+[00000151]:
+	print-debug \
+		"Starting generic %n16385%"
+
+	start-sound 0
+[00000184]:
+	break-here
+	do {
+		if ( !sound-running -1 ) jump &[00000197]
+		break-here
+	}
+[00000197]:
+	if !( sound-running -2 ) jump &[00000236]
+	if !( L.1 in [ 2 ] ) jump &[00000233]
+	break-here
+	do {
+		if ( !sound-running -2 ) jump &[00000230]
+		break-here
+	}
+[00000230]:
+	jump &[00000236]
+[00000233]:
+	jump &[00000277]
+[00000236]:
+	L.1 = pick (random-between 1 to 9) of [ 13, 15, 12, 10, 14, 7, 4, 9, 3 ]
+[00000277]:
+	print-debug \
+		"Starting pad %n16385%"
+
+	start-sound 0
+	if !( !random 4 ) jump &[00000184]
+	jump &[00000073]
+	end-script
+}
+
+script 41 { ; SCRP LECF_0001\LFLF_0007\SCRP_0041
+local variable L.0
+local variable L.1
+
+	break-here L.1 times
+	start-sound 0
+	end-script
+}
+
+script 42 { ; SCRP LECF_0001\LFLF_0007\SCRP_0042
+local variable L.0
+
+	stop-script 43
+	stop-sound L.0
+	end-script
+}
+
+script 43 { ; SCRP LECF_0001\LFLF_0007\SCRP_0043
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+
+[00000008]:
+	if !( !sound-running 1 ) jump &[00000050]
+	if !( L.3 ) jump &[00000032]
+	start-sound L.3
+	jump &[00000039]
+[00000032]:
+	start-sound 0
+[00000039]:
+	sleep-for random-between L.1 to L.2 jiffies
+	jump &[00000062]
+[00000050]:
+	do {
+		if ( !sound-running 1 ) jump &[00000062]
+		break-here
+	}
+[00000062]:
+	jump &[00000008]
+	end-script
+}
+
+script 44 { ; SCRP LECF_0001\LFLF_0007\SCRP_0044
+local variable L.0
+local variable L.1
+local variable L.2
+local variable L.3
+local variable L.4
+local variable L.5
+local variable L.6
+local variable L.7
+local variable L.8
+local variable L.9
+local variable L.10
+
+	L.10[1] = L.1, L.2, L.3, L.4, L.5, L.6, L.7, L.8
+	localize array L.10
+[00000046]:
+	++L.10[0]
+	if !( L.10[0] <= 8 ) jump &[00000094]
+	L.9 = L.10[L.10[0]]
+	if ( L.9 ) {
+		draw-object L.0 image L.9
+		break-here
+	}
+	jump &[00000046]
+[00000094]:
+	undim L.10
+	end-script
+}
+
+script 45 { ; SCRP LECF_0001\LFLF_0007\SCRP_0045
+local variable L.0
+
+	override &[00000322]
+	do-animation V.1 249
+	do-animation V.1 6
+	do {
+		if ( actor V.1 variable 0 ) jump &[00000040]
+		break-here
+	}
+[00000040]:
+	start-sound 0
+	do {
+		if ( (actor V.1 variable 0) == 2 ) jump &[00000065]
+		break-here
+	}
+[00000065]:
+	actor V.1 \
+		costume 4 \
+	do-animation V.1 248
+	break-here 4 times
+	walk V.1 to 238,120
+[00000096]:
+	wait-for-actor V.1 [ref &[00000096]]
+	do-animation V.1 9
+	break-here 4 times
+	actor V.1 \
+		text-offset -20,-100 \
+	say-line "\xFF\x0A\x47\x56\xFF\x0A\x02\x00\xFF\x0A\x10\x3E\xFF\x0A\x00\x00Hi, I'm Putt-Putt."
+	wait-for-message
+	sleep-for 15 jiffies
+	break-here 10 times
+	say-line "\xFF\x0A\x57\x94\xFF\x0A\x02\x00\xFF\x0A\x98\x1F\xFF\x0A\x00\x00Uh-oh!"
+	break-here 3 times
+	L.0 = 20
+[00000207]:
+	if !( L.0 <= 28 ) jump &[00000234]
+	do-animation V.1 L.0
+	break-here 2 times
+	++L.0
+	jump &[00000207]
+[00000234]:
+	actor V.1 \
+		talk-animation 4 8 \
+	say-line "\xFF\x0A\xEF\xB3\xFF\x0A\x02\x00\xFF\x0A\x68\x56\xFF\x0A\x00\x00It looks like I'm stuck on the Moon!"
+	break-here 3 times
+	do-animation V.1 9
+	wait-for-message
+	sleep-for 15 jiffies
+	break-here 8 times
+[00000322]:
+	override off
+	stop-talking
+	stop-sound -2
+	actor V.1 \
+		talk-animation 4 5 \
+	put-actor V.1 at 238,120 in-room 7
+	actor V.1 \
+		costume 4 \
+		follow-boxes \
+	do-animation V.1 22
+	do-animation V.1 248
+	break-here 3 times
+	do-animation V.1 3
+	override off
+	stop-talking
+	do-animation V.1 9
+	actor V.1 \
+		talk-animation 4 5 \
+	say-line "\xFF\x0A\x7A\x1F\xFF\x0A\x01\x00\xFF\x0A\x37\x50\xFF\x0A\x00\x00I need to find a way back to Earth!"
+	wait-for-message
+	start-script 200
+	do-animation V.1 17
+	R.16 = 1
+	userput on
+	cursor on
+	end-script
+}
+
+room room_7 {
+
+	object 17 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0017
+		name is "landing-town-door"
+
+		verb 7 {
+			userput soft-off
+			cursor soft-off
+			if ( script-running 6 ) {
+				stop-script 6
+				stop-script 43
+			}
+			start-script 27
+			if ( V.54 < 200 ) {
+				break-here
+				set-screen 0 to 128
+			}
+			userput soft-on
+			cursor soft-on
+			come-out-door 56 in-room 14 walk -1,-1
+			end-script
+		}
+	}
+
+	object 24 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0024
+		name is "landing-rock-1"
+
+		verb 7 {
+			if ( class-of 24 is 2 ) {
+				start-script rec 208 ( 24 )
+			}
+			end-script
+		}
+	}
+
+	object 25 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0025
+		name is "landing-rock-2"
+
+		verb 7 {
+			if ( class-of 25 is 2 ) {
+				start-script rec 208 ( 25 )
+			}
+			end-script
+		}
+	}
+
+	object 26 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0026
+		name is "landing-rock-3"
+
+		verb 7 {
+			if ( class-of 26 is 2 ) {
+				start-script rec 208 ( 26 )
+			}
+			end-script
+		}
+	}
+
+	object 18 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0018
+		name is "landing-crater-1"
+
+		verb 7 {
+			if ( !script-running 202 ) {
+				start-script 202
+			}
+			end-script
+		}
+	}
+
+	object 19 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0019
+		name is "landing-crater-2"
+
+		verb 7 {
+			if ( !script-running 203 ) {
+				start-script 203
+			}
+			end-script
+		}
+	}
+
+	object 20 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0020
+		name is "landing-crater-3"
+
+		verb 7 {
+			if ( !script-running 204 ) {
+				start-script 204
+			}
+			end-script
+		}
+	}
+
+	object 21 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0021
+		name is "landing-crater-4"
+
+		verb 7 {
+			start-script rec 205
+			end-script
+		}
+	}
+
+	object 22 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0022
+		name is "landing-crater-5"
+
+		verb 7 {
+			if ( !script-running 206 ) {
+				start-script 206
+			}
+			end-script
+		}
+	}
+
+	object 23 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0023
+		name is "landing-crater-6"
+
+		verb 7 {
+			if ( !script-running 207 ) {
+				start-script 207
+			}
+			end-script
+		}
+	}
+
+	object 27 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0027
+		name is "landing-int-left"
+	}
+
+	object 28 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0028
+		name is "landing-int-right"
+
+		verb 255 {
+		local variable L.0
+		local variable L.1
+
+			if !( valid-verb 17 L.1 ) jump &[00000040]
+			start-object [0] 17 verb L.1 ( L.0 )
+			jump &[00000060]
+[00000040]:
+			if ( L.1 != 90 ) {
+				start-script 18 ( L.1 )
+			}
+[00000060]:
+			end-script
+		}
+	}
+
+	object 31 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0031
+		name is "earth"
+
+		verb 7 {
+			start-script 201
+			end-script
+		}
+	}
+
+	object 29 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0029
+		name is ""
+	}
+
+	object 30 { ; VERB LECF_0001\LFLF_0007\ROOM\OBCD_0030
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0007\ROOM\EXCD
+		stop-script 200
+		if ( script-running 43 ) {
+			start-script 42 ( 28 )
+		}
+		actor V.1 \
+			text-offset -20,-100 \
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0007\ROOM\ENCD
+		V.241 = 27
+		V.242 = 28
+		draw-object 24 image 1
+		draw-object 25 image 1
+		draw-object 26 image 1
+		class-of 24 is 2
+		class-of 25 is 2
+		class-of 26 is 2
+		actor V.1 \
+			text-offset 20,-60 \
+		if ( R.16 ) {
+			start-script 200
+		}
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		if !( (random 5) > 2 ) jump &[00000125]
+		L.1 = 40 + (random 250)
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 10 \
+			ignore-boxes \
+		put-actor L.0 at L.1,1 in-room 7
+		do-animation L.0 6
+		if ( L.1 > 100 ) {
+			if ( (random 5) > 2 ) {
+				do-animation L.0 248
+			}
+		}
+		jump &[00000285]
+[00000125]:
+		L.2 = 40 - (random 25)
+		if !( (random 5) > 2 ) jump &[00000214]
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 10 \
+			ignore-boxes \
+		put-actor L.0 at 1,L.2 in-room 7
+		do-animation L.0 249
+		jump &[00000278]
+[00000214]:
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 10 \
+			ignore-boxes \
+		put-actor L.0 at 319,L.2 in-room 7
+		do-animation L.0 248
+[00000278]:
+		do-animation L.0 7
+[00000285]:
+		break-here (random 60) + 10 times
+		jump &[00000008]
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0201
+		userput off
+		cursor off
+		if !( (object-x V.1) < 175 ) jump &[00000050]
+		start-script 20 ( 0, 1 )
+		break-here 4 times
+		do-animation V.1 20
+		jump &[00000057]
+[00000050]:
+		do-animation V.1 22
+[00000057]:
+		break-here 5 times
+		do-animation V.1 9
+		actor V.1 \
+			talk-animation 4 5 \
+		say-line "\xFF\x0A\x7A\x1F\xFF\x0A\x01\x00\xFF\x0A\x37\x50\xFF\x0A\x00\x00I need to find a way back to Earth."
+		wait-for-message
+		do-animation V.1 17
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0202
+	local variable L.0
+
+		userput off
+		cursor off
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 12 \
+			ignore-boxes \
+		put-actor L.0 at 178,64 in-room 7
+		start-sound 0
+		do-animation L.0 6
+		userput on
+		cursor on
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 5 \
+			elevation -10
+			ignore-boxes \
+			always-zclip 2
+			sound [33, 33]
+		put-actor L.0 at 75,87 in-room 7
+		do-animation L.0 6
+		break-here
+		start-sound 0
+		break-here 7 times
+		do {
+			L.1 = @37 ( 2, 12 )
+			if ( !L.1 ) {
+				break-here
+			}
+		} until (L.1)
+		actor L.1 \
+			new \
+			costume 11 \
+			ignore-boxes \
+			elevation -10
+			sound [32, 32]
+		put-actor L.1 at 160,90 in-room 7
+		do-animation L.1 6
+		do {
+			if ( (actor L.1 variable 0) == 1 ) jump &[00000203]
+			break-here
+		}
+[00000203]:
+		actor L.0 \
+			animation-var 2 1
+		do {
+			if ( (actor L.0 variable 0) == 1 ) jump &[00000234]
+			break-here
+		}
+[00000234]:
+		actor L.1 \
+			animation-var 2 1
+		break-here 4 times
+		actor L.0 \
+			animation-var 2 2
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000279]
+			break-here
+		}
+[00000279]:
+		actor L.1 \
+			animation-var 2 2
+		do {
+			if ( (actor-room L.1) != V.4 ) jump &[00000307]
+			break-here
+		}
+[00000307]:
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0204
+	local variable L.0
+
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 5 \
+			ignore-boxes \
+			always-zclip 3
+			sound [35, 35]
+		put-actor L.0 at 160,100 in-room 7
+		do-animation L.0 7
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000103]
+			break-here
+		}
+[00000103]:
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+
+		L.0 = @37 ( 2, 12 )
+		if ( !L.0 ) {
+			stop-script 0
+		}
+		L.1 = pick (random 4) of [ 6, 7, 8, 9, 10 ]
+		if ( L.1 == 10 and V.166 ) {
+			stop-script 0
+		}
+		actor L.0 \
+			new \
+			costume 8 \
+			elevation -10
+			ignore-boxes \
+			always-zclip 3
+			sound [20, 20, 36, 61]
+		put-actor L.0 at 160,90 in-room 7
+		do-animation L.0 L.1
+		if !( L.1 == 10 ) jump &[00000210]
+		actor L.0 \
+			elevation (actor-elevation L.0) + 1
+		put-actor L.0 at object-x L.0,(object-y L.0) + 1 in-room 255
+		V.166 = 1
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000204]
+			break-here
+		}
+[00000204]:
+		V.166 = 0
+[00000210]:
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000225]
+			break-here
+		}
+[00000225]:
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0206
+	local variable L.0
+
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 9 \
+			elevation 10
+			ignore-boxes \
+			always-zclip 2
+			sound [34, 34]
+		put-actor L.0 at 160,110 in-room 7
+		do-animation L.0 random-between 6 to 8
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000112]
+			break-here
+		}
+[00000112]:
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0207
+	local variable L.0
+
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 6 \
+			elevation 30
+			ignore-boxes \
+			always-zclip 2
+			sound [19, 26, 25, 27]
+		if !( random-between 1 to 4 == 1 ) jump &[00000150]
+		actor L.0 \
+			color 158 is 158
+		actor L.0 \
+			color 159 is 159
+		actor L.0 \
+			color 160 is 160
+		actor L.0 \
+			color 161 is 161
+		jump &[00000343]
+[00000150]:
+		if !( random-between 1 to 4 == 2 ) jump &[00000214]
+		actor L.0 \
+			color 158 is 145
+		actor L.0 \
+			color 159 is 144
+		actor L.0 \
+			color 160 is 143
+		actor L.0 \
+			color 161 is 92
+		jump &[00000343]
+[00000214]:
+		if !( random-between 1 to 4 == 3 ) jump &[00000278]
+		actor L.0 \
+			color 158 is 158
+		actor L.0 \
+			color 159 is 150
+		actor L.0 \
+			color 160 is 151
+		actor L.0 \
+			color 161 is 152
+		jump &[00000343]
+[00000278]:
+		if !( random-between 1 to 4 == 4 ) jump &[00000342]
+		actor L.0 \
+			color 158 is 162
+		actor L.0 \
+			color 159 is 153
+		actor L.0 \
+			color 160 is 154
+		actor L.0 \
+			color 161 is 163
+		jump &[00000343]
+[00000343]:
+		put-actor L.0 at 160,130 in-room 7
+		do-animation L.0 6
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000378]
+			break-here
+		}
+[00000378]:
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+
+		class-of L.0 is 130
+		do {
+			L.1 = @37 ( 2, 12 )
+			if ( !L.1 ) {
+				break-here
+			}
+		} until (L.1)
+		if ( !L.1 ) {
+			class-of L.0 is 2
+			stop-script 0
+		}
+		actor L.1 \
+			new \
+			costume 7 \
+			ignore-boxes \
+			never-zclip
+		if !( L.0 == 24 ) jump &[00000113]
+		put-actor L.1 at 45,99 in-room 7
+		jump &[00000164]
+[00000113]:
+		if !( L.0 == 25 ) jump &[00000138]
+		put-actor L.1 at 272,105 in-room 7
+		jump &[00000164]
+[00000138]:
+		if !( L.0 == 26 ) jump &[00000163]
+		put-actor L.1 at 186,135 in-room 7
+		jump &[00000164]
+[00000164]:
+		draw-object L.0 image 2
+		start-script V.27
+		do-animation L.1 6
+		do {
+			if ( (actor L.1 variable 1) > 0 ) jump &[00000203]
+			break-here
+		}
+[00000203]:
+		if !( (actor L.1 variable 1) == 10 ) jump &[00000332]
+		actor L.1 \
+			sound [29, 29]
+		do {
+			if ( (actor L.1 variable 0) == 1 ) jump &[00000253]
+			break-here
+		}
+[00000253]:
+		++V.167
+		if ( !script-running 43 ) {
+			start-script 43 ( 28, 22, 23 )
+		}
+		break-here 16 times
+		draw-object L.0 image 1
+		do {
+			if ( (actor L.1 variable 0) == 2 ) jump &[00000309]
+			break-here
+		}
+[00000309]:
+		--V.167
+		if ( !V.167 ) {
+			start-script 42 ( 28 )
+		}
+		jump &[00000447]
+[00000332]:
+		if !( (actor L.1 variable 1) == 7 ) jump &[00000363]
+		actor L.1 \
+			sound [31, 31, 31]
+		jump &[00000447]
+[00000363]:
+		if !( (actor L.1 variable 1) == 8 ) jump &[00000394]
+		actor L.1 \
+			sound [30, 30, 31]
+		jump &[00000447]
+[00000394]:
+		if !( (actor L.1 variable 1) == 9 ) jump &[00000446]
+		actor L.1 \
+			sound [29, 29, 31]
+		do {
+			if ( actor L.1 variable 3 ) jump &[00000436]
+			break-here
+		}
+[00000436]:
+		start-sound 928
+		jump &[00000447]
+[00000447]:
+		do {
+			if ( (actor-room L.1) != V.4 ) jump &[00000462]
+			break-here
+		}
+[00000462]:
+		draw-object L.0 image 1
+		class-of L.0 is 2
+		start-script V.27
+		end-script
+	}
+}
+

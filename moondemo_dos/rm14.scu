@@ -1,0 +1,350 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 14
+; */
+
+room room_14 {
+
+	object 48 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0048
+		name is "town-ice-cream-door"
+
+		verb 7 {
+			start-script 202 ( 48 )
+			end-script
+		}
+	}
+
+	object 49 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0049
+		name is "town-city-hall-door"
+
+		verb 7 {
+			start-script 202 ( 49 )
+			end-script
+		}
+	}
+
+	object 50 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0050
+		name is "town-gas-station-door"
+
+		verb 7 {
+			start-script 202 ( 50 )
+			end-script
+		}
+	}
+
+	object 56 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0056
+		name is "town-landing-door"
+
+		verb 7 {
+			start-script 202 ( 56 )
+			end-script
+		}
+	}
+
+	object 52 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0052
+		name is "town-int-left"
+	}
+
+	object 52 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0052d
+		name is "town-int-left"
+	}
+
+	object 54 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0054
+		name is "mars"
+
+		verb 7 {
+			start-script 201
+			end-script
+		}
+	}
+
+	object 55 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0055
+		name is "fatty-stars"
+
+		verb 7 {
+			start-script 200
+			end-script
+		}
+	}
+
+	object 51 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0051
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0014\ROOM\EXCD
+		actor V.1 \
+			costume 4 \
+			follow-boxes \
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0014\ROOM\ENCD
+		V.241 = 52
+		V.242 = 53
+		draw-object 55 image 1
+		if ( R.12 ) {
+			draw-object 51 image 1
+		}
+		start-script 203
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0200
+	local variable L.0
+
+		class-of 55 is 146
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 15 \
+			ignore-boxes \
+			sound [17, 17, 48]
+		put-actor L.0 at 154,94 in-room 14
+		draw-object 55 image 2
+		do-animation L.0 6
+		start-sound 5000
+		do {
+			if ( actor L.0 variable 4 ) jump &[00000124]
+			break-here
+		}
+[00000124]:
+		start-sound 3000
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000146]
+			break-here
+		}
+[00000146]:
+		draw-object 55 image 1
+		class-of 55 is 18
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		class-of 54 is 146
+		do {
+			L.0 = @37 ( 2, 12 )
+			if ( !L.0 ) {
+				break-here
+			}
+		} until (L.0)
+		actor L.0 \
+			new \
+			costume 14 \
+			ignore-boxes \
+			always-zclip 1
+			sound [40, 40, 41, 37, 55, 45, 30, 49]
+		put-actor L.0 at 152,36 in-room 14
+		L.1 = pick (random 9) of [ 8, 9, 17, 10, 11, 12, 13, 14, 15, 16 ]
+		actor L.0 \
+			animation-var 2 L.1
+		print-debug \
+			"task = %n16385%"
+
+		do-animation L.0 6
+		do {
+			if ( (actor-room L.0) != V.4 ) jump &[00000201]
+			break-here
+		}
+[00000201]:
+		class-of 54 is 18
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0202
+	local variable L.0
+
+		userput off
+		cursor off
+		do-animation V.1 249
+		if !( L.0 == 48 ) jump &[00000134]
+		V.165 = V.165 + 3
+		do-animation V.1 V.165
+		do {
+			if ( actor V.1 variable 0 ) jump &[00000062]
+			break-here
+		}
+[00000062]:
+		userput on
+		cursor on
+		userput soft-off
+		cursor soft-off
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-script 43
+		}
+		start-script 27
+		if ( V.54 < 200 ) {
+			break-here
+			set-screen 0 to 128
+		}
+		userput soft-on
+		cursor soft-on
+		come-out-door 57 in-room 15 walk 85,122
+		jump &[00000471]
+[00000134]:
+		if !( L.0 == 49 ) jump &[00000246]
+		V.165 = V.165 + 4
+		do-animation V.1 V.165
+		do {
+			if ( actor V.1 variable 0 ) jump &[00000174]
+			break-here
+		}
+[00000174]:
+		userput on
+		cursor on
+		userput soft-off
+		cursor soft-off
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-script 43
+		}
+		start-script 27
+		if ( V.54 < 200 ) {
+			break-here
+			set-screen 0 to 128
+		}
+		userput soft-on
+		cursor soft-on
+		come-out-door 89 in-room 20 walk 207,110
+		jump &[00000471]
+[00000246]:
+		if !( L.0 == 50 ) jump &[00000358]
+		V.165 = V.165 + 1
+		do-animation V.1 V.165
+		do {
+			if ( actor V.1 variable 0 ) jump &[00000286]
+			break-here
+		}
+[00000286]:
+		userput on
+		cursor on
+		userput soft-off
+		cursor soft-off
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-script 43
+		}
+		start-script 27
+		if ( V.54 < 200 ) {
+			break-here
+			set-screen 0 to 128
+		}
+		userput soft-on
+		cursor soft-on
+		come-out-door 77 in-room 17 walk 216,122
+		jump &[00000471]
+[00000358]:
+		if !( L.0 == 56 ) jump &[00000470]
+		V.165 = V.165 + 2
+		do-animation V.1 V.165
+		do {
+			if ( actor V.1 variable 0 ) jump &[00000398]
+			break-here
+		}
+[00000398]:
+		userput on
+		cursor on
+		userput soft-off
+		cursor soft-off
+		if ( script-running 6 ) {
+			stop-script 6
+			stop-script 43
+		}
+		start-script 27
+		if ( V.54 < 200 ) {
+			break-here
+			set-screen 0 to 128
+		}
+		userput soft-on
+		cursor soft-on
+		come-out-door 17 in-room 7 walk 238,120
+		jump &[00000471]
+[00000471]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0203
+		userput off
+		cursor off
+		if !( V.135 == 17 ) jump &[00000076]
+		put-actor V.1 at 160,100 in-room 14
+		actor V.1 \
+			costume 13 \
+			always-zclip 1
+		do-animation V.1 249
+		break-here
+		V.165 = 0
+		do-animation V.1 8
+		jump &[00000394]
+[00000076]:
+		if !( V.135 == 7 ) jump &[00000197]
+		actor V.1 \
+			costume 0 \
+		break-here 3 times
+		put-actor V.1 at 160,100 in-room 14
+		actor V.1 \
+			costume 13 \
+			always-zclip 1
+		do-animation V.1 249
+		V.165 = 10
+		do-animation V.1 18
+		break-here 8 times
+		if ( !R.19 ) {
+			print-line \
+				color 238 \
+				"\xFF\x0A\x57\x0A\xFF\x0A\x03\x00\xFF\x0A\x39\x1D\xFF\x0A\x00\x00Wow!"
+
+			R.19 = 1
+		}
+		jump &[00000394]
+[00000197]:
+		if !( V.135 == 15 ) jump &[00000257]
+		put-actor V.1 at 160,100 in-room 14
+		actor V.1 \
+			costume 13 \
+			always-zclip 1
+		do-animation V.1 249
+		V.165 = 20
+		do-animation V.1 28
+		jump &[00000394]
+[00000257]:
+		if !( V.135 == 20 ) jump &[00000331]
+		actor V.1 \
+			costume 0 \
+		put-actor V.1 at 160,100 in-room 14
+		break-here 3 times
+		actor V.1 \
+			costume 13 \
+			always-zclip 1
+		do-animation V.1 249
+		V.165 = 30
+		do-animation V.1 38
+		jump &[00000394]
+[00000331]:
+		actor V.1 \
+			costume 0 \
+		put-actor V.1 at 160,100 in-room 14
+		break-here 3 times
+		actor V.1 \
+			costume 13 \
+			always-zclip 1
+		do-animation V.1 249
+		V.165 = 10
+		do-animation V.1 18
+[00000394]:
+		break-here 5 times
+		userput on
+		cursor on
+		end-script
+	}
+}
+

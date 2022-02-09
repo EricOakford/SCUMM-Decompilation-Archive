@@ -1,0 +1,41 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 36
+; */
+
+room room_36 {
+
+	object 140 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0140
+		name is ""
+	}
+
+	object 141 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0141
+		name is ""
+	}
+
+	object 142 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0142
+		name is ""
+	}
+
+	object 143 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0143
+		name is ""
+	}
+
+	object 144 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0144
+		name is ""
+	}
+
+	object 145 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0145
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0036\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0036\ROOM\ENCD
+		end-script
+	}
+}
+

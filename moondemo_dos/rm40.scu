@@ -1,0 +1,168 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 40
+; */
+
+script 2 { ; SCRP LECF_0001\LFLF_0040\SCRP_0002
+	sleep-for 5 minutes
+	restart
+	end-script
+}
+
+script 3 { ; SCRP LECF_0001\LFLF_0040\SCRP_0003
+local variable L.1
+local variable L.2
+local variable L.3
+
+	override &[00000472]
+	current-room 0
+	start-script 22 ( 0 )
+	L.2 = V.125 + V.126 + V.129
+	do {
+		L.1 = random 1
+		--L.2
+	} until (L.2 == 0)
+	V.28 = 0
+	V.29 = 0
+	set-screen 0 to 200
+	current-room 11
+	sleep-for 2 seconds
+	fades 134
+	V.19 = 1
+	current-room 12
+	start-script 48
+	do {
+		if ( !script-running 48 ) jump &[00000126]
+		break-here
+	}
+[00000126]:
+	V.19 = 6
+	sleep-for 2 seconds
+	fades -32383
+	current-room 0
+	set-screen 25 to 169
+	userput off
+	cursor off
+	current-room 7
+	actor V.1 \
+		costume 0 \
+		ignore-boxes \
+	put-actor V.1 at 160,100 in-room 7
+	sleep-for 1 seconds
+	actor V.1 \
+		costume 3 \
+		ignore-boxes \
+		sound [22, 22]
+	do-animation V.1 6
+	start-sound 0
+	do {
+		if ( (actor V.1 variable 0) == 1 ) jump &[00000245]
+		break-here
+	}
+[00000245]:
+	actor V.1 \
+		costume 0 \
+	break-here 7 times
+	current-room 0
+	set-screen 0 to 200
+	current-room 40
+	break-here 3 times
+	actor V.1 \
+		default
+		costume 4 \
+		text-offset 20,-60 \
+		ignore-turns on \
+	actor 1 \
+		talk-color 13 \
+	palette 208 132 204 in-slot 13
+	start-script 32 ( 246, 247, 248 )
+	actor V.1 \
+		new \
+		costume 2 \
+		ignore-boxes \
+		never-zclip
+		step-dist 15,2 \
+	put-actor V.1 at 160,100 in-room 40
+	do-animation V.1 6
+	stop-script 34
+	break-here 4 times
+	start-sound 0
+	wait-for-message
+	sleep-for 15 jiffies
+	do {
+		if ( (actor V.1 variable 0) == 1 ) jump &[00000424]
+		break-here
+	}
+[00000424]:
+	L.3 = 250
+	start-script 42 ( 22 )
+	do {
+		palette intensity L.3 in-slot 0 to 255
+		L.3 = L.3 - 17
+		break-here
+	} until (L.3 < 10)
+[00000472]:
+	override off
+	palette intensity 255 in-slot 0 to 255
+	actor V.1 \
+		costume 0 \
+	stop-talking
+	start-script 39 ( 10 )
+	stop-script 48
+	V.110[25] = 15
+	V.110[26] = 195
+	V.110[27] = 246
+	V.110[28] = 248
+	V.110[29] = 246
+	V.110[30] = 241
+	V.110[31] = 0
+	V.110[32] = 224
+	V.110[33] = 4
+	V.110[34] = 225
+	V.110[35] = 4
+	V.110[36] = 225
+	V.19 = 6
+	$ room-color is 0
+	fades -32383
+	camera-at 160
+	V.2 = 160
+	current-room 0
+	set-screen 0 to 144
+	start-script 22 ( 1 )
+	V.28 = 25
+	V.29 = 26
+	start-script 12
+	V.240 = 1
+	current-room 7
+	start-script 22 ( 1 )
+	actor V.1 \
+		default
+		costume 4 \
+		text-offset 20,-60 \
+		ignore-turns on \
+	actor 1 \
+		talk-color 13 \
+	palette 208 132 204 in-slot 13
+	start-script 32 ( 246, 247, 248 )
+	put-actor V.1 at 304,120 in-room 7
+	actor V.1 \
+		costume 1 \
+		always-zclip 1
+		sound [24, 24]
+	start-script 34
+	start-script 45
+	end-script
+}
+
+room room_40 {
+
+	exit { ; EXCD LECF_0001\LFLF_0040\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0040\ROOM\ENCD
+		end-script
+	}
+}
+

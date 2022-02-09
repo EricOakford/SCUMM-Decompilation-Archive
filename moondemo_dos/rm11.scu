@@ -1,0 +1,20 @@
+;/**
+; * Putt-Putt Goes to the Moon: DOS Demo
+; * 
+; * Room 11
+; */
+
+room room_11 {
+
+	exit { ; EXCD LECF_0001\LFLF_0011\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0011\ROOM\ENCD
+		set-screen 0 to 200
+		actor V.1 \
+			costume 0 \
+		end-script
+	}
+}
+
