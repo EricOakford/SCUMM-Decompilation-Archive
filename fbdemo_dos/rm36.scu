@@ -1,0 +1,323 @@
+;/**
+; * Fatty Bear's Birthday Surprise: DOS Demo
+; * 
+; * Room 36
+; */
+
+room room_36 {
+
+	object 77 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0077
+		name is "backyard-garden-door"
+
+		verb 8 {
+			userput soft-off
+			cursor soft-off
+			start-script 19
+			if ( V.54 < 200 ) {
+				break-here
+				set-screen 0 to 144
+			}
+			userput soft-on
+			cursor soft-on
+			come-out-door 95 in-room 42 walk -1,-1
+			end-script
+		}
+	}
+
+	object 78 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0078
+		name is "yard-basement-door"
+
+		verb 8 {
+			userput off
+			cursor off
+			start-script 32 ( 78, 2, 3, 4 )
+			start-sound 0
+			do {
+				if ( !script-running 32 ) jump &[00000056]
+				break-here
+			}
+[00000056]:
+			actor 1 \
+				costume 34 \
+				ignore-boxes \
+				scale 255
+			do-animation 1 6
+			break-here 11 times
+			userput on
+			cursor on
+			userput soft-off
+			cursor soft-off
+			start-script 19
+			if ( V.54 < 200 ) {
+				break-here
+				set-screen 0 to 144
+			}
+			userput soft-on
+			cursor soft-on
+			come-out-door 59 in-room 33 walk -1,-1
+			end-script
+		}
+	}
+
+	object 79 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0079
+		name is "backyard-frontyard-door"
+
+		verb 8 {
+			userput off
+			cursor off
+			start-script 32 ( 79, 2, 3, 4 )
+			start-sound 0
+			break-here 4 times
+			userput on
+			cursor on
+			userput soft-off
+			cursor soft-off
+			start-script 19
+			if ( V.54 < 200 ) {
+				break-here
+				set-screen 0 to 144
+			}
+			userput soft-on
+			cursor soft-on
+			come-out-door 18 in-room 1 walk -1,-1
+			end-script
+		}
+	}
+
+	object 80 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0080
+		name is "shoe-1"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 81 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0081
+		name is "shoe-2"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 82 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0082
+		name is "shoe-3"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 83 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0083
+		name is "mousehole-key"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 84 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0084
+		name is "bow"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 85 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0085
+		name is "tree-spoons"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 86 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0086
+		name is "bone"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 87 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0087
+		name is "cheese"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 88 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0088
+		name is "garden-bowl"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 89 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0089
+		name is "bucket-chips"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 90 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0090
+		name is "bathroom-measuring-cup"
+
+		verb 8 {
+			end-script
+		}
+	}
+
+	object 188 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0188
+		name is "bstar-2"
+
+		verb 8 {
+			start-script rec 200 ( 188 )
+			end-script
+		}
+	}
+
+	object 189 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0189
+		name is "bstar-4"
+
+		verb 8 {
+			start-script rec 200 ( 189 )
+			end-script
+		}
+	}
+
+	object 190 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0190
+		name is "bstar-3"
+
+		verb 8 {
+			start-script rec 200 ( 190 )
+			end-script
+		}
+	}
+
+	object 191 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0191
+		name is "bstar-1"
+
+		verb 8 {
+			start-script rec 200 ( 191 )
+			end-script
+		}
+	}
+
+	object 194 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0194
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0036\ROOM\EXCD
+		actor 1 \
+			step-dist 8,2 \
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0036\ROOM\ENCD
+		if ( V.138 == 33 ) {
+			start-script 32 ( 78, 4, 3, 2, 1 )
+		}
+		actor 1 \
+			step-dist 14,6 \
+		V.252 = 194
+		draw-object 191 image 1
+		draw-object 188 image 1
+		draw-object 190 image 1
+		draw-object 189 image 1
+		draw-object 79 image 1
+		draw-object 78 image 1
+		end-script
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		class-of L.0 is 149
+		do {
+			L.1 = @31 ( 2, 12 )
+			if ( !L.1 ) {
+				break-here
+			}
+		} until (L.1)
+		L.2 = 28 + (random 3)
+		actor L.1 \
+			new \
+			costume L.2 \
+			ignore-boxes \
+			scale 255
+			always-zclip 1
+		if !( L.2 == 28 ) jump &[00000114]
+		actor L.1 \
+			sound [53, 52]
+		jump &[00000190]
+[00000114]:
+		if !( L.2 == 29 ) jump &[00000139]
+		actor L.1 \
+			sound [48]
+		jump &[00000190]
+[00000139]:
+		if !( L.2 == 30 ) jump &[00000164]
+		actor L.1 \
+			sound [53]
+		jump &[00000190]
+[00000164]:
+		if !( L.2 == 31 ) jump &[00000189]
+		actor L.1 \
+			sound [52]
+		jump &[00000190]
+[00000190]:
+		if !( L.0 == 191 ) jump &[00000245]
+		put-actor L.1 at 5,50 in-room 36
+		if !( L.2 == 28 ) jump &[00000235]
+		do-animation L.1 249
+		jump &[00000242]
+[00000235]:
+		do-animation L.1 248
+[00000242]:
+		jump &[00000363]
+[00000245]:
+		if !( L.0 == 188 ) jump &[00000284]
+		put-actor L.1 at 127,12 in-room 36
+		if ( random 1 ) {
+			do-animation L.1 248
+		}
+		jump &[00000363]
+[00000284]:
+		if !( L.0 == 190 ) jump &[00000323]
+		put-actor L.1 at 48,25 in-room 36
+		if ( random 1 ) {
+			do-animation L.1 248
+		}
+		jump &[00000363]
+[00000323]:
+		if !( L.0 == 189 ) jump &[00000362]
+		put-actor L.1 at 238,6 in-room 36
+		if ( random 1 ) {
+			do-animation L.1 248
+		}
+		jump &[00000363]
+[00000363]:
+		draw-object L.0 image 2
+		do-animation L.1 6
+		do {
+			if ( actor L.1 variable 0 ) jump &[00000391]
+			break-here
+		}
+[00000391]:
+		break-here (random 2) + 2 times
+		do-animation L.1 7
+		break-here 4 times
+		put-actor L.1 at 0,0 in-room 0
+		draw-object L.0 image 1
+		class-of L.0 is 21
+		end-script
+	}
+}
+

@@ -1,0 +1,20 @@
+;/**
+; * Fatty Bear's Birthday Surprise: DOS Demo
+; * 
+; * Room 48
+; */
+
+room room_48 {
+
+	exit { ; EXCD LECF_0001\LFLF_0048\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0048\ROOM\ENCD
+		set-screen 0 to 200
+		actor V.1 \
+			costume 0 \
+		end-script
+	}
+}
+

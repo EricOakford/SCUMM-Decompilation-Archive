@@ -1,0 +1,69 @@
+;/**
+; * Fatty Bear's Birthday Surprise: DOS Demo
+; * 
+; * Room 49
+; */
+
+room room_49 {
+
+	object 172 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0172
+		name is ""
+	}
+
+	object 173 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0173
+		name is ""
+	}
+
+	object 174 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0174
+		name is ""
+	}
+
+	object 175 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0175
+		name is ""
+	}
+
+	object 176 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0176
+		name is ""
+	}
+
+	object 177 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0177
+		name is ""
+	}
+
+	object 178 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0178
+		name is ""
+	}
+
+	object 179 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0179
+		name is ""
+	}
+
+	object 180 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0180
+		name is ""
+	}
+
+	object 181 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0181
+		name is ""
+	}
+
+	object 182 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0182
+		name is ""
+	}
+
+	object 183 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0183
+		name is ""
+	}
+
+	object 184 { ; VERB LECF_0001\LFLF_0049\ROOM\OBCD_0184
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0049\ROOM\EXCD
+		end-script
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0049\ROOM\ENCD
+		end-script
+	}
+}
+
