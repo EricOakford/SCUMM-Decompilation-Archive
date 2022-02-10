@@ -1,0 +1,17 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 24: Death (deadroom)
+; */
+
+room deadroom {
+
+	exit { ; EXCD LECF_0001\LFLF_0024\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0024\ROOM\ENCD
+		end-object
+	}
+}
+

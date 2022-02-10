@@ -1,0 +1,89 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 8: Kerner's Wallet (wallet)
+; */
+
+room wallet {
+
+	exit { ; EXCD LECF_0001\LFLF_0008\ROOM\EXCD
+		build-sentence-script = V.448
+		set-screen 0 to 144
+		start-script 19 (2)
+		cursor on
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0008\ROOM\ENCD
+		cursor off
+		set-screen 0 to 200
+		start-script 19 (1)
+		camera-at 160
+		V.448 = build-sentence-script
+		build-sentence-script = 67
+		if (!V.96) {
+			start-script 200 ()
+		}
+		end-object
+	}
+; Indy and Marcus Speak
+	script 200 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0200
+		cut-scene
+		override &[00000190]
+		V.96 = 1
+		V.165 = 0
+		break-here 8
+		print-line color 15 center at 100,132 "\\xFF\\x0A\\x9E\\xC0\\xFF\\x0A\\x22\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Klaus Kerner, huh?"
+		wait-for-message
+		print-line color 11 center at 220,132 "\\xFF\\x0A\\xAA\\x11\\xFF\\x0A\\x23\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Good Lord, Indy, the man's some sort of agent from the Third\\x10Reich."
+		wait-for-message
+		start-script 201 ()
+		break-until (V.165)
+[00000190]:
+		end-cut-scene
+		current-room 1
+		end-script
+	}
+; Wait a Second
+	script 201 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0201
+		sleep-for 60 jiffies
+		V.165 = 1
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0202
+	local variable L.0
+
+		V.209 = 0
+		if !(L.0) jump &[00000021]
+		jump &[00000042]
+[00000021]:
+		override &[00000037]
+		break-until (V.209)
+		override off
+		jump &[00000116]
+[00000037]:
+		if !(override-hit) jump &[00000116]
+[00000042]:
+		override off
+		B.19 = 1
+		if (owner-of 23 is-not 1) {
+			pick-up-object 23 in-room 1
+		}
+		V.313 = 1
+		V.312 = 1
+		V.316 = 1
+		start-script 85 ()
+		B.105 = 1
+		V.316 = 1
+		build-sentence-script = 4
+		actor 1 costume 1 follow-boxes
+		put-actor 3 in-room 0
+		put-actor 4 in-room 0
+		fades 33153
+		current-room 10
+[00000116]:
+		end-script
+	}
+}
+

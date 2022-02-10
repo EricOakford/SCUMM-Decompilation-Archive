@@ -1,0 +1,162 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 25: Sub Flees Volcano (sub-volca)
+; */
+
+room sub-volca {
+
+	object 273 { ; VERB LECF_0001\LFLF_0025\ROOM\OBCD_0273
+		name is "sub-volcano-1"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0025\ROOM\EXCD
+		sound-kludge 257 86 0
+		sound-kludge 257 60 0
+		sound-kludge 262 86 0
+		sound-kludge 262 60 0
+		sound-kludge 269 86 70 120
+		sound-kludge 269 60 0 90
+		sound-kludge 65535
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0025\ROOM\ENCD
+		set-screen 0 to 200
+		start-script 200 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0025\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		cut-scene
+		start-sound 60
+		room-scroll 160 to 345
+		camera-at 345
+		L.2 = 369
+		L.1 = 10
+		L.3 = 0
+		L.4 = 4
+		draw-object 273 image 1
+		start-script 201 ()
+		override &[00000402]
+		actor 11 ignore-boxes costume 80 scale L.1 L.1 stand-animation 2
+		do-animation 11 250
+		put-actor 11 in-room 25
+		put-actor 11 at L.2,92
+		do-animation 11 2
+		break-here
+		L.0 = 92
+[00000092]:
+		if !(L.0 is 72) jump &[00000137]
+		L.3 = 65533
+		do-animation 11 13
+		for L.5 = 1 to 7 ++ {
+			L.2 += L.3
+			put-actor 11 at L.2,L.0
+			break-here
+		}
+		jump &[00000309]
+[00000137]:
+		if !(L.0 is 68) jump &[00000174]
+		for L.5 = 1 to 7 ++ {
+			L.2 += L.3
+			put-actor 11 at L.2,L.0
+			break-here
+		}
+		jump &[00000309]
+[00000174]:
+		if !(L.0 is 60) jump &[00000192]
+		L.3 = 0
+		do-animation 11 2
+		jump &[00000309]
+[00000192]:
+		if !(L.0 is 56) jump &[00000237]
+		L.3 = 3
+		do-animation 11 3
+		for L.5 = 1 to 22 ++ {
+			L.2 += L.3
+			put-actor 11 at L.2,L.0
+			break-here
+		}
+		jump &[00000309]
+[00000237]:
+		if !(L.0 is 50) jump &[00000255]
+		L.3 = 0
+		do-animation 11 2
+		jump &[00000309]
+[00000255]:
+		if !(L.0 is 46) jump &[00000273]
+		L.3 = 65535
+		do-animation 11 13
+		jump &[00000309]
+[00000273]:
+		if !(L.0 is 42) jump &[00000291]
+		L.3 = 65534
+		do-animation 11 12
+		jump &[00000309]
+[00000291]:
+		if !(L.0 is 38) jump &[00000309]
+		L.3 = 65533
+		do-animation 11 11
+		jump &[00000309]
+[00000309]:
+		L.2 += L.3
+		put-actor 11 at L.2,L.0
+		break-here
+		L.1 += L.4
+		if (L.1 > 255) {
+			L.1 = 255
+		}
+		actor 11 scale L.1 L.1
+		--L.0
+		if !(L.0 < 34) jump &[00000092]
+		shake off
+		L.3 = 65531
+		do {
+			L.2 += L.3
+			put-actor 11 at L.2,L.0
+			if (L.2 < 225) {
+				if (!L.6) {
+					L.6 = 1
+					camera-pan-to 160
+				}
+			}
+			break-here
+		} until (L.2 < 65491)
+[00000402]:
+		if (override-hit) {
+			shake off
+		}
+		end-cut-scene
+		current-room 96
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0025\ROOM\LSCR_0201
+	local variable L.0
+
+		for L.0 = 1 to 100 ++ {
+			if (L.0 is 25) {
+				draw-object 273 image 2
+			}
+			if (L.0 is 50) {
+				draw-object 273 image 3
+			}
+			if (L.0 is 75) {
+				draw-object 273 image 4
+			}
+			break-here
+		}
+		draw-object 273 image 5
+		end-script
+	}
+}
+

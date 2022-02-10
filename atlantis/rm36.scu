@@ -1,0 +1,806 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 36: Orichalcum Machine (a1-o-mach)
+; */
+
+room a1-o-mach {
+
+	object 416 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0416
+		name is "o-mac-falling-beads"
+	}
+
+	object 413 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0413
+		name is "o-mac-bull-eyes"
+	}
+
+	object 412 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0412
+		name is "peg@@@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 140) jump &[00000080]
+			say-line "\\xFF\\x0A\\x04\\x80\\xFF\\x0A\\xCB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hmm^looks like something's missing^"
+			jump &[00000116]
+[00000080]:
+			say-line "\\xFF\\x0A\\x65\\xC0\\xFF\\x0A\\xCB\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks okay to me."
+[00000116]:
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 1189) jump &[00000216]
+			owner-of 1189 is 0
+			owner-of 1189 is 15
+			new-name-of 412 is "spoked wheel"
+			class-of 412 is 12
+			state-of 412 is 1
+			say-line "\\xFF\\x0A\\xEF\\xE7\\xFF\\x0A\\xCB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That looks much better."
+			start-script 144 (128,8)
+			start-script 10 ()
+			jump &[00000239]
+[00000216]:
+			say-line "\\xFF\\x0A\\xF2\\x1B\\xFF\\x0A\\xCC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Why?"
+[00000239]:
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of me is 140) jump &[00000294]
+			say-line "\\xFF\\x0A\\x73\\x41\\xFF\\x0A\\xCC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00The peg won't come out."
+			jump &[00000319]
+[00000294]:
+			pick-up-object 1189 in-room 92
+			state-of 412 is 0
+			class-of 412 is 140
+			new-name-of 412 is "peg"
+			start-script 10 ()
+[00000319]:
+			end-object
+		}
+	}
+
+	object 411 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0411
+		name is "spoked wheel"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x14\\x2F\\xFF\\x0A\\xCB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a bronze\\x10wheel."
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\x04\\x5B\\xFF\\x0A\\xCB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't come loose."
+			end-object
+		}
+	}
+
+	object 409 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0409
+		name is "dish@@@@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of me is 146) jump &[00000029]
+			jump &[00000120]
+			jump &[00000069]
+[00000029]:
+			say-line "\\xFF\\x0A\\xC3\\xC8\\xFF\\x0A\\xCC\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't pick that\\x10up."
+[00000069]:
+			end-object
+		}
+
+		verb 9 {
+		local variable L.0
+
+			if !(class-of me is 18) jump &[00000120]
+			say-line "\\xFF\\x0A\\xFA\\xF5\\xFF\\x0A\\xCC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's an empty bowl."
+			jump &[00000393]
+[00000120]:
+			cut-scene
+			if !(class-of me is 134) jump &[00000191]
+			say-line "\\xFF\\x0A\\x24\\x1F\\xFF\\x0A\\xCD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Well, well^orichalcum beads!"
+			class-of me is 6
+			jump &[00000232]
+[00000191]:
+			say-line "\\xFF\\x0A\\x1C\\x92\\xFF\\x0A\\xCD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00More orichalcum beads."
+[00000232]:
+			wait-for-message
+			do-animation 1 10
+			break-here
+			do-animation 1 3
+			L.0 = (V.424 + V.229)
+			if !(L.0 > 119) jump &[00000352]
+			say-line 1 "\\xFF\\x0A\\x2A\\xD8\\xFF\\x0A\\xCD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't cram any more beads into my\\x10pockets!"
+			wait-for-message
+			L.0 = (119 - V.229)
+			V.424 -= L.0
+			start-object 933 verb 250 (L.0)
+			jump &[00000392]
+[00000352]:
+			new-name-of 409 is "empty dish"
+			class-of 409 is 18
+			stop-script 164
+			put-actor 5 in-room 0
+			put-actor 6 in-room 0
+			put-actor 7 in-room 0
+			start-object 933 verb 250 (V.424)
+[00000392]:
+			end-cut-scene
+[00000393]:
+			end-object
+		}
+	}
+
+	object 407 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0407
+		name is "statue"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 134) jump &[00000099]
+			say-line "\\xFF\\x0A\\xEE\\x4C\\xFF\\x0A\\xCA\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It appears to be a tube running back into the\\x10machine."
+			jump &[00000170]
+[00000099]:
+			say-line "\\xFF\\x0A\\x94\\xB8\\xFF\\x0A\\xCA\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I wonder why Atlanteans were so obsessed with\\x10bulls?"
+[00000170]:
+			end-object
+		}
+	}
+
+	object 394 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0394
+		name is "disk"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xFC\\x69\\xFF\\x0A\\xC9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's carved to look like a beetle."
+			end-object
+		}
+	}
+
+	object 393 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0393
+		name is "disk"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xF6\\xB4\\xFF\\x0A\\xC9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's carved to look like a beetle."
+			end-object
+		}
+	}
+
+	object 405 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0405
+		name is "large stone wheel"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xF0\\xFF\\xFF\\x0A\\xC9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's carved in a bizarre\\x10pattern."
+			end-object
+		}
+	}
+
+	object 395 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0395
+		name is "o-mac-stone-wheel"
+	}
+
+	object 406 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0406
+		name is "o-mac-left-eye"
+	}
+
+	object 410 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0410
+		name is "o-mac-right-eye"
+	}
+
+	object 396 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0396
+		name is "o-mac-big-pipe"
+	}
+
+	object 414 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0414
+		name is "o-mac-small-left-pipe"
+	}
+
+	object 415 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0415
+		name is "o-mac-med-left-pipe"
+	}
+
+	object 404 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0404
+		name is "o-mac-pistons"
+	}
+
+	object 401 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0401
+		name is "o-mac-gear"
+	}
+
+	object 402 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0402
+		name is "o-mac-right-tiny-wheels"
+	}
+
+	object 403 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0403
+		name is "o-mac-left-tiny-wheels"
+	}
+
+	object 400 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0400
+		name is "o-mac-small-cylinder"
+	}
+
+	object 398 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0398
+		name is "o-mac-small-pipe"
+	}
+
+	object 397 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0397
+		name is "o-mac-med-pipe"
+	}
+
+	object 392 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0392
+		name is "door"
+
+		verb 10 {
+			fades 257
+			current-room 85
+			end-object
+		}
+	}
+
+	object 408 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0408
+		name is "funnel"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x31\\x73\\xFF\\x0A\\xCC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Funnels are what you pour liquids\\x10into."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			start-script 222 (L.0)
+			end-object
+		}
+	}
+
+	object 399 { ; VERB LECF_0001\LFLF_0036\ROOM\OBCD_0399
+		name is "o-mac-big-cylinder"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0036\ROOM\EXCD
+		stop-script 164
+		if (!B.23) {
+			sound-kludge 262 4 0
+			sound-kludge 262 6 0
+			sound-kludge 262 5 0
+			sound-kludge 257 4 0
+			sound-kludge 257 5 0
+			sound-kludge 257 6 0
+			sound-kludge 269 4 50 180
+			sound-kludge 269 6 50 180
+			sound-kludge 269 5 50 180
+			sound-kludge 65535
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0036\ROOM\ENCD
+		actor 12 default costume 231 ignore-boxes never-zclip
+		camera-script = 220
+		put-actor 1 in-room 36
+		put-actor 1 at-object 392
+		walk 1 to 442,141
+		camera-follow selected-actor
+		state-of 394 is 1
+		state-of 393 is 1
+		state-of 395 is 1
+		state-of 399 is 1
+		state-of 400 is 1
+		state-of 401 is 1
+		state-of 411 is 1
+		if (class-of 412 is 12) {
+			new-name-of 412 is "spoked wheel"
+		}
+		camera-at 320
+		sound-kludge 269 3 0 180
+		start-sound 4
+		start-script bak 217 ()
+		start-script bak 216 ()
+		start-script bak 219 ()
+		start-script bak 221 ()
+		if (class-of 409 is 146) {
+			start-script bak rec 164 (5,166,117,20,255,1)
+			start-script bak rec 164 (6,162,117,20,255,1)
+			start-script bak rec 164 (7,170,117,20,255,1)
+		}
+		end-object
+	}
+; Machine Starts Up
+	script 200 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0200
+	local variable L.0
+
+		cut-scene
+		class-of 1207 is 18
+		stop-script 164
+		new-name-of 1207 is "empty cup"
+		if (class-of 412 is 12) {
+			if (V.424 < 210) {
+				class-of 407 is 6
+				class-of 409 is 146
+				V.424 += 10
+				start-script 144 (129,10)
+			}
+		}
+		start-script 10 ()
+		V.209 = 0
+		V.210 = 0
+		V.211 = 0
+		V.212 = 0
+		break-here
+		do-animation 1 3
+		load-sound 6
+		sound-kludge 2
+		start-sound 6
+		sound-kludge 65535
+		sound-kludge 257 6 132
+		sound-kludge 65535
+		sound-kludge 3
+		override &[00000212]
+		for L.0 = 1 to 1 ++ {
+			start-script 201 ()
+			sleep-for 240 jiffies
+			V.209 = 1
+			start-script 202 ()
+			sleep-for 240 jiffies
+			V.210 = 1
+			start-script 203 ()
+			sleep-for 240 jiffies
+			V.211 = 1
+			start-script 204 ()
+			sleep-for 240 jiffies
+			V.212 = 1
+			break-here 2
+		}
+[00000212]:
+		if (override-hit) {
+			V.209 = 1
+			V.210 = 1
+			V.211 = 1
+			V.212 = 1
+			stop-sound 6
+		}
+		break-here
+		if (class-of 409 is 146) {
+			new-name-of 409 is "beads in dish"
+			start-script bak rec 164 (5,166,117,20,255,1)
+			start-script bak rec 164 (6,162,117,20,255,1)
+			start-script bak rec 164 (7,170,117,20,255,1)
+		}
+		end-cut-scene
+		if (class-of 412 is 140) {
+			say-line "\\xFF\\x0A\\xAA\\xB7\\xFF\\x0A\\xC7\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That didn't quite\\x10work."
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0201
+		V.209 = 0
+		start-script bak 205 ()
+		start-script bak 211 ()
+		start-script bak 212 ()
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0202
+		V.210 = 0
+		start-script bak 206 ()
+		start-script bak 208 ()
+		start-script bak 210 ()
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0203
+		V.211 = 0
+		start-script bak 214 ()
+		start-script bak 209 ()
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0204
+		V.212 = 0
+		start-script bak 207 ()
+		start-script bak 213 ()
+		if (class-of 412 is 12) {
+			if (V.424 < 210) {
+				start-script bak 215 ()
+			}
+		}
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0205
+		do {
+			draw-object 414 image 1
+			draw-object 398 image 1
+			break-here
+			draw-object 414 image 2
+			draw-object 398 image 2
+			break-here
+			draw-object 414 image 3
+			draw-object 398 image 3
+			break-here
+		} until (V.209)
+		state-of 398 is 0
+		state-of 414 is 0
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0206
+		do {
+			draw-object 415 image 1
+			draw-object 397 image 1
+			break-here
+			draw-object 415 image 2
+			draw-object 397 image 2
+			break-here
+			draw-object 415 image 3
+			draw-object 397 image 3
+			break-here
+		} until (V.210)
+		state-of 397 is 0
+		state-of 415 is 0
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0207
+		do {
+			draw-object 405 image 1
+			draw-object 396 image 1
+			break-here
+			draw-object 405 image 2
+			draw-object 396 image 2
+			break-here
+			draw-object 405 image 3
+			draw-object 396 image 3
+			break-here
+			draw-object 405 image 4
+			draw-object 396 image 4
+			break-here
+			draw-object 405 image 5
+			draw-object 396 image 5
+			break-here
+		} until (V.212)
+		state-of 396 is 0
+		draw-object 405 image 1
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0208
+		do {
+			draw-object 400 image 1
+			break-here
+			draw-object 400 image 2
+			break-here
+			draw-object 400 image 3
+			break-here
+		} until (V.210)
+		draw-object 400 image 1
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0209
+		do {
+			draw-object 399 image 1
+			break-here
+			draw-object 399 image 2
+			break-here
+			draw-object 399 image 3
+			break-here
+			draw-object 399 image 2
+			break-here
+		} until (V.211)
+		draw-object 399 image 1
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0210
+		do {
+			draw-object 401 image 1
+			break-here
+			draw-object 401 image 2
+			break-here
+			draw-object 401 image 3
+			break-here
+			draw-object 401 image 4
+			break-here
+		} until (V.210)
+		draw-object 401 image 1
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0211
+		state-of 402 is 1
+		state-of 403 is 1
+		state-of 406 is 1
+		state-of 410 is 1
+		break-until (V.209)
+		state-of 402 is 0
+		state-of 403 is 0
+		state-of 406 is 0
+		state-of 410 is 0
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0212
+		do {
+			draw-object 404 image 1
+			break-here
+			draw-object 404 image 2
+			break-here
+			draw-object 404 image 3
+			break-here
+			draw-object 404 image 2
+			break-here
+		} until (V.209)
+		draw-object 404 image 1
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0213
+		do {
+			draw-object 394 image 1
+			draw-object 393 image 1
+			state-of 411 is 2
+			if (class-of 412 is 12) {
+				state-of 412 is 2
+			}
+			break-here
+			draw-object 394 image 2
+			draw-object 393 image 2
+			state-of 411 is 1
+			if (class-of 412 is 12) {
+				state-of 412 is 1
+			}
+			break-here
+			draw-object 394 image 3
+			draw-object 393 image 3
+			state-of 411 is 2
+			if (class-of 412 is 12) {
+				state-of 412 is 2
+			}
+			break-here
+			draw-object 394 image 4
+			draw-object 393 image 4
+			state-of 411 is 1
+			if (class-of 412 is 12) {
+				state-of 412 is 1
+			}
+			break-here
+		} until (V.212)
+		draw-object 394 image 1
+		draw-object 393 image 1
+		end-script
+	}
+
+	script 214 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0214
+		do {
+			draw-object 395 image 1
+			break-here
+			draw-object 395 image 2
+			break-here
+			draw-object 395 image 3
+			break-here
+			draw-object 395 image 4
+			break-here
+		} until (V.211)
+		draw-object 395 image 1
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0215
+	local variable L.0
+
+		state-of 413 is 1
+		do {
+			state-of 407 is 1
+			break-here
+			state-of 407 is 0
+			break-here
+		} until (V.212)
+		state-of 413 is 0
+		state-of 407 is 0
+		start-sound 181
+		for L.0 = 1 to 10 ++ {
+			if (L.0 is 5) {
+				stop-sound 181
+				start-sound 181
+			}
+			draw-object 416 image 1
+			break-here
+			draw-object 416 image 2
+			break-here
+			if (L.0 is 3) {
+				stop-sound 181
+				start-sound 181
+			}
+			if (L.0 is 8) {
+				stop-sound 181
+				start-sound 181
+			}
+			draw-object 416 image 3
+			break-here
+			draw-object 416 image 4
+			break-here
+		}
+		state-of 416 is 0
+		stop-sound 181
+		end-script
+	}
+
+	script 216 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0216
+		break-until (camera-x < 320)
+		sound-kludge 2
+		start-sound 5
+		sound-kludge 65535
+		sound-kludge 257 5 131
+		sound-kludge 65535
+		sound-kludge 3
+		end-script
+	}
+
+	script 217 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0217
+		do {
+			if (actor-x 1 < 224) {
+				camera-pan-to 160
+			}
+			if (actor-x 1 > 296) {
+				camera-pan-to 320
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 218 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0218
+	local variable L.0
+	local variable L.1
+
+		do {
+			L.0 = camera-x
+			if (L.0 is-not L.1) {
+				L.1 = L.0
+				L.0 -= 160
+				L.0 /= 65532
+				sound-kludge 259 4 L.0
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 219 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0219
+		break-until (sound-running 4)
+		start-script bak 218 ()
+		end-script
+	}
+
+	script 220 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0220
+		V.442 = (400 - ((camera-x - 160) / 2))
+		put-actor 12 in-room 36
+		put-actor 12 at V.442,142
+		end-script
+	}
+
+	script 221 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0221
+		do {
+			V.70 = 0
+			break-until (V.70)
+			if (class-of 412 is 12) {
+				new-name-of 412 is "spoked wheel"
+			}
+			if (class-of 409 is 146) {
+				new-name-of 409 is "beads in dish"
+			}
+		}
+		end-script
+	}
+; Put Something in Funnel
+	script 222 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0222
+	local variable L.0
+
+		if !(L.0 is 1207) jump &[00000161]
+		if !(class-of 1207 is 140) jump &[00000105]
+		do-animation 1 11
+		class-of 999 is 12
+		new-name-of 1207 is "cup"
+		break-here 4
+		do-animation 1 3
+		break-here
+		say-line "\\xFF\\x0A\\xE5\\xE7\\xFF\\x0A\\xC7\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Guess it doesn't like\\x10water."
+		start-script 10 ()
+		jump &[00000622]
+		jump &[00000158]
+[00000105]:
+		if !(class-of 1207 is 146) jump &[00000123]
+		do-animation 1 11
+		chain-script 200 ()
+		jump &[00000158]
+[00000123]:
+		say-line "\\xFF\\x0A\\xB8\\x14\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00The cup's\\x10empty."
+[00000158]:
+		jump &[00000622]
+[00000161]:
+		if !(L.0 is 999) jump &[00000399]
+		if !(class-of 999 is 146) jump &[00000260]
+		do-animation 1 11
+		class-of 999 is 18
+		new-name-of 999 is "clay cup"
+		break-here 4
+		do-animation 1 3
+		break-here
+		say-line "\\xFF\\x0A\\x98\\x39\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Guess it doesn't like\\x10gasoline."
+		jump &[00000622]
+[00000260]:
+		if !(class-of 999 is 140) jump &[00000349]
+		do-animation 1 11
+		class-of 999 is 12
+		new-name-of 999 is "clay cup"
+		break-here 4
+		do-animation 1 3
+		break-here
+		say-line "\\xFF\\x0A\\xA3\\x70\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Guess it doesn't like\\x10water."
+		jump &[00000622]
+[00000349]:
+		say-line "\\xFF\\x0A\\x78\\x9E\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing in the\\x10vase!"
+		jump &[00000622]
+[00000399]:
+		if !(L.0 is 443) jump &[00000549]
+		if !(class-of 443 is 140) jump &[00000500]
+		do-animation 1 11
+		class-of 443 is 12
+		new-name-of 443 is "porcelain mug"
+		break-here 4
+		do-animation 1 3
+		break-here
+		say-line "\\xFF\\x0A\\xBA\\xD1\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Guess it doesn't like\\x10water."
+		jump &[00000622]
+[00000500]:
+		say-line "\\xFF\\x0A\\x8F\\xFF\\xFF\\x0A\\xC8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing in the\\x10mug!"
+		jump &[00000622]
+[00000549]:
+		if !(L.0 is 933) jump &[00000616]
+		say-line "\\xFF\\x0A\\x82\\x2C\\xFF\\x0A\\xC9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I don't want to get rid of this\\x10stuff."
+		jump &[00000622]
+[00000616]:
+		start-script 3 (88)
+[00000622]:
+		end-script
+	}
+}
+

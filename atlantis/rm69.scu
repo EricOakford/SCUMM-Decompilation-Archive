@@ -1,0 +1,501 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+/ * 
+; * Room 69: Thera Dig Site Exterior (th-dig-ex)
+; */
+
+room th-dig-ex {
+
+	object 944 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0944
+		name is "invoice"
+
+		verb 91 {
+			V.161 = 1361
+			end-object
+		}
+
+		verb 11 {
+			if (owner-of me is-not selected-actor) {
+				pick-up-object me in-room 0
+				start-script 10 ()
+			}
+			end-object
+		}
+
+		verb 9 {
+			B.400[0] = 1
+			say-line "\\xFF\\x0A\\x34\\x2B\\xFF\\x0A\\x27\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's an invoice for an observation balloon\\x10bladder."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 941 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0941
+		name is "crate"
+
+		verb 3 {
+			if !(state-of me is 0) jump &[00000027]
+			state-of me is 1
+			jump &[00000064]
+[00000027]:
+			say-line "\\xFF\\x0A\\xBC\\x2E\\xFF\\x0A\\x25\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's already open."
+[00000064]:
+			end-object
+		}
+
+		verb 4 {
+			if !(state-of me is 1) jump &[00000084]
+			state-of me is 0
+			jump &[00000123]
+[00000084]:
+			say-line "\\xFF\\x0A\\x41\\x54\\xFF\\x0A\\x25\\x08\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's already closed."
+[00000123]:
+			end-object
+		}
+
+		verb 9 {
+			if !(state-of me is 0) jump &[00000186]
+			say-line "\\xFF\\x0A\\x54\\x81\\xFF\\x0A\\x25\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a plain old wooden\\x10box."
+			jump &[00000239]
+[00000186]:
+			say-line "\\xFF\\x0A\\x2F\\xCB\\xFF\\x0A\\x25\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a plain old empty wooden\\x10box."
+[00000239]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 946 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0946
+		name is "tire repair kit"
+
+		verb 91 {
+			V.161 = 1318
+			end-object
+		}
+
+		verb 11 {
+			if !(owner-of 946 is-not selected-actor) jump &[00000058]
+			cut-scene
+			do-animation 1 12
+			start-sound 117
+			break-here 4
+			do-animation 1 1
+			end-cut-scene
+			pick-up-object 946 in-room 0
+			state-of 946 is 0
+			start-script 10 ()
+			jump &[00000095]
+[00000058]:
+			say-line "\\xFF\\x0A\\x70\\x76\\xFF\\x0A\\x29\\x08\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I already have\\x10it."
+[00000095]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x7B\\x9C\\xFF\\x0A\\x29\\x08\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's a tire repair\\x10kit."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 491) jump &[00000167]
+			if (class-of 491 is 140) {
+				start-script 212 ()
+			}
+			jump &[00000173]
+[00000167]:
+			chain-script 3 (8)
+[00000173]:
+			end-object
+		}
+	}
+
+	object 940 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0940
+		name is "truck"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x59\\x91\\xFF\\x0A\\x24\\x08\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's a German army truck\\xFF\\x01with a missing tire.\\xFF\\x03Kerner must have been\\x10here!"
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 949 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0949
+		name is "th-dig-balloon-anim-3"
+	}
+
+	object 945 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0945
+		name is "path to landscape"
+
+		verb 10 {
+			fades 257
+			come-out V.414 in-room 63 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 942 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0942
+		name is "entrance@@@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			if (V.238 is 2) {
+				current-room 179
+			}
+			end-object
+		}
+
+		verb 9 {
+			if !(V.238 is 2) jump &[00000105]
+			say-line "\\xFF\\x0A\\xF8\\x1A\\xFF\\x0A\\x26\\x08\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like the entrance to some underground\\x10chamber."
+			jump &[00000232]
+[00000105]:
+			say-line "\\xFF\\x0A\\x6F\\x72\\xFF\\x0A\\x26\\x08\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like the collapsed entrance to an underground\\x10chamber.\\xFF\\x03Who knows?  Maybe it led straight to\\x10Atlantis."
+[00000232]:
+			end-object
+		}
+	}
+
+	object 947 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0947
+		name is "th-dig-balloon-anim-1"
+	}
+
+	object 948 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0948
+		name is "th-dig-balloon-anim-2"
+	}
+
+	object 943 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0943
+		name is "vent"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x31\\x91\\xFF\\x0A\\x27\\x08\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00This looks like a natural gas\\x10fissure."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 1014) jump &[00000143]
+			say-line "\\xFF\\x0A\\x50\\xDE\\xFF\\x0A\\x27\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What would I do with a hose spewing natural\\x10gas?"
+			jump &[00000564]
+[00000143]:
+			if !(L.0 is 593) jump &[00000186]
+			if !(class-of 593 is 147) jump &[00000180]
+			if !(class-of 595 is 140) jump &[00000174]
+			jump &[00000413]
+			jump &[00000177]
+[00000174]:
+			jump &[00000336]
+[00000177]:
+			jump &[00000183]
+[00000180]:
+			jump &[00000502]
+[00000183]:
+			jump &[00000564]
+[00000186]:
+			if !(L.0 is 591) jump &[00000202]
+			chain-script 3 (88)
+			jump &[00000564]
+[00000202]:
+			if !(L.0 is 595) jump &[00000493]
+			if !(class-of 595 is 145) jump &[00000395]
+			if !(class-of 595 is 140) jump &[00000336]
+			if !(class-of 595 is 147) jump &[00000330]
+			cut-scene
+			do-animation 1 11
+			break-here 4
+			do-animation 1 1
+			say-line "\\xFF\\x0A\\xB3\\x46\\xFF\\x0A\\x28\\x08\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's a long shot, but here\\x10goes^"
+			class-of 595 is 146
+			new-name-of 595 is "balloon"
+			end-cut-scene
+			chain-script 201 (1)
+			jump &[00000333]
+[00000330]:
+			jump &[00000502]
+[00000333]:
+			jump &[00000392]
+[00000336]:
+			say-line "\\xFF\\x0A\\x79\\x93\\xFF\\x0A\\x28\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How am I supposed to ride this\\x10thing?"
+[00000392]:
+			jump &[00000490]
+[00000395]:
+			if !(class-of 595 is 140) jump &[00000484]
+			if !(class-of 593 is 147) jump &[00000475]
+[00000413]:
+			say-line "\\xFF\\x0A\\xC7\\xD7\\xFF\\x0A\\x28\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't have all the parts together\\x10yet."
+			jump &[00000481]
+[00000475]:
+			chain-script 3 (88)
+[00000481]:
+			jump &[00000490]
+[00000484]:
+			chain-script 3 (88)
+[00000490]:
+			jump &[00000564]
+[00000493]:
+			chain-script 3 (88)
+			jump &[00000564]
+[00000502]:
+			say-line "\\xFF\\x0A\\x12\\x1B\\xFF\\x0A\\x29\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I need something to connect it to the\\x10vent."
+[00000564]:
+			end-object
+		}
+
+		verb 90 {
+			if !(class-of 595 is 145) jump &[00000600]
+			if !(class-of 595 is 140) jump &[00000600]
+			if !(class-of 595 is 147) jump &[00000600]
+			V.123 = 8
+			jump &[00000605]
+[00000600]:
+			V.123 = 9
+[00000605]:
+			end-object
+		}
+	}
+
+	object 950 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0950
+		name is "fully inflated balloon"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xA8\\xDE\\xFF\\x0A\\x29\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's all ready to\\x10go."
+			end-object
+		}
+
+		verb 8 {
+			class-of 595 is 148
+			fades 257
+			start-script 144 (101,10)
+			sound-kludge 269 80 50 180
+			sound-kludge 269 153 50 180
+			sound-kludge 257 80 0
+			sound-kludge 257 153 0
+			sound-kludge 262 80 0
+			sound-kludge 262 153 0
+			sound-kludge 65535
+			current-room 63
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 8
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0069\ROOM\EXCD
+		B.417[7] = 1
+		actor 5 default
+		class-of 5 is 0
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0069\ROOM\ENCD
+		if (V.224 is-not 69) {
+			actor 5 default costume 52 palette 4 in-slot 253 palette 3 in-slot 252 ignore-boxes never-zclip
+			put-actor 5 in-room 69
+			put-actor 5 at 231,42
+		}
+		do-animation 5 250
+		do-animation 5 2
+		if !(V.238 is 2) jump &[00000058]
+		state-of 942 is 0
+		jump &[00000084]
+[00000058]:
+		state-of 942 is 1
+		new-name-of 942 is "collapsed entrance"
+[00000084]:
+		start-script 200 ()
+		set-box 1 to 16
+		if !(V.224 is 63) jump &[00000203]
+		put-actor 1 in-room 69
+		put-actor 1 at-object 945
+		if !(V.238 is-not 2) jump &[00000185]
+		stop-script 151
+		if (sound-running 80) {
+			sound-kludge 256 80 6
+			sound-kludge 65535
+			if (V.56 is-not 2) {
+				sound-kludge 263 80 2 5 0
+			}
+		}
+		sound-kludge 268 80 0 0
+		sound-kludge 65535
+		jump &[00000197]
+[00000185]:
+		if (!script-running 151) {
+			start-script 151 ()
+		}
+[00000197]:
+		do-animation 1 250
+		jump &[00000264]
+[00000203]:
+		if !(V.224 is 72) jump &[00000230]
+		sound-kludge 268 80 0 1
+		start-script 151 ()
+		jump &[00000264]
+[00000230]:
+		if !(V.224 is 69) jump &[00000243]
+		start-script 201 ()
+		jump &[00000264]
+[00000243]:
+		if (class-of 984 is 6) {
+			if (class-of 984 is 145) {
+				start-script bak 202 ()
+			}
+		}
+[00000264]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0200
+		if !(V.238 is 1) jump &[00000054]
+		state-of 944 is 1
+		class-of 944 is 160
+		if (owner-of 946 is-not selected-actor) {
+			if (class-of 491 is 140) {
+				state-of 946 is 1
+			}
+		}
+		jump &[00000076]
+[00000054]:
+		state-of 946 is 0
+		class-of 946 is 160
+		state-of 940 is 1
+		class-of 940 is 160
+[00000076]:
+		end-script
+	}
+; Balloon Inflates
+	script 201 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0201
+	local variable L.0
+
+		if !(L.0) jump &[00000106]
+		cut-scene
+		state-of 948 is 0
+		state-of 949 is 0
+		state-of 950 is 0
+		owner-of 595 is 0
+		wait-for-message
+		do-animation 1 12
+		break-here 3
+		start-script 10 ()
+		draw-object 947 
+		do-animation 1 3
+		put-actor 5 in-room 0
+		actor 5 default
+		break-here 2
+		V.351 = actor-x selected-actor
+		V.352 = actor-y selected-actor
+		V.351 -= 55
+		walk 1 to V.351,V.352
+		wait-for-actor 1
+		do-animation 1 245
+		break-here 8
+		fades 134
+		end-cut-scene
+		current-room 69
+		jump &[00000234]
+[00000106]:
+		if (state-of 947 is 1) {
+			cut-scene
+			state-of 947 is 0
+			draw-object 948 
+			state-of 949 is 0
+			do-animation 1 245
+			load-sound 83
+			sound-kludge 65535
+			sound-kludge 269 80 0 180
+			sound-kludge 257 80 0
+			sound-kludge 262 80 0
+			start-sound 153
+			sound-kludge 270 153 1
+			sound-kludge 271 8 80
+			sound-kludge 271 65535
+			sound-kludge 65535
+			break-here 8
+			fades 134
+			end-cut-scene
+			current-room 69
+		}
+[00000234]:
+		if (state-of 948 is 1) {
+			cut-scene
+			state-of 947 is 0
+			state-of 948 is 0
+			draw-object 949 
+			break-here 8
+			fades 134
+			end-cut-scene
+			current-room 69
+		}
+		if (state-of 949 is 1) {
+			cut-scene
+			state-of 949 is 0
+			draw-object 950 
+			class-of 950 is 32
+			fades 257
+			break-here 4
+			say-line 1 "\\xFF\\x0A\\xCD\\xA2\\xFF\\x0A\\x23\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I ought to be featured\\xFF\\x01in Modern\\x10Mechanix for\\x10this."
+			end-cut-scene
+		}
+		end-script
+	}
+; After Digging Out
+	script 202 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0202
+		cut-scene
+		sound-kludge 272
+		sound-kludge 65535
+		sound-kludge 268 155 0 4
+		sound-kludge 270 155 1
+		sound-kludge 271 262 155 0
+		sound-kludge 271 269 155 70 200
+		sound-kludge 271 65535
+		sound-kludge 65535
+		class-of 984 is 17
+		break-here
+		put-actor selected-actor in-room 69
+		put-actor selected-actor at-object 942
+		walk selected-actor to 144,144
+		wait-for-actor selected-actor
+		override &[00000208]
+		say-line 1 "\\xFF\\x0A\\x6C\\x09\\xFF\\x0A\\x24\\x08\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Somehow Kerner got the jump on\\x10me^\\xFF\\x03^and now he's got\\x10Sophia!"
+		wait-for-message
+[00000208]:
+		sound-kludge 272
+		sound-kludge 269 155 0 80
+		sound-kludge 2
+		start-sound 80
+		sound-kludge 268 80 0 13
+		sound-kludge 258 80 1
+		sound-kludge 269 80 128 300
+		sound-kludge 3
+		start-script 151 ()
+		end-cut-scene
+		end-script
+	}
+}
+

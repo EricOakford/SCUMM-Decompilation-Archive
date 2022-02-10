@@ -1,0 +1,44 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 84: Closeup Rube (ci-rube)
+; */
+
+room cu-rube {
+
+	exit { ; EXCD LECF_0001\LFLF_0084\ROOM\EXCD
+		build-sentence-script = 4
+		set-screen 0 to 144
+		start-script 19 (2)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0084\ROOM\ENCD
+		B.562 = 1
+		set-screen 0 to 200
+		start-script 19 (1)
+		camera-at 160
+		B.16 = 0
+		cursor on
+		build-sentence-script = 201
+		start-script 200 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0084\ROOM\LSCR_0200
+[00000008]:
+		break-here
+		override &[00000019]
+		if !(B.16) jump &[00000008]
+[00000019]:
+		override off
+		current-room 193
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0084\ROOM\LSCR_0201
+		B.16 = 1
+		end-script
+	}
+}
+

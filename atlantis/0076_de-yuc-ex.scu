@@ -1,0 +1,3879 @@
+room de-yuc-ex {
+
+	object 1035 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1035
+		name is "truck"
+
+		verb 8 {
+			sound-kludge 269 72 0 240
+			sound-kludge 269 73 0 240
+			cut-scene
+			do-animation 1 face-towards 2
+			say-line 1 "\\xFF\\x0A\\x8D\\x68\\xFF\\x0A\\xC0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Let's find the airport."
+			break-here 2
+			do-animation 2 face-towards 1
+			wait-for-message
+			end-cut-scene
+			current-room 75
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x2A\\x98\\xFF\\x0A\\xC0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a rental."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 8
+			end-object
+		}
+	}
+
+	object 1036 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1036
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1036
+			start-script 207 (selected-actor,1042,30,98,116)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+		local variable L.1
+
+			if !(L.0 is 20) jump &[00000163]
+			if !(V.209 is me) jump &[00000114]
+			L.1 = actor-x 10
+			V.442 = actor-x 1
+			L.0 = (L.1 - V.442)
+			if (L.0 < 0) {
+				L.0 = (0 - L.0)
+			}
+			if (L.0 <= 70) {
+				start-sound 93
+				sound-kludge 269 72 30 15
+			}
+			start-script 216 ()
+			jump &[00000160]
+[00000114]:
+			say-line "\\xFF\\x0A\\x04\\xB9\\xFF\\x0A\\xC0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000160]:
+			jump &[00000169]
+[00000163]:
+			start-script 3 (88)
+[00000169]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1036) jump &[00000220]
+			say-line "\\xFF\\x0A\\x5C\\xE6\\xFF\\x0A\\xC0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000226]
+[00000220]:
+			start-script 3 (11)
+[00000226]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1036) jump &[00000283]
+			say-line "\\xFF\\x0A\\x63\\x1A\\xFF\\x0A\\xC1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000340]
+[00000283]:
+			say-line "\\xFF\\x0A\\x2D\\x5D\\xFF\\x0A\\xC1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading back to the\\x10truck."
+[00000340]:
+			V.445 = actor-x 1036
+			V.446 = actor-y 1036
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000456]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000449]
+			do-animation selected-actor 247
+			jump &[00000453]
+[00000449]:
+			do-animation selected-actor 246
+[00000453]:
+			jump &[00000484]
+[00000456]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000480]
+			do-animation selected-actor 244
+			jump &[00000484]
+[00000480]:
+			do-animation selected-actor 245
+[00000484]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1037 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1037
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1037
+			start-script 207 (selected-actor,1041,30,386,114)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000104]
+			if !(V.209 is me) jump &[00000055]
+			start-script bak 223 (1041)
+			jump &[00000101]
+[00000055]:
+			say-line "\\xFF\\x0A\\x93\\xAB\\xFF\\x0A\\xC1\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000101]:
+			jump &[00000110]
+[00000104]:
+			start-script 3 (88)
+[00000110]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1037) jump &[00000161]
+			say-line "\\xFF\\x0A\\x25\\xD8\\xFF\\x0A\\xC1\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000167]
+[00000161]:
+			start-script 3 (11)
+[00000167]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1037) jump &[00000224]
+			say-line "\\xFF\\x0A\\xBE\\x07\\xFF\\x0A\\xC2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000286]
+[00000224]:
+			say-line "\\xFF\\x0A\\x96\\x50\\xFF\\x0A\\xC2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading deeper into the\\x10jungle."
+[00000286]:
+			V.445 = actor-x 1037
+			V.446 = actor-y 1037
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000402]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000395]
+			do-animation selected-actor 247
+			jump &[00000399]
+[00000395]:
+			do-animation selected-actor 246
+[00000399]:
+			jump &[00000430]
+[00000402]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000426]
+			do-animation selected-actor 244
+			jump &[00000430]
+[00000426]:
+			do-animation selected-actor 245
+[00000430]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1038 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1038
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1038
+			start-script 207 (selected-actor,1040,30,346,122)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000104]
+			if !(V.209 is me) jump &[00000055]
+			start-script bak 223 (1040)
+			jump &[00000101]
+[00000055]:
+			say-line "\\xFF\\x0A\\x01\\xAF\\xFF\\x0A\\xC2\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000101]:
+			jump &[00000110]
+[00000104]:
+			start-script 3 (88)
+[00000110]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1038) jump &[00000161]
+			say-line "\\xFF\\x0A\\x93\\xDB\\xFF\\x0A\\xC2\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000167]
+[00000161]:
+			start-script 3 (11)
+[00000167]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1038) jump &[00000224]
+			say-line "\\xFF\\x0A\\x2C\\x0B\\xFF\\x0A\\xC3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000286]
+[00000224]:
+			say-line "\\xFF\\x0A\\x04\\x54\\xFF\\x0A\\xC3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading deeper into the\\x10jungle."
+[00000286]:
+			V.445 = actor-x 1038
+			V.446 = actor-y 1038
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000402]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000395]
+			do-animation selected-actor 247
+			jump &[00000399]
+[00000395]:
+			do-animation selected-actor 246
+[00000399]:
+			jump &[00000430]
+[00000402]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000426]
+			do-animation selected-actor 244
+			jump &[00000430]
+[00000426]:
+			do-animation selected-actor 245
+[00000430]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1039 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1039
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1039
+			start-script 207 (selected-actor,1043,30,464,129)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000106]
+			if !(V.209 is me) jump &[00000057]
+			V.218 = 25
+			start-script bak 217 ()
+			jump &[00000103]
+[00000057]:
+			say-line "\\xFF\\x0A\\x6F\\xB2\\xFF\\x0A\\xC3\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000103]:
+			jump &[00000112]
+[00000106]:
+			start-script 3 (88)
+[00000112]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1039) jump &[00000163]
+			say-line "\\xFF\\x0A\\x01\\xDF\\xFF\\x0A\\xC3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000169]
+[00000163]:
+			start-script 3 (11)
+[00000169]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1039) jump &[00000226]
+			say-line "\\xFF\\x0A\\x08\\x13\\xFF\\x0A\\xC4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000288]
+[00000226]:
+			say-line "\\xFF\\x0A\\xE0\\x5B\\xFF\\x0A\\xC4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading deeper into the\\x10jungle."
+[00000288]:
+			V.445 = actor-x 1039
+			V.446 = actor-y 1039
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000404]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000397]
+			do-animation selected-actor 247
+			jump &[00000401]
+[00000397]:
+			do-animation selected-actor 246
+[00000401]:
+			jump &[00000432]
+[00000404]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000428]
+			do-animation selected-actor 244
+			jump &[00000432]
+[00000428]:
+			do-animation selected-actor 245
+[00000432]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1040 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1040
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1040
+			start-script 207 (selected-actor,1038,30,275,99)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000104]
+			if !(V.209 is me) jump &[00000055]
+			start-script bak 223 (1038)
+			jump &[00000101]
+[00000055]:
+			say-line "\\xFF\\x0A\\x4B\\xBA\\xFF\\x0A\\xC4\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000101]:
+			jump &[00000110]
+[00000104]:
+			start-script 3 (88)
+[00000110]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1040) jump &[00000161]
+			say-line "\\xFF\\x0A\\xDD\\xE6\\xFF\\x0A\\xC4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000167]
+[00000161]:
+			start-script 3 (11)
+[00000167]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1040) jump &[00000224]
+			say-line "\\xFF\\x0A\\xE4\\x1A\\xFF\\x0A\\xC5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000286]
+[00000224]:
+			say-line "\\xFF\\x0A\\xBC\\x63\\xFF\\x0A\\xC5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading deeper into the\\x10jungle."
+[00000286]:
+			V.445 = actor-x 1040
+			V.446 = actor-y 1040
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000402]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000395]
+			do-animation selected-actor 247
+			jump &[00000399]
+[00000395]:
+			do-animation selected-actor 246
+[00000399]:
+			jump &[00000430]
+[00000402]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000426]
+			do-animation selected-actor 244
+			jump &[00000430]
+[00000426]:
+			do-animation selected-actor 245
+[00000430]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1041 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1041
+		name is "dark jungle path@@@@@@@"
+
+		verb 10 {
+			me = 1041
+			start-script 207 (selected-actor,1037,30,244,113)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000104]
+			if !(V.209 is me) jump &[00000055]
+			start-script bak 223 (1037)
+			jump &[00000101]
+[00000055]:
+			say-line "\\xFF\\x0A\\x27\\xC2\\xFF\\x0A\\xC5\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to whip\\x10at."
+[00000101]:
+			jump &[00000110]
+[00000104]:
+			start-script 3 (88)
+[00000110]:
+			end-object
+		}
+
+		verb 11 {
+			if !(V.209 is 1041) jump &[00000161]
+			say-line "\\xFF\\x0A\\xB9\\xEE\\xFF\\x0A\\xC5\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00He's too fast for\\x10me."
+			jump &[00000167]
+[00000161]:
+			start-script 3 (11)
+[00000167]:
+			end-object
+		}
+
+		verb 9 {
+			if !(V.209 is 1041) jump &[00000224]
+			say-line "\\xFF\\x0A\\x52\\x1E\\xFF\\x0A\\xC6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like a jungle\\x10rodent."
+			jump &[00000286]
+[00000224]:
+			say-line "\\xFF\\x0A\\x2A\\x67\\xFF\\x0A\\xC6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a path leading deeper into the\\x10jungle."
+[00000286]:
+			V.445 = actor-x 1041
+			V.446 = actor-y 1041
+			V.442 = (V.445 - (actor-x selected-actor))
+			V.443 = (V.446 - (actor-y selected-actor))
+			if (V.442 < 0) {
+				V.442 = (0 - V.442)
+			}
+			if (V.443 < 0) {
+				V.443 = (0 - V.443)
+			}
+			do-animation selected-actor 255
+			if !(V.442 <= V.443) jump &[00000402]
+			V.446 -= actor-y selected-actor
+			if !(V.446 <= 0) jump &[00000395]
+			do-animation selected-actor 247
+			jump &[00000399]
+[00000395]:
+			do-animation selected-actor 246
+[00000399]:
+			jump &[00000430]
+[00000402]:
+			V.445 -= actor-x selected-actor
+			if !(V.445 <= 0) jump &[00000426]
+			do-animation selected-actor 244
+			jump &[00000430]
+[00000426]:
+			do-animation selected-actor 245
+[00000430]:
+			break-here 2
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1042 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1042
+		name is "entrance to the jungle"
+
+		verb 10 {
+			start-script 207 (selected-actor,1036,30,198,131)
+			end-object
+		}
+	}
+
+	object 1043 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1043
+		name is "entrance to the jungle"
+
+		verb 10 {
+			start-script 207 (selected-actor,1039,30,307,99)
+			end-object
+		}
+	}
+
+	object 1047 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1047
+		name is "giant anaconda"
+
+		verb 10 {
+			cut-scene
+			start-sound 152
+			say-line "\\xFF\\x0A\\x12\\x41\\xFF\\x0A\\xC7\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm not getting any closer to that\\x10snake!"
+			start-script 221 (3)
+			break-until (!script-running 221)
+			end-cut-scene
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xAC\\x99\\xFF\\x0A\\xC7\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's a snake.  I hate\\x10snakes!"
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\x12\\xF4\\xFF\\x0A\\xC7\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm not fooling with that\\x10snake!"
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000207]
+			chain-script 228 ()
+			jump &[00000213]
+[00000207]:
+			start-script 3 (8)
+[00000213]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1045 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1045
+		name is "tree"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x95\\xC5\\xFF\\x0A\\xC6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It looks pretty flexible."
+			end-object
+		}
+
+		verb 10 {
+		local variable L.0
+
+			if !(L.0 is 0) jump &[00000066]
+			start-script 208 ()
+			jump &[00000137]
+[00000066]:
+			if !(L.0 is 20) jump &[00000131]
+			say-line "\\xFF\\x0A\\x25\\xFD\\xFF\\x0A\\xC6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't think that will do any\\x10good."
+			jump &[00000137]
+[00000131]:
+			start-script 3 (8)
+[00000137]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1050 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1050
+		name is "kerosene lamp@@@@@@@"
+
+		verb 11 {
+			if !(owner-of 1050 is-not selected-actor) jump &[00000252]
+			if !(actor-room 11 is selected-room) jump &[00000170]
+			stop-sentence
+			cut-scene
+			walk 11 to 758,134
+			wait-for-actor 11
+			do-animation 11 face-towards 1
+			break-here 2
+			do-animation 1 face-towards 11
+			break-here 2
+			say-line 11 "\\xFF\\x0A\\x85\\x49\\xFF\\x0A\\xEC\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Sorry, old\\x10chum^\\xFF\\x03^that lamp's part of my\\x10shop.\\xFF\\x03I can't let you have\\x10that."
+			wait-for-message
+			class-of 11 is 141 133
+			end-cut-scene
+			jump &[00000249]
+[00000170]:
+			start-script 144 (11,4)
+			say-line "\\xFF\\x0A\\xC8\\xFC\\xFF\\x0A\\xC8\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Good thing that pest Sternhart's not\\x10around."
+			pick-up-object 1050 in-room 0
+			start-script 10 ()
+[00000249]:
+			jump &[00000289]
+[00000252]:
+			say-line "\\xFF\\x0A\\x00\\x5F\\xFF\\x0A\\xC9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I already have it."
+[00000289]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 134) jump &[00000396]
+			if !(class-of me is 146) jump &[00000363]
+			say-line "\\xFF\\x0A\\x45\\x84\\xFF\\x0A\\xC9\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a lamp filled with\\x10kerosene."
+			jump &[00000393]
+[00000363]:
+			say-line "\\xFF\\x0A\\xC8\\xC5\\xFF\\x0A\\xC9\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's empty."
+[00000393]:
+			jump &[00000487]
+[00000396]:
+			if !(class-of me is 146) jump &[00000457]
+			say-line "\\xFF\\x0A\\x14\\xE2\\xFF\\x0A\\xC9\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Better not spill the\\x10kerosene."
+			jump &[00000487]
+[00000457]:
+			say-line "\\xFF\\x0A\\xCA\\x1D\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's empty."
+[00000487]:
+			if (owner-of 1050 is 1) {
+				if (selected-room is 76) {
+					start-script 201 ()
+					break-until (!script-running 201)
+				}
+				if (selected-room is 77) {
+					start-script 201 ()
+					break-until (!script-running 201)
+				}
+			}
+			end-object
+		}
+
+		verb 3 {
+			if !(owner-of me is selected-actor) jump &[00000647]
+			if !(class-of me is 134) jump &[00000598]
+			new-name-of me is "opened kerosene lamp"
+			class-of me is 6
+			start-script 10 ()
+			jump &[00000644]
+[00000598]:
+			if (class-of me is 6) {
+				say-line "\\xFF\\x0A\\x96\\x38\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's already open."
+			}
+[00000644]:
+			jump &[00000695]
+[00000647]:
+			say-line "\\xFF\\x0A\\xA8\\x63\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd better pick it up,\\x10first."
+[00000695]:
+			if (selected-room is 76) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+			if (selected-room is 77) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+			end-object
+		}
+
+		verb 4 {
+			if !(owner-of me is selected-actor) jump &[00000838]
+			if !(class-of me is 6) jump &[00000787]
+			new-name-of me is "kerosene lamp"
+			class-of me is 134
+			start-script 10 ()
+			jump &[00000835]
+[00000787]:
+			if (class-of me is 134) {
+				say-line "\\xFF\\x0A\\xEC\\x97\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's already closed."
+			}
+[00000835]:
+			jump &[00000886]
+[00000838]:
+			say-line "\\xFF\\x0A\\x0F\\xCA\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd better pick it up,\\x10first."
+[00000886]:
+			if (selected-room is 76) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+			if (selected-room is 77) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(owner-of me is selected-actor) jump &[00001161]
+			if !(L.0 is-not 1056) jump &[00000994]
+			say-line "\\xFF\\x0A\\x53\\xFE\\xFF\\x0A\\xCA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That doesn't seem to work."
+			jump &[00001158]
+[00000994]:
+			if !(class-of 1056 is 6) jump &[00001039]
+			say-line "\\xFF\\x0A\\x92\\x2E\\xFF\\x0A\\xCB\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I already did."
+			jump &[00001118]
+[00001039]:
+			if !(class-of me is 6) jump &[00001071]
+			if (L.0 is 1056) {
+				class-of 1050 is 18
+			}
+			do-sentence 8 L.0 with me
+			jump &[00001118]
+[00001071]:
+			say-line "\\xFF\\x0A\\xF3\\x53\\xFF\\x0A\\xCB\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The kerosene won't pour out."
+[00001118]:
+			if (selected-room is 76) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+			if (selected-room is 77) {
+				start-script 201 ()
+				break-until (!script-running 201)
+			}
+[00001158]:
+			jump &[00001167]
+[00001161]:
+			chain-script 3 (8)
+[00001167]:
+			end-object
+		}
+
+		verb 91 {
+			if !(class-of 1050 is 6) jump &[00001185]
+			V.161 = 1371
+			jump &[00001190]
+[00001185]:
+			V.161 = 1370
+[00001190]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1049 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1049
+		name is "temple"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			start-script 220 ()
+			end-object
+		}
+
+		verb 9 {
+			cut-scene
+			do-animation 1 255
+			do-animation 1 251
+			break-here
+			say-line 1 "\\xFF\\x0A\\xC3\\x85\\xFF\\x0A\\xC8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^a monument to the genius of the\\x10Mayans^"
+			end-cut-scene
+			end-object
+		}
+	}
+
+	object 1048 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1048
+		name is "path around jungle"
+
+		verb 10 {
+			chain-script 219 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x95\\x35\\xFF\\x0A\\xC8\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00This path goes back around to the jeep."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1046 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1046
+		name is "yucatan-bendy-tree"
+	}
+
+	object 1044 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1044
+		name is "sleeping pig"
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 20) jump &[00000021]
+			start-script 218 ()
+			jump &[00000027]
+[00000021]:
+			start-script 3 (88)
+[00000027]:
+			end-object
+		}
+	}
+
+	object 1051 { ; VERB LECF_0001\LFLF_0076\ROOM\OBCD_1051
+		name is "path around jungle"
+
+		verb 10 {
+			start-script 225 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x7E\\x95\\xFF\\x0A\\xCB\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00This path goes around to the temple."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0076\ROOM\EXCD
+		actor 2 costume 28
+		unlock-sound 72
+		if (selected-actor is 2) {
+			start-script 80 (1)
+			break-until (!script-running 80)
+		}
+		if (V.72 is 77) {
+			sound-kludge 262 73 0
+			sound-kludge 269 73 70 180
+			sound-kludge 269 61 0 180
+			sound-kludge 257 61 0
+			sound-kludge 257 73 0
+			sound-kludge 65535
+		}
+		state-of V.209 is 0
+		if (script-running 31) {
+			stop-script 31
+		}
+		if (script-running 86) {
+			stop-script 86
+		}
+		V.164 = 0
+		actor 10 default
+		class-of 10 is 0
+		actor 9 default
+		class-of 9 is 0
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0076\ROOM\ENCD
+		if !(V.224 is 77) jump &[00000062]
+		camera-at 712
+		sound-kludge 269 112 0 120
+		if (sound-running 73) {
+			stop-sound 73
+			stop-sound 61
+		}
+		sound-kludge 269 113 0 120
+		jump &[00000062]
+[00000062]:
+		V.217 = 0
+		V.164 = 209
+		V.163 = 224
+		V.180 = 226
+		V.212 = 0
+		draw-object 1045 image 1
+		if !(V.224 is-not 77) jump &[00000230]
+		camera-at 160
+		put-actor selected-actor in-room 76
+		put-actor selected-actor at-object 1035
+		if (!B.149) {
+			actor 2 costume 222
+		}
+		put-actor 2 in-room 76
+		put-actor 2 at-object 1035
+		V.445 = actor-x 2
+		V.446 = actor-y 2
+		V.445 += 30
+		V.446 += 10
+		put-actor 2 at V.445,V.446
+		do-animation selected-actor 250
+		do-animation V.182 250
+		if (B.86) {
+			say-line "\\xFF\\x0A\\x44\\x26\\xFF\\x0A\\xC0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Well, we could have planned that\\x10better."
+		}
+		jump &[00000244]
+[00000230]:
+		if (B.167 is 0) {
+			put-actor 2 in-room 76
+			put-actor 2 at-object 1049
+		}
+[00000244]:
+		if !(B.174 is 0) jump &[00000329]
+		if !(B.167 is 0) jump &[00000329]
+		V.215 = 0
+		if !(B.149) jump &[00000329]
+		actor 11 default costume 62 talk-color 11
+		if !(B.151) jump &[00000298]
+		actor 11 name "Sternhart"
+		jump &[00000312]
+[00000298]:
+		actor 11 name "caretaker"
+[00000312]:
+		put-actor 11 in-room 76
+		put-actor 11 at-object 1049
+		class-of 11 is 13 5
+[00000329]:
+		if (!B.149) {
+			V.213 = 2
+			do-animation 9 248
+			actor 9 default costume 0 name "giant anaconda" ignore-boxes scale 255 255 elevation 65506
+			put-actor 9 in-room 76
+			put-actor 9 at 474,95
+			class-of 1047 is 32
+			actor 10 default costume 61 name "jungle rodent" talk-color 9
+			do-animation 10 6
+		}
+		if !(B.150) jump &[00000441]
+		if (!sound-running 73) {
+			start-sound 73
+			start-sound 61
+		}
+		class-of 1048 is 32
+		jump &[00000445]
+[00000441]:
+		start-sound 61
+		start-sound 72
+[00000445]:
+		actor 7 costume 72 name "parrot" scale 255 255 ignore-boxes talk-color 14
+		class-of 7 is 141
+		put-actor 7 in-room 76
+		put-actor 7 at 580,46
+		do-animation 7 250
+		do-animation 7 3
+		if !(V.224 is 77) jump &[00000531]
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		start-script 205 ()
+		jump &[00000540]
+[00000531]:
+		start-script bak 86 (selected-actor,V.182)
+[00000540]:
+		if (!B.149) {
+			V.444 = (1041 - 1036)
+			V.444 = ((random V.444) + 1036)
+			start-script 215 (V.444,1)
+			start-script bak 206 ()
+		}
+		start-script 200 ()
+		start-script bak 214 ()
+		sound-kludge 257 61 0
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		break-here 2
+		L.1 = 65
+[00000015]:
+		do {
+			break-here
+			L.0 = actor-box 1
+			if (L.0 < 13) {
+				L.0 = 65467
+			}
+		} until (L.0 is-not L.1)
+		if !(L.0 is 65467) jump &[00000124]
+		start-script 202 ()
+		break-until (!script-running 202)
+		camera-pan-to 288
+		wait-for-camera
+		if (!B.149) {
+			actor 2 costume 0
+			actor 9 costume 60
+		}
+		class-of 1036 is 32
+		class-of 1037 is 32
+		class-of 1038 is 32
+		class-of 1039 is 32
+		class-of 1040 is 32
+		class-of 1041 is 32
+		jump &[00001152]
+[00000124]:
+		if !(L.0 is 13) jump &[00000177]
+		if (script-running 203) {
+			stop-script 203
+		}
+		camera-pan-to 160
+		wait-for-camera
+		start-script 202 ()
+		break-until (!script-running 202)
+		class-of 1035 is 32
+		class-of 1042 is 32
+		jump &[00001152]
+[00000177]:
+		if !(L.0 is 14) jump &[00000207]
+		start-script 202 ()
+		break-until (!script-running 202)
+		class-of 1043 is 32
+		jump &[00001152]
+[00000207]:
+		if !(L.0 is 15) jump &[00000342]
+		if (class-of 1047 is 32) {
+			stop-sentence
+			start-sound 152
+			start-script bak 221 (3)
+			cut-scene
+			say-line "\\xFF\\x0A\\xD4\\xE6\\xFF\\x0A\\xAB\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hold on!"
+			walk selected-actor to 460,132
+			wait-for-message
+			say-line "\\xFF\\x0A\\x84\\x12\\xFF\\x0A\\xAC\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I'm not going anywhere near that\\x10snake!"
+			wait-for-actor selected-actor
+			wait-for-message
+			end-cut-scene
+		}
+		jump &[00001152]
+[00000342]:
+		if !(L.0 is 16) jump &[00000393]
+		if (!B.150) {
+			break-until (script-running 208 is 0)
+		}
+		if (!script-running 203) {
+			start-script 203 ()
+		}
+		if (!script-running 214) {
+			start-script bak 214 ()
+		}
+		jump &[00001152]
+[00000393]:
+		if !(L.0 is 18) jump &[00000843]
+		if !(actor-room 11 is 76) jump &[00000840]
+		if !(!B.183[1]) jump &[00000840]
+		cut-scene
+		do-animation 11 255
+		V.217 = 0
+		do-animation 11 3
+		do-animation 11 face-towards selected-actor
+		break-here 2
+		say-line 11 "\\xFF\\x0A\\x65\\x64\\xFF\\x0A\\xD1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00STOP!"
+		stop-sentence
+		start-script 13 ()
+		start-script 14 ()
+		do-animation 1 255
+		do-animation 2 255
+		stop-script 31
+		start-script rec 86 (11,1)
+		start-script rec 86 (11,2)
+		wait-for-message
+		walk 11 to 730,115
+		wait-for-message
+		if !(L.2 is 0) jump &[00000615]
+		say-line 11 "\\xFF\\x0A\\x99\\x82\\xFF\\x0A\\xD1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Begging your pardon^\\xFF\\x03^you can't go\\x10in\\x10there.\\xFF\\x03The temple isn't\\x10safe."
+		B.156[3] = 1
+		jump &[00000775]
+[00000615]:
+		if !(L.2 is 1) jump &[00000694]
+		say-line 11 "\\xFF\\x0A\\x3B\\x21\\xFF\\x0A\\xD2\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Excuse me^\\xFF\\x03^the temple isn't open to the\\x10public."
+		jump &[00000775]
+[00000694]:
+		say-line 11 "\\xFF\\x0A\\xA6\\xA6\\xFF\\x0A\\xD2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Sorry, old boy^\\xFF\\x03^only accredited researchers are allowed\\x10in."
+[00000775]:
+		++L.2
+		end-cut-scene
+		V.215 = 2
+		class-of 11 is 141 133
+		start-script 211 ()
+		B.731 = 0
+		break-until (B.731)
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+[00000840]:
+		jump &[00001152]
+[00000843]:
+		if !(L.0 is 22) jump &[00001145]
+		if !(actor-room 11 is selected-room) jump &[00001142]
+		if !(!B.183[1]) jump &[00001142]
+		cut-scene
+		do-animation 11 3
+		do-animation 11 face-towards selected-actor
+		break-here 2
+		if !(!B.156[1]) jump &[00000926]
+		say-line 11 "\\xFF\\x0A\\x62\\x3C\\xFF\\x0A\\xD3\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Just a minute!"
+		jump &[00000955]
+[00000926]:
+		say-line 11 "\\xFF\\x0A\\x52\\x61\\xFF\\x0A\\xD3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Well now!"
+[00000955]:
+		stop-sentence
+		start-script 13 ()
+		start-script 14 ()
+		do-animation 1 255
+		do-animation 2 255
+		stop-script 31
+		start-script rec 86 (11,1)
+		start-script rec 86 (11,2)
+		wait-for-message
+		walk 11 to 685,125
+		wait-for-message
+		if !(!B.156[1]) jump &[00001044]
+		say-line 11 "\\xFF\\x0A\\x75\\x93\\xFF\\x0A\\xD3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That's my shop!"
+		jump &[00001077]
+[00001044]:
+		say-line 11 "\\xFF\\x0A\\x66\\xCB\\xFF\\x0A\\xD3\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Let me guess^"
+[00001077]:
+		wait-for-message
+		end-cut-scene
+		V.215 = 3
+		class-of 11 is 141 133
+		start-script 211 ()
+		break-until (script-running 211 is 0)
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+[00001142]:
+		jump &[00001152]
+[00001145]:
+		class-of 1043 is 32
+[00001152]:
+		L.1 = L.0
+		jump &[00000015]
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0201
+		wait-for-message
+		if !(B.177 is 0) jump &[00000223]
+		if !(actor-room 11 is selected-room) jump &[00000223]
+		B.177 = 1
+		cut-scene
+		do-animation 1 255
+		do-animation 11 255
+		break-here
+		do-animation 11 face-towards 1
+		break-here 2
+		do-animation 1 face-towards 11
+		break-here 4
+		say-line 11 "\\xFF\\x0A\\x16\\xF7\\xFF\\x0A\\xD3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00So you took my lamp,\\x10eh?"
+		wait-for-message
+		if !(owner-of 1056 is 15) jump &[00000174]
+		say-line 11 "\\xFF\\x0A\\x36\\x5E\\xFF\\x0A\\xD4\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I hope you know what you're\\x10doing."
+		jump &[00000220]
+[00000174]:
+		say-line 11 "\\xFF\\x0A\\xFF\\xA1\\xFF\\x0A\\xD4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Now I'm very glad you\\x10did!"
+[00000220]:
+		wait-for-message
+		end-cut-scene
+[00000223]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0202
+		for V.442 = 1035 to 1043 ++ {
+			class-of V.442 is 160
+		}
+		class-of 1044 is 160
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0203
+	local variable L.0
+
+		do {
+			break-here
+			L.0 = (actor-x 1)
+			if (L.0 < 630) {
+				camera-pan-to 600
+				wait-for-camera
+			}
+			if (L.0 > 630) {
+				camera-pan-to 712
+				wait-for-camera
+			}
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		cut-scene
+		L.1 = actor-x 10
+		V.442 = actor-x 1
+		if !(L.1 > V.442) jump &[00000036]
+		do-animation 1 245
+		jump &[00000039]
+[00000036]:
+		do-animation 1 244
+[00000039]:
+		break-here 2
+		load-sound 94
+		V.214 = 1
+		L.0 = (L.1 - V.442)
+		if (L.0 < 0) {
+			L.0 = (0 - L.0)
+		}
+		if !(L.0 > 70) jump &[00000143]
+		V.214 = 0
+		say-line 1 "\\xFF\\x0A\\x42\\x83\\xFF\\x0A\\xAC\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That critter's too far\\x10away."
+		wait-for-message
+		jump &[00000284]
+[00000143]:
+		if (V.218 is 25) {
+			V.218 = 0
+			stop-sound 61
+			stop-sound 72
+			sound-kludge 65535
+			start-sound 93
+			break-here 5
+		}
+		actor selected-actor costume 158
+		break-here
+		do-animation selected-actor 6
+		print-debug "\\xFF\\x0A\\x32\\x53\\xFF\\x0A\\xAB\\x04\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00"
+		break-here 10
+		do-animation 10 3
+		L.3 = (camera-x - 160)
+		L.3 = (L.1 - L.3)
+		L.2 = actor-y 10
+		L.2 -= 30
+		break-here 3
+		start-sound 94
+		break-here 2
+		start-sound 72
+		sound-kludge 258 72 30
+		sound-kludge 269 72 115 120
+		start-script 227 ()
+[00000284]:
+		end-cut-scene
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0205
+		if !(!B.167) jump &[00000170]
+		cut-scene
+		B.166 = 1
+		walk 1 to 685,125
+		sleep-for 60 jiffies
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		if (B.174 is 0) {
+			sleep-for 60 jiffies
+			class-of 11 is 141 133
+			say-line 11 "\\xFF\\x0A\\x62\\xEF\\xFF\\x0A\\xD4\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Wait for me, old\\x10bean."
+			sleep-for 30 jiffies
+			walk 11 to 730,115
+			sleep-for 120 jiffies
+		}
+		end-cut-scene
+		if (B.174 is 0) {
+			wait-for-actor 11
+			stop-script 86
+			start-script bak rec 86 (selected-actor,11)
+		}
+		wait-for-actor 2
+		jump &[00000177]
+[00000170]:
+		break-here
+		walk 1 to 730,115
+[00000177]:
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+[00000008]:
+		break-here
+		V.351 = actor-x selected-actor
+		V.352 = actor-y selected-actor
+		if !(V.209 is-not 1044) jump &[00000039]
+		V.445 = actor-x 10
+		V.446 = actor-y 10
+		jump &[00000049]
+[00000039]:
+		V.445 = actor-x 1044
+		V.446 = actor-y 1044
+[00000049]:
+		L.0 = (V.445 - V.351)
+		if (L.0 < 0) {
+			L.0 = (0 - L.0)
+		}
+		if (V.209 is 1041) {
+			L.0 += 7
+		}
+		if !(L.0 <= 18) jump &[00000008]
+[00000097]:
+		L.3 = 0
+		V.442 = random 1
+		if !(!V.442) jump &[00000139]
+		V.444 = (1041 - 1036)
+		V.444 = ((random V.444) + 1036)
+		jump &[00000144]
+[00000139]:
+		V.444 = 1039
+[00000144]:
+		if (V.444 is-not V.209) {
+			if (V.444 is-not L.2) {
+				L.3 = 1
+				L.2 = V.209
+			}
+		}
+		if !(L.3) jump &[00000097]
+		if !(V.209 is 1036) jump &[00000188]
+		L.1 = V.444
+		jump &[00000367]
+[00000188]:
+		if !(V.209 is 1037) jump &[00000203]
+		L.1 = V.444
+		jump &[00000367]
+[00000203]:
+		if !(V.209 is 1038) jump &[00000218]
+		L.1 = V.444
+		jump &[00000367]
+[00000218]:
+		if !(V.209 is 1039) jump &[00000233]
+		L.1 = V.444
+		jump &[00000367]
+[00000233]:
+		if !(V.209 is 1040) jump &[00000304]
+		if !(V.444 >= 1038) jump &[00000296]
+		if !(V.444 <= 1039) jump &[00000296]
+		V.442 = random 2
+		if !(V.442) jump &[00000291]
+		V.444 = (1037 - 1036)
+		V.444 = ((random V.444) + 1036)
+		jump &[00000296]
+[00000291]:
+		V.444 = 1041
+[00000296]:
+		L.1 = V.444
+		jump &[00000367]
+[00000304]:
+		if !(V.209 is 1041) jump &[00000351]
+		if (V.444 is 1039) {
+			V.444 = (1038 - 1036)
+			V.444 = ((random V.444) + 1036)
+		}
+		L.1 = V.444
+		jump &[00000367]
+[00000351]:
+		if !(V.209 is 1044) jump &[00000367]
+		start-script 218 ()
+		jump &[00000509]
+		jump &[00000367]
+[00000367]:
+		if !(V.209 is-not 1044) jump &[00000385]
+		put-actor 10 in-room selected-room
+		put-actor 10 at-object V.209
+		jump &[00000392]
+[00000385]:
+		class-of 1044 is 160
+[00000392]:
+		actor 10 step-dist 16,4
+		if !(L.1 is 1036) jump &[00000414]
+		walk 10 to 209,129
+		jump &[00000494]
+[00000414]:
+		if !(L.1 is 1037) jump &[00000430]
+		walk 10 to 246,116
+		jump &[00000494]
+[00000430]:
+		if !(L.1 is 1038) jump &[00000446]
+		walk 10 to 281,100
+		jump &[00000494]
+[00000446]:
+		if !(L.1 is 1039) jump &[00000462]
+		walk 10 to 310,99
+		jump &[00000494]
+[00000462]:
+		if !(L.1 is 1040) jump &[00000478]
+		walk 10 to 342,121
+		jump &[00000494]
+[00000478]:
+		if !(L.1 is 1041) jump &[00000494]
+		walk 10 to 375,114
+		jump &[00000494]
+[00000494]:
+		wait-for-actor 10
+		actor 10 step-dist 8,2
+		start-script 215 (L.1)
+[00000509]:
+		jump &[00000008]
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+
+		L.8 = me
+		V.445 = actor-x me
+		V.446 = actor-y me
+		walk L.0 to V.445,V.446
+		L.6 = V.445
+		L.7 = V.446
+		B.16 = 0
+		do {
+			break-here
+			if (B.16) {
+				stop-script 0
+			}
+		} until (!actor-moving L.0)
+		V.351 = actor-x L.0
+		V.352 = actor-y L.0
+		V.442 = (L.6 - V.351)
+		V.443 = (L.7 - V.352)
+		if (V.442 < 0) {
+			V.442 = (0 - V.442)
+		}
+		if (V.443 < 0) {
+			V.443 = (0 - V.443)
+		}
+		V.444 = 0
+		if (V.442 <= 10) {
+			if (V.443 <= 10) {
+				V.444 = 1
+			}
+		}
+		if !(V.444) jump &[00000417]
+		start-script bak 221 (2)
+		cut-scene
+		do-animation L.0 251
+		break-here 2
+		do-animation L.0 2
+		for V.443 = 250 to 50 -- {
+			V.443 -= 49
+			palette intensity V.443 in-slot 192 to 207
+			break-here
+		}
+		L.5 = actor-costume L.0
+		actor L.0 costume 0
+		put-actor L.0 at-object L.1
+		if (L.1 is 1043) {
+			camera-pan-to 488
+			wait-for-camera
+		}
+		if (L.1 is 1042) {
+			if (!B.149) {
+				actor 9 costume 0
+			}
+			actor 2 costume 222
+			camera-pan-to 160
+			wait-for-camera
+		}
+		sleep-for L.2 jiffies
+		do-animation L.0 250
+		actor L.0 costume L.5
+		break-here
+		do-animation 1 2
+		for V.443 = 50 to 200 ++ {
+			V.443 += 49
+			palette intensity V.443 in-slot 192 to 207
+			break-here
+		}
+		palette intensity 255 in-slot 192 to 207
+		break-here
+		if (L.3) {
+			walk L.0 to L.3,L.4
+		}
+		do-animation L.0 3
+		if !(L.8 is 1041) jump &[00000416]
+		if (!V.211) {
+			V.211 = 1
+			wait-for-actor L.0
+			do-animation L.0 246
+			break-here 2
+			say-line L.0 "\\xFF\\x0A\\x2B\\x51\\xFF\\x0A\\xF5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Boy, this jungle sure is confusing."
+		}
+		jump &[00000416]
+[00000416]:
+		end-cut-scene
+[00000417]:
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+
+		cut-scene
+		start-script 144 (9,2)
+		L.0 = actor-costume selected-actor
+		L.1 = actor-scale selected-actor
+		actor selected-actor costume 219 scale L.1 L.1 ignore-boxes never-zclip
+		sound-kludge 269 72 0 60
+		sound-kludge 269 73 0 60
+		sound-kludge 257 72 0
+		sound-kludge 257 73 0
+		sound-kludge 65535
+		start-sound 97
+		load-sound 73
+		sound-kludge 65535
+		sound-kludge 270 97 1
+		sound-kludge 271 8 73
+		sound-kludge 271 65535
+		sound-kludge 65535
+		for V.442 = 1 to 6 ++ {
+			do-animation selected-actor 18
+			break-here 6
+			V.351 = actor-x selected-actor
+			V.352 = actor-y selected-actor
+			V.351 += 3
+			V.352 -= 8
+			put-actor selected-actor at V.351,V.352
+		}
+		break-here 2
+		state-of 1045 is 0
+		draw-object 1046 image 1
+		put-actor selected-actor at 564,88
+		break-here
+		state-of 1046 is 0
+		draw-object 1046 image 2
+		actor selected-actor costume L.0 follow-boxes
+		put-actor selected-actor at 571,110
+		break-here 4
+		draw-object 1046 image 1
+		break-here 2
+		state-of 1046 is 0
+		draw-object 1045 
+		break-here
+		class-of 1048 is 32
+		do-animation 1 248
+		camera-pan-to 600
+		wait-for-camera
+		break-here
+		do-animation 1 14
+		break-here 6
+		do-animation 1 1
+		if (!B.150) {
+			say-line 1 "\\xFF\\x0A\\x31\\xBC\\xFF\\x0A\\xAC\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Wow.  Some bridge."
+		}
+		if (script-running 31) {
+			stop-script 31
+		}
+		if (script-running 86) {
+			stop-script 86
+		}
+		wait-for-message
+		actor 2 costume 222
+		put-actor 2 at-object 1048
+		break-here
+		if (!B.150) {
+			print-line color 13 at 280,60 "\\xFF\\x0A\\x41\\xB4\\xFF\\x0A\\xF5\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hi, Indy."
+		}
+		do-animation selected-actor face-towards V.182
+		break-here
+		walk 2 to 728,120
+		wait-for-message
+		V.442 = (728 - 30)
+		walk 1 to V.442,120
+		wait-for-actor 2
+		do-animation 2 face-towards 1
+		camera-pan-to 712
+		wait-for-actor 1
+		wait-for-camera
+		end-cut-scene
+		if !(!B.150) jump &[00000472]
+		B.150 = 1
+		chain-script 210 ()
+		jump &[00000504]
+[00000472]:
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+[00000504]:
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0209
+		if !(V.176 is 2) jump &[00000021]
+		chain-script 210 ()
+		jump &[00000052]
+[00000021]:
+		if !(V.176 is 11) jump &[00000039]
+		V.215 = 1
+		chain-script 211 ()
+		jump &[00000052]
+[00000039]:
+		if !(V.176 is 7) jump &[00000052]
+		chain-script 213 ()
+		jump &[00000052]
+[00000052]:
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0210
+	local variable L.0
+	local variable L.1
+
+		if (script-running 86) {
+			stop-script 86
+		}
+		if (script-running 31) {
+			stop-script 31
+		}
+		do-animation 1 255
+		stop-sentence
+		wait-for-camera
+		if !(B.150) jump &[00000088]
+		if !(B.152[3] is 0) jump &[00000088]
+		cut-scene
+		say-line 1 "\\xFF\\x0A\\x1B\\xE9\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hello."
+		wait-for-message
+		end-cut-scene
+		jump &[00000283]
+[00000088]:
+		start-script 136 (1,2,30,1)
+		break-until (!script-running 136)
+		if !(B.22) jump &[00000121]
+		jump &[00002211]
+[00000121]:
+		cut-scene
+		break-here
+		do-animation 2 1
+		do-animation 2 face-towards 1
+		break-here 2
+		V.442 = random 2
+		if !(V.442 is 0) jump &[00000177]
+		say-line 1 "\\xFF\\x0A\\x94\\x09\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Listen^"
+		jump &[00000254]
+[00000177]:
+		if !(V.442 is 1) jump &[00000217]
+		say-line 1 "\\xFF\\x0A\\xA8\\x1B\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		jump &[00000254]
+[00000217]:
+		if !(V.442 is 2) jump &[00000254]
+		say-line 1 "\\xFF\\x0A\\xFD\\x3B\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Sophia^"
+		jump &[00000254]
+[00000254]:
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x08\\xDA\\xFF\\x0A\\xCB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes?"
+		wait-for-message
+		end-cut-scene
+[00000283]:
+		start-script 82 ()
+		if !(B.150) jump &[00000305]
+		if (script-running 86) {
+			stop-script 86
+		}
+		jump &[00001288]
+[00000305]:
+		L.0 = 0
+		start-script 68 ()
+		if (!B.152[0]) {
+			++L.0
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\x4A\\x57\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How do you like the\\x10tropics?"
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (!B.152[1]) {
+			++L.0
+			V.443 = ((41 + 2) - 1)
+			*V.443 = "\\xFF\\x0A\\xF3\\x8B\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like the end of the\\x10road."
+			V.442 = ((120 + 2) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (L.1 is 0) {
+			++L.0
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\x45\\xC6\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do we do\\x10now?"
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xB6\\xF0\\xFF\\x0A\\xB0\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well, I'm going to explore the\\x10area."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.442 = (4 - 1)
+		V.167[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00000977]
+		if (!B.152[0]) {
+			say-line 2 "\\xFF\\x0A\\xA3\\xF4\\xFF\\x0A\\xCB\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00You're the one who's afraid of\\x10snakes."
+			wait-for-message
+			say-line 1 "\\xFF\\x0A\\xF7\\x48\\xFF\\x0A\\xB1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Great.\\xFF\\x03Thanks for reminding\\x10me."
+		}
+		B.152[0] = 1
+		jump &[00001273]
+[00000977]:
+		if !(V.165 is 121) jump &[00001046]
+		say-line 2 "\\xFF\\x0A\\x79\\x4F\\xFF\\x0A\\xCC\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's got to be a way\\x10through."
+		B.152[1] = 1
+		jump &[00001273]
+[00001046]:
+		if !(V.165 is 122) jump &[00001208]
+		L.1 = 1
+		say-line 2 "\\xFF\\x0A\\xCE\\x8E\\xFF\\x0A\\xCC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We probably should find\\x10Sternhart."
+		wait-for-message
+		if (B.152[2] is 0) {
+			say-line 2 "\\xFF\\x0A\\x44\\xDE\\xFF\\x0A\\xCC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00But I'm not setting foot in that malaria-infested\\x10hole."
+			B.152[2] = 1
+		}
+		jump &[00001273]
+[00001208]:
+		if !(V.165 is 123) jump &[00001273]
+		say-line 2 "\\xFF\\x0A\\x21\\x6D\\xFF\\x0A\\xCD\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Go right ahead.\\xFF\\x03I'll wait\\x10here."
+		jump &[00002206]
+		jump &[00001273]
+[00001273]:
+		wait-for-message
+		if !(L.0 > 1) jump &[00001285]
+		jump &[00000305]
+[00001285]:
+		jump &[00002206]
+[00001288]:
+		L.0 = 0
+		start-script 68 ()
+		if !(!B.152[3]) jump &[00001428]
+		actor 2 costume 222
+		++L.0
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xED\\x90\\xFF\\x0A\\xB1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How did YOU get over\\x10here?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001534]
+[00001428]:
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x96\\xCC\\xFF\\x0A\\xB1\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What do we do\\x10now?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00001534]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x7D\\xF4\\xFF\\x0A\\xB1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Let's look\\x10around."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.442 = (4 - 1)
+		V.167[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001759]
+		say-line 2 "\\xFF\\x0A\\x32\\xC8\\xFF\\x0A\\xCD\\x05\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00While you were off bushwhacking^\\xFF\\x03I found a path."
+		B.152[3] = 1
+		jump &[00002193]
+[00001759]:
+		if !(V.165 is 121) jump &[00002155]
+		if !(B.156[1] is 0) jump &[00001823]
+		say-line 2 "\\xFF\\x0A\\x0D\\x4B\\xFF\\x0A\\xCE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We better find\\x10Sternhart."
+		jump &[00002152]
+[00001823]:
+		if !(B.174 is 1) jump &[00001989]
+		if !(V.229) jump &[00001912]
+		say-line 2 "\\xFF\\x0A\\xFF\\x85\\xFF\\x0A\\xCE\\x05\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00We've done all we can here, I\\x10suspect.\\xFF\\x03Let's move\\x10on."
+		jump &[00001986]
+[00001912]:
+		say-line 2 "\\xFF\\x0A\\x36\\x14\\xFF\\x0A\\xCF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We could look around some more\\x10or^\\xFF\\x03^we could move\\x10on."
+[00001986]:
+		jump &[00002152]
+[00001989]:
+		if !(B.185 is 0) jump &[00002075]
+		say-line 2 "\\xFF\\x0A\\x7A\\x7C\\xFF\\x0A\\xCF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We could talk to Sternhart again\\x10or^\\xFF\\x03^we could move\\x10on."
+		jump &[00002152]
+[00002075]:
+		say-line 2 "\\xFF\\x0A\\xC4\\xF2\\xFF\\x0A\\xCF\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00We could explore the temple again\\x10or^\\xFF\\x03^we could move\\x10on."
+[00002152]:
+		jump &[00002193]
+[00002155]:
+		if !(V.165 is 123) jump &[00002193]
+		say-line 2 "\\xFF\\x0A\\x67\\x6E\\xFF\\x0A\\xD0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Okay."
+		jump &[00002206]
+		jump &[00002193]
+[00002193]:
+		if !(L.0) jump &[00002203]
+		wait-for-message
+		jump &[00001288]
+[00002203]:
+		jump &[00002206]
+[00002206]:
+		wait-for-message
+		start-script 83 ()
+[00002211]:
+		if !(B.150 is 1) jump &[00002284]
+		B.152[3] = 1
+		if !(actor-x 1 > 400) jump &[00002272]
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		jump &[00002281]
+[00002272]:
+		start-script bak 86 (1,2)
+[00002281]:
+		jump &[00002293]
+[00002284]:
+		start-script bak 86 (1,2)
+[00002293]:
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0211
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		if (script-running 31) {
+			stop-script 31
+		}
+		L.2 = 0
+		L.3 = 0
+		L.1 = 1
+		V.216 = 0
+		L.4 = 0
+		cut-scene
+		if (V.217) {
+			V.217 = 0
+			say-line 1 "\\xFF\\x0A\\x20\\x19\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hey!"
+			do-animation 11 255
+			do-animation 11 face-towards 1
+			wait-for-message
+			say-line 11 "\\xFF\\x0A\\x0E\\x27\\xFF\\x0A\\xD5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes?"
+			walk 11 to 730,115
+		}
+		stop-script 86
+		start-script rec 86 (11,1)
+		start-script rec 86 (11,2)
+		wait-for-actor 11
+		stop-script 86
+		start-script rec 86 (1,11)
+		break-here 2
+		start-script rec 136 (1,11,30,0)
+		break-here 8
+		start-script rec 136 (2,11,60,0)
+		wait-for-message
+		if !(V.215 is 2) jump &[00000234]
+		if !(B.151 is 1) jump &[00000234]
+		wait-for-actor 1
+		wait-for-actor 2
+		stop-script 86
+		start-script 86 (1,11)
+		wait-for-message
+		jump &[00001340]
+[00000234]:
+		if !(V.215 is 1) jump &[00000452]
+		if (camera-x < 712) {
+			stop-script 203
+			camera-pan-to 712
+			wait-for-camera
+			start-script 203 ()
+		}
+		wait-for-actor 1
+		if !(!L.0) jump &[00000273]
+		V.442 = random 1
+		jump &[00000277]
+[00000273]:
+		V.442 = random 2
+[00000277]:
+		if !(V.442 is 0) jump &[00000317]
+		say-line 1 "\\xFF\\x0A\\xC7\\x31\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		jump &[00000394]
+[00000317]:
+		if !(V.442 is 1) jump &[00000354]
+		say-line 1 "\\xFF\\x0A\\xE4\\x53\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Listen^"
+		jump &[00000394]
+[00000354]:
+		if !(V.442 is 2) jump &[00000394]
+		say-line 1 "\\xFF\\x0A\\xF8\\x65\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Professor^"
+		jump &[00000394]
+[00000394]:
+		wait-for-message
+		if (camera-x < 712) {
+			stop-script 203
+			camera-pan-to 712
+			wait-for-camera
+			start-script 203 ()
+		}
+		if !(V.215 is 3) jump &[00000449]
+		say-line 11 "\\xFF\\x0A\\x10\\x4B\\xFF\\x0A\\xD5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00So^"
+		jump &[00000462]
+		jump &[00000452]
+[00000449]:
+		jump &[00000986]
+[00000452]:
+		if !(B.156[1]) jump &[00000982]
+		wait-for-actor 1
+[00000462]:
+		stop-script 86
+		do-animation 11 face-towards 1
+		break-here 2
+		do-animation 1 face-towards 11
+		break-here 2
+		wait-for-actor 2
+		do-animation 2 face-towards 11
+		wait-for-message
+		if !(V.215 is 3) jump &[00000977]
+		if !(V.368 is 0) jump &[00000595]
+		say-line 11 "\\xFF\\x0A\\x93\\x6F\\xFF\\x0A\\xD5\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^you and the little woman decided to take home that\\x10special\\x10mug,\\x10eh?"
+		L.1 = 0
+		jump &[00000974]
+[00000595]:
+		if !(V.368 is 1) jump &[00000682]
+		say-line 11 "\\xFF\\x0A\\x09\\x30\\xFF\\x0A\\xD6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^you simply must possess a genuine Tikal floaty\\x10pen?"
+		L.1 = 0
+		jump &[00000974]
+[00000682]:
+		if !(V.368 is 2) jump &[00000781]
+		say-line 11 "\\xFF\\x0A\\xCF\\xDD\\xFF\\x0A\\xD6\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^you can't live without the 3-inch pewter replica of the\\x10temple?"
+		L.1 = 0
+		jump &[00000974]
+[00000781]:
+		if !(V.368 is 3) jump &[00000842]
+		say-line 11 "\\xFF\\x0A\\x94\\x89\\xFF\\x0A\\xD7\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^you ran out of\\x10postcards?"
+		L.1 = 0
+		jump &[00000974]
+[00000842]:
+		if !(V.368 is 4) jump &[00000915]
+		say-line 11 "\\xFF\\x0A\\xB3\\xEE\\xFF\\x0A\\xD7\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^you want the official Tikal key\\x10ring?"
+		L.1 = 0
+		jump &[00000974]
+[00000915]:
+		say-line 11 "\\xFF\\x0A\\x15\\x72\\xFF\\x0A\\xD8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^you still haven't decided WHAT\\x10to\\x10buy."
+[00000974]:
+		++V.368
+[00000977]:
+		wait-for-message
+		jump &[00001340]
+[00000982]:
+		break-here 4
+[00000986]:
+		if !(B.156[1] is 0) jump &[00001048]
+		say-line 11 "\\xFF\\x0A\\x5F\\xEB\\xFF\\x0A\\xD8\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Can I help you with\\x10something?"
+		jump &[00001168]
+[00001048]:
+		start-script 212 ()
+		break-until (!script-running 212)
+		if !(V.216 is 0) jump &[00001095]
+		say-line 11 "\\xFF\\x0A\\x2E\\x34\\xFF\\x0A\\xD9\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Yes?"
+		jump &[00001168]
+[00001095]:
+		say-line 11 "\\xFF\\x0A\\x93\\x4D\\xFF\\x0A\\xD9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Don't mind me.\\xFF\\x03I'm just here for the fresh\\x10air."
+		wait-for-message
+		jump &[00001340]
+[00001168]:
+		wait-for-actor 1
+		stop-script 86
+		do-animation 11 face-towards 1
+		break-here 2
+		do-animation 1 face-towards 11
+		break-here 2
+		wait-for-actor 2
+		do-animation 2 face-towards 11
+		wait-for-message
+		if (B.175 is 0) {
+			say-line 11 "\\xFF\\x0A\\x51\\xE2\\xFF\\x0A\\xF5\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Postcards?\\xFF\\x03Postcards?\\xFF\\x01Replicas of the temple?\\xFF\\x03Postcards?\\xFF\\x01Replicas of the temple?\\xFF\\x01Souvenir Mugs?"
+			wait-for-message
+			L.0 = 0
+			L.1 = 0
+		}
+		B.96[3] = 1
+[00001340]:
+		end-cut-scene
+		start-script 212 ()
+		break-until (!script-running 212)
+		if !(V.216 is 1) jump &[00001364]
+		jump &[00011318]
+[00001364]:
+		if !(V.215 is 2) jump &[00001381]
+		if !(B.151 is 1) jump &[00001381]
+		jump &[00011318]
+[00001381]:
+		start-script 82 ()
+[00001384]:
+		start-script 68 ()
+		if !(selected-actor is 1) jump &[00001743]
+		if !(!L.0) jump &[00001743]
+		if !(!B.156[1]) jump &[00001624]
+		if !(V.215 is 1) jump &[00001518]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xAB\\x83\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I hope so, Mr^"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001621]
+[00001518]:
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xA9\\xCE\\xFF\\x0A\\xB2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00No thanks, Mr^?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00001621]:
+		jump &[00003460]
+[00001624]:
+		if (!L.1) {
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\x72\\x03\\xFF\\x0A\\xB3\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Umm^ no thanks. \\xFF\\x09\\x10\\x00 "
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		L.0 = 1
+[00001743]:
+		if !(!B.156[2]) jump &[00001892]
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\xBE\\x48\\xFF\\x0A\\xB3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What can you tell us about `Plato's\\x10Lost\\x10Dialogue`?"
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00002028]
+[00001892]:
+		if (B.179[0] is 0) {
+			V.443 = ((41 + 9) - 1)
+			*V.443 = "\\xFF\\x0A\\x16\\xBA\\xFF\\x0A\\xB3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What can you tell us about `Mr.\\x10Smith`?"
+			V.442 = ((120 + 9) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00002028]:
+		if !(!B.156[0]) jump &[00002170]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x90\\x0A\\xFF\\x0A\\xB4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What can you tell us about the\\x10temple? \\xFF\\x09\\x08\\x00 "
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003016]
+[00002170]:
+		if !(!B.156[3]) jump &[00002307]
+		if !(!B.183[0]) jump &[00002301]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x7F\\x4F\\xFF\\x0A\\xB4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can we take a look\\x10inside?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00002304]
+[00002301]:
+		jump &[00002447]
+[00002304]:
+		jump &[00003016]
+[00002307]:
+		if !(!B.183[0]) jump &[00002440]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x31\\x88\\xFF\\x0A\\xB4\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Why aren't we allowed\\x10inside? \\xFF\\x09\\x09\\x00 "
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003016]
+[00002440]:
+		if !(!B.183[1]) jump &[00003016]
+[00002447]:
+		if !(!B.176) jump &[00002747]
+		if !(L.3 is 0) jump &[00002608]
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x6D\\xC6\\xFF\\x0A\\xB4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm Dr. Indiana Jones, and I'd like to explore the\\x10temple."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00002744]
+[00002608]:
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\xB1\\x4A\\xFF\\x0A\\xB5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm Dr. Indiana Jones, is that scholarly\\x10enough?"
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00002744]:
+		jump &[00003016]
+[00002747]:
+		if !(B.166 is 0) jump &[00003016]
+		if !(B.156[9]) jump &[00002884]
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x13\\xCE\\xFF\\x0A\\xB5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00About exploring the\\x10temple^.\\xFF\\x09\\x07\\x00"
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003016]
+[00002884]:
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x3C\\x10\\xFF\\x0A\\xB6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd really like to explore the\\x10temple. \\xFF\\x09\\x06\\x00 "
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00003016]:
+		if !(!B.156[4]) jump &[00003164]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x60\\x61\\xFF\\x0A\\xB6\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm hoping to find some evidence of Atlantis\\x10here."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003460]
+[00003164]:
+		if !(!B.156[8]) jump &[00003304]
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x34\\xC5\\xFF\\x0A\\xB6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Does that mean we came to the wrong\\x10place?"
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003460]
+[00003304]:
+		if !(B.156[5]) jump &[00003328]
+		if !(B.156[6]) jump &[00003328]
+		if !(B.156[7]) jump &[00003328]
+		jump &[00003460]
+[00003328]:
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xD5\\x11\\xFF\\x0A\\xB7\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Tell me more about the rumors you\\x10mentioned."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00003460]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x9A\\x61\\xFF\\x0A\\xB7\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Thanks.  We'd just like to look\\x10around."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.442 = (4 - 1)
+		V.167[V.442] = 1
+		B.175 = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00003825]
+		if !(selected-actor is 1) jump &[00003795]
+		if !(!B.156[1]) jump &[00003741]
+		say-line 11 "\\xFF\\x0A\\xF0\\xCE\\xFF\\x0A\\xD9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Charles Sternhart, Ph.D^\\xFF\\x03^independent thinker, researcher and\\x10merchant."
+		jump &[00003788]
+[00003741]:
+		say-line 11 "\\xFF\\x0A\\x09\\xA0\\xFF\\x0A\\xDA\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Then what can I do for\\x10you?"
+[00003788]:
+		B.156[1] = 1
+[00003795]:
+		L.0 = 1
+		B.151 = 1
+		actor 11 name "Sternhart"
+		jump &[00005697]
+		jump &[00005677]
+[00003825]:
+		if !(V.165 is 121) jump &[00004147]
+		L.3 = 0
+		if !(!B.156[4]) jump &[00004048]
+		say-line 11 "\\xFF\\x0A\\xD4\\xE4\\xFF\\x0A\\xDA\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Glad you\\x10asked."
+		wait-for-message
+		say-line 11 "\\xFF\\x0A\\xDC\\x24\\xFF\\x0A\\xDB\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The locals claim Mayan Indians built\\x10it.\\xFF\\x03Now I ask you, does this look like the work of primitive\\x10SAVAGES?\\xFF\\x03Or does it seem MUCH\\x10TOO\\x10CIVILIZED?"
+		jump &[00004134]
+[00004048]:
+		say-line 11 "\\xFF\\x0A\\xD3\\x68\\xFF\\x0A\\xDC\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Rumors have it that the temple was built by survivors of\\x10Atlantis."
+[00004134]:
+		B.156[0] = 1
+		jump &[00005697]
+		jump &[00005677]
+[00004147]:
+		if !(V.165 is 122) jump &[00004259]
+		L.3 = 0
+		B.156[4] = 1
+		say-line 11 "\\xFF\\x0A\\x35\\xFB\\xFF\\x0A\\xDC\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Evidence is easy.\\xFF\\x01You're surrounded by\\x10it.\\xFF\\x03PROOF^now that's\\x10hard."
+		jump &[00005697]
+		jump &[00005677]
+[00004259]:
+		if !(V.165 is 123) jump &[00004648]
+		L.3 = 0
+		V.442 = random 2
+		if !(V.442 is 0) jump &[00004318]
+		say-line 11 "\\xFF\\x0A\\x4D\\xCA\\xFF\\x0A\\xDD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00By all means."
+		jump &[00004398]
+[00004318]:
+		if !(V.442 is 1) jump &[00004360]
+		say-line 11 "\\xFF\\x0A\\x07\\x06\\xFF\\x0A\\xDE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00As you wish."
+		jump &[00004398]
+[00004360]:
+		if !(V.442 is 2) jump &[00004398]
+		say-line 11 "\\xFF\\x0A\\x2B\\x3A\\xFF\\x0A\\xDE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why not?"
+		jump &[00004398]
+[00004398]:
+		wait-for-message
+		V.442 = random 5
+		if !(V.442 is 0) jump &[00004491]
+		say-line 11 "\\xFF\\x0A\\xB7\\x62\\xFF\\x0A\\xDE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Perhaps you'll decide to buy one of my precious\\x10mementos."
+		jump &[00004642]
+[00004491]:
+		if !(V.442 is 1) jump &[00004566]
+		say-line 11 "\\xFF\\x0A\\x0F\\xFD\\xFF\\x0A\\xDE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Give you time to decide on a proper\\x10souvenir."
+		jump &[00004642]
+[00004566]:
+		if !(V.442 is 2) jump &[00004642]
+		say-line 11 "\\xFF\\x0A\\x3B\\x69\\xFF\\x0A\\xDF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Don't forget about my investment-grade\\x10curios."
+		jump &[00004642]
+[00004642]:
+		jump &[00011318]
+		jump &[00005677]
+[00004648]:
+		if !(V.165 is 124) jump &[00004802]
+		say-line 11 "\\xFF\\x0A\\x94\\xE8\\xFF\\x0A\\xDF\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00How do I know that you aren't a pair of silly\\x10tourists?\\xFF\\x03I only show the temple to reputable\\x10scholars."
+		L.3 = 1
+		B.183[0] = 1
+		B.156[0] = 1
+		jump &[00005697]
+		jump &[00005677]
+[00004802]:
+		if !(V.165 is 125) jump &[00004916]
+		L.3 = 0
+		B.156[8] = 1
+		say-line 11 "\\xFF\\x0A\\xE0\\xCB\\xFF\\x0A\\xE0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I've pretty much lost hope\\x10myself.\\xFF\\x03But old legends and rumors die\\x10hard."
+		jump &[00005677]
+[00004916]:
+		if !(V.165 is 126) jump &[00004976]
+		L.3 = 0
+		say-line 11 "\\xFF\\x0A\\x7A\\x9D\\xFF\\x0A\\xE1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do you want to\\x10know?"
+		jump &[00005677]
+[00004976]:
+		if !(V.165 is 127) jump &[00005266]
+		L.3 = 0
+		if !(!B.176) jump &[00005223]
+		say-line 11 "\\xFF\\x0A\\xAB\\xD5\\xFF\\x0A\\xE1\\x05\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00Indiana?\\xFF\\x03Sounds like the name of one of your\\x10states^\\xFF\\x03^or possibly a\\x10cat."
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x63\\x87\\xFF\\x0A\\xD0\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Actually, it was the name of a\\x10dog."
+		break-here 10
+		do-animation 1 1
+		do-animation 1 face-towards 2
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xF4\\xAA\\xFF\\x0A\\xB7\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Sophia^! \\xFF\\x09\\x09\\x00 "
+		wait-for-message
+		break-here 4
+		do-animation 1 1
+		do-animation 1 face-towards 11
+		break-here 2
+		B.176 = 1
+		jump &[00005697]
+		jump &[00005263]
+[00005223]:
+		if (!B.183[0]) {
+			say-line 11 "\\xFF\\x0A\\x4E\\xA4\\xFF\\x0A\\xE2\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Very well^"
+		}
+		jump &[00005728]
+[00005263]:
+		jump &[00005677]
+[00005266]:
+		if !(V.165 is 128) jump &[00005677]
+		if !(B.156[2] is 0) jump &[00005494]
+		L.3 = 0
+		B.156[2] = 1
+		say-line 11 "\\xFF\\x0A\\x39\\xC0\\xFF\\x0A\\xE2\\x05\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00I'm the one who translated it; I\\x10can\\x10tell\\x10you\\x10that!\\xFF\\x03I'd worry you were here\\xFF\\x01to steal my last\\x10copy^\\xFF\\x03^but someone called `Mr.\\x10Smith` beat\\x10you\\x10to\\x10it."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x27\\xD6\\xFF\\x0A\\xB7\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Oh no!"
+		jump &[00005671]
+[00005494]:
+		B.179[0] = 1
+		say-line 11 "\\xFF\\x0A\\x6C\\x00\\xFF\\x0A\\xE4\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00He showed up last\\x10week^\\xFF\\x03^a tall man with a German accent and\\x10a\\x10pistol.\\xFF\\x03He could have taken all my\\x10souvenirs^\\xFF\\x03^but he only wanted the Lost\\x10Dialogue."
+[00005671]:
+		jump &[00005697]
+		jump &[00005677]
+[00005677]:
+		if !(!B.156[7]) jump &[00005687]
+		jump &[00010188]
+[00005687]:
+		if !(!B.156[6]) jump &[00005697]
+		jump &[00010188]
+[00005697]:
+		wait-for-message
+		start-script 212 ()
+		break-until (!script-running 212)
+		if !(V.216 is 0) jump &[00005725]
+		jump &[00001384]
+		jump &[00005728]
+[00005725]:
+		jump &[00011318]
+[00005728]:
+		B.183[0] = 1
+		wait-for-message
+		say-line 11 "\\xFF\\x0A\\xC0\\x55\\xFF\\x0A\\xE5\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^tell me the name of the Lost Dialogue\\x10of\\x10Plato."
+		wait-for-message
+		start-script 68 ()
+		if !(!B.156[9]) jump &[00009005]
+		V.442 = random 8
+		if !(V.442 is 0) jump &[00006144]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x92\\x0B\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Gluteus Maximus."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\xC3\\x43\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Socrates."
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x3D\\x72\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Hippocrates."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00006144]:
+		if !(V.442 is 1) jump &[00006455]
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x1B\\xA2\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Pleiades."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x8C\\xCC\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Aeneid."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\x21\\xEB\\xFF\\x0A\\xB8\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Socrates."
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00006455]:
+		if !(V.442 is 2) jump &[00006778]
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x9B\\x19\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Tetrahedron."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x27\\x42\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The Pleiades."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x9C\\x6C\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Gluteus Maximus."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00006778]:
+		if !(V.442 is 3) jump &[00007094]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xCD\\xA4\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x00\\xD0\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Tetrahedron."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x8C\\xF8\\xFF\\x0A\\xB9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Aeneid."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00007094]:
+		if !(V.442 is 4) jump &[00007412]
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\x21\\x17\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Socrates."
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x9B\\x45\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xCE\\x70\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Hippocrates."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00007412]:
+		if !(V.442 is 5) jump &[00007733]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xAC\\xA0\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Hippocrates."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x8A\\xD0\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Tetrahedron."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x16\\xF9\\xFF\\x0A\\xBA\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00007733]:
+		if !(V.442 is 6) jump &[00008055]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x4D\\x24\\xFF\\x0A\\xBB\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x84\\x4F\\xFF\\x0A\\xBB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Gluteus Maximus."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\xB5\\x87\\xFF\\x0A\\xBB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Pleiades."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00008055]:
+		if !(V.442 is 7) jump &[00008378]
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\x26\\xB2\\xFF\\x0A\\xBB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Socrates."
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xA0\\xE0\\xFF\\x0A\\xBB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Gluteus Maximus."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xD1\\x18\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Hippocrates."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00008378]:
+		if !(V.442 is 8) jump &[00008694]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xAF\\x48\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xE6\\x73\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Aeneid."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x7B\\x92\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Tetrahedron."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009002]
+[00008694]:
+		V.443 = ((41 + 9) - 1)
+		*V.443 = "\\xFF\\x0A\\x07\\xBB\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Socrates."
+		V.442 = ((120 + 9) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x81\\xE9\\xFF\\x0A\\xBC\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\xB4\\x14\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Tetrahedron."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00009002]:
+		jump &[00009320]
+[00009005]:
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x40\\x3D\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Hermocrates."
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x02\\x6F\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Persepolis."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x35\\x9A\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The Gluteus Maximus."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00009320]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x66\\xD2\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I don't know the\\x10title. \\xFF\\x09\\x0D\\x00 "
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00009510]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\xB5\\x64\\xFF\\x0A\\xF3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00GLUTEUS MAXIMUS!"
+		start-script bak 214 ()
+		V.212 = 6
+		jump &[00010185]
+[00009510]:
+		if !(V.165 is 121) jump &[00009563]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\x36\\xAD\\xFF\\x0A\\xF3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00PERSEPOLIS!"
+		start-script bak 214 ()
+		V.212 = 7
+		jump &[00010185]
+[00009563]:
+		if !(V.165 is 122) jump &[00009612]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\xDA\\xE8\\xFF\\x0A\\xF3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00AENEID!"
+		start-script bak 214 ()
+		V.212 = 8
+		jump &[00010185]
+[00009612]:
+		if !(V.165 is 123) jump &[00009867]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\x1A\\x1B\\xFF\\x0A\\xF4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00TITLE!"
+		start-script bak 214 ()
+		wait-for-message
+		V.442 = random 2
+		if !(V.442 is 0) jump &[00009724]
+		say-line 11 "\\xFF\\x0A\\x18\\xD3\\xFF\\x0A\\xE5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Well, at least you're an honest\\x10man."
+		jump &[00009851]
+[00009724]:
+		if !(V.442 is 1) jump &[00009790]
+		say-line 11 "\\xFF\\x0A\\x41\\x3E\\xFF\\x0A\\xE6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You're no student of Atlantis,\\x10then."
+		jump &[00009851]
+[00009790]:
+		say-line 11 "\\xFF\\x0A\\x63\\xA6\\xFF\\x0A\\xE6\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Obviously, you're not serious about\\x10this."
+[00009851]:
+		V.212 = 1
+		L.4 = 1
+		jump &[00011318]
+		jump &[00010185]
+[00009867]:
+		if !(V.165 is 124) jump &[00009975]
+		start-script 144 (10,7)
+		wait-for-message
+		say-line 11 "\\xFF\\x0A\\x93\\x14\\xFF\\x0A\\xE7\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00THAT'S IT!"
+		B.183[1] = 1
+		V.212 = 0
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\x0D\\x46\\xFF\\x0A\\xF4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00THAT'S IT!"
+		start-script bak 214 ()
+		L.2 = 1
+		jump &[00011318]
+		jump &[00010185]
+[00009975]:
+		if !(V.165 is 125) jump &[00010029]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\x7B\\x6C\\xFF\\x0A\\xF4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00TETRAHEDRON!"
+		start-script bak 214 ()
+		V.212 = 2
+		jump &[00010185]
+[00010029]:
+		if !(V.165 is 126) jump &[00010083]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\xFA\\xA1\\xFF\\x0A\\xF4\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00HIPPOCRATES!"
+		start-script bak 214 ()
+		V.212 = 3
+		jump &[00010185]
+[00010083]:
+		if !(V.165 is 127) jump &[00010134]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\xAC\\xDC\\xFF\\x0A\\xF4\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00PLEIADES!"
+		start-script bak 214 ()
+		V.212 = 4
+		jump &[00010185]
+[00010134]:
+		if !(V.165 is 128) jump &[00010185]
+		wait-for-message
+		stop-script 214
+		say-line 7 "\\xFF\\x0A\\x1C\\x16\\xFF\\x0A\\xF5\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00SOCRATES!"
+		start-script bak 214 ()
+		V.212 = 5
+		jump &[00010185]
+[00010185]:
+		jump &[00011248]
+[00010188]:
+		wait-for-message
+		start-script 68 ()
+		if !(B.156[8] is 1) jump &[00010451]
+		if !(!B.156[5]) jump &[00010325]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x26\\xF7\\xFF\\x0A\\xBD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What kind of\\x10rumors? \\xFF\\x09\\x07\\x00"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00010451]
+[00010325]:
+		if (!B.156[7]) {
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\xD6\\x2E\\xFF\\x0A\\xBE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What are `men-who-are-not-men`?"
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00010451]:
+		if (B.156[5]) {
+			if (!B.156[6]) {
+				V.443 = ((41 + 2) - 1)
+				*V.443 = "\\xFF\\x0A\\x5C\\x71\\xFF\\x0A\\xBE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Do you actually believe Atlanteans lived\\x10here?"
+				V.442 = ((120 + 2) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x17\\xC9\\xFF\\x0A\\xBE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Thanks.  We'd just like to look\\x10around."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.442 = (4 - 1)
+		V.167[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00010868]
+		B.156[5] = 1
+		say-line 11 "\\xFF\\x0A\\x35\\x46\\xFF\\x0A\\xE7\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Local legend has it\\x10that^\\xFF\\x03^the temple was built by men-who-are-not-men."
+		jump &[00011245]
+[00010868]:
+		if !(V.165 is 121) jump &[00011000]
+		B.156[6] = 1
+		say-line 11 "\\xFF\\x0A\\x1B\\x00\\xFF\\x0A\\xE8\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00After the city sank, this is where they\\x10came, I'm\\x10sure."
+		if !(B.156[7] is 1) jump &[00010997]
+		wait-for-message
+		start-script 212 ()
+		break-until (!script-running 212)
+		if !(V.216 is 0) jump &[00010994]
+		jump &[00001384]
+		jump &[00010997]
+[00010994]:
+		jump &[00011318]
+[00010997]:
+		jump &[00011245]
+[00011000]:
+		if !(V.165 is 122) jump &[00011186]
+		B.156[7] = 1
+		say-line 11 "\\xFF\\x0A\\xA2\\x91\\xFF\\x0A\\xE8\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Who knows^\\xFF\\x03I've heard everything from giant men with snakes\\x10for\\x10tails\\x10to^\\xFF\\x03^giant snakes with men\\x10for\\x10heads."
+		if !(B.156[6] is 1) jump &[00011183]
+		wait-for-message
+		start-script 212 ()
+		break-until (!script-running 212)
+		if !(V.216 is 0) jump &[00011180]
+		jump &[00001384]
+		jump &[00011183]
+[00011180]:
+		jump &[00011318]
+[00011183]:
+		jump &[00011245]
+[00011186]:
+		if !(V.165 is 123) jump &[00011245]
+		say-line 11 "\\xFF\\x0A\\x5C\\xA5\\xFF\\x0A\\xE9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Go ahead.  Go right ahead."
+		jump &[00011318]
+		jump &[00011245]
+[00011245]:
+		jump &[00010188]
+[00011248]:
+		L.4 = 1
+		wait-for-message
+		say-line 11 "\\xFF\\x0A\\x88\\xF6\\xFF\\x0A\\xE9\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Too bad, old\\x10bloke.\\xFF\\x03That's not the\\x10answer."
+[00011318]:
+		wait-for-message
+		B.151 = 1
+		if !(!B.183[1]) jump &[00011376]
+[00011332]:
+		start-script 83 ()
+		B.731 = 1
+		if !(L.4) jump &[00011362]
+		V.217 = 1
+		stop-script 86
+		walk 11 to-object 1049
+		wait-for-actor 11
+		jump &[00011373]
+[00011362]:
+		stop-script 86
+		start-script rec 86 (1,11)
+[00011373]:
+		jump &[00011685]
+[00011376]:
+		if !(L.2 is 1) jump &[00011682]
+		say-line 11 "\\xFF\\x0A\\x26\\xAD\\xFF\\x0A\\xF6\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well now, maybe I was wrong^\\xFF\\x03^you seem to know what you're\\x10doing.\\xFF\\x03Walk this way, please."
+		wait-for-message
+		start-script 83 ()
+		cut-scene
+		walk 11 to-object 1049
+		do-animation 1 3
+		break-here
+		walk 2 to-actor 1 within 24
+		wait-for-actor 2
+		do-animation 1 face-towards 2
+		break-here 2
+		do-animation 2 face-towards 1
+		break-here 2
+		say-line 2 "\\xFF\\x0A\\xEF\\xDA\\xFF\\x0A\\xD0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't trust this guy, Indy."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x24\\x1C\\xFF\\x0A\\xBF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I know what you\\x10mean."
+		wait-for-message
+		wait-for-actor 11
+		do-animation 11 246
+		break-here 2
+		say-line 11 "\\xFF\\x0A\\xAC\\x5F\\xFF\\x0A\\xEA\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Come on!"
+		walk 1 to-object 1049
+		sleep-for 30 jiffies
+		walk 2 to-object 1049
+		sleep-for 60 jiffies
+		end-cut-scene
+		current-room 77
+		jump &[00011685]
+[00011682]:
+		jump &[00011332]
+[00011685]:
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		B.731 = 1
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0212
+		V.216 = 0
+		if (B.156[2] is 1) {
+			if (B.156[7] is 1) {
+				if (B.156[6] is 1) {
+					if (B.183[1] is 1) {
+						V.216 = 1
+					}
+				}
+			}
+		}
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0213
+		if (!B.150) {
+			do-animation selected-actor face-towards 7
+			break-here 2
+			say-line "\\xFF\\x0A\\xFE\\x01\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't talk to that bird from\\x10here."
+			stop-script 0
+		}
+		cut-scene
+		stop-script 203
+		if (script-running 31) {
+			stop-script 31
+		}
+		walk selected-actor to 610,115
+		break-here 6
+		walk V.182 to 650,120
+		camera-pan-to 600
+		wait-for-actor V.182
+		wait-for-actor selected-actor
+		do-animation 2 244
+		do-animation 1 244
+		wait-for-camera
+		start-script 203 ()
+		stop-script 214
+		end-cut-scene
+		start-script 82 ()
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x48\\x52\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Polly wanna cracker?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x3F\\x7F\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Echo."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		if !(B.174 is 1) jump &[00000456]
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x58\\x9F\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Orichalcum."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000991]
+[00000456]:
+		V.442 = random 4
+		if !(V.442 is 0) jump &[00000568]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xE4\\xC7\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x0023 skidoo."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000991]
+[00000568]:
+		if !(V.442 is 1) jump &[00000677]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xC5\\xFF\\xFF\\x0A\\xAD\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Tippecanoe."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000991]
+[00000677]:
+		if !(V.442 is 2) jump &[00000786]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x62\\x23\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hullabaloo."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000991]
+[00000786]:
+		if !(V.442 is 3) jump &[00000892]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xE5\\x47\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Caribou."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000991]
+[00000892]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xDD\\x67\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Me and you."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00000991]:
+		if !(V.212 is 0) jump &[00001104]
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xE1\\x8C\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Bye bye, birdy."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001104]:
+		if !(V.212 is 1) jump &[00001208]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\xC2\\xBF\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Title?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001208]:
+		if !(V.212 is 2) jump &[00001318]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x57\\xD2\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Tetrahedron?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001318]:
+		if !(V.212 is 3) jump &[00001428]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x60\\xF9\\xFF\\x0A\\xAE\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hippocrates?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001428]:
+		if !(V.212 is 4) jump &[00001535]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x04\\x20\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Pleiades?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001535]:
+		if !(V.212 is 5) jump &[00001642]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\xCC\\x46\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Socrates?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001642]:
+		if !(V.212 is 6) jump &[00001756]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x44\\x74\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Gluteus Maximus?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001756]:
+		if !(V.212 is 7) jump &[00001865]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\xED\\xA8\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Persepolis?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001865]:
+		if !(V.212 is 8) jump &[00001970]
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x37\\xD0\\xFF\\x0A\\xAF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Aeneid?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001970]
+[00001970]:
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00002035]
+		say-line 7 "\\xFF\\x0A\\xD8\\x3A\\xFF\\x0A\\xED\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Polly wanna cracker!"
+		jump &[00003007]
+[00002035]:
+		if !(V.165 is 121) jump &[00002072]
+		say-line 7 "\\xFF\\x0A\\x7F\\x74\\xFF\\x0A\\xED\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Echo!"
+		wait-for-message
+		jump &[00003007]
+[00002072]:
+		if !(V.165 is 122) jump &[00002116]
+		say-line 7 "\\xFF\\x0A\\xBC\\x9B\\xFF\\x0A\\xED\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00And Tyler too!"
+		jump &[00003007]
+[00002116]:
+		if !(V.165 is 123) jump &[00002161]
+		say-line 7 "\\xFF\\x0A\\xF8\\xDA\\xFF\\x0A\\xED\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Bye bye, birdy!"
+		jump &[00003007]
+[00002161]:
+		if !(V.165 is 124) jump &[00002873]
+		if !(V.212 is 0) jump &[00002178]
+		jump &[00002870]
+[00002178]:
+		if !(V.212 is 1) jump &[00002274]
+		say-line 7 "\\xFF\\x0A\\x38\\x15\\xFF\\x0A\\xEE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00HERMOCRATES!"
+		wait-for-message
+		break-here 2
+		say-line 7 "\\xFF\\x0A\\x44\\x4D\\xFF\\x0A\\xEE\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00A friend of Socrates!"
+		wait-for-message
+		B.156[9] = 1
+		jump &[00002870]
+[00002274]:
+		if !(V.212 is 2) jump &[00002357]
+		say-line 7 "\\xFF\\x0A\\xC5\\xA2\\xFF\\x0A\\xEE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00TETRAHEDRON!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\xA8\\xD9\\xFF\\x0A\\xEE\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00A four-sided solid!"
+		jump &[00002870]
+[00002357]:
+		if !(V.212 is 3) jump &[00002444]
+		say-line 7 "\\xFF\\x0A\\xAF\\x26\\xFF\\x0A\\xEF\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00HIPPOCRATES!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\x83\\x66\\xFF\\x0A\\xEF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The father of medicine!"
+		jump &[00002870]
+[00002444]:
+		if !(V.212 is 4) jump &[00002530]
+		say-line 7 "\\xFF\\x0A\\x08\\xBB\\xFF\\x0A\\xEF\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00PLEIADES!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\x2B\\xED\\xFF\\x0A\\xEF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00A cluster of young stars!"
+		jump &[00002870]
+[00002530]:
+		if !(V.212 is 5) jump &[00002612]
+		say-line 7 "\\xFF\\x0A\\x60\\x4C\\xFF\\x0A\\xF0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00SOCRATES!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\x56\\x82\\xFF\\x0A\\xF0\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00A famous philosopher!"
+		jump &[00002870]
+[00002612]:
+		if !(V.212 is 6) jump &[00002701]
+		say-line 7 "\\xFF\\x0A\\xF5\\xD2\\xFF\\x0A\\xF0\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00GLUTEUS MAXIMUS!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\xE9\\x1B\\xFF\\x0A\\xF1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00A large human muscle!"
+		jump &[00002870]
+[00002701]:
+		if !(V.212 is 7) jump &[00002789]
+		say-line 7 "\\xFF\\x0A\\x94\\x6E\\xFF\\x0A\\xF1\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00PERSEPOLIS!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\x73\\xAA\\xFF\\x0A\\xF1\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00A city of ancient Persia!"
+		jump &[00002870]
+[00002789]:
+		if !(V.212 is 8) jump &[00002870]
+		say-line 7 "\\xFF\\x0A\\x85\\x0D\\xFF\\x0A\\xF2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00AENEID!"
+		wait-for-message
+		say-line 7 "\\xFF\\x0A\\x26\\x36\\xFF\\x0A\\xF2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00A long poem by Virgil!"
+		jump &[00002870]
+[00002870]:
+		jump &[00003007]
+[00002873]:
+		if !(V.165 is 125) jump &[00003007]
+		if !(V.229 is 0) jump &[00002962]
+		say-line 7 "\\xFF\\x0A\\x90\\x91\\xFF\\x0A\\xF2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00GRAVE ROBBERS!"
+		wait-for-message
+		break-here 2
+		say-line 7 "\\xFF\\x0A\\x47\\xC4\\xFF\\x0A\\xF2\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00GRAVE ROBBERS!"
+		jump &[00003004]
+[00002962]:
+		say-line 7 "\\xFF\\x0A\\x6D\\x01\\xFF\\x0A\\xF3\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00THE POWER OF ATLANTIS!"
+[00003004]:
+		jump &[00003007]
+[00003007]:
+		jump &[00003010]
+[00003010]:
+		wait-for-message
+		start-script 83 ()
+		start-script bak 214 ()
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		end-script
+	}
+
+	script 214 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0214
+	local variable L.0
+	local variable L.1
+
+		do {
+			break-until (camera-x > 450)
+			L.0 = random 100
+			wait-for-message
+			say-line 7 "\\xFF\\x0A\\x8C\\x0F\\xFF\\x0A\\xED\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Bwaaaaak!"
+			wait-for-message
+			do-animation 7 3
+			break-here 3
+			if (L.0 < 20) {
+				L.0 += 30
+			}
+			for L.1 = 0 to L.0 ++ {
+				sleep-for 150 jiffies
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0215
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !(L.1) jump &[00000133]
+		if !(L.0 is 1036) jump &[00000033]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 209,129
+		jump &[00000133]
+[00000033]:
+		if !(L.0 is 1037) jump &[00000053]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 246,116
+		jump &[00000133]
+[00000053]:
+		if !(L.0 is 1038) jump &[00000073]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 281,100
+		jump &[00000133]
+[00000073]:
+		if !(L.0 is 1039) jump &[00000093]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 310,99
+		jump &[00000133]
+[00000093]:
+		if !(L.0 is 1040) jump &[00000113]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 342,121
+		jump &[00000133]
+[00000113]:
+		if !(L.0 is 1041) jump &[00000133]
+		put-actor 10 in-room selected-room
+		put-actor 10 at 375,114
+		jump &[00000133]
+[00000133]:
+		for L.2 = 1036 to 1041 ++ {
+			new-name-of L.2 is "dark jungle path"
+		}
+		V.209 = L.0
+		new-name-of L.0 is "jungle rodent"
+		do-animation 10 6
+		end-script
+	}
+
+	script 216 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0216
+	local variable L.2
+
+		cut-scene
+		start-script 204 ()
+		break-until (!script-running 204)
+		if !(V.214 is 0) jump &[00000036]
+		jump &[00000099]
+[00000036]:
+		for L.2 = 1036 to 1041 ++ {
+			new-name-of L.2 is "dark jungle path"
+		}
+		put-actor 10 in-room selected-room
+		put-actor 10 at-object 1042
+		break-here
+		walk 10 to-object 1044
+		wait-for-actor 10
+		class-of 1044 is 32
+		V.209 = 1044
+[00000099]:
+		end-cut-scene
+		end-script
+	}
+
+	script 217 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0217
+	local variable L.0
+	local variable L.2
+
+		cut-scene
+		start-script 204 ()
+		break-until (!script-running 204)
+		if !(V.214 is 0) jump &[00000036]
+		jump &[00000292]
+[00000036]:
+		start-script 144 (8,6)
+		V.209 = 0
+		for L.2 = 1036 to 1041 ++ {
+			new-name-of L.2 is "dark jungle path"
+		}
+		stop-script 206
+		L.0 = actor-costume 10
+		actor 10 costume 0
+		camera-pan-to 488
+		wait-for-camera
+		actor 10 ignore-boxes always-zclip 1 scale 245 245
+		put-actor 10 in-room selected-room
+		put-actor 10 at-object 1043
+		break-here
+		actor 10 costume L.0
+		break-here
+		do-animation 1 face-towards 10
+		walk 10 to 461,135
+		wait-for-actor 10
+		start-script 221 (4)
+		break-until (!script-running 221)
+		class-of 1047 is 160
+		B.149 = 1
+		break-here
+		actor 11 default costume 62 talk-color 11
+		if !(B.151) jump &[00000198]
+		actor 11 name "Sternhart"
+		jump &[00000212]
+[00000198]:
+		actor 11 name "caretaker"
+[00000212]:
+		put-actor 11 in-room 76
+		put-actor 11 at-object 1049
+		class-of 11 is 13 5
+		sleep-for 45 jiffies
+		camera-pan-to 288
+		wait-for-camera
+		do-animation selected-actor 246
+		break-here 2
+		say-line "\\xFF\\x0A\\xD9\\x49\\xFF\\x0A\\xBF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Good old Mother Nature.\\xFF\\x09\\x0D\\x00"
+		wait-for-message
+[00000292]:
+		end-cut-scene
+		end-script
+	}
+
+	script 218 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0218
+		class-of 1044 is 160
+		walk 10 to-object 1042
+		wait-for-actor 10
+		put-actor 10 in-room 0
+		start-script 215 (1036,1)
+		end-script
+	}
+
+	script 219 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0219
+		cut-scene
+		if (script-running 31) {
+			stop-script 31
+		}
+		if !(actor-room 2 is-not selected-room) jump &[00000105]
+		V.351 = actor-x selected-actor
+		V.352 = actor-y selected-actor
+		walk 1 to 770,115
+		wait-for-actor 1
+		say-line "\\xFF\\x0A\\xDF\\x7E\\xFF\\x0A\\xBF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't leave without\\x10Sophia."
+		jump &[00000196]
+[00000105]:
+		stop-script 31
+		walk 2 to-object 1048
+		wait-for-actor 2
+		if (script-running 86) {
+			stop-script 86
+		}
+		walk 1 to-object 1048
+		wait-for-actor 1
+		class-of 1051 is 32
+		put-actor 1 at 65516,120
+		put-actor 2 at 65516,120
+		if (script-running 203) {
+			stop-script 203
+		}
+		camera-at 160
+		break-here 3
+		walk 1 to 65,119
+		sleep-for 45 jiffies
+		walk 2 to 26,110
+		wait-for-actor 2
+		start-script bak 86 (selected-actor,V.182)
+[00000196]:
+		end-cut-scene
+		end-script
+	}
+
+	script 220 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0220
+		if (script-running 205) {
+			stop-script 205
+		}
+		walk selected-actor to-object 1049
+		stop-script 86
+		if (actor-room 2 is selected-room) {
+			start-script rec 86 (1,2)
+		}
+		if (actor-room 11 is selected-room) {
+			start-script rec 86 (1,11)
+		}
+		break-here
+		if !(actor-box 1 is 19) jump &[00000066]
+		cut-scene
+		do-animation selected-actor 255
+		walk selected-actor to-object 1049
+		break-until (actor-x 1 > 705)
+		stop-script 86
+		if (actor-room 2 is selected-room) {
+			stop-script 31
+			stop-script 86
+			walk 2 to-object 1049
+		}
+		if (B.183[1]) {
+			if (actor-room 11 is selected-room) {
+				say-line 11 "\\xFF\\x0A\\x38\\x88\\xFF\\x0A\\xEA\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Hold up there, friend."
+				walk 11 to-object 1049
+			}
+			if (actor-room 2 is selected-room) {
+				wait-for-actor V.182
+			}
+			put-actor V.182 in-room 77
+			put-actor V.182 at 0,0
+			wait-for-actor selected-actor
+			put-actor selected-actor in-room 77
+			put-actor selected-actor at 0,0
+		}
+		end-cut-scene
+		if (B.183[1]) {
+			come-out 1052 in-room 77 walk-to 65535,65535
+		}
+		end-script
+	}
+
+	script 221 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0221
+	local variable L.0
+
+		if !(L.0 is 1) jump &[00000064]
+		if !(V.213 is 2) jump &[00000061]
+		V.213 = 1
+		do-animation 9 6
+		break-here 24
+		do-animation 9 10
+		break-here
+		jump &[00000061]
+[00000061]:
+		jump &[00000355]
+[00000064]:
+		if !(L.0 is 2) jump &[00000111]
+		if !(V.213 is-not 2) jump &[00000108]
+		V.213 = 2
+		do-animation 9 11
+		break-here 19
+		jump &[00000108]
+[00000108]:
+		jump &[00000355]
+[00000111]:
+		if !(L.0 is 3) jump &[00000190]
+		if !(V.213 is 2) jump &[00000187]
+		V.213 = 3
+		do-animation 9 6
+		break-here 24
+		do-animation 9 11
+		break-here 19
+		V.213 = 2
+		jump &[00000187]
+[00000187]:
+		jump &[00000355]
+[00000190]:
+		if !(L.0 is 4) jump &[00000355]
+		do-animation 10 6
+		do-animation 9 7
+		sound-kludge 9 92
+		sound-kludge 9 72
+		sound-kludge 65535
+		start-sound 95
+		sound-kludge 65535
+		sound-kludge 270 95 1
+		sound-kludge 271 8 72
+		sound-kludge 271 65535
+		break-here 32
+		put-actor 10 in-room 0
+		actor 10 default name " "
+		class-of 10 is 0
+		do-animation 9 8
+		start-sound 96
+		break-here 8
+		start-sound 98
+		break-here 8
+		put-actor 9 in-room 0
+		actor 9 default name " "
+		class-of 9 is 0
+		start-sound 61
+		jump &[00000355]
+[00000355]:
+		end-script
+	}
+
+	script 222 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0222
+	local variable L.0
+
+		cut-scene
+		actor 10 step-dist 16,4
+		walk 10 to-object V.209
+		wait-for-actor 10
+		actor 10 costume 0
+		sleep-for 50 jiffies
+		put-actor 10 at-object L.0
+		if !(actor-facing 10 is 0) jump &[00000056]
+		do-animation 10 249
+		jump &[00000059]
+[00000056]:
+		do-animation 10 248
+[00000059]:
+		actor 10 costume 61 step-dist 8,2
+		break-here
+		if !(L.0 is 1036) jump &[00000084]
+		walk 10 to 209,129
+		jump &[00000164]
+[00000084]:
+		if !(L.0 is 1037) jump &[00000100]
+		walk 10 to 246,116
+		jump &[00000164]
+[00000100]:
+		if !(L.0 is 1038) jump &[00000116]
+		walk 10 to 281,100
+		jump &[00000164]
+[00000116]:
+		if !(L.0 is 1039) jump &[00000132]
+		walk 10 to 310,99
+		jump &[00000164]
+[00000132]:
+		if !(L.0 is 1040) jump &[00000148]
+		walk 10 to 342,121
+		jump &[00000164]
+[00000148]:
+		if !(L.0 is 1041) jump &[00000164]
+		walk 10 to 375,114
+		jump &[00000164]
+[00000164]:
+		wait-for-actor 10
+		start-script 215 (L.0)
+		end-cut-scene
+		end-script
+	}
+
+	script 223 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0223
+	local variable L.0
+
+		V.210 = L.0
+		V.218 = 0
+		start-script 204 ()
+		break-until (script-running 204 is 0)
+		if (V.214 is 0) {
+			stop-script 0
+		}
+		start-script bak 222 (V.210)
+		break-until (!script-running 222)
+		end-script
+	}
+
+	script 224 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0224
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		start-script 136 (L.1,L.2,30,1)
+		break-until (!script-running 136)
+		if (B.22 is 1) {
+			stop-script 0
+		}
+		cut-scene
+		do-animation 1 10
+		break-here 4
+		do-animation 1 3
+		if !(L.2 is 11) jump &[00000307]
+		do-animation 11 face-towards 1
+		break-here 2
+		if !(L.0 is 1050) jump &[00000256]
+		if !(B.177 is 0) jump &[00000191]
+		B.177 = 1
+		say-line 11 "\\xFF\\x0A\\xFD\\xC6\\xFF\\x0A\\xEA\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00So you took my lamp, did\\x10you?\\xFF\\x03Well, keep it, maybe you can put it to good\\x10use."
+		jump &[00000253]
+[00000191]:
+		say-line 11 "\\xFF\\x0A\\x75\\x8F\\xFF\\x0A\\xEB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Keep it, maybe you can put it to good\\x10use."
+[00000253]:
+		jump &[00000304]
+[00000256]:
+		say-line 11 "\\xFF\\x0A\\xA5\\xFD\\xFF\\x0A\\xEB\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00No thanks.  I don't want\\x10it."
+[00000304]:
+		jump &[00000374]
+[00000307]:
+		if !(L.2 is 2) jump &[00000374]
+		do-animation 2 face-towards 1
+		break-here 2
+		say-line 2 "\\xFF\\x0A\\x2A\\x22\\xFF\\x0A\\xD1\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00No thanks.  You better keep\\x10it."
+		jump &[00000374]
+[00000374]:
+		end-cut-scene
+		end-script
+	}
+
+	script 225 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0225
+		cut-scene
+		if (script-running 86) {
+			stop-script 86
+		}
+		walk 1 to 65516,120
+		if (actor-room 2 is selected-room) {
+			stop-script 31
+			walk 2 to 65524,120
+			wait-for-actor 2
+		}
+		wait-for-actor selected-actor
+		class-of 1048 is 32
+		put-actor 1 in-room 76
+		put-actor 1 at-object 1048
+		put-actor 2 in-room 76
+		put-actor 2 at-object 1048
+		camera-follow selected-actor
+		break-here 3
+		start-script bak 203 ()
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		walk 1 to 700,120
+		end-cut-scene
+		end-script
+	}
+
+	script 226 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0226
+		if !(V.181 is 7) jump &[00000079]
+		cut-scene
+		do-animation 1 255
+		do-animation 1 face-towards 7
+		break-here 2
+		say-line 1 "\\xFF\\x0A\\xD5\\xBA\\xFF\\x0A\\xBF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What a smart-looking bird."
+		end-cut-scene
+		jump &[00000138]
+[00000079]:
+		if !(V.181 is 2) jump &[00000092]
+		chain-script 162 ()
+		jump &[00000138]
+[00000092]:
+		say-line "\\xFF\\x0A\\x4F\\xF8\\xFF\\x0A\\xBF\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to look at."
+[00000138]:
+		wait-for-message
+		end-script
+	}
+
+	script 227 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0227
+		cut-scene
+		start-sound 92
+		break-here 6
+		actor selected-actor costume 2
+		end-cut-scene
+		end-script
+	}
+
+	script 228 { ; LSCR LECF_0001\LFLF_0076\ROOM\LSCR_0228
+		cut-scene
+		walk 1 to 440,121
+		wait-for-actor 1
+		do-animation 1 245
+		break-here 2
+		actor 1 costume 158
+		load-sound 94
+		do-animation 1 6
+		break-here 10
+		do-animation 9 6
+		print-debug "\\xFF\\x0A\\x32\\x53\\xFF\\x0A\\xAB\\x04\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00"
+		break-here 2
+		start-sound 94
+		break-here 3
+		start-sound 152
+		break-here 5
+		actor 1 costume 2
+		say-line 1 "\\xFF\\x0A\\xF6\\xB4\\xFF\\x0A\\xAB\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That doesn't seem to\\x10work."
+		break-here 19
+		do-animation 9 11
+		break-here 19
+		end-cut-scene
+		end-script
+	}
+}
+

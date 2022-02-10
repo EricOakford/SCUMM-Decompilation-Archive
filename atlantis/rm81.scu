@@ -1,0 +1,1650 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 81: Stone Disk Closeup (lockrock)
+; */
+
+room lockrock {
+
+	object 1093 { ; VERB LECF_0001\LFLF_0081\ROOM\OBCD_1093
+		name is "world stone hole"
+	}
+
+	object 1095 { ; VERB LECF_0001\LFLF_0081\ROOM\OBCD_1095
+		name is "lone-volcano"
+	}
+
+	object 1092 { ; VERB LECF_0001\LFLF_0081\ROOM\OBCD_1092
+		name is ""
+	}
+
+	object 1091 { ; VERB LECF_0001\LFLF_0081\ROOM\OBCD_1091
+		name is ""
+	}
+
+	object 1094 { ; VERB LECF_0001\LFLF_0081\ROOM\OBCD_1094
+		name is "tall horns"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0081\ROOM\EXCD
+		stop-sound 205
+		charset color 0, 15, 0
+		unlock-sound 209
+		if !(B.69) jump &[00000053]
+		build-sentence-script = V.448
+		start-script 59 ()
+		set-screen 0 to 144
+		start-script 19 (2)
+		jump &[00000072]
+[00000053]:
+		build-sentence-script = V.448
+		state-of 1095 is 0
+		B.652 = 0
+		B.651 = 0
+[00000072]:
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0081\ROOM\ENCD
+	local variable L.0
+
+		lock-sound 209
+		load-sound 209
+		if !(!B.69) jump &[00000277]
+		load-sound 205
+		start-sound 205
+		sound-kludge 257 205 60
+		sound-kludge 65535
+		sound-kludge 258 205 60
+		*36 = "246884135713176542787351425324631573387434263751834287453715371221877153785641725371543612351735326118543517183487617315187365373157123853425137615462371753674276527135"
+		V.244 = 5
+		V.245 = 5
+		V.246 = 5
+		V.210 = 0
+		B.652 = 1
+		B.651 = 1
+		V.444 = 0
+		cursor on
+		userput on
+		draw-object 1094 at 50,20
+		state-of 1094 is 1
+		jump &[00000325]
+[00000277]:
+		load-sound 205
+		start-sound 205
+		sound-kludge 257 205 60
+		sound-kludge 65535
+		sound-kludge 258 205 60
+		draw-object 1094 image 2
+		if (V.224 is-not 23) {
+			start-script 201 ()
+		}
+[00000325]:
+		set-screen 0 to 200
+		start-script 19 (1)
+		for L.0 = 5 to 12 ++ {
+			actor L.0 default
+		}
+		state-of 1093 is 0
+		state-of 1091 is 0
+		state-of 1092 is 0
+		stop-script 59
+		if !(B.69) jump &[00000397]
+		actor 5 costume 119 ignore-boxes always-zclip 2 name "noon sun"
+		jump &[00000410]
+[00000397]:
+		actor 5 costume 119 ignore-boxes always-zclip 2 name "sun"
+[00000410]:
+		actor 6 costume 120 ignore-boxes always-zclip 2 name "rising sun"
+		actor 7 costume 121 ignore-boxes always-zclip 2 name "darkness"
+		actor 8 costume 122 ignore-boxes always-zclip 2 name "setting sun"
+		actor 9 costume 0 ignore-boxes always-zclip 1
+		actor 10 costume 0 ignore-boxes always-zclip 1
+		actor 11 costume 0 ignore-boxes always-zclip 1
+		actor 12 costume 0 ignore-boxes always-zclip 1
+		V.448 = build-sentence-script
+		build-sentence-script = 205
+		start-script 208 ()
+		start-script 200 ()
+		start-script 204 ()
+		if (!B.69) {
+			start-script 209 ()
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0200
+	local variable L.0
+
+		*35 = "00000111000000001111111000001122222110001122888221100112388832110112234443221111225444662111122334332211112237773221111223777322111122237322211111222222211101112222211100111122211110001111111110000011111110000000111110000"
+		for L.0 = 5 to 8 ++ {
+			do-animation L.0 250
+		}
+		start-script 202 (1,V.244)
+		if !(B.651) jump &[00000428]
+		for L.0 = 9 to 12 ++ {
+			do-animation L.0 250
+		}
+		actor 9 costume 123 ignore-boxes always-zclip 1 name "full moon"
+		if !(B.69) jump &[00000333]
+		actor 10 costume 124 ignore-boxes always-zclip 1 name "waxing moon"
+		jump &[00000347]
+[00000333]:
+		actor 10 costume 124 ignore-boxes always-zclip 1 name "moon"
+[00000347]:
+		actor 11 costume 125 ignore-boxes always-zclip 1 name "new moon"
+		actor 12 costume 126 ignore-boxes always-zclip 1 name "waning moon"
+		state-of 1091 is 1
+		start-script 202 (0,V.245)
+		if !(B.652) jump &[00000416]
+		start-script 202 (2,V.246)
+		jump &[00000425]
+[00000416]:
+		V.246 = 0
+		state-of 1092 is 0
+[00000425]:
+		jump &[00000437]
+[00000428]:
+		V.245 = 0
+		state-of 1091 is 0
+[00000437]:
+		if !(!B.69) jump &[00000457]
+		draw-object 1093 at 15,7
+		state-of 1093 is 10
+		jump &[00000657]
+[00000457]:
+		if !(V.224 is 73) jump &[00000479]
+		draw-object 1093 at 15,8
+		state-of 1093 is 1
+		jump &[00000657]
+[00000479]:
+		if !(V.224 is 178) jump &[00000501]
+		draw-object 1093 at 15,8
+		state-of 1093 is 2
+		jump &[00000657]
+[00000501]:
+		if !(V.224 is 33) jump &[00000543]
+		if !(B.651) jump &[00000528]
+		draw-object 1093 at 15,7
+		state-of 1093 is 2
+		jump &[00000540]
+[00000528]:
+		draw-object 1093 at 15,8
+		state-of 1093 is 2
+[00000540]:
+		jump &[00000657]
+[00000543]:
+		if !(V.224 is 59) jump &[00000605]
+		if !(B.652) jump &[00000570]
+		draw-object 1093 at 15,7
+		state-of 1093 is 3
+		jump &[00000602]
+[00000570]:
+		if !(B.651) jump &[00000590]
+		draw-object 1093 at 15,7
+		state-of 1093 is 2
+		jump &[00000602]
+[00000590]:
+		draw-object 1093 at 15,8
+		state-of 1093 is 2
+[00000602]:
+		jump &[00000657]
+[00000605]:
+		if !(!B.652) jump &[00000645]
+		if !(B.651) jump &[00000630]
+		draw-object 1093 at 15,7
+		state-of 1093 is 4
+		jump &[00000642]
+[00000630]:
+		draw-object 1093 at 15,8
+		state-of 1093 is 4
+[00000642]:
+		jump &[00000657]
+[00000645]:
+		draw-object 1093 at 15,7
+		state-of 1093 is 10
+[00000657]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0201
+	local variable L.0
+
+		V.218 = 0
+		V.219 = 0
+		V.220 = 0
+		if !(V.241 is 3) jump &[00000043]
+		V.218 = 1
+		L.0 = 0
+		jump &[00000103]
+[00000043]:
+		if !(V.241 is 4) jump &[00000063]
+		V.218 = 3
+		L.0 = 2
+		jump &[00000103]
+[00000063]:
+		if !(V.241 is 1) jump &[00000083]
+		V.218 = 5
+		L.0 = 4
+		jump &[00000103]
+[00000083]:
+		if !(V.241 is 2) jump &[00000103]
+		V.218 = 7
+		L.0 = 6
+		jump &[00000103]
+[00000103]:
+		if !(V.224 is 33) jump &[00000173]
+		if !(V.242 is 1) jump &[00000125]
+		V.219 = 1
+		jump &[00000170]
+[00000125]:
+		if !(V.242 is 2) jump &[00000140]
+		V.219 = 5
+		jump &[00000170]
+[00000140]:
+		if !(V.242 is 3) jump &[00000155]
+		V.219 = 7
+		jump &[00000170]
+[00000155]:
+		if !(V.242 is 4) jump &[00000170]
+		V.219 = 3
+		jump &[00000170]
+[00000170]:
+		jump &[00000359]
+[00000173]:
+		if !(V.224 is 73) jump &[00000186]
+		jump &[00000451]
+		jump &[00000359]
+[00000186]:
+		if !(V.224 is 178) jump &[00000199]
+		jump &[00000451]
+		jump &[00000359]
+[00000199]:
+		if !(V.243 is 1) jump &[00000219]
+		V.219 = 1
+		V.220 = 1
+		jump &[00000359]
+[00000219]:
+		if !(V.243 is 2) jump &[00000239]
+		V.219 = 1
+		V.220 = 5
+		jump &[00000359]
+[00000239]:
+		if !(V.243 is 3) jump &[00000259]
+		V.219 = 5
+		V.220 = 5
+		jump &[00000359]
+[00000259]:
+		if !(V.243 is 4) jump &[00000279]
+		V.219 = 5
+		V.220 = 7
+		jump &[00000359]
+[00000279]:
+		if !(V.243 is 5) jump &[00000299]
+		V.219 = 7
+		V.220 = 7
+		jump &[00000359]
+[00000299]:
+		if !(V.243 is 6) jump &[00000319]
+		V.219 = 7
+		V.220 = 5
+		jump &[00000359]
+[00000319]:
+		if !(V.243 is 7) jump &[00000339]
+		V.219 = 3
+		V.220 = 5
+		jump &[00000359]
+[00000339]:
+		if !(V.243 is 8) jump &[00000359]
+		V.219 = 3
+		V.220 = 1
+		jump &[00000359]
+[00000359]:
+		V.219 += L.0
+		V.220 += L.0
+		if (V.219 > 8) {
+			V.219 -= 8
+		}
+		if (V.220 > 8) {
+			V.220 -= 8
+		}
+		if (V.224 is 48) {
+			V.218 += 4
+			V.219 += 4
+			V.220 += 4
+			if (V.218 > 8) {
+				V.218 -= 8
+			}
+			if (V.219 > 8) {
+				V.219 -= 8
+			}
+			if (V.220 > 8) {
+				V.220 -= 8
+			}
+		}
+[00000451]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !(L.0 is 2) jump &[00000172]
+		if !(B.69) jump &[00000079]
+		if !(L.1 is 5) jump &[00000034]
+		state-of 1092 is 1
+		jump &[00000076]
+[00000034]:
+		if !(L.1 is 3) jump &[00000048]
+		state-of 1092 is 2
+		jump &[00000076]
+[00000048]:
+		if !(L.1 is 1) jump &[00000062]
+		state-of 1092 is 3
+		jump &[00000076]
+[00000062]:
+		if !(L.1 is 7) jump &[00000076]
+		state-of 1092 is 4
+		jump &[00000076]
+[00000076]:
+		jump &[00000169]
+[00000079]:
+		draw-object 1092 image 5
+		if !(L.1 is 5) jump &[00000101]
+		draw-object 1095 image 1
+		jump &[00000149]
+[00000101]:
+		if !(L.1 is 1) jump &[00000117]
+		draw-object 1095 image 2
+		jump &[00000149]
+[00000117]:
+		if !(L.1 is 7) jump &[00000133]
+		draw-object 1095 image 3
+		jump &[00000149]
+[00000133]:
+		if !(L.1 is 3) jump &[00000149]
+		draw-object 1095 image 4
+		jump &[00000149]
+[00000149]:
+		if !(L.2) jump &[00000163]
+		draw-object 1093 image 9
+		jump &[00000169]
+[00000163]:
+		draw-object 1093 image 10
+[00000169]:
+		jump &[00001403]
+[00000172]:
+		if !(L.0 is 1) jump &[00000752]
+		if !(L.1 is 1) jump &[00000242]
+		put-actor 5 in-room 81
+		put-actor 5 at 161,172
+		do-animation 5 1
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 247,103
+			do-animation 6 3
+			put-actor 7 in-room 81
+			put-actor 7 at 158,35
+			do-animation 7 5
+			put-actor 8 in-room 81
+			put-actor 8 at 68,100
+			do-animation 8 7
+		}
+		jump &[00000749]
+[00000242]:
+		if !(L.1 is 2) jump &[00000305]
+		put-actor 5 in-room 81
+		put-actor 5 at 225,151
+		do-animation 5 2
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 222,57
+			do-animation 6 4
+			put-actor 7 in-room 81
+			put-actor 7 at 103,51
+			do-animation 7 6
+			put-actor 8 in-room 81
+			put-actor 8 at 92,150
+			do-animation 8 8
+		}
+		jump &[00000749]
+[00000305]:
+		if !(L.1 is 3) jump &[00000368]
+		put-actor 5 in-room 81
+		put-actor 5 at 247,103
+		do-animation 5 3
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 158,35
+			do-animation 6 5
+			put-actor 7 in-room 81
+			put-actor 7 at 68,100
+			do-animation 7 7
+			put-actor 8 in-room 81
+			put-actor 8 at 161,172
+			do-animation 8 1
+		}
+		jump &[00000749]
+[00000368]:
+		if !(L.1 is 4) jump &[00000431]
+		put-actor 5 in-room 81
+		put-actor 5 at 222,57
+		do-animation 5 4
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 103,51
+			do-animation 6 6
+			put-actor 7 in-room 81
+			put-actor 7 at 92,150
+			do-animation 7 8
+			put-actor 8 in-room 81
+			put-actor 8 at 225,151
+			do-animation 8 2
+		}
+		jump &[00000749]
+[00000431]:
+		if !(L.1 is 5) jump &[00000494]
+		put-actor 5 in-room 81
+		put-actor 5 at 158,35
+		do-animation 5 5
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 68,100
+			do-animation 6 7
+			put-actor 7 in-room 81
+			put-actor 7 at 161,172
+			do-animation 7 1
+			put-actor 8 in-room 81
+			put-actor 8 at 247,103
+			do-animation 8 3
+		}
+		jump &[00000749]
+[00000494]:
+		if !(L.1 is 6) jump &[00000557]
+		put-actor 5 in-room 81
+		put-actor 5 at 103,51
+		do-animation 5 6
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 92,150
+			do-animation 6 8
+			put-actor 7 in-room 81
+			put-actor 7 at 225,151
+			do-animation 7 2
+			put-actor 8 in-room 81
+			put-actor 8 at 222,57
+			do-animation 8 4
+		}
+		jump &[00000749]
+[00000557]:
+		if !(L.1 is 7) jump &[00000620]
+		put-actor 5 in-room 81
+		put-actor 5 at 68,100
+		do-animation 5 7
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 161,172
+			do-animation 6 1
+			put-actor 7 in-room 81
+			put-actor 7 at 247,103
+			do-animation 7 3
+			put-actor 8 in-room 81
+			put-actor 8 at 158,35
+			do-animation 8 5
+		}
+		jump &[00000749]
+[00000620]:
+		if !(L.1 is 8) jump &[00000683]
+		put-actor 5 in-room 81
+		put-actor 5 at 92,150
+		do-animation 5 8
+		if (B.69) {
+			put-actor 6 in-room 81
+			put-actor 6 at 225,151
+			do-animation 6 2
+			put-actor 7 in-room 81
+			put-actor 7 at 222,57
+			do-animation 7 4
+			put-actor 8 in-room 81
+			put-actor 8 at 103,51
+			do-animation 8 6
+		}
+		jump &[00000749]
+[00000683]:
+		print-text color 4 "*ERROR*  *ERROR*\\xFF\\x01Heavenly body out of orbit.\\xFF\\x01Contact Arby."
+[00000749]:
+		jump &[00001403]
+[00000752]:
+		if !(L.0 is 0) jump &[00001337]
+		if !(B.651) jump &[00001334]
+		if !(L.1 is 1) jump &[00000827]
+		put-actor 10 in-room 81
+		put-actor 10 at 212,99
+		do-animation 10 3
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 155,142
+			do-animation 9 1
+			put-actor 11 in-room 81
+			put-actor 11 at 152,53
+			do-animation 11 5
+			put-actor 12 in-room 81
+			put-actor 12 at 92,96
+			do-animation 12 7
+		}
+		jump &[00001334]
+[00000827]:
+		if !(L.1 is 2) jump &[00000890]
+		put-actor 10 in-room 81
+		put-actor 10 at 186,62
+		do-animation 10 4
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 196,128
+			do-animation 9 2
+			put-actor 11 in-room 81
+			put-actor 11 at 107,64
+			do-animation 11 6
+			put-actor 12 in-room 81
+			put-actor 12 at 115,132
+			do-animation 12 8
+		}
+		jump &[00001334]
+[00000890]:
+		if !(L.1 is 3) jump &[00000953]
+		put-actor 10 in-room 81
+		put-actor 10 at 152,53
+		do-animation 10 5
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 212,99
+			do-animation 9 3
+			put-actor 11 in-room 81
+			put-actor 11 at 92,96
+			do-animation 11 7
+			put-actor 12 in-room 81
+			put-actor 12 at 155,142
+			do-animation 12 1
+		}
+		jump &[00001334]
+[00000953]:
+		if !(L.1 is 4) jump &[00001016]
+		put-actor 10 in-room 81
+		put-actor 10 at 107,64
+		do-animation 10 6
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 186,62
+			do-animation 9 4
+			put-actor 11 in-room 81
+			put-actor 11 at 115,132
+			do-animation 11 8
+			put-actor 12 in-room 81
+			put-actor 12 at 196,128
+			do-animation 12 2
+		}
+		jump &[00001334]
+[00001016]:
+		if !(L.1 is 5) jump &[00001079]
+		put-actor 10 in-room 81
+		put-actor 10 at 92,96
+		do-animation 10 7
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 152,53
+			do-animation 9 5
+			put-actor 11 in-room 81
+			put-actor 11 at 155,142
+			do-animation 11 1
+			put-actor 12 in-room 81
+			put-actor 12 at 212,99
+			do-animation 12 3
+		}
+		jump &[00001334]
+[00001079]:
+		if !(L.1 is 6) jump &[00001142]
+		put-actor 10 in-room 81
+		put-actor 10 at 115,132
+		do-animation 10 8
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 107,64
+			do-animation 9 6
+			put-actor 11 in-room 81
+			put-actor 11 at 196,128
+			do-animation 11 2
+			put-actor 12 in-room 81
+			put-actor 12 at 186,62
+			do-animation 12 4
+		}
+		jump &[00001334]
+[00001142]:
+		if !(L.1 is 7) jump &[00001205]
+		put-actor 10 in-room 81
+		put-actor 10 at 155,142
+		do-animation 10 1
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 92,96
+			do-animation 9 7
+			put-actor 11 in-room 81
+			put-actor 11 at 212,99
+			do-animation 11 3
+			put-actor 12 in-room 81
+			put-actor 12 at 152,53
+			do-animation 12 5
+		}
+		jump &[00001334]
+[00001205]:
+		if !(L.1 is 8) jump &[00001268]
+		put-actor 10 in-room 81
+		put-actor 10 at 196,128
+		do-animation 10 2
+		if (B.69) {
+			put-actor 9 in-room 81
+			put-actor 9 at 115,132
+			do-animation 9 8
+			put-actor 11 in-room 81
+			put-actor 11 at 186,62
+			do-animation 11 4
+			put-actor 12 in-room 81
+			put-actor 12 at 107,64
+			do-animation 12 6
+		}
+		jump &[00001334]
+[00001268]:
+		print-text color 4 "*ERROR*  *ERROR*\\xFF\\x01Heavenly body out of orbit.\\xFF\\x01Contact Arby."
+[00001334]:
+		jump &[00001403]
+[00001337]:
+		print-text color 4 "*ERROR*  *ERROR*\\xFF\\x01Heavenly body out of range.\\xFF\\x01Contact Arby."
+[00001403]:
+		V.444 = 0
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.3 = 0
+		if !(V.246 is 7) jump &[00000026]
+		jump &[00000179]
+		jump &[00000052]
+[00000026]:
+		if !(V.246 is 5) jump &[00000039]
+		jump &[00000125]
+		jump &[00000052]
+[00000039]:
+		if !(V.246 is 3) jump &[00000052]
+		jump &[00000088]
+		jump &[00000052]
+[00000052]:
+		if !(L.3 is L.0) jump &[00000085]
+		if (B.69) {
+			print-line at L.1,L.2 color 100 "volcano"
+		}
+		jump &[00000219]
+[00000085]:
+		++L.3
+[00000088]:
+		if !(L.3 is L.0) jump &[00000122]
+		if (B.69) {
+			print-line at L.1,L.2 color 100 "west sea"
+		}
+		jump &[00000219]
+[00000122]:
+		++L.3
+[00000125]:
+		if !(L.3 is L.0) jump &[00000176]
+		if !(B.69) jump &[00000155]
+		print-line at L.1,L.2 color 100 "city"
+		jump &[00000173]
+[00000155]:
+		print-line at L.1,L.2 color 100 "volcano"
+[00000173]:
+		jump &[00000219]
+[00000176]:
+		++L.3
+[00000179]:
+		if !(L.3 is L.0) jump &[00000213]
+		if (B.69) {
+			print-line at L.1,L.2 color 100 "east sea"
+		}
+		jump &[00000219]
+[00000213]:
+		++L.3
+		jump &[00000052]
+[00000219]:
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+[00000008]:
+		if !(cursor-state > 0) jump &[00000651]
+		L.0 = 0
+		V.442 = random 1
+		L.1 = cursor-x
+		L.2 = cursor-y
+		L.0 = find-object cursor-x,cursor-y
+		if !(L.0 is 1094) jump &[00000051]
+		jump &[00000613]
+[00000051]:
+		L.0 = 0
+		L.0 = find-actor cursor-x,cursor-y
+		if !(!L.0) jump &[00000589]
+		if !(L.1 >= 53) jump &[00000571]
+		if !(L.1 <= 261) jump &[00000571]
+		L.3 = (L.1 - 53)
+		L.3 /= 16
+		L.4 = (L.2 - 21)
+		L.4 /= 10
+		L.4 *= 13
+		L.5 = (L.3 + L.4)
+		V.209 = *35[L.5]
+		if (L.1 < 40) {
+			L.1 = 40
+		}
+		if (L.1 > 280) {
+			L.1 = 280
+		}
+		if !(V.209 is 52) jump &[00000213]
+		if !(V.224 is 73) jump &[00000192]
+		print-line at L.1,L.2 color 100 "peg"
+		jump &[00000210]
+[00000192]:
+		print-line at L.1,L.2 color 100 "spindle"
+[00000210]:
+		jump &[00000568]
+[00000213]:
+		if !(V.209 is 49) jump &[00000233]
+		print-line at 280,100 " "
+		jump &[00000568]
+[00000233]:
+		if !(V.209 is 50) jump &[00000263]
+		print-line at 280,100 " "
+		if (!B.651) {
+			V.209 = 49
+		}
+		jump &[00000568]
+[00000263]:
+		if !(V.209 is 51) jump &[00000306]
+		print-line at 280,100 " "
+		if !(!B.652) jump &[00000303]
+		if !(B.651) jump &[00000298]
+		V.209 = 50
+		jump &[00000303]
+[00000298]:
+		V.209 = 49
+[00000303]:
+		jump &[00000568]
+[00000306]:
+		if !(V.209 is 53) jump &[00000369]
+		print-line at 280,100 " "
+		if !(B.652) jump &[00000348]
+		V.209 = 51
+		start-script 203 (3,L.1,L.2)
+		jump &[00000366]
+[00000348]:
+		if !(B.651) jump &[00000361]
+		V.209 = 50
+		jump &[00000366]
+[00000361]:
+		V.209 = 49
+[00000366]:
+		jump &[00000568]
+[00000369]:
+		if !(V.209 is 54) jump &[00000432]
+		print-line at 280,100 " "
+		if !(B.652) jump &[00000411]
+		V.209 = 51
+		start-script 203 (1,L.1,L.2)
+		jump &[00000429]
+[00000411]:
+		if !(B.651) jump &[00000424]
+		V.209 = 50
+		jump &[00000429]
+[00000424]:
+		V.209 = 49
+[00000429]:
+		jump &[00000568]
+[00000432]:
+		if !(V.209 is 55) jump &[00000495]
+		print-line at 280,100 " "
+		if !(B.652) jump &[00000474]
+		V.209 = 51
+		start-script 203 (2,L.1,L.2)
+		jump &[00000492]
+[00000474]:
+		if !(B.651) jump &[00000487]
+		V.209 = 50
+		jump &[00000492]
+[00000487]:
+		V.209 = 49
+[00000492]:
+		jump &[00000568]
+[00000495]:
+		if !(V.209 is 56) jump &[00000558]
+		print-line at 280,100 " "
+		if !(B.652) jump &[00000537]
+		V.209 = 51
+		start-script 203 (0,L.1,L.2)
+		jump &[00000555]
+[00000537]:
+		if !(B.651) jump &[00000550]
+		V.209 = 50
+		jump &[00000555]
+[00000550]:
+		V.209 = 49
+[00000555]:
+		jump &[00000568]
+[00000558]:
+		print-line at 280,100 " "
+[00000568]:
+		jump &[00000651]
+[00000571]:
+		V.209 = 48
+		print-line at 280,100 " "
+		jump &[00000651]
+[00000589]:
+		if (L.1 < 40) {
+			L.1 = 40
+		}
+		if (L.1 > 280) {
+			L.1 = 280
+		}
+[00000613]:
+		if !(B.69) jump &[00000636]
+		print-line at L.1,L.2 color 100 "%o16384%"
+		jump &[00000651]
+[00000636]:
+		print-line at L.1,L.2 color 100 "%o16384%"
+[00000651]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.3
+
+		if (!B.69) {
+			if (cursor-state is 0) {
+				V.221 = 1
+				stop-script 0
+			}
+		}
+		if (L.0 is 4) {
+			if (L.1 is 27) {
+				if (B.69) {
+					start-script 207 (0)
+				}
+			}
+		}
+		V.100 = cursor-x
+		V.101 = cursor-y
+		L.3 = find-actor V.100,V.101
+		if (!L.3) {
+			L.3 = find-object V.100,V.101
+			V.108 = L.0
+		}
+		if !(L.3 is 1094) jump &[00000102]
+		start-script 207 (0)
+		jump &[00000417]
+[00000102]:
+		if !(L.3 is 9) jump &[00000127]
+		--V.245
+		start-script 206 ()
+		start-script 202 (0,V.245)
+		jump &[00000417]
+[00000127]:
+		if !(L.3 is 10) jump &[00000152]
+		--V.245
+		start-script 206 ()
+		start-script 202 (0,V.245)
+		jump &[00000417]
+[00000152]:
+		if !(L.3 is 11) jump &[00000177]
+		--V.245
+		start-script 206 ()
+		start-script 202 (0,V.245)
+		jump &[00000417]
+[00000177]:
+		if !(L.3 is 12) jump &[00000202]
+		--V.245
+		start-script 206 ()
+		start-script 202 (0,V.245)
+		jump &[00000417]
+[00000202]:
+		if !(L.3 is 5) jump &[00000227]
+		--V.244
+		start-script 206 ()
+		start-script 202 (1,V.244)
+		jump &[00000417]
+[00000227]:
+		if !(L.3 is 6) jump &[00000252]
+		--V.244
+		start-script 206 ()
+		start-script 202 (1,V.244)
+		jump &[00000417]
+[00000252]:
+		if !(L.3 is 7) jump &[00000277]
+		--V.244
+		start-script 206 ()
+		start-script 202 (1,V.244)
+		jump &[00000417]
+[00000277]:
+		if !(L.3 is 8) jump &[00000302]
+		--V.244
+		start-script 206 ()
+		start-script 202 (1,V.244)
+		jump &[00000417]
+[00000302]:
+		if !(V.209 is 49) jump &[00000327]
+		--V.244
+		start-script 206 ()
+		start-script 202 (1,V.244)
+		jump &[00000417]
+[00000327]:
+		if !(V.209 is 50) jump &[00000352]
+		--V.245
+		start-script 206 ()
+		start-script 202 (0,V.245)
+		jump &[00000417]
+[00000352]:
+		if !(V.209 is 51) jump &[00000379]
+		V.246 -= 2
+		start-script 206 ()
+		start-script 202 (2,V.246)
+		jump &[00000417]
+[00000379]:
+		if !(V.209 is 52) jump &[00000395]
+		start-script 207 (1)
+		jump &[00000417]
+[00000395]:
+		if !(V.209 is 48) jump &[00000411]
+		start-script 207 (0)
+		jump &[00000417]
+[00000411]:
+		start-script 207 (0)
+[00000417]:
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0206
+		sound-kludge 263 205 0 13 0
+		sound-kludge 65535
+		if (B.652) {
+			if (V.246 > 8) {
+				V.246 -= 8
+			}
+			if (V.246 < 1) {
+				V.246 += 8
+			}
+		}
+		if (B.651) {
+			if (V.245 > 8) {
+				V.245 -= 8
+			}
+			if (V.245 < 1) {
+				V.245 += 8
+			}
+		}
+		if (V.244 > 8) {
+			V.244 -= 8
+		}
+		if (V.244 < 1) {
+			V.244 += 8
+		}
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0207
+	local variable L.0
+
+		if (L.0) {
+			start-sound 209
+		}
+		if !(!B.69) jump &[00000507]
+		if !(L.0) jump &[00000504]
+		cut-scene
+		start-script 202 (2,V.246,1)
+		break-here 6
+		start-script 202 (2,V.246,0)
+		break-here 8
+		end-cut-scene
+		++V.210
+		if (V.244 is V.211) {
+			if (V.245 is V.212) {
+				if (V.246 is V.213) {
+					B.653 = 1
+					V.444 = 1
+					break-here
+				}
+			}
+		}
+		stop-script 211
+		break-here
+		if !(V.210 is 1) jump &[00000236]
+		cut-scene
+		draw-box 0,0 to 320,23 color 0
+		break-here
+		print-text color 98 center at 160,1 "please try again"
+		print-line color 98 center at 160,189 "                                             "
+		print-line at 0,1 " "
+		end-cut-scene
+		start-script 209 (1)
+		jump &[00000504]
+[00000236]:
+		if !(V.210 is 2) jump &[00000361]
+		cut-scene
+		draw-box 0,0 to 320,23 color 0
+		break-here
+		print-text color 98 center at 160,1 "one more try"
+		print-line color 98 center at 160,189 "                                             "
+		print-line at 0,1 " "
+		end-cut-scene
+		start-script 209 (1)
+		jump &[00000504]
+[00000361]:
+		if !(V.210 is 3) jump &[00000504]
+		cut-scene
+		draw-box 0,0 to 320,23 color 0
+		break-here
+		print-text color 98 center at 160,1 "please restart"
+		print-line color 98 center at 160,189 "                                             "
+		print-line at 0,1 " "
+		break-here 20
+		end-cut-scene
+		quit
+		jump &[00000504]
+[00000504]:
+		jump &[00001111]
+[00000507]:
+		stop-script 204
+		print-line " "
+		if !(V.224 is 33) jump &[00000611]
+		if !(L.0) jump &[00000584]
+		cut-scene
+		if !(B.651) jump &[00000561]
+		state-of 1093 is 6
+		break-here 6
+		state-of 1093 is 2
+		break-here 8
+		jump &[00000583]
+[00000561]:
+		state-of 1093 is 6
+		break-here 6
+		state-of 1093 is 2
+		break-here 8
+[00000583]:
+		end-cut-scene
+[00000584]:
+		B.653 = 0
+		if (V.244 is V.218) {
+			if (V.245 is V.219) {
+				B.653 = 1
+			}
+		}
+		jump &[00001093]
+[00000611]:
+		if !(V.224 is 59) jump &[00000740]
+		if !(L.0) jump &[00000711]
+		cut-scene
+		if !(B.652) jump &[00000658]
+		state-of 1093 is 7
+		break-here 6
+		state-of 1093 is 3
+		break-here 8
+		jump &[00000710]
+[00000658]:
+		if !(B.651) jump &[00000688]
+		state-of 1093 is 6
+		break-here 6
+		state-of 1093 is 2
+		break-here 8
+		jump &[00000710]
+[00000688]:
+		state-of 1093 is 6
+		break-here 6
+		state-of 1093 is 2
+		break-here 8
+[00000710]:
+		end-cut-scene
+[00000711]:
+		if (V.244 is V.218) {
+			if (V.245 is V.219) {
+				if (V.246 is V.220) {
+					B.653 = 1
+				}
+			}
+		}
+		jump &[00001093]
+[00000740]:
+		if !(V.224 is 48) jump &[00000846]
+		if !(L.0) jump &[00000840]
+		cut-scene
+		if !(B.652) jump &[00000787]
+		state-of 1093 is 9
+		break-here 6
+		state-of 1093 is 10
+		break-here 8
+		jump &[00000839]
+[00000787]:
+		if !(B.651) jump &[00000817]
+		state-of 1093 is 8
+		break-here 6
+		state-of 1093 is 4
+		break-here 8
+		jump &[00000839]
+[00000817]:
+		state-of 1093 is 8
+		break-here 6
+		state-of 1093 is 4
+		break-here 8
+[00000839]:
+		end-cut-scene
+[00000840]:
+		jump &[00000711]
+		jump &[00001093]
+[00000846]:
+		if !(V.224 is 73) jump &[00000901]
+		if (L.0) {
+			cut-scene
+			state-of 1093 is 5
+			break-here 6
+			state-of 1093 is 1
+			break-here 8
+			end-cut-scene
+		}
+		if (V.244 is V.218) {
+			B.653 = 1
+		}
+		jump &[00001093]
+[00000901]:
+		if !(V.224 is 178) jump &[00000956]
+		if (L.0) {
+			cut-scene
+			state-of 1093 is 6
+			break-here 6
+			state-of 1093 is 2
+			break-here 8
+			end-cut-scene
+		}
+		if (V.244 is V.218) {
+			B.653 = 1
+		}
+		jump &[00001093]
+[00000956]:
+		if !(V.224 is 23) jump &[00001093]
+		if !(L.0) jump &[00001064]
+		cut-scene
+		if !(B.652) jump &[00001011]
+		draw-object 1093 at 15,7
+		state-of 1093 is 9
+		break-here 6
+		state-of 1093 is 10
+		break-here 8
+		jump &[00001063]
+[00001011]:
+		if !(B.651) jump &[00001041]
+		state-of 1093 is 8
+		break-here 6
+		state-of 1093 is 4
+		break-here 8
+		jump &[00001063]
+[00001041]:
+		state-of 1093 is 8
+		break-here 6
+		state-of 1093 is 4
+		break-here 8
+[00001063]:
+		end-cut-scene
+[00001064]:
+		if (V.244 is V.247) {
+			if (V.245 is V.248) {
+				if (V.246 is V.249) {
+					B.653 = 1
+				}
+			}
+		}
+		jump &[00001093]
+[00001093]:
+		if (B.653) {
+			if (!L.0) {
+				B.653 = 0
+			}
+		}
+		current-room V.224
+[00001111]:
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0208
+		if !(!B.69) jump &[00000021]
+		palette intensity 10 in-slot 16 to 78
+		jump &[00002551]
+[00000021]:
+		if !(V.224 is 73) jump &[00001281]
+		palette 205 in-slot 121
+		palette 191 in-slot 114
+		palette 180 in-slot 105
+		palette 165 in-slot 98
+		palette 153 in-slot 91
+		palette 142 in-slot 82
+		palette 128 in-slot 74
+		palette 117 in-slot 66
+		palette 102 in-slot 58
+		palette 90 in-slot 50
+		palette 80 in-slot 44
+		palette 65 in-slot 34
+		palette 53 in-slot 26
+		palette 39 in-slot 18
+		palette 28 in-slot 13
+		palette 18 in-slot 10
+		palette 195 in-slot 66
+		palette 180 in-slot 60
+		palette 167 in-slot 58
+		palette 156 in-slot 51
+		palette 142 in-slot 44
+		palette 128 in-slot 39
+		palette 113 in-slot 34
+		palette 103 in-slot 30
+		palette 89 in-slot 24
+		palette 75 in-slot 20
+		palette 65 in-slot 17
+		palette 51 in-slot 13
+		palette 37 in-slot 9
+		palette 23 in-slot 6
+		palette 13 in-slot 4
+		palette 203 in-slot 110
+		palette 188 in-slot 101
+		palette 178 in-slot 94
+		palette 167 in-slot 88
+		palette 152 in-slot 81
+		palette 141 in-slot 72
+		palette 130 in-slot 66
+		palette 116 in-slot 60
+		palette 104 in-slot 51
+		palette 93 in-slot 44
+		palette 79 in-slot 38
+		palette 68 in-slot 30
+		palette 56 in-slot 25
+		palette 42 in-slot 18
+		palette 32 in-slot 14
+		palette 21 in-slot 10
+		palette 191 in-slot 116
+		palette 177 in-slot 107
+		palette 166 in-slot 100
+		palette 151 in-slot 90
+		palette 137 in-slot 81
+		palette 125 in-slot 73
+		palette 110 in-slot 66
+		palette 99 in-slot 58
+		palette 87 in-slot 50
+		palette 73 in-slot 42
+		palette 62 in-slot 36
+		palette 51 in-slot 28
+		palette 39 in-slot 21
+		palette 29 in-slot 14
+		palette 18 in-slot 11
+		palette 171 in-slot 0
+		palette 239 in-slot 171
+		palette 223 in-slot 160
+		palette 211 in-slot 151
+		palette 195 in-slot 140
+		palette 183 in-slot 131
+		palette 171 in-slot 122
+		palette 155 in-slot 111
+		palette 143 in-slot 102
+		palette 127 in-slot 91
+		palette 115 in-slot 82
+		palette 103 in-slot 74
+		palette 87 in-slot 62
+		palette 75 in-slot 53
+		palette 59 in-slot 42
+		palette 47 in-slot 33
+		palette 35 in-slot 25
+		palette 239 in-slot 114
+		palette 223 in-slot 105
+		palette 207 in-slot 99
+		palette 195 in-slot 91
+		palette 179 in-slot 82
+		palette 163 in-slot 76
+		palette 147 in-slot 68
+		palette 135 in-slot 62
+		palette 119 in-slot 53
+		palette 103 in-slot 48
+		palette 91 in-slot 39
+		palette 75 in-slot 33
+		palette 59 in-slot 25
+		palette 43 in-slot 19
+		palette 31 in-slot 13
+		palette 239 in-slot 157
+		palette 223 in-slot 148
+		palette 211 in-slot 137
+		palette 199 in-slot 128
+		palette 183 in-slot 120
+		palette 171 in-slot 111
+		palette 159 in-slot 102
+		palette 143 in-slot 94
+		palette 131 in-slot 85
+		palette 119 in-slot 76
+		palette 103 in-slot 68
+		palette 91 in-slot 59
+		palette 79 in-slot 51
+		palette 63 in-slot 42
+		palette 51 in-slot 33
+		palette 39 in-slot 25
+		palette 223 in-slot 160
+		palette 207 in-slot 148
+		palette 195 in-slot 140
+		palette 179 in-slot 128
+		palette 163 in-slot 117
+		palette 151 in-slot 108
+		palette 135 in-slot 97
+		palette 123 in-slot 88
+		palette 111 in-slot 79
+		palette 95 in-slot 68
+		palette 83 in-slot 59
+		palette 71 in-slot 51
+		palette 59 in-slot 42
+		palette 47 in-slot 33
+		palette 35 in-slot 25
+		jump &[00002551]
+[00001281]:
+		if !(V.224 is 33) jump &[00001291]
+		jump &[00002551]
+[00001291]:
+		if !(V.224 is 59) jump &[00001301]
+		jump &[00002551]
+[00001301]:
+		palette 240 in-slot 187
+		palette 234 in-slot 172
+		palette 220 in-slot 160
+		palette 201 in-slot 146
+		palette 189 in-slot 135
+		palette 174 in-slot 127
+		palette 154 in-slot 113
+		palette 140 in-slot 102
+		palette 121 in-slot 88
+		palette 109 in-slot 78
+		palette 90 in-slot 67
+		palette 73 in-slot 55
+		palette 58 in-slot 45
+		palette 40 in-slot 31
+		palette 29 in-slot 24
+		palette 24 in-slot 20
+		palette 240 in-slot 128
+		palette 234 in-slot 120
+		palette 216 in-slot 112
+		palette 202 in-slot 105
+		palette 182 in-slot 93
+		palette 164 in-slot 81
+		palette 142 in-slot 71
+		palette 130 in-slot 63
+		palette 112 in-slot 51
+		palette 95 in-slot 45
+		palette 82 in-slot 36
+		palette 60 in-slot 25
+		palette 42 in-slot 22
+		palette 27 in-slot 18
+		palette 22 in-slot 12
+		palette 240 in-slot 169
+		palette 229 in-slot 155
+		palette 215 in-slot 143
+		palette 200 in-slot 131
+		palette 180 in-slot 124
+		palette 167 in-slot 112
+		palette 154 in-slot 102
+		palette 135 in-slot 93
+		palette 123 in-slot 82
+		palette 109 in-slot 72
+		palette 90 in-slot 62
+		palette 78 in-slot 50
+		palette 65 in-slot 40
+		palette 43 in-slot 30
+		palette 30 in-slot 24
+		palette 25 in-slot 19
+		palette 236 in-slot 171
+		palette 216 in-slot 158
+		palette 202 in-slot 146
+		palette 182 in-slot 134
+		palette 167 in-slot 121
+		palette 150 in-slot 108
+		palette 133 in-slot 95
+		palette 121 in-slot 85
+		palette 106 in-slot 75
+		palette 86 in-slot 62
+		palette 73 in-slot 51
+		palette 57 in-slot 39
+		palette 42 in-slot 30
+		palette 30 in-slot 24
+		palette 25 in-slot 20
+		palette 174 in-slot 12
+		palette 240 in-slot 187
+		palette 234 in-slot 172
+		palette 220 in-slot 160
+		palette 201 in-slot 146
+		palette 189 in-slot 135
+		palette 174 in-slot 127
+		palette 154 in-slot 113
+		palette 140 in-slot 102
+		palette 121 in-slot 88
+		palette 109 in-slot 78
+		palette 90 in-slot 67
+		palette 73 in-slot 55
+		palette 58 in-slot 45
+		palette 40 in-slot 31
+		palette 29 in-slot 24
+		palette 24 in-slot 20
+		palette 240 in-slot 128
+		palette 234 in-slot 120
+		palette 216 in-slot 112
+		palette 202 in-slot 105
+		palette 182 in-slot 93
+		palette 164 in-slot 81
+		palette 142 in-slot 71
+		palette 130 in-slot 63
+		palette 112 in-slot 51
+		palette 95 in-slot 45
+		palette 82 in-slot 36
+		palette 60 in-slot 25
+		palette 42 in-slot 22
+		palette 27 in-slot 18
+		palette 22 in-slot 12
+		palette 240 in-slot 169
+		palette 229 in-slot 155
+		palette 215 in-slot 143
+		palette 200 in-slot 131
+		palette 180 in-slot 124
+		palette 167 in-slot 112
+		palette 154 in-slot 102
+		palette 135 in-slot 93
+		palette 123 in-slot 82
+		palette 109 in-slot 72
+		palette 90 in-slot 62
+		palette 78 in-slot 50
+		palette 65 in-slot 40
+		palette 43 in-slot 30
+		palette 30 in-slot 24
+		palette 25 in-slot 19
+		palette 236 in-slot 171
+		palette 216 in-slot 158
+		palette 202 in-slot 146
+		palette 182 in-slot 134
+		palette 167 in-slot 121
+		palette 150 in-slot 108
+		palette 133 in-slot 95
+		palette 121 in-slot 85
+		palette 106 in-slot 75
+		palette 86 in-slot 62
+		palette 73 in-slot 51
+		palette 57 in-slot 39
+		palette 42 in-slot 30
+		palette 30 in-slot 24
+		palette 25 in-slot 20
+[00002551]:
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0209
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		cursor off
+		charset 4
+		charset color 0, 98, 106
+		start-script bak 210 ()
+		if !(!L.0) jump &[00000284]
+		sleep-for 8 jiffies
+		sound-kludge 258 205 80
+		print-text color 98 center at 160,1 "please press the enter key"
+		print-text color 98 center at 160,12 "to begin the game"
+		do {
+			++V.244
+			--V.245
+			V.246 += 2
+			if (V.244 > 8) {
+				V.244 -= 8
+			}
+			if (V.244 < 1) {
+				V.244 += 8
+			}
+			if (V.245 > 8) {
+				V.245 -= 8
+			}
+			if (V.245 < 1) {
+				V.245 += 8
+			}
+			if (V.246 > 8) {
+				V.246 -= 8
+			}
+			if (V.246 < 1) {
+				V.246 += 8
+			}
+			sound-kludge 263 205 0 13 0
+			sound-kludge 65535
+			start-script 202 (1,V.244)
+			start-script 202 (0,V.245)
+			start-script 202 (2,V.246)
+			if (V.68 < 60) {
+				break-here
+			}
+			break-here
+			L.3 = random 255
+		} until (V.221)
+		V.221 = 0
+		sound-kludge 258 205 102
+		jump &[00000494]
+[00000284]:
+		userput off
+		V.444 = (15 - 9)
+		V.444 = ((random V.444) + 9)
+		sound-kludge 258 205 80
+		L.3 = V.444
+		for L.2 = 1 to L.3 ++ {
+			++V.244
+			--V.245
+			V.246 += 2
+			if (V.244 > 8) {
+				V.244 -= 8
+			}
+			if (V.244 < 1) {
+				V.244 += 8
+			}
+			if (V.245 > 8) {
+				V.245 -= 8
+			}
+			if (V.245 < 1) {
+				V.245 += 8
+			}
+			if (V.246 > 8) {
+				V.246 -= 8
+			}
+			if (V.246 < 1) {
+				V.246 += 8
+			}
+			sound-kludge 263 205 0 13 0
+			sound-kludge 65535
+			start-script 202 (1,V.244)
+			start-script 202 (0,V.245)
+			start-script 202 (2,V.246)
+			if (V.68 < 60) {
+				break-here
+			}
+			break-here
+		}
+		sound-kludge 258 205 102
+[00000494]:
+		V.214 = random 13
+		V.215 = random 3
+		V.216 = random 3
+		V.217 = random 3
+		L.1 = (V.214 * 12)
+		L.1 += V.216
+		V.211 = *36[L.1]
+		V.211 -= 48
+		L.1 -= V.216
+		L.1 += 3
+		++L.1
+		L.1 += V.215
+		V.212 = *36[L.1]
+		V.212 -= 48
+		L.1 -= V.215
+		L.1 += 3
+		++L.1
+		L.1 += V.217
+		V.213 = *36[L.1]
+		V.213 -= 48
+		start-script 211 ()
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0210
+	local variable L.0
+
+		do {
+			break-here
+			L.0 = random 255
+		}
+		end-script
+	}
+; Start Copy Protection
+	script 211 { ; LSCR LECF_0001\LFLF_0081\ROOM\LSCR_0211
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		cursor on
+		userput on
+		sleep-for 8 jiffies
+		draw-box 0,0 to 320,23 color 0
+		L.4 = (V.216 + 1)
+		L.3 = (V.215 + 1)
+		L.2 = (V.217 + 1)
+		L.1 = (V.214 + 2)
+		print-text color 98 center at 160,1 "find sun #%n16388%, moon #%n16387%, & volcano #%n16386%"
+		print-text color 98 center at 160,12 "on page %n16385% of your manual"
+		print-text color 98 center at 160,189 "match the stones, then push the spindle."
+		break-here 2
+		end-script
+	}
+}
+

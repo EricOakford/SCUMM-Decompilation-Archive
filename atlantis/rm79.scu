@@ -1,0 +1,558 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 79: Necklace Close-up (cu-neckla)
+; */
+
+room cu-neckla {
+
+	object 1071 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1071
+		name is "mouth"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+
+		verb 5 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 933) jump &[00000036]
+			start-script 201 ()
+			jump &[00000039]
+[00000036]:
+			start-script 204 ()
+[00000039]:
+			end-object
+		}
+	}
+
+	object 1073 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1073
+		name is "medallion "
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 7 {
+			start-script 203 ()
+			end-object
+		}
+
+		verb 11 {
+			if !(B.29 is 1) jump &[00000036]
+			chain-script 206 ()
+			jump &[00000039]
+[00000036]:
+			start-script 205 ()
+[00000039]:
+			end-object
+		}
+	}
+
+	object 1072 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1072
+		name is "eye"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+	}
+
+	object 1074 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1074
+		name is "horn"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+	}
+
+	object 1075 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1075
+		name is "horn"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+	}
+
+	object 1078 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1078
+		name is "medallion"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 7 {
+			start-script 203 ()
+			end-object
+		}
+
+		verb 11 {
+			if !(B.29 is 1) jump &[00000036]
+			chain-script 206 ()
+			jump &[00000039]
+[00000036]:
+			start-script 205 ()
+[00000039]:
+			end-object
+		}
+	}
+
+	object 1079 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1079
+		name is " "
+	}
+
+	object 1080 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1080
+		name is " "
+	}
+
+	object 1081 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1081
+		name is "n-bad-necklace"
+	}
+
+	object 1076 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1076
+		name is "chain"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+	}
+
+	object 1077 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1077
+		name is "chain"
+
+		verb 9 {
+			start-script 202 (me)
+			end-object
+		}
+
+		verb 8 {
+			start-script 204 ()
+			end-object
+		}
+
+		verb 11 {
+			start-script 203 ()
+			end-object
+		}
+	}
+
+	object 1082 { ; VERB LECF_0001\LFLF_0079\ROOM\OBCD_1082
+		name is "n-144-black-strip"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0079\ROOM\EXCD
+		build-sentence-script = 4
+		if (V.311) {
+			owner-of 937 is 1
+			if (owner-of 23 is 2) {
+				owner-of 23 is 1
+			}
+			start-script 10 (1)
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0079\ROOM\ENCD
+		override-key = 0
+		V.736 = 0
+		V.735 = 0
+		if !(V.311 is-not 0) jump &[00000086]
+		stop-script 31
+		set-screen 0 to 144
+		start-script 19 (2)
+		draw-object 1082 
+		owner-of 937 is 2
+		if (owner-of 23 is 1) {
+			owner-of 23 is 2
+		}
+		start-script 10 (1)
+		put-actor 1 in-room 79
+		put-actor 1 at 370,140
+		jump &[00000098]
+[00000086]:
+		set-screen 0 to 200
+		start-script 19 (1)
+[00000098]:
+		build-sentence-script = 210
+		V.111 = 9
+		palette 0 in-slot 0
+		if !(owner-of 938 is-not 2) jump &[00000204]
+		state-of 1081 is 0
+		state-of 1079 is 1
+		class-of 1079 is 160
+		class-of 1076 is 160
+		class-of 1077 is 160
+		class-of 1074 is 160
+		class-of 1075 is 160
+		class-of 1072 is 160
+		class-of 1073 is 160
+		class-of 1071 is 160
+		class-of 1078 is 160
+		jump &[00000215]
+[00000204]:
+		if !(actor-room 2 is 16) jump &[00000215]
+[00000215]:
+		if (actor-room 2 is 48) {
+			palette intensity 15 in-slot 16 to 158
+		}
+		if (V.311 > 1) {
+			start-script bak 208 ()
+		}
+		if !(V.311 is 0) jump &[00000277]
+		if !(V.224 is 79) jump &[00000268]
+		fades 33153
+		start-script 209 (1)
+		jump &[00000274]
+[00000268]:
+		start-script 209 (0)
+[00000274]:
+		jump &[00000291]
+[00000277]:
+		cursor on
+		userput on
+		if (V.224 is-not 79) {
+			start-script bak 200 ()
+		}
+[00000291]:
+		if (V.224 is 79) {
+			if (V.311 is-not 0) {
+				start-script 207 ()
+			}
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0200
+		B.16 = 0
+		do {
+			break-here
+			if (B.16) {
+				if (V.101 < 144) {
+					if (V.101 >= 0) {
+						V.442 = find-object V.100,V.101
+						if (!V.442) {
+							start-script 119 (V.224,2)
+							break-until (!script-running 119)
+						}
+					}
+				}
+				B.16 = 0
+			}
+		} until (V.735)
+		break-here
+		end-script
+	}
+; Put Bead in Mouth
+	script 201 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0201
+		if !(V.224 is 16) jump &[00000038]
+		start-object 933 verb 250 (65535)
+		fades 134
+		V.735 = 1
+		break-here
+		current-room 79
+		jump &[00000112]
+[00000038]:
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\x88\\xBB\\xFF\\x0A\\x78\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I think Nur-Ab-Sal's trouble enough\\x10already."
+		wait-for-message
+[00000112]:
+		end-script
+	}
+; Look at Necklace
+	script 202 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0202
+	local variable L.0
+
+		if !(L.0 is 1073) jump &[00000021]
+		jump &[00000380]
+		jump &[00000478]
+[00000021]:
+		if !(L.0 is 1071) jump &[00000092]
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\xF6\\x37\\xFF\\x0A\\x79\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a small diamond-shaped\\x10hole."
+		jump &[00000478]
+[00000092]:
+		if !(L.0 is 1072) jump &[00000217]
+		if !(script-running 208 is 0) jump &[00000157]
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\xA4\\x97\\xFF\\x0A\\x79\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like onyx."
+		jump &[00000214]
+[00000157]:
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\xBB\\xC4\\xFF\\x0A\\x79\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why is it flashing like that?"
+[00000214]:
+		jump &[00000478]
+[00000217]:
+		if !(L.0 is 1074) jump &[00000230]
+		jump &[00000237]
+		jump &[00000478]
+[00000230]:
+		if !(L.0 is 1075) jump &[00000302]
+[00000237]:
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\x0D\\x04\\xFF\\x0A\\x7A\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like a stylized bull's horn."
+		jump &[00000478]
+[00000302]:
+		if !(L.0 is 1076) jump &[00000315]
+		jump &[00000322]
+		jump &[00000478]
+[00000315]:
+		if !(L.0 is 1077) jump &[00000373]
+[00000322]:
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\x82\\x5A\\xFF\\x0A\\x7A\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a bronze chain."
+		jump &[00000478]
+[00000373]:
+		if !(L.0 is 1078) jump &[00000478]
+[00000380]:
+		print-line color 15 center at 160,20 "\\xFF\\x0A\\xFB\\x89\\xFF\\x0A\\x7A\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's an old lost wax casting^\\xFF\\x03^early bronze age.\\xFF\\x03It looks hollow."
+		jump &[00000478]
+[00000478]:
+		wait-for-message
+		end-script
+	}
+; Touch Necklace
+	script 203 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0203
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\xCC\\x2E\\xFF\\x0A\\x7B\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Look, but don't touch!"
+		wait-for-message
+		end-script
+	}
+; Use Necklace
+	script 204 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0204
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\x6B\\x7C\\xFF\\x0A\\x7B\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do you think you're\\x10DOING?!"
+		wait-for-message
+		end-script
+	}
+; Take Necklace
+	script 205 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0205
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\xDA\\xBD\\xFF\\x0A\\x7B\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Don't you DARE take my necklace!"
+		wait-for-message
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0206
+		V.98 = 10
+		state-of 1081 is 0
+		state-of 1079 is 1
+		class-of 1079 is 160
+		class-of 1076 is 160
+		class-of 1077 is 160
+		class-of 1074 is 160
+		class-of 1075 is 160
+		class-of 1072 is 160
+		class-of 1073 is 160
+		class-of 1071 is 160
+		class-of 1078 is 160
+		cut-scene
+		start-script 119 (V.224,2)
+		break-until (!script-running 119)
+		end-cut-scene
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0207
+		cut-scene
+		if (sound-running 90) {
+			stop-sound 90
+		}
+		sound-kludge 262 11 0
+		sound-kludge 262 85 0
+		sound-kludge 269 11 1 180
+		sound-kludge 269 85 1 180
+		sound-kludge 257 11 0
+		sound-kludge 257 85 0
+		sound-kludge 65535
+		start-sound 90
+		V.98 = 9
+		fades 33153
+		state-of 1081 is 1
+		break-here 2
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\x39\\x13\\xFF\\x0A\\x7C\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00AHHHHHHHHHH!"
+		break-here 5
+		break-until (V.736)
+		start-script 119 (16,2)
+		break-until (!script-running 119)
+		end-cut-scene
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		if !(actor-room 2 is 16) jump &[00000039]
+		if (owner-of 938 is 2) {
+			L.0 = 1
+		}
+		jump &[00000049]
+[00000039]:
+		V.98 = 8
+		L.0 = 0
+[00000049]:
+		L.1 = 0
+		L.2 = 0
+		L.3 = 0
+		L.1 = 0
+[00000069]:
+		L.1 += 15
+		if !(L.0 is 0) jump &[00000094]
+		L.2 += 12
+		L.3 += 3
+		jump &[00000104]
+[00000094]:
+		L.2 += 2
+		L.3 += 2
+[00000104]:
+		palette L.1 in-slot L.2
+		if (L.1 >= 225) {
+			V.736 = 1
+		}
+		break-here
+		++L.1
+		if !(L.1 > 235) jump &[00000069]
+		V.736 = 0
+		L.1 = 255
+[00000147]:
+		L.1 -= 50
+		if !(L.0 is 0) jump &[00000172]
+		L.2 -= 37
+		L.3 -= 10
+		jump &[00000182]
+[00000172]:
+		L.2 -= 7
+		L.3 -= 7
+[00000182]:
+		palette L.1 in-slot L.2
+		break-here
+		--L.1
+		if !(L.1 < 55) jump &[00000147]
+		break-here
+		jump &[00000049]
+		end-script
+	}
+; First Show Necklace
+	script 209 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0209
+	local variable L.0
+
+		cursor off
+		override &[00000304]
+		if !(L.0) jump &[00000038]
+		if !(state-of 1080 is 1) jump &[00000035]
+		jump &[00000304]
+[00000035]:
+		jump &[00000112]
+[00000038]:
+		sound-kludge 268 54 0 5
+		break-here 8
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\xCF\\x3D\\xFF\\x0A\\x7C\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Watch\\x10closely."
+		wait-for-message
+		fades 134
+		override off
+		current-room 79
+[00000112]:
+		state-of 1080 is 1
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\x7E\\x72\\xFF\\x0A\\x7C\\x05\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00The bead is made of\\x10ORICHALCUM^\\xFF\\x03^the mystery metal first mentioned by\\x10Plato."
+		wait-for-message
+		print-line color 13 center at 160,20 "\\xFF\\x0A\\xA2\\x37\\xFF\\x0A\\x7D\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Now I'll place it in the medallion's\\x10mouth."
+		wait-for-message
+		fades 134
+		override off
+		current-room 79
+[00000304]:
+		state-of 1080 is 0
+		shake on
+		start-sound 56
+		V.310 = 5
+		start-script bak 208 ()
+		if !(override-hit) jump &[00000330]
+		override off
+		jump &[00000372]
+[00000330]:
+		override off
+		break-here 40
+[00000372]:
+		V.310 = 0
+		break-until (V.736)
+		start-script 119 (V.224,2)
+		break-until (!script-running 119)
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0079\ROOM\LSCR_0210
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if (L.0 is 4) {
+			if (L.1 is 27) {
+				start-script 119 (V.224,2)
+				break-until (!script-running 119)
+				stop-script 0
+			}
+		}
+		chain-script 4 (L.0,L.1,L.2)
+		end-script
+	}
+}
+

@@ -1,0 +1,476 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 21: Inner Ring Top-Down (a3-pit-to)
+; */
+
+script 108 { ; SCRP LECF_0001\LFLF_0021\SCRP_0108
+	sound-kludge 262 183 128
+	sleep-for 30 jiffies
+	sound-kludge 262 183 0
+	end-script
+}
+
+room a3-pit-to {
+
+	object 255 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0255
+		name is "tunnel back to hall"
+
+		verb 10 {
+			cut-scene
+			fades 133
+			walk 1 to 231,214
+			wait-for-actor 1
+			end-cut-scene
+			come-out 165 in-room 14 walk-to 225,88
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x83\\x16\\xFF\\x0A\\x3C\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It is a long tunnel."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 256 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0256
+		name is ""
+
+		verb 10 {
+			start-script 201 (1)
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x04\\x3C\\xFF\\x0A\\x3C\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks as if I could go down that way."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 257 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0257
+		name is ""
+
+		verb 10 {
+			start-script 201 (2)
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xCD\\x7F\\xFF\\x0A\\x3C\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks as if I could go up that way."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 258 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0258
+		name is "%T20797728%14%THE GOD MACHINE!"
+
+		verb 10 {
+			fades 257
+			current-room 55
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x6C\\xCB\\xFF\\x0A\\x3C\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Wow. How awe-inspiring!"
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 259 { ; VERB LECF_0001\LFLF_0021\ROOM\OBCD_0259
+		name is "a3-pit-top-bridge"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0021\ROOM\EXCD
+		if !(B.36) jump &[00000013]
+[00000013]:
+		actor 1 costume 2 step-dist 8,2
+		actor 2 costume 28 step-dist 8,2
+		stop-script 31
+		if !(V.72 is 14) jump &[00000070]
+		sound-kludge 269 13 0 240
+		sound-kludge 65535
+		start-sound 74
+		sound-kludge 65535
+		start-script 146 ()
+		jump &[00000070]
+[00000070]:
+		if (!B.36) {
+			actor 1 costume 221
+			actor 2 costume 222
+			set-screen 0 to 144
+			stop-script 79
+			start-script 19 (2)
+			build-sentence-script = 4
+			start-script 59 ()
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0021\ROOM\ENCD
+		stop-script 59
+		build-sentence-script = 78
+		start-script 19 (1)
+		start-script 79 ()
+		set-screen 0 to 200
+		actor 1 follow-boxes step-dist 6,2 costume 90
+		actor 2 follow-boxes step-dist 6,2 costume 59
+		if !(V.224 is 14) jump &[00000148]
+		if !(state-of 255 is 1) jump &[00000096]
+		if (B.17) {
+			put-actor 2 in-room 21
+			put-actor 2 at-object 255
+		}
+		sound-kludge 269 74 0 180
+		jump &[00000145]
+[00000096]:
+		fades 257
+		sound-kludge 257 12 0
+		sound-kludge 269 12 70 120
+		sound-kludge 65535
+		sound-kludge 9 12
+		start-sound 13
+		start-sound 137
+		start-script 200 ()
+[00000145]:
+		jump &[00000243]
+[00000148]:
+		if !(V.224 is 55) jump &[00000227]
+		put-actor 1 in-room 21
+		put-actor 1 at-object 258
+		if (B.17) {
+			put-actor 2 in-room 21
+			put-actor 2 at-object 258
+		}
+		sound-kludge 262 156 0
+		sound-kludge 262 14 0
+		sound-kludge 269 156 0 240
+		sound-kludge 269 14 0 240
+		jump &[00000243]
+[00000227]:
+		if !(V.224 is 23) jump &[00000243]
+		start-script bak 108 ()
+		chain-script 202 ()
+		jump &[00000243]
+[00000243]:
+		if (B.36) {
+			start-script bak 108 ()
+			chain-script 202 ()
+		}
+		if (B.17) {
+			start-script bak 31 (1,2,0,10)
+		}
+		end-object
+	}
+; Digger Falls In Lava
+	script 200 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0200
+	local variable L.0
+
+		cut-scene
+		actor 9 default costume 188 ignore-boxes always-zclip 1 step-dist 6,4 scale 255 255
+		break-here
+		put-actor 9 in-room 21
+		put-actor 9 at 231,240
+		walk 9 to 206,170
+		break-until (actor-y 9 < 210)
+		state-of 255 is 1
+		wait-for-actor 9
+		actor 9 walk-animation 11 stand-animation 11
+		walk 9 to 200,146
+		for L.0 = 255 to 5 -- {
+			actor 9 scale L.0 L.0
+			L.0 -= 8
+			break-here
+		}
+		wait-for-actor 9
+		put-actor 9 in-room 0
+		break-here 2
+		actor 9 default costume 218 ignore-boxes never-zclip scale 255 255
+		put-actor 9 in-room 21
+		put-actor 9 at 200,146
+		do-animation 9 250
+		do-animation 9 6
+		break-here 6
+		put-actor 9 in-room 0
+		put-actor 9 in-room 0
+		put-actor 1 in-room 21
+		put-actor 1 at 231,210
+		walk 1 to 238,160
+		if (B.17) {
+			break-here 2
+			put-actor 2 in-room 21
+			put-actor 2 at 231,210
+			walk 2 to 234,162
+			wait-for-actor 2
+			do-animation 2 248
+		}
+		wait-for-actor 1
+		do-animation 1 248
+		say-line 1 "\\xFF\\x0A\\x48\\xEB\\xFF\\x0A\\x3B\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That was\\x10close."
+		wait-for-message
+		if (B.17) {
+			say-line 2 "\\xFF\\x0A\\x01\\x22\\xFF\\x0A\\x3D\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Too close."
+			wait-for-message
+		}
+		end-cut-scene
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0201
+	local variable L.0
+
+		if !(L.0 is 1) jump &[00000033]
+		cut-scene
+		walk 1 to 153,31
+		wait-for-actor 1
+		end-cut-scene
+		jump &[00000048]
+[00000033]:
+		cut-scene
+		walk 1 to 91,23
+		wait-for-actor 1
+		end-cut-scene
+[00000048]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0202
+		cut-scene
+		shake on
+		load-sound 188
+		start-script bak 206 ()
+		start-script bak 205 ()
+		actor 1 step-dist 6,2
+		actor 2 step-dist 6,2
+		put-actor 1 in-room 21
+		put-actor 1 at 214,35
+		if (B.17) {
+			put-actor 2 in-room 21
+			put-actor 2 at 220,35
+		}
+		walk 1 to 220,198
+		if !(B.17) jump &[00000094]
+		break-here 2
+		walk 2 to 220,198
+		break-until (actor-y 2 >= 90)
+		jump &[00000107]
+[00000094]:
+		break-until (actor-y 1 >= 90)
+[00000107]:
+		draw-object 259 image 1
+		start-sound 188
+		break-here 2
+		draw-object 259 image 2
+		start-script 203 ()
+		wait-for-actor 1
+		if (B.17) {
+			wait-for-actor 2
+		}
+		end-cut-scene
+		current-room 222
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		actor 5 default costume 55 ignore-boxes always-zclip 2 walk-animation 6
+		put-actor 5 in-room 21
+		put-actor 5 at 173,101
+		L.1 = 173
+		L.2 = 101
+		L.3 = 255
+		do-animation 5 6
+		L.4 = 0
+		L.0 = 1
+[00000056]:
+		break-here
+		if !(L.4) jump &[00000076]
+		--L.1
+		++L.2
+		L.4 = 0
+		jump &[00000086]
+[00000076]:
+		L.2 += 2
+		L.4 = 1
+[00000086]:
+		L.3 -= 11
+		actor 5 scale L.3 L.3
+		put-actor 5 at L.1,L.2
+		++L.0
+		if !(L.0 > 22) jump &[00000056]
+		put-actor 5 in-room 0
+		break-here 2
+		actor 5 default costume 218 ignore-boxes never-zclip scale 255 255
+		put-actor 5 in-room 21
+		put-actor 5 at 163,133
+		do-animation 5 250
+		do-animation 5 6
+		break-here 6
+		put-actor 5 in-room 0
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+	local variable L.12
+
+		actor L.0 default costume 33 ignore-boxes
+		L.1 = random 7
+		if !(L.1 is 0) jump &[00000050]
+		L.2 = 340
+		L.3 = 100
+		L.4 = 225
+		L.5 = 67
+		jump &[00000260]
+[00000050]:
+		if !(L.1 is 1) jump &[00000080]
+		L.2 = 150
+		L.3 = 210
+		L.4 = 156
+		L.5 = 140
+		jump &[00000260]
+[00000080]:
+		if !(L.1 is 2) jump &[00000110]
+		L.2 = 65526
+		L.3 = 136
+		L.4 = 28
+		L.5 = 119
+		jump &[00000260]
+[00000110]:
+		if !(L.1 is 3) jump &[00000140]
+		L.2 = 200
+		L.3 = 1
+		L.4 = 206
+		L.5 = 14
+		jump &[00000260]
+[00000140]:
+		if !(L.1 is 4) jump &[00000170]
+		L.2 = 136
+		L.3 = 210
+		L.4 = 89
+		L.5 = 127
+		jump &[00000260]
+[00000170]:
+		if !(L.1 is 5) jump &[00000200]
+		L.2 = 197
+		L.3 = 210
+		L.4 = 191
+		L.5 = 145
+		jump &[00000260]
+[00000200]:
+		if !(L.1 is 6) jump &[00000230]
+		L.2 = 299
+		L.3 = 1
+		L.4 = 205
+		L.5 = 63
+		jump &[00000260]
+[00000230]:
+		if !(L.1 is 7) jump &[00000260]
+		L.2 = 330
+		L.3 = 132
+		L.4 = 236
+		L.5 = 86
+		jump &[00000260]
+[00000260]:
+		L.6 = (L.4 - L.2)
+		L.7 = (L.5 - L.3)
+		actor L.0 scale 255 255
+		put-actor L.0 in-room 21
+		put-actor L.0 at L.2,L.3
+		if !(random 1) jump &[00000316]
+		do-animation L.0 6
+		jump &[00000320]
+[00000316]:
+		do-animation L.0 7
+[00000320]:
+		L.8 = 10
+		L.11 = (230 / L.8)
+		L.12 = 255
+		for L.1 = 1 to L.8 ++ {
+			break-here
+			L.9 = ((L.1 * L.6) / L.8)
+			L.9 += L.2
+			L.10 = ((L.1 * L.7) / L.8)
+			L.10 += L.3
+			L.12 -= L.11
+			actor L.0 scale L.12 L.12
+			put-actor L.0 at L.9,L.10
+		}
+		break-here
+		actor L.0 default costume 218 ignore-boxes never-zclip scale 255 255
+		put-actor L.0 in-room 21
+		put-actor L.0 at L.4,L.5
+		do-animation L.0 250
+		do-animation L.0 6
+		break-here 6
+		put-actor L.0 in-room 0
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0205
+	local variable L.0
+
+		for L.0 = 6 to 12 ++ {
+			put-actor L.0 in-room 0
+		}
+		L.0 = 6
+[00000032]:
+		if !(actor-room L.0 is-not 21) jump &[00000053]
+		start-script bak rec 204 (L.0)
+		jump &[00000068]
+[00000053]:
+		++L.0
+		if (L.0 > 12) {
+			L.0 = 6
+		}
+[00000068]:
+		break-here
+		jump &[00000032]
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0021\ROOM\LSCR_0206
+		do {
+			V.444 = (90 - 30)
+			V.444 = ((random V.444) + 30)
+			sleep-for V.444 jiffies
+			start-script bak 108 ()
+		}
+		end-script
+	}
+}
+

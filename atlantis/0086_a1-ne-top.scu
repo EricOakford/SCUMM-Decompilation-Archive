@@ -1,0 +1,378 @@
+room a1-ne-top {
+
+	object 1132 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1132
+		name is "hallway@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				V.417 = 29
+				fades 130
+				cut-scene
+				stop-script 139
+				print-line " "
+				break-here
+				end-cut-scene
+				come-out 1124 in-room 85 walk-to 305,9
+			}
+			end-object
+		}
+	}
+
+	object 1133 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1133
+		name is "hallway@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				V.417 = 29
+				fades 130
+				cut-scene
+				stop-script 139
+				print-line " "
+				break-here
+				end-cut-scene
+				come-out 1125 in-room 85 walk-to 308,68
+			}
+			end-object
+		}
+	}
+
+	object 1134 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1134
+		name is "hallway@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				V.417 = 29
+				fades 133
+				cut-scene
+				stop-script 139
+				print-line " "
+				break-here
+				end-cut-scene
+				come-out 1151 in-room 88 walk-to 277,17
+			}
+			end-object
+		}
+	}
+
+	object 1135 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1135
+		name is "hallway@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				V.417 = 29
+				fades 133
+				print-line " "
+				come-out 1152 in-room 88 walk-to 65535,65535
+			}
+			end-object
+		}
+	}
+
+	object 1136 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1136
+		name is "?@@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 10
+				V.209 = *34[10]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1137 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1137
+		name is "?@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 11
+				V.209 = *34[11]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1138 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1138
+		name is "?@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 12
+				V.209 = *34[12]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1139 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1139
+		name is "?@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 13
+				V.209 = *34[13]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1140 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1140
+		name is "?@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 14
+				V.209 = *34[14]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1141 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1141
+		name is "?@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 0
+				V.209 = *34[0]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	object 1142 { ; VERB LECF_0001\LFLF_0086\ROOM\OBCD_1142
+		name is "?@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if (class-of me is 8) {
+				class-of me is 154
+				V.417 = 3
+				V.209 = *34[3]
+				current-room V.209
+			}
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0086\ROOM\EXCD
+		actor 1 costume 2 step-dist 8,2
+		actor 2 costume 28 step-dist 8,2
+		actor 4 costume 20 step-dist 8,2
+		set-screen 0 to 144
+		stop-script 139
+		stop-script 116
+		stop-script 117
+		start-script 19 (2)
+		build-sentence-script = 4
+		start-script 113 ()
+		start-script 59 ()
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0086\ROOM\ENCD
+		fades 257
+		stop-script 59
+		build-sentence-script = 78
+		start-script 19 (1)
+		start-script 139 ()
+		set-screen 0 to 200
+		actor 1 costume 134 step-dist 2,2
+		actor 2 costume 134 step-dist 2,2
+		actor 4 default costume 135 step-dist 1,1 follow-boxes name "soldier"
+		if !(V.417 is 29) jump &[00000118]
+		if !(V.224 is 85) jump &[00000086]
+		jump &[00000115]
+[00000086]:
+		if !(V.224 is 88) jump &[00000096]
+		jump &[00000115]
+[00000096]:
+		if !(V.224 is 221) jump &[00000115]
+		start-script 118 (6)
+		jump &[00000355]
+		jump &[00000115]
+[00000115]:
+		jump &[00000300]
+[00000118]:
+		if !(V.417 is 3) jump &[00000144]
+		class-of 1142 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 117,112
+		jump &[00000300]
+[00000144]:
+		if !(V.417 is 0) jump &[00000170]
+		class-of 1141 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 74,107
+		jump &[00000300]
+[00000170]:
+		if !(V.417 is 13) jump &[00000196]
+		class-of 1139 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 206,187
+		jump &[00000300]
+[00000196]:
+		if !(V.417 is 11) jump &[00000222]
+		class-of 1137 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 164,139
+		jump &[00000300]
+[00000222]:
+		if !(V.417 is 10) jump &[00000248]
+		class-of 1136 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 178,106
+		jump &[00000300]
+[00000248]:
+		if !(V.417 is 14) jump &[00000274]
+		class-of 1140 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 120,57
+		jump &[00000300]
+[00000274]:
+		if !(V.417 is 12) jump &[00000300]
+		class-of 1138 is 154
+		put-actor 1 in-room 86
+		put-actor 1 at 66,55
+		jump &[00000300]
+[00000300]:
+		if !(V.224 is 97) jump &[00000323]
+		if (sound-running 120) {
+			stop-sound 120
+			start-sound 3
+		}
+		jump &[00000352]
+[00000323]:
+		if !(V.224 is 205) jump &[00000352]
+		sound-kludge 269 151 0 30
+		start-sound 3
+		start-script 153 ()
+		jump &[00000352]
+[00000352]:
+		start-script 115 ()
+[00000355]:
+		if (!script-running 114) {
+			start-script 114 ()
+		}
+		start-script 200 ()
+		start-script bak 203 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0086\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		L.1 = 1
+		L.2 = 10
+		for L.0 = 1136 to 1140 ++ {
+			if (class-of L.0 is 154) {
+				start-script 201 (L.0,L.1,L.2)
+				break-until (!script-running 201)
+				L.1 = V.444
+			}
+			++L.2
+			++L.1
+		}
+		if (class-of 1141 is 154) {
+			new-name-of 1141 is "room"
+		}
+		if (class-of 1142 is 154) {
+			new-name-of 1142 is "room"
+		}
+		start-script 202 ()
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0086\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.3 = *34[L.2]
+		V.444 = L.1
+		if !(L.3 is 220) jump &[00000048]
+		new-name-of L.0 is "statue room"
+		--V.444
+		jump &[00000082]
+[00000048]:
+		if !(L.3 is 205) jump &[00000074]
+		new-name-of L.0 is "crab room"
+		--V.444
+		jump &[00000082]
+[00000074]:
+		new-name-of L.0 is "room"
+[00000082]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0086\ROOM\LSCR_0202
+	local variable L.0
+
+		break-here
+		L.0 = actor-box selected-actor
+		if !(L.0 is 8) jump &[00000024]
+		jump &[00000148]
+[00000024]:
+		if !(L.0 >= 25) jump &[00000041]
+		if !(L.0 <= 28) jump &[00000041]
+		jump &[00000148]
+[00000041]:
+		if !(L.0 >= 35) jump &[00000058]
+		if !(L.0 <= 42) jump &[00000058]
+		jump &[00000148]
+[00000058]:
+		if !(L.0 is 57) jump &[00000068]
+		jump &[00000148]
+[00000068]:
+		class-of 1136 is 8
+		class-of 1137 is 8
+		class-of 1138 is 8
+		class-of 1139 is 8
+		class-of 1140 is 8
+		class-of 1132 is 8
+		class-of 1133 is 8
+		class-of 1134 is 8
+		class-of 1135 is 8
+		class-of 1141 is 136
+		class-of 1142 is 136
+		jump &[00000225]
+[00000148]:
+		class-of 1136 is 136
+		class-of 1137 is 136
+		class-of 1138 is 136
+		class-of 1139 is 136
+		class-of 1140 is 136
+		class-of 1132 is 136
+		class-of 1133 is 136
+		class-of 1134 is 136
+		class-of 1135 is 136
+		class-of 1141 is 8
+		class-of 1142 is 8
+[00000225]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0086\ROOM\LSCR_0203
+		do {
+			V.70 = 0
+			break-until (V.70)
+			start-script 200 ()
+		}
+		end-script
+	}
+}
+

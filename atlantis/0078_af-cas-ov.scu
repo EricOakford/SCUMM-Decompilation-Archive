@@ -1,0 +1,404 @@
+room af-cas-ov {
+
+	object 1064 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1064
+		name is "market"
+
+		verb 10 {
+			if (class-of me is 136) {
+				chain-script 207 ()
+			}
+			end-object
+		}
+	}
+
+	object 1070 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1070
+		name is "market"
+
+		verb 10 {
+			if (class-of me is 136) {
+				chain-script 207 ()
+			}
+			end-object
+		}
+	}
+
+	object 1065 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1065
+		name is "Omar's house"
+
+		verb 10 {
+			current-room 65
+			end-object
+		}
+	}
+
+	object 1066 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1066
+		name is "Omar's house"
+
+		verb 10 {
+			current-room 65
+			end-object
+		}
+	}
+
+	object 1067 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1067
+		name is "Omar's house"
+
+		verb 10 {
+			current-room 65
+			end-object
+		}
+	}
+
+	object 1068 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1068
+		name is "Omar's house"
+
+		verb 10 {
+			current-room 65
+			end-object
+		}
+	}
+
+	object 1069 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1069
+		name is "Omar's house"
+
+		verb 10 {
+			current-room 65
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0078\ROOM\EXCD
+		actor 1 costume 2 step-dist 8,2
+		actor 6 step-dist 8,2
+		actor 11 step-dist 8,2
+		set-screen 0 to 144
+		stop-script 204
+		start-script 19 (2)
+		build-sentence-script = 4
+		start-script 59 ()
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0078\ROOM\ENCD
+		stop-script 59
+		build-sentence-script = 78
+		start-script 19 (1)
+		start-script 204 ()
+		set-screen 0 to 200
+		class-of 1064 is 136
+		class-of 1070 is 136
+		actor 1 costume 65 step-dist 3,3 follow-boxes
+		actor 11 costume 95 name "man in red fez" step-dist 2,2 follow-boxes elevation 0
+		if !(B.269[5]) jump &[00000147]
+		if !(owner-of 865 is 6) jump &[00000125]
+		actor 6 default costume 95 name "servant" step-dist 2,2 follow-boxes elevation 0
+		jump &[00000147]
+[00000125]:
+		actor 6 default costume 96 name "servant" step-dist 3,3 follow-boxes elevation 0
+[00000147]:
+		if (owner-of 865 is 11) {
+			V.444 = (270 - 50)
+			V.444 = ((random V.444) + 50)
+			V.442 = V.444
+			V.444 = (150 - 50)
+			V.444 = ((random V.444) + 50)
+			V.443 = V.444
+			put-actor 11 in-room 78
+			put-actor 11 at V.442,V.443
+			start-script bak 203 ()
+		}
+		if !(V.224 is 29) jump &[00000272]
+		if !(B.269[5]) jump &[00000272]
+		start-script 205 ()
+		if !(owner-of 865 is 6) jump &[00000266]
+		start-script bak 201 ()
+		jump &[00000269]
+[00000266]:
+		start-script bak 202 ()
+[00000269]:
+		start-script 200 ()
+[00000272]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		if !(V.238 is 2) jump &[00000043]
+		V.444 = (8 - 5)
+		V.444 = ((random V.444) + 5)
+		jump &[00000068]
+[00000043]:
+		V.444 = (2 - 1)
+		V.444 = ((random V.444) + 1)
+[00000068]:
+		L.3 = V.444
+		for L.0 = 1 to L.3 ++ {
+			do {
+				L.4 = 1
+				V.209 = ((random 30) * 10)
+				V.210 = ((random 20) * 10)
+				if (V.209 > 167) {
+					if (V.209 < 209) {
+						if (V.210 > 87) {
+							if (V.210 < 105) {
+								L.4 = 0
+							}
+						}
+					}
+				}
+			} until (L.4)
+			walk 6 to V.209,V.210
+			wait-for-actor 6
+			start-script bak 206 ()
+			break-until (V.212)
+		}
+		stop-script 201
+		stop-script 202
+		stop-script 205
+		if (!V.371) {
+			V.444 = (1069 - 1065)
+			V.444 = ((random V.444) + 1065)
+			V.371 = V.444
+		}
+		walk 6 to-object V.371
+		wait-for-actor 6
+		L.5 = actor-x 1
+		L.6 = actor-y 1
+		if (L.5 < 100) {
+			L.5 = 100
+		}
+		if (L.5 > 220) {
+			L.5 = 220
+		}
+		if (L.6 > 150) {
+			L.6 = 150
+		}
+		if !(proximity 1,6 < 38) jump &[00000743]
+		cut-scene
+		B.269[5] = 0
+		class-of V.371 is 32
+		put-actor 6 in-room 65
+		put-actor 6 at-object 866
+		print-line color 15 at L.5,L.6 "\\xFF\\x0A\\x88\\x62\\xFF\\x0A\\xDC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00The servant's ducking into\\x10that\\x10house!"
+		load-sound 38
+		load-sound 91
+		sound-kludge 65535
+		sound-kludge 257 66 0
+		sound-kludge 257 67 0
+		sound-kludge 257 68 0
+		sound-kludge 257 69 0
+		sound-kludge 262 66 0
+		sound-kludge 262 67 0
+		sound-kludge 262 68 0
+		sound-kludge 262 69 0
+		sound-kludge 269 66 1 30
+		sound-kludge 269 67 1 30
+		sound-kludge 269 68 1 30
+		sound-kludge 269 69 1 30
+		start-sound 38
+		start-sound 91
+		sound-kludge 65535
+		sound-kludge 270 38 2
+		sound-kludge 271 257 66 128
+		sound-kludge 271 257 67 128
+		sound-kludge 271 257 68 128
+		sound-kludge 271 257 69 128
+		sound-kludge 271 262 66 128
+		sound-kludge 271 262 67 128
+		sound-kludge 271 262 68 128
+		sound-kludge 271 262 69 128
+		sound-kludge 271 269 66 127 180
+		sound-kludge 271 269 67 127 180
+		sound-kludge 271 269 68 127 180
+		sound-kludge 271 269 69 127 180
+		sound-kludge 271 65535
+		wait-for-message
+		end-cut-scene
+		jump &[00000811]
+[00000743]:
+		cut-scene
+		B.269[5] = 0
+		print-line color 15 at L.5,L.6 "\\xFF\\x0A\\x7C\\xA9\\xFF\\x0A\\xDC\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hey, where'd he\\x10go?"
+		wait-for-message
+		put-actor 6 in-room 65
+		put-actor 6 at-object 866
+		end-cut-scene
+[00000811]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0201
+		do {
+			if (proximity 1,6 < 15) {
+				V.212 = 1
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		do {
+			L.0 = proximity 1,6
+			if (L.0 < 96) {
+				if (L.0 is-not L.2) {
+					L.1 = (128 + ((L.0 * 3) / 2))
+					palette intensity L.1 in-slot 253 to 253
+					L.2 = L.0
+				}
+			}
+			if (L.0 < 15) {
+				V.212 = 1
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0203
+		B.320 = 0
+		do {
+			walk 11 to 200,95
+			wait-for-actor 11
+			V.444 = (120 - 60)
+			V.444 = ((random V.444) + 60)
+			sleep-for V.444 jiffies
+			walk 11 to 154,65
+			wait-for-actor 11
+			V.444 = (120 - 60)
+			V.444 = ((random V.444) + 60)
+			sleep-for V.444 jiffies
+			walk 11 to 95,80
+			wait-for-actor 11
+			V.444 = (120 - 60)
+			V.444 = ((random V.444) + 60)
+			sleep-for V.444 jiffies
+			break-here
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		V.442 = random 1
+		L.1 = cursor-x
+		L.2 = cursor-y
+		L.0 = find-actor cursor-x,cursor-y
+		if (!L.0) {
+			L.0 = find-object cursor-x,cursor-y
+			V.108 = L.0
+		}
+		if !(L.0) jump &[00000093]
+		if (L.1 < 40) {
+			L.1 = 40
+		}
+		if (L.1 > 280) {
+			L.1 = 280
+		}
+		print-line at L.1,L.2 color 120 "%o16384%"
+		jump &[00000103]
+[00000093]:
+		print-line at 0,0 " "
+[00000103]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+
+		break-until (actor-room 6 is-not 78)
+		sleep-for 1800 jiffies
+		cut-scene
+		L.0 = actor-x 1
+		L.1 = actor-y 1
+		if (L.0 < 60) {
+			L.0 = 60
+		}
+		if (L.0 > 260) {
+			L.0 = 280
+		}
+		if (L.1 > 150) {
+			L.1 = 150
+		}
+		print-line color 15 at L.0,L.1 "\\xFF\\x0A\\x2F\\x27\\xFF\\x0A\\xDC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I think I've lost the\\x10servant!"
+		wait-for-message
+		end-cut-scene
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0206
+	local variable L.0
+
+		V.444 = (96 - 18)
+		V.444 = ((random V.444) + 18)
+		L.0 = V.444
+		sleep-for L.0 jiffies
+		V.212 = 1
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		B.16 = 0
+		L.0 = actor-x 1
+		if !(L.0 < 160) jump &[00000044]
+		class-of 1064 is 8
+		L.1 = actor-x 1064
+		walk 1 to-object 1064
+		jump &[00000060]
+[00000044]:
+		class-of 1070 is 8
+		L.1 = actor-x 1070
+		walk 1 to-object 1070
+[00000060]:
+		break-here
+		if !(B.16 is 1) jump &[00000085]
+		class-of 1064 is 136
+		class-of 1070 is 136
+		jump &[00000204]
+[00000085]:
+		V.351 = actor-x 1
+		L.2 = (L.1 - V.351)
+		if (L.2 < 0) {
+			L.2 = (0 - L.2)
+		}
+		if !(L.2 < 10) jump &[00000060]
+		cut-scene
+		wait-for-actor 1
+		end-cut-scene
+		if (actor-x 11 < 168) {
+			if (actor-x 11 > 127) {
+				B.320 = 1
+			}
+		}
+		if !(L.0 < 160) jump &[00000189]
+		B.37[5] = 0
+		come-out 302 in-room 29 walk-to 25,125
+		jump &[00000204]
+[00000189]:
+		B.37[5] = 1
+		come-out 328 in-room 29 walk-to 545,100
+[00000204]:
+		end-script
+	}
+}
+

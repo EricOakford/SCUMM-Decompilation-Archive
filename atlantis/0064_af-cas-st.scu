@@ -1,0 +1,3630 @@
+script 159 { ; SCRP LECF_0001\LFLF_0064\SCRP_0159
+	if !(class-of 863 is 134) jump &[00000334]
+	if !(class-of 863 is 26) jump &[00000282]
+	cut-scene
+	if !(actor-room selected-actor is 64) jump &[00000184]
+	do-animation 1 face-towards 2
+	say-line "\\xFF\\x0A\\x22\\xD1\\xFF\\x0A\\xDC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Funny^\\xFF\\x03It looks like that `ghost` we saw in your\\x10study."
+	wait-for-message
+	do-animation 2 255
+	do-animation 2 face-towards 1
+	say-line 2 "\\xFF\\x0A\\xC7\\x90\\xFF\\x0A\\x10\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That `ghost` was Nur-Ab-Sal."
+	wait-for-message
+	jump &[00000264]
+[00000184]:
+	say-line "\\xFF\\x0A\\xA4\\x46\\xFF\\x0A\\xDD\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Funny^\\xFF\\x03It looks like that `ghost` I saw in Sophia's\\x10study."
+	wait-for-message
+[00000264]:
+	class-of 863 is 154
+	B.275[7] = 1
+	end-cut-scene
+	jump &[00000331]
+[00000282]:
+	cut-scene
+	say-line 1 "\\xFF\\x0A\\x75\\xCE\\xFF\\x0A\\xDD\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00This thing is\\x10spooky."
+	wait-for-message
+	end-cut-scene
+[00000331]:
+	jump &[00001719]
+[00000334]:
+	cut-scene
+	if !(class-of 863 is 26) jump &[00001682]
+	if !(V.374 is 0) jump &[00000475]
+	say-line "\\xFF\\x0A\\x64\\x11\\xFF\\x0A\\xDE\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hey, this hasn't been signed by Lou\\x10Gehrig^\\xFF\\x03^it's some guy named `Ron Gilbert`!"
+	new-name-of 863 is "bogus baseball"
+	jump &[00001670]
+[00000475]:
+	if !(V.374 is 1) jump &[00000559]
+	say-line "\\xFF\\x0A\\x60\\xCA\\xFF\\x0A\\xDE\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's got spit all over\\x10it."
+	new-name-of 863 is "goo-encrusted voodoo doll"
+	jump &[00001670]
+[00000559]:
+	if !(V.374 is 2) jump &[00000640]
+	say-line "\\xFF\\x0A\\xF5\\x0F\\xFF\\x0A\\xDF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Gee, it's only got three\\x10wheels."
+	new-name-of 863 is "broken red wagon"
+	jump &[00001670]
+[00000640]:
+	if !(V.374 is 3) jump &[00000717]
+	say-line "\\xFF\\x0A\\x6E\\x66\\xFF\\x0A\\xDF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Darn, the string's all tangled."
+	new-name-of 863 is "useless yo-yo"
+	jump &[00001670]
+[00000717]:
+	if !(V.374 is 4) jump &[00000800]
+	say-line "\\xFF\\x0A\\x83\\xBB\\xFF\\x0A\\xDF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Great, the paint's still\\x10wet."
+	new-name-of 863 is "recently painted cane"
+	jump &[00001670]
+[00000800]:
+	if !(V.374 is 5) jump &[00000907]
+	say-line "\\xFF\\x0A\\xC4\\x15\\xFF\\x0A\\xE0\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00These aren't sun glasses^\\xFF\\x03^they've just been painted\\x10black!"
+	new-name-of 863 is "opaque glasses"
+	jump &[00001670]
+[00000907]:
+	if !(V.374 is 6) jump &[00000995]
+	say-line "\\xFF\\x0A\\x0F\\x91\\xFF\\x0A\\xE0\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00This isn't a real\\x10fez^\\xFF\\x03it's just a paper\\x10hat!"
+	new-name-of 863 is "paper fez"
+	jump &[00001670]
+[00000995]:
+	if !(V.374 is 7) jump &[00001078]
+	say-line "\\xFF\\x0A\\x40\\x0B\\xFF\\x0A\\xE1\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Ugh, this thing's been used\\x10recently!"
+	new-name-of 863 is "used spittoon"
+	jump &[00001670]
+[00001078]:
+	if !(V.374 is 8) jump &[00001157]
+	say-line "\\xFF\\x0A\\x75\\x7B\\xFF\\x0A\\xE1\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Whew, this soap smells like\\x10garlic!"
+	new-name-of 863 is "garlic soap"
+	jump &[00001670]
+[00001157]:
+	if !(V.374 is 9) jump &[00001217]
+	say-line "\\xFF\\x0A\\x74\\xE0\\xFF\\x0A\\xE1\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00This veil\\x10itches."
+	new-name-of 863 is "itchy veil"
+	jump &[00001670]
+[00001217]:
+	if !(V.374 is 10) jump &[00001295]
+	say-line "\\xFF\\x0A\\x57\\x14\\xFF\\x0A\\xE2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00This lipstick is melting."
+	new-name-of 863 is "melting red lipstick"
+	jump &[00001670]
+[00001295]:
+	if !(V.374 is 11) jump &[00001371]
+	say-line "\\xFF\\x0A\\x08\\x5A\\xFF\\x0A\\xE2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's got moth-holes."
+	new-name-of 863 is "moth-eaten yellow scarf"
+	jump &[00001670]
+[00001371]:
+	if !(V.374 is 12) jump &[00001450]
+	say-line "\\xFF\\x0A\\x2E\\x9B\\xFF\\x0A\\xE2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hey, this isn't real\\x10ivory!"
+	new-name-of 863 is "faux ivory earrings"
+	jump &[00001670]
+[00001450]:
+	if !(V.374 is 13) jump &[00001525]
+	say-line "\\xFF\\x0A\\x9B\\xEC\\xFF\\x0A\\xE2\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Hey, this isn't real\\x10ebony!"
+	new-name-of 863 is "faux ebony comb"
+	jump &[00001670]
+[00001525]:
+	if !(V.374 is 14) jump &[00001600]
+	say-line "\\xFF\\x0A\\x63\\x3A\\xFF\\x0A\\xE3\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hey, this isn't a real\\x10ruby!"
+	new-name-of 863 is "faux ruby ring"
+	jump &[00001670]
+[00001600]:
+	if !(V.374 is 15) jump &[00001670]
+	say-line "\\xFF\\x0A\\x76\\x8E\\xFF\\x0A\\xE3\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hey, this isn't gold!"
+	new-name-of 863 is "faux gold buckle"
+	jump &[00001670]
+[00001670]:
+	wait-for-message
+	class-of 863 is 154
+	jump &[00001718]
+[00001682]:
+	say-line "\\xFF\\x0A\\x7C\\xCF\\xFF\\x0A\\xE3\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What a swindle."
+	wait-for-message
+[00001718]:
+	end-cut-scene
+[00001719]:
+	end-script
+}
+
+room af-cas-st {
+
+	object 863 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0863
+		name is "mask@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			B.275[7] = 1
+			end-object
+		}
+
+		verb 11 {
+			if !(owner-of 863 is-not selected-actor) jump &[00000067]
+			B.275[7] = 1
+			pick-up-object 863 in-room 0
+			if (B.275[3] is 0) {
+				class-of 856 is 136
+			}
+			start-script 10 ()
+			jump &[00000104]
+[00000067]:
+			say-line "\\xFF\\x0A\\x5C\\xA0\\xFF\\x0A\\x0B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I have it already."
+[00000104]:
+			end-object
+		}
+
+		verb 9 {
+			start-script 159 ()
+			end-object
+		}
+
+		verb 8 {
+			if !(class-of me is 134) jump &[00000383]
+			if !(class-of me is 145) jump &[00000145]
+			class-of me is 17
+			new-name-of me is "mask"
+			jump &[00000380]
+[00000145]:
+			if !(selected-room is 28) jump &[00000321]
+			if !(V.211 is 0) jump &[00000267]
+			if !(class-of 295 is 145) jump &[00000203]
+			do-animation 1 255
+			class-of me is 145
+			new-name-of me is "weird mask on face"
+			jump &[00000264]
+[00000203]:
+			say-line "\\xFF\\x0A\\x3C\\xD1\\xFF\\x0A\\x0B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I think I should try something else\\x10first."
+[00000264]:
+			jump &[00000318]
+[00000267]:
+			say-line "\\xFF\\x0A\\x5B\\x2A\\xFF\\x0A\\x0C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd better wait until it's\\x10dark."
+[00000318]:
+			jump &[00000380]
+[00000321]:
+			say-line "\\xFF\\x0A\\x1E\\x6A\\xFF\\x0A\\x0C\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I don't think this is the time\\x10or\\x10place."
+[00000380]:
+			jump &[00000389]
+[00000383]:
+			start-script 3 (88)
+[00000389]:
+			end-object
+		}
+
+		verb 91 {
+			if !(class-of 863 is 134) jump &[00000407]
+			V.161 = 1336
+			jump &[00000652]
+[00000407]:
+			if !(V.374 is 0) jump &[00000422]
+			V.161 = 1331
+			jump &[00000652]
+[00000422]:
+			if !(V.374 is 1) jump &[00000437]
+			V.161 = 1347
+			jump &[00000652]
+[00000437]:
+			if !(V.374 is 2) jump &[00000452]
+			V.161 = 1292
+			jump &[00000652]
+[00000452]:
+			if !(V.374 is 3) jump &[00000467]
+			V.161 = 1289
+			jump &[00000652]
+[00000467]:
+			if !(V.374 is 4) jump &[00000482]
+			V.161 = 1333
+			jump &[00000652]
+[00000482]:
+			if !(V.374 is 5) jump &[00000497]
+			V.161 = 1330
+			jump &[00000652]
+[00000497]:
+			if !(V.374 is 6) jump &[00000512]
+			V.161 = 1326
+			jump &[00000652]
+[00000512]:
+			if !(V.374 is 7) jump &[00000527]
+			V.161 = 1348
+			jump &[00000652]
+[00000527]:
+			if !(V.374 is 8) jump &[00000542]
+			V.161 = 1332
+			jump &[00000652]
+[00000542]:
+			if !(V.374 is 9) jump &[00000557]
+			V.161 = 1366
+			jump &[00000652]
+[00000557]:
+			if !(V.374 is 10) jump &[00000572]
+			V.161 = 1351
+			jump &[00000652]
+[00000572]:
+			if !(V.374 is 11) jump &[00000587]
+			V.161 = 1291
+			jump &[00000652]
+[00000587]:
+			if !(V.374 is 12) jump &[00000602]
+			V.161 = 1340
+			jump &[00000652]
+[00000602]:
+			if !(V.374 is 13) jump &[00000617]
+			V.161 = 1297
+			jump &[00000652]
+[00000617]:
+			if !(V.374 is 14) jump &[00000632]
+			V.161 = 1342
+			jump &[00000652]
+[00000632]:
+			if !(V.374 is 15) jump &[00000647]
+			V.161 = 1385
+			jump &[00000652]
+[00000647]:
+			V.161 = 1261
+[00000652]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 856 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0856
+		name is "exit"
+
+		verb 10 {
+			if (owner-of 863 is 1) {
+				if (!B.275[3]) {
+					chain-script 208 ()
+				}
+			}
+			come-out 304 in-room 29 walk-to 65535,65535
+			end-object
+		}
+	}
+
+	object 858 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0858
+		name is "servant"
+
+		verb 90 {
+			V.123 = 12
+			end-object
+		}
+
+		verb 12 {
+			chain-script 202 ()
+			end-object
+		}
+	}
+
+	object 862 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0862
+		name is "assortment of items"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x7F\\x1D\\xFF\\x0A\\x0F\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It all looks pretty\\x10worthless."
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\xFD\\x5A\\xFF\\x0A\\x0F\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't need any more worthless\\x10junk."
+			stop-sentence
+			end-object
+		}
+
+		verb 5 {
+			say-line "\\xFF\\x0A\\x75\\xA3\\xFF\\x0A\\x0F\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't give away junk that's not\\x10mine."
+			end-object
+		}
+	}
+
+	object 859 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0859
+		name is "pots"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x8B\\xBD\\xFF\\x0A\\x0C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Pots."
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\xBA\\xD9\\xFF\\x0A\\x0C\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I don't need them.  They're just\\x10pots."
+			stop-sentence
+			end-object
+		}
+
+		verb 5 {
+			say-line "\\xFF\\x0A\\x0C\\x1E\\xFF\\x0A\\x0D\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I can't give away pots that aren't\\x10mine."
+			end-object
+		}
+	}
+
+	object 860 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0860
+		name is "urns"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xF7\\x6C\\xFF\\x0A\\x0D\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Little pots."
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\x86\\x96\\xFF\\x0A\\x0D\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I don't need them.  They're just small\\x10pots."
+			stop-sentence
+			end-object
+		}
+
+		verb 5 {
+			say-line "\\xFF\\x0A\\xB3\\xE9\\xFF\\x0A\\x0D\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't give away pots that aren't\\x10mine."
+			end-object
+		}
+	}
+
+	object 861 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0861
+		name is "crockery"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x65\\x3D\\xFF\\x0A\\x0E\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Big pots."
+			end-object
+		}
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\xFD\\x6A\\xFF\\x0A\\x0E\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I don't need them.  They're just big\\x10pots."
+			stop-sentence
+			end-object
+		}
+
+		verb 5 {
+			say-line "\\xFF\\x0A\\x20\\xC4\\xFF\\x0A\\x0E\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't give away pots that aren't\\x10mine."
+			end-object
+		}
+	}
+
+	object 857 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0857
+		name is "poster"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xCE\\x19\\xFF\\x0A\\x0B\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It says:\\xFF\\x01`Drink Elliot's Rose Water`\\xFF\\x01in Arabic."
+			end-object
+		}
+	}
+
+	object 864 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0864
+		name is "Al Jabbar's map"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 91 {
+			V.161 = 1314
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x43\\xF7\\xFF\\x0A\\x0F\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a crude map of the\\x10desert."
+			end-object
+		}
+	}
+
+	object 865 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_0865
+		name is "bright red fez"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 91 {
+			V.161 = 1326
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x4E\\x3A\\xFF\\x0A\\x10\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a painfully bright red\\x10fez."
+			end-object
+		}
+	}
+
+	object 1387 { ; VERB LECF_0001\LFLF_0064\ROOM\OBCD_1387
+		name is "actor-stand-in"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0064\ROOM\EXCD
+		V.164 = 0
+		stop-script 86
+		if (B.275[6]) {
+			B.87[V.209] = 1
+			B.87[V.210] = 1
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0064\ROOM\ENCD
+		for V.442 = 0 to 8 ++ {
+			B.37[V.442] = 0
+		}
+		if !(V.369 is 0) jump &[00000050]
+		V.209 = 1
+		V.210 = 4
+		jump &[00000090]
+[00000050]:
+		if !(V.369 is 1) jump &[00000070]
+		V.209 = 1
+		V.210 = 3
+		jump &[00000090]
+[00000070]:
+		if !(V.369 is 2) jump &[00000090]
+		V.209 = 3
+		V.210 = 4
+		jump &[00000090]
+[00000090]:
+		V.164 = 200
+		actor 1 costume 2
+		if !(B.210) jump &[00000502]
+		if !(V.238 is 3) jump &[00000233]
+		if (owner-of 863 is-not 1) {
+			if (owner-of 309 is-not 1) {
+				if (owner-of 310 is-not 1) {
+					state-of 863 is 0
+					class-of 863 is 32 135
+				}
+			}
+		}
+		actor 12 default costume 63 elevation 0 talk-color 14 follow-boxes
+		if !(B.268) jump &[00000191]
+		actor 12 name "Omar"
+		jump &[00000206]
+[00000191]:
+		actor 12 name "shopkeeper"
+[00000206]:
+		class-of 12 is 141 133
+		V.163 = 213
+		put-actor 12 in-room 64
+		put-actor 12 at 214,135
+		jump &[00000499]
+[00000233]:
+		if !(V.238 is 2) jump &[00000466]
+[00000240]:
+		if (!V.375) {
+			V.444 = (3 - 1)
+			V.444 = ((random V.444) + 1)
+			V.375 = V.444
+		}
+		if (owner-of 865 is 15) {
+			pick-up-object 865 in-room 0
+			owner-of 865 is 11
+		}
+		if !(owner-of 865 is 6) jump &[00000325]
+		actor 6 default talk-animation 11,12 init-animation 8 stand-animation 10 walk-animation 9 talk-color 240
+		jump &[00000340]
+[00000325]:
+		actor 6 default talk-animation 4,5 init-animation 1 stand-animation 3 walk-animation 2 talk-color 240
+[00000340]:
+		state-of 863 is 1
+		class-of 863 is 160
+		class-of 858 is 160
+		class-of 6 is 141 133
+		if !(V.371) jump &[00000385]
+		if !(class-of V.371 is 32) jump &[00000385]
+		jump &[00000463]
+[00000385]:
+		if !(B.269[5]) jump &[00000398]
+		start-script bak 209 ()
+		jump &[00000458]
+[00000398]:
+		actor 6 costume 64 elevation 0 talk-color 240
+		if !(B.269[1]) jump &[00000430]
+		actor 6 name "servant"
+		jump &[00000446]
+[00000430]:
+		actor 6 name "storekeeper"
+[00000446]:
+		put-actor 6 in-room 64
+		put-actor 6 at 200,100
+		start-script bak 205 ()
+[00000458]:
+		V.163 = 206
+[00000463]:
+		jump &[00000499]
+[00000466]:
+		if !(V.238 is 1) jump &[00000499]
+		if (owner-of 865 is 15) {
+			pick-up-object 865 in-room 0
+			owner-of 865 is 6
+		}
+		jump &[00000240]
+		jump &[00000499]
+[00000499]:
+		jump &[00000582]
+[00000502]:
+		state-of 863 is 1
+		class-of 863 is 160
+		actor 12 costume 63 elevation 0 talk-color 14
+		if !(B.275[1]) jump &[00000542]
+		actor 12 name "Omar"
+		jump &[00000558]
+[00000542]:
+		actor 12 name "storekeeper"
+[00000558]:
+		class-of 12 is 141
+		put-actor 12 in-room 64
+		put-actor 12 at 214,135
+		pick-up-object 864 in-room 0
+		owner-of 864 is 12
+[00000582]:
+		start-script 210 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0200
+		if !(V.176 is 12) jump &[00000021]
+		chain-script 201 ()
+		jump &[00000047]
+[00000021]:
+		if !(V.176 is 2) jump &[00000034]
+		chain-script 203 ()
+		jump &[00000047]
+[00000034]:
+		if !(V.176 is 6) jump &[00000047]
+		chain-script 202 ()
+		jump &[00000047]
+[00000047]:
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+
+		if !(B.275[9] is 1) jump &[00000025]
+		L.5 = 2
+		jump &[00000030]
+[00000025]:
+		L.5 = 2
+[00000030]:
+		if !(L.0 is 934) jump &[00000047]
+		B.275[4] = 1
+		jump &[00016016]
+[00000047]:
+		cut-scene
+		if (!B.275[9]) {
+			do-animation 1 255
+		}
+		break-here 2
+		stop-script 204
+		do-animation 12 255
+		if (actor-x 12 is-not 185) {
+			walk 12 to 185,131
+			wait-for-actor 12
+		}
+		do-animation 12 face-towards 1
+		if (B.275[9]) {
+			B.275[12] = 1
+			break-until (actor-moving 2 is 0)
+			do-animation 12 face-towards 1
+			say-line 12 "\\xFF\\x0A\\xA4\\x0B\\xFF\\x0A\\x19\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00You've returned^\\xFF\\x03^alive!\\xFF\\x03Tell me, how was your\\x10trip?"
+			do-animation 12 13
+			break-here 3
+			do-animation 12 14
+			wait-for-message
+		}
+		walk 1 to-actor 12 within 30
+		wait-for-actor 1
+		V.442 = actor-x 1
+		V.443 = actor-y 12
+		walk 1 to V.442,V.443
+		wait-for-actor 1
+		do-animation 2 face-towards 12
+		do-animation 1 face-towards 12
+		if !(!B.275[9]) jump &[00000330]
+		if !(B.275[0]) jump &[00000298]
+		say-line 1 "\\xFF\\x0A\\xBB\\xA2\\xFF\\x0A\\xE8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me again^"
+		wait-for-message
+		jump &[00000330]
+[00000298]:
+		say-line 1 "\\xFF\\x0A\\x8D\\xCD\\xFF\\x0A\\xE8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		wait-for-message
+[00000330]:
+		do-animation 12 face-towards 1
+		if !(!B.275[9]) jump &[00000481]
+		if !(B.275[0]) jump &[00000422]
+		if !(B.322 is 1) jump &[00000395]
+		say-line 12 "\\xFF\\x0A\\xCA\\x7D\\xFF\\x0A\\x19\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Change your mind?"
+		jump &[00000419]
+[00000395]:
+		say-line 12 "\\xFF\\x0A\\xD7\\xA8\\xFF\\x0A\\x19\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes?"
+[00000419]:
+		jump &[00000473]
+[00000422]:
+		say-line 12 "\\xFF\\x0A\\xD6\\xC4\\xFF\\x0A\\x19\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00What can I do for you, effendi?"
+[00000473]:
+		do-animation 12 13
+		wait-for-message
+		do-animation 12 1
+[00000481]:
+		end-cut-scene
+		if !(B.275[9] is 1) jump &[00000494]
+		jump &[00007052]
+[00000494]:
+		if !(B.322 is 1) jump &[00000504]
+		jump &[00006929]
+[00000504]:
+		start-script 82 ()
+		B.275[0] = 1
+		B.317 = 1
+[00000519]:
+		start-script 68 ()
+		if (!B.275[1]) {
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\xC4\\xFA\\xFF\\x0A\\xE8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Are you Mr. Omar Al-Jabbar?"
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if !(!B.275[2]) jump &[00000793]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xE1\\x60\\xFF\\x0A\\xE9\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Do you ever deal in antiquities from\\x10Atlantis? \\xFF\\x09\\x07\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000923]
+[00000793]:
+		if (B.324 is 0) {
+			V.443 = ((41 + 5) - 1)
+			*V.443 = "\\xFF\\x0A\\x35\\xC3\\xFF\\x0A\\xE9\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm really interested in\\x10Atlantis. "
+			V.442 = ((120 + 5) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00000923]:
+		if (!B.275[3]) {
+			if (B.275[7]) {
+				V.443 = ((41 + 3) - 1)
+				*V.443 = "\\xFF\\x0A\\x7D\\x12\\xFF\\x0A\\xEA\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How much for the\\x10mask?"
+				V.442 = ((120 + 3) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		if !(B.275[12]) jump &[00003445]
+		if !(owner-of 863 is 1) jump &[00003445]
+		if !(class-of 863 is 6) jump &[00003312]
+		if !(V.374 is 0) jump &[00001216]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xEA\\x48\\xFF\\x0A\\xEA\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my baseball for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001216]:
+		if !(V.374 is 1) jump &[00001360]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x7C\\x9C\\xFF\\x0A\\xEA\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my voodoo doll for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001360]:
+		if !(V.374 is 2) jump &[00001498]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x56\\x01\\xFF\\x0A\\xEB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my wagon for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001498]:
+		if !(V.374 is 3) jump &[00001636]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x9E\\x50\\xFF\\x0A\\xEB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my yo-yo for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001636]:
+		if !(V.374 is 4) jump &[00001773]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xDD\\xA9\\xFF\\x0A\\xEB\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Can I trade my cane for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001773]:
+		if !(V.374 is 5) jump &[00001916]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x2C\\xFE\\xFF\\x0A\\xEB\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Can I trade my spectacles for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00001916]:
+		if !(V.374 is 6) jump &[00002052]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x39\\x5F\\xFF\\x0A\\xEC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my fez for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002052]:
+		if !(V.374 is 7) jump &[00002192]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x54\\xB3\\xFF\\x0A\\xEC\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Can I trade my spitoon for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002192]:
+		if !(V.374 is 8) jump &[00002329]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xF7\\x19\\xFF\\x0A\\xED\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my soap for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002329]:
+		if !(V.374 is 9) jump &[00002466]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x44\\x79\\xFF\\x0A\\xED\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Can I trade my veil for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002466]:
+		if !(V.374 is 10) jump &[00002611]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xD4\\xCD\\xFF\\x0A\\xED\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my red lipstick for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002611]:
+		if !(V.374 is 11) jump &[00002756]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x50\\x33\\xFF\\x0A\\xEE\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my yellow scarf for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002756]:
+		if !(V.374 is 12) jump &[00002896]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x3E\\x9D\\xFF\\x0A\\xEE\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my earring for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00002896]:
+		if !(V.374 is 13) jump &[00003033]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xEF\\xFD\\xFF\\x0A\\xEE\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my comb for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00003033]:
+		if !(V.374 is 14) jump &[00003170]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x7C\\x56\\xFF\\x0A\\xEF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my ring for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00003170]:
+		if !(V.374 is 15) jump &[00003309]
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xE0\\xB1\\xFF\\x0A\\xEF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can I trade my buckle for something\\x10else?"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00003309]
+[00003309]:
+		jump &[00003445]
+[00003312]:
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x1D\\x0A\\xFF\\x0A\\xF0\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd like to trade my mask for something\\x10else."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00003445]:
+		if (B.275[5]) {
+			if (!B.210) {
+				V.443 = ((41 + 6) - 1)
+				*V.443 = "\\xFF\\x0A\\xF0\\x6B\\xFF\\x0A\\xF0\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00If you can't help us, then who\\x10can? \\xFF\\x09\\x09\\x00"
+				V.442 = ((120 + 6) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x65\\xCE\\xFF\\x0A\\xF0\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Nice shop."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00003798]
+		B.275[1] = 1
+		say-line 12 "\\xFF\\x0A\\x27\\x13\\xFF\\x0A\\x1A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I am but a humble shopkeeper.\\xFF\\x09\\x06\\x00\\xFF\\x03My name is unimportant."
+		wait-for-message
+		jump &[00000519]
+		jump &[00004450]
+[00003798]:
+		if !(V.165 is 121) jump &[00003953]
+		B.275[2] = 1
+		say-line 12 "\\xFF\\x0A\\x7E\\xA5\\xFF\\x0A\\x1A\\x03\\xFF\\x0A\\x2A\\x00\\xFF\\x0A\\x00\\x00Maybe I do^maybe I don't.\\xFF\\x03Many a fool dreams of the Lost\\x10Kingdom.\\xFF\\x03How may I know your intentions are\\x10serious?\\xFF\\x09\\x06\\x00"
+		jump &[00004952]
+		jump &[00004450]
+[00003953]:
+		if !(V.165 is 122) jump &[00004084]
+		B.275[3] = 1
+		start-script 144 (23,2)
+		say-line 12 "\\xFF\\x0A\\x4B\\xC9\\xFF\\x0A\\x1B\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00You can take the worthless\\x10thing.\\xFF\\x03It's scaring away my best\\x10customers.\\xFF\\x09\\x06\\x00"
+		class-of 856 is 8
+		jump &[00016016]
+		jump &[00004450]
+[00004084]:
+		if !(V.165 is 123) jump &[00004136]
+		say-line 12 "\\xFF\\x0A\\xEC\\x66\\xFF\\x0A\\x1C\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I like to think\\x10so."
+		jump &[00016016]
+		jump &[00004450]
+[00004136]:
+		if !(V.165 is 124) jump &[00004225]
+		say-line 12 "\\xFF\\x0A\\x68\\x9B\\xFF\\x0A\\x1C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00And I really need some reason to take you\\x10seriously.\\xFF\\x09\\x07\\x00"
+		jump &[00004952]
+		jump &[00004450]
+[00004225]:
+		if !(V.165 is 125) jump &[00004369]
+		B.275[6] = 1
+		B.87[4] = 1
+		say-line 12 "\\xFF\\x0A\\x68\\x0D\\xFF\\x0A\\x1D\\x03\\xFF\\x0A\\x2A\\x00\\xFF\\x0A\\x00\\x00I suppose you could try that clown Trottier in Monte\\x10Carlo^\\xFF\\x09\\x06\\x00\\xFF\\x03^but you didn't hear it from\\x10me."
+		jump &[00016016]
+		jump &[00004450]
+[00004369]:
+		if !(V.165 is 126) jump &[00004382]
+		jump &[00010375]
+		jump &[00004450]
+[00004382]:
+		if !(V.165 is 127) jump &[00004450]
+		if !(B.275[13]) jump &[00004444]
+		say-line 12 "\\xFF\\x0A\\xE5\\xE3\\xFF\\x0A\\x1D\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I thought you lost\\x10it."
+		jump &[00004450]
+		jump &[00004447]
+[00004444]:
+		jump &[00010375]
+[00004447]:
+		jump &[00004450]
+[00004450]:
+		wait-for-message
+		do-animation 12 13
+		break-here 3
+		do-animation 12 14
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x34\\xF6\\xFF\\x0A\\xF0\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It turned up in my other\\x10pants."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xDF\\x46\\xFF\\x0A\\xF1\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I found it under one of those camels you gave\\x10us."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x34\\xB7\\xFF\\x0A\\xF1\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I tried to give it to Trottier, but he\\x10refused."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00004880]
+		jump &[00004880]
+[00004880]:
+		say-line 12 "\\xFF\\x0A\\x5C\\x20\\xFF\\x0A\\x1E\\x03\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00How lucky for both of\\x10us!\\xFF\\x03Now, about that\\x10trade^"
+		jump &[00010375]
+[00004952]:
+		wait-for-message
+		do-animation 12 13
+		break-here 3
+		do-animation 12 14
+		start-script 68 ()
+		if (B.339[7] is 0) {
+			V.443 = ((41 + 2) - 1)
+			*V.443 = "\\xFF\\x0A\\x97\\x1F\\xFF\\x0A\\xF2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I've got a Ph.D.  Will that\\x10do?"
+			V.442 = ((120 + 2) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x50\\x76\\xFF\\x0A\\xF2\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm not sure I know what you mean."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		if !(owner-of 934 is 1) jump &[00005339]
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x98\\xC7\\xFF\\x0A\\xF2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I've got this\\x10stone."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00005483]
+[00005339]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x89\\xFF\\xFF\\x0A\\xF2\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't think I've got anything that would convince\\x10you."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00005483]:
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00005684]
+		B.321 = 1
+		say-line 12 "\\xFF\\x0A\\x36\\xB5\\xFF\\x0A\\x1E\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00For example^\\xFF\\x03It is said that three stone disks were needed to open the gates of\\x10Atlantis."
+		wait-for-message
+		do-animation 12 1
+		say-line 12 "\\xFF\\x0A\\x2C\\x8B\\xFF\\x0A\\x1F\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Show me one of those if you\\x10can.\\xFF\\x09\\x07\\x00"
+		jump &[00005950]
+[00005684]:
+		if !(V.165 is 121) jump &[00005774]
+		B.339[7] = 1
+		say-line 12 "\\xFF\\x0A\\x9E\\xE4\\xFF\\x0A\\x1F\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Ha ha ha.\\xFF\\x03You have quite a sense of humor, I\\x10see."
+		jump &[00016016]
+		jump &[00005950]
+[00005774]:
+		if !(V.165 is 122) jump &[00005838]
+		say-line 12 "\\xFF\\x0A\\x18\\x69\\xFF\\x0A\\x20\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Stone, you say?\\xFF\\x03Let's see it.\\xFF\\x09\\x07\\x00"
+		jump &[00005950]
+[00005838]:
+		if !(V.165 is 123) jump &[00005950]
+		say-line 12 "\\xFF\\x0A\\x9D\\xB9\\xFF\\x0A\\x20\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Not unless you possess one of the stone keys that opened the gates of\\x10Atlantis."
+		jump &[00016016]
+		jump &[00005950]
+[00005950]:
+		wait-for-message
+		do-animation 12 1
+		start-script 68 ()
+		if !(owner-of 934 is 1) jump &[00006084]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xFF\\x54\\xFF\\x0A\\xF3\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Here it is^take a look."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00006482]
+[00006084]:
+		if !(owner-of 1055 is 11) jump &[00006238]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xB1\\x8D\\xFF\\x0A\\xF3\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I saw a stone disk once, but someone stole\\x10it. \\xFF\\x09\\x12\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00006482]
+[00006238]:
+		if !(!B.275[5]) jump &[00006362]
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x61\\x09\\xFF\\x0A\\xF4\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't have a stone\\x10disk."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00006482]
+[00006362]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xAA\\x4B\\xFF\\x0A\\xF4\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I still don't have a stone\\x10disk."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00006482]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x4F\\x98\\xFF\\x0A\\xF4\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm not sure I should trust\\x10you. \\xFF\\x09\\x09\\x00 "
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00006648]
+		B.323 = 1
+		B.275[4] = 1
+		jump &[00016016]
+		jump &[00006929]
+[00006648]:
+		if !(V.165 is 121) jump &[00006757]
+		B.275[5] = 1
+		say-line 12 "\\xFF\\x0A\\x98\\x73\\xFF\\x0A\\x21\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That's too bad.\\xFF\\x03I don't discuss the Lost Kingdom with\\x10amateurs. \\xFF\\x09\\x06\\x00"
+		jump &[00016016]
+		jump &[00006929]
+[00006757]:
+		if !(V.165 is 122) jump &[00006829]
+		say-line 12 "\\xFF\\x0A\\xBE\\x0E\\xFF\\x0A\\x22\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Let me know when you make up your\\x10mind."
+		jump &[00016016]
+		jump &[00006929]
+[00006829]:
+		if !(V.165 is 123) jump &[00006929]
+		B.275[5] = 1
+		say-line 12 "\\xFF\\x0A\\xE1\\x6E\\xFF\\x0A\\x22\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then I can tell you nothing about the Lost\\x10Kingdom,\\x10effendi."
+		jump &[00016016]
+		jump &[00006929]
+[00006929]:
+		cut-scene
+		say-line 1 "\\xFF\\x0A\\xFC\\xE9\\xFF\\x0A\\xF4\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes.  We're not giving up after\\x10all."
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\xB4\\xEC\\xFF\\x0A\\x22\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's your funeral,\\x10effendi.\\xFF\\x09\\x06\\x00"
+		B.322 = 0
+		end-cut-scene
+		jump &[00018937]
+[00007052]:
+		wait-for-message
+		do-animation 12 1
+		B.275[9] = 0
+		start-script 82 ()
+		start-script 68 ()
+		start-script 144 (28,3)
+		if !(owner-of 863 is 1) jump &[00007485]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xB3\\x3F\\xFF\\x0A\\xF5\\x02\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Okay, except our camels died a mile out of\\x10town. \\xFF\\x09\\x12\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x9D\\xD0\\xFF\\x0A\\xF5\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Marvelous, but we didn't find\\x10anything. "
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xA4\\x36\\xFF\\x0A\\xF6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd rather not talk about\\x10it. \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00007921]
+[00007485]:
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x50\\x7A\\xFF\\x0A\\xF6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It was going pretty well, until our camels\\x10died. \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\xCD\\xED\\xFF\\x0A\\xF6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It went okay, if you can stand the smell of dead\\x10camels. \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xD9\\x82\\xFF\\x0A\\xF7\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Terrible^those camels you gave us died after an\\x10hour. \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00007921]:
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 121) jump &[00008216]
+		do-animation 12 12
+		break-here 8
+		say-line 12 "\\xFF\\x0A\\xEA\\x40\\xFF\\x0A\\x23\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00A terrible shame, those were my LAST\\x10TWO\\x10camels.\\xFF\\x03Perhaps I can make amends in some small\\x10way^"
+		wait-for-message
+		if !(B.275[3]) jump &[00008140]
+		say-line 12 "\\xFF\\x0A\\x93\\x42\\xFF\\x0A\\x24\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^do you still have that mask I gave\\x10you?"
+		jump &[00008208]
+[00008140]:
+		say-line 12 "\\xFF\\x0A\\xD4\\x9F\\xFF\\x0A\\x24\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^do you still have that mask you tried to\\x10steal?"
+[00008208]:
+		wait-for-message
+		jump &[00009167]
+		jump &[00009167]
+[00008216]:
+		if !(V.165 is 122) jump &[00008353]
+		do-animation 12 12
+		break-here 8
+		say-line 12 "\\xFF\\x0A\\x9E\\x09\\xFF\\x0A\\x25\\x03\\xFF\\x0A\\x26\\x00\\xFF\\x0A\\x00\\x00The desert guards its secrets, doctor.\\xFF\\x03By the way, do you still have that mask I gave\\x10you?"
+		wait-for-message
+		jump &[00009167]
+		jump &[00009167]
+[00008353]:
+		if !(V.165 is 123) jump &[00008530]
+		do-animation 12 12
+		break-here 8
+		say-line 12 "\\xFF\\x0A\\x1A\\xEB\\xFF\\x0A\\x25\\x03\\xFF\\x0A\\x26\\x00\\xFF\\x0A\\x00\\x00Understood^\\xFF\\x03It is unworthy to dwell upon\\x10misfortune.\\xFF\\x03Perhaps I can still be of\\x10service^\\xFF\\x03^do you still have that mask I gave\\x10you?"
+		wait-for-message
+		jump &[00009167]
+		jump &[00009167]
+[00008530]:
+		do-animation 12 1
+		do-animation 12 12
+		break-here 10
+		do-animation 12 1
+		say-line 12 "\\xFF\\x0A\\xB0\\x2F\\xFF\\x0A\\x27\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Oh, I am so ashamed!\\xFF\\x03I revile myself!\\xFF\\x03I tear out my hair!"
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\xEE\\xEC\\xFF\\x0A\\x27\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Please accept something from my humble\\x10shop^\\xFF\\x03^to repay you for your trouble."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x10\\x08\\xFF\\x0A\\xF8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do you suggest? \\xFF\\x09\\x08\\x00"
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\x86\\xA4\\xFF\\x0A\\x28\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How about this mask?\\xFF\\x03Some say it actually comes from the\\x10Lost\\x10City."
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\xBD\\xF9\\xFF\\x0A\\x10\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00We'll take it!"
+		wait-for-message
+		do-animation 1 face-towards 2
+		say-line 1 "\\xFF\\x0A\\x5A\\x58\\xFF\\x0A\\xF8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What? \\xFF\\x09\\x09\\x00 "
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\xF2\\x48\\xFF\\x0A\\x29\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well chosen, my dear!"
+		do-animation 1 1
+		do-animation 1 face-towards 12
+		wait-for-message
+		do-animation 12 1
+		walk 12 to-object 863
+		wait-for-actor 12
+		do-animation 12 11
+		break-here 3
+		pick-up-object 863 in-room 0
+		owner-of 863 is 12
+		do-animation 12 3
+		break-here
+		walk 12 to-actor 1 within 30
+		wait-for-actor 12
+		do-animation 12 face-towards 1
+		break-here 2
+		do-animation 1 face-towards 12
+		break-here 2
+		do-animation 2 face-towards 12
+		break-here 2
+		do-animation 12 8
+		do-animation 1 10
+		break-here 4
+		do-animation 12 1
+		do-animation 1 1
+		say-line 12 "\\xFF\\x0A\\xF6\\x8F\\xFF\\x0A\\x29\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Thank you for salvaging my honor as a merchant,\\x10effendi."
+		start-script 144 (23,2)
+		B.275[3] = 1
+		owner-of 863 is 1
+		start-script 10 ()
+		jump &[00016016]
+		class-of 856 is 8
+[00009167]:
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x3B\\x6E\\xFF\\x0A\\xF8\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Yeah, I've got it right here.  Why do you\\x10ask?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		if !(B.275[3]) jump &[00009442]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xCE\\xDB\\xFF\\x0A\\xF8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You gave it to me.  It's mine\\x10now.  \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00009579]
+[00009442]:
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xF4\\x37\\xFF\\x0A\\xF9\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Possession is 9/10 of the law. It's mine\\x10now.\\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00009579]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x74\\xC6\\xFF\\x0A\\xF9\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Uhh^nope, I lost it in the\\x10desert. "
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xC4\\x26\\xFF\\x0A\\xFA\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Darn^I lost it in Monte\\x10Carlo. "
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		B.275[3] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00009856]
+		jump &[00009863]
+		jump &[00010009]
+[00009856]:
+		if !(V.165 is 121) jump &[00009920]
+[00009863]:
+		say-line 12 "\\xFF\\x0A\\xAA\\x1D\\xFF\\x0A\\x2A\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I'd like to trade you for\\x10it."
+		wait-for-message
+		jump &[00010009]
+		jump &[00010009]
+[00009920]:
+		B.275[13] = 1
+		say-line 12 "\\xFF\\x0A\\x4D\\x66\\xFF\\x0A\\x2A\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00That's too bad^\\xFF\\x03I'd have traded handsomely to get it\\x10back."
+		jump &[00016016]
+[00010009]:
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xD0\\x83\\xFF\\x0A\\xFA\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What'll you give\\x10me?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x1C\\xAC\\xFF\\x0A\\xFA\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Sorry, I'd rather keep\\x10it."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00010295]
+		say-line 12 "\\xFF\\x0A\\xA1\\xF2\\xFF\\x0A\\x2A\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That depends^"
+		jump &[00010375]
+		jump &[00010375]
+[00010295]:
+		if !(V.165 is 121) jump &[00010375]
+		say-line 12 "\\xFF\\x0A\\x97\\x23\\xFF\\x0A\\x2B\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Oh well^\\xFF\\x03^let me know if you change your\\x10mind."
+		jump &[00016016]
+		jump &[00010375]
+[00010375]:
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\x9A\\x9B\\xFF\\x0A\\x2B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Do you have anything in\\x10mind?"
+[00010426]:
+		do-animation 12 13
+		break-here 11
+		do-animation 12 1
+		do-animation 12 4
+		wait-for-message
+		do-animation 12 5
+		if !(B.275[10]) jump &[00010472]
+		if !(L.1) jump &[00010469]
+		jump &[00010472]
+		jump &[00010472]
+[00010469]:
+		jump &[00010529]
+[00010472]:
+		if !(L.2) jump &[00010480]
+		jump &[00010490]
+[00010480]:
+		if !(B.275[11]) jump &[00010490]
+		jump &[00010529]
+[00010490]:
+		say-line 1 "\\xFF\\x0A\\x01\\xEB\\xFF\\x0A\\xFA\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Make an\\x10offer."
+		wait-for-message
+		jump &[00011854]
+[00010529]:
+		start-script 68 ()
+		if !(B.275[10]) jump &[00011081]
+		if !(!L.1) jump &[00011081]
+		if !(V.373 is 0) jump &[00010672]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x13\\x16\\xFF\\x0A\\xFB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Something white would be\\x10nice."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011081]
+[00010672]:
+		if !(V.373 is 1) jump &[00010813]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x8F\\x57\\xFF\\x0A\\xFB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Something dark, maybe black, would be\\x10good."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011081]
+[00010813]:
+		if !(V.373 is 2) jump &[00010946]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x40\\xB8\\xFF\\x0A\\xFB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd like it to be red, if\\x10possible."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011081]
+[00010946]:
+		if !(V.373 is 3) jump &[00011081]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xB5\\xFF\\xFF\\x0A\\xFB\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't know^something yellow,\\x10maybe."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011081]
+[00011081]:
+		if !(B.275[11]) jump &[00011630]
+		if !(!L.2) jump &[00011630]
+		if !(V.372 is 0) jump &[00011226]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x2F\\x49\\xFF\\x0A\\xFC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Something for a young boy,\\x10perhaps."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011630]
+[00011226]:
+		if !(V.372 is 1) jump &[00011362]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xCA\\xA0\\xFF\\x0A\\xFC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Something nice for an older\\x10gentleman."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011630]
+[00011362]:
+		if !(V.372 is 2) jump &[00011502]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x63\\xF7\\xFF\\x0A\\xFC\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm looking for a gift for an older\\x10woman."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011630]
+[00011502]:
+		if !(V.372 is 3) jump &[00011630]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xDC\\x4D\\xFF\\x0A\\xFD\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Something for a younger\\x10woman."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00011630]
+[00011630]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xF0\\x94\\xFF\\x0A\\xFD\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Make an offer."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00011800]
+		L.1 = 1
+		say-line 12 "\\xFF\\x0A\\xA1\\xE0\\xFF\\x0A\\x2B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hmmm^very well^"
+		jump &[00011896]
+		jump &[00011896]
+[00011800]:
+		if !(V.165 is 121) jump &[00011847]
+		L.2 = 1
+		say-line 12 "\\xFF\\x0A\\x44\\x2C\\xFF\\x0A\\x2C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Ah^I see^"
+		jump &[00011896]
+		jump &[00011896]
+[00011847]:
+		if !(V.165 is 122) jump &[00011896]
+[00011854]:
+		say-line 12 "\\xFF\\x0A\\x5E\\x68\\xFF\\x0A\\x2C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Well, how about^"
+		jump &[00011948]
+		jump &[00011896]
+[00011896]:
+		if !(L.2) jump &[00011909]
+		if !(L.1) jump &[00011909]
+		jump &[00011854]
+[00011909]:
+		say-line 12 "\\xFF\\x0A\\xD6\\x97\\xFF\\x0A\\x2C\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Anything else?"
+		wait-for-message
+		jump &[00010426]
+[00011948]:
+		wait-for-message
+		if (L.2) {
+			V.380 = V.372
+		}
+		if (L.1) {
+			V.379 = V.373
+		}
+[00011970]:
+		L.3 = ((V.380 * 4) + V.379)
+		if !(class-of 863 is 6) jump &[00012009]
+		if !(L.3 is V.374) jump &[00012009]
+		L.4 = 1
+		jump &[00015292]
+[00012009]:
+		if !(L.3 is 0) jump &[00012107]
+		say-line 12 "\\xFF\\x0A\\x73\\xC8\\xFF\\x0A\\x2C\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^this baseball?\\xFF\\x03It's been autographed by your country's Lou\\x10Gehrig!"
+		jump &[00013561]
+[00012107]:
+		if !(L.3 is 1) jump &[00012202]
+		say-line 12 "\\xFF\\x0A\\x15\\x5E\\xFF\\x0A\\x2D\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^this voodoo doll?\\xFF\\x03It was carved from trees in the Black\\x10Forest!"
+		jump &[00013561]
+[00012202]:
+		if !(L.3 is 2) jump &[00012293]
+		say-line 12 "\\xFF\\x0A\\x47\\xF9\\xFF\\x0A\\x2D\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^this little red\\x10wagon?\\xFF\\x03It once belonged to Rudyard\\x10Kipling."
+		jump &[00013561]
+[00012293]:
+		if !(L.3 is 3) jump &[00012387]
+		say-line 12 "\\xFF\\x0A\\x42\\x87\\xFF\\x0A\\x2E\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^this yellow yo-yo?\\xFF\\x03It was hand-painted by an Arabian\\x10princess!"
+		jump &[00013561]
+[00012387]:
+		if !(L.3 is 4) jump &[00012484]
+		say-line 12 "\\xFF\\x0A\\xCE\\x40\\xFF\\x0A\\x2F\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^this beautiful white\\x10cane?\\xFF\\x03It was once touched by Queen\\x10Victoria!"
+		jump &[00013561]
+[00012484]:
+		if !(L.3 is 5) jump &[00012597]
+		say-line 12 "\\xFF\\x0A\\x0E\\xE3\\xFF\\x0A\\x2F\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^these charming shaded spectacles?\\xFF\\x03With these a man can stare straight at the\\x10sun!"
+		jump &[00013561]
+[00012597]:
+		if !(L.3 is 6) jump &[00012692]
+		say-line 12 "\\xFF\\x0A\\xC2\\xAD\\xFF\\x0A\\x30\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^this handsome red fez?\\xFF\\x03No gentleman should be seen without\\x10one!"
+		jump &[00013561]
+[00012692]:
+		if !(L.3 is 7) jump &[00012820]
+		say-line 12 "\\xFF\\x0A\\x42\\x3E\\xFF\\x0A\\x31\\x03\\xFF\\x0A\\x2A\\x00\\xFF\\x0A\\x00\\x00^this antique brass\\x10spittoon?\\xFF\\x03With it a man may spit like a camel in the privacy of his own\\x10home."
+		jump &[00013561]
+[00012820]:
+		if !(L.3 is 8) jump &[00012897]
+		say-line 12 "\\xFF\\x0A\\x77\\x2B\\xFF\\x0A\\x32\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^this lovely bar of\\x10soap?\\xFF\\x03It's 99 94/100 pure."
+		jump &[00013561]
+[00012897]:
+		if !(L.3 is 9) jump &[00012979]
+		say-line 12 "\\xFF\\x0A\\xFF\\xE4\\xFF\\x0A\\x32\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^this decorative black\\x10veil?\\xFF\\x03It goes with\\x10anything."
+		jump &[00013561]
+[00012979]:
+		if !(L.3 is 10) jump &[00013060]
+		say-line 12 "\\xFF\\x0A\\x5B\\x6C\\xFF\\x0A\\x33\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00^this dark red lipstick?\\xFF\\x03It's chic, yet\\x10dignified."
+		jump &[00013561]
+[00013060]:
+		if !(L.3 is 11) jump &[00013145]
+		say-line 12 "\\xFF\\x0A\\x01\\x02\\xFF\\x0A\\x34\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^this yellow scarf?\\xFF\\x03It's a bit dowdy, but\\x10comfortable."
+		jump &[00013561]
+[00013145]:
+		if !(L.3 is 12) jump &[00013265]
+		say-line 12 "\\xFF\\x0A\\x69\\x82\\xFF\\x0A\\x34\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00^these charming ivory earrings?\\xFF\\x03They were carved from the tusks of a prehistoric\\x10mammoth!"
+		jump &[00013561]
+[00013265]:
+		if !(L.3 is 13) jump &[00013362]
+		say-line 12 "\\xFF\\x0A\\xDA\\x50\\xFF\\x0A\\x35\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^this wondrous ebony comb?\\xFF\\x03It was last owned by Mata Hari\\x10herself!"
+		jump &[00013561]
+[00013362]:
+		if !(L.3 is 14) jump &[00013468]
+		say-line 12 "\\xFF\\x0A\\x80\\x0D\\xFF\\x0A\\x36\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^this enchanting ruby ring?\\xFF\\x03They say it has the power to cloud men's\\x10minds."
+		jump &[00013561]
+[00013468]:
+		if !(L.3 is 15) jump &[00013561]
+		say-line 12 "\\xFF\\x0A\\xBD\\xD2\\xFF\\x0A\\x36\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^this priceless gold buckle?\\xFF\\x03It was a gift to Queen\\x10Cleopatra!"
+		jump &[00013561]
+[00013561]:
+		wait-for-message
+		do-animation 12 13
+		break-here 11
+		do-animation 12 1
+		start-script 68 ()
+		if !(L.3 is 5) jump &[00013696]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x37\\xBB\\xFF\\x0A\\xFD\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'll take them!"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00013910]
+[00013696]:
+		if !(L.3 is 12) jump &[00013809]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x8C\\xDB\\xFF\\x0A\\xFD\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'll take them!"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00013910]
+[00013809]:
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xE1\\xFB\\xFF\\x0A\\xFD\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I'll take it!"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00013910]:
+		L.5 = random 4
+		if !(L.5 is 0) jump &[00014063]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x86\\x1F\\xFF\\x0A\\xFE\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That doesn't appeal to me.  What else have you\\x10got?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00014652]
+[00014063]:
+		if !(L.5 is 1) jump &[00014215]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x45\\x7A\\xFF\\x0A\\xFE\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00That sounds pretty awful.  Have you got anything\\x10else?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00014652]
+[00014215]:
+		if !(L.5 is 2) jump &[00014350]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xD2\\xD7\\xFF\\x0A\\xFE\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00No thanks.  Can I see something\\x10else?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00014652]
+[00014350]:
+		if !(L.5 is 3) jump &[00014500]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x16\\x2E\\xFF\\x0A\\xFF\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I don't think that's it.  What else can you show\\x10me?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00014652]
+[00014500]:
+		if !(L.5 is 4) jump &[00014652]
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x65\\x8C\\xFF\\x0A\\xFF\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00That's not quite what I want.  What else have you\\x10got?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00014652]
+[00014652]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\xEB\\xE6\\xFF\\x0A\\xFF\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'll just keep what I've\\x10got."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00015285]
+[00014791]:
+		class-of 863 is 6
+		do-animation 1 10
+		do-animation 12 8
+		break-here 8
+		do-animation 1 1
+		do-animation 12 1
+		break-here 2
+		say-line 12 "\\xFF\\x0A\\x8F\\x6F\\xFF\\x0A\\x37\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00You've made a good exchange, effendi."
+		do-animation 1 3
+		wait-for-message
+		if !(L.3 is 0) jump &[00014904]
+		new-name-of 863 is "baseball"
+		jump &[00015264]
+[00014904]:
+		if !(L.3 is 1) jump &[00014929]
+		new-name-of 863 is "voodoo doll"
+		jump &[00015264]
+[00014929]:
+		if !(L.3 is 2) jump &[00014959]
+		new-name-of 863 is "little red wagon"
+		jump &[00015264]
+[00014959]:
+		if !(L.3 is 3) jump &[00014978]
+		new-name-of 863 is "yo-yo"
+		jump &[00015264]
+[00014978]:
+		if !(L.3 is 4) jump &[00014996]
+		new-name-of 863 is "cane"
+		jump &[00015264]
+[00014996]:
+		if !(L.3 is 5) jump &[00015020]
+		new-name-of 863 is "spectacles"
+		jump &[00015264]
+[00015020]:
+		if !(L.3 is 6) jump &[00015037]
+		new-name-of 863 is "fez"
+		jump &[00015264]
+[00015037]:
+		if !(L.3 is 7) jump &[00015059]
+		new-name-of 863 is "spittoon"
+		jump &[00015264]
+[00015059]:
+		if !(L.3 is 8) jump &[00015084]
+		new-name-of 863 is "bar of soap"
+		jump &[00015264]
+[00015084]:
+		if !(L.3 is 9) jump &[00015102]
+		new-name-of 863 is "veil"
+		jump &[00015264]
+[00015102]:
+		if !(L.3 is 10) jump &[00015133]
+		new-name-of 863 is "dark red lipstick"
+		jump &[00015264]
+[00015133]:
+		if !(L.3 is 11) jump &[00015164]
+		new-name-of 863 is "pale yellow scarf"
+		jump &[00015264]
+[00015164]:
+		if !(L.3 is 12) jump &[00015192]
+		new-name-of 863 is "ivory earrings"
+		jump &[00015264]
+[00015192]:
+		if !(L.3 is 13) jump &[00015216]
+		new-name-of 863 is "ebony comb"
+		jump &[00015264]
+[00015216]:
+		if !(L.3 is 14) jump &[00015239]
+		new-name-of 863 is "ruby ring"
+		jump &[00015264]
+[00015239]:
+		if !(L.3 is 15) jump &[00015264]
+		new-name-of 863 is "gold buckle"
+		jump &[00015264]
+[00015264]:
+		class-of 863 is 26
+		V.374 = L.3
+		start-script 10 ()
+		jump &[00016016]
+		jump &[00015697]
+[00015285]:
+		if !(V.165 is 121) jump &[00015647]
+[00015292]:
+		if !(L.2) jump &[00015546]
+		if !(L.1) jump &[00015528]
+		if !(class-of 863 is 6) jump &[00015442]
+		if !(L.3 is V.374) jump &[00015442]
+		say-line 12 "\\xFF\\x0A\\xAB\\xC1\\xFF\\x0A\\x37\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You already have the only item in the store that fits that\\x10description!"
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xD8\\x2A\\xFF\\x0A\\x00\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Oh^yeah."
+		jump &[00016016]
+[00015442]:
+		say-line 12 "\\xFF\\x0A\\xF7\\x52\\xFF\\x0A\\x38\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That's the only item I have that matches your\\x10description!"
+		wait-for-message
+		jump &[00015697]
+		jump &[00015543]
+[00015528]:
+		++V.379
+		if (V.379 > 3) {
+			V.379 = 0
+		}
+[00015543]:
+		jump &[00015599]
+[00015546]:
+		if !(L.1) jump &[00015569]
+		++V.380
+		if (V.380 > 3) {
+			V.380 = 0
+		}
+		jump &[00015599]
+[00015569]:
+		++V.379
+		if (V.379 > 3) {
+			V.379 = 0
+			++V.380
+			if (V.380 > 3) {
+				V.380 = 0
+			}
+		}
+[00015599]:
+		if (!L.4) {
+			say-line 12 "\\xFF\\x0A\\x8A\\xD5\\xFF\\x0A\\x38\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00How about^"
+			wait-for-message
+		}
+		L.4 = 0
+		jump &[00011970]
+		jump &[00015697]
+[00015647]:
+		if !(V.165 is 122) jump &[00015697]
+		say-line 12 "\\xFF\\x0A\\x3F\\xFA\\xFF\\x0A\\x38\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00As you wish,\\x10sir."
+		jump &[00016016]
+		jump &[00015697]
+[00015697]:
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xC7\\x52\\xFF\\x0A\\x00\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I guess I'll have to take it,\\x10then."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x02\\x8F\\xFF\\x0A\\x00\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I guess I'll keep what I've\\x10got."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00015971]
+		jump &[00014791]
+		jump &[00016016]
+[00015971]:
+		if !(V.165 is 121) jump &[00016016]
+		say-line 12 "\\xFF\\x0A\\x4B\\x32\\xFF\\x0A\\x39\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00As you wish."
+		jump &[00016016]
+		jump &[00016016]
+[00016016]:
+		if (L.0 is 934) {
+			cursor off
+			userput off
+		}
+		wait-for-message
+		if !(B.275[4]) jump &[00019165]
+		B.275[4] = 0
+		actor 1 costume 131
+		do-animation 1 6
+		break-here 14
+		do-animation 1 7
+		break-here 8
+		actor 1 costume 2
+		do-animation 1 1
+		say-line 12 "\\xFF\\x0A\\x6A\\x5C\\xFF\\x0A\\x39\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Ahh^"
+		wait-for-message
+		if !(L.0 is 934) jump &[00016241]
+		if !(B.323 is 1) jump &[00016229]
+		say-line 12 "\\xFF\\x0A\\xF9\\x7D\\xFF\\x0A\\x39\\x03\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00^I can't afford to trade for your valuable\\x10stone.\\xFF\\x03You'd best keep\\x10it."
+		wait-for-message
+		do-animation 12 1
+		start-script bak 204 ()
+		cursor on
+		userput on
+		jump &[00019195]
+[00016229]:
+		B.275[2] = 1
+		B.323 = 1
+[00016241]:
+		override &[00017181]
+		if (B.321 is 0) {
+			say-line 12 "\\xFF\\x0A\\x7C\\x25\\xFF\\x0A\\x3A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^it is said that three stone disks were needed to open the gates of\\x10Atlantis.\\xFF\\x03This looks like one of\\x10them^"
+			wait-for-message
+		}
+		say-line 12 "\\xFF\\x0A\\xD4\\x0D\\xFF\\x0A\\x3B\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00^a Sunstone, if I'm not\\x10mistaken^"
+		wait-for-message
+		if (B.321 is 1) {
+			say-line 12 "\\xFF\\x0A\\x33\\x66\\xFF\\x0A\\x3B\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^and a most stupendous find^"
+			wait-for-message
+		}
+		say-line 12 "\\xFF\\x0A\\xF8\\xAE\\xFF\\x0A\\x3B\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^Dr. Jones."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x0A\\xCF\\xFF\\x0A\\x00\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00How do you know who I\\x10am?"
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\xBC\\x18\\xFF\\x0A\\x11\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yeah, how?"
+		wait-for-message
+		do-animation 12 face-towards 2
+		break-here 2
+		say-line 12 "\\xFF\\x0A\\xAB\\xE3\\xFF\\x0A\\x3B\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00My dear Miss Hapgood, when you're Omar Al-Jabbar you know these\\x10things."
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\xB2\\x46\\xFF\\x0A\\x11\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then you ARE Al-Jabbar! \\xFF\\x09\\x07\\x00"
+		wait-for-message
+		do-animation 12 face-towards 2
+		say-line 12 "\\xFF\\x0A\\x99\\x93\\xFF\\x0A\\x3C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes^\\xFF\\x03^a lowly dealer in oddities and\\x10trinkets^\\xFF\\x03^at your service."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x89\\x0B\\xFF\\x0A\\x01\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Let's get down to business, shall\\x10we? \\xFF\\x09\\x08\\x00 \\xFF\\x03What do you know about\\x10Atlantis?"
+		do-animation 12 face-towards 1
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\xD2\\xA0\\xFF\\x0A\\x11\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes, tell us! \\xFF\\x09\\x07\\x00"
+		wait-for-message
+		override off
+		say-line 12 "\\xFF\\x0A\\x1F\\x3D\\xFF\\x0A\\x3D\\x03\\xFF\\x0A\\x2A\\x00\\xFF\\x0A\\x00\\x00Well^\\xFF\\x03Somewhere deep in the Atlas\\x10Mountains^\\xFF\\x03^there's an archaeological dig site."
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\xE3\\x04\\xFF\\x0A\\x3E\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I'm convinced it contains the remains of an Atlantean\\x10outpost."
+		wait-for-message
+[00017181]:
+		if (override-hit) {
+			override off
+			say-line 12 "\\xFF\\x0A\\xE4\\xAB\\xFF\\x0A\\x3E\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00Someone's digging up the Atlas Mountains to find an Atlantean\\x10outpost."
+			wait-for-message
+		}
+		B.663[0] = 1
+		B.275[1] = 1
+		B.268 = 1
+		actor 12 name "Omar"
+[00017308]:
+		L.6 = 0
+		if (L.0 is 934) {
+			cursor on
+			userput on
+			start-script 82 ()
+		}
+		start-script 68 ()
+		if (B.37[6] is 0) {
+			++L.6
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\x79\\x8C\\xFF\\x0A\\x01\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Whose dig is it?"
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (B.37[7] is 0) {
+			++L.6
+			V.443 = ((41 + 2) - 1)
+			*V.443 = "\\xFF\\x0A\\xCC\\xB7\\xFF\\x0A\\x01\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What makes you so sure it's\\x10Atlantean?"
+			V.442 = ((120 + 2) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (B.37[8] is 0) {
+			++L.6
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\x3B\\x0A\\xFF\\x0A\\x02\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Where is it, exactly?"
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00017792]
+		B.37[6] = 1
+		say-line 12 "\\xFF\\x0A\\x78\\x65\\xFF\\x0A\\x3F\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Europeans.  Germans, I believe.\\xFF\\x09\\x07\\x00"
+		jump &[00018068]
+[00017792]:
+		if !(V.165 is 121) jump &[00017940]
+		B.37[7] = 1
+		say-line 12 "\\xFF\\x0A\\xB9\\xC7\\xFF\\x0A\\x3F\\x03\\xFF\\x0A\\x26\\x00\\xFF\\x0A\\x00\\x00From time to time scoundrels appear in my shop to trade pieces they stole\\x10there.\\xFF\\x03The designs are unmistakable."
+		jump &[00018068]
+[00017940]:
+		if !(V.165 is 122) jump &[00018068]
+[00017947]:
+		B.37[8] = 1
+		say-line 12 "\\xFF\\x0A\\x48\\xD3\\xFF\\x0A\\x40\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00I'm not exactly sure.\\xFF\\x03I've learned enough to make a rough\\x10map^\\xFF\\x03^but it's very rough. \\xFF\\x09\\x06\\x00"
+		jump &[00018068]
+[00018068]:
+		if !(L.6 > 2) jump &[00018080]
+		wait-for-message
+		jump &[00017308]
+[00018080]:
+		if !(B.37[8] is 0) jump &[00018137]
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x2E\\x43\\xFF\\x0A\\x02\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Where is it, exactly?"
+		wait-for-message
+		jump &[00017947]
+[00018137]:
+		wait-for-message
+		break-here 4
+		B.324 = 1
+		say-line 12 "\\xFF\\x0A\\x68\\x9A\\xFF\\x0A\\x41\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The problem is^\\xFF\\x03^the desert is no place\\xFF\\x01for a civilized man like myself.\\xFF\\x03*sigh* \\xFF\\x09\\x06\\x00"
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x3E\\xD7\\xFF\\x0A\\x11\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We'll go!"
+		wait-for-message
+		do-animation 1 face-towards 2
+		break-here
+		say-line 1 "\\xFF\\x0A\\x21\\x7C\\xFF\\x0A\\x02\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We will!?  \\xFF\\x09\\x07\\x00 "
+		wait-for-message
+		do-animation 1 1
+		do-animation 1 face-towards 12
+		do-animation 12 face-towards 2
+		say-line 12 "\\xFF\\x0A\\x09\\x61\\xFF\\x0A\\x42\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I admire your courage^\\xFF\\x03^but you'll never survive the\\x10desert."
+		wait-for-message
+		do-animation 12 face-towards 1
+		say-line 12 "\\xFF\\x0A\\xF6\\xE5\\xFF\\x0A\\x42\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Give up while you still have your lives ahead\\x10of\\x10you."
+		wait-for-message
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x98\\x9B\\xFF\\x0A\\x02\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We'll never give up."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x5F\\xCF\\xFF\\x0A\\x02\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Okay.  We give up."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00018810]
+		say-line 12 "\\xFF\\x0A\\xE7\\x5B\\xFF\\x0A\\x43\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well, then.\\xFF\\x01Let it be as God\\x10wills\\x10it."
+		wait-for-message
+		start-script 83 ()
+		jump &[00018937]
+[00018810]:
+		if !(V.165 is 121) jump &[00018937]
+		B.322 = 1
+		say-line 12 "\\xFF\\x0A\\xE1\\xBC\\xFF\\x0A\\x43\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00A very sensible decision, Dr. Jones.\\xFF\\x03Let Atlantis lie undisturbed^\\xFF\\x03^WHEREVER it may be."
+		jump &[00019187]
+		jump &[00018937]
+[00018937]:
+		cut-scene
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\xDF\\xC3\\xFF\\x0A\\x44\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Come, I'll lend you my map^"
+		break-here 8
+		do-animation 1 10
+		do-animation 12 8
+		break-here 8
+		do-animation 1 1
+		do-animation 12 1
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\x52\\x00\\xFF\\x0A\\x45\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^and a couple\\x10of\\x10sturdy\\x10camels."
+		wait-for-message
+		pick-up-object 868 in-room 65
+		new-name-of 868 is "map"
+		start-script 10 ()
+		walk 12 to 15,107
+		stop-script 86
+		start-script 86 (12,2)
+		break-here 10
+		walk 1 to 20,107
+		break-here 6
+		stop-script 86
+		walk 2 to 20,107
+		wait-for-actor 1
+		put-actor 2 in-room 29
+		put-actor 2 at-object 304
+		put-actor 1 in-room 29
+		put-actor 1 at-object 304
+		B.275[8] = 1
+		end-cut-scene
+		current-room 29
+		jump &[00019187]
+[00019165]:
+		wait-for-message
+		do-animation 12 1
+		start-script 83 ()
+		break-here 8
+		start-script bak 204 ()
+		jump &[00019195]
+[00019187]:
+		do-animation 12 1
+		wait-for-message
+		start-script 83 ()
+[00019195]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !(L.0 is 57) jump &[00000018]
+		jump &[00000237]
+[00000018]:
+		cut-scene
+		stop-sentence
+		do-animation 1 255
+		stop-script 205
+		do-animation 6 255
+		if (actor-x 6 is-not 185) {
+			walk 6 to 185,131
+			wait-for-actor 6
+		}
+		start-script 136 (1,6,30,1)
+		break-until (!script-running 136)
+		if (B.22) {
+			start-script bak 205 ()
+			stop-script 0
+		}
+		do-animation 1 face-towards 6
+		say-line 1 "\\xFF\\x0A\\x96\\x0B\\xFF\\x0A\\x03\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		break-here 2
+		do-animation 6 face-towards 1
+		wait-for-message
+		if !(B.269[0]) jump &[00000176]
+		say-line 6 "\\xFF\\x0A\\x89\\xBC\\xFF\\x0A\\x4F\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What is it now?"
+		jump &[00000224]
+[00000176]:
+		say-line 6 "\\xFF\\x0A\\xD7\\xE5\\xFF\\x0A\\x4F\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00How can I help you,\\x10effendi?"
+[00000224]:
+		wait-for-message
+		end-cut-scene
+		B.269[0] = 1
+		start-script 82 ()
+[00000237]:
+		L.2 = 0
+		start-script 68 ()
+		if !(!B.269[1]) jump &[00000507]
+		if !(!B.275[1]) jump &[00000366]
+		++L.2
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x1E\\x32\\xFF\\x0A\\x03\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Are you Omar?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000504]
+[00000366]:
+		++L.2
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x09\\x5A\\xFF\\x0A\\x03\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You're not Omar!  What have you done with\\x10Omar?"
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00000504]:
+		jump &[00000912]
+[00000507]:
+		if !(!B.269[3]) jump &[00000653]
+		++L.2
+		V.443 = ((41 + 5) - 1)
+		*V.443 = "\\xFF\\x0A\\x72\\xB7\\xFF\\x0A\\x03\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can you arrange a meeting with Mr.\\x10Al-Jabbar?"
+		V.442 = ((120 + 5) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000912]
+[00000653]:
+		if !(!B.269[4]) jump &[00000781]
+		V.443 = ((41 + 6) - 1)
+		*V.443 = "\\xFF\\x0A\\x20\\x16\\xFF\\x0A\\x04\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd like to see Al-Jabbar\\x10now."
+		V.442 = ((120 + 6) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000912]
+[00000781]:
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\x51\\x69\\xFF\\x0A\\x04\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Could you go see Mr.\\x10Al-Jabbar\\x10again? \\xFF\\x09\\x08\\x00 "
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00000912]:
+		if (!B.269[2]) {
+			if (!B.269[4]) {
+				++L.2
+				V.443 = ((41 + 2) - 1)
+				*V.443 = "\\xFF\\x0A\\x44\\xBD\\xFF\\x0A\\x04\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm looking for\\x10Atlantis.\\xFF\\x09\\x07\\x00"
+				V.442 = ((120 + 2) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		if !(B.338 is 0) jump &[00001185]
+		if !(V.238 is 1) jump &[00001063]
+		jump &[00001182]
+[00001063]:
+		++L.2
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x00\\xFA\\xFF\\x0A\\x04\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00How much are these\\x10pots?\\xFF\\x09\\x08\\x00"
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00001182]:
+		jump &[00001302]
+[00001185]:
+		if (B.269[4]) {
+			++L.2
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\xF1\\x31\\xFF\\x0A\\x05\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00How's business?\\xFF\\x09\\x08\\x00"
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00001302]:
+		if (owner-of 865 is 1) {
+			if (B.339[2] is 0) {
+				++L.2
+				V.443 = ((41 + 9) - 1)
+				*V.443 = "\\xFF\\x0A\\xCC\\x54\\xFF\\x0A\\x05\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Is there a festival around here somewhere?"
+				V.442 = ((120 + 9) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		if !(B.339[0] is 0) jump &[00001581]
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x7C\\xA7\\xFF\\x0A\\x05\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Nice place you have\\x10here."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00001677]
+[00001581]:
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x94\\xE2\\xFF\\x0A\\x05\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00So long."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00001677]:
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001861]
+		B.269[1] = 1
+		actor 6 name "servant"
+		say-line 6 "\\xFF\\x0A\\x20\\x1C\\xFF\\x0A\\x50\\x03\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00You mean MISTER\\x10Al-Jabbar?\\xFF\\x03Ha ha ha.\\xFF\\x03That is an oh-so-good one,\\x10effendi.\\xFF\\x03I'm his trusted servant,\\x10Paul^\\xFF\\x03^Paul Abdul."
+		jump &[00004690]
+[00001861]:
+		if !(V.165 is 121) jump &[00001908]
+		B.269[2] = 1
+		say-line 6 "\\xFF\\x0A\\x1B\\x3C\\xFF\\x0A\\x51\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Good luck."
+		jump &[00004690]
+[00001908]:
+		if !(V.165 is 122) jump &[00003379]
+		B.338 = 1
+		if !(!B.269[4]) jump &[00001989]
+		say-line 6 "\\xFF\\x0A\\xC9\\x57\\xFF\\x0A\\x51\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00If you must ask, you can't afford\\x10them."
+		jump &[00003376]
+[00001989]:
+		if !(V.375 is 1) jump &[00002454]
+		if !(V.376 is 1) jump &[00002099]
+		say-line 6 "\\xFF\\x0A\\x84\\xAE\\xFF\\x0A\\x51\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00What?\\xFF\\x03Excuse me^\\xFF\\x03^I'm afraid you caught me\\x10daydreaming^\\xFF\\x03^about Fatima."
+		jump &[00002413]
+[00002099]:
+		if !(V.376 is 2) jump &[00002197]
+		say-line 6 "\\xFF\\x0A\\x1F\\x4E\\xFF\\x0A\\x52\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Uhh^\\xFF\\x03^sorry, I drifted off^\\xFF\\x03I'm in the middle of writing a\\x10sonnet."
+		jump &[00002413]
+[00002197]:
+		if !(V.376 is 3) jump &[00002318]
+		say-line 6 "\\xFF\\x0A\\x92\\xD8\\xFF\\x0A\\x52\\x03\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00Could you repeat that?\\xFF\\x03I was thinking about the color\\x10of^\\xFF\\x03my sweet Fatima's eyes^\\xFF\\x03*sigh*"
+		jump &[00002413]
+[00002318]:
+		say-line 6 "\\xFF\\x0A\\xC3\\xA7\\xFF\\x0A\\x53\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00I can't be bothered with petty pot purchases,\\x10effendi^\\xFF\\x03^I'm a man in love!"
+[00002413]:
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x00\\xFF\\xFF\\x0A\\x05\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Never mind."
+		wait-for-message
+		jump &[00005592]
+		jump &[00003376]
+[00002454]:
+		if !(V.375 is 2) jump &[00002969]
+		if !(V.376 is 1) jump &[00002531]
+		say-line 6 "\\xFF\\x0A\\xBC\\x4E\\xFF\\x0A\\x54\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I'd tell you, but I lost the price\\x10list."
+		jump &[00002928]
+[00002531]:
+		if !(V.376 is 2) jump &[00002640]
+		say-line 6 "\\xFF\\x0A\\xE6\\xAA\\xFF\\x0A\\x54\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd tell you, but I lost the price list when I cut myself shaving this\\x10morning."
+		jump &[00002928]
+[00002640]:
+		if !(V.376 is 3) jump &[00002770]
+		say-line 6 "\\xFF\\x0A\\x92\\x48\\xFF\\x0A\\x55\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I'd tell you, but soon after I cut myself\\x10shaving^\\xFF\\x03I got hit by an oxcart, and lost the price\\x10list."
+		jump &[00002928]
+[00002770]:
+		say-line 6 "\\xFF\\x0A\\xEE\\x2E\\xFF\\x0A\\x56\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00I'd like to tell you, but after I cut myself shaving^\\xFF\\x03I got hit by an oxcart on my way to my mother's funeral^\\xFF\\x03^and lost the price list."
+[00002928]:
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xC6\\x24\\xFF\\x0A\\x06\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Never mind."
+		wait-for-message
+		jump &[00005592]
+		jump &[00003376]
+[00002969]:
+		if !(V.375 is 3) jump &[00003376]
+		if !(V.376 is 1) jump &[00003072]
+		say-line 6 "\\xFF\\x0A\\x77\\x4F\\xFF\\x0A\\x57\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00These pots are far too short for someone of your stature,\\x10effendi."
+		jump &[00003342]
+[00003072]:
+		if !(V.376 is 2) jump &[00003158]
+		say-line 6 "\\xFF\\x0A\\x7B\\xE8\\xFF\\x0A\\x57\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I think you'd be happier with something taller,\\x10effendi."
+		jump &[00003342]
+[00003158]:
+		if !(V.376 is 3) jump &[00003265]
+		say-line 6 "\\xFF\\x0A\\x14\\x65\\xFF\\x0A\\x58\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00I see you think you can order me around just because you're taller than\\x10I\\x10am!"
+		jump &[00003342]
+[00003265]:
+		say-line 6 "\\xFF\\x0A\\xA5\\x0D\\xFF\\x0A\\x59\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Why do you ask?  Just trying to throw your height\\x10around?"
+[00003342]:
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x8C\\x4A\\xFF\\x0A\\x06\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Huh?"
+		wait-for-message
+		jump &[00005592]
+		jump &[00003376]
+[00003376]:
+		jump &[00004690]
+[00003379]:
+		if !(V.165 is 123) jump &[00003487]
+		if !(B.339[0] is 0) jump &[00003444]
+		B.339[0] = 1
+		say-line 6 "\\xFF\\x0A\\x80\\x90\\xFF\\x0A\\x59\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Thank you, effendi."
+		jump &[00003481]
+[00003444]:
+		say-line 6 "\\xFF\\x0A\\x5E\\xC0\\xFF\\x0A\\x59\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Goodbye, effendi."
+[00003481]:
+		jump &[00005592]
+		jump &[00004690]
+[00003487]:
+		if !(V.165 is 124) jump &[00003643]
+		B.269[3] = 1
+		if !(B.339[4]) jump &[00003511]
+		jump &[00003761]
+[00003511]:
+		say-line 6 "\\xFF\\x0A\\x6A\\xF6\\xFF\\x0A\\x59\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I suppose I could, effendi^\\xFF\\x03^but my master rarely deals with clients in\\x10person.\\xFF\\x03Why should I bother\\x10him?"
+		jump &[00004754]
+		jump &[00004690]
+[00003643]:
+		if !(V.165 is 125) jump &[00003754]
+		if !(B.339[4]) jump &[00003660]
+		jump &[00003761]
+[00003660]:
+		say-line 6 "\\xFF\\x0A\\x0C\\xC5\\xFF\\x0A\\x5A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00As I explained^\\xFF\\x03^you need to give me a reason to trouble my\\x10master."
+		jump &[00005592]
+		jump &[00004690]
+[00003754]:
+		if !(V.165 is 126) jump &[00004481]
+[00003761]:
+		L.1 = 1
+		if !(V.376 is 0) jump &[00003898]
+		say-line 6 "\\xFF\\x0A\\xDB\\x51\\xFF\\x0A\\x5B\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Well now^\\xFF\\x03Since you have contacts among antiquities\\x10dealers^\\xFF\\x03I guess I could see if he is\\x10available."
+		jump &[00004475]
+[00003898]:
+		if !(V.376 is 1) jump &[00004015]
+		say-line 6 "\\xFF\\x0A\\x07\\x28\\xFF\\x0A\\x5C\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well^\\xFF\\x03^you DO know Trottier^\\xFF\\x03^perhaps I didn't explain things very\\x10well to\\x10my\\x10master."
+		jump &[00004475]
+[00004015]:
+		if !(V.376 is 2) jump &[00004121]
+		say-line 6 "\\xFF\\x0A\\xC8\\xD5\\xFF\\x0A\\x5C\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Hmmm^\\xFF\\x03^it DOES look like you mean\\x10business^\\xFF\\x03^and I could use the\\x10exercise."
+		jump &[00004475]
+[00004121]:
+		if !(V.376 is 3) jump &[00004292]
+		say-line 6 "\\xFF\\x0A\\xFC\\x78\\xFF\\x0A\\x5D\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00You know what he's going to\\x10say."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x27\\x5E\\xFF\\x0A\\x06\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Humor me.  This is bigger than King\\x10Tut."
+		wait-for-message
+		say-line 6 "\\xFF\\x0A\\xD9\\xB7\\xFF\\x0A\\x5D\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00You're the boss,\\x10effendi."
+		jump &[00004475]
+[00004292]:
+		if !(V.376 is 5) jump &[00004404]
+		say-line 6 "\\xFF\\x0A\\x02\\xEE\\xFF\\x0A\\x5D\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Lucky for you business is bad,\\x10effendi^\\xFF\\x03^or I'd make you find his house\\x10yourself!"
+		jump &[00004475]
+[00004404]:
+		say-line 6 "\\xFF\\x0A\\x38\\xA4\\xFF\\x0A\\x5E\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00This is wearing me out,\\x10sir^\\xFF\\x03^but I'll do my\\x10best."
+[00004475]:
+		jump &[00005592]
+		jump &[00004690]
+[00004481]:
+		if !(V.165 is 127) jump &[00004610]
+		B.269[1] = 1
+		say-line 6 "\\xFF\\x0A\\xBA\\x12\\xFF\\x0A\\x5F\\x03\\xFF\\x0A\\x22\\x00\\xFF\\x0A\\x00\\x00MISTER Al-Jabbar's gone home for the\\x10day.\\xFF\\x03I'm his trusted servant,\\x10Paul^\\xFF\\x03^Paul Abdul."
+		wait-for-message
+		jump &[00000237]
+		jump &[00004690]
+[00004610]:
+		if !(V.165 is 128) jump &[00004690]
+		B.339[2] = 1
+		say-line 6 "\\xFF\\x0A\\xCB\\xDC\\xFF\\x0A\\x5F\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Well if there is, you can't prove it\\x10by\\x10me."
+		jump &[00004690]
+[00004690]:
+		if !(L.2 > 1) jump &[00004702]
+		wait-for-message
+		jump &[00000237]
+[00004702]:
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xD8\\xC0\\xFF\\x0A\\x06\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Thanks for the information."
+		jump &[00005592]
+[00004754]:
+		wait-for-message
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xA3\\xEA\\xFF\\x0A\\x06\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's a matter of life and\\x10death. \\xFF\\x09\\x06\\x00"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x82\\x34\\xFF\\x0A\\x07\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I've got something to\\x10sell."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		if (B.269[2] is 0) {
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\x3E\\x65\\xFF\\x0A\\x07\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm looking for\\x10Atlantis."
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x70\\x9F\\xFF\\x0A\\x07\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00I've got a hot tip on some stolen\\x10artifacts."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00005325]
+		say-line 6 "\\xFF\\x0A\\xD2\\x37\\xFF\\x0A\\x60\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That's what they all\\x10say."
+		wait-for-message
+		jump &[00005520]
+[00005325]:
+		if !(V.165 is 121) jump &[00005374]
+		say-line 6 "\\xFF\\x0A\\xD8\\x78\\xFF\\x0A\\x60\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Doesn't everyone?"
+		wait-for-message
+		jump &[00005520]
+[00005374]:
+		if !(V.165 is 122) jump &[00005455]
+		B.269[2] = 1
+		say-line 6 "\\xFF\\x0A\\xE2\\xA1\\xFF\\x0A\\x60\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Many look.  Only my master finds\\x10anything."
+		wait-for-message
+		jump &[00005520]
+[00005455]:
+		if !(V.165 is 123) jump &[00005520]
+		say-line 6 "\\xFF\\x0A\\x4C\\x0E\\xFF\\x0A\\x61\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00So do half the people in\\x10Algiers."
+		wait-for-message
+		jump &[00005520]
+[00005520]:
+		say-line 6 "\\xFF\\x0A\\x72\\x5A\\xFF\\x0A\\x61\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You'll have to give me a better reason than\\x10that."
+		jump &[00005592]
+[00005592]:
+		wait-for-message
+		start-script 83 ()
+		if (L.1) {
+			chain-script 207 ()
+		}
+		start-script bak 205 ()
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+
+		L.0 = 0
+		cut-scene
+		walk 1 to 65,112
+		wait-for-actor 1
+		V.442 = random 2
+		if !(V.442 is 0) jump &[00000068]
+		say-line 1 "\\xFF\\x0A\\x25\\x0C\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Listen^"
+		jump &[00000145]
+[00000068]:
+		if !(V.442 is 1) jump &[00000108]
+		say-line 1 "\\xFF\\x0A\\xB1\\x26\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		jump &[00000145]
+[00000108]:
+		if !(V.442 is 2) jump &[00000145]
+		say-line 1 "\\xFF\\x0A\\x9E\\x4F\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Sophia^"
+		jump &[00000145]
+[00000145]:
+		do-animation 1 face-towards 2
+		break-here 2
+		do-animation 2 face-towards 1
+		break-here 4
+		if !(B.322 is 1) jump &[00000238]
+		say-line 2 "\\xFF\\x0A\\xCD\\x00\\xFF\\x0A\\x12\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Give up?\\xFF\\x03I don't want to talk about it,\\x10Jones."
+		wait-for-message
+		jump &[00000463]
+[00000238]:
+		if (B.663[0] is 0) {
+			++L.0
+		}
+		if !(B.275[1]) jump &[00000340]
+		if !(!B.275[4]) jump &[00000328]
+		if !(!B.275[2]) jump &[00000284]
+		if (L.1 is 0) {
+			++L.0
+		}
+		jump &[00000325]
+[00000284]:
+		if !(!B.275[12]) jump &[00000325]
+		if !(B.321 is 1) jump &[00000313]
+		if (B.339[5] is 0) {
+			++L.0
+		}
+		jump &[00000325]
+[00000313]:
+		if (B.339[6] is 0) {
+			++L.0
+		}
+[00000325]:
+		jump &[00000340]
+[00000328]:
+		if (B.663[2] is 0) {
+			++L.0
+		}
+[00000340]:
+		if (B.663[1] is 0) {
+			++L.0
+		}
+		if (B.663[3] is 0) {
+			++L.0
+		}
+		if !(L.0) jump &[00000463]
+		if !(B.37[5] is 0) jump &[00000426]
+		say-line 2 "\\xFF\\x0A\\x48\\x73\\xFF\\x0A\\x12\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What is it? \\xFF\\x09\\x07\\x00"
+		wait-for-message
+		B.37[5] = 1
+		jump &[00000463]
+[00000426]:
+		say-line 2 "\\xFF\\x0A\\x2D\\x92\\xFF\\x0A\\x12\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What now? \\xFF\\x09\\x07\\x00 "
+		wait-for-message
+[00000463]:
+		end-cut-scene
+		if !(B.322 is 1) jump &[00000474]
+		jump &[00002400]
+[00000474]:
+		if !(L.0 is 0) jump &[00000543]
+		say-line 2 "\\xFF\\x0A\\xB4\\xC5\\xFF\\x0A\\x12\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We can talk later.\\xFF\\x03Let's DO something."
+		jump &[00002400]
+[00000543]:
+		start-script 82 ()
+[00000546]:
+		L.0 = 0
+		start-script 68 ()
+		if (B.663[0] is 0) {
+			++L.0
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\xD5\\x70\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You think this guy is\\x10Al-Jabbar?"
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if !(B.275[1]) jump &[00001266]
+		if !(!B.275[4]) jump &[00001115]
+		if !(!B.275[2]) jump &[00000826]
+		if (L.1 is 0) {
+			++L.0
+			V.443 = ((41 + 2) - 1)
+			*V.443 = "\\xFF\\x0A\\x8B\\xB8\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do we do\\x10now?"
+			V.442 = ((120 + 2) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		jump &[00001112]
+[00000826]:
+		if !(!B.275[12]) jump &[00001112]
+		if !(B.321 is 1) jump &[00000978]
+		if (B.339[5] is 0) {
+			++L.0
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\x97\\xEE\\xFF\\x0A\\x08\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00He wants to see a stone\\x10disk. \\xFF\\x09\\x12\\x00 "
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		jump &[00001112]
+[00000978]:
+		if (B.339[6] is 0) {
+			++L.0
+			V.443 = ((41 + 3) - 1)
+			*V.443 = "\\xFF\\x0A\\x2D\\x38\\xFF\\x0A\\x09\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He wants to be sure we're\\x10serious."
+			V.442 = ((120 + 3) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00001112]:
+		jump &[00001266]
+[00001115]:
+		if (B.663[2] is 0) {
+			++L.0
+			V.443 = ((41 + 4) - 1)
+			*V.443 = "\\xFF\\x0A\\x41\\x7F\\xFF\\x0A\\x09\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Do you think Omar will give us another\\x10camel? \\xFF\\x09\\x0D\\x00 "
+			V.442 = ((120 + 4) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+[00001266]:
+		if (B.663[1] is 0) {
+			++L.0
+			V.443 = ((41 + 5) - 1)
+			*V.443 = "\\xFF\\x0A\\xF5\\xE2\\xFF\\x0A\\x09\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Of all the shops in Algeria, we had to walk into this\\x10one. \\xFF\\x09\\x07\\x00"
+			V.442 = ((120 + 5) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (B.663[3] is 0) {
+			++L.0
+			V.443 = ((41 + 6) - 1)
+			*V.443 = "\\xFF\\x0A\\x06\\x5F\\xFF\\x0A\\x0A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hot enough for\\x10you? \\xFF\\x09\\x09\\x00"
+			V.442 = ((120 + 6) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xAE\\x85\\xFF\\x0A\\x0A\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Let me think."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001744]
+		B.663[0] = 1
+		say-line 2 "\\xFF\\x0A\\x3A\\x3C\\xFF\\x0A\\x13\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00There's only one way to find\\x10out. \\xFF\\x09\\x07\\x00"
+		jump &[00002382]
+[00001744]:
+		if !(V.165 is 121) jump &[00001837]
+		L.1 = 1
+		say-line 2 "\\xFF\\x0A\\x05\\x89\\xFF\\x0A\\x13\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Show some\\x10initiative^\\xFF\\x03^ask him about you-know-where. \\xFF\\x09\\x0F\\x00"
+		jump &[00002382]
+[00001837]:
+		if !(V.165 is 122) jump &[00002102]
+		if !(owner-of 934 is 1) jump &[00002031]
+		if !(B.321 is 1) jump &[00001928]
+		B.339[5] = 1
+		say-line 2 "\\xFF\\x0A\\xCD\\xFD\\xFF\\x0A\\x13\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Maybe you should show him\\x10one. \\xFF\\x09\\x0D\\x00"
+		jump &[00002028]
+[00001928]:
+		B.339[6] = 1
+		say-line 2 "\\xFF\\x0A\\x29\\x48\\xFF\\x0A\\x14\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Let's show him the disk we got from\\x10Trottier^\\xFF\\x03^that should convince\\x10him."
+[00002028]:
+		jump &[00002099]
+[00002031]:
+		say-line 2 "\\xFF\\x0A\\xE1\\xD8\\xFF\\x0A\\x14\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Maybe we better get one and show it to\\x10him. \\xFF\\x09\\x0D\\x00"
+[00002099]:
+		jump &[00002382]
+[00002102]:
+		if !(V.165 is 123) jump &[00002182]
+		say-line 2 "\\xFF\\x0A\\x39\\x30\\xFF\\x0A\\x15\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Sure why not?  And a magic carpet\\x10too. \\xFF\\x09\\x0F\\x00"
+		B.663[2] = 1
+		jump &[00002382]
+[00002182]:
+		if !(V.165 is 124) jump &[00002251]
+		say-line 2 "\\xFF\\x0A\\xFE\\xAB\\xFF\\x0A\\x15\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We'll always have Iceland,\\x10Indy."
+		B.663[1] = 1
+		jump &[00002382]
+[00002251]:
+		if !(V.165 is 125) jump &[00002344]
+		B.663[3] = 1
+		say-line 2 "\\xFF\\x0A\\xC9\\x00\\xFF\\x0A\\x16\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It'll get a lot hotter if the nazis beat us to\\x10Atlantis."
+		jump &[00002382]
+[00002344]:
+		if !(V.165 is 126) jump &[00002382]
+		say-line 2 "\\xFF\\x0A\\xD3\\x83\\xFF\\x0A\\x16\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Okay."
+		jump &[00002400]
+		jump &[00002382]
+[00002382]:
+		if !(L.0 > 1) jump &[00002400]
+		wait-for-message
+		do-animation 1 1
+		do-animation 2 1
+		jump &[00000546]
+[00002400]:
+		wait-for-message
+		do-animation 1 1
+		do-animation 2 1
+		if (!B.322) {
+			start-script 83 ()
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0204
+		do {
+			if (actor-x 12 is-not 185) {
+				walk 12 to 185,131
+				wait-for-actor 12
+				V.444 = (10 - 4)
+				V.444 = ((random V.444) + 4)
+				for V.443 = 1 to V.444 ++ {
+					break-here
+				}
+				do-animation 12 248
+			}
+			V.444 = (240 - 80)
+			V.444 = ((random V.444) + 80)
+			sleep-for V.444 jiffies
+			walk 12 to 165,125
+			wait-for-actor 12
+			V.444 = (15 - 5)
+			V.444 = ((random V.444) + 5)
+			for V.443 = 1 to V.444 ++ {
+				break-here
+			}
+			do-animation 12 251
+			V.444 = (20 - 10)
+			V.444 = ((random V.444) + 10)
+			sleep-for V.444 jiffies
+			walk 12 to 165,131
+			wait-for-actor 12
+			V.444 = (15 - 5)
+			V.444 = ((random V.444) + 5)
+			for V.443 = 1 to V.444 ++ {
+				break-here
+			}
+			do-animation 12 250
+			V.444 = (240 - 80)
+			V.444 = ((random V.444) + 80)
+			sleep-for V.444 jiffies
+		}
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0205
+		do {
+			if (actor-x 6 is-not 185) {
+				walk 6 to 185,131
+				wait-for-actor 6
+				V.444 = (10 - 4)
+				V.444 = ((random V.444) + 4)
+				for V.443 = 1 to V.444 ++ {
+					break-here
+				}
+				do-animation 6 248
+			}
+			V.444 = (240 - 80)
+			V.444 = ((random V.444) + 80)
+			sleep-for V.444 jiffies
+			walk 6 to 165,125
+			wait-for-actor 6
+			V.444 = (15 - 5)
+			V.444 = ((random V.444) + 5)
+			for V.443 = 1 to V.444 ++ {
+				break-here
+			}
+			do-animation 6 251
+			V.444 = (20 - 10)
+			V.444 = ((random V.444) + 10)
+			sleep-for V.444 jiffies
+			walk 6 to 165,131
+			wait-for-actor 6
+			V.444 = (15 - 5)
+			V.444 = ((random V.444) + 5)
+			for V.443 = 1 to V.444 ++ {
+				break-here
+			}
+			do-animation 6 250
+			V.444 = (240 - 80)
+			V.444 = ((random V.444) + 80)
+			sleep-for V.444 jiffies
+		}
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		cut-scene
+		stop-script 205
+		walk 6 to 185,131
+		wait-for-actor 6
+		walk 1 to-actor 6 within 30
+		wait-for-actor 1
+		V.442 = actor-x 1
+		V.443 = actor-y 6
+		walk 1 to V.442,V.443
+		wait-for-actor 1
+		do-animation 1 face-towards 6
+		say-line 1 "\\xFF\\x0A\\x7B\\xD0\\xFF\\x0A\\xE5\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Excuse me?"
+		do-animation 6 255
+		break-here 2
+		do-animation 1 face-towards 6
+		break-here 2
+		do-animation 6 face-towards 1
+		break-here 2
+		wait-for-message
+		say-line 6 "\\xFF\\x0A\\x78\\x1B\\xFF\\x0A\\x47\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes?"
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x8D\\xF9\\xFF\\x0A\\xE5\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I think this may interest\\x10you."
+		wait-for-message
+		if !(L.0 is 286) jump &[00000490]
+		do-animation 1 10
+		do-animation 6 6
+		owner-of 286 is 6
+		break-here 8
+		do-animation 1 3
+		do-animation 6 3
+		start-script 10 ()
+		if !(!B.269[3]) jump &[00000341]
+		B.339[4] = 1
+		say-line 6 "\\xFF\\x0A\\x7B\\x32\\xFF\\x0A\\x47\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00Ahh^\\xFF\\x03^so you've met our esteemed colleague, Monsieur\\x10Trottier^\\xFF\\x03^so what?"
+		wait-for-message
+		break-here 8
+		L.4 = 1
+		jump &[00000487]
+[00000341]:
+		say-line 6 "\\xFF\\x0A\\x2E\\xE2\\xFF\\x0A\\x47\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Ahh^\\xFF\\x03^the business card of Monsieur\\x10Trottier.\\xFF\\x03That's different.\\xFF\\x03Perhaps Mr. Al-Jabbar WILL desire to speak\\x10with\\x10you."
+		wait-for-message
+		L.3 = 1
+[00000487]:
+		jump &[00000674]
+[00000490]:
+		if !(L.0 is 865) jump &[00000550]
+		say-line 6 "\\xFF\\x0A\\x5A\\xD9\\xFF\\x0A\\x48\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Why would I want a\\x10fez?"
+		wait-for-message
+		L.4 = 2
+		jump &[00000674]
+[00000550]:
+		if !(L.0 is 937) jump &[00000624]
+		say-line 6 "\\xFF\\x0A\\x93\\x16\\xFF\\x0A\\x49\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm not interested in fake books,\\x10effendi."
+		wait-for-message
+		jump &[00000674]
+[00000624]:
+		say-line 6 "\\xFF\\x0A\\xD3\\x7E\\xFF\\x0A\\x49\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I'm not interested,\\x10effendi."
+		wait-for-message
+[00000674]:
+		end-cut-scene
+		if !(L.4 is 1) jump &[00000688]
+		jump &[00000704]
+		jump &[00000704]
+[00000688]:
+		if !(L.4 is 2) jump &[00000701]
+		jump &[00001425]
+		jump &[00000704]
+[00000701]:
+		jump &[00002924]
+[00000704]:
+		L.5 = 0
+		start-script 82 ()
+		start-script 68 ()
+		if !(B.269[1]) jump &[00000849]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x14\\x3B\\xFF\\x0A\\xE6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can you arrange a meeting with\\x10Omar?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000962]
+[00000849]:
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xC5\\x80\\xFF\\x0A\\xE6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You mean you aren't\\x10Omar?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00000962]:
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x57\\xB9\\xFF\\x0A\\xE6\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm not sure."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001248]
+		B.269[3] = 1
+		say-line 6 "\\xFF\\x0A\\x3D\\xCF\\xFF\\x0A\\x49\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00MISTER Al-Jabbar to you,\\x10effendi.\\xFF\\x03Since you have contacts among antiquities\\x10dealers^\\xFF\\x03I guess I could see if he is\\x10available."
+		wait-for-message
+		L.3 = 1
+		jump &[00001417]
+[00001248]:
+		if !(V.165 is 121) jump &[00001359]
+		B.269[1] = 1
+		say-line 6 "\\xFF\\x0A\\x99\\xBE\\xFF\\x0A\\x4A\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00Don't be silly.\\xFF\\x03I'm his trusted servant,\\x10Paul^\\xFF\\x03^Paul Abdul."
+		wait-for-message
+		L.5 = 57
+		chain-script 202 (L.5)
+		jump &[00001417]
+[00001359]:
+		if !(V.165 is 122) jump &[00001417]
+		say-line 6 "\\xFF\\x0A\\x09\\x6D\\xFF\\x0A\\x4B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then come back when you\\x10are."
+		jump &[00001417]
+[00001417]:
+		wait-for-message
+		start-script 83 ()
+		jump &[00002924]
+[00001425]:
+		cut-scene
+		do-animation 1 10
+		break-here 4
+		do-animation 1 1
+		end-cut-scene
+		start-script 82 ()
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x9E\\xDF\\xFF\\x0A\\xE6\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00No woman can resist a man in a red\\x10fez."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xD6\\x52\\xFF\\x0A\\xE7\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a magic good\\x10luck\\x10fez."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x43\\xA4\\xFF\\x0A\\xE7\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It'll make you look\\x10taller."
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\xE2\\xD4\\xFF\\x0A\\xE7\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Gee, I don't know."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00002135]
+		if !(V.375 is 1) jump &[00002079]
+		say-line 6 "\\xFF\\x0A\\x64\\xA9\\xFF\\x0A\\x4B\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Really?  You think so?"
+		wait-for-message
+		start-script 144 (65,2)
+		owner-of 865 is 6
+		say-line 6 "\\xFF\\x0A\\x3C\\xF0\\xFF\\x0A\\x4B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Wait until Fatima sees me in\\x10this!"
+		wait-for-message
+		do-animation 1 10
+		break-here 2
+		start-script 211 ()
+		break-until (!script-running 211)
+		do-animation 1 3
+		do-animation 6 3
+		jump &[00002132]
+[00002079]:
+		say-line 6 "\\xFF\\x0A\\xEF\\x46\\xFF\\x0A\\x4C\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'm a happily married man,\\x10sir!"
+		wait-for-message
+[00002132]:
+		jump &[00002918]
+[00002135]:
+		if !(V.165 is 121) jump &[00002389]
+		if !(V.375 is 2) jump &[00002308]
+		say-line 6 "\\xFF\\x0A\\x75\\x95\\xFF\\x0A\\x4C\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Now that you mention it, I could use some good luck for\\x10a\\x10change."
+		wait-for-message
+		owner-of 865 is 6
+		start-script 144 (65,2)
+		say-line 6 "\\xFF\\x0A\\xC6\\x1D\\xFF\\x0A\\x4D\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Thank you!"
+		wait-for-message
+		do-animation 1 10
+		break-here 2
+		start-script 211 ()
+		break-until (!script-running 211)
+		do-animation 1 3
+		do-animation 6 3
+		jump &[00002386]
+[00002308]:
+		say-line 6 "\\xFF\\x0A\\x85\\x34\\xFF\\x0A\\x4D\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00But I work for Mr.\\x10Al-Jabbar^\\xFF\\x03^that's good luck\\x10enough."
+		wait-for-message
+[00002386]:
+		jump &[00002918]
+[00002389]:
+		if !(V.165 is 122) jump &[00002848]
+		if !(V.375 is 3) jump &[00002775]
+		say-line 6 "\\xFF\\x0A\\x4A\\xBC\\xFF\\x0A\\x4D\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Really?  I could be\\x10taller?"
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xEB\\xFB\\xFF\\x0A\\xE7\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00A veritable giant among\\x10men."
+		wait-for-message
+		say-line 6 "\\xFF\\x0A\\x58\\x09\\xFF\\x0A\\x4E\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Let me see that\\x10fez."
+		wait-for-message
+		owner-of 865 is 6
+		start-script 144 (65,2)
+		do-animation 1 10
+		break-here 2
+		start-script 211 ()
+		break-until (!script-running 211)
+		do-animation 1 3
+		do-animation 6 3
+		say-line 6 "\\xFF\\x0A\\x91\\x45\\xFF\\x0A\\x4E\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Why, I'm taller than\\x10you!"
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xB6\\x4C\\xFF\\x0A\\xE8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Quite a bit\\x10taller."
+		wait-for-message
+		say-line 6 "\\xFF\\x0A\\x50\\x83\\xFF\\x0A\\x4E\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Thank you for making my life complete,\\x10effendi."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xB2\\x7B\\xFF\\x0A\\xE8\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00My pleasure."
+		wait-for-message
+		jump &[00002845]
+[00002775]:
+		say-line 6 "\\xFF\\x0A\\x70\\xEA\\xFF\\x0A\\x4E\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I'm quite comfortable with my height, thank\\x10you."
+		wait-for-message
+[00002845]:
+		jump &[00002918]
+[00002848]:
+		if !(V.165 is 123) jump &[00002918]
+		say-line 6 "\\xFF\\x0A\\x51\\x5A\\xFF\\x0A\\x4F\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Then I see no reason to take your\\x10fez."
+		wait-for-message
+		jump &[00002918]
+[00002918]:
+		start-script 83 ()
+		jump &[00002924]
+[00002924]:
+		if !(L.3) jump &[00002935]
+		chain-script 207 ()
+		jump &[00002941]
+[00002935]:
+		start-script 10 ()
+		start-script bak 205 ()
+[00002941]:
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0207
+		cut-scene
+		B.269[4] = 1
+		B.269[5] = 1
+		class-of 858 is 13 5
+		walk 6 to-object 856
+		do-animation 6 face-towards 1
+		start-script 144 (61,3)
+		if !(V.376 < 2) jump &[00000111]
+		say-line 6 "\\xFF\\x0A\\x7A\\x52\\xFF\\x0A\\x46\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Wait here until I get\\x10back."
+		jump &[00000221]
+[00000111]:
+		if !(V.376 < 4) jump &[00000168]
+		say-line 6 "\\xFF\\x0A\\x9E\\x92\\xFF\\x0A\\x46\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Don't leave while I'm\\x10gone."
+		jump &[00000221]
+[00000168]:
+		say-line 6 "\\xFF\\x0A\\xD2\\xCC\\xFF\\x0A\\x46\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You'd better not be following\\x10me!"
+[00000221]:
+		wait-for-message
+		walk 6 to-object 856
+		wait-for-actor 6
+		put-actor 6 in-room 29
+		put-actor 6 at 46,110
+		B.671 = 1
+		end-cut-scene
+		start-script bak 212 ()
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0208
+		cut-scene
+		stop-script 204
+		walk 1 to 40,107
+		break-here 4
+		walk 12 to 185,131
+		wait-for-actor 1
+		wait-for-actor 12
+		do-animation 12 face-towards 1
+		say-line 12 "\\xFF\\x0A\\x9E\\x9D\\xFF\\x0A\\x16\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Wait one minute!"
+		do-animation 1 255
+		do-animation 2 255
+		break-here 4
+		do-animation 1 face-towards 12
+		do-animation 2 face-towards 12
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\x94\\xCB\\xFF\\x0A\\x16\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00So^\\xFF\\x03^you think you can just stroll out of here without\\x10paying?\\xFF\\x09\\x07\\x00"
+		wait-for-message
+		walk 1 to-actor 12 within 40
+		wait-for-actor 1
+		V.442 = actor-x 1
+		V.443 = actor-y 12
+		walk 1 to V.442,V.443
+		wait-for-actor 1
+		do-animation 1 face-towards 12
+		break-here 2
+		do-animation 12 face-towards 1
+		break-here 2
+		stop-script 86
+		do-animation 2 face-towards 12
+		end-cut-scene
+		start-script 82 ()
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xD3\\x17\\xFF\\x0A\\xE4\\x02\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Sorry.  I'll just put it\\x10back. \\xFF\\x09\\x0D\\x00"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x82\\x6F\\xFF\\x0A\\xE4\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Well, how much does it\\x10cost? \\xFF\\x09\\x06\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 3) - 1)
+		*V.443 = "\\xFF\\x0A\\x6D\\xAD\\xFF\\x0A\\xE4\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I don't know what you're talking\\x10about. \\xFF\\x09\\x09\\x00"
+		V.442 = ((120 + 3) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		class-of 856 is 8
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00000648]
+		jump &[00001212]
+		jump &[00000895]
+[00000648]:
+		if !(V.165 is 121) jump &[00000797]
+[00000655]:
+		start-script 144 (23,2)
+		say-line 12 "\\xFF\\x0A\\x7A\\x4A\\xFF\\x0A\\x17\\x03\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00That mask?\\xFF\\x03On second\\x10thought, you can have\\x10it^\\xFF\\x03^it's been scaring away all my best\\x10customers. \\xFF\\x09\\x06\\x00"
+		B.275[3] = 1
+		jump &[00001401]
+		jump &[00000895]
+[00000797]:
+		if !(V.165 is 122) jump &[00000895]
+		say-line 12 "\\xFF\\x0A\\x95\\x23\\xFF\\x0A\\x18\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Don't play coy with\\x10me^\\xFF\\x03You slipped something under your\\x10jacket."
+		jump &[00000895]
+		jump &[00000895]
+[00000895]:
+		wait-for-message
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xA2\\xF4\\xFF\\x0A\\xE4\\x02\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Okay, you caught me.  I'll put it\\x10back. \\xFF\\x09\\x0D\\x00"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x9C\\x46\\xFF\\x0A\\xE5\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Okay, I'll pay for it.  How much does it\\x10cost? \\xFF\\x09\\x06\\x00"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001199]
+		jump &[00001212]
+		jump &[00001212]
+[00001199]:
+		if !(V.165 is 121) jump &[00001212]
+		jump &[00000655]
+		jump &[00001212]
+[00001212]:
+		wait-for-message
+		start-script 83 ()
+		cut-scene
+		walk 1 to 134,116
+		wait-for-actor 1
+		do-animation 12 face-towards 1
+		do-animation 1 251
+		do-animation 1 11
+		break-here 3
+		owner-of 863 is 0
+		owner-of 863 is 15
+		state-of 863 is 0
+		start-script 10 ()
+		class-of 863 is 32 135
+		do-animation 1 3
+		break-here
+		do-animation 1 face-towards 12
+		say-line 1 "\\xFF\\x0A\\xC2\\xA2\\xFF\\x0A\\xE5\\x02\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00There.  How's that?\\xFF\\x09\\x07\\x00"
+		wait-for-message
+		do-animation 1 3
+		say-line 12 "\\xFF\\x0A\\xA7\\x9C\\xFF\\x0A\\x18\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Oh, it's just THAT\\x10mask.\\xFF\\x03Thank you,\\x10effendi. \\xFF\\x09\\x07\\x00"
+		wait-for-message
+		end-cut-scene
+		jump &[00001406]
+[00001401]:
+		wait-for-message
+		start-script 83 ()
+[00001406]:
+		start-script bak 86 (1,2)
+		start-script bak 204 ()
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0209
+		sleep-for 240 jiffies
+		cut-scene
+		++V.376
+		B.269[5] = 0
+		actor 6 costume 64 elevation 0 step-dist 8,2 talk-color 240 name "servant"
+		class-of 6 is 141
+		put-actor 6 in-room 64
+		put-actor 6 at-object 856
+		walk 6 to 60,109
+		wait-for-actor 6
+		do-animation 6 face-towards 1
+		say-line 6 "\\xFF\\x0A\\xF9\\xB6\\xFF\\x0A\\x61\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00There you are!"
+		stop-sentence
+		do-animation 1 255
+		do-animation 1 face-towards 6
+		wait-for-message
+		walk 6 to-actor 1 within 30
+		wait-for-actor 6
+		do-animation 1 face-towards 6
+		break-here 2
+		do-animation 6 face-towards 1
+		break-here 2
+		say-line 6 "\\xFF\\x0A\\x8F\\xE3\\xFF\\x0A\\x61\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Mr. Al-Jabbar says that he's sorry^\\xFF\\x03^but he can't see you now."
+		wait-for-message
+		end-cut-scene
+		start-script bak 205 ()
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0210
+		if !(!B.275[9]) jump &[00000018]
+		jump &[00000023]
+[00000018]:
+		cut-scene
+[00000023]:
+		walk 1 to 115,120
+		wait-for-actor 1
+		stop-script 31
+		if (actor-room 2 is 29) {
+			put-actor 2 in-room 64
+			put-actor 2 at 20,107
+		}
+		if (actor-room 2 is 64) {
+			walk 2 to 92,112
+			wait-for-actor 2
+			start-script 86 (1,2)
+		}
+		if !(!B.275[9]) jump &[00000093]
+		jump &[00000094]
+[00000093]:
+		end-cut-scene
+[00000094]:
+		if (V.238 is 3) {
+			if (B.275[9]) {
+				chain-script 201 ()
+			}
+		}
+		if (!script-running 201) {
+			if (actor-room 12 is 64) {
+				start-script bak 204 ()
+			}
+		}
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0211
+		do-animation 6 7
+		break-here 5
+		actor 6 talk-animation 11,12 init-animation 8 stand-animation 10 walk-animation 9
+		do-animation 6 10
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0212
+	local variable L.0
+
+		do {
+			break-here
+			++L.0
+		} until (L.0 is 150)
+		B.339[3] = 1
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0064\ROOM\LSCR_0213
+	local variable L.0
+	local variable L.4
+
+		if (L.0 is 863) {
+			chain-script 201 (863)
+		}
+		cut-scene
+		stop-script 204
+		walk 12 to 185,131
+		wait-for-actor 12
+		end-cut-scene
+		start-script 136 (1,12,30,1)
+		break-until (!script-running 136)
+		if (B.22) {
+			start-script bak 204 ()
+			stop-script 0
+		}
+		cut-scene
+		do-animation 1 255
+		L.4 = 0
+		say-line 1 "\\xFF\\x0A\\x62\\xA5\\xFF\\x0A\\x0A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me?"
+		do-animation 12 255
+		break-here 2
+		do-animation 1 face-towards 12
+		break-here 2
+		do-animation 12 face-towards 1
+		break-here 2
+		wait-for-message
+		say-line 6 "\\xFF\\x0A\\x79\\x73\\xFF\\x0A\\x62\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Yes?"
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x28\\xCB\\xFF\\x0A\\x0A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I think this may interest\\x10you."
+		wait-for-message
+		if !(L.0 is 934) jump &[00000228]
+		L.4 = 934
+		jump &[00000408]
+[00000228]:
+		if !(L.0 is 937) jump &[00000311]
+		do-animation 1 10
+		break-here 4
+		do-animation 1 1
+		say-line 12 "\\xFF\\x0A\\x16\\x54\\xFF\\x0A\\x45\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00No thank you.\\xFF\\x03I'm not interested in\\x10books."
+		jump &[00000408]
+[00000311]:
+		say-line 12 "\\xFF\\x0A\\x73\\xC1\\xFF\\x0A\\x45\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Sorry."
+		do-animation 12 13
+		wait-for-message
+		say-line 12 "\\xFF\\x0A\\x20\\xE3\\xFF\\x0A\\x45\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Not interested in your kind offer, I'm\\x10afraid."
+[00000408]:
+		wait-for-message
+		end-cut-scene
+		if (L.4 is 934) {
+			chain-script 201 (934)
+		}
+		end-script
+	}
+}
+

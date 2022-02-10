@@ -1,0 +1,247 @@
+room lab-subwa {
+
+	object 710 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0710
+		name is "door"
+
+		verb 10 {
+			come-out 696 in-room 162 walk-to 110,130
+			end-object
+		}
+	}
+
+	object 715 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0715
+		name is "mouth"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x57\\x66\\xFF\\x0A\\x5D\\x06\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It looks hungry."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 933) jump &[00000063]
+			chain-script 200 ()
+			jump &[00000069]
+[00000063]:
+			start-script 3 (8)
+[00000069]:
+			end-object
+		}
+	}
+
+	object 711 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0711
+		name is "subway car"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xCE\\x4D\\xFF\\x0A\\x5C\\x06\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00She's a beauty."
+			end-object
+		}
+	}
+
+	object 712 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0712
+		name is "long, winding subway track"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			say-line "\\xFF\\x0A\\xB8\\x82\\xFF\\x0A\\x5C\\x06\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00It's too long to walk."
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xF9\\xBF\\xFF\\x0A\\x5C\\x06\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like it goes on for miles."
+			end-object
+		}
+	}
+
+	object 714 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0714
+		name is "bead"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xDC\\x0E\\xFF\\x0A\\x5D\\x06\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's another orichalcum bead."
+			end-object
+		}
+
+		verb 11 {
+			stop-script 164
+			put-actor 5 in-room 0
+			state-of me is 0
+			class-of me is 160
+			start-object 933 verb 250 (1)
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			do-sentence 8 L.0 with 933
+			end-object
+		}
+	}
+
+	object 713 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0713
+		name is "subway-clipper"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0053\ROOM\EXCD
+		stop-script 164
+		sound-kludge 13 12
+		sound-kludge 65535
+		if (V.56 > 0) {
+			sound-kludge 269 12 0 180
+			sound-kludge 65535
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0053\ROOM\ENCD
+		palette intensity [rgb] 0 0 0 in-slot 67 to 79
+		if (state-of 714 is 1) {
+			start-script bak 164 (5,219,124,20,255,1)
+		}
+		if !(V.224 is 48) jump &[00000075]
+		put-actor selected-actor in-room 53
+		put-actor selected-actor at-object 712
+		do-animation selected-actor 250
+		jump &[00000126]
+[00000075]:
+		put-actor selected-actor in-room 53
+		put-actor selected-actor at-object 710
+		walk selected-actor to 235,129
+		if (class-of 711 is 134) {
+			actor 9 default costume 148 follow-boxes elevation 65468 step-dist 9,2
+			put-actor 9 in-room 53
+			put-actor 9 at 105,48
+			state-of 713 is 1
+		}
+[00000126]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0053\ROOM\LSCR_0200
+	local variable L.0
+
+		start-script 84 ()
+		break-until (!script-running 84)
+		if (V.444) {
+			cut-scene
+			start-script 144 (111,7)
+			start-object 933 verb 250 (65535)
+			shake on
+			for V.442 = 1 to 166 ++ {
+				if (sound-running V.442) {
+					sound-kludge 269 V.442 0 V.442
+					sound-kludge 257 V.442 0
+				}
+			}
+			stop-script 146
+			sound-kludge 65535
+			start-sound 12
+			sound-kludge 65535
+			sound-kludge 258 12 80
+			sound-kludge 262 12 100
+			sound-kludge 259 12 65506
+			sound-kludge 65535
+			palette intensity [rgb] 255 255 255 in-slot 67 to 79
+			actor 6 default costume 192 elevation 65478 step-dist 9,2 init-animation 6 stand-animation 6 walk-animation 6
+			put-actor 6 in-room 53
+			put-actor 6 at 105,48
+			stop-script 164
+			put-actor 5 in-room 0
+			room-shadow [rgb] 700 700 700 in-slot 0 to 255
+			break-here 8
+			say-line center at 100,15 "\\xFF\\x0A\\x75\\x96\\xFF\\x0A\\x5D\\x06\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like I've started this\\x10thing."
+			walk 1 to-object 711
+			wait-for-actor 1
+			sound-kludge 269 12 128 60
+			for L.0 = 100 to 128 ++ {
+				L.0 += 4
+				if (L.0 > 128) {
+					L.0 = 128
+				}
+				sound-kludge 262 12 L.0
+				sound-kludge 65535
+				break-here
+			}
+			shake off
+			put-actor 1 in-room 48
+			put-actor 1 at 0,0
+			state-of 713 is 0
+			walk 9 to 252,22
+			walk 6 to 252,22
+			start-script 202 ()
+			break-until (actor-x 9 > 250)
+			end-cut-scene
+			current-room 48
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0053\ROOM\LSCR_0201
+	local variable L.0
+
+		for L.0 = 0 to 255 ++ {
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 67 to 79
+			L.0 += 40
+			break-here 6
+		}
+		palette intensity [rgb] 255 255 255 in-slot 67 to 79
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0053\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		L.1 = 2
+		L.0 = 9
+		L.2 = 65468
+		L.3 = 65478
+		L.4 = 65506
+		L.5 = 128
+		V.413 = 128
+		do {
+			break-here 10
+			++L.1
+			++L.0
+			--L.2
+			L.3 -= 2
+			L.4 += 10
+			V.413 -= 7
+			L.5 -= 5
+			actor 9 step-dist L.0,L.1 elevation L.2
+			actor 6 step-dist L.0,L.1 elevation L.3
+			walk 9 to 252,22
+			walk 6 to 252,22
+			sound-kludge 258 12 V.413
+			sound-kludge 262 12 L.5
+			sound-kludge 259 12 L.4
+			sound-kludge 65535
+		} until (L.1 > 10)
+		end-script
+	}
+}
+

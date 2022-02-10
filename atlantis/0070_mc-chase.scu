@@ -1,0 +1,1265 @@
+room mc-chase {
+
+	object 951 { ; VERB LECF_0001\LFLF_0070\ROOM\OBCD_0951
+		name is "hotel"
+
+		verb 10 {
+			V.100 = 170
+			V.101 = 125
+			B.16 = 1
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0070\ROOM\EXCD
+		build-sentence-script = V.209
+		shake off
+		set-screen 0 to 144
+		start-script 19 (2)
+		actor 8 default
+		actor 9 default
+		put-actor 8 in-room 0
+		put-actor 9 in-room 0
+		unlock-sound 32
+		unlock-sound 50
+		unlock-sound 39
+		unlock-sound 51
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0070\ROOM\ENCD
+	local variable L.0
+
+		if (V.224 is 71) {
+			sound-kludge 13 119
+			sound-kludge 65535
+			if (V.56 < 1) {
+				sound-kludge 269 51 0 30
+				sound-kludge 269 39 0 30
+				start-sound 119
+				sound-kludge 258 119 90
+				sound-kludge 269 119 127 300
+				if (!script-running 160) {
+					start-script 160 ()
+				}
+			}
+		}
+		set-screen 0 to 200
+		start-script 19 (1)
+		V.209 = build-sentence-script
+		build-sentence-script = 200
+		start-script bak 208 ()
+		*34 = "999999999999999999998ACAD9999999999999999A9A99999999999999FAE9_`9899999999999A9\\\\AYGANAPATAA[9999A9A99A9A9A9A99A9999HAKALM9A9RAS99XAa99A999A99A9A9A99A9A99IAAAJAAOcQAWAAZAb9999999999A99999A999999999999A99BAA]999999999999UAAVB9A9999999999999999dA^9999999999999999999999"
+		*35 = "********************27>EK****************?*L**************6<@*MY*d***********7*AHO\\\\bgt\\x7F\\x85\\x8C\\x91\\x94\\x99****8*C**\\\\*i*\\x80*\\x8D**\\x9A****9?DKR]*j*\\x82\\x88\\x8F**\\x9D\\xA7\\xAF**:***S**l*\\x83*\\x91**\\x9F*\\xB1**;AFNU\\\\dmz\\x85\\x8C\\x93\\x98\\x9D\\xA2\\xAB\\xB3**********}*****\\xA5************\\x7F**\\x98\\x9E\\xA4\\xA9************\\x80\\x8B\\x93\\x9A\\xA0*\\xAB****************\\xA3\\xA8\\xAD**********************"
+		*36 = "********************87643****************;*5**************BA@*75*3***********E*CA?=<;8654322****I*G**A*?*:*8**4****NMLJIF*B*>=<**977**R***M**F*B*?**<*9**VUTRQOMKIFECBA@><**********O*****F************S**PONM************WVTSR*P****************VUT**********************"
+		B.16 = 0
+		if !(!B.252) jump &[00001149]
+		V.216 = 0
+		start-script bak 207 ()
+		V.214 = 66
+		actor 5 costume 49 talk-color 14 name "nazis"
+		actor 5 step-dist 12,6 ignore-boxes always-zclip 1 scale 255 255 walk-animation 6
+		actor 5 palette 1 in-slot 232
+		actor 5 palette 2 in-slot 232
+		actor 5 palette 3 in-slot 232
+		actor 5 palette 4 in-slot 232
+		actor 5 palette 5 in-slot 233
+		actor 5 palette 6 in-slot 233
+		actor 5 palette 7 in-slot 233
+		actor 5 palette 8 in-slot 234
+		actor 5 palette 9 in-slot 234
+		put-actor 5 in-room 70
+		put-actor 5 at 135,130
+		do-animation 5 248
+		actor 6 default costume 50 talk-color 15 name "Indy"
+		actor 6 step-dist 10,5 ignore-boxes always-zclip 1 scale 255 255
+		put-actor 6 in-room 70
+		put-actor 6 at 170,125
+		do-animation 6 248
+		do-animation 6 3
+		do-animation 5 3
+		actor 7 default costume 51 name "carsmash" ignore-boxes never-zclip
+		put-actor 7 in-room 0
+		L.0 = actor-x 6
+		camera-at L.0
+		selected-actor = 6
+		camera-follow 6
+		start-script 201 ()
+		start-script 202 ()
+		start-script 203 ()
+		start-script bak 209 ()
+		jump &[00001303]
+[00001149]:
+		V.215 = 1
+		V.214 = 65
+		actor 6 default costume 90 step-dist 3,3 ignore-boxes always-zclip 1 name "Indy"
+		actor 5 default costume 49 ignore-boxes always-zclip 1 name "crash site"
+		actor 5 palette 1 in-slot 232
+		actor 5 palette 2 in-slot 232
+		actor 5 palette 3 in-slot 232
+		actor 5 palette 4 in-slot 232
+		actor 5 palette 5 in-slot 233
+		actor 5 palette 6 in-slot 233
+		actor 5 palette 7 in-slot 233
+		actor 5 palette 8 in-slot 234
+		actor 5 palette 9 in-slot 234
+		put-actor 5 in-room 70
+		put-actor 5 at V.277,V.278
+		do-animation 5 250
+		do-animation 5 8
+		if (V.224 is 27) {
+			put-actor 6 in-room 70
+			put-actor 6 at 170,125
+			do-animation 6 248
+		}
+		camera-at V.284
+		selected-actor = 6
+		start-script bak 212 ()
+		start-script 202 ()
+		start-script bak 209 ()
+[00001303]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0200
+	local variable L.3
+
+		V.100 = cursor-x
+		V.101 = cursor-y
+		L.3 = find-object V.100,V.101
+		if (L.3 is 951) {
+			V.100 = 185
+			V.101 = 128
+		}
+		B.16 = 1
+		V.274 = V.279
+		V.272 = V.279
+		V.275 = V.280
+		V.273 = V.280
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+
+		if !(actor-x 5 is 135) jump &[00000045]
+		if (actor-y 5 is 130) {
+			V.277 = 4
+			V.278 = 6
+		}
+		jump &[00000103]
+[00000045]:
+		L.6 = ((V.278 * 19) + V.277)
+		L.4 = *35[L.6]
+		L.4 -= 48
+		L.4 *= 5
+		L.5 = *36[L.6]
+		L.5 -= 48
+		L.5 *= 5
+		walk 5 to L.4,L.5
+		wait-for-actor 5
+[00000103]:
+		L.0 = actor-facing 5
+		L.1 = random 3
+[00000111]:
+		L.2 = V.277
+		L.3 = V.278
+[00000121]:
+		if !(L.0 is 0) jump &[00000160]
+		if !(L.1 is 0) jump &[00000141]
+		++L.3
+		jump &[00000157]
+[00000141]:
+		if !(L.1 is 1) jump &[00000154]
+		--L.3
+		jump &[00000157]
+[00000154]:
+		--L.2
+[00000157]:
+		jump &[00000277]
+[00000160]:
+		if !(L.0 is 1) jump &[00000199]
+		if !(L.1 is 0) jump &[00000180]
+		--L.3
+		jump &[00000196]
+[00000180]:
+		if !(L.1 is 1) jump &[00000193]
+		++L.3
+		jump &[00000196]
+[00000193]:
+		++L.2
+[00000196]:
+		jump &[00000277]
+[00000199]:
+		if !(L.0 is 2) jump &[00000238]
+		if !(L.1 is 0) jump &[00000219]
+		++L.2
+		jump &[00000235]
+[00000219]:
+		if !(L.1 is 1) jump &[00000232]
+		--L.2
+		jump &[00000235]
+[00000232]:
+		++L.3
+[00000235]:
+		jump &[00000277]
+[00000238]:
+		if !(L.0 is 3) jump &[00000277]
+		if !(L.1 is 0) jump &[00000258]
+		--L.2
+		jump &[00000274]
+[00000258]:
+		if !(L.1 is 1) jump &[00000271]
+		++L.2
+		jump &[00000274]
+[00000271]:
+		--L.3
+[00000274]:
+		jump &[00000277]
+[00000277]:
+		L.6 = ((L.3 * 19) + L.2)
+		L.7 = *34[L.6]
+		if !(L.7 is 55) jump &[00000329]
+		print-debug "\\xFF\\x0A\\x71\\x27\\xFF\\x0A\\xB5\\x04\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00"
+		jump &[00000336]
+[00000329]:
+		if !(L.7 is 57) jump &[00000417]
+[00000336]:
+		++L.8
+		if !(L.8 > 4) jump &[00000410]
+		if !(L.0 is 0) jump &[00000362]
+		L.0 = 2
+		break-here
+		jump &[00000111]
+[00000362]:
+		if !(L.0 is 1) jump &[00000378]
+		L.0 = 3
+		break-here
+		jump &[00000111]
+[00000378]:
+		if !(L.0 is 2) jump &[00000394]
+		L.0 = 1
+		break-here
+		jump &[00000111]
+[00000394]:
+		if !(L.0 is 3) jump &[00000410]
+		L.0 = 0
+		break-here
+		jump &[00000111]
+[00000410]:
+		L.1 = random 2
+		jump &[00000111]
+[00000417]:
+		L.8 = 0
+		L.4 = *35[L.6]
+		L.4 -= 48
+		L.4 *= 5
+		L.5 = *36[L.6]
+		L.5 -= 48
+		L.5 *= 5
+		V.277 = L.2
+		V.278 = L.3
+		walk 5 to L.4,L.5
+		wait-for-actor 5
+		if !(L.7 < 66) jump &[00000488]
+		jump &[00000121]
+		jump &[00000511]
+[00000488]:
+		V.442 = (L.7 + 156)
+		if (V.442 is-not 232) {
+			V.286 = L.6
+		}
+[00000511]:
+		jump &[00000103]
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+	local variable L.12
+
+		if !(actor-x 6 is 170) jump &[00000086]
+		if !(actor-y 6 is 125) jump &[00000083]
+		V.279 = 5
+		V.280 = 6
+		V.100 = 170
+		V.101 = 125
+		V.219 = ((V.280 * 19) + V.279)
+		V.220 = *34[V.219]
+		*34[V.219] = 55
+		jump &[00000282]
+[00000083]:
+		jump &[00000183]
+[00000086]:
+		L.11 = ((V.280 * 19) + V.279)
+		if (V.221) {
+			*34[V.219] = V.220
+		}
+		L.9 = *35[L.11]
+		L.9 -= 48
+		L.9 *= 5
+		L.10 = *36[L.11]
+		L.10 -= 48
+		L.10 *= 5
+		V.100 = L.9
+		V.101 = L.10
+		if !(V.215) jump &[00000174]
+		put-actor 6 in-room 70
+		put-actor 6 at L.9,L.10
+		jump &[00000183]
+[00000174]:
+		walk 6 to L.9,L.10
+		wait-for-actor 6
+[00000183]:
+		V.219 = ((V.280 * 19) + V.279)
+		V.220 = *34[V.219]
+		*34[V.219] = 55
+		if (V.220 > 65) {
+			V.442 = (V.220 + 156)
+			if (V.442 is-not 232) {
+				V.285 = V.219
+			}
+		}
+		if !(V.221) jump &[00000254]
+		V.221 = 0
+		jump &[00000282]
+[00000254]:
+		if !(V.215) jump &[00000267]
+		V.215 = 0
+		jump &[00000282]
+[00000267]:
+		if !(L.12 < V.214) jump &[00000282]
+		V.210 = 1
+		jump &[00000628]
+[00000282]:
+		if !(B.252) jump &[00000295]
+		L.0 = 4
+		jump &[00000299]
+[00000295]:
+		L.0 = actor-facing 6
+[00000299]:
+		L.7 = V.279
+		L.8 = V.280
+		L.5 = L.7
+		L.6 = L.8
+		L.1 = (V.100 - (actor-x 6))
+		L.2 = (V.101 - (actor-y 6))
+		V.217 = (L.1 / 6)
+		V.218 = (L.2 / 5)
+		L.1 -= V.218
+		L.2 += V.217
+		L.3 = L.1
+		if (L.3 < 0) {
+			L.3 = (0 - L.3)
+		}
+		L.4 = L.2
+		if (L.4 < 0) {
+			L.4 = (0 - L.4)
+		}
+		if !(L.3 < 20) jump &[00000503]
+		if !(L.4 < 20) jump &[00000503]
+		if !(B.16) jump &[00000496]
+		B.16 = 0
+		if !(B.252) jump &[00000496]
+		if !(L.12 > 66) jump &[00000496]
+[00000461]:
+		V.283 = (L.12 + 156)
+		V.284 = (actor-x 6)
+		if !(V.283 is-not 232) jump &[00000494]
+		current-room 71
+		jump &[00000496]
+[00000494]:
+		current-room 27
+[00000496]:
+		break-here
+		do-animation 6 3
+		jump &[00000984]
+[00000503]:
+		if !(L.3 > L.4) jump &[00000568]
+		if !(L.1 > 0) jump &[00000525]
+		V.211 = 1
+		jump &[00000530]
+[00000525]:
+		V.211 = 3
+[00000530]:
+		if !(L.4 >= 10) jump &[00000560]
+		if !(L.2 > 0) jump &[00000552]
+		V.212 = 2
+		jump &[00000557]
+[00000552]:
+		V.212 = 0
+[00000557]:
+		jump &[00000565]
+[00000560]:
+		V.212 = 4
+[00000565]:
+		jump &[00000623]
+[00000568]:
+		if !(L.2 > 0) jump &[00000583]
+		V.211 = 2
+		jump &[00000588]
+[00000583]:
+		V.211 = 0
+[00000588]:
+		if !(L.3 >= 10) jump &[00000618]
+		if !(L.1 > 0) jump &[00000610]
+		V.212 = 1
+		jump &[00000615]
+[00000610]:
+		V.212 = 3
+[00000615]:
+		jump &[00000623]
+[00000618]:
+		V.212 = 4
+[00000623]:
+		V.213 = V.211
+[00000628]:
+		if !(L.0 is 0) jump &[00000677]
+		if !(V.213 is 3) jump &[00000648]
+		--L.5
+		jump &[00000674]
+[00000648]:
+		if !(V.213 is 0) jump &[00000661]
+		--L.6
+		jump &[00000674]
+[00000661]:
+		if !(V.213 is 2) jump &[00000674]
+		++L.6
+		jump &[00000674]
+[00000674]:
+		jump &[00000886]
+[00000677]:
+		if !(L.0 is 1) jump &[00000726]
+		if !(V.213 is 1) jump &[00000697]
+		++L.5
+		jump &[00000723]
+[00000697]:
+		if !(V.213 is 0) jump &[00000710]
+		--L.6
+		jump &[00000723]
+[00000710]:
+		if !(V.213 is 2) jump &[00000723]
+		++L.6
+		jump &[00000723]
+[00000723]:
+		jump &[00000886]
+[00000726]:
+		if !(L.0 is 2) jump &[00000775]
+		if !(V.213 is 1) jump &[00000746]
+		++L.5
+		jump &[00000772]
+[00000746]:
+		if !(V.213 is 3) jump &[00000759]
+		--L.5
+		jump &[00000772]
+[00000759]:
+		if !(V.213 is 2) jump &[00000772]
+		++L.6
+		jump &[00000772]
+[00000772]:
+		jump &[00000886]
+[00000775]:
+		if !(L.0 is 3) jump &[00000824]
+		if !(V.213 is 1) jump &[00000795]
+		++L.5
+		jump &[00000821]
+[00000795]:
+		if !(V.213 is 3) jump &[00000808]
+		--L.5
+		jump &[00000821]
+[00000808]:
+		if !(V.213 is 0) jump &[00000821]
+		--L.6
+		jump &[00000821]
+[00000821]:
+		jump &[00000886]
+[00000824]:
+		if !(L.0 is 4) jump &[00000886]
+		if !(V.213 is 1) jump &[00000844]
+		++L.5
+		jump &[00000883]
+[00000844]:
+		if !(V.213 is 3) jump &[00000857]
+		--L.5
+		jump &[00000883]
+[00000857]:
+		if !(V.213 is 0) jump &[00000870]
+		--L.6
+		jump &[00000883]
+[00000870]:
+		if !(V.213 is 2) jump &[00000883]
+		++L.6
+		jump &[00000883]
+[00000883]:
+		jump &[00000886]
+[00000886]:
+		L.11 = ((L.6 * 19) + L.5)
+		L.12 = *34[L.11]
+		if !(L.12 is 55) jump &[00000918]
+		jump &[00000925]
+[00000918]:
+		if !(L.12 is 57) jump &[00001067]
+[00000925]:
+		if !(!V.210) jump &[00000969]
+		if !(V.212 is-not 4) jump &[00000963]
+		V.210 = 1
+		L.5 = L.7
+		L.6 = L.8
+		V.213 = V.212
+		jump &[00000628]
+		jump &[00000966]
+[00000963]:
+		jump &[00000969]
+[00000966]:
+		jump &[00000984]
+[00000969]:
+		V.210 = 0
+		L.7 = L.5
+		L.8 = L.6
+[00000984]:
+		if !(V.220 is 56) jump &[00001063]
+		if !(L.0 is 0) jump &[00001006]
+		L.0 = 2
+		jump &[00001048]
+[00001006]:
+		if !(L.0 is 2) jump &[00001021]
+		L.0 = 1
+		jump &[00001048]
+[00001021]:
+		if !(L.0 is 1) jump &[00001036]
+		L.0 = 3
+		jump &[00001048]
+[00001036]:
+		if (L.0 is 3) {
+			L.0 = 0
+		}
+[00001048]:
+		V.442 = (L.0 + 248)
+		do-animation 6 V.442
+[00001063]:
+		break-here
+		jump &[00000282]
+[00001067]:
+		if !(B.252) jump &[00001119]
+		if !(V.272 is L.5) jump &[00001119]
+		if !(V.273 is L.6) jump &[00001119]
+		V.100 = L.9
+		V.101 = L.10
+		B.16 = 0
+		if !(V.220 > 66) jump &[00001116]
+		L.12 = V.220
+		jump &[00000461]
+[00001116]:
+		jump &[00000282]
+[00001119]:
+		L.7 = L.5
+		L.8 = L.6
+		V.272 = V.274
+		V.274 = L.7
+		V.273 = V.275
+		V.275 = L.8
+		L.9 = *35[L.11]
+		L.9 -= 48
+		L.9 *= 5
+		L.10 = *36[L.11]
+		L.10 -= 48
+		L.10 *= 5
+		if !(V.279 is L.7) jump &[00001201]
+		if !(V.280 is L.8) jump &[00001201]
+		break-here
+		jump &[00000282]
+[00001201]:
+		*34[V.219] = V.220
+		V.279 = L.7
+		V.280 = L.8
+		walk 6 to L.9,L.10
+		wait-for-actor 6
+		V.213 = V.211
+		V.210 = 0
+		jump &[00000183]
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0203
+		sleep-for 15 jiffies
+		start-script 204 ()
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		L.0 = proximity 6,5
+		if (L.0 < V.216) {
+			*34[V.219] = V.220
+			do-animation 6 255
+			do-animation 5 255
+			stop-script 201
+			stop-script 202
+			print-debug "\\xFF\\x0A\\x07\\x9B\\xFF\\x0A\\xB4\\x04\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00"
+			stop-sound 32
+			sound-kludge 65535
+			sound-kludge 272
+			shake on
+			chain-script 206 ()
+		}
+		if !(L.0 < 10) jump &[00000255]
+		V.221 = 1
+		++V.216
+		do-animation 6 255
+		stop-script 202
+		print-debug "\\xFF\\x0A\\x97\\x35\\xFF\\x0A\\xB4\\x04\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00"
+		L.1 = ((actor-facing 6) + 248)
+		shake on
+		L.2 = 1
+[00000136]:
+		if !(L.1 is 248) jump &[00000157]
+		L.1 = (2 + 248)
+		jump &[00000217]
+[00000157]:
+		if !(L.1 is 250) jump &[00000178]
+		L.1 = (1 + 248)
+		jump &[00000217]
+[00000178]:
+		if !(L.1 is 249) jump &[00000199]
+		L.1 = (3 + 248)
+		jump &[00000217]
+[00000199]:
+		if (L.1 is 251) {
+			L.1 = (0 + 248)
+		}
+[00000217]:
+		actor 6 elevation L.2
+		do-animation 6 L.1
+		break-here
+		++L.2
+		if !(L.2 > 6) jump &[00000136]
+		shake off
+		actor 6 elevation 0
+		start-script 202 ()
+		start-script 203 ()
+		jump &[00000282]
+[00000255]:
+		if (L.0 < 15) {
+			print-debug "\\xFF\\x0A\\xE3\\x86\\xFF\\x0A\\xB2\\x04\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00"
+		}
+[00000282]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0205
+	local variable L.0
+
+		if (L.0 < 0) {
+			L.0 = (0 - L.0)
+		}
+		V.444 = L.0
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+	local variable L.11
+
+		L.2 = *35[V.286]
+		L.2 -= 48
+		L.2 *= 5
+		L.3 = *36[V.286]
+		L.3 -= 48
+		L.3 *= 5
+		L.4 = *35[V.285]
+		L.4 -= 48
+		L.4 *= 5
+		L.5 = *36[V.285]
+		L.5 -= 48
+		L.5 *= 5
+		L.0 = actor-x 6
+		L.1 = actor-y 6
+		L.10 = (L.4 - L.0)
+		L.11 = (L.5 - L.1)
+		L.6 = ((L.10 * L.10) + (L.11 * L.11))
+		L.10 = (L.2 - L.0)
+		L.11 = (L.3 - L.1)
+		L.7 = ((L.10 * L.10) + (L.11 * L.11))
+		if !(L.6 > L.7) jump &[00000200]
+		L.0 = L.2
+		L.1 = L.3
+		L.8 = *34[V.286]
+		L.9 = V.286
+		jump &[00000227]
+[00000200]:
+		L.0 = L.4
+		L.1 = L.5
+		L.8 = *34[V.285]
+		L.9 = V.285
+		V.286 = V.285
+[00000227]:
+		V.277 = L.0
+		V.278 = L.1
+		walk 6 to L.0,L.1
+		walk 5 to L.0,L.1
+		wait-for-actor 5
+		actor 7 always-zclip 1
+		put-actor 7 in-room 70
+		put-actor 7 at L.0,L.1
+		do-animation 7 250
+		do-animation 7 6
+		break-here 6
+		start-script 77 (L.9,19)
+		V.279 = V.444
+		V.280 = (L.9 / 19)
+		V.281 = (L.8 + 156)
+		V.283 = V.281
+		put-actor 7 in-room 0
+		sleep-for 30 jiffies
+		shake off
+		V.284 = actor-x 6
+		current-room 71
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0207
+	local variable L.0
+
+		for L.0 = 2 to 8 ++ {
+			sleep-for 3600 jiffies
+			if (V.216 < L.0) {
+				V.216 = L.0
+			}
+		}
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+[00000008]:
+		V.442 = random 1
+		L.1 = cursor-x
+		L.2 = cursor-y
+		L.0 = find-actor cursor-x,cursor-y
+		if (!L.0) {
+			L.0 = find-object cursor-x,cursor-y
+			V.108 = L.0
+		}
+		if !(L.0) jump &[00000084]
+		L.1 = (L.1 - (camera-x - 160))
+		print-line at L.1,L.2 color 18 "%o16384%"
+		jump &[00000094]
+[00000084]:
+		print-line at 0,0 " "
+[00000094]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0209
+		actor 8 default name "@"
+		actor 9 default name "@"
+		break-here
+		actor 8 costume 50 talk-color 15 walk-animation 6 name "car"
+		actor 8 step-dist 10,5 ignore-boxes always-zclip 1 scale 255 255
+		do-animation 8 248
+		do-animation 8 3
+		actor 9 costume 50 talk-color 15 walk-animation 6 name "car"
+		actor 9 step-dist 10,5 ignore-boxes always-zclip 1 scale 255 255
+		do-animation 9 248
+		do-animation 9 3
+		start-script bak 210 ()
+		start-script bak 211 ()
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0210
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+
+[00000008]:
+		sleep-for 120 jiffies
+		if !(camera-x < 344) jump &[00000096]
+		V.442 = random 3
+		if !(V.442 is 0) jump &[00000043]
+		L.0 = 15
+		L.1 = 4
+		jump &[00000093]
+[00000043]:
+		if !(V.442 is 1) jump &[00000063]
+		L.0 = 15
+		L.1 = 8
+		jump &[00000093]
+[00000063]:
+		if !(V.442 is 2) jump &[00000083]
+		L.0 = 15
+		L.1 = 9
+		jump &[00000093]
+[00000083]:
+		L.0 = 15
+		L.1 = 12
+[00000093]:
+		jump &[00000170]
+[00000096]:
+		V.442 = random 3
+		if !(V.442 is 0) jump &[00000120]
+		L.0 = 1
+		L.1 = 1
+		jump &[00000170]
+[00000120]:
+		if !(V.442 is 1) jump &[00000140]
+		L.0 = 1
+		L.1 = 2
+		jump &[00000170]
+[00000140]:
+		if !(V.442 is 2) jump &[00000160]
+		L.0 = 1
+		L.1 = 6
+		jump &[00000170]
+[00000160]:
+		L.0 = 1
+		L.1 = 8
+[00000170]:
+		V.442 = random 1
+		if !(V.442 is 0) jump &[00000208]
+		actor 8 palette 3 in-slot 212
+		actor 8 palette 4 in-slot 212
+		actor 8 palette 5 in-slot 213
+		actor 8 palette 6 in-slot 214
+		jump &[00000242]
+[00000208]:
+		if !(V.442 is 1) jump &[00000242]
+		actor 8 palette 3 in-slot 248
+		actor 8 palette 4 in-slot 249
+		actor 8 palette 5 in-slot 250
+		actor 8 palette 6 in-slot 250
+		jump &[00000242]
+[00000242]:
+		L.8 = ((L.1 * 19) + L.0)
+		L.6 = *35[L.8]
+		L.6 -= 48
+		L.6 *= 5
+		L.7 = *36[L.8]
+		L.7 -= 48
+		L.7 *= 5
+		put-actor 8 in-room selected-room
+		put-actor 8 at L.6,L.7
+		walk 8 to L.6,L.7
+		wait-for-actor 8
+[00000310]:
+		L.2 = actor-facing 8
+		L.3 = random 3
+[00000318]:
+		L.4 = L.0
+		L.5 = L.1
+[00000328]:
+		if !(L.2 is 0) jump &[00000367]
+		if !(L.3 is 0) jump &[00000348]
+		++L.5
+		jump &[00000364]
+[00000348]:
+		if !(L.3 is 1) jump &[00000361]
+		--L.5
+		jump &[00000364]
+[00000361]:
+		--L.4
+[00000364]:
+		jump &[00000484]
+[00000367]:
+		if !(L.2 is 1) jump &[00000406]
+		if !(L.3 is 0) jump &[00000387]
+		--L.5
+		jump &[00000403]
+[00000387]:
+		if !(L.3 is 1) jump &[00000400]
+		++L.5
+		jump &[00000403]
+[00000400]:
+		++L.4
+[00000403]:
+		jump &[00000484]
+[00000406]:
+		if !(L.2 is 2) jump &[00000445]
+		if !(L.3 is 0) jump &[00000426]
+		++L.4
+		jump &[00000442]
+[00000426]:
+		if !(L.3 is 1) jump &[00000439]
+		--L.4
+		jump &[00000442]
+[00000439]:
+		++L.5
+[00000442]:
+		jump &[00000484]
+[00000445]:
+		if !(L.2 is 3) jump &[00000484]
+		if !(L.3 is 0) jump &[00000465]
+		--L.4
+		jump &[00000481]
+[00000465]:
+		if !(L.3 is 1) jump &[00000478]
+		++L.4
+		jump &[00000481]
+[00000478]:
+		--L.5
+[00000481]:
+		jump &[00000484]
+[00000484]:
+		L.8 = ((L.5 * 19) + L.4)
+		L.9 = *34[L.8]
+		if !(L.9 is 57) jump &[00000594]
+		++L.10
+		if !(L.10 > 4) jump &[00000587]
+		if !(L.2 is 0) jump &[00000539]
+		L.2 = 2
+		break-here
+		jump &[00000318]
+[00000539]:
+		if !(L.2 is 1) jump &[00000555]
+		L.2 = 3
+		break-here
+		jump &[00000318]
+[00000555]:
+		if !(L.2 is 2) jump &[00000571]
+		L.2 = 1
+		break-here
+		jump &[00000318]
+[00000571]:
+		if !(L.2 is 3) jump &[00000587]
+		L.2 = 0
+		break-here
+		jump &[00000318]
+[00000587]:
+		L.3 = random 2
+		jump &[00000318]
+[00000594]:
+		L.10 = 0
+		L.6 = *35[L.8]
+		L.6 -= 48
+		L.6 *= 5
+		L.7 = *36[L.8]
+		L.7 -= 48
+		L.7 *= 5
+		L.0 = L.4
+		L.1 = L.5
+		walk 8 to L.6,L.7
+		wait-for-actor 8
+		V.442 = random 20
+		if !(!V.442) jump &[00000719]
+		V.445 = actor-x 8
+		V.446 = actor-y 8
+		V.442 = (camera-x - 160)
+		V.443 = (camera-x + 160)
+		if !(V.445 < V.442) jump &[00000706]
+		put-actor 8 in-room 0
+		jump &[00000008]
+[00000706]:
+		if !(V.445 > V.443) jump &[00000719]
+		put-actor 8 in-room 0
+		jump &[00000008]
+[00000719]:
+		if !(L.9 < 66) jump &[00000729]
+		jump &[00000328]
+[00000729]:
+		jump &[00000310]
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0211
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+	local variable L.9
+	local variable L.10
+
+[00000008]:
+		sleep-for 120 jiffies
+		if !(camera-x < 344) jump &[00000096]
+		V.442 = random 3
+		if !(V.442 is 0) jump &[00000043]
+		L.0 = 15
+		L.1 = 4
+		jump &[00000093]
+[00000043]:
+		if !(V.442 is 1) jump &[00000063]
+		L.0 = 15
+		L.1 = 8
+		jump &[00000093]
+[00000063]:
+		if !(V.442 is 2) jump &[00000083]
+		L.0 = 15
+		L.1 = 9
+		jump &[00000093]
+[00000083]:
+		L.0 = 15
+		L.1 = 12
+[00000093]:
+		jump &[00000170]
+[00000096]:
+		V.442 = random 3
+		if !(V.442 is 0) jump &[00000120]
+		L.0 = 1
+		L.1 = 1
+		jump &[00000170]
+[00000120]:
+		if !(V.442 is 1) jump &[00000140]
+		L.0 = 1
+		L.1 = 2
+		jump &[00000170]
+[00000140]:
+		if !(V.442 is 2) jump &[00000160]
+		L.0 = 1
+		L.1 = 6
+		jump &[00000170]
+[00000160]:
+		L.0 = 1
+		L.1 = 8
+[00000170]:
+		V.442 = random 1
+		if !(V.442 is 0) jump &[00000208]
+		actor 9 palette 3 in-slot 212
+		actor 9 palette 4 in-slot 212
+		actor 9 palette 5 in-slot 213
+		actor 9 palette 6 in-slot 214
+		jump &[00000242]
+[00000208]:
+		if !(V.442 is 1) jump &[00000242]
+		actor 9 palette 3 in-slot 248
+		actor 9 palette 4 in-slot 249
+		actor 9 palette 5 in-slot 250
+		actor 9 palette 6 in-slot 250
+		jump &[00000242]
+[00000242]:
+		L.8 = ((L.1 * 19) + L.0)
+		L.6 = *35[L.8]
+		L.6 -= 48
+		L.6 *= 5
+		L.7 = *36[L.8]
+		L.7 -= 48
+		L.7 *= 5
+		put-actor 9 in-room selected-room
+		put-actor 9 at L.6,L.7
+		walk 9 to L.6,L.7
+		wait-for-actor 9
+[00000310]:
+		L.2 = actor-facing 9
+		L.3 = random 3
+[00000318]:
+		L.4 = L.0
+		L.5 = L.1
+[00000328]:
+		if !(L.2 is 0) jump &[00000367]
+		if !(L.3 is 0) jump &[00000348]
+		++L.5
+		jump &[00000364]
+[00000348]:
+		if !(L.3 is 1) jump &[00000361]
+		--L.5
+		jump &[00000364]
+[00000361]:
+		--L.4
+[00000364]:
+		jump &[00000484]
+[00000367]:
+		if !(L.2 is 1) jump &[00000406]
+		if !(L.3 is 0) jump &[00000387]
+		--L.5
+		jump &[00000403]
+[00000387]:
+		if !(L.3 is 1) jump &[00000400]
+		++L.5
+		jump &[00000403]
+[00000400]:
+		++L.4
+[00000403]:
+		jump &[00000484]
+[00000406]:
+		if !(L.2 is 2) jump &[00000445]
+		if !(L.3 is 0) jump &[00000426]
+		++L.4
+		jump &[00000442]
+[00000426]:
+		if !(L.3 is 1) jump &[00000439]
+		--L.4
+		jump &[00000442]
+[00000439]:
+		++L.5
+[00000442]:
+		jump &[00000484]
+[00000445]:
+		if !(L.2 is 3) jump &[00000484]
+		if !(L.3 is 0) jump &[00000465]
+		--L.4
+		jump &[00000481]
+[00000465]:
+		if !(L.3 is 1) jump &[00000478]
+		++L.4
+		jump &[00000481]
+[00000478]:
+		--L.5
+[00000481]:
+		jump &[00000484]
+[00000484]:
+		L.8 = ((L.5 * 19) + L.4)
+		L.9 = *34[L.8]
+		if !(L.9 is 57) jump &[00000594]
+		++L.10
+		if !(L.10 > 4) jump &[00000587]
+		if !(L.2 is 0) jump &[00000539]
+		L.2 = 2
+		break-here
+		jump &[00000318]
+[00000539]:
+		if !(L.2 is 1) jump &[00000555]
+		L.2 = 3
+		break-here
+		jump &[00000318]
+[00000555]:
+		if !(L.2 is 2) jump &[00000571]
+		L.2 = 1
+		break-here
+		jump &[00000318]
+[00000571]:
+		if !(L.2 is 3) jump &[00000587]
+		L.2 = 0
+		break-here
+		jump &[00000318]
+[00000587]:
+		L.3 = random 2
+		jump &[00000318]
+[00000594]:
+		L.10 = 0
+		L.6 = *35[L.8]
+		L.6 -= 48
+		L.6 *= 5
+		L.7 = *36[L.8]
+		L.7 -= 48
+		L.7 *= 5
+		L.0 = L.4
+		L.1 = L.5
+		walk 9 to L.6,L.7
+		wait-for-actor 9
+		V.442 = random 20
+		if !(!V.442) jump &[00000719]
+		V.445 = actor-x 9
+		V.446 = actor-y 9
+		V.442 = (camera-x - 160)
+		V.443 = (camera-x + 160)
+		if !(V.445 < V.442) jump &[00000706]
+		put-actor 9 in-room 0
+		jump &[00000008]
+[00000706]:
+		if !(V.445 > V.443) jump &[00000719]
+		put-actor 9 in-room 0
+		jump &[00000008]
+[00000719]:
+		if !(L.9 < 66) jump &[00000729]
+		jump &[00000328]
+[00000729]:
+		jump &[00000310]
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0212
+		break-here
+		camera-follow selected-actor
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0070\ROOM\LSCR_0213
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+
+		L.1 = 0
+[00000013]:
+		L.0 = 0
+[00000018]:
+		print-debug "node %n16384% , %n16385% is:"
+		L.2 = ((L.1 * 19) + L.0)
+		L.3 = *34[L.2]
+		if !(L.3 is 57) jump &[00000085]
+		print-debug "BLOCKED"
+		jump &[00000194]
+[00000085]:
+		if !(L.3 is 56) jump &[00000110]
+		print-debug "DEAD END"
+		jump &[00000142]
+		jump &[00000194]
+[00000110]:
+		if !(L.3 is 65) jump &[00000134]
+		print-debug "NO TURN"
+		jump &[00000142]
+		jump &[00000194]
+[00000134]:
+		print-debug "TURN"
+[00000142]:
+		L.4 = *35[L.2]
+		L.4 -= 48
+		L.4 *= 5
+		L.5 = *36[L.2]
+		L.5 -= 48
+		L.5 *= 5
+		print-debug "at %n16388% , %n16389%"
+[00000194]:
+		print-debug " "
+		++L.0
+		if !(L.0 > 19) jump &[00000018]
+		++L.1
+		if !(L.1 > 13) jump &[00000013]
+		end-script
+	}
+}
+

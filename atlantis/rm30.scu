@@ -1,0 +1,38 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 30: God Machine High (a3-god-hi)
+; */
+
+room a3-god-hi {
+
+	exit { ; EXCD LECF_0001\LFLF_0030\ROOM\EXCD
+		sound-kludge 269 156 127 360
+		sound-kludge 257 144 129
+		sound-kludge 65535
+		cursor on
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0030\ROOM\ENCD
+		sound-kludge 272
+		cursor off
+		build-sentence-script = 78
+		start-script 19 (1)
+		set-screen 0 to 200
+		start-script 200 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0030\ROOM\LSCR_0200
+		start-sound 144
+		start-sound 145
+		sound-kludge 269 13 0 120
+		sound-kludge 269 156 1 120
+		fades 133
+		sleep-for 180 jiffies
+		current-room 22
+		end-script
+	}
+}
+

@@ -1,0 +1,205 @@
+room lab-hide {
+
+	object 719 { ; VERB LECF_0001\LFLF_0054\ROOM\OBCD_0719
+		name is "boulder"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			say-line "\\xFF\\x0A\\x5D\\xA1\\xFF\\x0A\\xF8\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00The doorway is\\x10blocked."
+			end-object
+		}
+
+		verb 6 {
+			say-line "\\xFF\\x0A\\x9E\\xDE\\xFF\\x0A\\xF8\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's too heavy."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 700) jump &[00000199]
+[00000099]:
+			say-line "\\xFF\\x0A\\x1F\\x02\\xFF\\x0A\\xF9\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That boulder won't go through the\\x10doorway^\\xFF\\x03^no matter how much force I\\x10apply."
+			jump &[00000231]
+[00000199]:
+			if !(L.0 is 1001) jump &[00000212]
+			jump &[00000099]
+			jump &[00000231]
+[00000212]:
+			if !(L.0 is 698) jump &[00000225]
+			jump &[00000099]
+			jump &[00000231]
+[00000225]:
+			start-script 3 (8)
+[00000231]:
+			end-object
+		}
+
+		verb 7 {
+			say-line "\\xFF\\x0A\\x75\\x9B\\xFF\\x0A\\xF9\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00There's no place to grip\\x10it."
+			end-object
+		}
+	}
+
+	object 716 { ; VERB LECF_0001\LFLF_0054\ROOM\OBCD_0716
+		name is "door"
+
+		verb 10 {
+			current-room 170
+			end-object
+		}
+	}
+
+	object 717 { ; VERB LECF_0001\LFLF_0054\ROOM\OBCD_0717
+		name is "door"
+
+		verb 10 {
+			if !(class-of 719 is 160) jump &[00000028]
+			come-out 685 in-room 164 walk-to 270,143
+			jump &[00000076]
+[00000028]:
+			say-line "\\xFF\\x0A\\x36\\x68\\xFF\\x0A\\xF7\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't get past the\\x10boulder."
+[00000076]:
+			end-object
+		}
+	}
+
+	object 718 { ; VERB LECF_0001\LFLF_0054\ROOM\OBCD_0718
+		name is "boulder"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x81\\xAB\\xFF\\x0A\\xF7\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You know, I can't put my finger on\\x10it^\\xFF\\x03but this boulder looks vaguely\\x10familiar."
+			end-object
+		}
+
+		verb 6 {
+			say-line "\\xFF\\x0A\\x72\\x50\\xFF\\x0A\\xF8\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's too heavy.  I need some\\x10leverage."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 700) jump &[00000188]
+			chain-script 200 (700)
+			jump &[00000226]
+[00000188]:
+			if !(L.0 is 1001) jump &[00000204]
+			chain-script 200 (1001)
+			jump &[00000226]
+[00000204]:
+			if !(L.0 is 698) jump &[00000220]
+			chain-script 200 (698)
+			jump &[00000226]
+[00000220]:
+			start-script 3 (8)
+[00000226]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0054\ROOM\EXCD
+		stop-script 184
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0054\ROOM\ENCD
+		if !(class-of 718 is 32) jump &[00000045]
+		actor 12 costume 83 elevation 100 ignore-boxes always-zclip 1 scale 255 255 always-zclip 1
+		put-actor 12 in-room 54
+		put-actor 12 at 118,155
+		jump &[00000077]
+[00000045]:
+		if (class-of 719 is 32) {
+			actor 12 costume 83 elevation 100 ignore-boxes scale 255 255 always-zclip 1
+			put-actor 12 in-room 54
+			put-actor 12 at 28,187
+		}
+[00000077]:
+		if (B.37[18] is 0) {
+			if (!script-running 124) {
+				start-script 184 ()
+			}
+		}
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0054\ROOM\LSCR_0200
+	local variable L.0
+
+		cut-scene
+		if !(B.37[18]) jump &[00000110]
+		say-line "\\xFF\\x0A\\x9C\\x44\\xFF\\x0A\\xF5\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why bother?\\xFF\\x03By some miracle I floored that lummox in the next\\x10room."
+		jump &[00000602]
+[00000110]:
+		sound-kludge 257 74 0
+		actor 12 ignore-boxes
+		do-animation 1 249
+		do-animation 1 12
+		say-line "\\xFF\\x0A\\xBB\\xE1\\xFF\\x0A\\xF5\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'll just lever this thing over the edge,\\x10and^"
+		walk 12 to 125,158
+		break-here 12
+		shake on
+		do-animation 1 1
+		do-animation 1 250
+		do-animation 1 4
+		start-sound 110
+		start-sound 131
+		break-here 2
+		walk 12 to 118,155
+		wait-for-actor 12
+		actor 12 always-zclip 1
+		put-actor 12 at 118,155
+		walk 12 to 74,170
+		wait-for-actor 12
+		do-animation 1 248
+		walk 12 to 28,187
+		wait-for-actor 12
+		draw-object 717 
+		sound-kludge 269 131 0 30
+		sound-kludge 269 110 0 120
+		start-sound 132
+		print-line color 7 at 28,45 "\\xFF\\x0A\\xAF\\xD5\\xFF\\x0A\\xF9\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00THUNK!"
+		shake off
+		wait-for-message
+		sound-kludge 257 74 0
+		if !(L.0 is 1001) jump &[00000418]
+		owner-of 1001 is 14
+		owner-of 1001 is 0
+		say-line 1 "\\xFF\\x0A\\x2C\\x50\\xFF\\x0A\\xF6\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Oh no, the ship rib\\x10broke."
+		jump &[00000522]
+[00000418]:
+		if !(L.0 is 700) jump &[00000452]
+		say-line 1 "\\xFF\\x0A\\xE5\\xA6\\xFF\\x0A\\xF6\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yow!"
+		jump &[00000522]
+[00000452]:
+		if !(L.0 is 698) jump &[00000522]
+		owner-of 698 is 14
+		owner-of 698 is 0
+		say-line 1 "\\xFF\\x0A\\x6A\\xCC\\xFF\\x0A\\xF6\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Oh no, the stalactite shattered."
+		jump &[00000522]
+[00000522]:
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\xD5\\x36\\xFF\\x0A\\xF7\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like I'm\\x10trapped."
+		class-of 718 is 160
+		class-of 719 is 32
+		set-box 1 to 128
+		set-box 2 to 128
+		set-box 8 to 128
+		actor 1 step-dist 8,2
+		start-script 10 ()
+[00000602]:
+		end-cut-scene
+		end-script
+	}
+}
+

@@ -1,0 +1,511 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 91: Atlantis Entrance Escape (a1-2-dark)
+; */
+
+room a1-2-dark {
+
+	object 1163 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1163
+		name is "a1-dark-right-crack"
+	}
+
+	object 1166 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1166
+		name is "a1-dark-mid-2-crack"
+	}
+
+	object 1165 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1165
+		name is "a1-dark-mid-1-crack"
+	}
+
+	object 1167 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1167
+		name is "a1-dark-mid-3-crack"
+	}
+
+	object 1164 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1164
+		name is "a1-dark-pool"
+	}
+
+	object 1168 { ; VERB LECF_0001\LFLF_0091\ROOM\OBCD_1168
+		name is "a1-dark-big-left-crack"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0091\ROOM\EXCD
+		set-screen 0 to 144
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0091\ROOM\ENCD
+		if !(B.36) jump &[00000031]
+		set-screen 0 to 200
+		start-script 19 (1)
+		chain-script 200 ()
+		jump &[00000055]
+[00000031]:
+		print-debug "You're messed up!"
+		debug 0
+[00000055]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0091\ROOM\LSCR_0200
+		cut-scene
+		shake on
+		start-script bak 108 ()
+		load-costume 206
+		if (B.17) {
+			load-costume 207
+		}
+		start-script 201 (1)
+		set-box 24 to 6
+		actor 1 step-dist 10,3
+		actor 2 step-dist 10,3
+		draw-object 581 
+		draw-object 1163 
+		draw-object 1164 
+		override &[00000634]
+		put-actor 1 in-room 91
+		put-actor 1 at 427,54
+		camera-follow selected-actor
+		if (B.17) {
+			actor 2 costume 222
+			put-actor 2 in-room 91
+			put-actor 2 at 437,55
+			walk 2 to 393,78
+			break-here 3
+		}
+		walk 1 to 393,78
+		break-here 3
+		start-script bak 108 ()
+		draw-object 1163 image 2
+		break-here
+		wait-for-actor 2
+		sound-kludge 268 86 0 4
+		if (B.17) {
+			actor 2 costume 207 walk-animation 7 stand-animation 7 step-dist 8,16
+			walk 2 to 390,127
+			wait-for-actor 2
+			do-animation 2 8
+			break-here
+			do-animation 2 6
+			break-here
+			actor 2 costume 222 walk-animation 2 stand-animation 3 step-dist 10,3
+			walk 2 to 227,131
+			break-here 2
+		}
+		wait-for-actor 1
+		do-animation 1 250
+		actor 1 costume 206 walk-animation 7 stand-animation 7 step-dist 8,16
+		walk 1 to 390,127
+		wait-for-actor 1
+		do-animation 1 8
+		break-here
+		do-animation 1 6
+		break-here
+		actor 1 costume 221 walk-animation 2 stand-animation 3 step-dist 10,3
+		if !(B.17) jump &[00000472]
+		draw-object 1163 image 3
+		start-script 201 (2)
+		walk 1 to 87,105
+		walk 2 to 227,131
+		wait-for-actor 2
+		start-script bak 108 ()
+		draw-object 1165 
+		break-here 2
+		draw-object 1166 image 1
+		break-here
+		walk 2 to 108,71
+		break-here 7
+		start-script bak 108 ()
+		draw-object 1166 image 2
+		start-script 201 (3)
+		break-here 4
+		start-script bak 108 ()
+		draw-object 1167 
+		break-here 6
+		start-script bak 108 ()
+		draw-object 1168 
+		wait-for-actor 1
+		walk 1 to 83,71
+		wait-for-actor 1
+		if (V.238 is-not 3) {
+			do-animation 2 244
+			break-here 2
+			say-line 2 "\\xFF\\x0A\\x15\\x82\\xFF\\x0A\\x5F\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can you pilot a\\x10sub?"
+			break-here
+			do-animation 1 249
+			wait-for-message
+			start-script bak 108 ()
+			say-line "\\xFF\\x0A\\xAD\\xE4\\xFF\\x0A\\x5E\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00We're about to find out!"
+			wait-for-message
+			start-script bak 108 ()
+		}
+		wait-for-actor 2
+		jump &[00000634]
+[00000472]:
+		draw-object 1163 image 3
+		start-script bak 108 ()
+		start-script 201 (2)
+		walk 1 to 227,131
+		wait-for-actor 1
+		start-script bak 108 ()
+		draw-object 1165 
+		break-here
+		draw-object 1166 image 1
+		walk 1 to 83,71
+		break-here 2
+		draw-object 1166 image 2
+		start-script 201 (3)
+		break-here 4
+		start-script bak 108 ()
+		draw-object 1167 
+		break-here 5
+		start-script bak 108 ()
+		draw-object 1168 
+		wait-for-actor 1
+		if (V.238 is-not 3) {
+			say-line "\\xFF\\x0A\\xF3\\x19\\xFF\\x0A\\x5F\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd better learn how to pilot this\\x10sub^\\xFF\\x03^FAST!"
+			wait-for-message
+			start-script bak 108 ()
+		}
+[00000634]:
+		if (override-hit) {
+			if (script-running 86) {
+				stop-script 86
+			}
+			shake off
+		}
+		actor 1 step-dist 8,2
+		actor 2 step-dist 8,2
+		override off
+		end-cut-scene
+		sound-kludge 257 183 0
+		sound-kludge 269 183 0 180
+		sound-kludge 65535
+		current-room 25
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0091\ROOM\LSCR_0201
+	local variable L.0
+
+		if !(L.0 is 1) jump &[00001049]
+		palette 200 in-slot 128
+		palette 189 in-slot 123
+		palette 180 in-slot 117
+		palette 170 in-slot 114
+		palette 164 in-slot 108
+		palette 155 in-slot 102
+		palette 149 in-slot 100
+		palette 144 in-slot 95
+		palette 140 in-slot 89
+		palette 134 in-slot 83
+		palette 125 in-slot 77
+		palette 119 in-slot 72
+		palette 114 in-slot 66
+		palette 104 in-slot 60
+		palette 99 in-slot 55
+		palette 89 in-slot 49
+		palette 78 in-slot 44
+		palette 74 in-slot 41
+		palette 63 in-slot 35
+		palette 59 in-slot 32
+		palette 48 in-slot 26
+		palette 44 in-slot 24
+		palette 38 in-slot 21
+		palette 33 in-slot 18
+		palette 28 in-slot 15
+		palette 23 in-slot 12
+		palette 18 in-slot 10
+		palette 12 in-slot 7
+		palette 8 in-slot 4
+		palette 8 in-slot 4
+		palette 195 in-slot 100
+		palette 170 in-slot 83
+		palette 144 in-slot 66
+		palette 119 in-slot 52
+		palette 93 in-slot 38
+		palette 69 in-slot 26
+		palette 23 in-slot 7
+		palette 180 in-slot 108
+		palette 149 in-slot 95
+		palette 125 in-slot 80
+		palette 99 in-slot 66
+		palette 78 in-slot 55
+		palette 53 in-slot 41
+		palette 33 in-slot 26
+		palette 18 in-slot 15
+		palette 144 in-slot 66
+		palette 119 in-slot 49
+		palette 93 in-slot 35
+		palette 18 in-slot 4
+		palette 155 in-slot 92
+		palette 134 in-slot 77
+		palette 108 in-slot 63
+		palette 84 in-slot 49
+		palette 59 in-slot 35
+		palette 236 in-slot 89
+		palette 221 in-slot 80
+		palette 205 in-slot 74
+		palette 185 in-slot 66
+		palette 170 in-slot 60
+		palette 155 in-slot 55
+		palette 134 in-slot 47
+		palette 119 in-slot 41
+		palette 104 in-slot 35
+		palette 89 in-slot 29
+		palette 69 in-slot 24
+		palette 53 in-slot 18
+		palette 38 in-slot 12
+		palette 255 in-slot 147
+		palette 251 in-slot 137
+		palette 236 in-slot 128
+		palette 221 in-slot 120
+		palette 200 in-slot 108
+		palette 185 in-slot 100
+		palette 170 in-slot 92
+		palette 251 in-slot 143
+		palette 236 in-slot 137
+		palette 215 in-slot 128
+		palette 195 in-slot 123
+		palette 255 in-slot 165
+		palette 255 in-slot 156
+		palette 255 in-slot 150
+		palette 174 in-slot 108
+		palette 159 in-slot 100
+		palette 144 in-slot 92
+		palette 129 in-slot 83
+		palette 114 in-slot 74
+		palette 99 in-slot 66
+		palette 84 in-slot 57
+		palette 74 in-slot 49
+		palette 89 in-slot 57
+		palette 200 in-slot 111
+		palette 185 in-slot 102
+		palette 170 in-slot 95
+		palette 155 in-slot 86
+		palette 144 in-slot 80
+		palette 129 in-slot 72
+		palette 84 in-slot 47
+		palette 69 in-slot 38
+		palette 53 in-slot 29
+		palette 38 in-slot 21
+		palette 28 in-slot 15
+		palette 47 in-slot 47
+		palette intensity [rgb] 255 200 200 in-slot 192 to 255
+		jump &[00003111]
+[00001049]:
+		if !(L.0 is 2) jump &[00002080]
+		palette 217 in-slot 115
+		palette 217 in-slot 110
+		palette 207 in-slot 104
+		palette 195 in-slot 103
+		palette 190 in-slot 97
+		palette 177 in-slot 92
+		palette 172 in-slot 89
+		palette 166 in-slot 84
+		palette 161 in-slot 80
+		palette 154 in-slot 74
+		palette 143 in-slot 69
+		palette 137 in-slot 64
+		palette 131 in-slot 58
+		palette 120 in-slot 54
+		palette 114 in-slot 49
+		palette 102 in-slot 44
+		palette 91 in-slot 38
+		palette 84 in-slot 36
+		palette 73 in-slot 31
+		palette 68 in-slot 28
+		palette 55 in-slot 23
+		palette 50 in-slot 20
+		palette 44 in-slot 17
+		palette 38 in-slot 16
+		palette 33 in-slot 13
+		palette 26 in-slot 10
+		palette 21 in-slot 8
+		palette 15 in-slot 5
+		palette 8 in-slot 3
+		palette 8 in-slot 3
+		palette 217 in-slot 89
+		palette 195 in-slot 74
+		palette 166 in-slot 58
+		palette 137 in-slot 46
+		palette 108 in-slot 34
+		palette 79 in-slot 23
+		palette 26 in-slot 5
+		palette 207 in-slot 97
+		palette 172 in-slot 84
+		palette 143 in-slot 72
+		palette 114 in-slot 58
+		palette 91 in-slot 49
+		palette 62 in-slot 36
+		palette 38 in-slot 23
+		palette 21 in-slot 13
+		palette 166 in-slot 58
+		palette 137 in-slot 44
+		palette 108 in-slot 31
+		palette 21 in-slot 3
+		palette 177 in-slot 82
+		palette 154 in-slot 69
+		palette 126 in-slot 56
+		palette 97 in-slot 44
+		palette 68 in-slot 31
+		palette 217 in-slot 80
+		palette 217 in-slot 72
+		palette 217 in-slot 66
+		palette 213 in-slot 58
+		palette 195 in-slot 54
+		palette 177 in-slot 49
+		palette 154 in-slot 40
+		palette 137 in-slot 36
+		palette 120 in-slot 31
+		palette 102 in-slot 26
+		palette 79 in-slot 20
+		palette 62 in-slot 16
+		palette 44 in-slot 10
+		palette 217 in-slot 132
+		palette 217 in-slot 122
+		palette 217 in-slot 115
+		palette 217 in-slot 107
+		palette 217 in-slot 97
+		palette 213 in-slot 89
+		palette 195 in-slot 82
+		palette 217 in-slot 128
+		palette 217 in-slot 122
+		palette 217 in-slot 115
+		palette 217 in-slot 110
+		palette 217 in-slot 149
+		palette 217 in-slot 140
+		palette 217 in-slot 136
+		palette 201 in-slot 97
+		palette 183 in-slot 89
+		palette 166 in-slot 82
+		palette 149 in-slot 74
+		palette 131 in-slot 66
+		palette 114 in-slot 58
+		palette 97 in-slot 51
+		palette 84 in-slot 44
+		palette 102 in-slot 51
+		palette 217 in-slot 100
+		palette 213 in-slot 92
+		palette 195 in-slot 84
+		palette 177 in-slot 77
+		palette 166 in-slot 72
+		palette 149 in-slot 64
+		palette 97 in-slot 40
+		palette 79 in-slot 34
+		palette 62 in-slot 26
+		palette 44 in-slot 17
+		palette 33 in-slot 13
+		palette intensity [rgb] 255 160 160 in-slot 192 to 255
+		jump &[00003111]
+[00002080]:
+		if !(L.0 is 3) jump &[00003111]
+		palette 236 in-slot 96
+		palette 222 in-slot 91
+		palette 211 in-slot 86
+		palette 199 in-slot 85
+		palette 195 in-slot 79
+		palette 181 in-slot 78
+		palette 176 in-slot 75
+		palette 168 in-slot 72
+		palette 165 in-slot 67
+		palette 158 in-slot 61
+		palette 147 in-slot 56
+		palette 140 in-slot 53
+		palette 134 in-slot 48
+		palette 122 in-slot 44
+		palette 116 in-slot 39
+		palette 105 in-slot 35
+		palette 91 in-slot 31
+		palette 87 in-slot 30
+		palette 74 in-slot 25
+		palette 69 in-slot 22
+		palette 56 in-slot 18
+		palette 49 in-slot 15
+		palette 44 in-slot 14
+		palette 38 in-slot 11
+		palette 31 in-slot 9
+		palette 26 in-slot 6
+		palette 20 in-slot 6
+		palette 13 in-slot 3
+		palette 8 in-slot 1
+		palette 8 in-slot 1
+		palette 229 in-slot 76
+		palette 199 in-slot 61
+		palette 168 in-slot 47
+		palette 140 in-slot 36
+		palette 109 in-slot 27
+		palette 79 in-slot 17
+		palette 26 in-slot 3
+		palette 211 in-slot 80
+		palette 176 in-slot 71
+		palette 147 in-slot 59
+		palette 116 in-slot 48
+		palette 91 in-slot 39
+		palette 62 in-slot 29
+		palette 38 in-slot 18
+		palette 20 in-slot 9
+		palette 168 in-slot 48
+		palette 140 in-slot 37
+		palette 109 in-slot 25
+		palette 20 in-slot 1
+		palette 181 in-slot 70
+		palette 158 in-slot 57
+		palette 127 in-slot 48
+		palette 97 in-slot 36
+		palette 69 in-slot 25
+		palette 239 in-slot 62
+		palette 239 in-slot 61
+		palette 239 in-slot 54
+		palette 218 in-slot 50
+		palette 199 in-slot 41
+		palette 181 in-slot 41
+		palette 158 in-slot 31
+		palette 140 in-slot 27
+		palette 122 in-slot 24
+		palette 105 in-slot 20
+		palette 79 in-slot 16
+		palette 62 in-slot 11
+		palette 44 in-slot 7
+		palette 239 in-slot 114
+		palette 239 in-slot 103
+		palette 239 in-slot 97
+		palette 239 in-slot 91
+		palette 236 in-slot 79
+		palette 218 in-slot 73
+		palette 199 in-slot 66
+		palette 239 in-slot 108
+		palette 239 in-slot 103
+		palette 239 in-slot 97
+		palette 229 in-slot 93
+		palette 239 in-slot 126
+		palette 239 in-slot 119
+		palette 239 in-slot 112
+		palette 205 in-slot 80
+		palette 187 in-slot 73
+		palette 168 in-slot 69
+		palette 150 in-slot 61
+		palette 134 in-slot 57
+		palette 116 in-slot 50
+		palette 97 in-slot 41
+		palette 87 in-slot 35
+		palette 105 in-slot 44
+		palette 236 in-slot 82
+		palette 218 in-slot 75
+		palette 199 in-slot 69
+		palette 181 in-slot 62
+		palette 168 in-slot 58
+		palette 150 in-slot 51
+		palette 97 in-slot 33
+		palette 79 in-slot 28
+		palette 62 in-slot 20
+		palette 44 in-slot 14
+		palette 31 in-slot 9
+		palette intensity [rgb] 255 120 120 in-slot 192 to 255
+		jump &[00003111]
+[00003111]:
+		end-script
+	}
+}
+

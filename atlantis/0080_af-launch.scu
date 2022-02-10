@@ -1,0 +1,918 @@
+room af-launch {
+
+	object 1089 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1089
+		name is "rope"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xAE\\x49\\xFF\\x0A\\x67\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It keeps the balloon from drifting\\x10away."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 311) jump &[00000081]
+			start-script 209 ()
+			jump &[00000165]
+[00000081]:
+			if !(L.0 is 88) jump &[00000124]
+			say-line at 160,1 "\\xFF\\x0A\\xEE\\x40\\xFF\\x0A\\x73\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It broke!"
+			jump &[00000165]
+[00000124]:
+			say-line 1 at 160,1 "\\xFF\\x0A\\xBC\\x96\\xFF\\x0A\\x67\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00That won't work."
+[00000165]:
+			end-object
+		}
+	}
+
+	object 1087 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1087
+		name is "hydrogen-filled balloon"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 10 {
+			if !(B.37[0]) jump &[00000038]
+			if (actor-elevation 1 is 0) {
+				start-script bak 205 ()
+			}
+			jump &[00000042]
+[00000038]:
+			walk 1 to-object 1087
+[00000042]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 136) jump &[00000131]
+			cut-scene
+			do-animation 1 255
+			break-here
+			do-animation 1 245
+			break-here 2
+			say-line 1 "\\xFF\\x0A\\x73\\x67\\xFF\\x0A\\x66\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a fine example of Algerian\\x10know-how."
+			end-cut-scene
+			jump &[00000181]
+[00000131]:
+			say-line "\\xFF\\x0A\\x15\\xDD\\xFF\\x0A\\x66\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Looks like it's ready to go."
+			start-script bak 205 ()
+[00000181]:
+			end-object
+		}
+	}
+
+	object 1083 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1083
+		name is "launch-crank-1"
+	}
+
+	object 1084 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1084
+		name is "launch-crank-2"
+	}
+
+	object 1085 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1085
+		name is "launch-crank-3"
+	}
+
+	object 1086 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1086
+		name is "stairs"
+
+		verb 10 {
+			if (V.238 is 3) {
+				if (actor-room 2 is selected-room) {
+					if (!script-running 31) {
+						start-script bak 31 (1,2,1)
+					}
+				}
+			}
+			if (B.37[0]) {
+				chain-script 206 ()
+			}
+			current-room 29
+			end-object
+		}
+	}
+
+	object 1088 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1088
+		name is "balloon man"
+
+		verb 90 {
+			V.123 = 12
+			end-object
+		}
+
+		verb 12 {
+			chain-script 201 ()
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x46\\x15\\xFF\\x0A\\x67\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He's a scruffy merchant."
+			end-object
+		}
+
+		verb 80 {
+		local variable L.0
+
+			chain-script 202 (L.0)
+			end-object
+		}
+
+		verb 8 {
+			start-script 3 (8)
+			end-object
+		}
+	}
+
+	object 1090 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1090
+		name is "sign"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			B.37[3] = 1
+			if !(B.87[7]) jump &[00000090]
+			say-line "\\xFF\\x0A\\x2F\\xB6\\xFF\\x0A\\x67\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It says, `Balloon Stolen:  Ride\\x10Closed.`"
+			jump &[00000154]
+[00000090]:
+			say-line "\\xFF\\x0A\\x7F\\x16\\xFF\\x0A\\x68\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It says, `Balloon Ride:  Closed\\x10for\\x10Repairs.`"
+[00000154]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0080\ROOM\EXCD
+		actor 1 elevation 0
+		actor 2 elevation 0
+		actor 8 elevation 0
+		set-box 1 to 2
+		set-box 2 to 0
+		set-box 3 to 0
+		set-box 4 to 16
+		set-box 5 to 0
+		set-box 6 to 0
+		set-box 7 to 0
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0080\ROOM\ENCD
+	local variable L.0
+
+		stop-script 31
+		class-of 1087 is 136
+		class-of 1086 is 32
+		V.164 = 207
+		for L.0 = 0 to 7 ++ {
+			B.37[L.0] = 0
+		}
+		set-box 1 to 2
+		set-box 5 to 16
+		V.211 = 0
+		V.212 = 0
+		if !(B.210) jump &[00000211]
+		if !(V.238 is 3) jump &[00000091]
+		if !(B.87[7]) jump &[00000091]
+		jump &[00000211]
+[00000091]:
+		if !(V.238 is 3) jump &[00000112]
+		class-of 1087 is 32
+		state-of 1087 is 1
+		jump &[00000122]
+[00000112]:
+		class-of 1087 is 160
+		jump &[00000211]
+[00000122]:
+		actor 9 costume 74 talk-color 14 name "balloon vendor"
+		put-actor 9 in-room 80
+		put-actor 9 at 134,136
+		do-animation 9 248
+		class-of 9 is 13
+		class-of 1088 is 32 141 133
+		state-of 1090 is 0
+		class-of 1090 is 160
+		set-box 3 to 0
+		set-box 4 to 16
+		set-box 5 to 16
+		set-box 6 to 0
+		set-box 7 to 160
+		jump &[00000263]
+[00000211]:
+		class-of 1089 is 160
+		state-of 1090 is 1
+		class-of 1090 is 32
+		class-of 1088 is 160
+		class-of 1087 is 160
+		for L.0 = 3 to 7 ++ {
+			set-box L.0 to 128
+		}
+[00000263]:
+		set-box-path
+		put-actor 1 in-room 80
+		put-actor 1 at 85,168
+		if (B.210) {
+			start-script bak 200 ()
+		}
+		if (V.238 is 3) {
+			put-actor 2 in-room 80
+			put-actor 2 at 85,168
+			do-animation 2 251
+		}
+		do-animation 1 251
+		break-here
+		walk 1 to 100,132
+		sleep-for 20 jiffies
+		if (V.238 is 3) {
+			walk 2 to 65,132
+			wait-for-actor 2
+		}
+		wait-for-actor 1
+		if !(B.17) jump &[00000339]
+[00000339]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0200
+	local variable L.0
+
+[00000008]:
+		do {
+			L.0 = (actor-x 1)
+			break-here
+		} until (L.0 > 120)
+		if !(!script-running 201) jump &[00000543]
+		if !(V.238 is 3) jump &[00000372]
+		if !(!B.37[0]) jump &[00000369]
+		cut-scene
+		stop-sentence
+		do-animation 1 255
+		do-animation 9 10
+		say-line 9 "\\xFF\\x0A\\xDF\\x92\\xFF\\x0A\\x70\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Stop!"
+		break-here 4
+		walk 1 to 110,132
+		wait-for-actor 1
+		do-animation 1 249
+		wait-for-message
+		if !(class-of 310 is 26) jump &[00000188]
+		if (!B.37[1]) {
+			say-line 9 "\\xFF\\x0A\\xB9\\xB0\\xFF\\x0A\\x70\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00No see sights from balloon without\\x10ticket."
+			wait-for-message
+		}
+		jump &[00000365]
+[00000188]:
+		say-line 9 "\\xFF\\x0A\\x87\\x0D\\xFF\\x0A\\x71\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Oh, it's you."
+		wait-for-message
+		if !(class-of 1087 is 6) jump &[00000302]
+		say-line 9 "\\xFF\\x0A\\x24\\x3E\\xFF\\x0A\\x71\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00To ride again and see sights, must show\\x10ticket."
+		jump &[00000363]
+[00000302]:
+		say-line 9 "\\xFF\\x0A\\x66\\xC0\\xFF\\x0A\\x71\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00To ride and see sights, must show\\x10ticket."
+[00000363]:
+		wait-for-message
+[00000365]:
+		do-animation 9 3
+		end-cut-scene
+[00000369]:
+		jump &[00000543]
+[00000372]:
+		cut-scene
+		do-animation 1 255
+		do-animation 9 10
+		walk 1 to 110,132
+		B.37[2] = 1
+		say-line 9 "\\xFF\\x0A\\x93\\x35\\xFF\\x0A\\x72\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00No ride today,\\x10effendi."
+		wait-for-actor 1
+		do-animation 1 249
+		wait-for-message
+		say-line 9 "\\xFF\\x0A\\x5E\\x87\\xFF\\x0A\\x72\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Sadly, balloon punctured.\\xFF\\x09\\x07\\x00\\xFF\\x03Must look elsewhere for fun\\x10and\\x10frolic."
+		wait-for-message
+		do-animation 9 3
+		end-cut-scene
+[00000543]:
+		jump &[00000008]
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0201
+	local variable L.0
+
+		stop-script 200
+		if !(class-of 1086 is 160) jump &[00000022]
+		jump &[00000400]
+[00000022]:
+		if !(B.37[0]) jump &[00000181]
+		if !(actor-box 1 is-not 6) jump &[00000076]
+		start-script 136 (1,9,30,1)
+		break-until (!script-running 136)
+		if !(B.22) jump &[00000073]
+		jump &[00000931]
+[00000073]:
+		jump &[00000079]
+[00000076]:
+		do-animation 1 250
+[00000079]:
+		cut-scene
+		say-line 1 "\\xFF\\x0A\\x95\\x67\\xFF\\x0A\\x63\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		do-animation 9 face-towards 1
+		wait-for-message
+		say-line 9 "\\xFF\\x0A\\x08\\x26\\xFF\\x0A\\x6E\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I haven't got all day,\\x10effendi."
+		wait-for-message
+		break-here
+		do-animation 9 251
+		end-cut-scene
+		jump &[00000931]
+[00000181]:
+		cut-scene
+		do-animation 1 255
+		V.212 = 1
+		say-line 1 "\\xFF\\x0A\\x11\\x89\\xFF\\x0A\\x63\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Hello, there^"
+		wait-for-message
+		if !(V.238 is 3) jump &[00000322]
+		B.37[1] = 1
+		say-line 9 "\\xFF\\x0A\\xCF\\x77\\xFF\\x0A\\x6E\\x03\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00If you have ticket, you see sights^\\xFF\\x03^if not, you don't."
+		jump &[00000391]
+[00000322]:
+		B.37[2] = 1
+		say-line 9 "\\xFF\\x0A\\xE5\\xFA\\xFF\\x0A\\x6E\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00No ride, effendi^\\xFF\\x03^balloon punctured!\\xFF\\x09\\x07\\x00"
+[00000391]:
+		wait-for-message
+		end-cut-scene
+		start-script bak 200 ()
+		jump &[00000931]
+[00000400]:
+		cursor off
+		userput off
+		say-line 1 "\\xFF\\x0A\\x8D\\xAA\\xFF\\x0A\\x63\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00HEY, DOWN THERE!"
+		wait-for-message
+		do-animation 9 249
+		break-here
+		say-line 9 "\\xFF\\x0A\\x70\\x5E\\xFF\\x0A\\x6F\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Is the view not a great\\x10beauty?"
+		wait-for-message
+		cursor on
+		userput on
+		start-script 82 ()
+		start-script 68 ()
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\x94\\xDE\\xFF\\x0A\\x63\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's too overpowering to\\x10watch\\x10any\\x10more."
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\x10\\x44\\xFF\\x0A\\x64\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Can't get enough of\\x10it."
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00000829]
+		say-line 9 "\\xFF\\x0A\\xB5\\xB3\\xFF\\x0A\\x6F\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I hear and obey, effendi."
+		wait-for-message
+		break-here
+		L.0 = 1
+		do-animation 9 251
+		jump &[00000918]
+[00000829]:
+		if !(V.165 is 121) jump &[00000918]
+		say-line 9 "\\xFF\\x0A\\xCA\\x04\\xFF\\x0A\\x70\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Ahh, then I leave you to gaze for a\\x10few\\x10more\\x10minutes."
+		wait-for-message
+		break-here
+		do-animation 9 251
+		jump &[00000918]
+[00000918]:
+		start-script 83 ()
+		if (L.0) {
+			V.210 = 1
+		}
+[00000931]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0202
+	local variable L.0
+
+		cut-scene
+		if !(L.0 is 310) jump &[00000401]
+		stop-script 200
+		if !(class-of 310 is 26) jump &[00000243]
+		class-of 310 is 154
+		if !(V.212 is 1) jump &[00000081]
+		say-line 1 "\\xFF\\x0A\\x8C\\xE6\\xFF\\x0A\\x62\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Will this do?"
+		jump &[00000144]
+[00000081]:
+		say-line 1 "\\xFF\\x0A\\x79\\x0F\\xFF\\x0A\\x63\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'd like a balloon ride.\\xFF\\x03Here's my ticket."
+[00000144]:
+		wait-for-message
+		do-animation 1 10
+		break-here 6
+		do-animation 1 3
+		say-line 9 "\\xFF\\x0A\\x51\\x5F\\xFF\\x0A\\x6C\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00A valuable all-day pass!\\xFF\\x03Today, the skies are yours, effendi!"
+		jump &[00000341]
+[00000243]:
+		say-line 9 "\\xFF\\x0A\\xC7\\x19\\xFF\\x0A\\x6D\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Welcome back, effendi.\\xFF\\x03My balloon is ready to service your sightseeing\\x10needs."
+[00000341]:
+		wait-for-message
+		B.37[0] = 1
+		class-of 1088 is 160
+		class-of 1087 is 8
+		class-of 9 is 141
+		stop-script 200
+		break-here
+		actor 9 ignore-boxes always-zclip 1
+		walk 9 to-object 1083
+		break-here 8
+		wait-for-actor 9
+		do-animation 9 251
+		jump &[00000445]
+[00000401]:
+		stop-script 200
+		say-line 9 "\\xFF\\x0A\\x33\\xF3\\xFF\\x0A\\x6D\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That's no ticket!"
+		wait-for-message
+		start-script bak 200 ()
+[00000445]:
+		end-cut-scene
+		if !(B.37[0]) jump &[00000453]
+[00000453]:
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		class-of 9 is 141
+		L.0 = 1
+[00000020]:
+		L.1 = 1
+[00000025]:
+		L.2 = 1
+[00000030]:
+		if !(V.209) jump &[00000038]
+		jump &[00000077]
+[00000038]:
+		if !(V.210) jump &[00000046]
+		jump &[00000077]
+[00000046]:
+		break-here
+		++L.2
+		if !(L.2 > 10) jump &[00000030]
+		++L.1
+		if !(L.1 > 60) jump &[00000025]
+		++L.0
+		if !(L.0 > 4) jump &[00000020]
+[00000077]:
+		class-of 9 is 13
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.4
+
+		cut-scene
+		stop-script 200
+		stop-script 31
+		walk 1 to 214,113
+		walk 2 to 205,113
+		wait-for-actor 2
+		wait-for-actor 1
+		do-animation 1 250
+		do-animation 2 250
+		do-animation 9 8
+		actor 12 default costume 76 ignore-boxes always-zclip 3 scale 255 255 elevation 65506
+		actor 8 costume 195 elevation 16 ignore-boxes
+		put-actor 8 in-room 80
+		put-actor 8 at 210,132
+		do-animation 8 248
+		V.445 = actor-x 8
+		V.446 = actor-y 8
+		V.446 = 129
+		put-actor 12 in-room selected-room
+		put-actor 12 at V.445,V.446
+		state-of 1087 is 0
+		class-of 1086 is 160
+		class-of 1087 is 160 6
+		L.1 = 0
+		for L.0 = 10 to 1 -- {
+			if (L.0 is 2) {
+				do-animation 8 11
+			}
+			draw-object 1083 
+			break-here
+			L.1 = (L.1 + 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+			draw-object 1084 
+			break-here
+			L.1 = (L.1 + 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+			draw-object 1085 
+			break-here
+			L.1 = (L.1 + 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+		}
+		set-box 5 to 128
+		set-box 4 to 128
+		set-box 3 to 128
+		set-box 2 to 128
+		set-box 1 to 128
+		set-box-path
+		class-of 1089 is 32 136
+		say-line 1 at 200,10 " "
+		do-animation 9 1
+		break-here
+		do-animation 9 249
+		end-cut-scene
+		break-here
+		V.211 = 1
+		V.209 = 0
+		V.210 = 0
+		override &[00000426]
+		start-script bak 204 ()
+		break-until (!script-running 204)
+[00000426]:
+		override off
+		if !(V.209) jump &[00000436]
+		jump &[00000980]
+[00000436]:
+		cut-scene
+		put-actor 1 at 214,113
+		put-actor 2 at 205,113
+		do-animation 1 250
+		do-animation 2 250
+		class-of 1089 is 160
+		if (!V.210) {
+			say-line 9 "\\xFF\\x0A\\x1B\\xFC\\xFF\\x0A\\x6B\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Time's up!"
+			wait-for-message
+		}
+		break-here
+		do-animation 9 1
+		do-animation 9 251
+		break-here
+		do-animation 9 8
+		L.1 = (actor-elevation 1)
+		for L.0 = 1 to 10 ++ {
+			if (L.0 is 3) {
+				do-animation 8 3
+			}
+			draw-object 1085 
+			sleep-for 8 jiffies
+			L.1 = (L.1 - 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+			draw-object 1084 
+			break-here
+			L.1 = (L.1 - 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+			draw-object 1083 
+			break-here
+			L.1 = (L.1 - 4)
+			L.2 = (L.1 + 16)
+			L.4 = (L.2 - 46)
+			actor 8 elevation L.2
+			actor 12 elevation L.4
+			actor 1 elevation L.1
+			actor 2 elevation L.1
+		}
+		set-box 5 to 16
+		set-box 4 to 16
+		set-box 3 to 0
+		set-box 2 to 0
+		set-box 1 to 2
+		set-box-path
+		put-actor 8 in-room 0
+		put-actor 12 in-room 0
+		state-of 1087 is 1
+		do-animation 9 1
+		walk 1 to 220,130
+		break-here 4
+		walk 2 to 240,130
+		wait-for-actor 1
+		walk 1 to 105,135
+		break-here 8
+		wait-for-actor 2
+		walk 2 to 90,130
+		break-here 12
+		walk 9 to 134,135
+		wait-for-actor 2
+		wait-for-actor 1
+		do-animation 1 249
+		do-animation 2 249
+		break-here 4
+		wait-for-actor 9
+		say-line 9 "\\xFF\\x0A\\x33\\x25\\xFF\\x0A\\x6C\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Come back soon."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x58\\xAD\\xFF\\x0A\\x62\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We might just do\\x10that."
+		wait-for-message
+		class-of 1088 is 32 141 133
+		class-of 1087 is 32 136
+		class-of 1086 is 32
+		class-of 9 is 13
+		end-cut-scene
+		start-script bak 200 ()
+		B.37[0] = 0
+[00000980]:
+		end-script
+	}
+
+	script 206 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0206
+		cut-scene
+		do-animation 2 250
+		break-here
+		do-animation 9 248
+		break-here
+		if !(V.211 is 1) jump &[00000072]
+		say-line 9 "\\xFF\\x0A\\x07\\x22\\xFF\\x0A\\x6B\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Salaam!  Go in peace!"
+		jump &[00000133]
+[00000072]:
+		say-line 9 "\\xFF\\x0A\\x2F\\x6F\\xFF\\x0A\\x6B\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00What, no ride?\\xFF\\x03Hurry back soon, perhaps!"
+[00000133]:
+		wait-for-message
+		end-cut-scene
+		B.37[0] = 0
+		current-room 29
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0207
+		if !(V.176 is 2) jump &[00000021]
+		chain-script 208 ()
+		jump &[00000034]
+[00000021]:
+		if !(V.176 is 9) jump &[00000034]
+		chain-script 201 ()
+		jump &[00000034]
+[00000034]:
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0208
+		stop-script 31
+		start-script 136 (1,2,30,1)
+		break-until (!script-running 136)
+		if (B.22) {
+			if (actor-room 2 is selected-room) {
+				if (!script-running 31) {
+					start-script bak 31 (1,2,1)
+				}
+			}
+			stop-script 0
+		}
+		cut-scene
+		say-line 1 "\\xFF\\x0A\\xC0\\x7B\\xFF\\x0A\\x64\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Sophia?"
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x47\\x81\\xFF\\x0A\\x68\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yes?"
+		wait-for-message
+		end-cut-scene
+		if !(!B.37[0]) jump &[00000264]
+		if !(!B.37[1]) jump &[00000254]
+[00000149]:
+		if !(B.37[4]) jump &[00000251]
+		cut-scene
+		say-line 1 "\\xFF\\x0A\\x51\\x9A\\xFF\\x0A\\x64\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What should we do?"
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x00\\x9C\\xFF\\x0A\\x68\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Let's just do SOMETHING."
+		wait-for-message
+		end-cut-scene
+		jump &[00001567]
+[00000251]:
+		jump &[00000264]
+[00000254]:
+		if !(B.37[5]) jump &[00000264]
+		jump &[00000149]
+[00000264]:
+		start-script 82 ()
+		start-script 68 ()
+		if !(!B.210) jump &[00000517]
+		if !(B.37[3]) jump &[00000413]
+		V.443 = ((41 + 1) - 1)
+		*V.443 = "\\xFF\\x0A\\xBD\\xC2\\xFF\\x0A\\x64\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Do you think the balloon ride will open?"
+		V.442 = ((120 + 1) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000514]
+[00000413]:
+		V.443 = ((41 + 2) - 1)
+		*V.443 = "\\xFF\\x0A\\xAF\\x08\\xFF\\x0A\\x65\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Where are we?"
+		V.442 = ((120 + 2) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+[00000514]:
+		jump &[00000779]
+[00000517]:
+		if !(B.37[0]) jump &[00000651]
+		V.443 = ((41 + 8) - 1)
+		*V.443 = "\\xFF\\x0A\\x34\\x2E\\xFF\\x0A\\x65\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I hope you're not afraid of\\x10heights."
+		V.442 = ((120 + 8) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		jump &[00000779]
+[00000651]:
+		if (B.37[1]) {
+			if (!B.37[5]) {
+				V.443 = ((41 + 3) - 1)
+				*V.443 = "\\xFF\\x0A\\x36\\x6F\\xFF\\x0A\\x65\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00He says he wants a\\x10ticket."
+				V.442 = ((120 + 3) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+[00000779]:
+		if (!B.37[4]) {
+			V.443 = ((41 + 6) - 1)
+			*V.443 = "\\xFF\\x0A\\x47\\xA7\\xFF\\x0A\\x65\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00In this light you look just like Vivian\\x10Leigh."
+			V.442 = ((120 + 6) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		V.443 = ((41 + 7) - 1)
+		*V.443 = "\\xFF\\x0A\\xC8\\x0E\\xFF\\x0A\\x66\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Nice view."
+		V.442 = ((120 + 7) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001096]
+		do-animation 2 13
+		say-line 2 "\\xFF\\x0A\\xB5\\xE6\\xFF\\x0A\\x68\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That could be a while."
+		wait-for-message
+		do-animation 2 3
+		jump &[00001564]
+		jump &[00001564]
+[00001096]:
+		if !(V.165 is 121) jump &[00001170]
+		do-animation 2 19
+		say-line 2 "\\xFF\\x0A\\xD0\\x1A\\xFF\\x0A\\x69\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00You speak Arabic.  Read\\x10the\\x10sign."
+		wait-for-message
+		do-animation 2 3
+		jump &[00001564]
+		jump &[00001564]
+[00001170]:
+		if !(V.165 is 122) jump &[00001302]
+		B.37[5] = 1
+		if !(owner-of 310 is 1) jump &[00001248]
+		do-animation 2 7
+		say-line 2 "\\xFF\\x0A\\x41\\x7F\\xFF\\x0A\\x69\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then why not give him\\x10one?"
+		jump &[00001291]
+[00001248]:
+		do-animation 2 7
+		say-line 2 "\\xFF\\x0A\\xC6\\xCA\\xFF\\x0A\\x69\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then let's find\\x10one."
+[00001291]:
+		wait-for-message
+		do-animation 2 3
+		jump &[00001564]
+		jump &[00001564]
+[00001302]:
+		if !(V.165 is 125) jump &[00001394]
+		B.37[4] = 1
+		do-animation 2 17
+		break-here 3
+		do-animation 2 3
+		do-animation 2 14
+		say-line 2 "\\xFF\\x0A\\x96\\x0A\\xFF\\x0A\\x6A\\x03\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Frankly, Indy, I don't give a\\x10damn."
+		wait-for-message
+		do-animation 2 3
+		jump &[00001564]
+		jump &[00001564]
+[00001394]:
+		if !(V.165 is 126) jump &[00001440]
+		do-animation 2 14
+		say-line 2 "\\xFF\\x0A\\x0A\\x74\\xFF\\x0A\\x6A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Mmmm."
+		wait-for-message
+		do-animation 2 3
+		jump &[00001564]
+		jump &[00001564]
+[00001440]:
+		if !(V.165 is 127) jump &[00001564]
+		do-animation 2 7
+		say-line 2 "\\xFF\\x0A\\xA4\\x96\\xFF\\x0A\\x6A\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00No, I'm just afraid this balloon is a waste of\\x10time."
+		wait-for-message
+		do-animation 1 13
+		say-line 1 "\\xFF\\x0A\\x88\\x3F\\xFF\\x0A\\x66\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Trust me."
+		wait-for-message
+		jump &[00001564]
+		jump &[00001564]
+[00001564]:
+		start-script 83 ()
+[00001567]:
+		start-script bak 31 (1,2,1)
+		end-script
+	}
+
+	script 209 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0209
+		V.209 = 1
+		break-until (!script-running 205)
+		cut-scene
+		if !(sound-running 68) jump &[00000244]
+		load-sound 101
+		sound-kludge 65535
+		sound-kludge 270 68 1
+		sound-kludge 271 9 69
+		sound-kludge 271 8 101
+		sound-kludge 271 65535
+		sound-kludge 65535
+		sound-kludge 270 101 1
+		sound-kludge 271 9 66
+		sound-kludge 271 65535
+		sound-kludge 270 101 2
+		sound-kludge 271 9 67
+		sound-kludge 271 65535
+		sound-kludge 270 101 3
+		sound-kludge 271 9 68
+		sound-kludge 271 65535
+		load-sound 99
+		sound-kludge 65535
+		sound-kludge 270 101 4
+		sound-kludge 271 8 99
+		sound-kludge 271 269 101 50 240
+		sound-kludge 271 65535
+		sound-kludge 65535
+		jump &[00000261]
+[00000244]:
+		sound-kludge 11
+		sound-kludge 65535
+		start-sound 99
+		sound-kludge 65535
+[00000261]:
+		V.442 = actor-elevation 12
+		actor 12 elevation V.442
+		do-animation 12 6
+		break-here 9
+		put-actor 12 in-room 0
+		say-line 1 "\\xFF\\x0A\\x51\\x87\\xFF\\x0A\\x62\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00WE'RE FREE!"
+		start-script 144 (32,8)
+		wait-for-message
+		owner-of 311 is 0
+		start-script 10 ()
+		end-cut-scene
+		current-room 130
+		end-script
+	}
+}
+

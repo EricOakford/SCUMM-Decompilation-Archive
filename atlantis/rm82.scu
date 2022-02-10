@@ -1,0 +1,581 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 82: Salvage Boat Underwater (sal-under)
+; */
+
+room sal-under {
+
+	object 1096 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1096
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1097 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1097
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1098 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1098
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1099 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1099
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1100 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1100
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1101 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1101
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 1102 { ; VERB LECF_0001\LFLF_0082\ROOM\OBCD_1102
+		name is "cave"
+
+		verb 10 {
+			if !(class-of me is 6) jump &[00000030]
+			actor 1 costume 2 step-dist 8,2
+			current-room 48
+			jump &[00000057]
+[00000030]:
+			say-line "\\xFF\\x0A\\xC0\\x2D\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Nothing."
+[00000057]:
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x18\\x4F\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Looks like a cave to me."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0082\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0082\ROOM\ENCD
+		room-shadow [rgb] 200 200 200 in-slot 16 to 255
+		if !(V.224 is-not 82) jump &[00000115]
+		if !(state-of 488 is 1) jump &[00000068]
+		sound-kludge 272
+		sound-kludge 65535
+		sound-kludge 262 157 128
+		camera-at 384
+		start-script 201 ()
+		jump &[00000112]
+[00000068]:
+		palette intensity [rgb] 100 100 100 in-slot 192 to 255
+		V.442 = (random 6)
+		V.443 = (1096 + V.442)
+		class-of V.443 is 6
+		camera-follow selected-actor
+		start-script 202 ()
+[00000112]:
+		jump &[00000138]
+[00000115]:
+		fades 257
+		start-script 205 ()
+		break-until (!script-running 205)
+		start-script 200 (V.452)
+[00000138]:
+		start-script bak 204 ()
+		end-object
+	}
+; Countdown to Drowning
+	script 200 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0200
+	local variable L.0
+
+		if !(L.0 is 1) jump &[00000025]
+		sleep-for 900 jiffies
+		jump &[00000189]
+		jump &[00000178]
+[00000025]:
+		if !(L.0 is 2) jump &[00000042]
+		sleep-for 900 jiffies
+		jump &[00000283]
+		jump &[00000178]
+[00000042]:
+		if !(L.0 is 3) jump &[00000059]
+		sleep-for 900 jiffies
+		jump &[00000418]
+		jump &[00000178]
+[00000059]:
+		if !(L.0 is 4) jump &[00000076]
+		sleep-for 900 jiffies
+		jump &[00000504]
+		jump &[00000178]
+[00000076]:
+		if !(L.0 is 5) jump &[00000093]
+		sleep-for 900 jiffies
+		jump &[00000615]
+		jump &[00000178]
+[00000093]:
+		if !(L.0 is 6) jump &[00000110]
+		sleep-for 900 jiffies
+		jump &[00000709]
+		jump &[00000178]
+[00000110]:
+		if !(L.0 is 7) jump &[00000127]
+		sleep-for 900 jiffies
+		jump &[00000833]
+		jump &[00000178]
+[00000127]:
+		if !(L.0 is 8) jump &[00000144]
+		sleep-for 900 jiffies
+		jump &[00000919]
+		jump &[00000178]
+[00000144]:
+		if !(L.0 is 9) jump &[00000161]
+		sleep-for 900 jiffies
+		jump &[00001033]
+		jump &[00000178]
+[00000161]:
+		if !(L.0 is 10) jump &[00000178]
+		sleep-for 900 jiffies
+		jump &[00001132]
+		jump &[00000178]
+[00000178]:
+		V.452 = 1
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000189]:
+		V.452 = 2
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x52\\x89\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00*koff*  *koff*"
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000283]:
+		V.452 = 3
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x9C\\xBC\\xFF\\x0A\\x09\\x07\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Just a couple of minutes\\x10left.\\xFF\\x03Where's that entrance!?"
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000418]:
+		V.452 = 4
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x54\\x53\\xFF\\x0A\\x0A\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00*hakk*"
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000504]:
+		V.452 = 5
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x59\\x86\\xFF\\x0A\\x0A\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Another minute and I'm a\\x10goner!"
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000615]:
+		V.452 = 6
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x62\\xF1\\xFF\\x0A\\x0A\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00*pant*  *pant*"
+		wait-for-message
+		sleep-for 1800 jiffies
+[00000709]:
+		V.452 = 7
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\xD8\\x46\\xFF\\x0A\\x0B\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00That's it^\\xFF\\x03^better start holding my\\x10breath!"
+		wait-for-message
+		sleep-for 900 jiffies
+[00000833]:
+		V.452 = 8
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x0F\\xB6\\xFF\\x0A\\x0B\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00*gasp*"
+		wait-for-message
+		sleep-for 900 jiffies
+[00000919]:
+		V.452 = 9
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\xF0\\xD9\\xFF\\x0A\\x0B\\x07\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00*wheeze*\\xFF\\x03Only a few seconds left!"
+		wait-for-message
+		sleep-for 600 jiffies
+[00001033]:
+		V.452 = 10
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\xB4\\x5A\\xFF\\x0A\\x0C\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Ohh^I feel\\x10SO\\x10sleeeepy^"
+		wait-for-message
+[00001132]:
+		sleep-for 480 jiffies
+		sound-kludge 257 78 0
+		sound-kludge 257 79 0
+		sound-kludge 269 78 0 360
+		sound-kludge 269 79 0 360
+		chain-script 57 (31)
+		end-script
+	}
+; Diving In
+	script 201 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		cut-scene
+		actor 8 default costume 192 ignore-boxes never-zclip
+		put-actor 8 in-room 82
+		put-actor 8 at 335,100
+		do-animation 1 250
+		actor 1 costume 146 ignore-boxes never-zclip
+		break-here
+		put-actor 1 in-room 82
+		put-actor 1 at 380,0
+		do-animation 1 6
+		break-here
+		V.351 = actor-x 1
+		V.352 = actor-y 1
+		L.1 = actor-scale 1
+		L.0 = 0
+[00000073]:
+		V.442 = random 2
+		V.442 -= 1
+		V.351 += V.442
+		if !(L.0 < 1) jump &[00000102]
+		V.352 += 2
+		jump &[00000195]
+[00000102]:
+		if !(L.0 < 3) jump &[00000122]
+		V.352 += 5
+		L.1 -= 4
+		jump &[00000195]
+[00000122]:
+		if !(L.0 < 7) jump &[00000142]
+		V.352 += 4
+		L.1 -= 3
+		jump &[00000195]
+[00000142]:
+		if !(L.0 < 14) jump &[00000162]
+		V.352 += 3
+		L.1 -= 2
+		jump &[00000195]
+[00000162]:
+		if !(L.0 < 24) jump &[00000185]
+		V.352 += 2
+		L.1 -= 1
+		jump &[00000195]
+		jump &[00000195]
+[00000185]:
+		V.352 += 1
+		L.1 -= 1
+[00000195]:
+		actor 1 scale L.1 L.1
+		put-actor 1 at V.351,V.352
+		break-here
+		++L.0
+		if !(L.0 > 41) jump &[00000073]
+		do-animation 1 250
+		actor 1 costume 147 ignore-boxes never-zclip
+		actor 1 scale 255 255
+		put-actor 1 in-room 82
+		put-actor 1 at V.351,V.352
+		actor 11 default costume 98 ignore-boxes never-zclip step-dist 3,1 elevation 100
+		put-actor 11 in-room 82
+		put-actor 11 at 721,266
+		walk 11 to 428,202
+		start-script 203 ()
+		load-sound 140
+		break-here 4
+		say-line "\\xFF\\x0A\\x6A\\xCE\\xFF\\x0A\\x0D\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Hey-- what\\x10happened?\\xFF\\x03Don't stop^"
+		wait-for-message
+		sound-kludge 257 157 0
+		sound-kludge 269 157 0 60
+		sound-kludge 65535
+		start-sound 140
+		say-line "\\xFF\\x0A\\x46\\x32\\xFF\\x0A\\x0E\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^Atlantis is right below me!"
+		wait-for-message
+		break-here 6
+		say-line "\\xFF\\x0A\\x69\\x7F\\xFF\\x0A\\x0E\\x07\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Uh-oh^\\xFF\\x03^what's that shadow\\xFF\\x01pulling alongside the\\x10boat!?"
+		wait-for-message
+		state-of 488 is 0
+		end-cut-scene
+		current-room 42
+		end-script
+	}
+; Hose Cut
+	script 202 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+
+		cut-scene
+		actor 8 default costume 192 ignore-boxes never-zclip step-dist 3,1
+		put-actor 8 in-room 82
+		put-actor 8 at 335,100
+		actor 11 default costume 98 ignore-boxes never-zclip step-dist 3,1 elevation 100
+		put-actor 11 in-room 82
+		put-actor 11 at 428,202
+		do-animation 1 250
+		actor 1 costume 147 ignore-boxes never-zclip
+		break-here
+		do-animation 1 6
+		break-here
+		do-animation 1 7
+		break-here
+		L.0 = actor-scale 1
+		wait-for-message
+		say-line "\\xFF\\x0A\\x11\\xCE\\xFF\\x0A\\x0C\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Whoa!"
+		for L.1 = L.0 to 30 -- {
+			L.1 -= 4
+			actor 1 scale L.1 L.1
+			V.351 = actor-x selected-actor
+			V.352 = actor-y selected-actor
+			V.442 = random 2
+			V.442 -= 1
+			V.351 += V.442
+			V.442 = random 4
+			V.442 -= 2
+			V.352 += V.442
+			if (V.352 > 50) {
+				if (!actor-moving 8) {
+					walk 8 to 65482,0
+				}
+			}
+			if (V.352 > 70) {
+				if (!actor-moving 11) {
+					walk 11 to 27,100
+				}
+			}
+			if (V.352 > 135) {
+				V.442 = random 4
+				V.352 -= V.442
+			}
+			if (V.352 < 9) {
+				V.442 = random 4
+				V.352 += V.442
+			}
+			put-actor 1 at V.351,V.352
+			break-here
+		}
+		actor 1 stand-animation 3
+		actor 1 costume 85 follow-boxes step-dist 2,1 scale 255 255
+		V.445 = actor-x 1
+		V.446 = actor-y 1
+		put-actor 1 at V.445,V.446
+		cut-scene
+		break-here 4
+		V.443 = (camera-x - 160)
+		V.442 = (V.351 - V.443)
+		V.443 = (V.352 - 35)
+		say-line 1 center at V.442,V.443 "\\xFF\\x0A\\x8B\\xFC\\xFF\\x0A\\x0C\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Oh boy^\\xFF\\x03I've got maybe three\\xFF\\x01minutes of air in my\\x10suit^\\xFF\\x03^better start hiking^"
+		wait-for-message
+		end-cut-scene
+		put-actor 8 in-room 0
+		put-actor 11 in-room 0
+		end-cut-scene
+		V.452 = 0
+		start-script bak 200 (V.452)
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0203
+		do {
+			V.351 = actor-x 1
+			V.352 = actor-y 1
+			V.442 = random 2
+			V.442 -= 1
+			V.351 += V.442
+			put-actor 1 at V.351,V.352
+			do-animation 1 7
+			break-here 4
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0204
+		do {
+			V.351 = actor-x selected-actor
+			V.352 = actor-y selected-actor
+			if (V.351 < 10) {
+				fades 130
+				put-actor selected-actor at 562,V.352
+				current-room 82
+			}
+			if (V.351 > 540) {
+				fades 131
+				put-actor selected-actor at 65529,V.352
+				current-room 82
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0205
+		cut-scene
+		camera-follow selected-actor
+		V.351 = actor-x selected-actor
+		V.352 = actor-y selected-actor
+		if !(V.351 < 160) jump &[00000041]
+		V.351 += 30
+		jump &[00000046]
+[00000041]:
+		V.351 -= 30
+[00000046]:
+		walk selected-actor to V.351,V.352
+		wait-for-actor selected-actor
+		end-cut-scene
+		end-script
+	}
+}
+

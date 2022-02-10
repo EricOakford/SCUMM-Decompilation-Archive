@@ -1,0 +1,235 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 58: Crete Transit (transit)
+; */
+
+room transit {
+
+	object 806 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0806
+		name is "transit-background-image"
+	}
+
+	object 807 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0807
+		name is "transit-hard-right-image"
+	}
+
+	object 808 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0808
+		name is "transit-fine-right-image"
+	}
+
+	object 809 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0809
+		name is "transit-hard-left-image"
+	}
+
+	object 810 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0810
+		name is "transit-fine-left-image"
+	}
+
+	object 805 { ; VERB LECF_0001\LFLF_0058\ROOM\OBCD_0805
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0058\ROOM\EXCD
+		verb 36 new name " "
+		verb 37 new name " "
+		verb 38 new name " "
+		verb 40 new name " "
+		verb 39 new name " "
+		if !(camera-x is 232) jump &[00000058]
+		V.387 = 0
+		jump &[00000145]
+[00000058]:
+		if !(camera-x is 360) jump &[00000073]
+		V.387 = 1
+		jump &[00000145]
+[00000073]:
+		V.387 = 2
+		B.27 = 0
+		V.442 = (camera-x - 40)
+		if (actor-room 5 is 58) {
+			if (actor-x 5 > V.442) {
+				V.442 = (camera-x + 40)
+				if (actor-x 5 < V.442) {
+					B.27 = 1
+				}
+			}
+		}
+[00000145]:
+		stop-script 204
+		put-actor 5 in-room 0
+		build-sentence-script = 4
+		start-script 19 (2)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0058\ROOM\ENCD
+		sound-kludge 269 80 0 30
+		sound-kludge 257 80 0
+		start-sound 122
+		fades 33153
+		start-script 200 ()
+		build-sentence-script = 201
+		if (!V.384) {
+			V.384 = 168
+		}
+		start-script 204 ()
+		start-script 203 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0058\ROOM\LSCR_0200
+		start-script 19 (1)
+		verb 36 new at 0,144 image 806 in-room 58 bakcolor 0 on
+		verb 37 new at 80,152 image 809 in-room 58 bakcolor 0 on
+		verb 38 new at 128,152 image 810 in-room 58 bakcolor 0 on
+		verb 40 new at 160,152 image 808 in-room 58 bakcolor 0 on
+		verb 39 new at 192,152 image 807 in-room 58 bakcolor 0 on
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0058\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if !(L.0 is 4) jump &[00000028]
+		if !(L.1 is 27) jump &[00000025]
+		jump &[00000114]
+[00000025]:
+		jump &[00000141]
+[00000028]:
+		if !(L.0 is 1) jump &[00000114]
+		if (!L.1) {
+			stop-script 0
+		}
+		V.107 = L.1
+		if !(V.107 is 37) jump &[00000063]
+		chain-script 202 (1)
+		jump &[00000111]
+[00000063]:
+		if !(V.107 is 38) jump &[00000079]
+		chain-script 202 (2)
+		jump &[00000111]
+[00000079]:
+		if !(V.107 is 39) jump &[00000095]
+		chain-script 202 (3)
+		jump &[00000111]
+[00000095]:
+		if !(V.107 is 40) jump &[00000111]
+		chain-script 202 (4)
+		jump &[00000111]
+[00000111]:
+		jump &[00000141]
+[00000114]:
+		for L.2 = 36 to 40 ++ {
+			verb L.2 off
+		}
+		selected-actor = 1
+		current-room 43
+[00000141]:
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0058\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.2
+
+		if !(L.0 is 1) jump &[00000029]
+		V.384 = (V.384 - 40)
+		jump &[00000092]
+[00000029]:
+		if !(L.0 is 2) jump &[00000050]
+		V.384 = (V.384 - 8)
+		jump &[00000092]
+[00000050]:
+		if !(L.0 is 3) jump &[00000071]
+		V.384 = (V.384 + 40)
+		jump &[00000092]
+[00000071]:
+		if !(L.0 is 4) jump &[00000092]
+		V.384 = (V.384 + 8)
+		jump &[00000092]
+[00000092]:
+		if !(V.384 < 160) jump &[00000124]
+		V.384 = (160 - V.384)
+		V.384 = (1000 - V.384)
+		jump &[00000153]
+[00000124]:
+		if (V.384 > 992) {
+			V.384 = (V.384 - 992)
+			V.384 = (152 + V.384)
+		}
+[00000153]:
+		camera-at V.384
+		state-of 805 is 0
+		L.2 = ((V.384 - 160) / 8)
+		draw-object 805 at L.2,3
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0058\ROOM\LSCR_0203
+	local variable L.0
+
+		camera-at V.384
+		L.0 = ((V.384 - 160) / 8)
+		draw-object 805 at L.0,3
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0058\ROOM\LSCR_0204
+	local variable L.0
+
+		if !(actor-room 2 is 43) jump &[00000274]
+		actor 5 default costume 12 talk-color 13 name "Sophia" ignore-boxes always-zclip 1 scale 255 255
+		if !(V.385 is 1) jump &[00000060]
+		put-actor 5 in-room 58
+		put-actor 5 at 950,123
+		jump &[00000098]
+[00000060]:
+		if !(V.385 is 2) jump &[00000079]
+		put-actor 5 in-room 58
+		put-actor 5 at 502,123
+		jump &[00000098]
+[00000079]:
+		if !(V.385 is 3) jump &[00000098]
+		put-actor 5 in-room 58
+		put-actor 5 at 600,123
+		jump &[00000098]
+[00000098]:
+		do-animation 5 248
+		wait-for-actor 5
+[00000104]:
+		do-animation 5 1
+		wait-for-actor 5
+		do-animation 5 6
+		break-here 6
+		do-animation 5 7
+		V.444 = (240 - 60)
+		V.444 = ((random V.444) + 60)
+		L.0 = V.444
+		sleep-for L.0 jiffies
+		do-animation 5 8
+		break-here 8
+		V.444 = (1 - 0)
+		V.444 = ((random V.444) + 0)
+		break-here 2
+		do-animation 5 1
+		if !(V.444) jump &[00000207]
+		do-animation 5 249
+		jump &[00000210]
+[00000207]:
+		do-animation 5 248
+[00000210]:
+		wait-for-actor 5
+		V.444 = (40 - 20)
+		V.444 = ((random V.444) + 20)
+		L.0 = V.444
+		break-here 25
+		sleep-for L.0 jiffies
+		jump &[00000104]
+[00000274]:
+		end-script
+	}
+}
+

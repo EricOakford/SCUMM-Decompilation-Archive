@@ -1,0 +1,25 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 89: Atlantis End Volcano (end-volca)
+; */
+
+room end-volca {
+
+	object 1160 { ; VERB LECF_0001\LFLF_0089\ROOM\OBCD_1160
+		name is "endscene-volc-0"
+	}
+
+	object 1159 { ; VERB LECF_0001\LFLF_0089\ROOM\OBCD_1159
+		name is "endscene-volc-1"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0089\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0089\ROOM\ENCD
+		end-object
+	}
+}
+

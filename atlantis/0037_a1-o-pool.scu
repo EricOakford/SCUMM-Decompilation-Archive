@@ -1,0 +1,507 @@
+room a1-o-pool {
+
+	object 423 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0423
+		name is "cup@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			V.442 = state-of 421
+			if !(V.442 is 1) jump &[00000115]
+			if !(class-of 1207 is 146) jump &[00000075]
+			say-line "\\xFF\\x0A\\x0A\\x06\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's full of lava."
+			jump &[00000112]
+[00000075]:
+			say-line "\\xFF\\x0A\\x92\\x2E\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's an empty cup."
+[00000112]:
+			jump &[00000474]
+[00000115]:
+			if !(V.442 is 4) jump &[00000221]
+			if !(class-of 999 is 12) jump &[00000169]
+			say-line "\\xFF\\x0A\\x1B\\x52\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a clay jar."
+			jump &[00000218]
+[00000169]:
+			say-line "\\xFF\\x0A\\x88\\x7C\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a clay jar full of water."
+[00000218]:
+			jump &[00000474]
+[00000221]:
+			if !(V.442 is 5) jump &[00000337]
+			if !(class-of 443 is 12) jump &[00000280]
+			say-line "\\xFF\\x0A\\x24\\xBB\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a porcelain mug."
+			jump &[00000334]
+[00000280]:
+			say-line "\\xFF\\x0A\\x6A\\xF0\\xFF\\x0A\\xD6\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a porcelain mug full of water."
+[00000334]:
+			jump &[00000474]
+[00000337]:
+			if !(V.442 is 2) jump &[00000400]
+			say-line "\\xFF\\x0A\\xBD\\x38\\xFF\\x0A\\xD7\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's filling up the cup with lava."
+			jump &[00000474]
+[00000400]:
+			if !(V.442 is 3) jump &[00000449]
+			print-debug "Shouldn't be here without a cup."
+			debug 0
+			jump &[00000474]
+[00000449]:
+			print-debug "Shouldn't be here."
+			debug 0
+[00000474]:
+			end-object
+		}
+
+		verb 11 {
+			if !(state-of 422 is 1) jump &[00000564]
+			say-line "\\xFF\\x0A\\x9E\\x77\\xFF\\x0A\\xD7\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand into a stream of hot\\x10lava."
+			jump &[00000792]
+[00000564]:
+			V.442 = state-of 421
+			if !(V.442 is 1) jump &[00000611]
+			pick-up-object 1207 in-room 93
+			if (class-of 1207 is 146) {
+				new-name-of 1207 is "lava-filled cup"
+			}
+			jump &[00000778]
+[00000611]:
+			if !(V.442 is 4) jump &[00000626]
+			owner-of 999 is selected-actor
+			jump &[00000778]
+[00000626]:
+			if !(V.442 is 5) jump &[00000641]
+			owner-of 443 is selected-actor
+			jump &[00000778]
+[00000641]:
+			if !(V.442 is 2) jump &[00000697]
+			print-debug "Shouldn't be here while lava's flowing."
+			debug 0
+			jump &[00000778]
+[00000697]:
+			if !(V.442 is 3) jump &[00000753]
+			print-debug "Shouldn't be here while lava's flowing."
+			debug 0
+			jump &[00000778]
+[00000753]:
+			print-debug "Shouldn't be here."
+			debug 0
+[00000778]:
+			state-of 421 is 0
+			class-of 423 is 160
+			start-script 10 ()
+[00000792]:
+			end-object
+		}
+	}
+
+	object 422 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0422
+		name is "plaque@@@@@@@@@@"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			if !(state-of 421 is 3) jump &[00000067]
+			say-line "\\xFF\\x0A\\xFA\\x81\\xFF\\x0A\\xD4\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's a fish\\x10spigot."
+			jump &[00000118]
+[00000067]:
+			say-line "\\xFF\\x0A\\x36\\xB1\\xFF\\x0A\\xD4\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like something is\\x10missing."
+[00000118]:
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 1190) jump &[00000592]
+			class-of 422 is 6
+			new-name-of 422 is "fish head"
+			owner-of 1190 is 0
+			owner-of 1190 is 14
+			V.442 = state-of 421
+			if !(V.442 is 0) jump &[00000201]
+			cut-scene
+			draw-object 421 image 8
+			break-here
+			draw-object 421 image 10
+			break-here 2
+			state-of 421 is 3
+			draw-object 420 
+			end-cut-scene
+			start-script 10 ()
+			jump &[00000589]
+[00000201]:
+			if !(V.442 is 1) jump &[00000214]
+			chain-script 200 ()
+			jump &[00000589]
+[00000214]:
+			if !(V.442 is 4) jump &[00000329]
+			cut-scene
+			owner-of 999 is 0
+			class-of 423 is 160
+			draw-object 421 image 6
+			break-here 2
+			draw-object 421 image 9
+			break-here 2
+			state-of 421 is 3
+			draw-object 420 
+			say-line "\\xFF\\x0A\\xB0\\xEE\\xFF\\x0A\\xD4\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Hmm, that clay jar couldn't hold the\\x10lava."
+			end-cut-scene
+			start-script 10 ()
+			jump &[00000589]
+[00000329]:
+			if !(V.442 is 5) jump &[00000452]
+			cut-scene
+			owner-of 443 is 0
+			class-of 423 is 160
+			draw-object 421 image 6
+			break-here 2
+			draw-object 421 image 9
+			break-here 2
+			state-of 421 is 3
+			draw-object 420 
+			say-line "\\xFF\\x0A\\x02\\x44\\xFF\\x0A\\xD5\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I guess that porcelain mug couldn't hold the\\x10lava."
+			end-cut-scene
+			start-script 10 ()
+			jump &[00000589]
+[00000452]:
+			if !(V.442 is 2) jump &[00000515]
+			say-line "\\xFF\\x0A\\x9E\\x9D\\xFF\\x0A\\xD5\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's filling up the cup with lava."
+			jump &[00000589]
+[00000515]:
+			if !(V.442 is 3) jump &[00000564]
+			print-debug "Shouldn't be here without a cup."
+			debug 0
+			jump &[00000589]
+[00000564]:
+			print-debug "Shouldn't be here."
+			debug 0
+[00000589]:
+			jump &[00000598]
+[00000592]:
+			start-script 3 (8)
+[00000598]:
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of me is 6) jump &[00000666]
+			class-of 422 is 134
+			pick-up-object 1190 in-room 92
+			state-of 422 is 0
+			new-name-of 422 is "plaque"
+			if !(state-of 421 is 2) jump &[00000652]
+			state-of 421 is 1
+			jump &[00000656]
+[00000652]:
+			state-of 421 is 0
+[00000656]:
+			state-of 420 is 0
+			start-script 10 ()
+			jump &[00000706]
+[00000666]:
+			say-line "\\xFF\\x0A\\x7F\\xDC\\xFF\\x0A\\xD5\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't pick that up."
+[00000706]:
+			end-object
+		}
+	}
+
+	object 417 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0417
+		name is "pool of molten lava"
+
+		verb 11 {
+			say-line "\\xFF\\x0A\\xC1\\x54\\xFF\\x0A\\xCE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't pick up molten lava with my bare\\x10hands."
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xB6\\xC6\\xFF\\x0A\\xCE\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It looks very hot!"
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 418 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0418
+		name is "impressive pump"
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xEB\\x20\\xFF\\x0A\\xCF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What an archaelogical find!"
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 419 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0419
+		name is "exit"
+
+		verb 10 {
+			fades 257
+			current-room 87
+			end-object
+		}
+	}
+
+	object 421 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0421
+		name is "pedestal"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x1E\\x69\\xFF\\x0A\\xCF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a small\\x10pedestal."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 1207) jump &[00000503]
+			if !(class-of 1207 is 18) jump &[00000450]
+			if !(state-of 422 is 1) jump &[00000161]
+			say-line "\\xFF\\x0A\\x7B\\x9A\\xFF\\x0A\\xCF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand into a stream of hot\\x10lava."
+			jump &[00000447]
+[00000161]:
+			if !(state-of 421 is 0) jump &[00000283]
+			if (class-of 1207 is 140) {
+				say-line "\\xFF\\x0A\\x88\\x16\\xFF\\x0A\\xD0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd better pour out the water first."
+				class-of 1207 is 12
+				new-name-of 1207 is "cup"
+			}
+			state-of 421 is 1
+			owner-of 1207 is 0
+			owner-of 1207 is 14
+			new-name-of 423 is "cup"
+			class-of 423 is 32
+			start-script 10 ()
+			jump &[00000447]
+[00000283]:
+			if !(state-of 421 is 3) jump &[00000376]
+			say-line "\\xFF\\x0A\\xB9\\x5D\\xFF\\x0A\\xD0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand under a stream of molten\\x10lava."
+			jump &[00000447]
+[00000376]:
+			say-line "\\xFF\\x0A\\xE7\\xE7\\xFF\\x0A\\xD0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't.  There's something on the pedestal already."
+[00000447]:
+			jump &[00000500]
+[00000450]:
+			say-line "\\xFF\\x0A\\xBA\\x3D\\xFF\\x0A\\xD1\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00The cup's already full of\\x10lava!"
+[00000500]:
+			jump &[00001227]
+[00000503]:
+			if !(L.0 is 999) jump &[00000899]
+			if !(state-of 422 is 1) jump &[00000599]
+			say-line "\\xFF\\x0A\\xAE\\x78\\xFF\\x0A\\xD1\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand into a stream of hot\\x10lava."
+			jump &[00000896]
+[00000599]:
+			if !(state-of 421 is 0) jump &[00000732]
+			if (class-of 999 is 146) {
+				say-line "\\xFF\\x0A\\x10\\xF0\\xFF\\x0A\\xD1\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd better dump out this gas\\x10first."
+				class-of 999 is 18
+				new-name-of 999 is "empty clay jar"
+			}
+			state-of 421 is 4
+			owner-of 999 is 14
+			new-name-of 423 is "clay jar"
+			class-of 423 is 32
+			start-script 10 ()
+			jump &[00000896]
+[00000732]:
+			if !(state-of 421 is 3) jump &[00000825]
+			say-line "\\xFF\\x0A\\x19\\x34\\xFF\\x0A\\xD2\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand under a stream of molten\\x10lava."
+			jump &[00000896]
+[00000825]:
+			say-line "\\xFF\\x0A\\x47\\xBE\\xFF\\x0A\\xD2\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't.  There's something on the pedestal already."
+[00000896]:
+			jump &[00001227]
+[00000899]:
+			if !(L.0 is 443) jump &[00001204]
+			if !(state-of 422 is 1) jump &[00000995]
+			say-line "\\xFF\\x0A\\x2E\\x0F\\xFF\\x0A\\xD3\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand into a stream of hot\\x10lava."
+			jump &[00001201]
+[00000995]:
+			if !(state-of 421 is 0) jump &[00001037]
+			state-of 421 is 5
+			new-name-of 423 is "stein"
+			owner-of 443 is 14
+			class-of 423 is 32
+			start-script 10 ()
+			jump &[00001201]
+[00001037]:
+			if !(state-of 421 is 3) jump &[00001130]
+			say-line "\\xFF\\x0A\\x90\\x86\\xFF\\x0A\\xD3\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'd rather not stick my hand under a stream of molten\\x10lava."
+			jump &[00001201]
+[00001130]:
+			say-line "\\xFF\\x0A\\xBE\\x10\\xFF\\x0A\\xD4\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't.  There's something on the pedestal already."
+[00001201]:
+			jump &[00001227]
+[00001204]:
+			say-line "\\xFF\\x0A\\xA5\\x61\\xFF\\x0A\\xD4\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Why?"
+[00001227]:
+			end-object
+		}
+	}
+
+	object 420 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0420
+		name is "a1-o-pool-big-lava"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0037\ROOM\EXCD
+		camera-script = 0
+		if (!B.23) {
+			stop-sound 3
+			sound-kludge 262 84 0
+			sound-kludge 262 15 0
+			sound-kludge 269 84 50 180
+			sound-kludge 269 15 50 180
+			sound-kludge 269 178 0 180
+			sound-kludge 65535
+		}
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0037\ROOM\ENCD
+		actor 11 default costume 227 ignore-boxes never-zclip
+		camera-script = 201
+		sound-kludge 262 3 0
+		sound-kludge 257 3 0
+		sound-kludge 269 3 0 380
+		sound-kludge 65535
+		sound-kludge 2
+		start-sound 84
+		start-sound 15
+		sound-kludge 258 15 80
+		start-sound 178
+		sound-kludge 258 178 50
+		sound-kludge 257 178 128
+		sound-kludge 65535
+		sound-kludge 257 15 131
+		sound-kludge 65535
+		sound-kludge 3
+		put-actor selected-actor in-room 37
+		put-actor selected-actor at 60,110
+		if (class-of 422 is 6) {
+			new-name-of 422 is "fish head"
+		}
+		if (state-of 421 is 4) {
+			new-name-of 423 is "clay jar"
+		}
+		if (state-of 421 is 5) {
+			new-name-of 423 is "stein"
+		}
+		start-script bak 202 ()
+		camera-follow selected-actor
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0037\ROOM\LSCR_0200
+		cut-scene
+		start-script 10 (1)
+		start-script 144 (127,9)
+		class-of 1207 is 146
+		state-of 421 is 2
+		do-animation 1 249
+		break-here
+		sound-kludge 262 15 0
+		sound-kludge 257 15 0
+		sound-kludge 269 15 50 30
+		start-sound 154
+		sound-kludge 257 154 132
+		sound-kludge 270 154 1
+		sound-kludge 271 262 15 128
+		sound-kludge 271 269 15 127 30
+		sound-kludge 271 65535
+		do-animation 1 7
+		break-here 5
+		do-animation 1 9
+		break-here 10
+		do-animation 1 251
+		break-here
+		say-line 1 "\\xFF\\x0A\\x41\\x3D\\xFF\\x0A\\xCE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Aha!"
+		wait-for-message
+		do-sentence 11 422 with 0
+		wait-for-sentence
+		do-sentence 11 423 with 0
+		wait-for-sentence
+		end-cut-scene
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0037\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		V.442 = (180 - ((camera-x - 160) / 3))
+		put-actor 11 in-room 37
+		put-actor 11 at V.442,142
+		do-animation 11 250
+		L.0 = (90 - ((320 - camera-x) / 4))
+		L.1 = (L.0 * 10)
+		L.1 /= 7
+		sound-kludge 258 178 L.1
+		L.0 *= 10
+		L.0 /= 7
+		sound-kludge 258 84 1
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0037\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.1 = 65336
+[00000013]:
+		L.0 = actor-x 1
+		if !(L.0 is-not L.1) jump &[00000232]
+		if !(L.0 < 77) jump &[00000035]
+		jump &[00000237]
+[00000035]:
+		if !(L.0 > 160) jump &[00000045]
+		jump &[00000106]
+[00000045]:
+		L.2 = (L.0 - 77)
+		L.3 = ((155 * L.2) / 83)
+		L.3 = (255 - L.3)
+		palette intensity L.3 in-slot 16 to 35
+		palette intensity L.3 in-slot 68 to 72
+		palette intensity L.3 in-slot 104 to 104
+		palette intensity L.3 in-slot 128 to 128
+[00000106]:
+		if !(L.0 > 120) jump &[00000232]
+		if !(L.0 > 269) jump &[00000184]
+		if !(L.0 < 367) jump &[00000133]
+		jump &[00000237]
+		jump &[00000181]
+[00000133]:
+		L.2 = (L.0 - 367)
+		L.3 = ((55 * L.2) / 133)
+		L.3 = (100 + L.3)
+		palette intensity [rgb] 255 255 L.3 in-slot 192 to 207
+[00000181]:
+		jump &[00000232]
+[00000184]:
+		L.2 = (269 - L.0)
+		L.3 = ((155 * L.2) / 149)
+		L.3 = (100 + L.3)
+		palette intensity [rgb] 255 255 L.3 in-slot 192 to 207
+[00000232]:
+		L.1 = L.0
+[00000237]:
+		break-here
+		jump &[00000013]
+		end-script
+	}
+}
+

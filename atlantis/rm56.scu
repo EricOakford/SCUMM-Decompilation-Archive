@@ -1,0 +1,200 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 56: Labyrinth Elevator (lab-eleva)
+; */
+
+room lab-eleva {
+
+	object 793 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0793
+		name is "door"
+
+		verb 10 {
+			come-out 612 in-room 151 walk-to 270,143
+			end-object
+		}
+	}
+
+	object 794 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0794
+		name is "statue mouth"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 700) jump &[00000054]
+			if !(class-of me is 134) jump &[00000051]
+			if !(state-of 831 is 1) jump &[00000048]
+			start-script 200 ()
+			jump &[00000051]
+[00000048]:
+			start-script 201 ()
+[00000051]:
+			jump &[00000102]
+[00000054]:
+			say-line "\\xFF\\x0A\\xA9\\x82\\xFF\\x0A\\xEA\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I don't think that will\\x10work."
+[00000102]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 6) jump &[00000159]
+			say-line "\\xFF\\x0A\\x0E\\xB4\\xFF\\x0A\\xEA\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It's got splinters in\\x10it."
+			jump &[00000205]
+[00000159]:
+			say-line "\\xFF\\x0A\\xEC\\xE3\\xFF\\x0A\\xEA\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's a small cleft\\x10here."
+[00000205]:
+			end-object
+		}
+	}
+
+	object 1390 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_1390
+		name is "stone shaft"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of me is 134) jump &[00000084]
+			say-line "\\xFF\\x0A\\xE0\\x1E\\xFF\\x0A\\xEB\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a shaft, rising into the\\x10darkness."
+			jump &[00000137]
+[00000084]:
+			say-line "\\xFF\\x0A\\x14\\x75\\xFF\\x0A\\xEB\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's the elevator's support\\x10shaft."
+[00000137]:
+			end-object
+		}
+	}
+
+	object 786 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0786
+		name is "a3-center-crack-1"
+	}
+
+	object 787 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0787
+		name is "a3-center-crack-2"
+	}
+
+	object 788 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0788
+		name is "a3-center-crack-3"
+	}
+
+	object 789 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0789
+		name is "a3-center-crack-4"
+	}
+
+	object 790 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0790
+		name is "a3-center-crack-5"
+	}
+
+	object 791 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0791
+		name is "a3-center-crack-6"
+	}
+
+	object 792 { ; VERB LECF_0001\LFLF_0056\ROOM\OBCD_0792
+		name is "a3-center-crack-7"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0056\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0056\ROOM\ENCD
+		V.164 = 88
+		if !(class-of 794 is 134) jump &[00000049]
+		actor 6 default costume 31 ignore-boxes always-zclip 1
+		actor 6 elevation 65436
+		put-actor 6 in-room 56
+		put-actor 6 at 156,12
+		jump &[00000073]
+[00000049]:
+		actor 7 default costume 175 elevation 65446 ignore-boxes always-zclip 2
+		put-actor 7 in-room 56
+		put-actor 7 at 155,2
+		do-animation 7 250
+[00000073]:
+		end-object
+	}
+; Going Up
+	script 200 { ; LSCR LECF_0001\LFLF_0056\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		cut-scene
+		start-script 144 (47,6)
+		actor 1 costume 191
+		do-animation 1 249
+		do-animation 1 6
+		sound-kludge 257 74 0
+		sound-kludge 262 74 0
+		sound-kludge 269 74 1
+		sound-kludge 65535
+		start-sound 139
+		sound-kludge 270 139 1
+		sound-kludge 271 257 74 128
+		sound-kludge 271 269 74 127 120
+		sound-kludge 271 262 74 128
+		sound-kludge 271 65535
+		break-here 2
+		print-line color 7 at 205,50 "\\xFF\\x0A\\x67\\xBD\\xFF\\x0A\\xEB\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00SNAP!"
+		break-here 6
+		actor 1 costume 2
+		wait-for-message
+		print-line color 7 at 160,10 "\\xFF\\x0A\\x9B\\x00\\xFF\\x0A\\xEC\\x03\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00RUMBLE!"
+		actor 7 costume 175 elevation 20 ignore-boxes always-zclip 2
+		put-actor 7 in-room 56
+		put-actor 7 at 155,2
+		do-animation 7 250
+		owner-of 700 is 0
+		start-script 10 ()
+		shake on
+		break-here 12
+		shake off
+		do-animation 1 244
+		break-here 2
+		say-line "\\xFF\\x0A\\xAC\\x2A\\xFF\\x0A\\xEA\\x03\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Going up?"
+		wait-for-message
+		class-of 794 is 6
+		L.2 = 20
+		L.1 = 65436
+		override &[00000376]
+		for L.0 = 1 to 110 ++ {
+			actor 1 elevation L.0
+			--L.2
+			actor 7 elevation L.2
+			++L.1
+			actor 6 elevation L.1
+			L.0 += 3
+			L.1 += 3
+			L.2 -= 3
+			break-here
+		}
+[00000376]:
+		if (!override-hit) {
+			fades 132
+		}
+		end-cut-scene
+		current-room 60
+		end-script
+	}
+; Nothing Happens
+	script 201 { ; LSCR LECF_0001\LFLF_0056\ROOM\LSCR_0201
+		cut-scene
+		actor 1 costume 191
+		do-animation 1 249
+		do-animation 1 8
+		break-here 7
+		actor 1 costume 2
+		do-animation 1 3
+		say-line 1 "\\xFF\\x0A\\x7C\\x45\\xFF\\x0A\\xEA\\x03\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That didn't seem to do\\x10anything."
+		wait-for-message
+		end-cut-scene
+		end-script
+	}
+}
+

@@ -1,0 +1,37 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 47: Ubermann Closeup (cu-uberma)
+; */
+
+room cu-uberma {
+
+	exit { ; EXCD LECF_0001\LFLF_0047\ROOM\EXCD
+		set-screen 0 to 144
+		start-script 19 (2)
+		cursor on
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0047\ROOM\ENCD
+		sound-kludge 268 54 0 1
+		cursor off
+		set-screen 0 to 200
+		start-script 19 (1)
+		camera-at 160
+		start-script 200 ()
+		end-object
+	}
+; Sophia Reads Newspaper
+	script 200 { ; LSCR LECF_0001\LFLF_0047\ROOM\LSCR_0200
+		break-here 8
+		print-line color 13 center at 160,160 "\\xFF\\x0A\\xF8\\x9E\\xFF\\x0A\\x7D\\x05\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Listen to this^\\xFF\\x03`Germans claim victory in worldwide\\x10race\\xFF\\x01to smash the\\x10uranium\\x10atom.`"
+		wait-for-message
+		print-line color 13 center at 160,160 "\\xFF\\x0A\\x6E\\x87\\xFF\\x0A\\x7E\\x05\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00`Chief scientist Dr. Hans Ubermann\\xFF\\x01announces plan to harness new sources of\\x10energy\\xFF\\x01for the\\x10Third\\x10Reich.`"
+		wait-for-message
+		break-here 6
+		current-room 15
+		end-script
+	}
+}
+

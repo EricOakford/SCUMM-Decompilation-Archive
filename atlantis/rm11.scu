@@ -1,0 +1,323 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 10: New York Theater Stage (sop-stage)
+; */
+
+script 154 { ; SCRP LECF_0001\LFLF_0011\SCRP_0154
+local variable L.0
+local variable L.1
+local variable L.2
+
+	L.2 = 128
+	for L.0 = 1 to 65513 -- {
+		for L.1 = 5 to 65472 -- {
+			sound-kludge 261 53 L.1
+			break-here
+			L.1 -= 20
+		}
+		sound-kludge 261 53 0
+		sound-kludge 260 53 0 L.0
+		sound-kludge 262 53 L.2
+		L.2 -= 3
+	}
+	sound-kludge 262 53 0
+	sound-kludge 269 53 0 360
+[00000126]:
+	sound-kludge 256 1 53
+	if !(V.56 < 70) jump &[00000227]
+	load-sound 99
+	sound-kludge 65535
+	start-sound 99
+	sound-kludge 270 99 1
+	sound-kludge 271 267 99 0 0
+	sound-kludge 271 267 99 2 0
+	sound-kludge 271 267 99 4 0
+	sound-kludge 271 65535
+	jump &[00000231]
+[00000227]:
+	break-here
+	jump &[00000126]
+[00000231]:
+	end-script
+}
+
+room sop-stage {
+
+	object 148 { ; VERB LECF_0001\LFLF_0011\ROOM\OBCD_0148
+		name is "slides"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0011\ROOM\EXCD
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0011\ROOM\ENCD
+		put-actor 2 in-room 11
+		put-actor 2 at 99,98
+		do-animation 2 250
+		if (B.70 is 0) {
+			start-sound 41
+			sound-kludge 269 40 0 30
+			B.70 = 1
+			draw-object 148 image 1
+			start-script 200 ()
+		}
+		if (B.71 is 0) {
+			start-sound 42
+			sound-kludge 269 41 0 180
+			sound-kludge 269 41 0 15
+			sound-kludge 269 40 0 15
+			B.71 = 1
+			draw-object 148 image 2
+			start-script 201 ()
+		}
+		if (B.71 is 1) {
+			draw-object 148 image 10
+			start-script bak 204 ()
+			start-script 203 ()
+		}
+		end-object
+	}
+; Sophia's Speech 1
+	script 200 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0200
+		cut-scene
+		override &[00000970]
+		break-here
+		say-line 2 at 160,96 "\\xFF\\x0A\\xD0\\x36\\xFF\\x0A\\x34\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Here, my friends, is ATLANTIS^ "
+		wait-for-message
+		do-animation 2 245
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\x44\\x9C\\xFF\\x0A\\x34\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^as it might have appeared\\xFF\\x01in its heyday^ \\xFF\\x09\\x13\\x00 "
+		wait-for-message
+		start-script 205 (3)
+		break-until (!script-running 205)
+		say-line 2 at 160,96 "\\xFF\\x0A\\x5F\\x03\\xFF\\x0A\\x35\\x00\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^glorious^\\xFF\\x03^glorious^\\xFF\\x01^prosperous^\\xFF\\x03^glorious^\\xFF\\x01^prosperous^\\xFF\\x01^socially and technically advanced^  "
+		sound-kludge 269 41 110 800
+		wait-for-message
+		start-script 205 (4)
+		break-until (!script-running 205)
+		do-animation 2 246
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\x69\\xC8\\xFF\\x0A\\x35\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00^beyond our wildest dreams!"
+		wait-for-message
+		sleep-for 60 jiffies
+		say-line 2 at 160,96 "\\xFF\\x0A\\x67\\x26\\xFF\\x0A\\x36\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x005,000 years ago,\\xFF\\x01while everyone else still wore animal skins^"
+		wait-for-message
+		start-script 205 (2)
+		break-until (!script-running 205)
+		do-animation 2 245
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\x8C\\xDB\\xFF\\x0A\\x36\\x00\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00^the mighty spirits of Atlantis dared\\xFF\\x01to build a city where knowledge and power\\xFF\\x01were united in true happiness."
+		wait-for-message
+		say-line 2 at 160,96 "\\xFF\\x0A\\xC7\\x2D\\xFF\\x0A\\x38\\x00\\xFF\\x0A\\x1E\\x00\\xFF\\x0A\\x00\\x00Centuries later,\\xFF\\x01the famous philosopher Plato wrote about it^\\xFF\\x03He placed Atlantis on a continent\\xFF\\x09\\x13\\x00 \\xFF\\x01out in the deep ocean^"
+		wait-for-message
+		walk 2 to 122,93
+		start-script 205 (5)
+		break-until (!script-running 205)
+		do-animation 2 249
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\x0C\\x99\\xFF\\x0A\\x39\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^and described how it was divided into\\xFF\\x013 circular parts^\\xFF\\x09\\x0B\\x00"
+		wait-for-message
+		do-animation 2 245
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\x78\\x42\\xFF\\x0A\\x3A\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^such as you see here^ \\xFF\\x09\\x0C\\x00"
+		wait-for-message
+[00000970]:
+		override off
+		print-line "  "
+		state-of 148 is 0
+		end-cut-scene
+		current-room 12
+		end-script
+	}
+; Sophia's Speech 2
+	script 201 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0201
+		cut-scene
+		override &[00000919]
+		break-here 8
+		say-line 2 at 160,96 "\\xFF\\x0A\\xBB\\x87\\xFF\\x0A\\x3A\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What befell this serene city?"
+		wait-for-message
+		do-animation 2 246
+		break-here 2
+		sound-kludge 269 42 100 600
+		say-line 2 at 160,96 "\\xFF\\x0A\\xBC\\xE9\\xFF\\x0A\\x3A\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We may never know for sure^"
+		wait-for-message
+		do-animation 2 245
+		break-here 2
+		say-line 2 at 160,96 "\\xFF\\x0A\\xA1\\x3B\\xFF\\x0A\\x3B\\x00\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00^was it the sea level, slowly creeping higher?\\xFF\\x03^or the Earth itself, suddenly shifting? \\xFF\\x09\\x0D\\x00 "
+		wait-for-message
+		state-of 148 is 0
+		walk 2 to 122,93
+		start-script 205 (6)
+		break-until (!script-running 205)
+		do-animation 2 249
+		break-here
+		say-line 2 at 160,96 "\\xFF\\x0A\\xC1\\x35\\xFF\\x0A\\x3C\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00However it happened,\\xFF\\x09\\x0B\\x00\\xFF\\x01panic must have gripped the citizens^\\xFF\\x09\\x0C\\x00"
+		wait-for-message
+		do-animation 2 25
+		break-here 6
+		say-line 2 at 160,96 "\\xFF\\x0A\\xF6\\xD5\\xFF\\x0A\\x3C\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00^on that fateful day when proud Atlantis\\xFF\\x01sank beneath the waves^"
+		wait-for-message
+		walk 2 to 99,98
+		start-script 205 (2)
+		break-until (!script-running 205)
+		sleep-for 60 jiffies
+		draw-object 148 image 7
+		sleep-for 60 jiffies
+		draw-object 148 image 8
+		sleep-for 60 jiffies
+		do-animation 2 1
+		do-animation 2 250
+		say-line 2 center at 96,96 "\\xFF\\x0A\\x06\\xA4\\xFF\\x0A\\x3D\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00^or^ "
+		do-animation 2 246
+		wait-for-message
+		start-script 205 (9)
+		break-until (!script-running 205)
+		say-line 2 at 160,96 "\\xFF\\x0A\\x1F\\xB8\\xFF\\x0A\\x3D\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^perhaps it was a volcanic eruption,\\xFF\\x01and SOMETHING remains even now."
+		wait-for-message
+		say-line 2 at 160,96 "\\xFF\\x0A\\x1E\\x6D\\xFF\\x0A\\x3E\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00On some questions,\\xFF\\x01the Great Spirit who guides my thoughts^"
+		wait-for-message
+		start-script 205 (10)
+		break-until (!script-running 205)
+		say-line 2 at 160,96 "\\xFF\\x0A\\xF5\\x1D\\xFF\\x0A\\x3F\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^the all-seeing NUR-AB-SAL^\\xFF\\x03^the all-seeing NUR-AB-SAL^\\xFF\\x01  \\xFF\\x01^is silent. \\xFF\\x09\\x08\\x00"
+		wait-for-message
+		do-animation 2 250
+		break-here 2
+[00000919]:
+		override off
+		print-line "  "
+		state-of 148 is 0
+		end-cut-scene
+		current-room 12
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0202
+		break-here 4
+		actor 12 elevation 19 ignore-boxes always-zclip 1 step-dist 12,3
+		put-actor 12 in-room 11
+		put-actor 12 at 310,100
+		walk 12 to 32,93
+		wait-for-actor 12
+		do-animation 12 250
+		do-animation 12 9
+[00000048]:
+		break-here 8
+		if !(!random 3) jump &[00000071]
+		do-animation 12 9
+		jump &[00000078]
+[00000071]:
+		do-animation 12 250
+		break-here
+		do-animation 12 3
+[00000078]:
+		jump &[00000048]
+		end-script
+	}
+; Sophia Interrupted
+	script 203 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0203
+		cut-scene
+		override &[00000454]
+		start-script 202 ()
+		say-line 2 at 160,96 "\\xFF\\x0A\\x20\\xC9\\xFF\\x0A\\x3F\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^and I still feel the presence of Atlantis through^ "
+		wait-for-message
+		do-animation 2 face-towards 12
+		say-line 2 center at 96,96 "\\xFF\\x0A\\x7C\\x53\\xFF\\x0A\\x40\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00^err^ "
+		wait-for-message
+		do-animation 2 250
+		say-line 2 at 160,96 "\\xFF\\x0A\\xDB\\x70\\xFF\\x0A\\x40\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^may I present NUR-AB-SAL^"
+		wait-for-message
+		say-line 2 at 160,96 "\\xFF\\x0A\\x96\\xD6\\xFF\\x0A\\x40\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^the great Atlantean god of^ "
+		wait-for-message
+		say-line 2 center at 96,96 "\\xFF\\x0A\\xCF\\x35\\xFF\\x0A\\x41\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^of^ "
+		wait-for-message
+		print-line color 15 at 265,50 "\\xFF\\x0A\\x96\\x54\\xFF\\x0A\\x41\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Deceit! "
+		wait-for-message
+		say-line 2 center at 96,96 "\\xFF\\x0A\\x52\\x76\\xFF\\x0A\\x41\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^Deceit!\\xFF\\x03Thanks, Indy. "
+		wait-for-message
+		sleep-for 30 jiffies
+		do-animation 2 245
+		break-here 2
+		say-line 2 center at 96,96 "\\xFF\\x0A\\xDD\\xD4\\xFF\\x0A\\x41\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00INDIANA JONES!?\\xFF\\x03You've got some nerve! \\xFF\\x09\\x07\\x00 "
+		wait-for-message
+[00000454]:
+		override off
+		actor 12 never-zclip
+		start-script 86 (12,2)
+		say-line 2 center at 96,96 "\\xFF\\x0A\\x5B\\x7D\\xFF\\x0A\\x42\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Go back, you big jack-o'-lantern! \\xFF\\x09\\x07\\x00 "
+		break-here 8
+		stop-script 202
+		do-animation 12 1
+		walk 12 to 150,100
+		wait-for-actor 12
+		do-animation 12 250
+		break-here
+		do-animation 12 9
+		break-here 8
+		do-animation 12 250
+		break-here
+		stop-script 86
+		V.445 = actor-x 12
+		V.446 = actor-y 12
+		V.446 -= 80
+		do-animation 12 1
+		break-here
+		do-animation 12 7
+		print-line color 7 at V.445,V.446 "\\xFF\\x0A\\x98\\xDC\\xFF\\x0A\\x42\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Grrk."
+		stop-sound 62
+		start-script bak 154 ()
+		break-here 15
+		V.445 = actor-x 12
+		V.446 = actor-y 12
+		V.446 -= 70
+		do-animation 12 10
+		wait-for-message
+		say-line 2 center at 96,96 "\\xFF\\x0A\\xE8\\x04\\xFF\\x0A\\x43\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Oh, great!"
+		wait-for-message
+		do-animation 2 246
+		break-here 2
+		say-line 2 center at 96,96 "\\xFF\\x0A\\xFB\\x42\\xFF\\x0A\\x43\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00G'night, folks^"
+		actor 12 init-animation 1
+		wait-for-message
+		do-animation 2 1
+		end-cut-scene
+		current-room 12
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0204
+	local variable L.1
+	local variable L.2
+
+		L.1 = 55
+[00000013]:
+		if !(L.1 <= 55) jump &[00000028]
+		L.2 = 20
+		jump &[00000040]
+[00000028]:
+		if (L.1 >= 255) {
+			L.2 = 65516
+		}
+[00000040]:
+		L.1 += L.2
+		palette intensity L.1 in-slot 251 to 255
+		break-here
+		jump &[00000013]
+		end-script
+	}
+
+	script 205 { ; LSCR LECF_0001\LFLF_0011\ROOM\LSCR_0205
+	local variable L.0
+
+		state-of 148 is 0
+		palette intensity 100 in-slot 16 to 159
+		palette intensity 100 in-slot 192 to 250
+		break-here 4
+		palette intensity 255 in-slot 16 to 159
+		palette intensity 255 in-slot 192 to 250
+		draw-object 148 image L.0
+		end-script
+	}
+}
+

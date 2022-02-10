@@ -1,0 +1,237 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 22: Outside the God Machine (a3-god-ma)
+; */
+
+room a3-god-ma {
+
+	object 260 { ; VERB LECF_0001\LFLF_0022\ROOM\OBCD_0260
+		name is ""
+
+		verb 10 {
+			chain-script 202 (260)
+			end-object
+		}
+	}
+
+	object 261 { ; VERB LECF_0001\LFLF_0022\ROOM\OBCD_0261
+		name is ""
+
+		verb 10 {
+			chain-script 202 (261)
+			end-object
+		}
+	}
+
+	object 262 { ; VERB LECF_0001\LFLF_0022\ROOM\OBCD_0262
+		name is ""
+
+		verb 10 {
+			current-room 23
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0022\ROOM\EXCD
+		set-screen 0 to 144
+		stop-script 79
+		start-script 19 (2)
+		build-sentence-script = 4
+		start-script 59 ()
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0022\ROOM\ENCD
+		stop-script 59
+		build-sentence-script = 78
+		start-script 19 (1)
+		start-script 79 ()
+		set-screen 0 to 200
+		cursor on
+		if !(V.224 is 30) jump &[00000134]
+		load-sound 146
+		sound-kludge 270 146 2
+		sound-kludge 271 9 145
+		sound-kludge 271 65535
+		sound-kludge 270 146 3
+		sound-kludge 271 269 146 90 240
+		sound-kludge 271 65535
+		start-sound 146
+		if (sound-mode is-not 4) {
+			sound-kludge 257 146 90
+		}
+		start-script 200 ()
+		jump &[00000400]
+[00000134]:
+		if !(V.224 is 55) jump &[00000286]
+		stop-sound 144
+		stop-sound 146
+		load-sound 144
+		load-sound 146
+		sound-kludge 2
+		sound-kludge 269 1 0 60
+		sound-kludge 269 84 0 60
+		sound-kludge 269 14 0 60
+		sound-kludge 257 1 0
+		sound-kludge 257 84 0
+		sound-kludge 257 14 0
+		start-sound 146
+		sound-kludge 258 146 90
+		if (sound-mode is-not 4) {
+			sound-kludge 257 146 90
+		}
+		sound-kludge 257 144 150
+		start-sound 144
+		sound-kludge 3
+		start-script 200 ()
+		jump &[00000400]
+[00000286]:
+		if !(V.224 is 23) jump &[00000400]
+		load-sound 144
+		load-sound 146
+		sound-kludge 2
+		sound-kludge 269 148 0 60
+		start-sound 146
+		sound-kludge 258 146 90
+		sound-kludge 257 144 150
+		if (sound-mode is-not 4) {
+			sound-kludge 257 146 90
+		}
+		start-sound 144
+		sound-kludge 3
+		start-sound 156
+		sound-kludge 258 156 50
+		sound-kludge 269 156 127 240
+		start-script 201 ()
+		jump &[00000400]
+[00000400]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0022\ROOM\LSCR_0200
+		fades 257
+		cut-scene
+		actor 1 costume 2 step-dist 8,3
+		put-actor selected-actor in-room 22
+		put-actor selected-actor at-object 260
+		stop-script 31
+		if !(actor-room 2 is 55) jump &[00000334]
+		actor 2 costume 28
+		put-actor 2 in-room 22
+		put-actor 2 at-object 260
+		walk selected-actor to 140,190
+		break-here 8
+		walk 2 to 110,190
+		wait-for-actor 1
+		do-animation 1 247
+		wait-for-actor 2
+		do-animation 2 247
+		break-here 8
+		if (B.649 is 0) {
+			B.649 = 1
+			say-line 1 "\\xFF\\x0A\\xB2\\xC7\\xFF\\x0A\\x34\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Here's your shining\\x10city."
+			wait-for-message
+			say-line 2 "\\xFF\\x0A\\xBA\\xC1\\xFF\\x0A\\x37\\x01\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Not what I expected, that's for\\x10sure."
+			wait-for-message
+			do-animation 1 248
+			do-animation 2 249
+			break-here
+			say-line 1 "\\xFF\\x0A\\x4A\\x04\\xFF\\x0A\\x35\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00And the place is still\\x10humming^\\xFF\\x03^maintaining the air pressure for untold\\x10centuries^"
+			wait-for-message
+		}
+		jump &[00000731]
+[00000334]:
+		if !(actor-room 2 is 22) jump &[00000456]
+		start-script 136 (1,2,30,0)
+		break-until (!script-running 136)
+		if (B.642 is 0) {
+			B.642 = 1
+			say-line 2 "\\xFF\\x0A\\x18\\x2C\\xFF\\x0A\\x38\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Find anything?"
+			wait-for-message
+			say-line 1 "\\xFF\\x0A\\x3D\\xC5\\xFF\\x0A\\x35\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I'm not\\x10sure."
+			wait-for-message
+		}
+		jump &[00000731]
+[00000456]:
+		if !(B.649 is 0) jump &[00000721]
+		B.649 = 1
+		walk 1 to 140,190
+		wait-for-actor 1
+		do-animation 1 247
+		break-here 4
+		say-line 1 "\\xFF\\x0A\\xAE\\xE3\\xFF\\x0A\\x35\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Here's Sophia's shining\\x10city."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x78\\x35\\xFF\\x0A\\x36\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Not the paradise she imagined, that's\\x10for\\x10sure."
+		wait-for-message
+		say-line 1 "\\xFF\\x0A\\x33\\x9C\\xFF\\x0A\\x36\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Amazing how the place is still\\x10humming^\\xFF\\x03^maintaining the air pressure for\\x10untold\\x10centuries^"
+		wait-for-message
+		jump &[00000731]
+[00000721]:
+		walk selected-actor to 50,190
+		wait-for-actor 1
+[00000731]:
+		end-cut-scene
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,1)
+			}
+		}
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0022\ROOM\LSCR_0201
+		cut-scene
+		put-actor 1 in-room 22
+		put-actor 1 at 165,95
+		walk 1 to 152,108
+		wait-for-actor 1
+		end-cut-scene
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0022\ROOM\LSCR_0202
+	local variable L.0
+
+		B.16 = 0
+		if !(actor-room 2 is 22) jump &[00000184]
+		if !(B.641 is 0) jump &[00000184]
+		start-script 136 (1,L.0,36,1)
+		break-until (!script-running 136)
+		if !(B.22) jump &[00000064]
+		jump &[00000239]
+[00000064]:
+		cut-scene
+		B.641 = 1
+		stop-script 31
+		do-animation 2 255
+		do-animation 1 face-towards 2
+		say-line 1 "\\xFF\\x0A\\x84\\xAA\\xFF\\x0A\\x34\\x01\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Are you\\x10coming?"
+		do-animation 2 face-towards 1
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x41\\x6F\\xFF\\x0A\\x37\\x01\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'll just wait here until you get\\x10back."
+		end-cut-scene
+[00000184]:
+		wait-for-message
+		if !(B.16 is 1) jump &[00000196]
+		jump &[00000239]
+[00000196]:
+		start-script 136 (1,L.0,1,1)
+		break-until (!script-running 136)
+		if !(B.22) jump &[00000229]
+		jump &[00000239]
+[00000229]:
+		stop-script 31
+		come-out 780 in-room 55 walk-to 65535,65535
+[00000239]:
+		if (actor-room 2 is selected-room) {
+			if (actor-room 2 is selected-room) {
+				if (!script-running 31) {
+					start-script bak 31 (1,2,1)
+				}
+			}
+		}
+		end-script
+	}
+}
+

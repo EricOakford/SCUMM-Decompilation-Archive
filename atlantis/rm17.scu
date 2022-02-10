@@ -1,0 +1,1128 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 17: Atlantis Digger (a2-digger)
+; */
+
+room a2-digger {
+
+	object 180 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0180
+		name is "door"
+
+		verb 10 {
+			come-out 1220 in-room 224 walk-to 65535,65535
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\xEB\\x63\\xFF\\x0A\\xDB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's the door to the middle ring."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 181 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0181
+		name is "a2-digger-blades"
+	}
+
+	object 182 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0182
+		name is "mouth"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			say-line "\\xFF\\x0A\\x1B\\x9D\\xFF\\x0A\\xDB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like another hungry\\x10mouth."
+			end-object
+		}
+
+		verb 8 {
+		local variable L.0
+
+			if !(L.0 is 933) jump &[00000095]
+			cut-scene
+			do-animation 1 10
+			break-here 4
+			do-animation 1 3
+			end-cut-scene
+			start-script 204 ()
+			jump &[00000101]
+[00000095]:
+			start-script 3 (8)
+[00000101]:
+			end-object
+		}
+	}
+
+	object 183 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0183
+		name is "left slot@"
+
+		verb 8 {
+		local variable L.0
+
+			if !(class-of 183 is 18) jump &[00000174]
+			B.608 = 1
+			if !(L.0 is 173) jump &[00000079]
+			class-of 183 is 145 146
+			class-of 534 is 145
+			draw-object 183 image 2
+			new-name-of 183 is "left lever"
+			owner-of 173 is 4
+			start-script 10 (1)
+			jump &[00000171]
+[00000079]:
+			if !(L.0 is 204) jump &[00000136]
+			class-of 183 is 140 146
+			class-of 534 is 140
+			draw-object 183 image 2
+			new-name-of 183 is "left lever"
+			owner-of 204 is 4
+			start-script 10 (1)
+			jump &[00000171]
+[00000136]:
+			say-line "\\xFF\\x0A\\x44\\xE1\\xFF\\x0A\\xDB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It doesn't work."
+[00000171]:
+			jump &[00000225]
+[00000174]:
+			say-line "\\xFF\\x0A\\x36\\x00\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's already something there."
+[00000225]:
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of 183 is 146) jump &[00000338]
+			if (class-of 183 is 145) {
+				class-of 183 is 17 18
+				class-of 534 is 17
+				state-of 183 is 0
+				new-name-of 183 is "left slot"
+				owner-of 173 is 1
+				start-script 10 ()
+			}
+			if (class-of 183 is 140) {
+				class-of 183 is 12 18
+				class-of 534 is 12
+				state-of 183 is 0
+				new-name-of 183 is "left slot"
+				owner-of 204 is 1
+				start-script 10 ()
+			}
+			jump &[00000380]
+[00000338]:
+			say-line "\\xFF\\x0A\\xBB\\x34\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to get."
+[00000380]:
+			end-object
+		}
+
+		verb 7 {
+			if !(class-of 183 is 146) jump &[00000465]
+			V.442 = state-of 183
+			if !(V.442 is 3) jump &[00000453]
+			say-line "\\xFF\\x0A\\xD4\\x56\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go down any further."
+			jump &[00000462]
+[00000453]:
+			++V.442
+			draw-object 183 image V.442
+[00000462]:
+			jump &[00000511]
+[00000465]:
+			say-line "\\xFF\\x0A\\x74\\x89\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't pull an empty\\x10slot."
+[00000511]:
+			end-object
+		}
+
+		verb 6 {
+			if !(class-of 183 is 146) jump &[00000594]
+			V.442 = state-of 183
+			if !(V.442 is 1) jump &[00000582]
+			say-line "\\xFF\\x0A\\xA4\\xC2\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go up any further."
+			jump &[00000591]
+[00000582]:
+			--V.442
+			draw-object 183 image V.442
+[00000591]:
+			jump &[00000640]
+[00000594]:
+			say-line "\\xFF\\x0A\\x5B\\xF1\\xFF\\x0A\\xDC\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't push an empty slot."
+[00000640]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of 183 is 18) jump &[00000697]
+			say-line "\\xFF\\x0A\\x7F\\x31\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like an empty slot."
+			jump &[00000729]
+[00000697]:
+			say-line "\\xFF\\x0A\\xBA\\x61\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a lever."
+[00000729]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 184 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0184
+		name is "middle slot@"
+
+		verb 8 {
+		local variable L.0
+
+			if !(class-of 184 is 18) jump &[00000178]
+			B.608 = 1
+			if !(L.0 is 173) jump &[00000081]
+			class-of 184 is 145 146
+			class-of 535 is 145
+			draw-object 184 image 2
+			new-name-of 184 is "middle lever"
+			owner-of 173 is 4
+			start-script 10 (1)
+			jump &[00000175]
+[00000081]:
+			if !(L.0 is 204) jump &[00000140]
+			class-of 184 is 140 146
+			class-of 535 is 140
+			draw-object 184 image 2
+			new-name-of 184 is "middle lever"
+			owner-of 204 is 4
+			start-script 10 (1)
+			jump &[00000175]
+[00000140]:
+			say-line "\\xFF\\x0A\\x01\\x7C\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It doesn't work."
+[00000175]:
+			jump &[00000229]
+[00000178]:
+			say-line "\\xFF\\x0A\\x16\\x9C\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's already something there."
+[00000229]:
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of 184 is 146) jump &[00000346]
+			if (class-of 184 is 145) {
+				class-of 184 is 17 18
+				class-of 535 is 17
+				state-of 184 is 0
+				new-name-of 184 is "middle slot"
+				owner-of 173 is 1
+				start-script 10 ()
+			}
+			if (class-of 184 is 140) {
+				class-of 184 is 12 18
+				class-of 535 is 12
+				state-of 184 is 0
+				new-name-of 184 is "middle slot"
+				owner-of 204 is 1
+				start-script 10 ()
+			}
+			jump &[00000388]
+[00000346]:
+			say-line "\\xFF\\x0A\\x55\\xCE\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to get."
+[00000388]:
+			end-object
+		}
+
+		verb 7 {
+			if !(class-of 184 is 146) jump &[00000473]
+			V.442 = state-of 184
+			if !(V.442 is 3) jump &[00000461]
+			say-line "\\xFF\\x0A\\x67\\xED\\xFF\\x0A\\xDD\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go down any further."
+			jump &[00000470]
+[00000461]:
+			++V.442
+			draw-object 184 image V.442
+[00000470]:
+			jump &[00000519]
+[00000473]:
+			say-line "\\xFF\\x0A\\x07\\x20\\xFF\\x0A\\xDE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't pull an empty\\x10slot."
+[00000519]:
+			end-object
+		}
+
+		verb 6 {
+			if !(class-of 184 is 146) jump &[00000602]
+			V.442 = state-of 184
+			if !(V.442 is 1) jump &[00000590]
+			say-line "\\xFF\\x0A\\x37\\x59\\xFF\\x0A\\xDE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go up any further."
+			jump &[00000599]
+[00000590]:
+			--V.442
+			draw-object 184 image V.442
+[00000599]:
+			jump &[00000648]
+[00000602]:
+			say-line "\\xFF\\x0A\\xEE\\x87\\xFF\\x0A\\xDE\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't push an empty slot."
+[00000648]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of 184 is 18) jump &[00000705]
+			say-line "\\xFF\\x0A\\x12\\xC8\\xFF\\x0A\\xDE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like an empty slot."
+			jump &[00000737]
+[00000705]:
+			say-line "\\xFF\\x0A\\x4D\\xF8\\xFF\\x0A\\xDE\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a lever."
+[00000737]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 185 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0185
+		name is "right slot@"
+
+		verb 8 {
+		local variable L.0
+
+			if !(class-of 185 is 18) jump &[00000176]
+			B.608 = 1
+			if !(L.0 is 173) jump &[00000080]
+			class-of 185 is 145 146
+			class-of 536 is 145
+			draw-object 185 image 2
+			new-name-of 185 is "right lever"
+			owner-of 173 is 4
+			start-script 10 (1)
+			jump &[00000173]
+[00000080]:
+			if !(L.0 is 204) jump &[00000138]
+			class-of 185 is 140 146
+			class-of 536 is 140
+			draw-object 185 image 2
+			new-name-of 185 is "right lever"
+			owner-of 204 is 4
+			start-script 10 (1)
+			jump &[00000173]
+[00000138]:
+			say-line "\\xFF\\x0A\\x94\\x12\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It doesn't work."
+[00000173]:
+			jump &[00000227]
+[00000176]:
+			say-line "\\xFF\\x0A\\xA9\\x32\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's already something there."
+[00000227]:
+			end-object
+		}
+
+		verb 11 {
+			if !(class-of 185 is 146) jump &[00000342]
+			if (class-of 185 is 145) {
+				class-of 185 is 17 18
+				class-of 536 is 17
+				state-of 185 is 0
+				new-name-of 185 is "right slot"
+				owner-of 173 is 1
+				start-script 10 ()
+			}
+			if (class-of 185 is 140) {
+				class-of 185 is 12 18
+				class-of 536 is 12
+				state-of 185 is 0
+				new-name-of 185 is "right slot"
+				owner-of 204 is 1
+				start-script 10 ()
+			}
+			jump &[00000384]
+[00000342]:
+			say-line "\\xFF\\x0A\\xE8\\x64\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00There's nothing to get."
+[00000384]:
+			end-object
+		}
+
+		verb 7 {
+			if !(class-of 185 is 146) jump &[00000469]
+			V.442 = state-of 185
+			if !(V.442 is 3) jump &[00000457]
+			say-line "\\xFF\\x0A\\xFA\\x83\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go down any further."
+			jump &[00000466]
+[00000457]:
+			++V.442
+			draw-object 185 image V.442
+[00000466]:
+			jump &[00000515]
+[00000469]:
+			say-line "\\xFF\\x0A\\x9A\\xB6\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't pull an empty\\x10slot."
+[00000515]:
+			end-object
+		}
+
+		verb 6 {
+			if !(class-of 185 is 146) jump &[00000598]
+			V.442 = state-of 185
+			if !(V.442 is 1) jump &[00000586]
+			say-line "\\xFF\\x0A\\xCA\\xEF\\xFF\\x0A\\xDF\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It won't go up any further."
+			jump &[00000595]
+[00000586]:
+			--V.442
+			draw-object 185 image V.442
+[00000595]:
+			jump &[00000644]
+[00000598]:
+			say-line "\\xFF\\x0A\\x81\\x1E\\xFF\\x0A\\xE0\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't push an empty slot."
+[00000644]:
+			end-object
+		}
+
+		verb 9 {
+			if !(class-of 185 is 18) jump &[00000701]
+			say-line "\\xFF\\x0A\\xA5\\x5E\\xFF\\x0A\\xE0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Looks like an empty slot."
+			jump &[00000733]
+[00000701]:
+			say-line "\\xFF\\x0A\\xE0\\x8E\\xFF\\x0A\\xE0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a lever."
+[00000733]:
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 179 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0179
+		name is "hulking machine"
+
+		verb 9 {
+			if (class-of me is 136) {
+				do-animation 1 251
+			}
+			say-line "\\xFF\\x0A\\x8D\\x09\\xFF\\x0A\\xDB\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's a huge version of the microtaur statue."
+			end-object
+		}
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+	}
+
+	object 186 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0186
+		name is "a2-digger-front-leg"
+	}
+
+	object 187 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0187
+		name is "a2-digger-middle-leg"
+	}
+
+	object 188 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0188
+		name is "a2-digger-back-left-leg"
+	}
+
+	object 189 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0189
+		name is "a2-digger-back-right-leg"
+	}
+
+	object 190 { ; VERB LECF_0001\LFLF_0017\ROOM\OBCD_0190
+		name is "strange markings"
+
+		verb 90 {
+			V.123 = 9
+			end-object
+		}
+
+		verb 9 {
+			class-of me is 154
+			if !(class-of 1232 is 154) jump &[00000089]
+			if !(B.608 is 0) jump &[00000083]
+			say-line "\\xFF\\x0A\\x27\\xA9\\xFF\\x0A\\xE0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00More Atlantean graffiti."
+			jump &[00000086]
+[00000083]:
+			jump &[00000137]
+[00000086]:
+			jump &[00000216]
+[00000089]:
+			if !(B.608 is 0) jump &[00000137]
+			say-line "\\xFF\\x0A\\xFD\\xE4\\xFF\\x0A\\xE0\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Atlantean graffiti."
+			jump &[00000216]
+[00000137]:
+			say-line "\\xFF\\x0A\\xE0\\x18\\xFF\\x0A\\xE1\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I wonder if these markings are related to that huge machine."
+[00000216]:
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0017\ROOM\EXCD
+		stop-script 127
+		stop-script 128
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0017\ROOM\ENCD
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if (state-of 183) {
+			new-name-of 183 is "left lever"
+		}
+		if (state-of 184) {
+			new-name-of 184 is "middle lever"
+		}
+		if (state-of 185) {
+			new-name-of 185 is "right lever"
+		}
+		if (state-of 190 is 0) {
+			V.444 = (12 - 1)
+			V.444 = ((random V.444) + 1)
+			state-of 190 is V.444
+		}
+		B.600[0] = 1
+		set-box 7 to 18
+		start-script bak rec 208 (1)
+		if (V.224 is 224) {
+			V.209 = 0
+		}
+		if (B.17) {
+			V.164 = 206
+			if (actor-room 2 is selected-room) {
+				if (!script-running 31) {
+					start-script bak 31 (1,2,1)
+				}
+			}
+			start-script bak rec 208 (2)
+		}
+		for L.0 = 5 to 7 ++ {
+			put-actor L.0 in-room 0
+		}
+		V.425 = random 2
+		V.425 += 5
+		for L.0 = 5 to V.425 ++ {
+			actor L.0 default costume 99 name "crab"
+		}
+		V.426 = 180
+		for L.0 = 5 to V.425 ++ {
+			L.1 = random 75
+			L.1 += 40
+			L.2 = random 23
+			L.2 += 115
+			put-actor L.0 in-room selected-room
+			put-actor L.0 at L.1,L.2
+			do-animation L.0 248
+		}
+		start-script 127 ()
+		start-script bak 207 ()
+		end-object
+	}
+; Digger Starts
+	script 200 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.0 = 1
+		L.1 = 0
+		L.2 = 1
+		L.3 = 0
+		do {
+			break-here
+			if (state-of 183 is L.0) {
+				if (state-of 184 is L.1) {
+					if (state-of 185 is L.2) {
+						L.3 = 1
+					}
+				}
+			}
+		} until (L.3)
+		cut-scene
+		stop-sound 74
+		start-sound 12
+		start-script bak 203 (1)
+		start-script 144 (144,7)
+		say-line "\\xFF\\x0A\\x30\\x3B\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's working!"
+		if (B.17) {
+			wait-for-message
+			say-line "\\xFF\\x0A\\xD4\\x61\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Get on board, Sophia!"
+			wait-for-message
+			walk 2 to 284,117
+		}
+		*40 = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+		if !(L.0 is 1) jump &[00000346]
+		*40[121] = 1
+		jump &[00000401]
+[00000346]:
+		if !(L.0 is 3) jump &[00000361]
+		*40[121] = 2
+		jump &[00000401]
+[00000361]:
+		if !(L.0 is 0) jump &[00000376]
+		*40[121] = 0
+		jump &[00000401]
+[00000376]:
+		print-debug "Shouldn't be here."
+		debug 0
+[00000401]:
+		if !(L.1 is 1) jump &[00000416]
+		*40[122] = 1
+		jump &[00000471]
+[00000416]:
+		if !(L.1 is 3) jump &[00000431]
+		*40[122] = 2
+		jump &[00000471]
+[00000431]:
+		if !(L.1 is 0) jump &[00000446]
+		*40[122] = 0
+		jump &[00000471]
+[00000446]:
+		print-debug "Shouldn't be here."
+		debug 0
+[00000471]:
+		if !(L.2 is 1) jump &[00000486]
+		*40[123] = 1
+		jump &[00000541]
+[00000486]:
+		if !(L.2 is 3) jump &[00000501]
+		*40[123] = 2
+		jump &[00000541]
+[00000501]:
+		if !(L.2 is 0) jump &[00000516]
+		*40[123] = 0
+		jump &[00000541]
+[00000516]:
+		print-debug "Shouldn't be here."
+		debug 0
+[00000541]:
+		if !(B.17) jump &[00000555]
+		wait-for-actor 2
+		do-animation 2 251
+		jump &[00000575]
+[00000555]:
+		break-here 20
+[00000575]:
+		break-here
+		end-cut-scene
+		current-room 14
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+
+		stop-script 202
+		draw-object 182 image 1
+		if (L.0 is 1) {
+			for L.1 = 6 to 2 -- {
+				draw-object 181 image 2
+				if (state-of 186 is 1) {
+					draw-object 186 image 1
+				}
+				for V.443 = 1 to L.1 ++ {
+					break-here
+				}
+				draw-object 181 image 3
+				if (state-of 186 is 1) {
+					draw-object 186 image 1
+				}
+				for V.443 = 1 to L.1 ++ {
+					break-here
+				}
+				draw-object 181 image 1
+				if (state-of 186 is 1) {
+					draw-object 186 image 1
+				}
+				for V.443 = 1 to L.1 ++ {
+					break-here
+				}
+			}
+		}
+		do {
+			if (L.1 >= 3) {
+				L.1 = 0
+			}
+			++L.1
+			draw-object 181 image L.1
+			if (state-of 186 is 1) {
+				draw-object 186 image 1
+			}
+			break-here
+		}
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0202
+	local variable L.0
+
+		stop-script 201
+		stop-script 200
+		for L.0 = 2 to 6 ++ {
+			draw-object 181 image 2
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			draw-object 181 image 3
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			draw-object 181 image 1
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+		}
+		state-of 182 is 0
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0203
+	local variable L.0
+
+		sound-kludge 257 74 0
+		sound-kludge 65535
+		sound-kludge 269 74 0 180
+		stop-script 146
+		for L.0 = 5 to 4 -- {
+			draw-object 186 image 1
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			state-of 186 is 0
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			draw-object 187 image 1
+			draw-object 189 image 1
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			state-of 187 is 0
+			state-of 189 is 0
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			draw-object 188 image 1
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+			state-of 188 is 0
+			for V.443 = 1 to L.0 ++ {
+				break-here
+			}
+		}
+		L.0 = 0
+[00000196]:
+		if (L.0 >= 3) {
+			L.0 = 0
+		}
+		++L.0
+		if !(L.0 is 1) jump &[00000237]
+		draw-object 186 image 1
+		break-here 3
+		state-of 186 is 0
+		break-here 3
+		jump &[00000299]
+[00000237]:
+		if !(L.0 is 2) jump &[00000273]
+		draw-object 187 image 1
+		draw-object 189 image 1
+		break-here 3
+		state-of 187 is 0
+		state-of 189 is 0
+		break-here 3
+		jump &[00000299]
+[00000273]:
+		if !(L.0 is 3) jump &[00000299]
+		draw-object 188 image 1
+		break-here 3
+		state-of 188 is 0
+		break-here 3
+		jump &[00000299]
+[00000299]:
+		jump &[00000196]
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0204
+		start-script 84 ()
+		break-until (!script-running 84)
+		if (V.444) {
+			start-object 933 verb 250 (65535)
+			start-script 10 ()
+			start-script bak 201 (1)
+			start-script bak 200 ()
+		}
+		end-script
+	}
+; Indy Climbs Up
+	script 205 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0205
+	local variable L.0
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+
+		cut-scene
+		L.3 = V.115
+		if (V.113) {
+			L.4 = V.113
+		}
+		L.5 = V.110
+		L.6 = V.114
+		stop-sentence
+		if !(L.0 is 1) jump &[00000321]
+		if (V.100 < 200) {
+			V.100 = 200
+		}
+		if (B.17) {
+			stop-script 31
+			do-animation 2 255
+			if (class-of 179 is 134) {
+				class-of 179 is 6
+				do-animation 1 255
+				actor 1 ignore-boxes
+				do-animation 1 face-towards 2
+				break-here 2
+				say-line "\\xFF\\x0A\\x6F\\x24\\xFF\\x0A\\xE5\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Going up?"
+				do-animation 2 face-towards 1
+				wait-for-message
+				say-line 2 "\\xFF\\x0A\\xB5\\x91\\xFF\\x0A\\xE1\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I'll wait down\\x10here."
+				wait-for-message
+				say-line 1 "\\xFF\\x0A\\x34\\x94\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Suit yourself."
+				do-animation 1 251
+				wait-for-message
+				actor 1 follow-boxes
+			}
+		}
+		actor 1 costume 27
+		start-script 126 (1,12,13,65522,115,45)
+		stop-script 208
+		if (B.17) {
+			start-script bak rec 208 (2)
+		}
+		L.7 = 125
+		do {
+			L.7 += 5
+			if (L.7 > 255) {
+				L.7 = 255
+			}
+			palette intensity L.7 in-slot 192 to 207
+			break-here
+		} until (!script-running 126)
+		start-script bak rec 208 (1)
+		actor 1 costume 2
+		walk 1 to 257,55
+		class-of 179 is 136
+		jump &[00000483]
+[00000321]:
+		if (V.101 < 93) {
+			V.101 = 93
+		}
+		actor 1 costume 27
+		if (script-running 201) {
+			start-script bak 202 ()
+		}
+		start-script 126 (1,15,14,14,47,117)
+		stop-script 208
+		if (B.17) {
+			start-script bak rec 208 (2)
+		}
+		L.7 = 255
+		do {
+			L.7 -= 5
+			if (L.7 < 125) {
+				L.7 = 125
+			}
+			palette intensity L.7 in-slot 192 to 207
+			break-here
+		} until (!script-running 126)
+		start-script bak rec 208 (1)
+		actor 1 costume 2
+		walk 1 to 284,123
+		class-of 179 is 8
+		if (B.17) {
+			if (actor-room 2 is selected-room) {
+				if (!script-running 31) {
+					start-script bak 31 (1,2,1)
+				}
+			}
+		}
+[00000483]:
+		wait-for-actor 1
+		end-cut-scene
+		start-script bak 207 ()
+		if !(V.100 > 257) jump &[00000507]
+		if !(V.100 < 300) jump &[00000507]
+		jump &[00000530]
+[00000507]:
+		if !(L.4) jump &[00000524]
+		do-sentence L.3 L.4 with L.6
+		wait-for-sentence
+		jump &[00000530]
+[00000524]:
+		walk 1 to V.100,V.101
+[00000530]:
+		end-script
+	}
+; Talk to Sophia
+	script 206 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0206
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.1 = 0
+		L.0 = 0
+		if (script-running 86) {
+			L.1 = 1
+			do-animation 86 255
+		}
+		if (script-running 31) {
+			L.0 = 1
+			do-animation 31 255
+		}
+		start-script 136 (1,2,30,1)
+		break-until (!script-running 136)
+		if !(B.22) jump &[00000085]
+		jump &[00001550]
+[00000085]:
+		cut-scene
+		wait-for-message
+		do-animation selected-actor face-towards 2
+		break-here 2
+		do-animation 2 face-towards selected-actor
+		break-here 2
+		V.442 = random 2
+		if !(V.442 is 0) jump &[00000144]
+		say-line 1 "\\xFF\\x0A\\x3E\\xBD\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Well^"
+		jump &[00000221]
+[00000144]:
+		if !(V.442 is 1) jump &[00000184]
+		say-line 1 "\\xFF\\x0A\\x54\\xD0\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Excuse me^"
+		jump &[00000221]
+[00000184]:
+		if !(V.442 is 2) jump &[00000221]
+		say-line 1 "\\xFF\\x0A\\xA7\\xEF\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Sophia^"
+		jump &[00000221]
+[00000221]:
+		wait-for-message
+		say-line 2 "\\xFF\\x0A\\x34\\xCF\\xFF\\x0A\\xE1\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What do you want?"
+		wait-for-message
+		end-cut-scene
+		start-script 82 ()
+[00000266]:
+		L.2 = 0
+		start-script 68 ()
+		if (B.589[0] is 0) {
+			++L.2
+			V.443 = ((41 + 1) - 1)
+			*V.443 = "\\xFF\\x0A\\x13\\x0C\\xFF\\x0A\\xDA\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Any idea what this thing might\\x10be?\\xFF\\x09\\x0F\\x00"
+			V.442 = ((120 + 1) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (class-of 190 is 154) {
+			if (B.592[1] is 0) {
+				++L.2
+				V.443 = ((41 + 5) - 1)
+				*V.443 = "\\xFF\\x0A\\x51\\x4B\\xFF\\x0A\\xDA\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00What do you make of those markings on\\x10the\\x10floor?"
+				V.442 = ((120 + 5) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		if (L.3 is 0) {
+			++L.2
+			V.443 = ((41 + 2) - 1)
+			*V.443 = "\\xFF\\x0A\\x01\\x9E\\xFF\\x0A\\xDA\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What do we do\\x10now?"
+			V.442 = ((120 + 2) - 1)
+			verb V.442 at 2,V.166
+			verb V.442 on key V.178
+			V.166 += 10
+			V.442 -= 120
+			++V.178
+			B.7[V.442] = 1
+		}
+		if (B.589[1] is 1) {
+			if (B.592[0] is 0) {
+				++L.2
+				V.443 = ((41 + 3) - 1)
+				*V.443 = "\\xFF\\x0A\\x56\\xBE\\xFF\\x0A\\xDA\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We can't quit."
+				V.442 = ((120 + 3) - 1)
+				verb V.442 at 2,V.166
+				verb V.442 on key V.178
+				V.166 += 10
+				V.442 -= 120
+				++V.178
+				B.7[V.442] = 1
+			}
+		}
+		V.443 = ((41 + 4) - 1)
+		*V.443 = "\\xFF\\x0A\\x64\\xE7\\xFF\\x0A\\xDA\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Let's look around."
+		V.442 = ((120 + 4) - 1)
+		verb V.442 at 2,V.166
+		verb V.442 on key V.178
+		V.166 += 10
+		V.442 -= 120
+		++V.178
+		B.7[V.442] = 1
+		V.442 = (4 - 1)
+		V.167[V.442] = 1
+		V.165 = 0
+		do {
+			V.442 = random 1
+			break-here
+		} until (V.165)
+		if !(V.165 is 120) jump &[00001044]
+		B.589[0] = 1
+		say-line 2 "\\xFF\\x0A\\x06\\xF2\\xFF\\x0A\\xE1\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00It looks kind of like a tractor to\\x10me.\\xFF\\x03A burrowing tractor."
+		jump &[00001533]
+[00001044]:
+		if !(V.165 is 121) jump &[00001298]
+		L.3 = 1
+		if !(B.589[1] is 0) jump &[00001234]
+		B.589[1] = 1
+		do-animation 1 14
+		say-line 2 "\\xFF\\x0A\\xD0\\x81\\xFF\\x0A\\xE2\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00Plato described a city divided into three rings, and we've seen\\x10two.\\xFF\\x03We can try for the third\\x10one^\\xFF\\x03^or quit and go\\x10home."
+		break-here 6
+		do-animation 1 1
+		wait-for-message
+		jump &[00000266]
+		jump &[00001295]
+[00001234]:
+		say-line 2 "\\xFF\\x0A\\x74\\x93\\xFF\\x0A\\xE3\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00I vote to find the inner\\x10ring^\\xFF\\x03^somehow."
+[00001295]:
+		jump &[00001533]
+[00001298]:
+		if !(V.165 is 122) jump &[00001373]
+		B.592[0] = 1
+		say-line 2 "\\xFF\\x0A\\x61\\x13\\xFF\\x0A\\xE4\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Then show me what to do.  I'm\\x10lost."
+		jump &[00001545]
+		jump &[00001533]
+[00001373]:
+		if !(V.165 is 123) jump &[00001420]
+		say-line 2 "\\xFF\\x0A\\xD9\\x75\\xFF\\x0A\\xE4\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00If you say so."
+		jump &[00001545]
+		jump &[00001533]
+[00001420]:
+		if !(V.165 is 124) jump &[00001533]
+		B.592[1] = 1
+		say-line 2 "\\xFF\\x0A\\xF5\\xA1\\xFF\\x0A\\xE4\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00They might mean something^\\xFF\\x03^but they look more like a picture than\\x10writing."
+		jump &[00001533]
+[00001533]:
+		if !(L.2 > 1) jump &[00001545]
+		wait-for-message
+		jump &[00000266]
+[00001545]:
+		wait-for-message
+		start-script 83 ()
+[00001550]:
+		if (L.1) {
+			start-script 86 (selected-actor,2)
+		}
+		if (L.0) {
+			if (actor-room 2 is selected-room) {
+				if (!script-running 31) {
+					start-script bak 31 (1,2,1)
+				}
+			}
+		}
+		end-script
+	}
+
+	script 207 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0207
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		L.1 = (actor-box 1)
+		if !(L.1 is-not L.0) jump &[00000058]
+		if !(L.1 is 6) jump &[00000053]
+		if !(L.0 is 7) jump &[00000047]
+		chain-script 205 (2)
+		jump &[00000053]
+[00000047]:
+		chain-script 205 (1)
+[00000053]:
+		L.0 = L.1
+[00000058]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script 208 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+	local variable L.5
+	local variable L.6
+	local variable L.7
+	local variable L.8
+
+		L.2 = 65336
+		L.6 = 65336
+		break-until (actor-room L.0 is 17)
+[00000031]:
+		L.1 = actor-x L.0
+		L.5 = actor-y L.0
+		if !(L.1 is-not L.2) jump &[00000235]
+		if !(L.1 < 142) jump &[00000058]
+		jump &[00000269]
+[00000058]:
+		if !(L.1 > 246) jump &[00000068]
+		jump &[00000235]
+[00000068]:
+		if !(L.5 < 117) jump &[00000104]
+		L.7 = (117 - L.5)
+		L.8 = ((L.7 * 130) / 62)
+		jump &[00000109]
+[00000104]:
+		L.8 = 0
+[00000109]:
+		L.4 = (L.1 - 142)
+		L.3 = ((L.4 * 130) / 104)
+		L.3 = ((255 - L.3) + L.8)
+		if (L.3 > 255) {
+			L.3 = 255
+		}
+		if !(L.0 is 1) jump &[00000178]
+		palette intensity L.3 in-slot 192 to 207
+		jump &[00000232]
+[00000178]:
+		palette intensity L.3 in-slot 209 to 209
+		palette intensity L.3 in-slot 212 to 212
+		palette intensity L.3 in-slot 216 to 216
+		palette intensity L.3 in-slot 220 to 222
+		palette intensity L.3 in-slot 228 to 228
+		palette intensity L.3 in-slot 230 to 231
+		palette intensity L.3 in-slot 241 to 243
+		palette intensity L.3 in-slot 249 to 249
+		palette intensity L.3 in-slot 252 to 253
+[00000232]:
+		jump &[00000269]
+[00000235]:
+		if !(L.5 is-not L.6) jump &[00000259]
+		if !(L.5 <= 117) jump &[00000259]
+		if !(L.1 >= 142) jump &[00000259]
+		jump &[00000068]
+[00000259]:
+		L.6 = L.5
+		L.2 = L.1
+[00000269]:
+		break-here
+		jump &[00000031]
+		end-script
+	}
+}
+

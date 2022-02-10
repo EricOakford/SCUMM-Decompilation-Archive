@@ -689,7 +689,7 @@ local variable L.1
 	jump &[00000108]
 	end-script
 }
-; Fighting Interface
+; Indy's Fighting Interface
 script 49 { ; SCRP LECF_0001\LFLF_0082\SCRP_0049
 local variable L.0
 local variable L.1
@@ -760,6 +760,7 @@ local variable L.5
 	end-script
 }
 
+; Opponent's Fighting Interface
 script 50 { ; SCRP LECF_0001\LFLF_0082\SCRP_0050
 local variable L.0
 local variable L.1

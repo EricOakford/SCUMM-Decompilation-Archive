@@ -1,0 +1,456 @@
+room a1-se-top {
+
+	object 1153 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1153
+		name is "canal"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\x00\\xEF\\xFF\\x0A\\xD7\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000071]
+[00000064]:
+			V.417 = 29
+			current-room 226
+[00000071]:
+			end-object
+		}
+	}
+
+	object 1152 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1152
+		name is "hallway@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\x51\\x19\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000095]
+[00000064]:
+			V.417 = 29
+			fades 132
+			cut-scene
+			stop-script 139
+			print-line " "
+			break-here
+			end-cut-scene
+			come-out 1135 in-room 86 walk-to 159,194
+[00000095]:
+			end-object
+		}
+	}
+
+	object 1151 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1151
+		name is "hallway@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\xA2\\x43\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000095]
+[00000064]:
+			V.417 = 29
+			fades 132
+			cut-scene
+			stop-script 139
+			print-line " "
+			break-here
+			end-cut-scene
+			come-out 1134 in-room 86 walk-to 65535,65535
+[00000095]:
+			end-object
+		}
+	}
+
+	object 1150 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1150
+		name is "hallway@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\xF3\\x6D\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000095]
+[00000064]:
+			V.417 = 29
+			fades 130
+			cut-scene
+			stop-script 139
+			print-line " "
+			break-here
+			end-cut-scene
+			come-out 1144 in-room 87 walk-to 65535,65535
+[00000095]:
+			end-object
+		}
+	}
+
+	object 1155 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1155
+		name is "?@@@@@@@@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\x44\\x98\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000078]
+[00000064]:
+			class-of me is 154
+			V.417 = 29
+			current-room 97
+[00000078]:
+			end-object
+		}
+	}
+
+	object 1157 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1157
+		name is "?@@@@@@@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\xE6\\xBD\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000078]
+[00000064]:
+			class-of me is 154
+			V.417 = 29
+			current-room 219
+[00000078]:
+			end-object
+		}
+	}
+
+	object 1154 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1154
+		name is "?@@@@@@@@@@@@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\x88\\xE3\\xFF\\x0A\\xD8\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000104]
+[00000064]:
+			class-of me is 154
+			V.417 = 29
+			if !(class-of me is 6) jump &[00000096]
+			come-out 387 in-room 35 walk-to 25,135
+			jump &[00000104]
+[00000096]:
+			come-out 386 in-room 35 walk-to 65535,65535
+[00000104]:
+			end-object
+		}
+	}
+
+	object 1156 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1156
+		name is "?@@@@@@@@@@@@"
+
+		verb 10 {
+			if !(class-of me is 136) jump &[00000064]
+			cut-scene
+			say-line "\\xFF\\x0A\\x5C\\x0F\\xFF\\x0A\\xD9\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I can't reach it."
+			wait-for-message
+			end-cut-scene
+			jump &[00000085]
+[00000064]:
+			class-of me is 154
+			V.417 = 20
+			V.209 = *34[20]
+			current-room V.209
+[00000085]:
+			end-object
+		}
+	}
+
+	object 1158 { ; VERB LECF_0001\LFLF_0088\ROOM\OBCD_1158
+		name is "end-credit-header-crusher"
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0088\ROOM\EXCD
+		if !(V.72 is 97) jump &[00000074]
+		if !(!B.540) jump &[00000068]
+		stop-sound 120
+		stop-sound 162
+		sound-kludge 257 3 0
+		sound-kludge 262 3 0
+		sound-kludge 269 3 50 180
+		sound-kludge 65535
+		jump &[00000071]
+[00000068]:
+		start-script 113 ()
+[00000071]:
+		jump &[00000077]
+[00000074]:
+		start-script 113 ()
+[00000077]:
+		actor 1 costume 2 step-dist 8,2
+		actor 2 costume 28 step-dist 8,2
+		actor 4 costume 20 step-dist 8,2
+		set-screen 0 to 144
+		stop-script 116
+		stop-script 117
+		stop-script 139
+		start-script 19 (2)
+		build-sentence-script = 4
+		start-script 59 ()
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0088\ROOM\ENCD
+		fades 257
+		stop-script 59
+		if !(V.224 is 226) jump &[00000093]
+		sound-kludge 269 8 0 180
+		sound-kludge 269 7 0 180
+		sound-kludge 257 8 0
+		sound-kludge 257 7 0
+		sound-kludge 65535
+		if (!sound-running 3) {
+			start-sound 3
+			start-script 153 ()
+		}
+		jump &[00000174]
+[00000093]:
+		if !(V.224 is 97) jump &[00000145]
+		sound-kludge 269 120 0 180
+		sound-kludge 269 162 0 180
+		if (!sound-running 3) {
+			start-sound 3
+			start-script 153 ()
+		}
+		jump &[00000174]
+[00000145]:
+		if !(V.224 is 205) jump &[00000174]
+		sound-kludge 269 151 0 30
+		start-sound 3
+		start-script 153 ()
+		jump &[00000174]
+[00000174]:
+		build-sentence-script = 78
+		start-script 19 (1)
+		start-script 139 ()
+		set-screen 0 to 200
+		actor 1 costume 134 step-dist 2,2
+		actor 2 costume 134 step-dist 2,2
+		actor 4 default costume 135 step-dist 1,1 follow-boxes name "soldier"
+		start-script 201 ()
+		if !(V.417 is 29) jump &[00000357]
+		if !(V.224 is 87) jump &[00000258]
+		put-actor 1 in-room 88
+		put-actor 1 at 8,137
+		jump &[00000354]
+[00000258]:
+		if !(V.224 is 86) jump &[00000268]
+		jump &[00000354]
+[00000268]:
+		if !(V.224 is 35) jump &[00000278]
+		jump &[00000354]
+[00000278]:
+		if !(V.224 is 226) jump &[00000297]
+		put-actor 1 in-room 88
+		put-actor 1 at 107,73
+		jump &[00000354]
+[00000297]:
+		if !(V.224 is 97) jump &[00000316]
+		put-actor 1 in-room 88
+		put-actor 1 at 106,110
+		jump &[00000354]
+[00000316]:
+		if !(V.224 is 219) jump &[00000335]
+		put-actor 1 in-room 88
+		put-actor 1 at 126,157
+		jump &[00000354]
+[00000335]:
+		if !(V.224 is 221) jump &[00000354]
+		start-script 118 (8)
+		jump &[00000395]
+		jump &[00000354]
+[00000354]:
+		jump &[00000392]
+[00000357]:
+		if !(V.417 is 20) jump &[00000383]
+		class-of 1156 is 154
+		put-actor 1 in-room 88
+		put-actor 1 at 204,31
+		jump &[00000392]
+[00000383]:
+		put-actor 1 in-room 88
+		put-actor 1 at 22,187
+[00000392]:
+		start-script 115 ()
+[00000395]:
+		if (!script-running 114) {
+			start-script 114 ()
+		}
+		start-script 201 ()
+		start-script bak 200 ()
+		start-script bak 203 ()
+		start-script bak 204 ()
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0088\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+
+		L.0 = 0
+[00000013]:
+		L.1 = (actor-box 1)
+		if (L.1 is-not L.0) {
+			if (class-of 386 is 134) {
+				if (L.1 is 41) {
+					if (L.0 is 52) {
+						stop-sentence
+						do-animation 1 255
+						class-of 1154 is 154
+						V.417 = 29
+						come-out 387 in-room 35 walk-to 25,135
+					}
+				}
+			}
+		}
+		if !(L.1 >= 45) jump &[00000159]
+		if !(L.1 <= 50) jump &[00000159]
+		if (class-of 1156 is 8) {
+			class-of 1156 is 136
+			class-of 1153 is 136
+			class-of 1152 is 136
+			class-of 1150 is 136
+			class-of 1155 is 136
+			class-of 1154 is 136
+			class-of 1157 is 8
+			class-of 1151 is 8
+		}
+		jump &[00000224]
+[00000159]:
+		if (class-of 1156 is 136) {
+			class-of 1156 is 8
+			class-of 1153 is 8
+			class-of 1152 is 8
+			class-of 1150 is 8
+			class-of 1155 is 8
+			class-of 1154 is 8
+			class-of 1157 is 136
+			class-of 1151 is 136
+		}
+[00000224]:
+		if (L.1 is 52) {
+			if (L.0 is 41) {
+				class-of 1154 is 6
+			}
+		}
+		if (L.1 is 53) {
+			if (L.0 is 41) {
+				class-of 1154 is 134
+			}
+		}
+		if (L.1 is 11) {
+			if (L.0 is 41) {
+				class-of 1154 is 134
+			}
+		}
+		L.0 = L.1
+		break-here
+		jump &[00000013]
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0088\ROOM\LSCR_0201
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		if (class-of 1157 is 154) {
+			new-name-of 1157 is "subway"
+		}
+		if (class-of 1155 is 154) {
+			new-name-of 1155 is "dungeon"
+		}
+		if (class-of 1154 is 154) {
+			new-name-of 1154 is "sentry room"
+		}
+		L.1 = 1
+		L.2 = 20
+		for L.0 = 1156 to 1156 ++ {
+			if (class-of L.0 is 154) {
+				start-script 202 (L.0,L.1,L.2)
+				break-until (!script-running 202)
+				L.1 = V.444
+			}
+			++L.2
+			++L.1
+		}
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0088\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+
+		L.3 = *34[L.2]
+		V.444 = L.1
+		if !(L.3 is 205) jump &[00000046]
+		new-name-of L.0 is "crab room"
+		--V.444
+		jump &[00000054]
+[00000046]:
+		new-name-of L.0 is "room"
+[00000054]:
+		end-script
+	}
+
+	script 203 { ; LSCR LECF_0001\LFLF_0088\ROOM\LSCR_0203
+		do {
+			V.70 = 0
+			break-until (V.70)
+			start-script 201 ()
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0088\ROOM\LSCR_0204
+	local variable L.0
+	local variable L.1
+
+		break-here
+		if !(actor-room 4 is 88) jump &[00000110]
+		if !(state-of 386 is 0) jump &[00000110]
+[00000032]:
+		break-here
+		L.0 = actor-box 4
+		if !(L.0 is 41) jump &[00000107]
+		stop-script 116
+		do-animation 4 255
+		L.1 = random 2
+		if !(L.1 is 0) jump &[00000069]
+		walk 4 to 81,148
+		jump &[00000101]
+[00000069]:
+		if !(L.1 is 1) jump &[00000085]
+		walk 4 to 148,122
+		jump &[00000101]
+[00000085]:
+		if !(L.1 is 2) jump &[00000101]
+		walk 4 to 183,48
+		jump &[00000101]
+[00000101]:
+		wait-for-actor 4
+		start-script 116 ()
+[00000107]:
+		jump &[00000032]
+[00000110]:
+		end-script
+	}
+}
+

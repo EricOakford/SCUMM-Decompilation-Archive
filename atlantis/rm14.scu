@@ -1,0 +1,260 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 14: Digger Area Top (dig-top)
+; */
+
+room dig-top {
+
+	object 163 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0163
+		name is "hall"
+
+		verb 10 {
+			sound-kludge 11
+			sound-kludge 65535
+			start-sound 74
+			sound-kludge 65535
+			start-script 146 ()
+			come-out 1223 in-room 223 walk-to 165,99
+			end-object
+		}
+	}
+
+	object 164 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0164
+		name is "hall"
+
+		verb 10 {
+			sound-kludge 11
+			sound-kludge 65535
+			start-sound 74
+			sound-kludge 65535
+			start-script 146 ()
+			come-out 1224 in-room 225 walk-to 118,138
+			end-object
+		}
+	}
+
+	object 165 { ; VERB LECF_0001\LFLF_0014\ROOM\OBCD_0165
+		name is "pit"
+
+		verb 10 {
+			cut-scene
+			fades 132
+			V.122 = 165
+			walk 1 to 219,62
+			wait-for-actor 1
+			end-cut-scene
+			come-out 255 in-room 21 walk-to 215,187
+			end-object
+		}
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0014\ROOM\EXCD
+		unlock-sound 208
+		unlock-sound 131
+		if !(actor-room 9 is-not selected-actor) jump &[00000146]
+		if !(V.72 is 21) jump &[00000104]
+		if !(B.644) jump &[00000096]
+		sound-kludge 2
+		start-sound 13
+		sound-kludge 258 13 0
+		sound-kludge 3
+		sound-kludge 269 13 127 240
+		sound-kludge 269 74 70 180
+		sound-kludge 65535
+		jump &[00000101]
+[00000096]:
+		B.644 = 1
+[00000101]:
+		jump &[00000104]
+[00000104]:
+		actor 1 costume 2 step-dist 8,2
+		actor 2 costume 28 step-dist 8,2
+		stop-script 79
+		set-screen 0 to 144
+		start-script 19 (2)
+		build-sentence-script = 4
+		start-script 59 ()
+		actor 9 default
+[00000146]:
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0014\ROOM\ENCD
+		fades 257
+		stop-script 59
+		set-screen 0 to 200
+		start-script 19 (3)
+		build-sentence-script = 78
+		start-script 79 ()
+		if !(state-of 165 is 0) jump &[00000161]
+		lock-sound 131
+		load-sound 131
+		lock-sound 208
+		load-sound 208
+		for V.442 = 1 to 6 ++ {
+			set-box V.442 to 0
+		}
+		for V.442 = 7 to 11 ++ {
+			set-box V.442 to 128
+		}
+		set-box 14 to 128
+		if !(V.224 is 17) jump &[00000137]
+		set-box 1 to 6
+		set-box 2 to 6
+		set-box 3 to 6
+		set-box 12 to 6
+		set-box 13 to 6
+		set-box-path
+		start-script 201 ()
+		jump &[00000158]
+[00000137]:
+		set-box 15 to 0
+		set-box 16 to 0
+		set-box 17 to 0
+		set-box 3 to 128
+		set-box-path
+		start-script 200 ()
+[00000158]:
+		jump &[00000439]
+[00000161]:
+		actor 1 costume 90 step-dist 4,4
+		actor 2 costume 59 step-dist 4,4
+		for V.442 = 1 to 6 ++ {
+			set-box V.442 to 128
+		}
+		for V.442 = 7 to 11 ++ {
+			set-box V.442 to 0
+		}
+		set-box 14 to 0
+		set-box 12 to 128
+		set-box 13 to 128
+		set-box-path
+		class-of 163 is 32
+		class-of 164 is 32
+		class-of 165 is 32
+		if !(B.17) jump &[00000439]
+		if !(V.224 is 21) jump &[00000306]
+		put-actor 2 in-room 14
+		put-actor 2 at-object 165
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		jump &[00000439]
+[00000306]:
+		if !(V.224 is 223) jump &[00000355]
+		put-actor 2 in-room 14
+		put-actor 2 at-object 163
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		jump &[00000439]
+[00000355]:
+		if !(V.224 is 225) jump &[00000404]
+		put-actor 2 in-room 14
+		put-actor 2 at-object 164
+		if (actor-room 2 is selected-room) {
+			if (!script-running 31) {
+				start-script bak 31 (1,2,0)
+			}
+		}
+		jump &[00000439]
+[00000404]:
+		if !(V.224 is 45) jump &[00000414]
+		jump &[00000439]
+[00000414]:
+		print-debug "Shouldn't be here."
+		debug 0
+[00000439]:
+		end-object
+	}
+
+	script 200 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0200
+		cut-scene
+		actor 9 default costume 188 step-dist 6,4
+		put-actor 9 in-room 14
+		put-actor 9 at 75,146
+		actor 9 walk-animation 15
+		camera-follow 9
+		walk 9 to 95,145
+		wait-for-actor 9
+		do-animation 9 255
+		sound-kludge 269 12 110 15
+		start-sound 131
+		sound-kludge 257 131 250
+		do-animation 9 8
+		break-here 8
+		stop-sound 131
+		do-animation 9 255
+		walk 9 to 163,131
+		break-until (actor-box 9 is 6)
+		do-animation 9 255
+		actor 9 walk-animation 2 stand-animation 2
+		walk 9 to 163,131
+		wait-for-actor 9
+		actor 9 walk-animation 8 stand-animation 2
+		start-sound 131
+		sound-kludge 257 131 250
+		walk 9 to 210,118
+		wait-for-actor 9
+		do-animation 9 255
+		actor 9 walk-animation 14
+		walk 9 to 230,1
+		break-here 3
+		do-animation 9 255
+		actor 9 walk-animation 2
+		walk 9 to 230,1
+		break-until (actor-box 9 is 17)
+		do-animation 9 255
+		walk 9 to 230,1
+		stop-sound 131
+		start-sound 208
+		sound-kludge 258 208 127
+		sound-kludge 257 208 250
+		state-of 165 is 1
+		break-here 4
+		walk 9 to 230,1
+		wait-for-actor 9
+		stop-sound 131
+		fades 132
+		end-cut-scene
+		V.122 = 65535
+		current-room 21
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0201
+		cut-scene
+		actor 9 default costume 188 step-dist 6,4
+		put-actor 9 in-room 14
+		put-actor 9 at 16,199
+		actor 9 walk-animation 13
+		actor 9 stand-animation 2
+		walk 9 to 65,146
+		start-sound 131
+		wait-for-actor 9
+		stop-sound 131
+		start-sound 209
+		actor 9 walk-animation 2
+		do-animation 9 249
+		walk 9 to 209,118
+		break-here 10
+		stop-sound 209
+		wait-for-actor 9
+		start-sound 209
+		actor 9 walk-animation 13
+		actor 9 stand-animation 13
+		walk 9 to 350,40
+		break-here 10
+		stop-sound 209
+		wait-for-actor 9
+		end-cut-scene
+		current-room 45
+		end-script
+	}
+}
+

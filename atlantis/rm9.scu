@@ -1,0 +1,146 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 9: National Archeology Magazine (natl-geo)
+; */
+
+room natl-geo {
+
+	exit { ; EXCD LECF_0001\LFLF_0009\ROOM\EXCD
+		cursor on
+		build-sentence-script = V.448
+		set-screen 0 to 144
+		start-script 19 (2)
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
+		if (!V.313) {
+			sound-kludge 268 33 0 4
+			sound-kludge 65535
+		}
+		set-screen 0 to 200
+		start-script 19 (1)
+		camera-at 160
+		cursor off
+		V.448 = build-sentence-script
+		build-sentence-script = 203
+		B.16 = 0
+		if (V.224 is 45) {
+			shake on
+		}
+		if !(!V.313) jump &[00000084]
+		start-script 200 ()
+		jump &[00000089]
+[00000084]:
+		stop-script 31
+		start-script 201 ()
+[00000089]:
+		end-object
+	}
+; Marcus Reads Magazine
+	script 200 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0200
+		cut-scene
+		class-of 23 is 154
+		override &[00000411]
+		V.165 = 0
+		print-line color 11 center at 200,155 "\\xFF\\x0A\\xAD\\xC1\\xFF\\x0A\\x02\\x07\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^an old copy of National\\x10Archaeology^\\xFF\\x03^and there you are in\\x10ICELAND."
+		wait-for-message
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xC1\\x66\\xFF\\x0A\\x03\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Yeah^field supervisor for\\xFF\\x01the Jastro expedition^\\xFF\\x03^my first real job."
+		wait-for-message
+		print-line color 11 center at 200,155 "\\xFF\\x0A\\xBA\\x1C\\xFF\\x0A\\x04\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Who's the woman?"
+		wait-for-message
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\x8F\\x4A\\xFF\\x0A\\x04\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Sophia Hapgood.\\xFF\\x03She was my assistant^\\xFF\\x03^a spoiled rich kid from Boston\\xFF\\x01rebelling against her family."
+		wait-for-message
+		sleep-for 60 jiffies
+[00000411]:
+		end-cut-scene
+		current-room 1
+		end-script
+	}
+; Indy Reads Magazine
+	script 201 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0201
+		override &[00000728]
+		B.16 = 0
+		if !(B.640 is 0) jump &[00000255]
+		if !(actor-room 1 is 23) jump &[00000255]
+		if !(B.17 is 0) jump &[00000255]
+		V.95 = 1
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xFD\\x31\\xFF\\x0A\\x05\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Where is Sophia right\\x10now?"
+		wait-for-message
+		if !(actor-room 2 is 97) jump &[00000184]
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xB8\\x7D\\xFF\\x0A\\x05\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why didn't I get her out of that\\x10cage?"
+		jump &[00000252]
+[00000184]:
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\x56\\xD6\\xFF\\x0A\\x05\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Why didn't I rescue her from\\x10Nur-Ab-Sal?"
+[00000252]:
+		jump &[00000718]
+[00000255]:
+		if !(V.313 < 3) jump &[00000368]
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\x36\\x3F\\xFF\\x0A\\x06\\x07\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00This was taken a long while\\x10ago^\\xFF\\x03^when I thought we might like each\\x10other."
+		jump &[00000718]
+[00000368]:
+		if !(V.313 < 5) jump &[00000435]
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\x27\\xF5\\xFF\\x0A\\x06\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why do I keep looking at\\x10her?"
+		jump &[00000718]
+[00000435]:
+		if !(V.313 < 15) jump &[00000564]
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xE5\\x32\\xFF\\x0A\\x07\\x07\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00While I was digging up Viking\\x10gravesites\\xFF\\x01she was secretly collecting pieces from\\x10Atlantis."
+		jump &[00000718]
+[00000564]:
+		if !(V.313 < 20) jump &[00000645]
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xF3\\xFB\\xFF\\x0A\\x07\\x07\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00How did I ever get involved with\\x10this\\x10woman"
+		jump &[00000718]
+[00000645]:
+		print-line color 15 center at 120,155 "\\xFF\\x0A\\xEC\\x61\\xFF\\x0A\\x08\\x07\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Why do I keep flipping open to the same\\x10page?"
+[00000718]:
+		wait-for-message
+		cursor on
+		break-until (B.16)
+[00000728]:
+		override off
+		start-script 119 (V.224,2)
+		break-until (!script-running 119)
+		end-script
+	}
+
+	script 202 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0202
+	local variable L.0
+
+		V.209 = 0
+		if !(L.0) jump &[00000021]
+		jump &[00000042]
+[00000021]:
+		override &[00000037]
+		break-until (V.209)
+		override off
+		jump &[00000112]
+[00000037]:
+		if !(override-hit) jump &[00000112]
+[00000042]:
+		override off
+		B.19 = 1
+		if (owner-of 23 is-not 1) {
+			pick-up-object 23 in-room 1
+		}
+		V.313 = 1
+		V.312 = 1
+		V.316 = 1
+		start-script 85 ()
+		B.105 = 1
+		V.316 = 1
+		build-sentence-script = 4
+		actor 1 costume 1 follow-boxes
+		put-actor 3 in-room 0
+		put-actor 4 in-room 0
+		current-room 10
+[00000112]:
+		end-script
+	}
+; This room's sentence script
+	script 203 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0203
+		B.16 = 1
+		end-script
+	}
+}
+
