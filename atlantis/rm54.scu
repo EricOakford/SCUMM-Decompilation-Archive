@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 54: Labyrinth: Boulder Room (lab-hide)
+; */
+
 room lab-hide {
 
 	object 719 { ; VERB LECF_0001\LFLF_0054\ROOM\OBCD_0719
@@ -132,7 +138,7 @@ room lab-hide {
 		}
 		end-object
 	}
-
+; Move Boulder
 	script 200 { ; LSCR LECF_0001\LFLF_0054\ROOM\LSCR_0200
 	local variable L.0
 

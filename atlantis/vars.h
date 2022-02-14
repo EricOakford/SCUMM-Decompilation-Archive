@@ -23,12 +23,18 @@
 55 = Total-IQ-Points
 
 // Variables
+123 = preposition
+164 = sophia-talk-script
+180 = sophia-look-script
 209 = random-message
 211 = shelf-look-count
 224 = prev-room
 229 = bead-count
 
-233 = collection-name
+233 = lost-dialogue-collection
+234 = chest-collection
+235 = bookshelf-collection
+236 = wax-cat-collection
 238 = current-path
 	0 = None
 	1 = Fists
@@ -54,7 +60,7 @@
 214 = looked-at-mayonnaise
 216 = hurt-self-with-arrowhead
 217 = lost-dialogue-in-chest
-218 = lost-dialog-in-bookshelf
+218 = lost-dialogue-in-bookshelf
 219 = lost-dialogue-in-wax-cat
 540 = beat-fritz
 650 = is-demo

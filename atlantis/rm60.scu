@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 60: Labyrinth: Gold Box Room (lab-goldb)
+; */
+
 room lab-goldb {
 
 	object 829 { ; VERB LECF_0001\LFLF_0060\ROOM\OBCD_0829
@@ -396,7 +402,7 @@ room lab-goldb {
 		wait-for-message
 		end-script
 	}
-
+; Staff on Chock
 	script 201 { ; LSCR LECF_0001\LFLF_0060\ROOM\LSCR_0201
 		cut-scene
 		actor 1 costume 191
@@ -411,7 +417,7 @@ room lab-goldb {
 		end-cut-scene
 		end-script
 	}
-
+; Whip on Chock
 	script 202 { ; LSCR LECF_0001\LFLF_0060\ROOM\LSCR_0202
 		cut-scene
 		do-animation 1 249

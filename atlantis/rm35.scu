@@ -1,3 +1,10 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 35: Atlantis Outer Ring: Door Robots (a1-2-bot)
+; */
+
+; Bead in Eel
 script 152 { ; SCRP LECF_0001\LFLF_0035\SCRP_0152
 	start-script 84 ()
 	break-until (!script-running 84)
@@ -282,7 +289,7 @@ room a1-2-bot {
 		jump &[00000008]
 		end-script
 	}
-
+; Robot Head Falls Off
 	script 201 { ; LSCR LECF_0001\LFLF_0035\ROOM\LSCR_0201
 		cut-scene
 		if !(state-of 390 is 0) jump &[00000293]
@@ -337,7 +344,7 @@ room a1-2-bot {
 		end-cut-scene
 		end-script
 	}
-
+; Door Opens
 	script 202 { ; LSCR LECF_0001\LFLF_0035\ROOM\LSCR_0202
 		cut-scene
 		if !(state-of 386 is 0) jump &[00000070]

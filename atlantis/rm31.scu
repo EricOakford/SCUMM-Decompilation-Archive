@@ -1,3 +1,10 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 31: Atlantis Middle Ring: Robot Closeup (a2-cu-rob)
+; */
+
+
 room a2-cu-rob {
 
 	object 336 { ; VERB LECF_0001\LFLF_0031\ROOM\OBCD_0336
@@ -1156,7 +1163,7 @@ room a2-cu-rob {
 [00000338]:
 		end-script
 	}
-
+; Insert Bead
 	script 212 { ; LSCR LECF_0001\LFLF_0031\ROOM\LSCR_0212
 	local variable L.0
 	local variable L.1

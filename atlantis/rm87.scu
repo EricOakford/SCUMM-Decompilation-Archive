@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 87: Atlantis Outer Ring: Southwest Top-Down (a1-sw-top)
+; */
+
 room a1-sw-top {
 
 	object 1143 { ; VERB LECF_0001\LFLF_0087\ROOM\OBCD_1143

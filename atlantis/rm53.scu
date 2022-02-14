@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 53: Labyrinth Subway (lab-subwa)
+; */
+
 room lab-subwa {
 
 	object 710 { ; VERB LECF_0001\LFLF_0053\ROOM\OBCD_0710
@@ -136,7 +142,7 @@ room lab-subwa {
 [00000126]:
 		end-object
 	}
-
+; Start Subway
 	script 200 { ; LSCR LECF_0001\LFLF_0053\ROOM\LSCR_0200
 	local variable L.0
 

@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 70: Monte Carlo: Chase (mc-chase)
+; */
+
 room mc-chase {
 
 	object 951 { ; VERB LECF_0001\LFLF_0070\ROOM\OBCD_0951

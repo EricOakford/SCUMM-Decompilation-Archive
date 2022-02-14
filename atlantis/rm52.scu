@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 88: Labyrinth: Waterfall (labwat-1)
+; */
+
 room labwat-1 {
 
 	object 709 { ; VERB LECF_0001\LFLF_0052\ROOM\OBCD_0709
@@ -449,7 +455,7 @@ room labwat-1 {
 [00000143]:
 		end-object
 	}
-
+; Going Down
 	script 200 { ; LSCR LECF_0001\LFLF_0052\ROOM\LSCR_0200
 	local variable L.0
 	local variable L.1
@@ -553,7 +559,7 @@ room labwat-1 {
 		start-script bak 201 (L.0,L.1)
 		end-script
 	}
-
+; Going Up
 	script 201 { ; LSCR LECF_0001\LFLF_0052\ROOM\LSCR_0201
 	local variable L.2
 
@@ -704,7 +710,7 @@ room labwat-1 {
 		class-of 708 is 32
 		end-script
 	}
-
+; Climb Up Chain
 	script 203 { ; LSCR LECF_0001\LFLF_0052\ROOM\LSCR_0203
 		cut-scene
 		start-script 144 (45,5)
@@ -787,7 +793,7 @@ room labwat-1 {
 		jump &[00000008]
 		end-script
 	}
-
+; Look at Sternhart's Skeleton
 	script 205 { ; LSCR LECF_0001\LFLF_0052\ROOM\LSCR_0205
 		cut-scene
 		say-line "\\xFF\\x0A\\x2E\\x46\\xFF\\x0A\\x63\\x06\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00It's our old friend, Professor\\x10Sternhart^\\xFF\\x03^looks like he starved to\\x10death."

@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 78: Algiers Overhead (af-cas-ov)
+; */
+
 room af-cas-ov {
 
 	object 1064 { ; VERB LECF_0001\LFLF_0078\ROOM\OBCD_1064
@@ -120,7 +126,7 @@ room af-cas-ov {
 [00000272]:
 		end-object
 	}
-
+; Servant Wanders
 	script 200 { ; LSCR LECF_0001\LFLF_0078\ROOM\LSCR_0200
 	local variable L.0
 	local variable L.3

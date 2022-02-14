@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 33: Crete: Outside Labyrinth (lab-crete)
+; */
+
 room lab-crete {
 
 	object 376 { ; VERB LECF_0001\LFLF_0033\ROOM\OBCD_0376
@@ -363,7 +369,7 @@ room lab-crete {
 		jump &[00000013]
 		end-script
 	}
-
+; After Using Stone Disks
 	script 201 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0201
 	local variable L.0
 
@@ -667,7 +673,7 @@ room lab-crete {
 		}
 		end-script
 	}
-
+; Talk to Nazi
 	script 202 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0202
 	local variable L.0
 
@@ -1096,7 +1102,7 @@ room lab-crete {
 [00000072]:
 		end-script
 	}
-
+; Talk to Sophia
 	script 204 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0204
 	local variable L.0
 	local variable L.1
@@ -1490,7 +1496,7 @@ room lab-crete {
 		current-room 41
 		end-script
 	}
-
+; Exit Submarine
 	script 207 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0207
 		cut-scene
 		camera-at 448
@@ -1518,7 +1524,7 @@ room lab-crete {
 		start-script bak 209 ()
 		end-script
 	}
-
+; Search Klaus
 	script 208 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0208
 		if (V.181 is 12) {
 			cut-scene
@@ -1622,7 +1628,7 @@ room lab-crete {
 		jump &[00000013]
 		end-script
 	}
-
+; Escape Labyrinth
 	script 214 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0214
 		V.442 = (670 - ((camera-x - 160) / 2))
 		put-actor 6 in-room 33

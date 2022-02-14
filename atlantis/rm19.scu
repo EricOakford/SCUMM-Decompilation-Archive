@@ -1,3 +1,10 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 19: The Azores (de-azores)
+; */
+
+
 room de-azores {
 
 	object 208 { ; VERB LECF_0001\LFLF_0019\ROOM\OBCD_0208
@@ -213,7 +220,7 @@ room de-azores {
 		start-sound 190
 		end-script
 	}
-
+; Talk to Sophia
 	script 203 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0203
 	local variable L.3
 	local variable L.4
@@ -525,7 +532,7 @@ room de-azores {
 		start-script bak 86 (selected-actor,V.182)
 		end-script
 	}
-
+; Indy Knocks
 	script 204 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0204
 	local variable L.0
 
@@ -647,7 +654,7 @@ room de-azores {
 [00001090]:
 		end-script
 	}
-
+; Costa's Coming
 	script 205 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0205
 		V.442 = random 2
 		if !(V.442 is 0) jump &[00000064]
@@ -664,7 +671,7 @@ room de-azores {
 [00000168]:
 		end-script
 	}
-
+; Sophia Knocks
 	script 206 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0206
 	local variable L.0
 
@@ -777,7 +784,7 @@ room de-azores {
 [00000886]:
 		end-script
 	}
-
+; Indy Talks to Costa
 	script 207 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0207
 	local variable L.0
 
@@ -1697,7 +1704,7 @@ room de-azores {
 [00000068]:
 		end-script
 	}
-
+; Sophia Talks to Costa
 	script 209 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0209
 	local variable L.0
 	local variable L.1
@@ -2568,7 +2575,7 @@ room de-azores {
 		start-script bak 86 (selected-actor,V.182)
 		end-script
 	}
-
+; Enter Car
 	script 210 { ; LSCR LECF_0001\LFLF_0019\ROOM\LSCR_0210
 		if (script-running 86) {
 			stop-script 86

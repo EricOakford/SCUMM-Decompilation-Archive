@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 45: Atlantis: Digger Ride (digger-ri)
+; */
+
 room digger-ri {
 
 	object 536 { ; VERB LECF_0001\LFLF_0045\ROOM\OBCD_0536
@@ -977,7 +983,7 @@ room digger-ri {
 		V.215 = 1
 		end-script
 	}
-
+; Lever Won't Move
 	script 216 { ; LSCR LECF_0001\LFLF_0045\ROOM\LSCR_0216
 	local variable L.0
 	local variable L.1

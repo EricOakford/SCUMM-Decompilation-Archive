@@ -1,3 +1,10 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 62: Atlantis Outer Ring: Lava Room (a1-o-pool)
+; */
+
+
 room a1-o-pool {
 
 	object 423 { ; VERB LECF_0001\LFLF_0037\ROOM\OBCD_0423
@@ -403,7 +410,7 @@ room a1-o-pool {
 		camera-follow selected-actor
 		end-object
 	}
-
+; Fill Cup With Lava
 	script 200 { ; LSCR LECF_0001\LFLF_0037\ROOM\LSCR_0200
 		cut-scene
 		start-script 10 (1)

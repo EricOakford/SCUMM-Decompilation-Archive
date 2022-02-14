@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 44: Crete: Knossos Inside (cr-bro-in)
+; */
+
 room cr-bro-in {
 
 	object 528 { ; VERB LECF_0001\LFLF_0044\ROOM\OBCD_0528
@@ -392,7 +398,7 @@ room cr-bro-in {
 		start-script bak 203 ()
 		end-object
 	}
-
+; Look at Mural
 	script 200 { ; LSCR LECF_0001\LFLF_0044\ROOM\LSCR_0200
 		if (B.672[3] is 0) {
 			say-line 1 "\\xFF\\x0A\\xC6\\x4E\\xFF\\x0A\\x73\\x05\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00It's an ancient diagram of some\\x10kind."
@@ -408,7 +414,7 @@ room cr-bro-in {
 		B.672[8] = 1
 		end-script
 	}
-
+; Look at Pots
 	script 201 { ; LSCR LECF_0001\LFLF_0044\ROOM\LSCR_0201
 		V.442 = random 2
 		if !(V.442 is 0) jump &[00000071]
@@ -425,7 +431,7 @@ room cr-bro-in {
 [00000180]:
 		end-script
 	}
-
+; Talk to Sophia
 	script 202 { ; LSCR LECF_0001\LFLF_0044\ROOM\LSCR_0202
 	local variable L.0
 	local variable L.1

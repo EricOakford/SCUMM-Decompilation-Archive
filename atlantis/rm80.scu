@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 80: Algiers Baloon (af-launch)
+; */
+
 room af-launch {
 
 	object 1089 { ; VERB LECF_0001\LFLF_0080\ROOM\OBCD_1089
@@ -295,7 +301,7 @@ room af-launch {
 		jump &[00000008]
 		end-script
 	}
-
+; Talk to Vendor
 	script 201 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0201
 	local variable L.0
 
@@ -400,7 +406,7 @@ room af-launch {
 [00000931]:
 		end-script
 	}
-
+; Give Something to Vendor
 	script 202 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0202
 	local variable L.0
 
@@ -684,7 +690,7 @@ room af-launch {
 [00000034]:
 		end-script
 	}
-
+; Talk to Sophia
 	script 208 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0208
 		stop-script 31
 		start-script 136 (1,2,30,1)
@@ -864,7 +870,7 @@ room af-launch {
 		start-script bak 31 (1,2,1)
 		end-script
 	}
-
+; Knife on Rope
 	script 209 { ; LSCR LECF_0001\LFLF_0080\ROOM\LSCR_0209
 		V.209 = 1
 		break-until (!script-running 205)

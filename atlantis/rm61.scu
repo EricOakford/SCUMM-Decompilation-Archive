@@ -1,3 +1,9 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis
+; * 
+; * Room 61: Labyrinth: Minotaur Room (labwat-2)
+; */
+
 room labwat-2 {
 
 	object 833 { ; VERB LECF_0001\LFLF_0061\ROOM\OBCD_0833
@@ -220,7 +226,7 @@ room labwat-2 {
 		break-here
 		end-script
 	}
-
+; Elevator Goes Down
 	script 202 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0202
 	local variable L.0
 	local variable L.1
@@ -407,7 +413,7 @@ room labwat-2 {
 		end-cut-scene
 		end-script
 	}
-
+; Climbed Up
 	script 205 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0205
 		cut-scene
 		fades 257
