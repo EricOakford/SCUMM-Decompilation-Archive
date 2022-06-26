@@ -201,7 +201,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 206
-			end-script
+			end-object
 		}
 	}
 
@@ -215,7 +215,7 @@ room room_20 {
 [00000027]:
 			start-script 46
 [00000034]:
-			end-script
+			end-object
 		}
 	}
 
@@ -224,7 +224,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 207
-			end-script
+			end-object
 		}
 	}
 
@@ -238,7 +238,7 @@ room room_20 {
 [00000034]:
 			start-script 203
 [00000041]:
-			end-script
+			end-object
 		}
 	}
 
@@ -247,7 +247,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 47
-			end-script
+			end-object
 		}
 	}
 
@@ -256,7 +256,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 201
-			end-script
+			end-object
 		}
 
 		verb 2 {
@@ -265,7 +265,7 @@ room room_20 {
 			if ( V.4 == 20 and L.0 == 60 ) {
 				start-script 204
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -274,7 +274,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 208
-			end-script
+			end-object
 		}
 	}
 
@@ -296,7 +296,7 @@ room room_20 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 49 in-room 14 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -305,7 +305,7 @@ room room_20 {
 
 		verb 7 {
 			start-script 205
-			end-script
+			end-object
 		}
 	}
 
@@ -313,17 +313,17 @@ room room_20 {
 		name is "rocket-key"
 
 		verb 91 {
-			end-script
-			end-script
+			return 139
+			end-object
 		}
 
 		verb 92 {
-			end-script
-			end-script
+			return 157
+			end-object
 		}
 
 		verb 7 {
-			end-script
+			end-object
 		}
 
 		verb 2 {
@@ -368,7 +368,7 @@ room room_20 {
 			userput on
 			cursor on
 [00000440]:
-			end-script
+			end-object
 		}
 	}
 
@@ -391,7 +391,7 @@ room room_20 {
 				start-script 18 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -411,7 +411,7 @@ room room_20 {
 		actor V.1 \
 			text-offset 20,-60 \
 		start-script 42 ( 61 )
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0020\ROOM\ENCD
@@ -432,7 +432,7 @@ room room_20 {
 		actor V.1 \
 			text-offset 10,-70 \
 			follow-boxes \
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0020\ROOM\LSCR_0200
@@ -968,4 +968,3 @@ room room_20 {
 		end-script
 	}
 }
-

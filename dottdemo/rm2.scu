@@ -120,13 +120,13 @@ room toxic-pipes {
 
 	exit { ; EXCD LECF_0001\LFLF_0002\ROOM\EXCD
 		stop-script 5
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0002\ROOM\ENCD
 		start-script bak 201
 		start-script 5
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0200

@@ -18,7 +18,7 @@ room cu-purple {
 		}
 		sound 257 4 0
 		sound 269 4 0 60
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
@@ -30,7 +30,7 @@ room cu-purple {
 		start-script 93 ( 1 )
 		set-screen 0 to 200
 [00000059]:
-		end-script
+		end-object
 	}
 ; Purple Speaks
 	script 200 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0200

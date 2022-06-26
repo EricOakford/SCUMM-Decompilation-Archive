@@ -77,7 +77,7 @@ room room_9 {
 [00000164]:
 			say-line "I see that old Mr. Bosco's doing his usual rabid business."
 [00000224]:
-			end-script
+			end-object
 		}
 
 		verb 7 {
@@ -94,7 +94,7 @@ room room_9 {
 			say-line "Geez Bosco, aren't you ever going to clean up this mess?"
 			wait-for-message
 [00000363]:
-			end-script
+			end-object
 		}
 	}
 
@@ -113,7 +113,7 @@ room room_9 {
 				R.2 = 0
 			}
 			end-cut-scene
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -124,7 +124,7 @@ room room_9 {
 [00000119]:
 			current-room 10
 [00000123]:
-			end-script
+			end-object
 		}
 	}
 
@@ -133,7 +133,7 @@ room room_9 {
 
 		verb 4 {
 			say-line "The finest in Bavarian cuisine."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -143,14 +143,14 @@ room room_9 {
 [00000066]:
 			state-of V.7 is 1
 [00000073]:
-			end-script
+			end-object
 		}
 
 		verb 7 {
 			if ( (state-of V.7) == 1 ) {
 				start-script 205
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -159,7 +159,7 @@ room room_9 {
 
 		verb 4 {
 			say-line "I think it's a door."
-			end-script
+			end-object
 		}
 
 		verb 7 {
@@ -181,7 +181,7 @@ room room_9 {
 			end-cut-scene
 			come-out-door 82 in-room 8 walk 188,185
 [00000138]:
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -199,7 +199,7 @@ room room_9 {
 			end-cut-scene
 			come-out-door 82 in-room 8 walk 188,185
 [00000225]:
-			end-script
+			end-object
 		}
 	}
 
@@ -208,12 +208,12 @@ room room_9 {
 
 		verb 4 {
 			say-line "Somebody's been ripping off the US Postal Service."
-			end-script
+			end-object
 		}
 
 		verb 5 {
 			say-line "Steal the mail?  Are you nuts?"
-			end-script
+			end-object
 		}
 	}
 
@@ -222,12 +222,12 @@ room room_9 {
 
 		verb 4 {
 			say-line 2 "Another senseless victim of America's love affair with the automobile."
-			end-script
+			end-object
 		}
 
 		verb 5 {
 			say-line 2 "I'd rather leave it in its natural state."
-			end-script
+			end-object
 		}
 	}
 
@@ -236,12 +236,12 @@ room room_9 {
 
 		verb 4 {
 			say-line "That'll teach him to break our antenna."
-			end-script
+			end-object
 		}
 
 		verb 5 {
 			say-line "I don't think he's gonna move until we get our DeSoto off of him."
-			end-script
+			end-object
 		}
 	}
 
@@ -250,13 +250,13 @@ room room_9 {
 
 		verb 91 {
 			V.182 = 1017
-			end-script
+			end-object
 		}
 
 		verb 4 {
 			say-line 2 "It's our orders from the Commissioner, telling us to high-tail it down to the carnival."
 			class-of V.7 is 147
-			end-script
+			end-object
 		}
 	}
 
@@ -266,7 +266,7 @@ room room_9 {
 		verb 4 {
 			say-line 2 "`Vehicles Will Be Stolen.`"
 			wait-for-message
-			end-script
+			end-object
 		}
 	}
 
@@ -276,7 +276,7 @@ room room_9 {
 		verb 4 {
 			say-line 2 "`Soiled office space available.`"
 			wait-for-message
-			end-script
+			end-object
 		}
 	}
 
@@ -288,7 +288,7 @@ room room_9 {
 			break-here
 			say-line 2 "`Bosco's Guns, Liquor, Baby Needs.`"
 			wait-for-message
-			end-script
+			end-object
 		}
 	}
 
@@ -298,7 +298,7 @@ room room_9 {
 		verb 4 {
 			say-line 2 "`Really Bad Food.`"
 			wait-for-message
-			end-script
+			end-object
 		}
 	}
 
@@ -308,7 +308,7 @@ room room_9 {
 		verb 4 {
 			say-line 2 "`No way.`"
 			wait-for-message
-			end-script
+			end-object
 		}
 	}
 
@@ -324,7 +324,7 @@ room room_9 {
 [00000075]:
 		sound 14 7 0 1 0 90
 		unlock-sound 7
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
@@ -386,7 +386,7 @@ room room_9 {
 		}
 		start-script bak 212
 		V.194 = 202
-		end-script
+		end-object
 	}
 
 	script 201 { ; LSCR LECF_0001\LFLF_0009\ROOM\LSCR_0201
@@ -1305,4 +1305,3 @@ room room_9 {
 		end-script
 	}
 }
-

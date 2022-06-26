@@ -31,12 +31,12 @@ room room_3 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0003\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0003\ROOM\ENCD
 		start-script 200
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0003\ROOM\LSCR_0200

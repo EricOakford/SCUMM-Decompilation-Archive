@@ -11,7 +11,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 202 ( 48 )
-			end-script
+			end-object
 		}
 	}
 
@@ -20,7 +20,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 202 ( 49 )
-			end-script
+			end-object
 		}
 	}
 
@@ -29,7 +29,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 202 ( 50 )
-			end-script
+			end-object
 		}
 	}
 
@@ -38,7 +38,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 202 ( 56 )
-			end-script
+			end-object
 		}
 	}
 
@@ -55,7 +55,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 201
-			end-script
+			end-object
 		}
 	}
 
@@ -64,7 +64,7 @@ room room_14 {
 
 		verb 7 {
 			start-script 200
-			end-script
+			end-object
 		}
 	}
 
@@ -76,7 +76,7 @@ room room_14 {
 		actor V.1 \
 			costume 4 \
 			follow-boxes \
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0014\ROOM\ENCD
@@ -87,7 +87,7 @@ room room_14 {
 			draw-object 51 image 1
 		}
 		start-script 203
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0014\ROOM\LSCR_0200

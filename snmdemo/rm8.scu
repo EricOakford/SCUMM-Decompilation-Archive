@@ -84,12 +84,12 @@ room room_8 {
 			end-cut-scene
 			come-out-door 62 in-room 7 walk -1,-1
 [00000097]:
-			end-script
+			end-object
 		}
 
 		verb 4 {
 			say-line "An egress."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -117,7 +117,7 @@ room room_8 {
 			end-cut-scene
 			come-out-door 62 in-room 7 walk -1,-1
 [00000236]:
-			end-script
+			end-object
 		}
 	}
 
@@ -126,7 +126,7 @@ room room_8 {
 
 		verb 7 {
 			come-out-door 88 in-room 9 walk 155,159
-			end-script
+			end-object
 		}
 	}
 
@@ -143,7 +143,7 @@ room room_8 {
 
 		verb 4 {
 			say-line "Guess he had it coming to him."
-			end-script
+			end-object
 		}
 
 		verb 5 {
@@ -161,7 +161,7 @@ room room_8 {
 			start-script 63 ( 3, V.7, L.0 )
 			stop-script 0
 [00000146]:
-			end-script
+			end-object
 		}
 	}
 
@@ -174,7 +174,7 @@ room room_8 {
 
 		verb 4 {
 			say-line "Stairs."
-			end-script
+			end-object
 		}
 
 		verb 7 {
@@ -188,14 +188,14 @@ room room_8 {
 			say-line "We don't go upstairs^\xFF\x03^not since the accident."
 			wait-for-message
 [00000134]:
-			end-script
+			end-object
 		}
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0008\ROOM\EXCD
 		unlock-sound 6
 		unlock-sound 2
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0008\ROOM\ENCD
@@ -232,7 +232,7 @@ room room_8 {
 			start-script bak 29
 		}
 [00000233]:
-		end-script
+		end-object
 	}
 
 	script 201 { ; LSCR LECF_0001\LFLF_0008\ROOM\LSCR_0201

@@ -31,11 +31,11 @@ room room_36 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0036\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0036\ROOM\ENCD
-		end-script
+		end-object
 	}
 }
 

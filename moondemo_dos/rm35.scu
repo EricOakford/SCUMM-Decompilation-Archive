@@ -147,11 +147,11 @@ room room_35 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0035\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0035\ROOM\ENCD
-		end-script
+		end-object
 	}
 }
 

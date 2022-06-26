@@ -26,7 +26,7 @@ room dim-lab {
 			set-screen 0 to 144
 			start-script 93 ( 2 )
 		}
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0073\ROOM\ENCD
@@ -34,7 +34,7 @@ room dim-lab {
 			start-script 93 ( 1 )
 			set-screen 0 to 200
 		}
-		end-script
+		end-object
 	}
 }
 

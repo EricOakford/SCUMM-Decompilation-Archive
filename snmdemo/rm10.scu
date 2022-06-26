@@ -186,6 +186,7 @@ room room_10 {
 			" "
 
 		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0010\ROOM\ENCD
@@ -202,7 +203,7 @@ room room_10 {
 [00000061]:
 		start-script V.175
 		start-script 201
-		end-script
+		end-object
 	}
 
 	script 201 { ; LSCR LECF_0001\LFLF_0010\ROOM\LSCR_0201

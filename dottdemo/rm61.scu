@@ -7,6 +7,7 @@
 ; Game Initialization
 script 1 { ; SCRP LECF_0001\LFLF_0061\SCRP_0001
 local variable L.1
+
 	sound 6 100
 	cursor off
 	userput off
@@ -267,8 +268,7 @@ local variable L.7
 			"\xFF\x0A\xDA\xD9\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	}
-	break-here
-	if !( actor-chore L.2 ) jump &[00000316]
+	break-until (actor-chore L.2)
 	put-actor L.2 at L.5,L.6 in-room 255
 	if !( L.1 ) jump &[00000357]
 	do-animation L.2 L.1
@@ -283,8 +283,7 @@ local variable L.7
 			"\xFF\x0A\x95\x9D\xFF\x0A\x06\x00\xFF\x0A\x0A\x00\xFF\x0A\x00\x00 "
 
 	}
-	break-here
-	if !( actor-chore L.2 ) jump &[00000397]
+	break-until (actor-chore L.2)
 	jump &[00000068]
 [00000408]:
 	put-actor 12 at 0,0 in-room 0
@@ -1469,14 +1468,14 @@ room vortex {
 		sound 269 44 0 30
 		sound 269 45 0 30
 		state-of 714 is 0
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0061\ROOM\ENCD
 		start-script 201
 		start-sound 43
 		start-script 200
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0061\ROOM\LSCR_0200

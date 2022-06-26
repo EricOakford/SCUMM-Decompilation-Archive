@@ -62,14 +62,14 @@ room left-lab {
 		if ( script-running 7 ) {
 			set-screen 0 to 144
 		}
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0069\ROOM\ENCD
 		if ( script-running 7 ) {
 			set-screen 0 to 200
 		}
-		end-script
+		end-object
 	}
 }
 

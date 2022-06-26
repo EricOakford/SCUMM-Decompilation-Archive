@@ -96,7 +96,7 @@ script 1 { ; SCRP LECF_0001\LFLF_0002\SCRP_0001
 	end-script
 }
 
-;Cutscene Start
+; Cutscene Start
 script 2 { ; SCRP LECF_0001\LFLF_0002\SCRP_0002
 local variable L.0
 
@@ -112,7 +112,7 @@ local variable L.0
 	end-script
 }
 
-;Cutscene End
+; Cutscene End
 script 3 { ; SCRP LECF_0001\LFLF_0002\SCRP_0003
 local variable L.0
 
@@ -243,13 +243,13 @@ room room_2 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0002\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0002\ROOM\ENCD
 		set-screen 0 to 200
 		start-script 200
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0002\ROOM\LSCR_0200

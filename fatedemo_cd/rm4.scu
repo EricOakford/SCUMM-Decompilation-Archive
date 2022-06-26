@@ -139,7 +139,7 @@ script 129 { ; SCRP LECF_0001\LFLF_0004\SCRP_0129
 	end-script
 }
 
-room  {
+room col-attic {
 
 	object 60 { ; VERB LECF_0001\LFLF_0004\ROOM\OBCD_0060
 		name is "statue"

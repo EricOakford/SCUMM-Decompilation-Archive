@@ -11,7 +11,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 202
-			end-script
+			end-object
 		}
 	}
 
@@ -19,18 +19,18 @@ room room_15 {
 		name is "cone"
 
 		verb 91 {
-			end-script
-			end-script
+			return 137
+			end-object
 		}
 
 		verb 92 {
-			end-script
-			end-script
+			return 156
+			end-object
 		}
 
 		verb 7 {
 			say-line "\xFF\x0A\xA9\x95\xFF\x0A\x04\x00\xFF\x0A\xDD\x64\xFF\x0A\x00\x00Oh boy! Ice cream!"
-			end-script
+			end-object
 		}
 
 		verb 2 {
@@ -68,7 +68,7 @@ room room_15 {
 			userput on
 			cursor on
 [00000398]:
-			end-script
+			end-object
 		}
 	}
 
@@ -76,7 +76,7 @@ room room_15 {
 		name is "head-block"
 
 		verb 7 {
-			end-script
+			end-object
 		}
 	}
 
@@ -98,7 +98,7 @@ room room_15 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 48 in-room 14 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -107,7 +107,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 209
-			end-script
+			end-object
 		}
 	}
 
@@ -116,7 +116,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 206
-			end-script
+			end-object
 		}
 	}
 
@@ -127,7 +127,7 @@ room room_15 {
 			if ( !V.173 ) {
 				start-script rec 205
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -136,7 +136,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 210
-			end-script
+			end-object
 		}
 	}
 
@@ -145,7 +145,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 212
-			end-script
+			end-object
 		}
 
 		verb 2 {
@@ -164,7 +164,7 @@ room room_15 {
 			userput on
 			cursor on
 [00000128]:
-			end-script
+			end-object
 		}
 	}
 
@@ -173,7 +173,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 200
-			end-script
+			end-object
 		}
 	}
 
@@ -182,7 +182,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 214
-			end-script
+			end-object
 		}
 	}
 
@@ -191,7 +191,7 @@ room room_15 {
 
 		verb 7 {
 			start-script 211
-			end-script
+			end-object
 		}
 	}
 
@@ -210,7 +210,7 @@ room room_15 {
 				start-script 18 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -225,7 +225,7 @@ room room_15 {
 			if ( (actor-facing V.1) != 1 ) {
 				start-script 20 ( 0, 1 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -239,7 +239,7 @@ room room_15 {
 
 	exit { ; EXCD LECF_0001\LFLF_0015\ROOM\EXCD
 		start-script 42 ( 50 )
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0015\ROOM\ENCD
@@ -277,7 +277,7 @@ room room_15 {
 		if ( !R.15 ) {
 			start-script 213
 		}
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0015\ROOM\LSCR_0200
@@ -513,9 +513,10 @@ room room_15 {
 		if ( (!script-running 204) and (!V.169) ) {
 			start-script 204
 		}
-		if ( (actor L.0 variable 2) == 0 ) jump &[00000154]
-		break-here
-		jump &[00000136]
+		do {
+			if ( (actor L.0 variable 2) == 0 ) jump &[00000154]
+			break-here
+		}
 [00000154]:
 		if ( script-running 204 ) {
 			actor L.0 \
@@ -729,9 +730,10 @@ room room_15 {
 		if ( !script-running 208 ) {
 			start-script 208
 		}
-		if ( actor L.0 variable 0 ) jump &[00000133]
-		break-here
-		jump &[00000119]
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000133]
+			break-here
+		}
 [00000133]:
 		if !( V.165 ) jump &[00000149]
 		V.166 = 1
@@ -769,9 +771,10 @@ room room_15 {
 		if ( !script-running 208 ) {
 			start-script 208
 		}
-		if ( actor L.0 variable 0 ) jump &[00000146]
-		break-here
-		jump &[00000132]
+		do {
+			if ( actor L.0 variable 0 ) jump &[00000146]
+			break-here
+		}
 [00000146]:
 		start-script 207
 		do {
@@ -885,4 +888,3 @@ room room_15 {
 		end-script
 	}
 }
-

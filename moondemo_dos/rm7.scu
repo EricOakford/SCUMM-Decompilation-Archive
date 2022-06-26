@@ -2200,13 +2200,13 @@ local variable L.2
 [00000014]:
 	if !( L.2 <= L.1 ) jump &[00000049]
 	if ( (actor-room L.2) == 0 ) {
-		end-script
+		return L.2
 		stop-script 0
 	}
 	++L.2
 	jump &[00000014]
 [00000049]:
-	end-script
+	return 0
 	stop-script 0
 	end-script
 }
@@ -2484,7 +2484,7 @@ room room_7 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 56 in-room 14 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -2495,7 +2495,7 @@ room room_7 {
 			if ( class-of 24 is 2 ) {
 				start-script rec 208 ( 24 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2506,7 +2506,7 @@ room room_7 {
 			if ( class-of 25 is 2 ) {
 				start-script rec 208 ( 25 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2517,7 +2517,7 @@ room room_7 {
 			if ( class-of 26 is 2 ) {
 				start-script rec 208 ( 26 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2528,7 +2528,7 @@ room room_7 {
 			if ( !script-running 202 ) {
 				start-script 202
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2539,7 +2539,7 @@ room room_7 {
 			if ( !script-running 203 ) {
 				start-script 203
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2550,7 +2550,7 @@ room room_7 {
 			if ( !script-running 204 ) {
 				start-script 204
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2559,7 +2559,7 @@ room room_7 {
 
 		verb 7 {
 			start-script rec 205
-			end-script
+			end-object
 		}
 	}
 
@@ -2570,7 +2570,7 @@ room room_7 {
 			if ( !script-running 206 ) {
 				start-script 206
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2581,7 +2581,7 @@ room room_7 {
 			if ( !script-running 207 ) {
 				start-script 207
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -2604,7 +2604,7 @@ room room_7 {
 				start-script 18 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2613,7 +2613,7 @@ room room_7 {
 
 		verb 7 {
 			start-script 201
-			end-script
+			end-object
 		}
 	}
 
@@ -2632,7 +2632,7 @@ room room_7 {
 		}
 		actor V.1 \
 			text-offset -20,-100 \
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0007\ROOM\ENCD
@@ -2649,7 +2649,7 @@ room room_7 {
 		if ( R.16 ) {
 			start-script 200
 		}
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0200
@@ -3088,4 +3088,3 @@ room room_7 {
 		end-script
 	}
 }
-

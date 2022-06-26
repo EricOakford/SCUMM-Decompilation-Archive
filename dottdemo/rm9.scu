@@ -71,17 +71,17 @@ room field {
 				break-here 14 times
 				end-cut-scene
 			}
-			end-script
+			end-object
 		}
 
 		verb 5 {
 			start-script 201
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "It's the breast pocket from the lab coat."
-			end-script
+			end-object
 		}
 	}
 
@@ -90,12 +90,12 @@ room field {
 
 		verb 5 {
 			start-script 201
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "That's the thing I'm supposed to push, I think."
-			end-script
+			end-object
 		}
 
 		verb 91 {
@@ -105,7 +105,7 @@ room field {
 [00000094]:
 			V.186 = 709
 [00000100]:
-			end-script
+			end-object
 		}
 	}
 
@@ -114,12 +114,12 @@ room field {
 
 		verb 90 {
 			V.152 = 10
-			end-script
+			end-object
 		}
 
 		verb 10 {
 			start-script 12
-			end-script
+			end-object
 		}
 
 		verb 23 {
@@ -129,7 +129,7 @@ room field {
 			wait-for-message
 			start-script 131
 			end-cut-scene
-			end-script
+			end-object
 		}
 
 		verb 26 {
@@ -156,12 +156,12 @@ room field {
 				step-dist 11,3 \
 				width 35
 			end-cut-scene
-			end-script
+			end-object
 		}
 
 		verb 58 {
 			say-line 3 "I don't think he'd get it."
-			end-script
+			end-object
 		}
 
 		verb 80 {
@@ -173,17 +173,17 @@ room field {
 [00000495]:
 			say-line 6 "Please, I'm concentrating."
 [00000527]:
-			end-script
+			end-object
 		}
 
 		verb 7 {
 			say-line 6 "Sure, push me around while you can."
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 6 "If you think I'm something to look at now, just wait."
-			end-script
+			end-object
 		}
 	}
 
@@ -196,17 +196,17 @@ room field {
 
 		verb 90 {
 			V.152 = -999
-			end-script
+			end-object
 		}
 
 		verb 11 {
 			come-out-door 64 in-room 11 walk 360,108
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "They look, and smell, a lot better from a distance."
-			end-script
+			end-object
 		}
 	}
 
@@ -215,17 +215,17 @@ room field {
 
 		verb 90 {
 			V.152 = -999
-			end-script
+			end-object
 		}
 
 		verb 11 {
 			come-out-door 65 in-room 11 walk 418,111
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "They look, and smell, a lot better from a distance."
-			end-script
+			end-object
 		}
 	}
 
@@ -234,7 +234,7 @@ room field {
 
 		verb 11 {
 			come-out-door 60 in-room 11 walk 156,116
-			end-script
+			end-object
 		}
 	}
 
@@ -243,17 +243,17 @@ room field {
 
 		verb 90 {
 			V.152 = -999
-			end-script
+			end-object
 		}
 
 		verb 11 {
 			come-out-door 66 in-room 11 walk 303,111
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "They look, and smell, a lot better from a distance."
-			end-script
+			end-object
 		}
 	}
 
@@ -262,19 +262,19 @@ room field {
 
 		verb 90 {
 			V.152 = 8
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "The lightning must've charged it up."
-			end-script
+			end-object
 		}
 
 		verb 9 {
 			owner-of 119 is 3
 			state-of 40 is 0
 			class-of 40 is 160
-			end-script
+			end-object
 		}
 	}
 
@@ -286,7 +286,7 @@ room field {
 				start-script 83 ( 28, 7, 434, 56 )
 			}
 			come-out-door 28 in-room 7 walk 434,56
-			end-script
+			end-object
 		}
 	}
 
@@ -295,12 +295,12 @@ room field {
 
 		verb 2 {
 			start-script 103 ( 36, 28 )
-			end-script
+			end-object
 		}
 
 		verb 3 {
 			start-script 104 ( 36, 28 )
-			end-script
+			end-object
 		}
 
 		verb 11 {
@@ -308,12 +308,12 @@ room field {
 				start-script 83 ( 28, 7, 434, 56 )
 			}
 			come-out-door 28 in-room 7 walk 434,56
-			end-script
+			end-object
 		}
 
 		verb 8 {
 			say-line 3 "It looks pretty much the same as Dr. Fred's motel."
-			end-script
+			end-object
 		}
 	}
 
@@ -330,14 +330,14 @@ room field {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0009\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0009\ROOM\ENCD
 		draw-object 47 image 0
 		draw-object 48 image 0
 		start-script 11
-		end-script
+		end-object
 	}
 }
 

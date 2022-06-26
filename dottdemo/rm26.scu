@@ -39,7 +39,7 @@ room convention {
 
 		verb 5 {
 			start-script 200
-			end-script
+			end-object
 		}
 	}
 
@@ -76,7 +76,7 @@ room convention {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0026\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0026\ROOM\ENCD
@@ -84,7 +84,7 @@ room convention {
 			set-screen 0 to 144
 			start-script 215
 		}
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0026\ROOM\LSCR_0200
@@ -121,7 +121,7 @@ room convention {
 		R.93 = 1
 		end-script
 	}
-; Use Scalpel on Cigar Salseman
+; Use Scalpel on Cigar Salesman
 	script 214 { ; LSCR LECF_0001\LFLF_0026\ROOM\LSCR_0214
 		V.132 = 2 - 1
 		V.132 = (random V.132) + 1

@@ -13,7 +13,7 @@ room room_17 {
 			if ( !script-running 207 ) {
 				start-script 207 ( 0 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -24,7 +24,7 @@ room room_17 {
 			if ( !script-running 205 ) {
 				start-script 205
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -33,7 +33,7 @@ room room_17 {
 
 		verb 7 {
 			start-script 202
-			end-script
+			end-object
 		}
 	}
 
@@ -42,7 +42,7 @@ room room_17 {
 
 		verb 7 {
 			start-script 204
-			end-script
+			end-object
 		}
 	}
 
@@ -53,7 +53,7 @@ room room_17 {
 			if ( !V.166 ) {
 				start-script 206
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -71,7 +71,7 @@ room room_17 {
 				start-script 207 ( 0 )
 			}
 [00000069]:
-			end-script
+			end-object
 		}
 	}
 
@@ -93,7 +93,7 @@ room room_17 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 50 in-room 14 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -112,7 +112,7 @@ room room_17 {
 				start-script 18 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -123,7 +123,7 @@ room room_17 {
 			if ( (actor-facing V.1) != 0 ) {
 				start-script 20 ( 0, 0 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -134,7 +134,7 @@ room room_17 {
 			if ( (actor-facing V.1) != 1 ) {
 				start-script 20 ( 0, 1 )
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -154,7 +154,7 @@ room room_17 {
 		undim V.165
 		stop-script 200
 		start-script 42 ( 57 )
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0017\ROOM\ENCD
@@ -168,7 +168,7 @@ room room_17 {
 		class-of 86 is 32
 		class-of 81 is 160
 		start-script 200
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0017\ROOM\LSCR_0200
@@ -232,9 +232,10 @@ room room_17 {
 		if ( L.0 != 7 ) {
 			start-sound 0
 		}
-		if ( actor V.167 variable 0 ) jump &[00000078]
-		break-here
-		jump &[00000064]
+		do {
+			if ( actor V.167 variable 0 ) jump &[00000078]
+			break-here
+		}
 [00000078]:
 		actor V.167 \
 			animation-var 0 0

@@ -11,7 +11,7 @@ room room_6 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0006\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0006\ROOM\ENCD
@@ -23,7 +23,7 @@ room room_6 {
 [00000043]:
 		start-script 201
 [00000053]:
-		end-script
+		end-object
 	}
 
 ; Start Demo
@@ -66,7 +66,7 @@ room room_6 {
 		end-script
 	}
 
-;Finish Demo
+; Finish Demo
 	script 201 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0201
 		camera-at 480
 		V.19 = 6
@@ -89,4 +89,3 @@ room room_6 {
 		end-script
 	}
 }
-

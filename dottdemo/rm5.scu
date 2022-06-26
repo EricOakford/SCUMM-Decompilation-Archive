@@ -15,7 +15,7 @@ room cu-kids-room {
 			set-screen 0 to 144
 			start-script 93 ( 2 )
 		}
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0005\ROOM\ENCD
@@ -26,7 +26,7 @@ room cu-kids-room {
 		start-script 93 ( 1 )
 		set-screen 0 to 200
 [00000043]:
-		end-script
+		end-object
 	}
 ; Bernard Reads Green's Note
 	script 200 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0200

@@ -375,11 +375,12 @@ room room_7 {
 			}
 			end-cut-scene
 			end-script
+			end-object
 		}
 
 		verb 5 {
 			say-line "This is no time for chit-chat."
-			end-script
+			end-object
 		}
 	}
 
@@ -388,7 +389,7 @@ room room_7 {
 
 		verb 4 {
 			say-line "Our primitive answering machine.  It's an 8-track."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -398,7 +399,7 @@ room room_7 {
 [00000080]:
 			say-line "Nobody's left a message."
 [00000106]:
-			end-script
+			end-object
 		}
 	}
 
@@ -430,12 +431,12 @@ room room_7 {
 			end-cut-scene
 			come-out-door 81 in-room 8 walk 164,110
 [00000149]:
-			end-script
+			end-object
 		}
 
 		verb 4 {
 			say-line V.1 "This is pretty damn self-explanatory."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -479,7 +480,7 @@ room room_7 {
 			end-cut-scene
 			come-out-door 81 in-room 8 walk 164,110
 [00000446]:
-			end-script
+			end-object
 		}
 	}
 
@@ -488,7 +489,7 @@ room room_7 {
 
 		verb 91 {
 			V.182 = 1006
-			end-script
+			end-object
 		}
 
 		verb 4 {
@@ -499,7 +500,7 @@ room room_7 {
 [00000133]:
 			say-line "It's a black light."
 [00000154]:
-			end-script
+			end-object
 		}
 
 		verb 5 {
@@ -510,7 +511,7 @@ room room_7 {
 			class-of 63 is 6
 			start-script 54 ( 63 )
 [00000223]:
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -527,7 +528,7 @@ room room_7 {
 [00000273]:
 			do-sentence 3 L.0 [130] V.7
 [00000286]:
-			end-script
+			end-object
 		}
 	}
 
@@ -541,7 +542,7 @@ room room_7 {
 					start-script 210
 				}
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -550,7 +551,7 @@ room room_7 {
 
 		verb 91 {
 			V.182 = 1007
-			end-script
+			end-object
 		}
 
 		verb 4 {
@@ -560,12 +561,12 @@ room room_7 {
 [00000093]:
 			say-line 2 "Rabbit ears?"
 [00000110]:
-			end-script
+			end-object
 		}
 
 		verb 3 {
 			start-script 213
-			end-script
+			end-object
 		}
 	}
 
@@ -574,7 +575,7 @@ room room_7 {
 
 		verb 4 {
 			say-line "One mighty fine light switch."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -587,7 +588,7 @@ room room_7 {
 			R.226 = 0
 [00000083]:
 			start-script 201 ( state-of V.7 )
-			end-script
+			end-object
 		}
 	}
 
@@ -601,7 +602,7 @@ room room_7 {
 [00000072]:
 			say-line "It looks pretty empty in there."
 [00000105]:
-			end-script
+			end-object
 		}
 
 		verb 5 {
@@ -611,7 +612,7 @@ room room_7 {
 [00000132]:
 			say-line "I already cleaned it out."
 [00000159]:
-			end-script
+			end-object
 		}
 	}
 
@@ -620,12 +621,12 @@ room room_7 {
 
 		verb 91 {
 			V.182 = 1040
-			end-script
+			end-object
 		}
 
 		verb 4 {
 			say-line "It's more money than we'll ever need."
-			end-script
+			end-object
 		}
 	}
 
@@ -634,7 +635,7 @@ room room_7 {
 
 		verb 4 {
 			say-line "We've been through a lot together, this TV and I."
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -676,7 +677,7 @@ room room_7 {
 				text-offset 0,-110 \
 			end-cut-scene
 [00000265]:
-			end-script
+			end-object
 		}
 	}
 
@@ -701,7 +702,7 @@ room room_7 {
 
 		verb 91 {
 			V.182 = 1007
-			end-script
+			end-object
 		}
 
 		verb 5 {
@@ -712,7 +713,7 @@ room room_7 {
 [00000054]:
 			say-line "Nah."
 [00000060]:
-			end-script
+			end-object
 		}
 
 		verb 4 {
@@ -720,7 +721,7 @@ room room_7 {
 			if ( !R.67 ) {
 				start-script 210
 			}
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -744,7 +745,7 @@ room room_7 {
 			start-script 63 ( 3, V.7, L.0 )
 			stop-script 0
 [00000249]:
-			end-script
+			end-object
 		}
 	}
 
@@ -753,12 +754,12 @@ room room_7 {
 
 		verb 4 {
 			say-line "Vertical silverware storage."
-			end-script
+			end-object
 		}
 
 		verb 5 {
 			start-script 211
-			end-script
+			end-object
 		}
 	}
 
@@ -782,7 +783,7 @@ room room_7 {
 		put-actor 4 at 0,0 in-room 0
 		do-animation 5 255
 		put-actor 5 at 0,0 in-room 0
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0007\ROOM\ENCD
@@ -872,7 +873,7 @@ room room_7 {
 		if ( (state-of 62) == 0 ) {
 			set-box 8 to 128
 		}
-		end-script
+		end-object
 	}
 
 	script 201 { ; LSCR LECF_0001\LFLF_0007\ROOM\LSCR_0201
@@ -1520,4 +1521,3 @@ room room_7 {
 		end-script
 	}
 }
-

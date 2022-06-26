@@ -107,7 +107,7 @@ room credit-1 {
 			set-screen 0 to 144
 			start-script 93 ( 2 )
 		}
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0077\ROOM\ENCD
@@ -118,7 +118,7 @@ room credit-1 {
 		start-script 93 ( 1 )
 		set-screen 0 to 200
 [00000046]:
-		end-script
+		end-object
 	}
 }
 

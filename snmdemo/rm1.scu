@@ -4368,19 +4368,19 @@ room room_1 {
 
 		verb 91 {
 			V.182 = 1008
-			end-script
+			end-object
 		}
 
 		verb 4 {
 			say-line "It's my lil' buddy, ready for action."
-			end-script
+			end-object
 		}
 
 		verb 3 {
 		local variable L.0
 
 			do-sentence 3 L.0 [130] V.7
-			end-script
+			end-object
 		}
 	}
 
@@ -4393,7 +4393,7 @@ room room_1 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0001\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0001\ROOM\ENCD
@@ -4411,7 +4411,7 @@ room room_1 {
 [00000069]:
 		start-script V.175
 		start-script 201
-		end-script
+		end-object
 	}
 
 	script 201 { ; LSCR LECF_0001\LFLF_0001\ROOM\LSCR_0201
