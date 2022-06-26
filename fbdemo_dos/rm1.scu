@@ -1124,7 +1124,7 @@ script 9 { ; SCRP LECF_0001\LFLF_0001\SCRP_0009
 	end-script
 }
 
-; Default Verb Response
+; Default Verb Responses
 script 10 { ; SCRP LECF_0001\LFLF_0001\SCRP_0010
 local variable L.0
 
@@ -1815,7 +1815,7 @@ local variable L.1
 	end-script
 }
 
-;reduce-volume (original name?)
+; reduce-volume (original name?)
 script 28 { ; SCRP LECF_0001\LFLF_0001\SCRP_0028
 local variable L.0
 local variable L.1
@@ -1852,7 +1852,7 @@ local variable L.3
 	end-script
 }
 
-;increase-volume (original name?)
+; increase-volume (original name?)
 script 29 { ; SCRP LECF_0001\LFLF_0001\SCRP_0029
 local variable L.0
 local variable L.1
@@ -1907,13 +1907,13 @@ local variable L.2
 [00000014]:
 	if !( L.2 <= L.1 ) jump &[00000049]
 	if ( (actor-room L.2) == 0 ) {
-		end-script
+		return L.2
 		stop-script 0
 	}
 	++L.2
 	jump &[00000014]
 [00000049]:
-	end-script
+	return 0
 	stop-script 0
 	end-script
 }
@@ -2322,7 +2322,7 @@ room room_1 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 79 in-room 36 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -2331,7 +2331,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 208
-			end-script
+			end-object
 		}
 	}
 
@@ -2340,7 +2340,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 205
-			end-script
+			end-object
 		}
 	}
 
@@ -2355,7 +2355,7 @@ room room_1 {
 			start-script rec 212 ( 29, 3, 1 )
 [00000063]:
 			start-sound 5000
-			end-script
+			end-object
 		}
 	}
 
@@ -2364,7 +2364,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 204
-			end-script
+			end-object
 		}
 	}
 
@@ -2379,7 +2379,7 @@ room room_1 {
 [00000038]:
 			start-script 219
 [00000045]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2388,7 +2388,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 206
-			end-script
+			end-object
 		}
 	}
 
@@ -2399,7 +2399,7 @@ room room_1 {
 			start-sound 0
 			break-here 2 times
 			start-script rec 212 ( 24, 1, 8 )
-			end-script
+			end-object
 		}
 	}
 
@@ -2408,7 +2408,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 215
-			end-script
+			end-object
 		}
 	}
 
@@ -2440,7 +2440,7 @@ room room_1 {
 			userput on
 			cursor on
 [00000161]:
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -2455,7 +2455,7 @@ room room_1 {
 			say-line 1 "\xFF\x0A\x4B\xCA\xFF\x0A\x00\x00\xFF\x0A\x29\x5D\xFF\x0A\x00\x00I need a remote control to open the garage."
 			wait-for-message
 [00000302]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2464,7 +2464,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 211
-			end-script
+			end-object
 		}
 	}
 
@@ -2479,7 +2479,7 @@ room room_1 {
 			start-script rec 212 ( 28, 3, 1 )
 [00000063]:
 			start-sound 5000
-			end-script
+			end-object
 		}
 	}
 
@@ -2488,7 +2488,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 207
-			end-script
+			end-object
 		}
 	}
 
@@ -2503,7 +2503,7 @@ room room_1 {
 			start-script rec 212 ( 30, 4, 1 )
 [00000063]:
 			start-sound 0
-			end-script
+			end-object
 		}
 	}
 
@@ -2518,7 +2518,7 @@ room room_1 {
 			start-script rec 212 ( 31, 5, 1 )
 [00000063]:
 			start-sound 0
-			end-script
+			end-object
 		}
 	}
 
@@ -2533,7 +2533,7 @@ room room_1 {
 			start-script rec 212 ( 32, 5, 1 )
 [00000063]:
 			start-sound 0
-			end-script
+			end-object
 		}
 	}
 
@@ -2549,7 +2549,7 @@ room room_1 {
 			draw-object 33 image 1
 			start-script 201
 [00000046]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2558,7 +2558,7 @@ room room_1 {
 
 		verb 8 {
 			start-script 218
-			end-script
+			end-object
 		}
 	}
 
@@ -2567,7 +2567,7 @@ room room_1 {
 
 		verb 8 {
 			start-script rec 200 ( 192 )
-			end-script
+			end-object
 		}
 	}
 
@@ -2576,7 +2576,7 @@ room room_1 {
 
 		verb 8 {
 			start-script rec 200 ( 193 )
-			end-script
+			end-object
 		}
 	}
 
@@ -2607,7 +2607,7 @@ room room_1 {
 	exit { ; EXCD LECF_0001\LFLF_0001\ROOM\EXCD
 		stop-script 201
 		undim V.169
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0001\ROOM\ENCD
@@ -2646,7 +2646,7 @@ room room_1 {
 		set-box 14 to 128
 		set-box 15 to 128
 		class-of 26 is 15 7
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0001\ROOM\LSCR_0200

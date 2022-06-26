@@ -13,7 +13,7 @@ room room_4 {
 			class-of 49 is 160
 			start-sound 41
 			start-script rec 204 ( 49 )
-			end-script
+			end-object
 		}
 	}
 
@@ -24,7 +24,7 @@ room room_4 {
 			class-of 50 is 160
 			start-sound 41
 			start-script rec 204 ( 50 )
-			end-script
+			end-object
 		}
 	}
 
@@ -35,7 +35,7 @@ room room_4 {
 			class-of 51 is 160
 			start-sound 41
 			start-script rec 204 ( 51 )
-			end-script
+			end-object
 		}
 	}
 
@@ -46,7 +46,7 @@ room room_4 {
 			class-of 52 is 160
 			start-sound 41
 			start-script rec 204 ( 52 )
-			end-script
+			end-object
 		}
 	}
 
@@ -57,7 +57,7 @@ room room_4 {
 			class-of 53 is 160
 			start-sound 41
 			start-script rec 204 ( 53 )
-			end-script
+			end-object
 		}
 	}
 
@@ -68,7 +68,7 @@ room room_4 {
 			class-of 54 is 160
 			start-sound 41
 			start-script rec 204 ( 54 )
-			end-script
+			end-object
 		}
 	}
 
@@ -77,7 +77,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 55, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -86,7 +86,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 56, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -95,7 +95,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 57, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -104,7 +104,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 58, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -113,7 +113,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 59, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -122,7 +122,7 @@ room room_4 {
 
 		verb 8 {
 			start-script rec 209 ( 60, random 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -158,7 +158,7 @@ room room_4 {
 			userput on
 			cursor on
 			come-out-door 34 in-room 3 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -194,7 +194,7 @@ room room_4 {
 			userput on
 			cursor on
 			come-out-door 63 in-room 5 walk 45,114
-			end-script
+			end-object
 		}
 	}
 
@@ -209,7 +209,7 @@ room room_4 {
 [00000051]:
 			start-script 207
 [00000058]:
-			end-script
+			end-object
 		}
 	}
 
@@ -231,7 +231,7 @@ room room_4 {
 
 	exit { ; EXCD LECF_0001\LFLF_0004\ROOM\EXCD
 		V.32 = 7
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0004\ROOM\ENCD
@@ -240,7 +240,7 @@ room room_4 {
 		V.166 = 0
 		start-script 205
 		start-script 208
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0200
@@ -312,8 +312,7 @@ room room_4 {
 		class-of V.168 is 32
 		end-script
 	}
-
-;Do Butterflies
+; Do Butterflies
 	script 204 { ; LSCR LECF_0001\LFLF_0004\ROOM\LSCR_0204
 	local variable L.0
 	local variable L.1
@@ -746,4 +745,3 @@ room room_4 {
 		end-script
 	}
 }
-

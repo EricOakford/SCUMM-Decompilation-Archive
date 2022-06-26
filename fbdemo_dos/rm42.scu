@@ -11,7 +11,7 @@ room room_42 {
 
 		verb 8 {
 			start-script rec 201 ( 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -20,7 +20,7 @@ room room_42 {
 
 		verb 8 {
 			start-script rec 201 ( 3 )
-			end-script
+			end-object
 		}
 	}
 
@@ -29,7 +29,7 @@ room room_42 {
 
 		verb 8 {
 			start-script rec 203 ( 3 )
-			end-script
+			end-object
 		}
 	}
 
@@ -38,7 +38,7 @@ room room_42 {
 
 		verb 8 {
 			start-script 204
-			end-script
+			end-object
 		}
 	}
 
@@ -56,7 +56,7 @@ room room_42 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 77 in-room 36 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -74,7 +74,7 @@ room room_42 {
 [00000042]:
 			start-script 200 ( 1 )
 [00000052]:
-			end-script
+			end-object
 		}
 	}
 
@@ -83,7 +83,7 @@ room room_42 {
 
 		verb 8 {
 			start-script rec 203 ( 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -92,7 +92,7 @@ room room_42 {
 
 		verb 8 {
 			start-script 205
-			end-script
+			end-object
 		}
 	}
 
@@ -100,7 +100,7 @@ room room_42 {
 		name is "tree-rocket"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -121,7 +121,7 @@ room room_42 {
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0042\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0042\ROOM\ENCD
@@ -140,7 +140,7 @@ room room_42 {
 		class-of 96 is 21
 		class-of 98 is 21
 		class-of 106 is 21
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0200

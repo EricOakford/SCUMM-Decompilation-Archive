@@ -11,7 +11,7 @@ room room_33 {
 
 		verb 8 {
 			start-script 203
-			end-script
+			end-object
 		}
 	}
 
@@ -22,7 +22,7 @@ room room_33 {
 			if ( !script-running 205 ) {
 				start-script 205
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -30,20 +30,20 @@ room room_33 {
 		name is "garage-door-opener"
 
 		verb 91 {
-			end-script
-			end-script
+			return 121
+			end-object
 		}
 
 		verb 92 {
-			end-script
-			end-script
+			return 185
+			end-object
 		}
 
 		verb 8 {
 			if ( (owner-of 63) != V.1 ) {
 				start-script 200
 			}
-			end-script
+			end-object
 		}
 
 		verb 3 {
@@ -55,7 +55,7 @@ room room_33 {
 [00000077]:
 			say-line 1 "\xFF\x0A\xF1\x40\xFF\x0A\x00\x00\xFF\x0A\xE9\x37\xFF\x0A\x00\x00That doesn't seem to work here."
 [00000129]:
-			end-script
+			end-object
 		}
 
 		verb 11 {
@@ -85,7 +85,7 @@ room room_33 {
 			class-of 64 is 7 11
 			jump &[00000322]
 [00000322]:
-			end-script
+			end-object
 		}
 
 		verb 12 {
@@ -116,7 +116,7 @@ room room_33 {
 			class-of 64 is 135 139
 			jump &[00000533]
 [00000533]:
-			end-script
+			end-object
 		}
 	}
 
@@ -148,7 +148,7 @@ room room_33 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 78 in-room 36 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -157,7 +157,7 @@ room room_33 {
 
 		verb 8 {
 			start-script 201
-			end-script
+			end-object
 		}
 	}
 
@@ -166,7 +166,7 @@ room room_33 {
 
 		verb 8 {
 			start-script 204
-			end-script
+			end-object
 		}
 	}
 
@@ -174,7 +174,7 @@ room room_33 {
 		name is "basement-light"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -185,7 +185,7 @@ room room_33 {
 			if ( !script-running 207 ) {
 				start-script 207
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -196,7 +196,7 @@ room room_33 {
 			if ( !script-running 206 ) {
 				start-script 206
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -217,7 +217,7 @@ room room_33 {
 			put-actor V.169 at 0,0 in-room 0
 		}
 		start-script 34 ( 25 )
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0033\ROOM\ENCD
@@ -250,7 +250,7 @@ room room_33 {
 		draw-object 58 image 1
 		V.168 = 0
 		class-of 58 is 32
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0033\ROOM\LSCR_0200

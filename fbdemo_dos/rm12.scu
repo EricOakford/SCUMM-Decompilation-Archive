@@ -7,11 +7,11 @@
 room room_12 {
 
 	exit { ; EXCD LECF_0001\LFLF_0012\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0012\ROOM\ENCD
-		end-script
+		end-object
 	}
 }
 

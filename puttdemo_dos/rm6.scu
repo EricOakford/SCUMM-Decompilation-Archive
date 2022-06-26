@@ -13,7 +13,7 @@ room room_6 {
 			say-line "\xFF\x0A\x0D\xD0\xFF\x0A\x03\x00\xFF\x0A\xC0\x2D\xFF\x0A\x00\x00It says:"
 			wait-for-message
 			say-line "\xFF\x0A\x42\x76\xFF\x0A\x0A\x00\xFF\x0A\xB2\x19\xFF\x0A\x00\x00Welcome."
-			end-script
+			end-object
 		}
 	}
 
@@ -22,7 +22,7 @@ room room_6 {
 
 		verb 8 {
 			start-script 207
-			end-script
+			end-object
 		}
 	}
 
@@ -37,7 +37,7 @@ room room_6 {
 			break-here 3 times
 			do-animation 6 6
 			class-of 96 is 32
-			end-script
+			end-object
 		}
 	}
 
@@ -46,7 +46,7 @@ room room_6 {
 
 		verb 8 {
 			start-script 208
-			end-script
+			end-object
 		}
 	}
 
@@ -65,7 +65,7 @@ room room_6 {
 				start-script 10 ( L.1 )
 			}
 [00000063]:
-			end-script
+			end-object
 		}
 	}
 
@@ -84,7 +84,7 @@ room room_6 {
 				start-script 10 ( L.1 )
 			}
 [00000063]:
-			end-script
+			end-object
 		}
 	}
 
@@ -103,7 +103,7 @@ room room_6 {
 				start-script 10 ( L.1 )
 			}
 [00000063]:
-			end-script
+			end-object
 		}
 	}
 
@@ -111,13 +111,13 @@ room room_6 {
 		name is "birdseed"
 
 		verb 91 {
-			end-script
-			end-script
+			return 124
+			end-object
 		}
 
 		verb 92 {
-			end-script
-			end-script
+			return 160
+			end-object
 		}
 
 		verb 8 {
@@ -127,7 +127,7 @@ room room_6 {
 [00000048]:
 			say-line "\xFF\x0A\xF2\x0F\xFF\x0A\x0A\x00\xFF\x0A\x50\x66\xFF\x0A\x00\x00It's birdseed."
 [00000080]:
-			end-script
+			end-object
 		}
 	}
 
@@ -136,7 +136,7 @@ room room_6 {
 
 		verb 8 {
 			start-script 202
-			end-script
+			end-object
 		}
 	}
 
@@ -144,8 +144,8 @@ room room_6 {
 		name is "groceries"
 
 		verb 92 {
-			end-script
-			end-script
+			return 162
+			end-object
 		}
 	}
 
@@ -157,7 +157,7 @@ room room_6 {
 			start-sound 58
 			break-here 9 times
 			do-animation 3 6
-			end-script
+			end-object
 		}
 	}
 
@@ -167,7 +167,7 @@ room room_6 {
 		verb 8 {
 			do-animation 4 7
 			start-sound 57
-			end-script
+			end-object
 		}
 	}
 
@@ -190,7 +190,7 @@ room room_6 {
 				start-script 10 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -209,7 +209,7 @@ room room_6 {
 				start-script 10 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -220,7 +220,7 @@ room room_6 {
 			say-line "\xFF\x0A\x0D\xD0\xFF\x0A\x03\x00\xFF\x0A\xC0\x2D\xFF\x0A\x00\x00It says:"
 			wait-for-message
 			say-line "\xFF\x0A\x15\xCB\xFF\x0A\x09\x00\xFF\x0A\xDD\x44\xFF\x0A\x00\x00Baldini's Grocery Store."
-			end-script
+			end-object
 		}
 	}
 
@@ -241,7 +241,7 @@ room room_6 {
 		put-actor 2 at 0,0 in-room 0
 		put-actor 4 at 0,0 in-room 0
 		put-actor 3 at 0,0 in-room 0
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0006\ROOM\ENCD
@@ -253,7 +253,7 @@ room room_6 {
 		class-of 90 is 160
 		class-of 94 is 32
 		class-of 96 is 32
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0006\ROOM\LSCR_0200

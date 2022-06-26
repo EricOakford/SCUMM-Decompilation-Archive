@@ -11,7 +11,7 @@ room room_5 {
 
 		verb 8 {
 			start-script rec 204 ( 76 )
-			end-script
+			end-object
 		}
 	}
 
@@ -20,7 +20,7 @@ room room_5 {
 
 		verb 8 {
 			start-script rec 204 ( 77 )
-			end-script
+			end-object
 		}
 	}
 
@@ -29,7 +29,7 @@ room room_5 {
 
 		verb 8 {
 			start-script rec 204 ( 78 )
-			end-script
+			end-object
 		}
 	}
 
@@ -38,7 +38,7 @@ room room_5 {
 
 		verb 8 {
 			start-script rec 204 ( 79 )
-			end-script
+			end-object
 		}
 	}
 
@@ -47,7 +47,7 @@ room room_5 {
 
 		verb 8 {
 			start-script 209 ( 71 )
-			end-script
+			end-object
 		}
 	}
 
@@ -60,7 +60,7 @@ room room_5 {
 
 		verb 8 {
 			start-script 209 ( 75 )
-			end-script
+			end-object
 		}
 	}
 
@@ -100,7 +100,7 @@ room room_5 {
 			userput on
 			cursor on
 			come-out-door 48 in-room 4 walk 262,131
-			end-script
+			end-object
 		}
 	}
 
@@ -111,7 +111,7 @@ room room_5 {
 			if ( !script-running 210 ) {
 				start-script 210
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -160,7 +160,7 @@ room room_5 {
 			come-out-door 82 in-room 6 walk 87,141
 			userput on
 			cursor on
-			end-script
+			end-object
 		}
 	}
 
@@ -171,7 +171,7 @@ room room_5 {
 			if ( !script-running 210 ) {
 				start-script 210
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -200,7 +200,7 @@ room room_5 {
 [00000130]:
 			start-script rec 202 ( 65, 0, 0 )
 [00000149]:
-			end-script
+			end-object
 		}
 	}
 
@@ -267,7 +267,7 @@ room room_5 {
 			class-of 66 is 32
 			jump &[00000488]
 [00000488]:
-			end-script
+			end-object
 		}
 	}
 
@@ -286,7 +286,7 @@ room room_5 {
 				start-script 10 ( L.1 )
 			}
 [00000063]:
-			end-script
+			end-object
 		}
 	}
 
@@ -315,7 +315,7 @@ room room_5 {
 [00000130]:
 			start-script rec 202 ( 67, 0, 0 )
 [00000149]:
-			end-script
+			end-object
 		}
 	}
 
@@ -340,7 +340,7 @@ room room_5 {
 		if ( V.264 != 2 ) {
 			V.264 = 1
 		}
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0005\ROOM\ENCD
@@ -386,7 +386,7 @@ room room_5 {
 				start-script 205
 			}
 		}
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0200
@@ -665,7 +665,7 @@ room room_5 {
 		class-of 79 is 32
 		end-script
 	}
-; grow-flower
+
 	script 204 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0204
 	local variable L.0
 	local variable L.1
@@ -877,7 +877,7 @@ room room_5 {
 		--V.171
 		end-script
 	}
-; cow-bell
+
 	script 209 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0209
 	local variable L.0
 	local variable L.1
@@ -905,7 +905,7 @@ room room_5 {
 		class-of L.0 is 32
 		end-script
 	}
-; cow-hill
+
 	script 210 { ; LSCR LECF_0001\LFLF_0005\ROOM\LSCR_0210
 		++V.171
 		V.169 = 1
@@ -997,4 +997,3 @@ room room_5 {
 		end-script
 	}
 }
-

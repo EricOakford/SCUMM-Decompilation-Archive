@@ -11,7 +11,7 @@ room room_35 {
 
 		verb 8 {
 			start-script 206
-			end-script
+			end-object
 		}
 	}
 
@@ -19,7 +19,7 @@ room room_35 {
 		name is "bottles"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -28,7 +28,7 @@ room room_35 {
 
 		verb 8 {
 			start-script rec 204 ( 3 )
-			end-script
+			end-object
 		}
 	}
 
@@ -37,7 +37,7 @@ room room_35 {
 
 		verb 8 {
 			start-script rec 204 ( 4 )
-			end-script
+			end-object
 		}
 	}
 
@@ -46,7 +46,7 @@ room room_35 {
 
 		verb 8 {
 			start-script rec 204 ( 2 )
-			end-script
+			end-object
 		}
 	}
 
@@ -55,7 +55,7 @@ room room_35 {
 
 		verb 8 {
 			start-script rec 204 ( 5 )
-			end-script
+			end-object
 		}
 	}
 
@@ -64,7 +64,7 @@ room room_35 {
 
 		verb 8 {
 			start-script rec 204 ( 1 )
-			end-script
+			end-object
 		}
 	}
 
@@ -73,7 +73,7 @@ room room_35 {
 
 		verb 8 {
 			start-script 205
-			end-script
+			end-object
 		}
 	}
 
@@ -92,7 +92,7 @@ room room_35 {
 				start-script 10 ( L.1 )
 			}
 [00000060]:
-			end-script
+			end-object
 		}
 	}
 
@@ -100,8 +100,8 @@ room room_35 {
 		name is "plate"
 
 		verb 91 {
-			end-script
-			end-script
+			return 186
+			end-object
 		}
 
 		verb 8 {
@@ -116,7 +116,7 @@ room room_35 {
 [00000117]:
 			start-script 207
 [00000124]:
-			end-script
+			end-object
 		}
 	}
 
@@ -134,7 +134,7 @@ room room_35 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 26 in-room 1 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -153,7 +153,7 @@ room room_35 {
 				start-script 10 ( L.1 )
 			}
 [00000057]:
-			end-script
+			end-object
 		}
 	}
 
@@ -162,7 +162,7 @@ room room_35 {
 
 		verb 8 {
 			start-script 200
-			end-script
+			end-object
 		}
 	}
 
@@ -173,7 +173,7 @@ room room_35 {
 	exit { ; EXCD LECF_0001\LFLF_0035\ROOM\EXCD
 		userput on
 		cursor on
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0035\ROOM\ENCD
@@ -201,7 +201,7 @@ room room_35 {
 		class-of 76 is 21
 		class-of 198 is 21
 		class-of 70 is 21
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0035\ROOM\LSCR_0200

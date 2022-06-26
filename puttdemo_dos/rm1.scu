@@ -1550,7 +1550,7 @@ script 29 { ; SCRP LECF_0001\LFLF_0001\SCRP_0029
 	end-script
 }
 
-;Light-source (original name)
+; Light-source (original name)
 script 30 { ; SCRP LECF_0001\LFLF_0001\SCRP_0030
 local variable L.0
 local variable L.1
@@ -1611,7 +1611,7 @@ local variable L.0
 		never-zclip
 	put-actor L.0 at (V.2 - 160) + 121,190 in-room V.4
 	start-script 32 ( L.0 )
-	end-script
+	return L.0
 	end-script
 }
 
@@ -1679,13 +1679,13 @@ local variable L.2
 [00000014]:
 	if !( L.2 <= L.1 ) jump &[00000049]
 	if ( (actor-room L.2) == 0 ) {
-		end-script
+		return L.2
 		stop-script 0
 	}
 	++L.2
 	jump &[00000014]
 [00000049]:
-	end-script
+	return 0
 	stop-script 0
 	end-script
 }
@@ -1844,7 +1844,7 @@ room room_1 {
 			wait-for-actor V.1 [ref &[00000137]]
 			userput on
 			cursor on
-			end-script
+			end-object
 		}
 	}
 
@@ -1857,7 +1857,7 @@ room room_1 {
 			say-line "\xFF\x0A\xCD\xFD\xFF\x0A\x03\x00\xFF\x0A\xB9\x21\xFF\x0A\x00\x00To Putt Putt's."
 			wait-for-message
 			say-line "\xFF\x0A\x86\x1F\xFF\x0A\x04\x00\xFF\x0A\xC8\x20\xFF\x0A\x00\x00That's me!"
-			end-script
+			end-object
 		}
 	}
 
@@ -1913,7 +1913,7 @@ room room_1 {
 			userput on
 			cursor on
 			come-out-door 33 in-room 3 walk 283,137
-			end-script
+			end-object
 		}
 	}
 
@@ -1927,7 +1927,7 @@ room room_1 {
 [00000029]:
 			stop-script 0
 [00000033]:
-			end-script
+			end-object
 		}
 	}
 
@@ -1938,7 +1938,7 @@ room room_1 {
 			if ( !script-running 203 ) {
 				start-script 203
 			}
-			end-script
+			end-object
 		}
 	}
 
@@ -1953,7 +1953,7 @@ room room_1 {
 			do-animation 3 6
 			cursor on
 			userput on
-			end-script
+			end-object
 		}
 	}
 
@@ -1961,7 +1961,7 @@ room room_1 {
 		name is "cloud"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -1988,7 +1988,7 @@ room room_1 {
 			userput on
 			cursor on
 [00000140]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2015,7 +2015,7 @@ room room_1 {
 			userput on
 			cursor on
 [00000140]:
-			end-script
+			end-object
 		}
 	}
 
@@ -2057,12 +2057,12 @@ room room_1 {
 			break-here
 			userput on
 			cursor on
-			end-script
+			end-object
 		}
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0001\ROOM\EXCD
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0001\ROOM\ENCD
@@ -2072,7 +2072,7 @@ room room_1 {
 			start-script 200
 		}
 		start-script 202
-		end-script
+		end-object
 	}
 ; Turn on Radio
 	script 200 { ; LSCR LECF_0001\LFLF_0001\ROOM\LSCR_0200

@@ -374,7 +374,6 @@ room room_7 {
 				say-line 3 "Until they realize we don't pay the bills."
 			}
 			end-cut-scene
-			end-script
 			end-object
 		}
 

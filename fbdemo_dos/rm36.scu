@@ -20,7 +20,7 @@ room room_36 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 95 in-room 42 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -55,7 +55,7 @@ room room_36 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 59 in-room 33 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -80,7 +80,7 @@ room room_36 {
 			userput soft-on
 			cursor soft-on
 			come-out-door 18 in-room 1 walk -1,-1
-			end-script
+			end-object
 		}
 	}
 
@@ -88,7 +88,7 @@ room room_36 {
 		name is "shoe-1"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -96,7 +96,7 @@ room room_36 {
 		name is "shoe-2"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -104,7 +104,7 @@ room room_36 {
 		name is "shoe-3"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -112,7 +112,7 @@ room room_36 {
 		name is "mousehole-key"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -120,7 +120,7 @@ room room_36 {
 		name is "bow"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -128,7 +128,7 @@ room room_36 {
 		name is "tree-spoons"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -136,7 +136,7 @@ room room_36 {
 		name is "bone"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -144,7 +144,7 @@ room room_36 {
 		name is "cheese"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -152,7 +152,7 @@ room room_36 {
 		name is "garden-bowl"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -160,7 +160,7 @@ room room_36 {
 		name is "bucket-chips"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -168,7 +168,7 @@ room room_36 {
 		name is "bathroom-measuring-cup"
 
 		verb 8 {
-			end-script
+			end-object
 		}
 	}
 
@@ -177,7 +177,7 @@ room room_36 {
 
 		verb 8 {
 			start-script rec 200 ( 188 )
-			end-script
+			end-object
 		}
 	}
 
@@ -186,7 +186,7 @@ room room_36 {
 
 		verb 8 {
 			start-script rec 200 ( 189 )
-			end-script
+			end-object
 		}
 	}
 
@@ -195,7 +195,7 @@ room room_36 {
 
 		verb 8 {
 			start-script rec 200 ( 190 )
-			end-script
+			end-object
 		}
 	}
 
@@ -204,7 +204,7 @@ room room_36 {
 
 		verb 8 {
 			start-script rec 200 ( 191 )
-			end-script
+			end-object
 		}
 	}
 
@@ -215,7 +215,7 @@ room room_36 {
 	exit { ; EXCD LECF_0001\LFLF_0036\ROOM\EXCD
 		actor 1 \
 			step-dist 8,2 \
-		end-script
+		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0036\ROOM\ENCD
@@ -231,7 +231,7 @@ room room_36 {
 		draw-object 189 image 1
 		draw-object 79 image 1
 		draw-object 78 image 1
-		end-script
+		end-object
 	}
 
 	script 200 { ; LSCR LECF_0001\LFLF_0036\ROOM\LSCR_0200
@@ -320,4 +320,3 @@ room room_36 {
 		end-script
 	}
 }
-

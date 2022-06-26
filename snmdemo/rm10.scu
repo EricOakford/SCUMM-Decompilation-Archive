@@ -185,7 +185,6 @@ room room_10 {
 		print-text \
 			" "
 
-		end-script
 		end-object
 	}
 
