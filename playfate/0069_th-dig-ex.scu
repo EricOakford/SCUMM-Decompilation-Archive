@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 / * 
 ; * Room 69: Thera Dig Site Exterior (th-dig-ex)
 ; */
@@ -389,7 +389,7 @@ room th-dig-ex {
 [00000076]:
 		end-script
 	}
-; Balloon Inflates
+
 	script 201 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0201
 	local variable L.0
 
@@ -464,7 +464,7 @@ room th-dig-ex {
 		}
 		end-script
 	}
-; After Digging Out
+
 	script 202 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0202
 		cut-scene
 		sound-kludge 272

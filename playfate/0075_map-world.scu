@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 75: Map of World (map-world)
 ; */
@@ -1249,7 +1249,7 @@ room map-world {
 		break-here
 		end-script
 	}
-; Demo copyright info
+
 	script 208 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0208
 		V.452 = 100
 		charset 1

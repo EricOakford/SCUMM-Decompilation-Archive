@@ -1,0 +1,229 @@
+; Actors
+1 = indy
+2 = sophia
+3 = fish-on-string
+4 = kerner
+;Other actors seem to be local in nature
+
+; Verbs
+1 = Box-o-verbs
+2 = Box-o-items
+3 = Open
+4 = Close
+5 = Give
+6 = Push
+7 = Pull
+8 = Use
+9 = Look-at
+10 = Walk-to
+11 = Pick-up
+12 = Talk-to
+51 = verb-fight-bak
+53 = verb-path (Team, Fists, or Wits)
+54 = verb-current-IQ-points
+55 = verb-total-IQ-points
+
+; Scripts
+1 = boot-script
+2 = sentence
+3 = default-response
+4 = build-sentence
+13 = revert-sentence
+14 = display-sentence
+18 = define-verbs
+19 = set-verbs
+22 = key-pressed
+24 = fight-build-sentence
+25 = execute-fight-actions
+27 = calculate-indy-damage
+28 = calculate-opponent-damage
+29 = manage-power-levels
+46 = setup-fight
+47 = handle-fight-input
+48 = control-opponent-action-choice
+49 = indy-fight-stats
+50 = opponent-fight-stats
+52 = control-opponent-attack
+53 = check-opponent-power
+54 = check-opponent-health
+56 = error-flag
+57 = death-of-indy
+58 = death-build-sentence
+59 = scan-for-icon
+62 = open-door
+63 = close-door
+68 = start-dialog
+72 = fight
+75 = heal-indy
+76 = move-to-fighting-positions
+79 = full-screen-display-object-name
+82 = begin-dialog-ui
+83 = end-dialog-ui
+99 = unused-script-1
+144 = award-iq-points
+145 = calculate-total-iq-points
+
+160 = new-york-music-control
+; Scripts 200 on are local room scripts
+
+; Variables
+; 0-54 are known to be system variables
+70 = room-loaded
+123 = preposition
+164 = sophia-talk-script
+180 = sophia-look-script
+209 = get-past-biff-attempts
+210 = here-for-sophia-chosen-count
+211 = shelf-look-count
+224 = last-room
+229 = bead-count
+
+233 = lost-dialogue-collection
+234 = chest-collection
+235 = bookshelf-collection
+236 = wax-cat-collection
+238 = chosen-path
+	0 = no-path
+	1 = fists-path
+	2 = wits-path
+	3 = team-path
+240 = correct-atlantis-posn
+241 = correct-sunstone-posn
+242 = correct-moonstone-posn
+243 = correct-worldstone-posn
+313 = magazine-read-count
+
+;Fighting variables
+318 = fight-key-hit
+319 = indy-fight-action
+320 = opponent-fight-action
+321 = indy-max-health
+322 = indy-health
+323 = default-indy-max-power-when-blocked
+324 = default-indy-max-power
+325 = var-325
+326 = opponent-health
+327 = opponent-speed
+328 = chance-of-opponent-blocking
+329 = opponent-max-power-when-blocked
+330 = opponent-max-power
+331 = opponent-power-when-blocked
+332 = opponent-power
+333 = chance-of-opponent-blocking-while-attacking
+334 = opponent-regain-power
+335 = chance-of-opponent-attacking
+336 = combos-for-opponent-stepback
+337 = change-of-counter-attack
+338 = indy-max-power-when-blocked
+339 = indy-max-power
+340 = indy-power-when-blocked
+341 = indy-power
+342 = var-342
+343 = consecutive-steps-back
+344 = indy-combo-counter
+345 = fight-opponent
+346 = indy-fight-forward-distance
+347 = opponent-fight-forward-distance
+348 = fight-bounds-min
+349 = fight-bounds-max
+350 = opponent-max-health
+351 = indy-x
+352 = indy-y
+353 = opponent-x
+354 = opponent-y
+355 = fight-hit-x
+356 = fight-hit-y
+357 = key-block-high
+358 = key-block-mid
+359 = key-block-low
+360 = key-attack-high
+361 = key-attack-mid
+362 = key-attack-low
+363 = key-stepback-high
+364 = key-stepback-mid
+365 = key-stepback-low
+366 = key-knockout
+367 = fight-outcome
+
+424 = beads-in-dish-count
+
+442 = foo
+443 = foo2
+444 = return-value
+445 = return-x
+446 = return-y
+
+448 = build-sentence-script-backup
+
+450 = indy-quotient
+451 = total-indy-quotient
+
+; Bits
+17 = necklace-destroyed
+19 = big-override-hit	;Original LucasArts name
+23 = bit-23
+37 = flags
+69 = finished-intro
+77 = been-in-indys-office
+78 = been-inside-theater
+79 = visited-new-york
+80 = bit-80
+81 = bit-81
+82 = offended-sophia
+83 = convinced-biff-indy-is-a-fan
+84 = called-biff-ape
+85 = lost-to-biff
+105 = bit-105
+106 = used-knockout
+107 = mouse-fighting
+108 = custom-fight-stats
+210 = found-lost-dialogue
+213 = opened-ice-box
+214 = looked-at-mayonnaise
+216 = hurt-self-with-arrowhead
+217 = lost-dialogue-in-chest
+218 = lost-dialogue-in-bookshelf
+219 = lost-dialogue-in-wax-cat
+540 = beat-fritz
+650 = is-demo
+
+; Sounds
+37 = fighting-theme
+39 = death-theme
+40 = backstage-theme
+41 = fabulous-atlantis-theme
+42 = atlantis-decline-theme
+55 = ransacked-apartment-theme
+99 = algiers-balloon-theme
+119 = new-york-theme
+120 = kerners-theme
+180 = fight-hit-low-sound
+190 = door-close
+200 = fight-hit-high-sound
+204 = fight-block-sound
+
+; Fonts
+1 = system-font
+2 = fat-font
+
+; Strings
+4 = pause-string
+5 = restart-string
+6 = quit-string
+7 = save-button-string
+8 = load-button-string
+9 = play-button-string
+10 = cancel-button-string
+11 = quit-button-string
+12 = ok-button-string
+13 = insert-save-load-disk-string
+14 = must-enter-name-string
+15 = save-fail-string
+16 = load-fail-string
+17 = saving-string
+18 = loading-string
+19 = name-save-game-string
+20 = select-game-to-load-string
+28 = save-load-heading-string
+31 = iq-points
+39 = collection-name-string

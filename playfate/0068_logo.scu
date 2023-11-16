@@ -1,12 +1,11 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 68: LucasArts Logo (logo)
 ; */
 
-; Game Initialization
 script 1 { ; SCRP LECF_0001\LFLF_0068\SCRP_0001
-local variable L.0	; Boot param
+local variable L.0
 local variable L.1
 
 	charset 1
@@ -16,7 +15,7 @@ local variable L.1
 	pause-key = 32
 	V.57 = 46
 	*37 = "Indy Atlantis PLAY DEMO v2 H%n40% M%n68% V%n69% J%n6%"
- 	V.58 = 176
+	V.58 = 176
 	*4 = "Game Paused.  Press SPACE to Continue."
 	*5 = "Are you sure you want to restart?  (Y/N)Y"
 	*6 = "Are you sure you want to quit?  (Y/N)Y"
@@ -2088,7 +2087,6 @@ local variable L.1
 	end-script
 }
 
-; Default Sentence Script
 script 2 { ; SCRP LECF_0001\LFLF_0068\SCRP_0002
 local variable L.0
 local variable L.1
@@ -2343,7 +2341,6 @@ local variable L.7
 	end-script
 }
 
-; Default Verb Responses
 script 3 { ; SCRP LECF_0001\LFLF_0068\SCRP_0003
 local variable L.0
 
@@ -3011,7 +3008,6 @@ local variable L.6
 	end-script
 }
 
-;Set Up Verbs
 script 18 { ; SCRP LECF_0001\LFLF_0068\SCRP_0018
 	charset 1
 	verb 1 new at 0,152 image 1263 in-room 98 bakcolor 0
@@ -3674,7 +3670,6 @@ local variable L.1
 	end-script
 }
 
-; Open a Door
 script 62 { ; SCRP LECF_0001\LFLF_0068\SCRP_0062
 local variable L.0
 local variable L.1
@@ -3704,7 +3699,6 @@ local variable L.1
 	end-script
 }
 
-; Close a door
 script 63 { ; SCRP LECF_0001\LFLF_0068\SCRP_0063
 local variable L.0
 local variable L.1
@@ -4100,7 +4094,6 @@ local variable L.1
 	end-script
 }
 
-; Use Orichalcum Detector
 script 87 { ; SCRP LECF_0001\LFLF_0068\SCRP_0087
 local variable L.0
 local variable L.1
@@ -5059,7 +5052,6 @@ local variable L.9
 	end-script
 }
 
-; Comb on a String Charged
 script 142 { ; SCRP LECF_0001\LFLF_0068\SCRP_0142
 	owner-of 451 is 0
 	owner-of 702 is 14
@@ -5180,7 +5172,6 @@ local variable L.0
 	end-script
 }
 
-; Look at Someone
 script 161 { ; SCRP LECF_0001\LFLF_0068\SCRP_0161
 	if !(V.181 is 2) jump &[00000021]
 	chain-script 162 ()
@@ -5191,7 +5182,6 @@ script 161 { ; SCRP LECF_0001\LFLF_0068\SCRP_0161
 	end-script
 }
 
-; Look at Sophia
 script 162 { ; SCRP LECF_0001\LFLF_0068\SCRP_0162
 local variable L.0
 local variable L.1

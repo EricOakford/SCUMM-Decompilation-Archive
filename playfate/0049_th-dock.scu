@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 49: Thera Dock (th-dock)
 ; */
@@ -430,7 +430,7 @@ room th-dock {
 		start-script 200 ()
 		end-object
 	}
-; Entered Thera
+
 	script 200 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0200
 		set-box 12 to 128
 		set-box 20 to 128
@@ -590,7 +590,7 @@ room th-dock {
 		jump &[00000122]
 		end-script
 	}
-; Try to Take Basket
+
 	script 202 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0202
 		if (script-running 201) {
 			stop-script 201
@@ -620,7 +620,7 @@ room th-dock {
 		chain-script 205 (591)
 		end-script
 	}
-; Try to Open Crate
+
 	script 203 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0203
 		stop-script 201
 		do-animation 10 255
@@ -673,7 +673,7 @@ room th-dock {
 [00000047]:
 		end-script
 	}
-; Talk to Port Authority
+
 	script 205 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0205
 	local variable L.0
 	local variable L.1
@@ -1199,7 +1199,7 @@ room th-dock {
 		}
 		end-script
 	}
-; Talk to Sophia
+
 	script 206 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0206
 	local variable L.0
 	local variable L.1
@@ -1518,7 +1518,7 @@ room th-dock {
 		start-script 215 ()
 		end-script
 	}
-; First Entered Thera (Fists)
+
 	script 207 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0207
 		cut-scene
 		override &[00000431]
@@ -1630,7 +1630,7 @@ room th-dock {
 		start-script 215 ()
 		end-script
 	}
-; Talk to Captain
+
 	script 208 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0208
 	local variable L.0
 	local variable L.1
@@ -2555,7 +2555,7 @@ room th-dock {
 		class-of 9 is 0
 		end-script
 	}
-; Go to Thera Landscape
+
 	script 211 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0211
 	local variable L.0
 
@@ -2670,7 +2670,7 @@ room th-dock {
 [00000768]:
 		end-script
 	}
-; After Failed Salvage
+
 	script 212 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0212
 		cut-scene
 		override &[00000321]
@@ -2715,7 +2715,7 @@ room th-dock {
 		end-cut-scene
 		end-script
 	}
-; Nazis Go To U-Boat
+
 	script 213 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0213
 		camera-at 362
 		cut-scene
@@ -2892,7 +2892,7 @@ room th-dock {
 		jump &[00000008]
 		end-script
 	}
-; Give Something to Port Authority
+
 	script 217 { ; LSCR LECF_0001\LFLF_0049\ROOM\LSCR_0217
 	local variable L.0
 	local variable L.1

@@ -199,7 +199,7 @@ room cu-plato {
 [00000345]:
 		end-script
 	}
-; Page 1
+
 	script 201 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0201
 		B.37[1] = 1
 		draw-object 1103 
@@ -245,7 +245,7 @@ room cu-plato {
 		break-here
 		end-script
 	}
-; Page 2
+
 	script 202 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0202
 		B.37[2] = 1
 		draw-object 1103 
@@ -296,7 +296,7 @@ room cu-plato {
 		break-here
 		end-script
 	}
-; Page 3
+
 	script 203 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0203
 		B.37[3] = 1
 		draw-object 1103 
@@ -471,7 +471,7 @@ room cu-plato {
 		break-here
 		end-script
 	}
-; Page 4
+
 	script 204 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0204
 		B.37[4] = 1
 		draw-object 1103 
@@ -521,7 +521,7 @@ room cu-plato {
 		break-here
 		end-script
 	}
-; Page 5
+
 	script 205 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0205
 		B.37[5] = 1
 		draw-object 1103 

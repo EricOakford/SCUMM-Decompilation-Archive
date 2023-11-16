@@ -1,10 +1,9 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 82: Salvage Boat Underwater (sal-under)
 ; */
 
-; Fighting Commands
 script 24 { ; SCRP LECF_0001\LFLF_0082\SCRP_0024
 local variable L.0
 local variable L.1
@@ -127,7 +126,6 @@ local variable L.15
 	end-script
 }
 
-; Fistfight
 script 25 { ; SCRP LECF_0001\LFLF_0082\SCRP_0025
 local variable L.0
 
@@ -689,7 +687,7 @@ local variable L.1
 	jump &[00000108]
 	end-script
 }
-; Indy's Fighting Interface
+
 script 49 { ; SCRP LECF_0001\LFLF_0082\SCRP_0049
 local variable L.0
 local variable L.1
@@ -760,7 +758,6 @@ local variable L.5
 	end-script
 }
 
-; Opponent's Fighting Interface
 script 50 { ; SCRP LECF_0001\LFLF_0082\SCRP_0050
 local variable L.0
 local variable L.1
@@ -1045,7 +1042,7 @@ local variable L.1
 	}
 	end-script
 }
-; Death message
+
 script 57 { ; SCRP LECF_0001\LFLF_0082\SCRP_0057
 local variable L.0
 
@@ -1683,7 +1680,7 @@ room sal-under {
 		start-script bak 204 ()
 		end-object
 	}
-; Countdown to Drowning
+
 	script 200 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0200
 	local variable L.0
 
@@ -1838,7 +1835,7 @@ room sal-under {
 		chain-script 57 (31)
 		end-script
 	}
-; Diving In
+
 	script 201 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0201
 	local variable L.0
 	local variable L.1
@@ -1923,7 +1920,7 @@ room sal-under {
 		current-room 42
 		end-script
 	}
-; Hose Cut
+
 	script 202 { ; LSCR LECF_0001\LFLF_0082\ROOM\LSCR_0202
 	local variable L.0
 	local variable L.1

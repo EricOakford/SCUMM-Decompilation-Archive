@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 42: Salvage Boat Surface (sal-surfa)
 ; */
@@ -458,7 +458,7 @@ room sal-surfa {
 [00000168]:
 		end-object
 	}
-; Kerner is Here
+
 	script 200 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0200
 		override off
 		camera-at 248
@@ -587,7 +587,7 @@ room sal-surfa {
 		}
 		end-script
 	}
-; Kerner Cuts Hose
+
 	script 202 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0202
 	local variable L.0
 
@@ -622,7 +622,7 @@ room sal-surfa {
 [00000034]:
 		end-script
 	}
-; Arrived at Destination
+
 	script 204 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0204
 		if !(V.416 is 1) jump &[00000031]
 		*38 = "southwest"
@@ -711,7 +711,7 @@ room sal-surfa {
 		}
 		end-script
 	}
-; Talk to Sophia
+
 	script 205 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0205
 	local variable L.0
 	local variable L.1
@@ -843,7 +843,7 @@ room sal-surfa {
 		}
 		end-script
 	}
-; Talk to Captain
+
 	script 206 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0206
 	local variable L.0
 
@@ -973,7 +973,7 @@ room sal-surfa {
 		}
 		end-script
 	}
-; Indy Dives In
+
 	script 207 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0207
 		cut-scene
 		if (!script-running 201) {
@@ -1093,7 +1093,7 @@ room sal-surfa {
 		}
 		end-script
 	}
-; Indy Wears Diving Suit
+
 	script 209 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0209
 		cut-scene
 		walk 1 to-object 490
@@ -1131,7 +1131,7 @@ room sal-surfa {
 	script 210 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0210
 		end-script
 	}
-; Talk to Indy in Suit
+
 	script 211 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0211
 	local variable L.0
 
@@ -1254,7 +1254,7 @@ room sal-surfa {
 [00000909]:
 		end-script
 	}
-; Use Tire Repair Kit on Suit
+
 	script 212 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0212
 		class-of 491 is 12
 		start-script 144 (91,5)

@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 63: Thera Landscape (th-landsc)
 ; */
@@ -235,7 +235,7 @@ room th-landsc {
 		start-script bak 202 ()
 		end-object
 	}
-; Ride Balloon to Sea
+
 	script 200 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0200
 	local variable L.0
 	local variable L.1
@@ -279,7 +279,7 @@ room th-landsc {
 		current-room 184
 		end-script
 	}
-: Check for Dig Site
+
 	script 201 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0201
 	local variable L.0
 
@@ -308,7 +308,7 @@ room th-landsc {
 [00000138]:
 		end-script
 	}
-; Change Walk Speed
+
 	script 202 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0202
 	local variable L.0
 	local variable L.1

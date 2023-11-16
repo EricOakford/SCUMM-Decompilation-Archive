@@ -1,5 +1,5 @@
 ;/**
-; * Indiana Jones and the Fate of Atlantis: Playable Demo
+; * Indiana Jones and the Fate of Atlantis: Playable Demo v2
 ; * 
 ; * Room 48: Atlantis Entrance (a1-darkro)
 ; */
@@ -636,7 +636,7 @@ room a1-darkro {
 		start-script bak 201 ()
 		end-object
 	}
-; Check for Lights
+
 	script 200 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0200
 	local variable L.0
 	local variable L.1
@@ -716,7 +716,7 @@ room a1-darkro {
 		start-script 208 ()
 		end-script
 	}
-; Enter Atlantis
+
 	script 201 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0201
 	local variable L.0
 
@@ -877,7 +877,7 @@ room a1-darkro {
 		}
 		end-script
 	}
-; Welcome to Atlantis
+
 	script 202 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0202
 		if !(actor-room V.182 is selected-room) jump &[00000254]
 		cut-scene
@@ -911,7 +911,7 @@ room a1-darkro {
 [00000454]:
 		end-script
 	}
-; Light Up Room
+
 	script 203 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0203
 		start-script 84 ()
 		break-until (!script-running 84)
@@ -1235,7 +1235,7 @@ room a1-darkro {
 [00000319]:
 		end-script
 	}
-; Place Ladder
+
 	script 206 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0206
 		cut-scene
 		start-script 144 (112,7)
@@ -1410,7 +1410,7 @@ room a1-darkro {
 [00000836]:
 		end-script
 	}
-; Subway Crashes In
+
 	script 209 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0209
 		cut-scene
 		lock-sound 207
@@ -1560,7 +1560,7 @@ room a1-darkro {
 		}
 		end-script
 	}
-; Used Stone Disks
+
 	script 214 { ; LSCR LECF_0001\LFLF_0048\ROOM\LSCR_0214
 		camera-at 328
 		cut-scene
