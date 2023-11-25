@@ -4,40 +4,40 @@
 ; * Room 69: Thera Dig Site Exterior (th-dig-ex)
 ; */
 
-room th-dig-ex {
+room thera-dig-exterior {
 
-	object 944 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0944
+	object invoice {
 		name is "invoice"
 
 		verb 91 {
-			V.161 = 1361
+			icon-number = invoice-icon
 			end-object
 		}
 
-		verb 11 {
+		verb pick-up {
 			if (owner-of me is-not selected-actor) {
 				pick-up-object me in-room 0
-				start-script 10 ()
+				start-script update-inventory ()
 			}
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			B.400[0] = 1
 			say-line "It's an invoice for an observation balloon\\x10bladder."
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 941 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0941
+	object thera-dig-crate {
 		name is "crate"
 
-		verb 3 {
+		verb open {
 			if !(state-of me is 0) jump &[00000027]
 			state-of me is 1
 			jump &[00000048]
@@ -47,7 +47,7 @@ room th-dig-ex {
 			end-object
 		}
 
-		verb 4 {
+		verb cloes {
 			if !(state-of me is 1) jump &[00000068]
 			state-of me is 0
 			jump &[00000091]
@@ -57,7 +57,7 @@ room th-dig-ex {
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(state-of me is 0) jump &[00000138]
 			say-line "It's a plain old wooden\\x10box."
 			jump &[00000175]
@@ -68,30 +68,30 @@ room th-dig-ex {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 946 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0946
+	object tire-repair-kit {
 		name is "tire repair kit"
 
 		verb 91 {
-			V.161 = 1318
+			icon-number = tire-repair-kit-icon
 			end-object
 		}
 
-		verb 11 {
-			if !(owner-of 946 is-not selected-actor) jump &[00000058]
+		verb pick-up {
+			if !(owner-of tire-repair-kit is-not selected-actor) jump &[00000058]
 			cut-scene
-			do-animation 1 12
-			start-sound 117
+			do-animation indy 12
+			start-sound triangle-glissando-sound
 			break-here 4
-			do-animation 1 1
+			do-animation indy 1
 			end-cut-scene
-			pick-up-object 946 in-room 0
-			state-of 946 is 0
-			start-script 10 ()
+			pick-up-object tire-repair-kit in-room 0
+			state-of tire-repair-kit is 0
+			start-script update-inventory ()
 			jump &[00000079]
 [00000058]:
 			say-line "I already have\\x10it."
@@ -99,76 +99,76 @@ room th-dig-ex {
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			say-line "It's a tire repair\\x10kit."
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			if !(L.0 is 491) jump &[00000135]
-			if (class-of 491 is 140) {
-				start-script 212 ()
+			if !(L.0 is punctured-diving-suit) jump &[00000135]
+			if (class-of punctured-diving-suit is 140) {
+				start-script fix-diving-suit ()
 			}
 			jump &[00000141]
 [00000135]:
-			chain-script 3 (8)
+			chain-script default-response (use)
 [00000141]:
 			end-object
 		}
 	}
 
-	object 940 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0940
+	object thera-dig-truck {
 		name is "truck"
 
-		verb 9 {
+		verb look-at {
 			say-line "It's a German army truck\\xFF\\x01with a missing tire.\\xFF\\x03Kerner must have been\\x10here!"
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 949 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0949
+	object th-dig-balloon-anim-3 {
 		name is "th-dig-balloon-anim-3"
 	}
 
-	object 945 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0945
+	object path-to-landscape {
 		name is "path to landscape"
 
-		verb 10 {
+		verb walk-to {
 			fades 257
-			come-out V.414 in-room 63 walk-to 65535,65535
+			come-out path-to-thera-digsite in-room thera-landscape walk-to 65535,65535
 			end-object
 		}
 	}
 
-	object 942 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0942
+	object thera-dig-entrance {
 		name is "entrance@@@@@@@@@@"
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 
-		verb 10 {
-			if (V.238 is 2) {
+		verb walk-to {
+			if (chosen-path is wits-path) {
 				current-room 179
 			}
 			end-object
 		}
 
-		verb 9 {
-			if !(V.238 is 2) jump &[00000089]
+		verb look-at {
+			if !(chosen-path is wits-path) jump &[00000089]
 			say-line "Looks like the entrance to some underground\\x10chamber."
 			jump &[00000200]
 [00000089]:
@@ -178,32 +178,32 @@ room th-dig-ex {
 		}
 	}
 
-	object 947 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0947
+	object th-dig-balloon-anim-1 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0947
 		name is "th-dig-balloon-anim-1"
 	}
 
-	object 948 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0948
+	object th-dig-balloon-anim-2 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0948
 		name is "th-dig-balloon-anim-2"
 	}
 
-	object 943 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0943
+	object thera-dig-vent { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0943
 		name is "vent"
 
-		verb 9 {
+		verb look-at {
 			say-line "This looks like a natural gas\\x10fissure."
 			end-object
 		}
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			if !(L.0 is 1014) jump &[00000111]
+			if !(L.0 is hose) jump &[00000111]
 			say-line "What would I do with a hose spewing natural\\x10gas?"
 			jump &[00000468]
 [00000111]:
-			if !(L.0 is 593) jump &[00000154]
-			if !(class-of 593 is 147) jump &[00000148]
-			if !(class-of 595 is 140) jump &[00000142]
+			if !(L.0 is large-rubber-balloon) jump &[00000154]
+			if !(class-of large-rubber-balloon is 147) jump &[00000148]
+			if !(class-of fish-net is 140) jump &[00000142]
 			jump &[00000349]
 			jump &[00000145]
 [00000142]:
@@ -215,23 +215,23 @@ room th-dig-ex {
 [00000151]:
 			jump &[00000468]
 [00000154]:
-			if !(L.0 is 591) jump &[00000170]
-			chain-script 3 (88)
+			if !(L.0 is very-large-basket) jump &[00000170]
+			chain-script default-response (88)
 			jump &[00000468]
 [00000170]:
-			if !(L.0 is 595) jump &[00000413]
-			if !(class-of 595 is 145) jump &[00000331]
-			if !(class-of 595 is 140) jump &[00000288]
-			if !(class-of 595 is 147) jump &[00000282]
+			if !(L.0 is fish-net) jump &[00000413]
+			if !(class-of fish-net is 145) jump &[00000331]
+			if !(class-of fish-net is 140) jump &[00000288]
+			if !(class-of fish-net is 147) jump &[00000282]
 			cut-scene
-			do-animation 1 11
+			do-animation indy 11
 			break-here 4
-			do-animation 1 1
+			do-animation indy 1
 			say-line "It's a long shot, but here\\x10goes^"
-			class-of 595 is 146
-			new-name-of 595 is "balloon"
+			class-of fish-net is 146
+			new-name-of fish-net is "balloon"
 			end-cut-scene
-			chain-script 201 (1)
+			chain-script balloon-inflates (1)
 			jump &[00000285]
 [00000282]:
 			jump &[00000422]
@@ -242,21 +242,21 @@ room th-dig-ex {
 [00000328]:
 			jump &[00000410]
 [00000331]:
-			if !(class-of 595 is 140) jump &[00000404]
-			if !(class-of 593 is 147) jump &[00000395]
+			if !(class-of fish-net is 140) jump &[00000404]
+			if !(class-of large-rubber-balloon is 147) jump &[00000395]
 [00000349]:
 			say-line "I don't have all the parts together\\x10yet."
 			jump &[00000401]
 [00000395]:
-			chain-script 3 (88)
+			chain-script default-response (88)
 [00000401]:
 			jump &[00000410]
 [00000404]:
-			chain-script 3 (88)
+			chain-script default-response (88)
 [00000410]:
 			jump &[00000468]
 [00000413]:
-			chain-script 3 (88)
+			chain-script default-response (88)
 			jump &[00000468]
 [00000422]:
 			say-line "I need something to connect it to the\\x10vent."
@@ -265,28 +265,28 @@ room th-dig-ex {
 		}
 
 		verb 90 {
-			if !(class-of 595 is 145) jump &[00000504]
-			if !(class-of 595 is 140) jump &[00000504]
-			if !(class-of 595 is 147) jump &[00000504]
-			V.123 = 8
+			if !(class-of fish-net is 145) jump &[00000504]
+			if !(class-of fish-net is 140) jump &[00000504]
+			if !(class-of fish-net is 147) jump &[00000504]
+			double-verb = use
 			jump &[00000509]
 [00000504]:
-			V.123 = 9
+			double-verb = look-at
 [00000509]:
 			end-object
 		}
 	}
 
-	object 950 { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0950
+	object fully-inflated-balloon { ; VERB LECF_0001\LFLF_0069\ROOM\OBCD_0950
 		name is "fully inflated balloon"
 
-		verb 9 {
+		verb look-at {
 			say-line "It's a ready to\\x10go."
 			end-object
 		}
 
-		verb 8 {
-			class-of 595 is 148
+		verb use {
+			class-of fish-net is 148
 			fades 257
 			start-script 144 (101,10)
 			sound-kludge 269 80 50 180
@@ -296,12 +296,12 @@ room th-dig-ex {
 			sound-kludge 262 80 0
 			sound-kludge 262 153 0
 			sound-kludge 65535
-			current-room 63
+			current-room thera-landscape
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 8
+			double-verb = use
 			end-object
 		}
 	}
@@ -314,26 +314,26 @@ room th-dig-ex {
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0069\ROOM\ENCD
-		if (V.224 is-not 69) {
+		if (last-room is-not thera-dig-exterior) {
 			actor 5 default costume 52 palette 4 in-slot 253 palette 3 in-slot 252 ignore-boxes never-zclip
-			put-actor 5 in-room 69
+			put-actor 5 in-room thera-dig-exterior
 			put-actor 5 at 231,42
 		}
 		do-animation 5 250
 		do-animation 5 2
-		if !(V.238 is 2) jump &[00000058]
-		state-of 942 is 0
+		if !(chosen-path is wits-path) jump &[00000058]
+		state-of thera-dig-entrance is 0
 		jump &[00000084]
 [00000058]:
-		state-of 942 is 1
-		new-name-of 942 is "collapsed entrance"
+		state-of thera-dig-entrance is 1
+		new-name-of thera-dig-entrance is "collapsed entrance"
 [00000084]:
-		start-script 200 ()
-		set-box 1 to 16
-		if !(V.224 is 63) jump &[00000203]
-		put-actor 1 in-room 69
-		put-actor 1 at-object 945
-		if !(V.238 is-not 2) jump &[00000185]
+		start-script set-up-items ()
+		set-box indy to 16
+		if !(last-room is thera-landscape) jump &[00000203]
+		put-actor indy in-room thera-dig-exterior
+		put-actor indy at-object path-to-landscape
+		if !(chosen-path is-not wits-path) jump &[00000185]
 		stop-script 151
 		if (sound-running 80) {
 			sound-kludge 256 80 6
@@ -350,20 +350,20 @@ room th-dig-ex {
 			start-script 151 ()
 		}
 [00000197]:
-		do-animation 1 250
+		do-animation indy 250
 		jump &[00000264]
 [00000203]:
-		if !(V.224 is 72) jump &[00000230]
+		if !(last-room is thera-dig-interior) jump &[00000230]
 		sound-kludge 268 80 0 1
 		start-script 151 ()
 		jump &[00000264]
 [00000230]:
-		if !(V.224 is 69) jump &[00000243]
-		start-script 201 ()
+		if !(last-room is thera-dig-exterior) jump &[00000243]
+		start-script balloon-inflates ()
 		jump &[00000264]
 [00000243]:
-		if (class-of 984 is 6) {
-			if (class-of 984 is 145) {
+		if (class-of blocked-door is 6) {
+			if (class-of blocked-door is 145) {
 				start-script bak 202 ()
 			}
 		}
@@ -371,61 +371,61 @@ room th-dig-ex {
 		end-object
 	}
 
-	script 200 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0200
-		if !(V.238 is 1) jump &[00000054]
-		state-of 944 is 1
-		class-of 944 is 160
-		if (owner-of 946 is-not selected-actor) {
-			if (class-of 491 is 140) {
-				state-of 946 is 1
+	script set-up-items { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0200
+		if !(chosen-path is fists-path) jump &[00000054]
+		state-of invoice is 1
+		class-of invoice is 160
+		if (owner-of tire-repair-kit is-not selected-actor) {
+			if (class-of punctured-diving-suit is 140) {
+				state-of tire-repair-kit is 1
 			}
 		}
 		jump &[00000076]
 [00000054]:
-		state-of 946 is 0
-		class-of 946 is 160
-		state-of 940 is 1
-		class-of 940 is 160
+		state-of tire-repair-kit is 0
+		class-of tire-repair-kit is 160
+		state-of thera-dig-truck is 1
+		class-of thera-dig-truck is 160
 [00000076]:
 		end-script
 	}
 
-	script 201 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0201
+	script balloon-inflates { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0201
 	local variable L.0
 
 		if !(L.0) jump &[00000106]
 		cut-scene
-		state-of 948 is 0
-		state-of 949 is 0
-		state-of 950 is 0
-		owner-of 595 is 0
+		state-of th-dig-balloon-anim-2 is 0
+		state-of th-dig-balloon-anim-3 is 0
+		state-of fully-inflated-balloon is 0
+		owner-of fish-net is 0
 		wait-for-message
-		do-animation 1 12
+		do-animation indy 12
 		break-here 3
-		start-script 10 ()
-		draw-object 947 
-		do-animation 1 3
+		start-script update-inventory ()
+		draw-object th-dig-balloon-anim-1 
+		do-animation indy 3
 		put-actor 5 in-room 0
 		actor 5 default
 		break-here 2
-		V.351 = actor-x selected-actor
-		V.352 = actor-y selected-actor
-		V.351 -= 55
-		walk 1 to V.351,V.352
-		wait-for-actor 1
-		do-animation 1 245
+		indy-x = actor-x selected-actor
+		indy-y = actor-y selected-actor
+		indy-x -= 55
+		walk indy to indy-x,indy-y
+		wait-for-actor indy
+		do-animation indy 245
 		break-here 8
 		fades 134
 		end-cut-scene
-		current-room 69
+		current-room thera-dig-exterior
 		jump &[00000234]
 [00000106]:
-		if (state-of 947 is 1) {
+		if (state-of th-dig-balloon-anim-1 is 1) {
 			cut-scene
-			state-of 947 is 0
-			draw-object 948 
-			state-of 949 is 0
-			do-animation 1 245
+			state-of th-dig-balloon-anim-1 is 0
+			draw-object th-dig-balloon-anim-2 
+			state-of th-dig-balloon-anim-3 is 0
+			do-animation indy 245
 			load-sound 83
 			sound-kludge 65535
 			sound-kludge 269 80 0 180
@@ -439,33 +439,33 @@ room th-dig-ex {
 			break-here 8
 			fades 134
 			end-cut-scene
-			current-room 69
+			current-room thera-dig-exterior
 		}
 [00000234]:
-		if (state-of 948 is 1) {
+		if (state-of th-dig-balloon-anim-2 is 1) {
 			cut-scene
-			state-of 947 is 0
-			state-of 948 is 0
-			draw-object 949 
+			state-of th-dig-balloon-anim-1 is 0
+			state-of th-dig-balloon-anim-2 is 0
+			draw-object th-dig-balloon-anim-3 
 			break-here 8
 			fades 134
 			end-cut-scene
-			current-room 69
+			current-room thera-dig-exterior
 		}
-		if (state-of 949 is 1) {
+		if (state-of th-dig-balloon-anim-3 is 1) {
 			cut-scene
-			state-of 949 is 0
-			draw-object 950 
-			class-of 950 is 32
+			state-of th-dig-balloon-anim-3 is 0
+			draw-object fully-inflated-balloon 
+			class-of fully-inflated-balloon is 32
 			fades 257
 			break-here 4
-			say-line 1 "I ought to be featured\\xFF\\x01in Modern\\x10Mechanix for\\x10this."
+			say-line indy "I ought to be featured\\xFF\\x01in Modern\\x10Mechanix for\\x10this."
 			end-cut-scene
 		}
 		end-script
 	}
 
-	script 202 { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0202
+	script after-kerner { ; LSCR LECF_0001\LFLF_0069\ROOM\LSCR_0202
 		cut-scene
 		sound-kludge 272
 		sound-kludge 65535
@@ -475,14 +475,14 @@ room th-dig-ex {
 		sound-kludge 271 269 155 70 200
 		sound-kludge 271 65535
 		sound-kludge 65535
-		class-of 984 is 17
+		class-of blocked-door is 17
 		break-here
-		put-actor selected-actor in-room 69
-		put-actor selected-actor at-object 942
+		put-actor selected-actor in-room thera-dig-exterior
+		put-actor selected-actor at-object thera-dig-entrance
 		walk selected-actor to 144,144
 		wait-for-actor selected-actor
 		override &[00000192]
-		say-line 1 "Somehow Kerner got the jump on\\x10me^\\xFF\\x03^and now he's got\\x10Sophia!"
+		say-line indy "Somehow Kerner got the jump on\\x10me^\\xFF\\x03^and now he's got\\x10Sophia!"
 		wait-for-message
 [00000192]:
 		sound-kludge 272

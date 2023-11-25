@@ -4,50 +4,50 @@
 ; * Room 63: Thera Landscape (th-landsc)
 ; */
 
-room th-landsc {
+room thera-landscape {
 
-	object 851 { ; VERB LECF_0001\LFLF_0063\ROOM\OBCD_0851
+	object path-back-to-the-dock {
 		name is "path back to the dock"
 
-		verb 10 {
-			come-out 596 in-room 49 walk-to 65535,65535
+		verb walk-to {
+			come-out path-away-from-dock in-room thera-dock walk-to 65535,65535
 			end-object
 		}
 	}
 
-	object 853 { ; VERB LECF_0001\LFLF_0063\ROOM\OBCD_0853
+	object gap-in-mountain {
 		name is "gap in mountain"
 
-		verb 10 {
-			start-script 201 (853)
+		verb walk-to {
+			start-script check-mountain-path (gap-in-mountain)
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(class-of me is 12) jump &[00000072]
 			say-line "Looks like a path into the mountain range."
 			jump &[00000139]
 [00000072]:
-			if !(me is V.414) jump &[00000115]
+			if !(me is path-to-thera-digsite) jump &[00000115]
 			say-line "It's the former Nazi dig site."
 			jump &[00000139]
 [00000115]:
 			say-line "It's just a dead-end."
 [00000139]:
-			V.445 = actor-x 853
-			V.446 = actor-y 853
-			V.442 = (V.445 - (actor-x selected-actor))
-			V.443 = (V.446 - (actor-y selected-actor))
-			if (V.442 < 0) {
-				V.442 = (0 - V.442)
+			return-x = actor-x gap-in-mountain
+			return-y = actor-y gap-in-mountain
+			foo = (return-x - (actor-x selected-actor))
+			foo2 = (return-y - (actor-y selected-actor))
+			if (foo < 0) {
+				foo = (0 - foo)
 			}
-			if (V.443 < 0) {
-				V.443 = (0 - V.443)
+			if (foo2 < 0) {
+				foo2 = (0 - foo2)
 			}
 			do-animation selected-actor 255
-			if !(V.442 <= V.443) jump &[00000255]
-			V.446 -= actor-y selected-actor
-			if !(V.446 <= 0) jump &[00000248]
+			if !(foo <= foo2) jump &[00000255]
+			return-y -= actor-y selected-actor
+			if !(return-y <= 0) jump &[00000248]
 			do-animation selected-actor 247
 			jump &[00000252]
 [00000248]:
@@ -55,8 +55,8 @@ room th-landsc {
 [00000252]:
 			jump &[00000283]
 [00000255]:
-			V.445 -= actor-x selected-actor
-			if !(V.445 <= 0) jump &[00000279]
+			return-x -= actor-x selected-actor
+			if !(return-x <= 0) jump &[00000279]
 			do-animation selected-actor 244
 			jump &[00000283]
 [00000279]:
@@ -67,44 +67,44 @@ room th-landsc {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 854 { ; VERB LECF_0001\LFLF_0063\ROOM\OBCD_0854
+	object notch-in-mountain {
 		name is "notch in mountain"
 
-		verb 10 {
-			start-script 201 (854)
+		verb walk-to {
+			start-script check-mountain-path (notch-in-mountain)
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(class-of me is 12) jump &[00000072]
 			say-line "Looks like a path into the mountain range."
 			jump &[00000139]
 [00000072]:
-			if !(me is V.414) jump &[00000115]
+			if !(me is path-to-thera-digsite) jump &[00000115]
 			say-line "It's the former Nazi dig site."
 			jump &[00000139]
 [00000115]:
 			say-line "It's just a dead-end."
 [00000139]:
-			V.445 = actor-x 854
-			V.446 = actor-y 854
-			V.442 = (V.445 - (actor-x selected-actor))
-			V.443 = (V.446 - (actor-y selected-actor))
-			if (V.442 < 0) {
-				V.442 = (0 - V.442)
+			return-x = actor-x notch-in-mountain
+			return-y = actor-y notch-in-mountain
+			foo = (return-x - (actor-x selected-actor))
+			foo2 = (return-y - (actor-y selected-actor))
+			if (foo < 0) {
+				foo = (0 - foo)
 			}
-			if (V.443 < 0) {
-				V.443 = (0 - V.443)
+			if (foo2 < 0) {
+				foo2 = (0 - foo2)
 			}
 			do-animation selected-actor 255
-			if !(V.442 <= V.443) jump &[00000255]
-			V.446 -= actor-y selected-actor
-			if !(V.446 <= 0) jump &[00000248]
+			if !(foo <= foo2) jump &[00000255]
+			return-y -= actor-y selected-actor
+			if !(return-y <= 0) jump &[00000248]
 			do-animation selected-actor 247
 			jump &[00000252]
 [00000248]:
@@ -112,8 +112,8 @@ room th-landsc {
 [00000252]:
 			jump &[00000283]
 [00000255]:
-			V.445 -= actor-x selected-actor
-			if !(V.445 <= 0) jump &[00000279]
+			return-x -= actor-x selected-actor
+			if !(return-x <= 0) jump &[00000279]
 			do-animation selected-actor 244
 			jump &[00000283]
 [00000279]:
@@ -124,44 +124,44 @@ room th-landsc {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 855 { ; VERB LECF_0001\LFLF_0063\ROOM\OBCD_0855
+	object cleft-in-mountain {
 		name is "cleft in mountain"
 
-		verb 10 {
-			start-script 201 (855)
+		verb walk-to {
+			start-script check-mountain-path (cleft-in-mountain)
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(class-of me is 12) jump &[00000072]
 			say-line "Looks like a path into the mountain range."
 			jump &[00000139]
 [00000072]:
-			if !(me is V.414) jump &[00000115]
+			if !(me is path-to-thera-digsite) jump &[00000115]
 			say-line "It's the former Nazi dig site."
 			jump &[00000139]
 [00000115]:
 			say-line "It's just a dead-end."
 [00000139]:
-			V.445 = actor-x 855
-			V.446 = actor-y 855
-			V.442 = (V.445 - (actor-x selected-actor))
-			V.443 = (V.446 - (actor-y selected-actor))
-			if (V.442 < 0) {
-				V.442 = (0 - V.442)
+			return-x = actor-x cleft-in-mountain
+			return-y = actor-y cleft-in-mountain
+			foo = (return-x - (actor-x selected-actor))
+			foo2 = (return-y - (actor-y selected-actor))
+			if (foo < 0) {
+				foo = (0 - foo)
 			}
-			if (V.443 < 0) {
-				V.443 = (0 - V.443)
+			if (foo2 < 0) {
+				foo2 = (0 - foo2)
 			}
 			do-animation selected-actor 255
-			if !(V.442 <= V.443) jump &[00000255]
-			V.446 -= actor-y selected-actor
-			if !(V.446 <= 0) jump &[00000248]
+			if !(foo <= foo2) jump &[00000255]
+			return-y -= actor-y selected-actor
+			if !(return-y <= 0) jump &[00000248]
 			do-animation selected-actor 247
 			jump &[00000252]
 [00000248]:
@@ -169,8 +169,8 @@ room th-landsc {
 [00000252]:
 			jump &[00000283]
 [00000255]:
-			V.445 -= actor-x selected-actor
-			if !(V.445 <= 0) jump &[00000279]
+			return-x -= actor-x selected-actor
+			if !(return-x <= 0) jump &[00000279]
 			do-animation selected-actor 244
 			jump &[00000283]
 [00000279]:
@@ -181,13 +181,13 @@ room th-landsc {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0063\ROOM\EXCD
-		actor 1 step-dist 8,2
+		actor indy step-dist 8,2
 		end-object
 	}
 
@@ -202,22 +202,22 @@ room th-landsc {
 				stop-script 151
 				start-sound 46
 				sound-kludge 65535
-				start-script 200 ()
+				start-script balloon-leaves-thera ()
 			}
 		}
-		if !(V.224 is 49) jump &[00000122]
+		if !(last-room is thera-dock) jump &[00000122]
 		put-actor selected-actor in-room selected-room
-		put-actor selected-actor at-object 851
+		put-actor selected-actor at-object path-back-to-the-dock
 		do-animation selected-actor 248
 		camera-follow selected-actor
 		break-here
 		walk selected-actor to 360,130
 		jump &[00000122]
 [00000122]:
-		if (!V.414) {
-			V.444 = (855 - 853)
-			V.444 = ((random V.444) + 853)
-			V.414 = V.444
+		if (!path-to-thera-digsite) {
+			return-value = (cleft-in-mountain - gap-in-mountain)
+			return-value = ((random return-value) + gap-in-mountain)
+			path-to-thera-digsite = return-value
 		}
 		if (sound-running 80) {
 			if (!script-running 151) {
@@ -232,39 +232,39 @@ room th-landsc {
 			start-sound 80
 			start-script 151 ()
 		}
-		start-script bak 202 ()
+		start-script bak check-indy-distance ()
 		end-object
 	}
 
-	script 200 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0200
+	script balloon-leaves-thera {
 	local variable L.0
 	local variable L.1
 
 		cut-scene
 		L.0 = 48
-		actor 8 default costume 18 scale L.0 L.0 ignore-boxes never-zclip init-animation 8 walk-animation 8 stand-animation 8 step-dist 6,6
-		do-animation 8 250
+		actor balloon default costume 18 scale L.0 L.0 ignore-boxes never-zclip init-animation 8 walk-animation 8 stand-animation 8 step-dist 6,6
+		do-animation balloon 250
 		break-here
-		if !(V.414 is 853) jump &[00000063]
-		put-actor 8 in-room 63
-		put-actor 8 at 141,44
+		if !(path-to-thera-digsite is gap-in-mountain) jump &[00000063]
+		put-actor balloon in-thera-landscape
+		put-actor balloon at 141,44
 		jump &[00000101]
 [00000063]:
-		if !(V.414 is 854) jump &[00000082]
-		put-actor 8 in-room 63
-		put-actor 8 at 183,32
+		if !(path-to-thera-digsite is notch-in-mountain) jump &[00000082]
+		put-actor balloon in-thera-landscape
+		put-actor balloon at 183,32
 		jump &[00000101]
 [00000082]:
-		if !(V.414 is 855) jump &[00000101]
-		put-actor 8 in-room 63
-		put-actor 8 at 210,38
+		if !(path-to-thera-digsite is cleft-in-mountain) jump &[00000101]
+		put-actor balloon in-thera-landscape
+		put-actor balloon at 210,38
 		jump &[00000101]
 [00000101]:
-		walk 8 to 210,20
-		wait-for-actor 8
+		walk balloon to 210,20
+		wait-for-actor balloon
 		for L.1 = 210 to 310 ++ {
-			put-actor 8 at L.1,20
-			actor 8 scale L.0 L.0
+			put-actor balloon at L.1,20
+			actor balloon scale L.0 L.0
 			L.0 = (48 - ((L.1 / 4) - 48))
 			break-here
 			if (actor-x 8 > 230) {
@@ -272,35 +272,35 @@ room th-landsc {
 			}
 		}
 		end-cut-scene
-		put-actor 8 in-room 0
-		actor 8 default name " "
-		class-of 8 is 0
-		start-script 10 ()
-		current-room 184
+		put-actor balloon in-room 0
+		actor balloon default name " "
+		class-of balloon is 0
+		start-script update-inventory ()
+		current-room room-184
 		end-script
 	}
 
-	script 201 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0201
+	script check-mountain-path {
 	local variable L.0
 
 		walk selected-actor to-object L.0
 		wait-for-actor selected-actor
-		V.351 = actor-x 1
-		V.352 = actor-y 1
-		V.445 = actor-x L.0
-		V.446 = actor-y L.0
-		V.445 -= V.351
-		V.446 -= V.352
-		if (V.445 < 0) {
-			V.445 = (0 - V.445)
+		indy-x = actor-x indy
+		indy-y = actor-y indy
+		return-x = actor-x L.0
+		return-y = actor-y L.0
+		return-x -= indy-x
+		return-y -= indy-y
+		if (return-x < 0) {
+			return-x = (0 - return-x)
 		}
-		if (V.446 < 0) {
-			V.446 = (0 - V.446)
+		if (return-y < 0) {
+			return-y = (0 - return-y)
 		}
-		if !(V.445 < 15) jump &[00000138]
-		if !(V.446 < 15) jump &[00000138]
+		if !(return-x < 15) jump &[00000138]
+		if !(return-y < 15) jump &[00000138]
 		class-of L.0 is 140
-		if !(L.0 is V.414) jump &[00000122]
+		if !(L.0 is path-to-thera-digsite) jump &[00000122]
 		come-out 945 in-room 69 walk-to 117,57
 		jump &[00000138]
 [00000122]:
@@ -309,60 +309,60 @@ room th-landsc {
 		end-script
 	}
 
-	script 202 { ; LSCR LECF_0001\LFLF_0063\ROOM\LSCR_0202
+	script check-indy-distance {
 	local variable L.0
 	local variable L.1
 
 		L.0 = 65535
 [00000013]:
 		break-here
-		L.1 = actor-box 1
+		L.1 = actor-box indy
 		if !(L.1 is-not L.0) jump &[00000212]
 		if !(L.1 is 2) jump &[00000041]
-		actor 1 step-dist 8,3
+		actor indy step-dist 8,3
 		jump &[00000207]
 [00000041]:
 		if !(L.1 is 6) jump &[00000057]
-		actor 1 step-dist 16,4
+		actor indy step-dist 16,4
 		jump &[00000207]
 [00000057]:
 		if !(L.1 is 7) jump &[00000073]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000073]:
 		if !(L.1 is 8) jump &[00000089]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000089]:
 		if !(L.1 is 9) jump &[00000105]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000105]:
 		if !(L.1 is 10) jump &[00000121]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000121]:
 		if !(L.1 is 11) jump &[00000137]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000137]:
 		if !(L.1 is 13) jump &[00000153]
-		actor 1 step-dist 20,6
+		actor indy step-dist 20,6
 		jump &[00000207]
 [00000153]:
 		if !(L.1 is 14) jump &[00000169]
-		actor 1 step-dist 16,4
+		actor indy step-dist 16,4
 		jump &[00000207]
 [00000169]:
 		if !(L.1 is 15) jump &[00000185]
-		actor 1 step-dist 16,4
+		actor indy step-dist 16,4
 		jump &[00000207]
 [00000185]:
 		if !(L.1 is 16) jump &[00000201]
-		actor 1 step-dist 16,4
+		actor indy step-dist 16,4
 		jump &[00000207]
 [00000201]:
-		actor 1 step-dist 8,2
+		actor indy step-dist 8,2
 [00000207]:
 		L.0 = L.1
 [00000212]:

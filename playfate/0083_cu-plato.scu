@@ -6,7 +6,7 @@
 
 room cu-plato {
 
-	object 1120 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1120
+	object plato-clip-16 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1120
 		name is ""
 	}
 
@@ -18,208 +18,208 @@ room cu-plato {
 		name is ""
 	}
 
-	object 1106 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1106
+	object plato-clip-02 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1106
 		name is ""
 	}
 
-	object 1115 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1115
+	object plato-clip-11 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1115
 		name is ""
 	}
 
-	object 1107 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1107
+	object plato-clip-03 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1107
 		name is ""
 	}
 
-	object 1108 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1108
+	object plato-clip-04 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1108
 		name is ""
 	}
 
-	object 1116 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1116
+	object plato-clip-12 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1116
 		name is ""
 	}
 
-	object 1109 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1109
+	object plato-clip-05 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1109
 		name is ""
 	}
 
-	object 1110 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1110
+	object plato-clip-06 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1110
 		name is ""
 	}
 
-	object 1117 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1117
+	object plato-clip-13 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1117
 		name is ""
 	}
 
-	object 1111 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1111
+	object plato-clip-07 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1111
 		name is ""
 	}
 
-	object 1112 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1112
+	object plato-clip-08 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1112
 		name is ""
 	}
 
-	object 1118 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1118
+	object plato-clip-14 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1118
 		name is ""
 	}
 
-	object 1113 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1113
+	object plato-clip-09 {
 		name is ""
 	}
 
-	object 1114 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1114
+	object plato-clip-10 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1114
 		name is ""
 	}
 
-	object 1119 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1119
+	object plato-clip-15 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1119
 		name is ""
 	}
 
-	object 1105 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1105
+	object plato-clip-01 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1105
 		name is ""
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0083\ROOM\EXCD
-		build-sentence-script = V.448
+		build-sentence-script = build-sentence-script-backup
 		set-screen 0 to 144
-		start-script 19 (2)
-		charset 2
-		B.210 = 1
+		start-script set-verbs (2)
+		charset fat-font
+		found-lost-dialogue = 1
 		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0083\ROOM\ENCD
-		stop-script 31
+		stop-script follow-actor
 		set-screen 0 to 200
-		start-script 19 (1)
+		start-script set-verbs (1)
 		camera-at 160
-		V.448 = build-sentence-script
+		build-sentence-script-backup = build-sentence-script
 		build-sentence-script = 200
-		charset 1
-		start-script 85 ()
+		charset system-font
+		start-script clear-flags ()
 		cursor on
-		if (V.224 is 45) {
+		if (last-room is digger-ride) {
 			shake on
 		}
-		start-script 201 ()
+		start-script turn-to-passage-1 ()
 		start-script 206 ()
 		end-object
 	}
 
-	script 200 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0200
-		V.100 = cursor-x
-		V.101 = cursor-y
-		V.442 = (find-object V.100,V.101)
-		if !(V.442 is 0) jump &[00000056]
+	script clicked-on-book { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0200
+		clicked-cursor-x = cursor-x
+		clicked-cursor-y = cursor-y
+		foo = (find-object clicked-cursor-x,clicked-cursor-y)
+		if !(foo is 0) jump &[00000056]
 [00000037]:
-		start-script 119 (V.224,2)
-		break-until (!script-running 119)
+		start-script autosave-current-room (last-room,2)
+		break-until (!script-running autosave-current-room)
 [00000056]:
-		if (state-of V.442 is 0) {
+		if (state-of foo is 0) {
 			stop-script 0
 		}
-		if !(V.442 is 1103) jump &[00000085]
+		if !(foo is 1103) jump &[00000085]
 		jump &[00000037]
 		stop-script 0
 		jump &[00000345]
 [00000085]:
-		if !(V.442 is 1104) jump &[00000100]
+		if !(foo is 1104) jump &[00000100]
 		jump &[00000037]
 		stop-script 0
 		jump &[00000345]
 [00000100]:
-		if !(V.442 is 1105) jump &[00000113]
+		if !(foo is plato-clip-01) jump &[00000113]
 		jump &[00000133]
 		jump &[00000345]
 [00000113]:
-		if !(V.442 is 1106) jump &[00000126]
+		if !(foo is plato-clip-02) jump &[00000126]
 		jump &[00000133]
 		jump &[00000345]
 [00000126]:
-		if !(V.442 is 1115) jump &[00000149]
+		if !(foo is plato-clip-11) jump &[00000149]
 [00000133]:
-		start-script 201 ()
-		break-until (!script-running 201)
+		start-script turn-to-passage-1 ()
+		break-until (!script-running turn-to-passage-1)
 		jump &[00000345]
 [00000149]:
-		if !(V.442 is 1107) jump &[00000162]
+		if !(foo is plato-clip-03) jump &[00000162]
 		jump &[00000182]
 		jump &[00000345]
 [00000162]:
-		if !(V.442 is 1108) jump &[00000175]
+		if !(foo is plato-clip-04) jump &[00000175]
 		jump &[00000182]
 		jump &[00000345]
 [00000175]:
-		if !(V.442 is 1116) jump &[00000198]
+		if !(foo is plato-clip-12) jump &[00000198]
 [00000182]:
-		start-script 202 ()
-		break-until (!script-running 202)
+		start-script turn-to-passage-2 ()
+		break-until (!script-running turn-to-passage-2)
 		jump &[00000345]
 [00000198]:
-		if !(V.442 is 1109) jump &[00000211]
+		if !(foo is plato-clip-05) jump &[00000211]
 		jump &[00000231]
 		jump &[00000345]
 [00000211]:
-		if !(V.442 is 1110) jump &[00000224]
+		if !(foo is plato-clip-06) jump &[00000224]
 		jump &[00000231]
 		jump &[00000345]
 [00000224]:
-		if !(V.442 is 1117) jump &[00000247]
+		if !(foo is plato-clip-13) jump &[00000247]
 [00000231]:
-		start-script 203 ()
-		break-until (!script-running 203)
+		start-script turn-to-passage-3 ()
+		break-until (!script-running turn-to-passage-3)
 		jump &[00000345]
 [00000247]:
-		if !(V.442 is 1111) jump &[00000260]
+		if !(foo is plato-clip-07) jump &[00000260]
 		jump &[00000280]
 		jump &[00000345]
 [00000260]:
-		if !(V.442 is 1112) jump &[00000273]
+		if !(foo is plato-clip-08) jump &[00000273]
 		jump &[00000280]
 		jump &[00000345]
 [00000273]:
-		if !(V.442 is 1118) jump &[00000296]
+		if !(foo is plato-clip-14) jump &[00000296]
 [00000280]:
-		start-script 204 ()
-		break-until (!script-running 204)
+		start-script turn-to-passage-4 ()
+		break-until (!script-running turn-to-passage-4)
 		jump &[00000345]
 [00000296]:
-		if !(V.442 is 1113) jump &[00000309]
+		if !(foo is plato-clip-09) jump &[00000309]
 		jump &[00000329]
 		jump &[00000345]
 [00000309]:
-		if !(V.442 is 1114) jump &[00000322]
+		if !(foo is plato-clip-10) jump &[00000322]
 		jump &[00000329]
 		jump &[00000345]
 [00000322]:
-		if !(V.442 is 1119) jump &[00000345]
+		if !(foo is plato-clip-15) jump &[00000345]
 [00000329]:
-		start-script 205 ()
-		break-until (!script-running 205)
+		start-script turn-to-passage-5 ()
+		break-until (!script-running turn-to-passage-5)
 		jump &[00000345]
 [00000345]:
 		end-script
 	}
 
-	script 201 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0201
-		B.37[1] = 1
+	script turn-to-passage-1 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0201
+		flags[1] = 1
 		draw-object 1103 
 		draw-object 1104 
-		state-of 1105 is 0
-		state-of 1106 is 0
-		state-of 1115 is 1
-		state-of 1107 is 0
-		state-of 1108 is 1
-		state-of 1116 is 0
-		state-of 1109 is 0
-		state-of 1110 is 1
-		state-of 1117 is 0
-		state-of 1111 is 0
-		state-of 1112 is 1
-		state-of 1118 is 0
-		state-of 1113 is 0
-		state-of 1114 is 1
-		state-of 1119 is 0
-		state-of 1120 is 1
+		state-of plato-clip-01 is 0
+		state-of plato-clip-02 is 0
+		state-of plato-clip-11 is 1
+		state-of plato-clip-03 is 0
+		state-of plato-clip-04 is 1
+		state-of plato-clip-12 is 0
+		state-of plato-clip-05 is 0
+		state-of plato-clip-06 is 1
+		state-of plato-clip-13 is 0
+		state-of plato-clip-07 is 0
+		state-of plato-clip-08 is 1
+		state-of plato-clip-14 is 0
+		state-of plato-clip-09 is 0
+		state-of plato-clip-10 is 1
+		state-of plato-clip-15 is 0
+		state-of plato-clip-16 is 1
 		break-here
 		print-text color 8 at 32,32 "\\x08THE HERMOCRATES\\x08 "
 		print-text color 8 at 32,46 "Now at last I have"
@@ -246,26 +246,26 @@ room cu-plato {
 		end-script
 	}
 
-	script 202 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0202
-		B.37[2] = 1
+	script turn-to-passage-2 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0202
+		flags[2] = 1
 		draw-object 1103 
 		draw-object 1104 
-		state-of 1105 is 1
-		state-of 1106 is 0
-		state-of 1115 is 0
-		state-of 1107 is 0
-		state-of 1108 is 0
-		state-of 1116 is 1
-		state-of 1109 is 0
-		state-of 1110 is 1
-		state-of 1117 is 0
-		state-of 1111 is 0
-		state-of 1112 is 1
-		state-of 1118 is 0
-		state-of 1113 is 0
-		state-of 1114 is 1
-		state-of 1119 is 0
-		state-of 1120 is 0
+		state-of plato-clip-01 is 1
+		state-of plato-clip-02 is 0
+		state-of plato-clip-11 is 0
+		state-of plato-clip-03 is 0
+		state-of plato-clip-04 is 0
+		state-of plato-clip-12 is 1
+		state-of plato-clip-05 is 0
+		state-of plato-clip-06 is 1
+		state-of plato-clip-13 is 0
+		state-of plato-clip-07 is 0
+		state-of plato-clip-08 is 1
+		state-of plato-clip-14 is 0
+		state-of plato-clip-09 is 0
+		state-of plato-clip-10 is 1
+		state-of plato-clip-15 is 0
+		state-of plato-clip-16 is 0
 		break-here
 		print-text color 8 at 32,32 "HERMOCRATES:"
 		print-text color 8 at 32,41 "In shame I hereby do"
@@ -297,58 +297,58 @@ room cu-plato {
 		end-script
 	}
 
-	script 203 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0203
-		B.37[3] = 1
+	script turn-to-passage-3 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0203
+		flags[3] = 1
 		draw-object 1103 
 		draw-object 1104 
-		state-of 1105 is 1
-		state-of 1106 is 0
-		state-of 1115 is 0
-		state-of 1107 is 1
-		state-of 1108 is 0
-		state-of 1116 is 0
-		state-of 1109 is 0
-		state-of 1110 is 0
-		state-of 1117 is 1
-		state-of 1111 is 0
-		state-of 1112 is 1
-		state-of 1118 is 0
-		state-of 1113 is 0
-		state-of 1114 is 1
-		state-of 1119 is 0
-		state-of 1120 is 0
+		state-of plato-clip-01 is 1
+		state-of plato-clip-02 is 0
+		state-of plato-clip-11 is 0
+		state-of plato-clip-03 is 1
+		state-of plato-clip-04 is 0
+		state-of plato-clip-12 is 0
+		state-of plato-clip-05 is 0
+		state-of plato-clip-06 is 0
+		state-of plato-clip-13 is 1
+		state-of plato-clip-07 is 0
+		state-of plato-clip-08 is 1
+		state-of plato-clip-14 is 0
+		state-of plato-clip-09 is 0
+		state-of plato-clip-10 is 1
+		state-of plato-clip-15 is 0
+		state-of plato-clip-16 is 0
 		break-here
 		print-text color 8 at 32,32 "^so glorious Atlantis"
 		print-text color 8 at 32,41 "founded two colonies,"
 		print-text color 8 at 32,50 "the Lesser %n239% miles"
-		if !(V.240 is 1) jump &[00000226]
+		if !(dialogue-random-passage-1 is 1) jump &[00000226]
 		print-text color 8 at 32,59 "northeast of the City"
 		jump &[00000306]
 [00000226]:
-		if !(V.240 is 2) jump &[00000264]
+		if !(dialogue-random-passage-1 is 2) jump &[00000264]
 		print-text color 8 at 32,59 "north of the City"
 		jump &[00000306]
 [00000264]:
-		if !(V.240 is 3) jump &[00000306]
+		if !(dialogue-random-passage-1 is 3) jump &[00000306]
 		print-text color 8 at 32,59 "northwest of the City"
 		jump &[00000306]
 [00000306]:
-		if !(V.240 is 2) jump &[00000327]
-		V.442 = (730 - V.239)
+		if !(dialogue-random-passage-1 is 2) jump &[00000327]
+		foo = (730 - dialogue-lesser-distance)
 		jump &[00000338]
 [00000327]:
-		V.442 = (810 - V.239)
+		foo = (810 - dialogue-lesser-distance)
 [00000338]:
 		print-text color 8 at 32,68 "and the Greater %n442%"
-		if !(V.240 is 1) jump &[00000411]
+		if !(dialogue-random-passage-1 is 1) jump &[00000411]
 		print-text color 8 at 32,77 "miles away southwest."
 		jump &[00000493]
 [00000411]:
-		if !(V.240 is 2) jump &[00000451]
+		if !(dialogue-random-passage-1 is 2) jump &[00000451]
 		print-text color 8 at 32,77 "miles to the south."
 		jump &[00000493]
 [00000451]:
-		if !(V.240 is 3) jump &[00000493]
+		if !(dialogue-random-passage-1 is 3) jump &[00000493]
 		print-text color 8 at 32,77 "miles away southeast."
 		jump &[00000493]
 [00000493]:
@@ -357,47 +357,47 @@ room cu-plato {
 		print-text color 8 at 32,107 "aid of special stones."
 		print-text color 8 at 32,119 "At many outposts, a"
 		print-text color 8 at 32,128 "Sunstone sufficed, if"
-		if !(V.241 is 1) jump &[00000716]
+		if !(dialogue-random-passage-2 is 1) jump &[00000716]
 		print-text color 8 at 32,137 "hot sunlight bathed"
 		print-text color 8 at 32,146 "the tall horns."
 		jump &[00000910]
 [00000716]:
-		if !(V.241 is 2) jump &[00000778]
+		if !(dialogue-random-passage-2 is 2) jump &[00000778]
 		print-text color 8 at 32,137 "sunset made the tall"
 		print-text color 8 at 32,146 "horns red."
 		jump &[00000910]
 [00000778]:
-		if !(V.241 is 3) jump &[00000843]
+		if !(dialogue-random-passage-2 is 3) jump &[00000843]
 		print-text color 8 at 32,137 "darkness concealed"
 		print-text color 8 at 32,146 "the tall horns."
 		jump &[00000910]
 [00000843]:
-		if !(V.241 is 4) jump &[00000910]
+		if !(dialogue-random-passage-2 is 4) jump &[00000910]
 		print-text color 8 at 32,137 "morning light warmed"
 		print-text color 8 at 32,146 "the tall horns."
 		jump &[00000910]
 [00000910]:
 		print-text color 8 at 168,32 "At the Greater Colony"
 		print-text color 8 at 168,41 "a Moonstone was also"
-		if !(V.242 is 1) jump &[00001067]
+		if !(dialogue-random-passage-3 is 1) jump &[00001067]
 		print-text color 8 at 168,50 "needed, with the noon"
 		print-text color 8 at 168,59 "sun riding above the"
 		print-text color 8 at 168,68 "full moon."
 		jump &[00001340]
 [00001067]:
-		if !(V.242 is 2) jump &[00001159]
+		if !(dialogue-random-passage-3 is 2) jump &[00001159]
 		print-text color 8 at 168,50 "needed, with darkest"
 		print-text color 8 at 168,59 "night healed by the"
 		print-text color 8 at 168,68 "full moon."
 		jump &[00001340]
 [00001159]:
-		if !(V.242 is 3) jump &[00001250]
+		if !(dialogue-random-passage-3 is 3) jump &[00001250]
 		print-text color 8 at 168,50 "needed, with pale dawn"
 		print-text color 8 at 168,59 "to shred the darkest"
 		print-text color 8 at 168,68 "night."
 		jump &[00001340]
 [00001250]:
-		if !(V.242 is 4) jump &[00001340]
+		if !(dialogue-random-passage-3 is 4) jump &[00001340]
 		print-text color 8 at 168,50 "needed, with the sun"
 		print-text color 8 at 168,59 "dying as a new moon"
 		print-text color 8 at 168,68 "is born."
@@ -406,14 +406,14 @@ room cu-plato {
 		print-text color 8 at 168,80 "To approach Atlantis"
 		print-text color 8 at 168,89 "itself a Worldstone"
 		print-text color 8 at 168,98 "was required as well,"
-		if !(V.242 is 1) jump &[00001629]
-		if !(V.243 is 1) jump &[00001533]
+		if !(dialogue-random-passage-3 is 1) jump &[00001629]
+		if !(dialogue-random-passage-4 is 1) jump &[00001533]
 		print-text color 8 at 168,107 "with the dying orbs"
 		print-text color 8 at 168,116 "plummeting into the"
 		print-text color 8 at 168,125 "eastern sea."
 		jump &[00001626]
 [00001533]:
-		if !(V.243 is 2) jump &[00001626]
+		if !(dialogue-random-passage-4 is 2) jump &[00001626]
 		print-text color 8 at 168,107 "with darkness ruling"
 		print-text color 8 at 168,116 "the old city without"
 		print-text color 8 at 168,125 "challenge."
@@ -421,14 +421,14 @@ room cu-plato {
 [00001626]:
 		jump &[00002249]
 [00001629]:
-		if !(V.242 is 2) jump &[00001835]
-		if !(V.243 is 3) jump &[00001736]
+		if !(dialogue-random-passage-3 is 2) jump &[00001835]
+		if !(dialogue-random-passage-4 is 3) jump &[00001736]
 		print-text color 8 at 168,107 "with the moon, full"
 		print-text color 8 at 168,116 "of beauty unrivaled,"
 		print-text color 8 at 168,125 "lighting the city."
 		jump &[00001832]
 [00001736]:
-		if !(V.243 is 4) jump &[00001832]
+		if !(dialogue-random-passage-4 is 4) jump &[00001832]
 		print-text color 8 at 168,107 "with a glorious sun"
 		print-text color 8 at 168,116 "blazing alone upon"
 		print-text color 8 at 168,125 "the western sea."
@@ -436,14 +436,14 @@ room cu-plato {
 [00001832]:
 		jump &[00002249]
 [00001835]:
-		if !(V.242 is 3) jump &[00002050]
-		if !(V.243 is 5) jump &[00001946]
+		if !(dialogue-random-passage-3 is 3) jump &[00002050]
+		if !(dialogue-random-passage-4 is 5) jump &[00001946]
 		print-text color 8 at 168,107 "with the rising sun"
 		print-text color 8 at 168,116 "breaking night's grip"
 		print-text color 8 at 168,125 "above the fiery peak."
 		jump &[00002047]
 [00001946]:
-		if !(V.243 is 6) jump &[00002047]
+		if !(dialogue-random-passage-4 is 6) jump &[00002047]
 		print-text color 8 at 168,107 "with only a waning"
 		print-text color 8 at 168,116 "moon to protect the"
 		print-text color 8 at 168,125 "city from grim night."
@@ -451,14 +451,14 @@ room cu-plato {
 [00002047]:
 		jump &[00002249]
 [00002050]:
-		if !(V.242 is 4) jump &[00002249]
-		if !(V.243 is 7) jump &[00002146]
+		if !(dialogue-random-passage-3 is 4) jump &[00002249]
+		if !(dialogue-random-passage-4 is 7) jump &[00002146]
 		print-text color 8 at 168,107 "with darkest night"
 		print-text color 8 at 168,116 "soon to rule the"
 		print-text color 8 at 168,125 "western sea."
 		jump &[00002246]
 [00002146]:
-		if !(V.243 is 8) jump &[00002246]
+		if !(dialogue-random-passage-4 is 8) jump &[00002246]
 		print-text color 8 at 168,107 "with a waxing moon"
 		print-text color 8 at 168,116 "the sky's only reply"
 		print-text color 8 at 168,125 "to the fires below."
@@ -472,26 +472,26 @@ room cu-plato {
 		end-script
 	}
 
-	script 204 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0204
-		B.37[4] = 1
+	script turn-to-passage-4 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0204
+		flags[4] = 1
 		draw-object 1103 
 		draw-object 1104 
-		state-of 1105 is 1
-		state-of 1106 is 0
-		state-of 1115 is 0
-		state-of 1107 is 1
-		state-of 1108 is 0
-		state-of 1116 is 0
-		state-of 1109 is 1
-		state-of 1110 is 0
-		state-of 1117 is 0
-		state-of 1111 is 0
-		state-of 1112 is 0
-		state-of 1118 is 1
-		state-of 1113 is 0
-		state-of 1114 is 1
-		state-of 1119 is 0
-		state-of 1120 is 0
+		state-of plato-clip-01 is 1
+		state-of plato-clip-02 is 0
+		state-of plato-clip-11 is 0
+		state-of plato-clip-03 is 1
+		state-of plato-clip-04 is 0
+		state-of plato-clip-12 is 0
+		state-of plato-clip-05 is 1
+		state-of plato-clip-06 is 0
+		state-of plato-clip-13 is 0
+		state-of plato-clip-07 is 0
+		state-of plato-clip-08 is 0
+		state-of plato-clip-14 is 1
+		state-of plato-clip-09 is 0
+		state-of plato-clip-10 is 1
+		state-of plato-clip-15 is 0
+		state-of plato-clip-16 is 0
 		break-here
 		print-text color 8 at 32,32 "^and it is said that"
 		print-text color 8 at 32,41 "dwellers in Atlantis"
@@ -522,26 +522,26 @@ room cu-plato {
 		end-script
 	}
 
-	script 205 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0205
-		B.37[5] = 1
+	script turn-to-passage-5 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0205
+		flags[5] = 1
 		draw-object 1103 
 		draw-object 1104 
-		state-of 1105 is 1
-		state-of 1106 is 0
-		state-of 1115 is 0
-		state-of 1107 is 1
-		state-of 1108 is 0
-		state-of 1116 is 0
-		state-of 1109 is 1
-		state-of 1110 is 0
-		state-of 1117 is 0
-		state-of 1111 is 1
-		state-of 1112 is 0
-		state-of 1118 is 0
-		state-of 1113 is 0
-		state-of 1114 is 0
-		state-of 1119 is 1
-		state-of 1120 is 0
+		state-of plato-clip-01 is 1
+		state-of plato-clip-02 is 0
+		state-of plato-clip-11 is 0
+		state-of plato-clip-03 is 1
+		state-of plato-clip-04 is 0
+		state-of plato-clip-12 is 0
+		state-of plato-clip-05 is 1
+		state-of plato-clip-06 is 0
+		state-of plato-clip-13 is 0
+		state-of plato-clip-07 is 1
+		state-of plato-clip-08 is 0
+		state-of plato-clip-14 is 0
+		state-of plato-clip-09 is 0
+		state-of plato-clip-10 is 0
+		state-of plato-clip-15 is 1
+		state-of plato-clip-16 is 0
 		break-here
 		print-text color 8 at 32,32 "^as the waters rose"
 		print-text color 8 at 32,41 "around their city, the"
@@ -579,8 +579,8 @@ room cu-plato {
 		}
 [00000017]:
 		override off
-		start-script 119 (V.224,2)
-		break-until (!script-running 119)
+		start-script autosave-current-room (last-room,2)
+		break-until (!script-running autosave-current-room)
 		end-script
 	}
 }

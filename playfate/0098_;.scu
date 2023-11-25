@@ -4,509 +4,509 @@
 ; * Room 98: Icons
 ; */
 
-room ; {
+room icons {
 
-	object 1260 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1260
+	object national-archaeology-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1260
 		name is ""
 	}
 
-	object 1261 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1261
+	object no-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1261
 		name is ""
 	}
 
-	object 1262 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1262
+	object dialog-background { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1262
 		name is ""
 	}
 
-	object 1263 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1263
+	object verbs-background { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1263
 		name is ""
 	}
 
-	object 1264 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1264
+	object inventory-background { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1264
 		name is ""
 	}
 
-	object 1265 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1265
+	object whip-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1265
 		name is ""
 	}
 
-	object 1266 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1266
+	object mayonnaise-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1266
 		name is ""
 	}
 
-	object 1267 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1267
+	object gum-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1267
 		name is ""
 	}
 
-	object 1268 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1268
+	object lost-dialogue-of-plato-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1268
 		name is ""
 	}
 
-	object 1269 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1269
+	object sunstone-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1269
 		name is ""
 	}
 
-	object 1270 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1270
+	object moonstone-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1270
 		name is ""
 	}
 
-	object 1271 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1271
+	object worldstone-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1271
 		name is ""
 	}
 
-	object 1272 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1272
+	object ladder-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1272
 		name is ""
 	}
 
-	object 1273 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1273
+	object hinge-pin-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1273
 		name is ""
 	}
 
-	object 1274 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1274
+	object bronze-spoked-wheel-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1274
 		name is ""
 	}
 
-	object 1275 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1275
+	object bronze-gear-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1275
 		name is ""
 	}
 
-	object 1276 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1276
+	object scepter-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1276
 		name is ""
 	}
 
-	object 1277 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1277
+	object two-slices-of-bread-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1277
 		name is ""
 	}
 
-	object 1278 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1278
+	object orichalcum-1-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1278
 		name is ""
 	}
 
-	object 1279 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1279
+	object orichalcum-2-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1279
 		name is ""
 	}
 
-	object 1280 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1280
+	object orichalcum-3-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1280
 		name is ""
 	}
 
-	object 1281 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1281
+	object arrowhead-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1281
 		name is ""
 	}
 
-	object 1282 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1282
+	object statue-part-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1282
 		name is ""
 	}
 
-	object 1283 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1283
+	object telegram-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1283
 		name is ""
 	}
 
-	object 1284 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1284
+	object entrenching-tool-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1284
 		name is ""
 	}
 
-	object 1285 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1285
+	object entrenching-tool-unfolded-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1285
 		name is ""
 	}
 
-	object 1286 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1286
+	object box-of-torpedo-tube-parts-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1286
 		name is ""
 	}
 
-	object 1287 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1287
+	object hose-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1287
 		name is ""
 	}
 
-	object 1288 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1288
+	object trumpet-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1288
 		name is ""
 	}
 
-	object 1289 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1289
+	object yoyo-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1289
 		name is ""
 	}
 
-	object 1290 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1290
+	object bracelet-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1290
 		name is ""
 	}
 
-	object 1291 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1291
+	object yellow-scarf-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1291
 		name is ""
 	}
 
-	object 1292 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1292
+	object red-wagon-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1292
 		name is ""
 	}
 
-	object 1293 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1293
+	object balloon-ticket-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1293
 		name is ""
 	}
 
-	object 1294 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1294
+	object knife-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1294
 		name is ""
 	}
 
-	object 1295 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1295
+	object flashlight-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1295
 		name is ""
 	}
 
-	object 1296 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1296
+	object flashlight-lit-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1296
 		name is ""
 	}
 
-	object 1297 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1297
+	object comb-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1297
 		name is ""
 	}
 
-	object 1298 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1298
+	object comb-on-a-string-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1298
 		name is ""
 	}
 
-	object 1299 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1299
+	object charged-comb-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1299
 		name is ""
 	}
 
-	object 1357 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1357
+	object charged-comb-on-a-string-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1357
 		name is ""
 	}
 
-	object 1300 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1300
+	object bamboo-pole-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1300
 		name is ""
 	}
 
-	object 1301 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1301
+	object archer-statue-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1301
 		name is ""
 	}
 
-	object 1302 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1302
+	object eel-sculpture-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1302
 		name is ""
 	}
 
-	object 1303 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1303
+	object cup-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1303
 		name is ""
 	}
 
-	object 1304 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1304
+	object wooden-peg-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1304
 		name is ""
 	}
 
-	object 1305 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1305
+	object spark-plug-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1305
 		name is ""
 	}
 
-	object 1306 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1306
+	object submarine-sandwich-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1306
 		name is ""
 	}
 
-	object 1307 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1307
+	object half-eaten-sandwitch-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1307
 		name is ""
 	}
 
-	object 1308 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1308
+	object cold-cuts-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1308
 		name is ""
 	}
 
-	object 1309 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1309
+	object metal-rod-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1309
 		name is ""
 	}
 
-	object 1310 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1310
+	object metal-rod-glowing-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1310
 		name is ""
 	}
 
-	object 1311 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1311
+	object carved-sign-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1311
 		name is ""
 	}
 
-	object 1313 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1313
+	object clothesline-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1313
 		name is ""
 	}
 
-	object 1314 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1314
+	object omars-map-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1314
 		name is ""
 	}
 
-	object 1315 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1315
+	object atlantean-statue-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1315
 		name is ""
 	}
 
-	object 1316 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1316
+	object charged-atlantean-statue-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1316
 		name is ""
 	}
 
-	object 1317 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1317
+	object surveyors-instrument-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1317
 		name is ""
 	}
 
-	object 1318 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1318
+	object tire-repair-kit-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1318
 		name is ""
 	}
 
-	object 1319 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1319
+	object wool-scarf-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1319
 		name is ""
 	}
 
-	object 1320 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1320
+	object paper-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1320
 		name is ""
 	}
 
-	object 1321 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1321
+	object staff-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1321
 		name is ""
 	}
 
-	object 1322 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1322
+	object plunger-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1322
 		name is ""
 	}
 
-	object 1323 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1323
+	object torpedo-instructions-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1323
 		name is ""
 	}
 
-	object 1324 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1324
+	object clay-jar-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1324
 		name is ""
 	}
 
-	object 1325 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1325
+	object ship-rib-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1325
 		name is ""
 	}
 
-	object 1326 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1326
+	object fez-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1326
 		name is ""
 	}
 
-	object 1327 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1327
+	object crescent-shaped-gear-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1327
 		name is ""
 	}
 
-	object 1328 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1328
+	object wax-cat-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1328
 		name is ""
 	}
 
-	object 1329 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1329
+	object spiral-design-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1329
 		name is ""
 	}
 
-	object 1330 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1330
+	object opaque-glasses-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1330
 		name is ""
 	}
 
-	object 1331 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1331
+	object baseball-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1331
 		name is ""
 	}
 
-	object 1332 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1332
+	object garlic-soap-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1332
 		name is ""
 	}
 
-	object 1333 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1333
+	object cane-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1333
 		name is ""
 	}
 
-	object 1334 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1334
+	object gold-necklace-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1334
 		name is ""
 	}
 
-	object 1335 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1335
+	object large-rubber-balloon-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1335
 		name is ""
 	}
 
-	object 1336 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1336
+	object mask-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1336
 		name is ""
 	}
 
-	object 1337 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1337
+	object bedsheet-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1337
 		name is ""
 	}
 
-	object 1338 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1338
+	object tiny-key-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1338
 		name is ""
 	}
 
-	object 1340 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1340
+	object earrings-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1340
 		name is ""
 	}
 
-	object 1343 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1343
+	object gold-box-open-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1343
 		name is ""
 	}
 
-	object 1344 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1344
+	object deflated-balloon-rig-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1344
 		name is ""
 	}
 
-	object 1345 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1345
+	object fish-net-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1345
 		name is ""
 	}
 
-	object 1346 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1346
+	object fish-net-tied-to-basket-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1346
 		name is ""
 	}
 
-	object 1347 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1347
+	object voodoo-doll-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1347
 		name is ""
 	}
 
-	object 1349 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1349
+	object squab-on-a-stick-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1349
 		name is ""
 	}
 
-	object 1351 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1351
+	object lipstick-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1351
 		name is ""
 	}
 
-	object 1350 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1350
+	object indywear-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1350
 		name is ""
 	}
 
-	object 1348 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1348
+	object spitoon-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1348
 		name is ""
 	}
 
-	object 1342 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1342
+	object faux-ruby-ring-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1342
 		name is ""
 	}
 
-	object 1341 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1341
+	object rib-cage-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1341
 		name is ""
 	}
 
-	object 1339 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1339
+	object amber-fish-on-a-string-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1339
 		name is ""
 	}
 
-	object 1352 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1352
+	object fight-background { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1352
 		name is ""
 	}
 
-	object 1353 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1353
+	object indy-iq-background { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1353
 		name is ""
 	}
 
-	object 1312 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1312
+	object statue-head-1-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1312
 		name is ""
 	}
 
-	object 1354 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1354
+	object statue-head-2-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1354
 		name is ""
 	}
 
-	object 1355 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1355
+	object statue-head-3-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1355
 		name is ""
 	}
 
-	object 1356 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1356
+	object gold-box-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1356
 		name is ""
 	}
 
-	object 1359 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1359
+	object coal-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1359
 		name is ""
 	}
 
-	object 1358 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1358
+	object newspaper-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1358
 		name is ""
 	}
 
-	object 1361 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1361
+	object invoice-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1361
 		name is ""
 	}
 
-	object 1360 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1360
+	object business-card-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1360
 		name is ""
 	}
 
-	object 1362 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1362
+	object stalactite-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1362
 		name is ""
 	}
 
-	object 1363 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1363
+	object necklace-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1363
 		name is ""
 	}
 
-	object 1364 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1364
+	object dusty-key-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1364
 		name is ""
 	}
 
-	object 1365 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1365
+	object dirty-rag-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1365
 		name is ""
 	}
 
-	object 1366 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1366
+	object veil-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1366
 		name is ""
 	}
 
-	object 1367 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1367
+	object blackbird-statue-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1367
 		name is ""
 	}
 
-	object 1368 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1368
+	object very-large-basket-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1368
 		name is ""
 	}
 
-	object 1369 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1369
+	object netted-balloon-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1369
 		name is ""
 	}
 
-	object 1371 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1371
+	object opened-kerosene-lamp-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1371
 		name is ""
 	}
 
-	object 1370 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1370
+	object kerosene-lamp-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1370
 		name is ""
 	}
 
-	object 1372 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1372
+	object lava-filled-cup-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1372
 		name is ""
 	}
 
-	object 1373 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1373
+	object water-filled-cup-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1373
 		name is ""
 	}
 
-	object 1374 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1374
+	object mug-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1374
 		name is ""
 	}
 
-	object 1375 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1375
+	object fish-spigot-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1375
 		name is ""
 	}
 
-	object 1376 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1376
+	object balloon-with-hose-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1376
 		name is ""
 	}
 
-	object 1377 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1377
+	object trapped-crab-icon-1 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1377
 		name is ""
 	}
 
-	object 1378 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1378
+	object trapped-crab-icon-2 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1378
 		name is ""
 	}
 
-	object 1379 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1379
+	object trapped-crab-icon-3 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1379
 		name is ""
 	}
 
-	object 1381 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1381
+	object trapped-crab-icon-4 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1381
 		name is ""
 	}
 
-	object 1382 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1382
+	object bratwurst-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1382
 		name is ""
 	}
 
-	object 1383 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1383
+	object wrapped-arrowhead-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1383
 		name is ""
 	}
 
-	object 1384 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1384
+	object distributor-cap-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1384
 		name is ""
 	}
 
-	object 1385 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1385
+	object faux-gold-buckle-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1385
 		name is ""
 	}
 
-	object 1386 { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1386
+	object sailors-uniform-icon { ; VERB LECF_0001\LFLF_0098\ROOM\OBCD_1386
 		name is ""
 	}
 

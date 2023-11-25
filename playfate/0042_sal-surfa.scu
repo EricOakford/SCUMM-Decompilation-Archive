@@ -4,30 +4,30 @@
 ; * Room 42: Salvage Boat Surface (sal-surfa)
 ; */
 
-room sal-surfa {
+room salvage-boat {
 
-	object 492 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0492
+	object air-compressor-switch {
 		name is "air compressor switch"
 
-		verb 8 {
-			if !(script-running 201) jump &[00000036]
-			state-of 492 is 1
-			stop-script 213
-			stop-sound 201
-			stop-sound 202
-			start-script 202 (1)
+		verb use {
+			if !(script-running compressor-is-running) jump &[00000036]
+			state-of air-compressor-switch is 1
+			stop-script turn-on-compressor
+			stop-sound sound-201
+			stop-sound sound-202
+			start-script turn-off-compressor (1)
 			jump &[00000043]
 [00000036]:
-			state-of 492 is 0
-			start-script bak 213 ()
+			state-of air-compressor-switch is 0
+			start-script bak turn-on-compressor ()
 [00000043]:
 			end-object
 		}
 
-		verb 7 {
-			if !(!script-running 201) jump &[00000063]
-			state-of 492 is 0
-			start-script bak 213 ()
+		verb pull {
+			if !(!script-running compressor-is-running) jump &[00000063]
+			state-of air-compressor-switch is 0
+			start-script bak turn-on-compressor ()
 			jump &[00000082]
 [00000063]:
 			say-line "It's already on."
@@ -35,13 +35,13 @@ room sal-surfa {
 			end-object
 		}
 
-		verb 6 {
-			if !(script-running 201) jump &[00000111]
-			state-of 492 is 1
-			stop-script 213
-			stop-sound 201
-			stop-sound 202
-			start-script 202 (1)
+		verb push {
+			if !(script-running compressor-is-running) jump &[00000111]
+			state-of air-compressor-switch is 1
+			stop-script turn-on-compressor
+			stop-sound sound-201
+			stop-sound sound-202
+			start-script turn-off-compressor (1)
 			jump &[00000131]
 [00000111]:
 			say-line "It's already off."
@@ -49,8 +49,8 @@ room sal-surfa {
 			end-object
 		}
 
-		verb 9 {
-			if !(script-running 201) jump &[00000164]
+		verb look-at {
+			if !(script-running compressor-is-running) jump &[00000164]
 			say-line "It's switched\\x10on."
 			jump &[00000202]
 [00000164]:
@@ -60,37 +60,37 @@ room sal-surfa {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 489 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0489
+	object door-7 {
 		name is "door"
 
-		verb 3 {
+		verb open {
 			if !(state-of me is 1) jump &[00000044]
 			say-line "It's already open."
 			jump &[00000050]
 [00000044]:
 			state-of me is 1
-			start-sound 192
+			start-sound door-open
 [00000050]:
 			end-object
 		}
 
-		verb 4 {
+		verb close {
 			if !(state-of me is 0) jump &[00000089]
 			say-line "It's already closed."
 			jump &[00000095]
 [00000089]:
 			state-of me is 0
-			start-sound 190
+			start-sound door-close
 [00000095]:
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(state-of me is 1) jump &[00000154]
 			say-line "It's a convenient place to store\\x10things."
 			jump &[00000170]
@@ -101,19 +101,19 @@ room sal-surfa {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 500 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0500
+	object indy-in-diving-suit {
 		name is "Indy in diving suit"
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			if !(L.0 is 497) jump &[00000026]
-			start-object 497 verb 8 (500)
+			if !(L.0 is hoist) jump &[00000026]
+			start-object hoist verb use (indy-in-diving-suit)
 			jump &[00000050]
 [00000026]:
 			say-line "That will never\\x10work."
@@ -121,22 +121,22 @@ room sal-surfa {
 			end-object
 		}
 
-		verb 11 {
+		verb pick-up {
 			say-line "I can't lift\\x10him."
-			V.445 = actor-x 500
-			V.446 = actor-y 500
-			V.442 = (V.445 - (actor-x selected-actor))
-			V.443 = (V.446 - (actor-y selected-actor))
-			if (V.442 < 0) {
-				V.442 = (0 - V.442)
+			return-x = actor-x indy-in-diving-suit
+			return-y = actor-y indy-in-diving-suit
+			foo = (return-x - (actor-x selected-actor))
+			foo2 = (return-y - (actor-y selected-actor))
+			if (foo < 0) {
+				foo = (0 - foo)
 			}
-			if (V.443 < 0) {
-				V.443 = (0 - V.443)
+			if (foo2 < 0) {
+				foo2 = (0 - foo2)
 			}
 			do-animation selected-actor 255
-			if !(V.442 <= V.443) jump &[00000187]
-			V.446 -= actor-y selected-actor
-			if !(V.446 <= 0) jump &[00000180]
+			if !(foo <= foo2) jump &[00000187]
+			return-y -= actor-y selected-actor
+			if !(return-y <= 0) jump &[00000180]
 			do-animation selected-actor 247
 			jump &[00000184]
 [00000180]:
@@ -144,8 +144,8 @@ room sal-surfa {
 [00000184]:
 			jump &[00000215]
 [00000187]:
-			V.445 -= actor-x selected-actor
-			if !(V.445 <= 0) jump &[00000211]
+			return-x -= actor-x selected-actor
+			if !(return-x <= 0) jump &[00000211]
 			do-animation selected-actor 244
 			jump &[00000215]
 [00000211]:
@@ -155,38 +155,38 @@ room sal-surfa {
 			end-object
 		}
 
-		verb 12 {
-			start-script 211 ()
+		verb talk-to {
+			start-script talk-to-suited-indy ()
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			say-line "I hope this canvas relic holds\\x10together."
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 491 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0491
+	object punctured-diving-suit {
 		name is "punctured diving suit@@@@@@@@@@"
 
-		verb 11 {
+		verb pick-up {
 			if (owner-of me is-not selected-actor) {
 				say-line "It's too heavy to pick up and move\\x10around."
 			}
 			end-object
 		}
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			B.446 = 1
-			if !(class-of 491 is 140) jump &[00000189]
-			if !(class-of 491 is 6) jump &[00000140]
+			tried-to-wear-diving-suit = 1
+			if !(class-of punctured-diving-suit is 140) jump &[00000189]
+			if !(class-of punctured-diving-suit is 6) jump &[00000140]
 			say-line "I'm not putting that on, it's\\x10not\\x10rigged\\x10yet."
 			jump &[00000186]
 [00000140]:
@@ -194,18 +194,18 @@ room sal-surfa {
 [00000186]:
 			jump &[00000259]
 [00000189]:
-			if !(class-of 491 is 6) jump &[00000251]
+			if !(class-of punctured-diving-suit is 6) jump &[00000251]
 			say-line "I'm not putting that on, there's\\x10no\\x10air\\x10supply."
 			jump &[00000259]
 [00000251]:
 			if (!L.0) {
-				start-script 209 ()
+				start-script indy-puts-on-suit ()
 			}
 [00000259]:
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(class-of me is 12) jump &[00000372]
 			if !(class-of me is 134) jump &[00000338]
 			say-line "It's a repaired diving suit with an air hose\\x10attached."
@@ -228,29 +228,29 @@ room sal-surfa {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 490 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0490
+	object storage-locker {
 		name is "storage locker"
 
-		verb 3 {
+		verb open {
 			if !(state-of me is 1) jump &[00000051]
-			class-of 490 is 154
+			class-of storage-locker is 154
 			say-line "It's already open."
 			jump &[00000071]
 [00000051]:
-			if (class-of 500 is 160) {
-				class-of 491 is 32
+			if (class-of indy-in-diving-suit is 160) {
+				class-of punctured-diving-suit is 32
 			}
 			state-of me is 1
 [00000071]:
 			end-object
 		}
 
-		verb 4 {
+		verb close {
 			if !(state-of me is 0) jump &[00000110]
 			say-line "It's already closed."
 			jump &[00000114]
@@ -260,12 +260,12 @@ room sal-surfa {
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			if !(state-of me is 0) jump &[00000172]
 			say-line "It's a convenient place to stow\\x10things."
 			jump &[00000239]
 [00000172]:
-			if !(state-of 491 is 0) jump &[00000225]
+			if !(state-of punctured-diving-suit is 0) jump &[00000225]
 			say-line "There's an old diving suit in\\x10here."
 			jump &[00000239]
 [00000225]:
@@ -275,66 +275,66 @@ room sal-surfa {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 497 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0497
+	object hoist {
 		name is "hoist"
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			if !(L.0 is 500) jump &[00000021]
-			start-script 207 ()
+			if !(L.0 is indy-in-diving-suit) jump &[00000021]
+			start-script drop-indy-into-sea ()
 			jump &[00000027]
 [00000021]:
-			start-script 3 (8)
+			start-script default-response (8)
 [00000027]:
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			say-line "It's a device to lift heavy\\x10objects."
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 496 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0496
+	object air-hose {
 		name is "air-hose@@@@@@@@@@@@@@"
 
-		verb 8 {
+		verb use {
 		local variable L.0
 
-			if !(L.0 is 491) jump &[00000207]
-			if !(class-of 491 is 6) jump &[00000178]
+			if !(L.0 is punctured-diving-suit) jump &[00000207]
+			if !(class-of punctured-diving-suit is 6) jump &[00000178]
 			cut-scene
-			class-of 491 is 134
-			class-of 491 is 1 2 3 4
-			walk selected-actor to-object 496
+			class-of punctured-diving-suit is 134
+			class-of punctured-diving-suit is 1 2 3 4
+			walk selected-actor to-object air-hose
 			wait-for-actor selected-actor
 			do-animation selected-actor 12
 			break-here 4
 			do-animation selected-actor 3
 			break-here
-			walk selected-actor to-object 491
+			walk selected-actor to-object punctured-diving-suit
 			wait-for-actor selected-actor
 			do-animation selected-actor 10
 			break-here 4
 			do-animation selected-actor 3
 			break-here
-			draw-object 500 
-			if !(class-of 491 is 12) jump &[00000146]
-			new-name-of 491 is "repaired diving suit with hose"
+			draw-object indy-in-diving-suit 
+			if !(class-of punctured-diving-suit is 12) jump &[00000146]
+			new-name-of punctured-diving-suit is "repaired diving suit with hose"
 			jump &[00000174]
 [00000146]:
-			new-name-of 491 is "punctured suit with hose"
+			new-name-of punctured-diving-suit is "punctured suit with hose"
 [00000174]:
 			end-cut-scene
 			jump &[00000204]
@@ -343,32 +343,32 @@ room sal-surfa {
 [00000204]:
 			jump &[00000213]
 [00000207]:
-			chain-script 3 (8)
+			chain-script default-response (use)
 [00000213]:
 			end-object
 		}
 
-		verb 9 {
+		verb look-at {
 			say-line "I can use it to pump air to the\\x10suit."
 			end-object
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 493 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0493
+	object air-compressor {
 		name is "air compressor"
 
-		verb 8 {
-			chain-script 3 ()
+		verb use {
+			chain-script default-response ()
 			end-object
 		}
 
-		verb 9 {
-			if !(script-running 201) jump &[00000054]
+		verb look-at {
+			if !(script-running compressor-is-running) jump &[00000054]
 			say-line "The machine is pumping\\x10air."
 			jump &[00000080]
 [00000054]:
@@ -378,192 +378,192 @@ room sal-surfa {
 		}
 
 		verb 90 {
-			V.123 = 9
+			double-verb = look-at
 			end-object
 		}
 	}
 
-	object 494 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0494
+	object sal-waving-shirt-anim {
 		name is "sal-waving-shirt-anim"
 	}
 
-	object 498 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0498
+	object sal-air-lights-anim {
 		name is "sal-air-lights-anim"
 	}
 
-	object 495 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0495
+	object sal-air-hose-anim {
 		name is "sal-air-hose-anim"
 	}
 
-	object 499 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0499
+	object sal-winch-anim {
 		name is "sal-winch-anim"
 	}
 
-	object 488 { ; VERB LECF_0001\LFLF_0042\ROOM\OBCD_0488
+	object sal-sub-surf {
 		name is "sal-sub-surf"
 	}
 
 	exit { ; EXCD LECF_0001\LFLF_0042\ROOM\EXCD
-		if (!B.443) {
-			state-of 491 is 1
-			class-of 491 is 32
+		if (!coordinates-are-correct) {
+			state-of punctured-diving-suit is 1
+			class-of punctured-diving-suit is 32
 			if (!B.23) {
-				sound-kludge 257 157 0
-				sound-kludge 262 157 0
-				sound-kludge 269 157 50 180
+				sound-kludge 257 salvage-ship-theme 0
+				sound-kludge 262 salvage-ship-theme 0
+				sound-kludge 269 salvage-ship-theme 50 180
 				sound-kludge 65535
 			}
 		}
-		class-of 11 is 0
-		start-script 202 ()
-		class-of 500 is 160
-		class-of 1 is 32 141
+		class-of captain is 0
+		start-script turn-off-compressor ()
+		class-of indy-in-diving-suit is 160
+		class-of indy is 32 141
 		end-object
 	}
 
 	enter { ; ENCD LECF_0001\LFLF_0042\ROOM\ENCD
-		start-script 144 (89,3)
-		V.164 = 203
-		state-of 492 is 1
-		start-script bak 208 ()
-		actor 11 default costume 44 talk-color 2 name "captain"
-		class-of 11 is 141
-		put-actor 11 in-room 42
-		put-actor 11 at 82,68
-		do-animation 11 248
+		start-script award-iq-points (89,3)
+		talk-to-actor-script = talk-to-actor
+		state-of air-compressor-switch is 1
+		start-script bak shirt-waves ()
+		actor captain default costume 44 talk-color 2 name "captain"
+		class-of captain is 141
+		put-actor captain in-room 42
+		put-actor captain at 82,68
+		do-animation captain 248
 		actor 12 default costume 154 ignore-boxes always-zclip 2 init-animation 6 stand-animation 6
-		if !(state-of 488 is 1) jump &[00000152]
+		if !(state-of sal-sub-surf is 1) jump &[00000152]
 		if (!sound-running 81) {
 			if (!sound-running 80) {
-				start-sound 157
+				start-sound salvage-ship-theme
 			}
 		}
-		do-animation 11 248
-		put-actor 1 in-room 42
-		put-actor 1 at 150,101
-		do-animation 1 1
-		do-animation 1 249
-		put-actor 2 in-room 42
-		put-actor 2 at 184,101
-		do-animation 2 1
-		do-animation 2 248
-		start-script 204 ()
+		do-animation captain 248
+		put-actor indy in-room 42
+		put-actor indy at 150,101
+		do-animation indy 1
+		do-animation indy 249
+		put-actor sophia in-room 42
+		put-actor sophia at 184,101
+		do-animation sophia 1
+		do-animation sophia 248
+		start-script we-have-arrived ()
 		camera-at 160
 		jump &[00000168]
 [00000152]:
 		put-actor 12 in-room selected-room
 		put-actor 12 at 298,133
-		start-script bak 201 ()
-		start-script 200 ()
+		start-script bak compressor-is-running ()
+		start-script kerner-is-here ()
 [00000168]:
 		end-object
 	}
 
-	script 200 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0200
+	script kerner-is-here {
 		override off
 		camera-at 248
-		actor 4 costume 20
-		put-actor 4 in-room 42
-		put-actor 4 at 200,112
-		put-actor 2 in-room 42
-		put-actor 2 at 160,112
-		do-animation 4 248
-		do-animation 4 7
-		do-animation 2 249
+		actor kerner costume 20
+		put-actor kerner in-room 42
+		put-actor kerner at 200,112
+		put-actor sophia in-room 42
+		put-actor sophia at 160,112
+		do-animation kerner 248
+		do-animation kerner 7
+		do-animation sophia 249
 		break-here
-		state-of 490 is 0
+		state-of storage-locker is 0
 		break-here
 		cut-scene
 		override &[00000649]
 		break-here 4
-		say-line 2 center at 90,31 "Kerner!\\xFF\\x03Perfect^\\xFF\\x03^another slimy creature oozing up from the\\x10depths!"
+		say-line sophia center at 90,31 "Kerner!\\xFF\\x03Perfect^\\xFF\\x03^another slimy creature oozing up from the\\x10depths!"
 		wait-for-message
-		say-line 4 "Now now, Fraulein Hapgood, I have no wish to shoot\\x10you^ \\xFF\\x09\\x0D\\x00 \\xFF\\x03^don't make me change my\\x10mind."
+		say-line kerner "Now now, Fraulein Hapgood, I have no wish to shoot\\x10you^ \\xFF\\x09\\x0D\\x00 \\xFF\\x03^don't make me change my\\x10mind."
 		wait-for-message
-		say-line 2 center at 90,31 "What mind? \\xFF\\x09\\x0D\\x00 "
+		say-line sophia center at 90,31 "What mind? \\xFF\\x09\\x0D\\x00 "
 		wait-for-message
-		say-line 4 "I see you've acquired some bad manners from your friend\\x10Jones. \\xFF\\x09\\x0E\\x00 \\xFF\\x03Where is he, may I\\x10ask?"
+		say-line kerner "I see you've acquired some bad manners from your friend\\x10Jones. \\xFF\\x09\\x0E\\x00 \\xFF\\x03Where is he, may I\\x10ask?"
 		wait-for-message
-		say-line 2 center at 90,31 "Back on Thera.\\xFF\\x01You'll never find\\x10him. \\xFF\\x09\\x13\\x00 "
+		say-line sophia center at 90,31 "Back on Thera.\\xFF\\x01You'll never find\\x10him. \\xFF\\x09\\x13\\x00 "
 		wait-for-message
-		say-line 4 "Really^"
-		do-animation 2 3
+		say-line kerner "Really^"
+		do-animation sophia 3
 		wait-for-message
-		say-line 4 "^what do you say,\\x10Captain?"
+		say-line kerner "^what do you say,\\x10Captain?"
 		wait-for-message
-		walk 11 to 134,69
-		wait-for-actor 11
-		do-animation 11 face-towards 4
+		walk captain to 134,69
+		wait-for-actor captain
+		do-animation captain face-towards kerner
 		break-here 2
-		do-animation 4 face-towards 11
+		do-animation kerner face-towards captain
 		break-here 2
-		say-line 11 "I brought them both like you told me, Herr\\x10Kerner."
+		say-line captain "I brought them both like you told me, Herr\\x10Kerner."
 		wait-for-message
-		do-animation 4 17
-		say-line 11 "I tried to keep Jones from\\x10diving^"
+		do-animation kerner 17
+		say-line captain "I tried to keep Jones from\\x10diving^"
 		wait-for-message
-		do-animation 4 12
-		say-line 11 "^but he's a very determined\\x10man."
+		do-animation kerner 12
+		say-line captain "^but he's a very determined\\x10man."
 		wait-for-message
-		do-animation 4 1
-		walk 4 to 245,135
-		wait-for-actor 4
+		do-animation kerner 1
+		walk kerner to 245,135
+		wait-for-actor kerner
 [00000649]:
 		if !(override-hit) jump &[00000809]
-		sound-kludge 257 140 0
+		sound-kludge 257 experiment-theme 0
 		sound-kludge 65535
-		sound-kludge 269 140 0 360
-		put-actor 11 in-room 42
-		put-actor 11 at 134,69
-		do-animation 11 3
-		do-animation 11 249
-		put-actor 4 in-room 42
-		put-actor 4 at 245,135
-		do-animation 4 3
-		do-animation 4 249
-		say-line 4 "Goodbye, Dr. Jones."
-		load-sound 78
-		load-sound 79
+		sound-kludge 269 experiment-theme 0 360
+		put-actor captain in-room 42
+		put-actor captain at 134,69
+		do-animation captain 3
+		do-animation captain 249
+		put-actor kerner in-room 42
+		put-actor kerner at 245,135
+		do-animation kerner 3
+		do-animation kerner 249
+		say-line kerner "Goodbye, Dr. Jones."
+		load-sound diving-theme-1
+		load-sound diving-theme-2
 		sound-kludge 65535
 		sound-kludge 2
-		sound-kludge 8 78
-		sound-kludge 8 79
+		sound-kludge 8 diving-theme-1
+		sound-kludge 8 diving-theme-2
 		sound-kludge 65535
 		sound-kludge 3
-		sound-kludge 262 140 0
-		sound-kludge 269 140 0 30
+		sound-kludge 262 experiment-theme 0
+		sound-kludge 269 experiment-theme 0 30
 		wait-for-message
 		jump &[00000995]
 [00000809]:
-		say-line 4 "Now, he's a dead\\x10man^"
-		sound-kludge 257 140 0
+		say-line kerner "Now, he's a dead\\x10man^"
+		sound-kludge 257 experiment-theme 0
 		sound-kludge 65535
-		sound-kludge 269 140 0 360
+		sound-kludge 269 experiment-theme 0 360
 		wait-for-message
-		say-line 4 "^one rude archaeologist is quite enough for my\\x10purposes."
-		sound-kludge 262 140 0
-		sound-kludge 269 140 0 60
-		load-sound 78
-		load-sound 79
+		say-line kerner "^one rude archaeologist is quite enough for my\\x10purposes."
+		sound-kludge 262 experiment-theme 0
+		sound-kludge 269 experiment-theme 0 60
+		load-sound diving-theme
+		load-sound diving-theme2
 		sound-kludge 65535
 		sound-kludge 2
-		sound-kludge 8 78
-		sound-kludge 8 79
+		sound-kludge 8 diving-theme-1
+		sound-kludge 8 diving-theme-2
 		sound-kludge 65535
 		sound-kludge 3
 		wait-for-message
 [00000995]:
-		do-animation 4 22
-		start-sound 185
-		start-sound 185
+		do-animation kerner 22
+		start-sound sound-185
+		start-sound sound-185
 		break-here 3
-		start-script 202 ()
+		start-script turn-off-compressor ()
 		break-until (!script-running 202)
 		end-cut-scene
 		end-script
 	}
 
-	script 201 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0201
+	script compressor-is-running {
 	local variable L.0
 	local variable L.1
 
@@ -578,32 +578,32 @@ room sal-surfa {
 			if (L.1 > 4) {
 				L.1 = 1
 			}
-			draw-object 493 image L.0
-			draw-object 498 image L.1
+			draw-object air-compressor image L.0
+			draw-object sal-air-lights-anim image L.1
 			if (random 1) {
-				draw-object 495 image L.0
+				draw-object sal-air-hose-anim image L.0
 			}
 			break-here
 		}
 		end-script
 	}
 
-	script 202 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0202
+	script turn-off-compressor { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0202
 	local variable L.0
 
-		stop-script 201
-		state-of 493 is 0
-		state-of 498 is 0
-		state-of 495 is 0
+		stop-script compressor-is-running
+		state-of air-compressor is 0
+		state-of sal-air-lights-anim is 0
+		state-of sal-air-hose-anim is 0
 		if (!L.0) {
 			do-animation 12 7
 			break-here 3
-			do-animation 4 3
+			do-animation kerner 3
 			break-here 4
-			do-animation 4 20
-			V.445 = actor-x 12
-			V.446 = actor-y 12
-			V.442 = (camera-x + 35)
+			do-animation kerner 20
+			return-x = actor-x 12
+			return-y = actor-y 12
+			foo = (camera-x + 35)
 			print-line color 11 at camera-x,125 "BLUB!"
 			break-here 13
 			wait-for-message
@@ -611,220 +611,220 @@ room sal-surfa {
 		end-script
 	}
 
-	script 203 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0203
-		if !(V.176 is 11) jump &[00000021]
-		chain-script 206 ()
+	script talk-to-actor {
+		if !(dialog-actor is captain) jump &[00000021]
+		chain-script talk-to-captain ()
 		jump &[00000034]
 [00000021]:
-		if !(V.176 is 2) jump &[00000034]
-		chain-script 205 ()
+		if !(dialog-actor is sophia) jump &[00000034]
+		chain-script talk-to-sophia ()
 		jump &[00000034]
 [00000034]:
 		end-script
 	}
 
-	script 204 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0204
-		if !(V.416 is 1) jump &[00000031]
-		*38 = "southwest"
+	script we-have-arrived { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0204
+		if !(salvage-direction is 1) jump &[00000031]
+		salvage-direction-string = "southwest"
 		jump &[00000073]
 [00000031]:
-		if !(V.416 is 2) jump &[00000050]
-		*38 = "south"
+		if !(salvage-direction is 2) jump &[00000050]
+		salvage-direction-string = "south"
 		jump &[00000073]
 [00000050]:
-		if !(V.416 is 3) jump &[00000073]
-		*38 = "southeast"
+		if !(salvage-direction is 3) jump &[00000073]
+		salvage-direction-string = "southeast"
 		jump &[00000073]
 [00000073]:
 		cut-scene
 		if !(B.400[9] is 0) jump &[00000449]
-		walk 11 to 134,69
-		wait-for-actor 11
+		walk captain to 134,69
+		wait-for-actor captain
 		override &[00000416]
-		say-line 11 "Avast, you lubbers.  We've\\x10arrived."
+		say-line captain "Avast, you lubbers.  We've\\x10arrived."
 		break-here 2
-		walk 1 to 157,101
-		wait-for-actor 1
-		do-animation 1 face-towards 11
+		walk indy to 157,101
+		wait-for-actor indy
+		do-animation indy face-towards captain
 		break-here 2
-		do-animation 11 face-towards 1
+		do-animation captain face-towards indy
 		break-here 2
-		do-animation 2 248
+		do-animation sophia 248
 		wait-for-message
-		say-line 1 "Are you sure?"
+		say-line indy "Are you sure?"
 		wait-for-message
-		say-line 11 "Exactly %n415% miles %s38% of\\x10Thera.\\xFF\\x03There's a diving suit in one of the\\x10lockers^\\xFF\\x03^the rest is up to\\x10you."
+		say-line captain "Exactly %n415% miles %s38% of\\x10Thera.\\xFF\\x03There's a diving suit in one of the\\x10lockers^\\xFF\\x03^the rest is up to\\x10you."
 		wait-for-message
-		say-line 1 "Aren't you going to help?"
+		say-line indy "Aren't you going to help?"
 		wait-for-message
 		override off
-		say-line 11 "I'm against helping anyone into an early\\x10grave^\\xFF\\x03^from now on, you're on your\\x10own."
+		say-line captain "I'm against helping anyone into an early\\x10grave^\\xFF\\x03^from now on, you're on your\\x10own."
 [00000416]:
 		if (override-hit) {
-			say-line 11 "You're on your\\x10own."
+			say-line captain "You're on your\\x10own."
 		}
 		wait-for-message
 		jump &[00000710]
 [00000449]:
-		state-of 491 is 0
-		if (class-of 491 is 12) {
-			new-name-of 491 is "diving suit"
+		state-of punctured-diving-suit is 0
+		if (class-of punctured-diving-suit is 12) {
+			new-name-of punctured-diving-suit is "diving suit"
 		}
-		if (class-of 491 is 134) {
-			draw-object 500 
-			new-name-of 491 is "broken suit with hose"
+		if (class-of punctured-diving-suit is 134) {
+			draw-object indy-in-diving-suit 
+			new-name-of punctured-diving-suit is "broken suit with hose"
 		}
-		if (class-of 491 is 12) {
-			if (class-of 491 is 134) {
-				new-name-of 491 is "diving suit with hose"
-				class-of 491 is 1 2 3 4
+		if (class-of punctured-diving-suit is 12) {
+			if (class-of punctured-diving-suit is 134) {
+				new-name-of punctured-diving-suit is "diving suit with hose"
+				class-of punctured-diving-suit is 1 2 3 4
 			}
 		}
-		walk 11 to 134,69
-		wait-for-actor 11
+		walk captain to 134,69
+		wait-for-actor captain
 		override &[00000690]
-		say-line 11 "Alright, we're in position^"
+		say-line captain "Alright, we're in position^"
 		break-here 2
-		walk 1 to 157,101
-		wait-for-actor 1
-		do-animation 1 face-towards 11
+		walk indy to 157,101
+		wait-for-actor indy
+		do-animation indy face-towards captain
 		break-here 2
-		do-animation 11 face-towards 1
+		do-animation captain face-towards indy
 		break-here 2
-		do-animation 2 248
+		do-animation sophia 248
 		wait-for-message
 		override off
-		say-line 11 "^%n415% miles %s38% of\\x10Thera.\\xFF\\x03Go to it."
+		say-line captain "^%n415% miles %s38% of\\x10Thera.\\xFF\\x03Go to it."
 [00000690]:
 		if (override-hit) {
-			say-line 11 "Go to it."
+			say-line captain "Go to it."
 		}
 		wait-for-message
 [00000710]:
-		walk 11 to 82,68
-		wait-for-actor 11
+		walk captain to 82,68
+		wait-for-actor captain
 		end-cut-scene
-		if (actor-room 2 is selected-room) {
-			if (!script-running 31) {
-				start-script bak 31 (1,2,0)
+		if (actor-room sophia is selected-room) {
+			if (!script-running follow-actor) {
+				start-script bak follow-actor (1,2,0)
 			}
 		}
 		end-script
 	}
 
-	script 205 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0205
+	script talk-to-sophia {
 	local variable L.0
 	local variable L.1
 
-		stop-script 31
+		stop-script follow-actor
 		start-script 136 (1,2,30,1)
 		break-until (!script-running 136)
 		if (B.22) {
-			if (actor-room 2 is selected-room) {
-				if (!script-running 31) {
-					start-script bak 31 (1,2,1)
+			if (actor-room sophia is selected-room) {
+				if (!script-running follow-actor) {
+					start-script bak follow-actor (1,2,1)
 				}
 			}
 			stop-script 0
 		}
 		cut-scene
-		V.442 = random 2
-		if !(V.442 is 0) jump &[00000112]
-		say-line 1 "Listen, Sophia^"
+		foo = random 2
+		if !(foo is 0) jump &[00000112]
+		say-line indy "Listen, Sophia^"
 		jump &[00000148]
 [00000112]:
-		if !(V.442 is 1) jump &[00000130]
-		say-line 1 "Hey^"
+		if !(foo is 1) jump &[00000130]
+		say-line indy "Hey^"
 		jump &[00000148]
 [00000130]:
-		if !(V.442 is 2) jump &[00000148]
-		say-line 1 "Uhh^"
+		if !(foo is 2) jump &[00000148]
+		say-line indy "Uhh^"
 		jump &[00000148]
 [00000148]:
 		break-here 2
-		do-animation 2 face-towards 1
+		do-animation sophia face-towards indy
 		wait-for-message
-		V.442 = random 1
-		if !(V.442) jump &[00000176]
-		say-line 2 "Yes?"
+		foo = random 1
+		if !(foo) jump &[00000176]
+		say-line sophia "Yes?"
 		jump &[00000199]
 [00000176]:
-		say-line 2 "What is it,\\x10sailor?"
+		say-line sophia "What is it,\\x10sailor?"
 [00000199]:
 		wait-for-message
 		end-cut-scene
-		start-script 82 ()
+		start-script dialog-ui ()
 [00000205]:
 		L.0 = 0
-		start-script 68 ()
+		start-script start-dialog ()
 		if (B.435[0] is 0) {
 			++L.0
-			V.443 = ((41 + 1) - 1)
-			*V.443 = "If we've found Atlantis, I'll bet it's\\x10waterlogged."
-			V.442 = ((120 + 1) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 1) - 1)
+			*foo2 = "If we've found Atlantis, I'll bet it's\\x10waterlogged."
+			foo = ((120 + 1) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
 		if (B.435[1] is 0) {
 			++L.0
-			V.443 = ((41 + 2) - 1)
-			*V.443 = "Think your old pal Sal would be proud of\\x10us?"
-			V.442 = ((120 + 2) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 2) - 1)
+			*foo2 = "Think your old pal Sal would be proud of\\x10us?"
+			foo = ((120 + 2) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
 		if (L.1 is 0) {
 			++L.0
-			V.443 = ((41 + 3) - 1)
-			*V.443 = "What do we do now?"
-			V.442 = ((120 + 3) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 3) - 1)
+			*foo2 = "What do we do now?"
+			foo = ((120 + 3) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
-		V.443 = ((41 + 4) - 1)
-		*V.443 = "Excuse me."
-		V.442 = ((120 + 4) - 1)
-		verb V.442 at 2,V.166
-		verb V.442 on key V.178
-		V.166 += 10
-		V.442 -= 120
-		++V.178
-		B.7[V.442] = 1
-		V.442 = (4 - 1)
-		V.167[V.442] = 1
-		V.165 = 0
+		foo2 = ((41 + 4) - 1)
+		*foo2 = "Excuse me."
+		foo = ((120 + 4) - 1)
+		verb foo at 2,dialog-ypos
+		verb foo on key dialog-key
+		dialog-ypos += 10
+		foo -= 120
+		++dialog-key
+		say-screen-escape[foo] = 1
+		foo = (4 - 1)
+		screen-escape-array[foo] = 1
+		choice = 0
 		do {
-			V.442 = random 1
+			foo = random 1
 			break-here
-		} until (V.165)
-		if !(V.165 is 120) jump &[00000747]
+		} until (choice)
+		if !(choice is 120) jump &[00000747]
 		B.435[0] = 1
-		say-line 2 "Don't look at me, I didn't sink\\x10it."
+		say-line sophia "Don't look at me, I didn't sink\\x10it."
 		jump &[00000880]
 [00000747]:
-		if !(V.165 is 121) jump &[00000808]
+		if !(choice is 121) jump &[00000808]
 		B.435[1] = 1
-		say-line 2 "Sorry, I'm not in contact at the\\x10moment."
+		say-line sophia "Sorry, I'm not in contact at the\\x10moment."
 		jump &[00000880]
 [00000808]:
-		if !(V.165 is 122) jump &[00000859]
-		say-line 2 "I guess you better try out that\\x10suit."
+		if !(choice is 122) jump &[00000859]
+		say-line sophia "I guess you better try out that\\x10suit."
 		jump &[00000880]
 [00000859]:
-		if !(V.165 is 123) jump &[00000880]
-		say-line 2 "Mmm."
+		if !(choice is 123) jump &[00000880]
+		say-line sophia "Mmm."
 		jump &[00000895]
 		jump &[00000880]
 [00000880]:
@@ -835,292 +835,292 @@ room sal-surfa {
 		jump &[00000895]
 [00000895]:
 		wait-for-message
-		start-script 83 ()
-		if (actor-room 2 is selected-room) {
-			if (!script-running 31) {
-				start-script bak 31 (1,2,0)
+		start-end-dialog-ui ()
+		if (actor-room sophia is selected-room) {
+			if (!script-running follow-actor) {
+				start-script bak follow-actor (1,2,0)
 			}
 		}
 		end-script
 	}
 
-	script 206 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0206
+	script talk-to-captain { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0206
 	local variable L.0
 
 		cut-scene
-		stop-script 31
+		stop-script follow-actor
 		walk selected-actor to 157,101
 		wait-for-actor selected-actor
-		if (selected-actor is-not 2) {
-			walk 2 to 184,101
-			wait-for-actor 2
-			do-animation 2 face-towards 11
+		if (selected-actor is-not sophia) {
+			walk sophia to 184,101
+			wait-for-actor sophia
+			do-animation sophia face-towards captain
 		}
-		do-animation selected-actor face-towards 11
+		do-animation selected-actor face-towards captain
 		break-here 2
-		V.442 = random 2
-		if !(V.442 is 0) jump &[00000085]
+		foo = random 2
+		if !(foo is 0) jump &[00000085]
 		say-line selected-actor "Say, Captain^"
 		jump &[00000136]
 [00000085]:
-		if !(V.442 is 1) jump &[00000114]
+		if !(foo is 1) jump &[00000114]
 		say-line selected-actor "Hey, up there^"
 		jump &[00000136]
 [00000114]:
-		if !(V.442 is 2) jump &[00000136]
+		if !(foo is 2) jump &[00000136]
 		say-line selected-actor "Hello^?"
 		jump &[00000136]
 [00000136]:
-		walk 11 to 134,69
-		wait-for-actor 11
+		walk captain to 134,69
+		wait-for-actor captain
 		wait-for-message
-		do-animation selected-actor face-towards 11
+		do-animation selected-actor face-towards captain
 		break-here 2
-		do-animation 11 face-towards selected-actor
+		do-animation captain face-towards selected-actor
 		break-here 2
-		V.442 = random 1
-		if !(V.442 is 0) jump &[00000200]
-		say-line 11 "What can I do for\\x10you?"
+		foo = random 1
+		if !(foo is 0) jump &[00000200]
+		say-line captain "What can I do for\\x10you?"
 		jump &[00000218]
 [00000200]:
-		if !(V.442 is 1) jump &[00000218]
-		say-line 11 "Yes?"
+		if !(foo is 1) jump &[00000218]
+		say-line captain "Yes?"
 		jump &[00000218]
 [00000218]:
 		wait-for-message
 		end-cut-scene
-		start-script 82 ()
+		start-script dialog-ui ()
 [00000224]:
 		wait-for-message
-		start-script 68 ()
-		V.443 = ((41 + 1) - 1)
-		*V.443 = "Take us back to Thera,\\x10please."
-		V.442 = ((120 + 1) - 1)
-		verb V.442 at 2,V.166
-		verb V.442 on key V.178
-		V.166 += 10
-		V.442 -= 120
-		++V.178
-		B.7[V.442] = 1
-		V.443 = ((41 + 2) - 1)
-		*V.443 = "Are you sure we're in the right\\x10spot?"
-		V.442 = ((120 + 2) - 1)
-		verb V.442 at 2,V.166
-		verb V.442 on key V.178
-		V.166 += 10
-		V.442 -= 120
-		++V.178
-		B.7[V.442] = 1
-		V.443 = ((41 + 3) - 1)
-		*V.443 = "Give us a few more\\x10minutes."
-		V.442 = ((120 + 3) - 1)
-		verb V.442 at 2,V.166
-		verb V.442 on key V.178
-		V.166 += 10
-		V.442 -= 120
-		++V.178
-		B.7[V.442] = 1
-		V.442 = (4 - 1)
-		V.167[V.442] = 1
-		V.165 = 0
+		start-script start-dialog ()
+		foo2 = ((41 + 1) - 1)
+		*foo2 = "Take us back to Thera,\\x10please."
+		foo = ((120 + 1) - 1)
+		verb foo at 2,dialog-ypos
+		verb foo on key dialog-key
+		dialog-ypos += 10
+		foo -= 120
+		++dialog-key
+		say-screen-escape[foo] = 1
+		foo2 = ((41 + 2) - 1)
+		*foo2 = "Are you sure we're in the right\\x10spot?"
+		foo = ((120 + 2) - 1)
+		verb foo at 2,dialog-ypos
+		verb foo on key dialog-key
+		dialog-ypos += 10
+		foo -= 120
+		++dialog-key
+		say-screen-escape[foo] = 1
+		foo2 = ((41 + 3) - 1)
+		*foo2 = "Give us a few more\\x10minutes."
+		foo = ((120 + 3) - 1)
+		verb foo at 2,dialog-ypos
+		verb foo on key dialog-key
+		dialog-ypos += 10
+		foo -= 120
+		++dialog-key
+		say-screen-escape[foo] = 1
+		foo = (4 - 1)
+		screen-escape-array[foo] = 1
+		choice = 0
 		do {
-			V.442 = random 1
+			foo = random 1
 			break-here
-		} until (V.165)
-		if !(V.165 is 120) jump &[00000712]
+		} until (choice)
+		if !(choice is 120) jump &[00000712]
 		if !(!B.400[9]) jump &[00000678]
-		say-line 11 "Couldn't find the secret city,\\x10eh?\\xFF\\x09\\x06\\x00\\xFF\\x03Too bad, I was hoping to dredge up a\\x10fortune."
+		say-line captain "Couldn't find the secret city,\\x10eh?\\xFF\\x09\\x06\\x00\\xFF\\x03Too bad, I was hoping to dredge up a\\x10fortune."
 		jump &[00000701]
 [00000678]:
-		say-line 11 "Aye aye, boss. \\xFF\\x09\\x08\\x00"
+		say-line captain "Aye aye, boss. \\xFF\\x09\\x08\\x00"
 [00000701]:
 		L.0 = 1
 		jump &[00000849]
 		jump &[00000846]
 [00000712]:
-		if !(V.165 is 121) jump &[00000815]
-		say-line 11 "I'm telling you^\\xFF\\x03^we're %n415% miles %s38% of Thera^\\xFF\\x03^right where you people wanted to\\x10go."
+		if !(choice is 121) jump &[00000815]
+		say-line captain "I'm telling you^\\xFF\\x03^we're %n415% miles %s38% of Thera^\\xFF\\x03^right where you people wanted to\\x10go."
 		jump &[00000846]
 [00000815]:
-		if !(V.165 is 122) jump &[00000846]
-		say-line 11 "If you say so."
+		if !(choice is 122) jump &[00000846]
+		say-line captain "If you say so."
 		jump &[00000849]
 		jump &[00000846]
 [00000846]:
 		jump &[00000224]
 [00000849]:
 		wait-for-message
-		start-script 83 ()
+		start-end-dialog-ui ()
 		if !(!L.0) jump &[00000868]
-		walk 11 to 82,68
+		walk captain to 82,68
 		jump &[00000907]
 [00000868]:
 		V.316 = 4
 		B.400[14] = 1
-		if (selected-actor is-not 1) {
-			start-script 80 (1)
+		if (selected-actor is-not indy) {
+			start-script switch-actor (indy)
 		}
 		actor selected-actor costume 2 follow-boxes
 		V.315 = 42
-		current-room 75
+		current-room world-map
 [00000907]:
-		if (selected-actor is 1) {
-			if (actor-room 2 is selected-room) {
-				if (!script-running 31) {
-					start-script bak 31 (1,2,0)
+		if (selected-actor is indy) {
+			if (actor-room sophia is selected-room) {
+				if (!script-running follow-actor) {
+					start-script bak follow-actor (1,2,0)
 				}
 			}
 		}
 		end-script
 	}
 
-	script 207 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0207
+	script drop-indy-into-sea
 		cut-scene
-		if (!script-running 201) {
-			say-line 2 "Better turn that compressor on\\x10first."
-			do-sentence 7 492 with 0
+		if (!script-running compressor-is-running) {
+			say-line sophia "Better turn that compressor on\\x10first."
+			do-sentence 7 air-compressor-switch with 0
 			wait-for-sentence
 		}
-		walk 2 to-object 497
-		wait-for-actor 2
+		walk sophia to-object hoist
+		wait-for-actor sophia
 		break-here 2
-		if !(B.732 is 0) jump &[00000136]
-		say-line 1 "Watch that\\x10hook!"
+		if !(got-coordinates-wrong is 0) jump &[00000136]
+		say-line indy "Watch that\\x10hook!"
 		wait-for-message
-		say-line 2 "Okay, okay.\\xFF\\x09\\x0D\\x00"
+		say-line sophia "Okay, okay.\\xFF\\x09\\x0D\\x00"
 		wait-for-message
-		do-animation 2 1
+		do-animation sophia 1
 		jump &[00000187]
 [00000136]:
-		say-line 1 "Here, I go again!"
+		say-line indy "Here, I go again!"
 		wait-for-message
-		say-line 2 "Better luck this\\x10time!"
+		say-line sophia "Better luck this\\x10time!"
 		wait-for-message
 [00000187]:
-		do-animation 2 246
-		draw-object 499 image 1
+		do-animation sophia 246
+		draw-object sal-winch-anim image 1
 		break-here 4
-		draw-object 499 image 2
+		draw-object sal-winch-anim image 2
 		break-here 4
-		do-animation 2 244
-		draw-object 499 image 3
+		do-animation sophia 244
+		draw-object sal-winch-anim image 3
 		break-here 4
-		sound-kludge 263 157 1 4 400
-		sound-kludge 270 157 1
-		sound-kludge 271 262 157 0
+		sound-kludge 263 salvage-ship-theme 1 4 400
+		sound-kludge 270 salvage-ship-theme 1
+		sound-kludge 271 262 salvage-ship-theme 0
 		sound-kludge 271 65535
-		state-of 500 is 0
-		do-animation 1 6
+		state-of indy-in-diving-suit is 0
+		do-animation indy 6
 		break-here 5
-		camera-pan-to 208
+		camera-pan-to shirt-waves
 		wait-for-camera
-		actor 1 ignore-boxes always-zclip 2
+		actor indy ignore-boxes always-zclip 2
 		break-here
-		put-actor 1 at 304,102
-		do-animation 1 9
-		do-animation 2 245
-		draw-object 499 image 2
+		put-actor indy at 304,102
+		do-animation indy 9
+		do-animation sophia 245
+		draw-object sal-winch-anim image 2
 		break-here
-		put-actor 1 at 318,104
-		do-animation 1 10
-		draw-object 499 image 1
+		put-actor indy at 318,104
+		do-animation indy 10
+		draw-object sal-winch-anim image 1
 		break-here
-		put-actor 1 at 318,104
-		do-animation 1 11
-		state-of 499 is 0
+		put-actor indy at 318,104
+		do-animation indy 11
+		state-of sal-winch-anim is 0
 		break-here
-		do-animation 1 8
+		do-animation indy 8
 		break-here 18
-		B.444 = 1
+		attempted-dive = 1
 		end-cut-scene
-		if !(B.443) jump &[00000422]
-		start-script 144 (90,10)
-		actor 1 never-zclip ignore-boxes
-		put-actor 1 in-room 82
-		put-actor 1 at 345,0
-		start-script 80 (1)
-		break-until (!script-running 80)
-		current-room 82
+		if !(coordinates-are-correct) jump &[00000422]
+		start-script award-iq-points (90,10)
+		actor indy never-zclip ignore-boxes
+		put-actor indy in-room 82
+		put-actor indy at 345,0
+		start-script switch-actor (indy)
+		break-until (!script-running switch-actor)
+		current-room salvage-boat-under
 		jump &[00000701]
 [00000422]:
 		cut-scene
-		do-animation 1 13
+		do-animation indy 13
 		break-here 5
-		if !(B.732 is 0) jump &[00000523]
-		B.732 = 1
-		do-animation 1 14
+		if !(got-coordinates-wrong is 0) jump &[00000523]
+		got-coordinates-wrong = 1
+		do-animation indy 14
 		break-here
 		print-line at camera-x,70 center overhead color 15 "Nothing.\\xFF\\x03I must have picked the wrong\\x10coordinates."
 		wait-for-message
-		do-animation 1 15
+		do-animation indy 15
 		jump &[00000587]
 [00000523]:
-		do-animation 1 14
+		do-animation indy 14
 		break-here
 		print-line at camera-x,70 center overhead color 15 "Drat!\\xFF\\x03We got the coordinates wrong\\x10again."
 		wait-for-message
-		do-animation 1 15
+		do-animation indy 15
 [00000587]:
 		wait-for-message
-		do-animation 1 14
+		do-animation indy 14
 		print-line at camera-x,70 center overhead color 15 "Take us back, Captain!"
 		wait-for-message
-		do-animation 1 15
+		do-animation indy 15
 		end-cut-scene
 		V.316 = 4
 		B.400[14] = 1
 		V.315 = 42
-		start-script 80 (1)
+		start-script switch-actor (indy)
 		actor selected-actor costume 2 follow-boxes
-		sound-kludge 262 157 0
-		sound-kludge 257 157 0
-		sound-kludge 269 157 40 640
-		current-room 75
+		sound-kludge 262 salvage-ship-theme 0
+		sound-kludge 257 salvage-ship-theme 0
+		sound-kludge 269 salvage-ship-theme 40 640
+		current-room world-map
 [00000701]:
 		end-script
 	}
 
-	script 208 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0208
+	script shirt-waves {
 		do {
-			draw-object 494 image 1
+			draw-object sal-waving-shirt-anim image 1
 			break-here 4
-			draw-object 494 image 2
+			draw-object sal-waving-shirt-anim image 2
 			break-here 4
-			draw-object 494 image 3
+			draw-object sal-waving-shirt-anim image 3
 			break-here 4
-			draw-object 494 image 2
+			draw-object sal-waving-shirt-anim image 2
 			break-here 4
 		}
 		end-script
 	}
 
-	script 209 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0209
+	script indy-puts-on-suit {
 		cut-scene
-		walk 1 to-object 490
-		wait-for-actor 1
-		state-of 491 is 1
-		class-of 491 is 160
-		do-animation 1 250
-		actor 1 costume 86
-		put-actor 1 at 232,110
-		class-of 1 is 160 13
-		do-animation 1 12
+		walk indy to-object storage-locker
+		wait-for-actor indy
+		state-of punctured-diving-suit is 1
+		class-of punctured-diving-suit is 160
+		do-animation indy 250
+		actor indy costume 86
+		put-actor indy at 232,110
+		class-of indy is 160 13
+		do-animation indy 12
 		break-here 3
-		state-of 490 is 0
+		state-of storage-locker is 0
 		break-here 3
-		do-animation 1 3
-		class-of 500 is 32
-		do-animation 2 face-towards 1
+		do-animation indy 3
+		class-of indy-in-diving-suit is 32
+		do-animation sophia face-towards indy
 		break-here 2
-		if !(B.732 is 0) jump &[00000178]
+		if !(got-coordinates-wrong is 0) jump &[00000178]
 		say-line "I can't move at all in this\\x10thing!\\xFF\\x03You'll have to get me into the\\x10water,\\x10Sophia."
 		jump &[00000213]
 [00000178]:
 		say-line "Sophia, would you do the\\x10honors?"
 [00000213]:
-		stop-script 31
-		start-script 80 (2)
-		break-until (!script-running 80)
+		stop-script follow-actor
+		start-script switch-actor (sophia)
+		break-until (!script-running switch-actor)
 		camera-pan-to 160
 		wait-for-camera
 		wait-for-message
@@ -1128,11 +1128,11 @@ room sal-surfa {
 		end-script
 	}
 
-	script 210 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0210
+	script unused=210 {
 		end-script
 	}
 
-	script 211 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0211
+	script talk-to-suited-indy {
 	local variable L.0
 
 		cut-scene
@@ -1152,7 +1152,7 @@ room sal-surfa {
 			++L.0
 		}
 		if !(L.0 is 0) jump &[00000101]
-		say-line 2 "Here we go."
+		say-line sophia "Here we go."
 		wait-for-message
 		jump &[00000909]
 		jump &[00000129]
@@ -1162,82 +1162,82 @@ room sal-surfa {
 [00000129]:
 		print-line at 233,29 center overhead color 15 "Barely."
 		wait-for-message
-		start-script 82 ()
+		start-script dialog-ui ()
 [00000154]:
-		start-script 68 ()
+		start-script start-dialog ()
 		L.0 = 0
 		if (B.435[2] is 0) {
 			++L.0
-			V.443 = ((41 + 1) - 1)
-			*V.443 = "Is it hot in\\x10there?"
-			V.442 = ((120 + 1) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 1) - 1)
+			*foo2 = "Is it hot in\\x10there?"
+			foo = ((120 + 1) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
 		if (B.435[3] is 0) {
 			++L.0
-			V.443 = ((41 + 2) - 1)
-			*V.443 = "Do you really think we're over the right\\x10spot?"
-			V.442 = ((120 + 2) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 2) - 1)
+			*foo2 = "Do you really think we're over the right\\x10spot?"
+			foo = ((120 + 2) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
 		if (B.435[4] is 0) {
 			++L.0
-			V.443 = ((41 + 3) - 1)
-			*V.443 = "Just wanted to make sure you're\\x10comfortable."
-			V.442 = ((120 + 3) - 1)
-			verb V.442 at 2,V.166
-			verb V.442 on key V.178
-			V.166 += 10
-			V.442 -= 120
-			++V.178
-			B.7[V.442] = 1
+			foo2 = ((41 + 3) - 1)
+			*foo2 = "Just wanted to make sure you're\\x10comfortable."
+			foo = ((120 + 3) - 1)
+			verb foo at 2,dialog-ypos
+			verb foo on key dialog-key
+			dialog-ypos += 10
+			foo -= 120
+			++dialog-key
+			say-screen-escape[foo] = 1
 		}
 		if !(L.0 is 0) jump &[00000550]
-		say-line 2 "Here we go."
+		say-line sophia "Here we go."
 		wait-for-message
 		jump &[00000904]
 [00000550]:
-		V.443 = ((41 + 4) - 1)
-		*V.443 = "Ready?"
-		V.442 = ((120 + 4) - 1)
-		verb V.442 at 2,V.166
-		verb V.442 on key V.178
-		V.166 += 10
-		V.442 -= 120
-		++V.178
-		B.7[V.442] = 1
-		V.442 = (4 - 1)
-		V.167[V.442] = 1
-		V.165 = 0
+		foo2 = ((41 + 4) - 1)
+		*foo2 = "Ready?"
+		foo = ((120 + 4) - 1)
+		verb foo at 2,dialog-ypos
+		verb foo on key dialog-key
+		dialog-ypos += 10
+		foo -= 120
+		++dialog-key
+		say-screen-escape[foo] = 1
+		foo = (4 - 1)
+		screen-escape-array[foo] = 1
+		choice = 0
 		do {
-			V.442 = random 1
+			foo = random 1
 			break-here
-		} until (V.165)
-		if !(V.165 is 120) jump &[00000704]
+		} until (choice)
+		if !(choice is 120) jump &[00000704]
 		B.435[2] = 1
 		print-line at 233,29 color 15 "Yes.  Hot."
 		wait-for-message
 		jump &[00000154]
 		jump &[00000904]
 [00000704]:
-		if !(V.165 is 121) jump &[00000774]
+		if !(choice is 121) jump &[00000774]
 		B.435[3] = 1
 		print-line at 233,29 color 15 "Let's not stand here, let's find\\x10out."
 		wait-for-message
 		jump &[00000154]
 		jump &[00000904]
 [00000774]:
-		if !(V.165 is 122) jump &[00000866]
+		if !(choice is 122) jump &[00000866]
 		B.435[2] = 1
 		B.435[4] = 1
 		print-line at 233,29 color 15 "Comfortable?\\xFF\\x03It's about as comfortable as a\\x10coffin."
@@ -1245,48 +1245,48 @@ room sal-surfa {
 		jump &[00000154]
 		jump &[00000904]
 [00000866]:
-		if !(V.165 is 123) jump &[00000904]
+		if !(choice is 123) jump &[00000904]
 		print-line at 233,29 center color 15 "As I'll ever\\x10be."
 		jump &[00000904]
 [00000904]:
 		wait-for-message
-		start-script 83 ()
+		start-end-dialog-ui ()
 [00000909]:
 		end-script
 	}
 
-	script 212 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0212
-		class-of 491 is 12
-		start-script 144 (91,5)
+	script fix-diving-suit {
+		class-of punctured-diving-suit is 12
+		start-script award-iq-points (91,5)
 		cut-scene
-		do-animation 1 251
-		do-animation 1 10
+		do-animation indy 251
+		do-animation indy 10
 		break-here 4
-		do-animation 1 1
+		do-animation indy 1
 		say-line "There, good as new^\\xFF\\x03^almost."
-		if !(class-of 491 is 134) jump &[00000113]
-		new-name-of 491 is "repaired suit with hose"
+		if !(class-of punctured-diving-suit is 134) jump &[00000113]
+		new-name-of punctured-diving-suit is "repaired suit with hose"
 		jump &[00000130]
 [00000113]:
-		new-name-of 491 is "repaired suit"
+		new-name-of punctured-diving-suit is "repaired suit"
 [00000130]:
 		wait-for-message
 		end-cut-scene
-		owner-of 946 is 0
-		start-script 10 ()
+		owner-of tire-repair-kit is 0
+		start-script update-inventory ()
 		end-script
 	}
 
-	script 213 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0213
-		start-sound 202
+	script turn-on-compressor {
+		start-sound sound-202
 		sleep-for 60 jiffies
-		start-script bak 201 ()
-		start-sound 201
+		start-script bak compressor-is-running ()
+		start-sound sound-201
 		break-here 2
-		stop-sound 202
+		stop-sound sound-202
 		sleep-for 240 jiffies
-		sound-kludge 269 201 0 300
-		sound-kludge 257 201 0
+		sound-kludge 269 sound-201 0 300
+		sound-kludge 257 sound-201 0
 		end-script
 	}
 }

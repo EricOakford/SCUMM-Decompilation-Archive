@@ -4,7 +4,7 @@
 ; * Room 75: Map of World (map-world)
 ; */
 
-script 93 { ; SCRP LECF_0001\LFLF_0075\SCRP_0093
+script fade-credit { ; SCRP LECF_0001\LFLF_0075\SCRP_0093
 local variable L.0
 local variable L.1
 
@@ -13,14 +13,14 @@ local variable L.1
 		palette intensity L.1 in-slot 11 to 11
 		if (L.0 is 1) {
 			palette intensity L.1 in-slot 159 to 159
-			if (V.314) {
-				palette intensity L.1 in-slot V.314 to V.314
+			if (engine-credit-color) {
+				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		if (L.0 is 3) {
 			palette intensity L.1 in-slot 159 to 159
-			if (V.314) {
-				palette intensity L.1 in-slot V.314 to V.314
+			if (engine-credit-color) {
+				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		break-here
@@ -29,29 +29,29 @@ local variable L.1
 	palette intensity 255 in-slot 11 to 11
 	if (L.0 is 1) {
 		palette intensity 255 in-slot 159 to 159
-		if (V.314) {
-			palette intensity 255 in-slot V.314 to V.314
+		if (engine-credit-color) {
+			palette intensity 255 in-slot engine-credit-color to engine-credit-color
 		}
 	}
 	if (L.0 is 3) {
 		palette intensity 255 in-slot 159 to 159
-		if (V.314) {
-			palette intensity 255 in-slot V.314 to V.314
+		if (engine-credit-color) {
+			palette intensity 255 in-slot engine-credit-color to engine-credit-color
 		}
 	}
-	sleep-for V.452 jiffies
+	sleep-for credit-display-duration jiffies
 	for L.1 = 255 to 55 -- {
 		palette intensity L.1 in-slot 11 to 11
 		if (L.0 is 2) {
 			palette intensity L.1 in-slot 159 to 159
-			if (V.314) {
-				palette intensity L.1 in-slot V.314 to V.314
+			if (engine-credit-color) {
+				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		if (L.0 is 3) {
 			palette intensity L.1 in-slot 159 to 159
-			if (V.314) {
-				palette intensity L.1 in-slot V.314 to V.314
+			if (engine-credit-color) {
+				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		break-here
@@ -60,25 +60,25 @@ local variable L.1
 	palette intensity 55 in-slot 11 to 11
 	if (L.0 is 2) {
 		palette intensity 55 in-slot 159 to 159
-		if (V.314) {
-			palette intensity 55 in-slot V.314 to V.314
+		if (engine-credit-color) {
+			palette intensity 55 in-slot engine-credit-color to engine-credit-color
 		}
 		start-script 129 ()
 	}
 	if (L.0 is 3) {
 		palette intensity 55 in-slot 159 to 159
-		if (V.314) {
-			palette intensity 55 in-slot V.314 to V.314
+		if (engine-credit-color) {
+			palette intensity 55 in-slot engine-credit-color to engine-credit-color
 		}
 		start-script 129 ()
 	}
 	print-line " "
 	break-here 5
-	B.35 = 1
+	opening-credit-display-done = 1
 	end-script
 }
 
-script 94 { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
+script credits-text-speed { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
 local variable L.0
 local variable L.1
 local variable L.2
@@ -87,8 +87,8 @@ local variable L.3
 	start-script 107 ()
 	text-speed = 5
 	palette intensity 55 in-slot 11 to 11
-	B.35 = 0
-	charset 3
+	opening-credit-display-done = 0
+	charset small-credits-font
 	L.2 = L.0
 [00000034]:
 	if !(L.0 is L.1) jump &[00000049]
@@ -105,13 +105,13 @@ local variable L.3
 [00000079]:
 	L.3 = 0
 [00000084]:
-	start-script 93 (L.3)
+	start-script fade-credit (L.3)
 	start-script L.2 ()
-	break-until (B.35)
+	break-until (opening-credit-display-done)
 	if (L.2 is L.1) {
-		draw-object V.308 
+		draw-object ui-cover-image 
 	}
-	B.35 = 0
+	opening-credit-display-done = 0
 	++L.2
 	if !(L.2 > L.1) jump &[00000034]
 	end-script
@@ -126,108 +126,108 @@ script 107 { ; SCRP LECF_0001\LFLF_0075\SCRP_0107
 }
 
 script 129 { ; SCRP LECF_0001\LFLF_0075\SCRP_0129
-	charset 2
-	draw-object V.308 
+	charset fat-font
+	draw-object ui-cover-image 
 	break-here
 	palette intensity 255 in-slot 159 to 159
 	palette intensity 255 in-slot 11 to 11
-	if (V.314) {
-		palette intensity 255 in-slot V.314 to V.314
-		V.314 = 0
+	if (engine-credit-color) {
+		palette intensity 255 in-slot engine-credit-color to engine-credit-color
+		engine-credit-color = 0
 	}
 	stop-script 107
 	end-script
 }
 
-room map-world {
+room world-map {
 
-	object 1024 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1024
+	object morocco-dest {
 		name is "Morocco"
 
-		verb 10 {
-			owner-of 1050 is 0
-			if (owner-of 88 is 1) {
-				owner-of 88 is 0
+		verb walk-to {
+			owner-of kerosene-lamp is 0
+			if (owner-of arrowhead is indy) {
+				owner-of arrowhead is 0
 			}
-			if (owner-of 22 is 1) {
-				owner-of 22 is 0
+			if (owner-of mayonnaise is indy) {
+				owner-of mayonnaise is 0
 			}
-			if (owner-of 53 is 1) {
-				owner-of 53 is 0
+			if (owner-of coal is indy) {
+				owner-of coal is 0
 			}
-			if (owner-of 68 is 1) {
-				owner-of 68 is 0
+			if (owner-of key-in-urn is indy) {
+				owner-of key-in-urn is 0
 			}
-			V.316 = 2
-			V.315 = 29
-			current-room 29
+			world-map-picture = 2
+			last-room-from-map = algiers-market
+			current-room algiers-market
 			end-object
 		}
 	}
 
-	object 1018 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1018
+	object new-york-dest {
 		name is "New York"
 
-		verb 10 {
-			if !(V.233) jump &[00000021]
-			V.316 = 3
+		verb walk-to {
+			if !(know-collection) jump &[00000021]
+			world-map-picture = 3
 			jump &[00000026]
 [00000021]:
-			V.316 = 2
+			world-map-picture = 2
 [00000026]:
-			V.315 = 2
-			current-room 2
+			last-room-from-map = college-hall
+			current-room college-hall
 			end-object
 		}
 	}
 
-	object 1019 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1019
+	object yucatan-dest {
 		name is "Yucatan"
 
-		verb 10 {
-			V.316 = 2
-			V.315 = 76
-			come-out 1035 in-room 76 walk-to 65535,65535
+		verb walk-to {
+			world-map-picture = 2
+			last-room-from-map = yucatan-exterior
+			come-out truck-yucatan in-room yucatan-exterior walk-to 65535,65535
 			end-object
 		}
 	}
 
-	object 1020 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1020
+	object iceland-dest {
 		name is "Iceland"
 
-		verb 10 {
-			V.316 = 2
-			V.315 = 13
-			come-out 161 in-room 13 walk-to 202,116
+		verb walk-to {
+			world-map-picture = 2
+			last-room-from-map = iceland-exterior
+			come-out truck-iceland in-room iceland-exterior walk-to 202,116
 			end-object
 		}
 	}
 
-	object 1021 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1021
+	object azores-dest {
 		name is "Azores"
 
-		verb 10 {
-			V.316 = 2
-			V.315 = 19
-			current-room 19
+		verb walk-to {
+			world-map-picture = 2
+			last-room-from-map = azores
+			current-room azores
 			end-object
 		}
 	}
 
-	object 1022 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1022
+	object leningrad-dest {
 		name is "Leningrad"
 
-		verb 10 {
-			V.316 = 2
+		verb walk-to {
+			world-map-picture = 2
 			end-object
 		}
 	}
 
-	object 1023 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1023
+	object cadiz-dest {
 		name is "Cadiz"
 
-		verb 10 {
-			V.316 = 2
+		verb walk-to {
+			world-map-picture = 2
 			if !(B.96[2]) jump &[00000025]
 			camera-follow 1
 			jump &[00000028]
@@ -238,132 +238,132 @@ room map-world {
 		}
 	}
 
-	object 1027 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1027
+	object algiers-dest {
 		name is "Algiers"
 
-		verb 10 {
-			V.316 = 3
-			V.315 = 29
-			current-room 29
+		verb walk-to {
+			world-map-picture = 3
+			last-room-from-map = algiers-market
+			current-room algiers-market
 			end-object
 		}
 	}
 
-	object 1033 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1033
+	object dig-site-dest {
 		name is ""
 	}
 
-	object 1026 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1026
+	object monte-carlo-dest {
 		name is "Monte Carlo"
 
-		verb 10 {
-			V.316 = 3
-			V.315 = 27
-			if !(class-of 1026 is 136) jump &[00000036]
-			start-script 206 (1026)
+		verb walk-to {
+			world-map-picture = 3
+			last-room-from-map = montecarlo-hotel
+			if !(class-of monte-carlo-dest is 136) jump &[00000036]
+			start-travel-to (monte-carlo-dest)
 			jump &[00000044]
 [00000036]:
-			come-out 282 in-room 27 walk-to 92,141
+			come-out city-streets in-room montecarlo-hotel walk-to 92,141
 [00000044]:
 			end-object
 		}
 	}
 
-	object 1029 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1029
+	object crete-dest {
 		name is "Crete"
 
-		verb 10 {
-			V.316 = 4
-			V.315 = 33
-			if !(class-of 1029 is 136) jump &[00000036]
-			start-script 206 (1029)
+		verb walk-to {
+			world-map-picture = 4
+			last-room-from-map = labyrinth-exterior
+			if !(class-of crete-dest is 136) jump &[00000036]
+			start-travel-to (crete-dest)
 			jump &[00000038]
 [00000036]:
-			current-room 33
+			current-room labyrinth-exterior
 [00000038]:
 			end-object
 		}
 	}
 
-	object 1032 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1032
+	object crete-2-dest {
 		name is "Crete"
 
-		verb 10 {
+		verb walk-to {
 			end-object
 		}
 	}
 
-	object 1030 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1030
+	object santorini-dest {
 		name is "Santorini"
 
-		verb 10 {
-			if (V.238 is 2) {
-				owner-of 926 is 0
+		verb walk-to {
+			if (chosen-path is wits-path) {
+				owner-of telegram is 0
 			}
-			V.316 = 3
-			V.315 = 49
-			current-room 49
+			world-map-picture = 3
+			last-room-from-map = thera-dock
+			current-room thera-dock
 			end-object
 		}
 	}
 
-	object 1031 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1031
+	object santorini-2-dest {
 		name is "Santorini"
 
-		verb 10 {
-			V.316 = 4
-			V.315 = 49
-			current-room 49
+		verb walk-to {
+			world-map-picture = 4
+			last-room-from-map = thera-dock
+			current-room thera-dock
 			end-object
 		}
 	}
 
-	object 1025 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1025
+	object monte-carlo-2-dest {
 		name is "Monte Carlo"
 
-		verb 10 {
-			owner-of 1050 is 0
-			if (owner-of 88 is 1) {
-				owner-of 88 is 0
+		verb walk-to {
+			owner-of kerosene-lamp is 0
+			if (owner-of arrowhead is indy) {
+				owner-of arrowhead is 0
 			}
-			if (owner-of 22 is 1) {
-				owner-of 22 is 0
+			if (owner-of mayonnaise is indy) {
+				owner-of mayonnaise is 0
 			}
-			if (owner-of 53 is 1) {
-				owner-of 53 is 0
+			if (owner-of coal is indy) {
+				owner-of coal is 0
 			}
-			if (owner-of 68 is 1) {
-				owner-of 68 is 0
+			if (owner-of key-in-urn is indy) {
+				owner-of key-in-urn is 0
 			}
-			V.316 = 2
-			V.315 = 27
-			come-out 282 in-room 27 walk-to 92,141
+			world-map-picture = 2
+			last-room-from-map = montecarlo-hotel
+			come-out 282 in-room montecarlo-hotel walk-to 92,141
 			end-object
 		}
 	}
 
-	object 1028 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1028
+	object barnett-college-dest {
 		name is "Barnett College"
 
-		verb 10 {
-			V.315 = 1
-			current-room 2
+		verb walk-to {
+			last-room-from-map = college-office
+			current-room college-hall
 			end-object
 		}
 	}
 
-	object 1034 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_1034
+	object new-york-city {
 		name is "New York City"
 
-		verb 10 {
-			V.316 = 2
-			V.315 = 2
-			current-room 10
+		verb walk-to {
+			world-map-picture = 2
+			last-room-from-map = college-hall
+			current-room new-york-street
 			end-object
 		}
 	}
 
-	object 67 { ; VERB LECF_0001\LFLF_0075\ROOM\OBCD_0067
+	object and-the-fate-of-atlantis {
 		name is ""
 	}
 
@@ -373,15 +373,15 @@ room map-world {
 		sound-kludge 269 17 70 180
 		sound-kludge 65535
 		sound-kludge 9 17
-		build-sentence-script = V.448
+		build-sentence-script = build-sentence-script-backup
 		if (script-running 205) {
 			stop-script 205
 		}
-		start-script 59 ()
+		start-script scan-for-icon ()
 		set-screen 0 to 144
-		start-script 19 (2)
-		actor 10 init-animation 1 follow-boxes
-		class-of 2 is 141
+		start-script set-verbs (2)
+		actor travel-dot init-animation indy follow-boxes
+		class-of sophia is 141
 		end-object
 	}
 
@@ -389,13 +389,13 @@ room map-world {
 		cursor off
 		stop-script 199
 		stop-sound 76
-		if (script-running 31) {
-			stop-script 31
+		if (script-running follow-actor) {
+			stop-script follow-actor
 		}
-		if (script-running 86) {
-			stop-script 86
+		if (script-running keep-facing-actor) {
+			stop-script keep-facing-actor
 		}
-		if !(V.315 is 49) jump &[00000138]
+		if !(last-room-from-map is thera-dock) jump &[00000138]
 		load-sound 157
 		load-sound 81
 		sound-kludge 272
@@ -409,7 +409,7 @@ room map-world {
 		sound-kludge 271 65535
 		jump &[00000266]
 [00000138]:
-		if !(V.315 is 42) jump &[00000221]
+		if !(last-room-from-map is salvage-boat) jump &[00000221]
 		load-sound 80
 		load-sound 81
 		sound-kludge 272
@@ -422,7 +422,7 @@ room map-world {
 		sound-kludge 271 65535
 		jump &[00000266]
 [00000221]:
-		if (V.224 is-not 15) {
+		if (last-room is-not sophias-study) {
 			load-sound 17
 			load-sound 18
 			if (!B.105) {
@@ -431,278 +431,278 @@ room map-world {
 			sound-kludge 65535
 		}
 		if (!B.105) {
-			if (V.315 is-not 15) {
+			if (last-room-from-map is-not sophias-study) {
 				sound-kludge 65535
 			}
 		}
 [00000266]:
-		if (B.210) {
-			if (V.224 is 2) {
-				state-of 1020 is 0
-				class-of 1020 is 160
-				state-of 1022 is 0
-				class-of 1022 is 160
-				state-of 1019 is 0
-				class-of 1019 is 160
-				state-of 1021 is 0
-				class-of 1021 is 160
-				state-of 1023 is 0
-				class-of 1023 is 160
-				class-of 1018 is 160
+		if (found-lost-dialogue) {
+			if (last-room is college-hall) {
+				state-of iceland-dest is 0
+				class-of iceland-dest is 160
+				state-of leningrad-dest is 0
+				class-of leningrad-dest is 160
+				state-of yucatan-dest is 0
+				class-of yucatan-dest is 160
+				state-of azores-dest is 0
+				class-of azores-dest is 160
+				state-of cadiz-dest is 0
+				class-of cadiz-dest is 160
+				class-of new-york-dest is 160
 			}
 		}
-		B.86 = 0
-		selected-actor = 1
+		going-nowhere = 0
+		selected-actor = indy
 		set-screen 0 to 200
-		actor 10 default costume 58 scale 255 255 name "Indy" ignore-boxes never-zclip
-		start-script 19 (3)
-		if (script-running 59) {
-			stop-script 59
+		actor travel-dot default costume 58 scale 255 255 name "Indy" ignore-boxes never-zclip
+		start-script set-verbs (3)
+		if (script-running scan-for-icon) {
+			stop-script scan-for-icon
 		}
-		V.448 = build-sentence-script
-		build-sentence-script = 204
-		start-script 200 ()
+		build-sentence-script-backup = build-sentence-script
+		build-sentence-script = map-build-sentence
+		start-script set-up-map ()
 		start-script 205 ()
 		end-object
 	}
 
-	script 200 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0200
+	script set-up-map {
 		cursor on
-		if !(V.316 is 1) jump &[00000237]
+		if !(world-map-picture is 1) jump &[00000237]
 		camera-at 160
-		class-of 1034 is 32
-		class-of 1028 is 32
-		if !(V.224 is 2) jump &[00000217]
+		class-of new-york-city is 32
+		class-of barnett-college-dest is 32
+		if !(last-room is college-hall) jump &[00000217]
 		if !(B.105 is 1) jump &[00000207]
 		cut-scene
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1028
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object barnett-college-dest
 		break-here 8
 		start-sound 18
 		sound-kludge 65535
 		sound-kludge 269 17 0 15
 		B.105 = 0
-		V.445 = actor-x 1034
-		V.446 = actor-y 1034
-		V.351 = actor-x 10
-		V.352 = actor-y 10
-		V.351 -= 1
-		V.352 -= 1
-		actor 10 costume 0
+		return-x = actor-x new-york-city
+		return-y = actor-y new-york-city
+		indy-x = actor-x travel-dot
+		indy-y = actor-y travel-dot
+		indy-x -= 1
+		indy-y -= 1
+		actor travel-dot costume 0
 		start-script 202 (149,72,226,146,40,1,3)
 		break-until (!script-running 202)
 		sound-kludge 262 33 0
 		sound-kludge 269 33 0 360
 		break-here 8
 		end-cut-scene
-		start-object 1034 verb 10 ()
+		start-object new-york-city verb walk-to ()
 		stop-script 0
 		jump &[00000214]
 [00000207]:
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1028
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object barnett-college-dest
 [00000214]:
 		jump &[00000234]
 [00000217]:
-		if !(V.224 is 10) jump &[00000234]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1034
+		if !(last-room is new-york-street) jump &[00000234]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object new-york-city
 		jump &[00000234]
 [00000234]:
 		jump &[00002111]
 [00000237]:
-		if !(V.316 is 2) jump &[00000656]
+		if !(world-map-picture is 2) jump &[00000656]
 		camera-at 480
-		state-of 1018 is 1
-		class-of 1018 is 32
-		if (B.87[8]) {
-			state-of 1020 is 1
-			class-of 1020 is 32
+		state-of new-york-dest is 1
+		class-of new-york-dest is 32
+		if (dest-available[8]) {
+			state-of iceland-dest is 1
+			class-of iceland-dest is 32
 		}
-		if (B.87[0]) {
-			state-of 1022 is 1
-			class-of 1022 is 32
+		if (dest-available[0]) {
+			state-of leningrad-dest is 1
+			class-of leningrad-dest is 32
 		}
-		if (B.87[1]) {
-			state-of 1021 is 1
-			class-of 1021 is 32
+		if (dest-available[1]) {
+			state-of azores-dest is 1
+			class-of azores-dest is 32
 		}
-		if (B.87[3]) {
-			state-of 1019 is 1
-			class-of 1019 is 32
+		if (dest-available[3]) {
+			state-of yucatan-dest is 1
+			class-of yucatan-dest is 32
 		}
-		if (B.87[2]) {
-			state-of 1023 is 1
-			class-of 1023 is 32
+		if (dest-available[2]) {
+			state-of cadiz-dest is 1
+			class-of cadiz-dest is 32
 		}
-		if (B.87[4]) {
-			if (owner-of 937 is 1) {
-				state-of 1025 is 1
-				class-of 1025 is 32
+		if (dest-available[4]) {
+			if (owner-of lost-dialogue-of-plato is indy) {
+				state-of monte-carlo-2-dest is 1
+				class-of monte-carlo-2-dest is 32
 			}
 		}
-		if (B.87[5]) {
-			if (owner-of 937 is 1) {
-				state-of 1024 is 1
-				class-of 1024 is 32
+		if (dest-available[5]) {
+			if (owner-of lost-dialogue-of-plato is indy) {
+				state-of morocco-dest is 1
+				class-of morocco-dest is 32
 			}
 		}
-		if !(V.315 is 15) jump &[00000551]
+		if !(last-room-from-map is sophias-study) jump &[00000551]
 		cut-scene
 		break-here 8
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1034
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object new-york-city
 		break-here 8
-		V.445 = actor-x 1018
-		V.446 = actor-y 1018
-		V.351 = V.445
-		V.352 = V.446
-		V.445 = actor-x 1020
-		V.446 = actor-y 1020
-		start-script 202 (V.351,V.352,V.445,V.446,40,1,3)
+		return-x = actor-x new-york-dest
+		return-y = actor-y new-york-dest
+		indy-x = return-x
+		indy-y = return-y
+		return-x = actor-x iceland-dest
+		return-y = actor-y iceland-dest
+		start-script 202 (indy-x,indy-y,return-x,return-y,40,1,3)
 		break-until (!script-running 202)
 		sound-kludge 262 64 0
 		sound-kludge 269 64 0 360
 		break-here 8
 		end-cut-scene
-		start-object 1020 verb 10 ()
+		start-object iceland-dest verb walk-to ()
 		stop-script 0
 		jump &[00000653]
 [00000551]:
-		if !(V.315 is 19) jump &[00000568]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1021
+		if !(last-room-from-map is azores) jump &[00000568]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object azores-dest
 		jump &[00000653]
 [00000568]:
-		if !(V.315 is 13) jump &[00000585]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1020
+		if !(last-room-from-map is iceland-exterior) jump &[00000585]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object iceland-dest
 		jump &[00000653]
 [00000585]:
-		if !(V.315 is 76) jump &[00000602]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1019
+		if !(last-room-from-map is yucatan-exterior) jump &[00000602]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object yucatan-dest
 		jump &[00000653]
 [00000602]:
-		if !(V.315 is 2) jump &[00000619]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1018
+		if !(last-room-from-map is college-hall) jump &[00000619]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object new-york-dest
 		jump &[00000653]
 [00000619]:
-		if !(V.315 is 29) jump &[00000636]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1024
+		if !(last-room-from-map is algiers-market) jump &[00000636]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object morocco-dest
 		jump &[00000653]
 [00000636]:
-		if !(V.315 is 27) jump &[00000653]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1025
+		if !(last-room-from-map is montecarlo-hotel) jump &[00000653]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object monte-carlo-2-dest
 		jump &[00000653]
 [00000653]:
 		jump &[00002111]
 [00000656]:
-		if !(V.316 is 3) jump &[00001329]
+		if !(world-map-picture is 3) jump &[00001329]
 		camera-at 800
-		if (B.381) {
-			state-of 1033 is 1
+		if (been-at-algiers-dig-site) {
+			state-of dig-site-dest is 1
 		}
-		if (B.87[6]) {
-			state-of 1030 is 1
-			class-of 1030 is 32
+		if (dest-available[6]) {
+			state-of santorini-dest is 1
+			class-of santorini-dest is 32
 		}
-		if (B.87[7]) {
-			state-of 1029 is 1
-			class-of 1029 is 32
+		if (dest-available[7]) {
+			state-of crete-dest is 1
+			class-of crete-dest is 32
 		}
-		if (B.87[5]) {
-			state-of 1027 is 1
-			class-of 1027 is 32
+		if (dest-available[5]) {
+			state-of algiers-dest is 1
+			class-of algiers-dest is 32
 		}
-		if (B.87[4]) {
-			state-of 1026 is 1
-			class-of 1026 is 32
+		if (dest-available[4]) {
+			state-of monte-carlo-dest is 1
+			class-of monte-carlo-dest is 32
 		}
-		class-of 1029 is 8
-		class-of 1026 is 8
-		if !(V.315 is 67) jump &[00000824]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1033
-		class-of 1029 is 136
-		class-of 1026 is 136
-		if (owner-of 876 is 1) {
-			owner-of 876 is 0
+		class-of crete-dest is 8
+		class-of monte-carlo-dest is 8
+		if !(last-room-from-map is algiers-dig-exterior) jump &[00000824]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object dig-site-dest
+		class-of crete-dest is 136
+		class-of monte-carlo-dest is 136
+		if (owner-of blackbird-statue is indy) {
+			owner-of blackbird-statue is 0
 		}
-		if (owner-of 871 is 1) {
-			owner-of 871 is 0
+		if (owner-of soapstone-statue is indy) {
+			owner-of soapstone-statue is 0
 		}
 		jump &[00001326]
 [00000824]:
-		if !(V.315 is 27) jump &[00000841]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1026
+		if !(last-room-from-map is montecarlo-hotel) jump &[00000841]
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object monte-carlo-dest
 		jump &[00001326]
 [00000841]:
-		if !(V.315 is 29) jump &[00000939]
-		if !(V.224 is 67) jump &[00000910]
+		if !(last-room-from-map is algiers-market) jump &[00000939]
+		if !(last-room is algiers-dig-exterior) jump &[00000910]
 		cut-scene
 		override &[00000899]
 		start-script 202 (803,210,708,101,40,1,1)
 		break-until (!script-running 202)
 [00000899]:
 		end-cut-scene
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1027
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object algiers-dest
 		jump &[00000936]
 [00000910]:
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1027
-		do-animation 10 250
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object algiers-dest
+		do-animation travel-dot 250
 		break-here
-		do-animation 10 6
+		do-animation travel-dot 6
 		break-here 12
 [00000936]:
 		jump &[00001326]
 [00000939]:
-		if !(V.315 is 20) jump &[00001326]
+		if !(last-room-from-map is desert-over) jump &[00001326]
 		cut-scene
 		override &[00001306]
-		if (owner-of 876 is 1) {
-			owner-of 876 is 0
+		if (owner-of blackbird-statue is indy) {
+			owner-of blackbird-statue is 0
 		}
-		if (owner-of 871 is 1) {
-			owner-of 871 is 0
+		if (owner-of soapstone-statue is indy) {
+			owner-of soapstone-statue is 0
 		}
 		break-here 12
-		start-script 203 (733,118,749,87,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (749,87,778,98,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (778,98,755,114,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (755,114,785,125,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (785,125,752,128,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (752,128,828,159,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (828,159,848,150,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (848,150,826,131,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (826,131,876,112,40,1,1)
-		break-until (!script-running 203)
+		start-script draw-trail-line (733,118,749,87,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (749,87,778,98,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (778,98,755,114,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (755,114,785,125,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (785,125,752,128,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (752,128,828,159,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (828,159,848,150,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (848,150,826,131,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (826,131,876,112,40,1,1)
+		break-until (!script-running draw-trail-line)
 [00001306]:
-		start-script 144 (72,4)
+		start-script award-iq-points (72,4)
 		end-cut-scene
-		start-object 1029 verb 10 ()
+		start-object crete-dest verb walk-to ()
 		stop-script 0
 		jump &[00001326]
 [00001326]:
 		jump &[00002111]
 [00001329]:
-		if !(V.316 is 4) jump &[00002111]
+		if !(world-map-picture is 4) jump &[00002111]
 		camera-at 1120
-		if !(V.315 is 33) jump &[00001429]
+		if !(last-room-from-map is labyrinth-exterior) jump &[00001429]
 		cut-scene
 		start-sound 81
 		start-script 207 ()
@@ -710,46 +710,46 @@ room map-world {
 		break-here 4
 		stop-sound 81
 		start-sound 17
-		start-script 203 (1136,177,1164,48,40,1,1)
-		break-until (!script-running 203)
-		actor 1 costume 2
-		V.238 = 1
+		start-script draw-trail-line (1136,177,1164,48,40,1,1)
+		break-until (!script-running draw-trail-line)
+		actor indy costume 2
+		chosen-path = fists-path
 		min-jiffies = 6
 		end-cut-scene
-		current-room 49
+		current-room thera-dock
 		jump &[00002108]
 [00001429]:
-		if !(V.315 is 41) jump &[00001589]
+		if !(last-room-from-map is sub-conning-tower) jump &[00001589]
 		cut-scene
 		override &[00001560]
 		break-here 12
-		start-script 203 (1137,179,1174,146,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (1174,146,1112,122,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (1112,122,1168,97,40,1,1)
-		break-until (!script-running 203)
+		start-script draw-trail-line (1137,179,1174,146,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (1174,146,1112,122,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (1112,122,1168,97,40,1,1)
+		break-until (!script-running draw-trail-line)
 [00001560]:
 		if (override-hit) {
 			min-jiffies = 6
 		}
 		end-cut-scene
-		B.37[1] = 1
+		flags[1] = 1
 		min-jiffies = 6
 		break-here
-		current-room 66
+		current-room sub-underwater
 		jump &[00002108]
 [00001589]:
-		if !(V.315 is 40) jump &[00001742]
+		if !(last-room-from-map is sub-interior-2) jump &[00001742]
 		cut-scene
 		override &[00001720]
 		break-here 12
-		start-script 203 (1168,97,1112,122,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (1112,122,1174,146,40,1,1)
-		break-until (!script-running 203)
-		start-script 203 (1174,146,1140,181,40,1,1)
-		break-until (!script-running 203)
+		start-script draw-trail-line (1168,97,1112,122,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (1112,122,1174,146,40,1,1)
+		break-until (!script-running draw-trail-line)
+		start-script draw-trail-line (1174,146,1140,181,40,1,1)
+		break-until (!script-running draw-trail-line)
 [00001720]:
 		if (override-hit) {
 			min-jiffies = 6
@@ -757,83 +757,83 @@ room map-world {
 		end-cut-scene
 		min-jiffies = 6
 		break-here
-		current-room 33
+		current-room labyrinth-exterior
 		jump &[00002108]
 [00001742]:
-		if !(V.315 is 49) jump &[00002007]
+		if !(last-room-from-map is thera-dock) jump &[00002007]
 		cut-scene
 		override &[00001992]
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1031
-		do-animation 10 250
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object santorini-2-dest
+		do-animation travel-dot 250
 		break-here
-		do-animation 10 6
+		do-animation travel-dot 6
 		break-here 12
-		V.445 = actor-x 10
-		V.446 = actor-y 10
-		V.317 = (V.415 * 4)
+		return-x = actor-x 10
+		return-y = actor-y 10
+		V.317 = (salvage-miles * 4)
 		V.317 /= 3
-		if !(V.416 is 1) jump &[00001843]
-		V.445 = (V.445 - V.317)
-		V.446 = (V.446 + V.317)
+		if !(salvage-direction is 1) jump &[00001843]
+		return-x = (return-x - V.317)
+		return-y = (return-y + V.317)
 		jump &[00001921]
 [00001843]:
-		if !(V.416 is 2) jump &[00001864]
-		V.446 = (V.446 + V.317)
+		if !(salvage-direction is 2) jump &[00001864]
+		return-y = (return-y + V.317)
 		jump &[00001921]
 [00001864]:
-		if !(V.416 is 3) jump &[00001896]
-		V.445 = (V.445 + V.317)
-		V.446 = (V.446 + V.317)
+		if !(salvage-direction is 3) jump &[00001896]
+		return-x = (return-x + V.317)
+		return-y = (return-y + V.317)
 		jump &[00001921]
 [00001896]:
 		print-debug "Shouldn't be here."
 		debug 0
 [00001921]:
-		V.259 = V.445
-		V.260 = V.446
-		V.351 = actor-x 10
-		V.352 = actor-y 10
-		put-actor 10 in-room 0
-		actor 10 default name " "
-		class-of 10 is 0
-		start-script 202 (V.351,V.352,V.259,V.260,40,1,8)
+		V.259 = return-x
+		V.260 = return-y
+		indy-x = actor-x 10
+		indy-y = actor-y 10
+		put-actor travel-dot in-room 0
+		actor travel-dot default name " "
+		class-of travel-dot is 0
+		start-script 202 (indy-x,indy-y,V.259,V.260,40,1,8)
 		break-until (!script-running 202)
 [00001992]:
 		override off
 		end-cut-scene
 		min-jiffies = 6
-		current-room 42
+		current-room salvage-boat
 		stop-script 0
 		jump &[00002108]
 [00002007]:
-		if !(V.315 is 42) jump &[00002101]
+		if !(last-room-from-map is salvage-boat) jump &[00002101]
 		cut-scene
 		override &[00002086]
 		break-here
-		V.445 = actor-x 1031
-		V.446 = actor-y 1031
-		put-actor 10 in-room 0
-		actor 10 default name " "
+		return-x = actor-x santorini-2-dest
+		return-y = actor-y santorini-2-dest
+		put-actor travel-dot in-room 0
+		actor travel-dot default name " "
 		class-of 10 is 0
-		start-script 202 (V.259,V.260,V.445,V.446,40,1,1)
+		start-script 202 (V.259,V.260,return-x,return-y,40,1,1)
 		break-until (!script-running 202)
 [00002086]:
 		override off
 		end-cut-scene
 		min-jiffies = 6
-		current-room 49
+		current-room thera-dock
 		stop-script 0
 		jump &[00002108]
 [00002101]:
-		put-actor 10 in-room 75
-		put-actor 10 at-object 1031
+		put-actor travel-dot in-room world-map
+		put-actor travel-dot at-object santorini-2-dest
 [00002108]:
 		jump &[00002111]
 [00002111]:
-		do-animation 10 250
+		do-animation travel-dot 250
 		break-here
-		do-animation 10 6
+		do-animation travel-dot 6
 		break-here 12
 		end-script
 	}
@@ -877,9 +877,9 @@ room map-world {
 
 		L.16 = min-jiffies
 		min-jiffies = L.6
-		V.443 = (camera-x - 160)
-		L.0 -= V.443
-		L.2 -= V.443
+		foo2 = (camera-x - 160)
+		L.0 -= foo2
+		L.2 -= foo2
 		if !(L.2 >= L.0) jump &[00000065]
 		L.7 = 1
 		L.9 = (L.2 - L.0)
@@ -906,10 +906,10 @@ room map-world {
 		L.13 = L.1
 		L.0 = 0
 		L.1 = 0
-		V.443 = (L.11 - 2)
+		foo2 = (L.11 - 2)
 		L.14 = 0
 [00000179]:
-		if !(L.14 >= V.443) jump &[00000189]
+		if !(L.14 >= foo2) jump &[00000189]
 		jump &[00000289]
 [00000189]:
 		sleep-for 1 jiffies
@@ -938,7 +938,7 @@ room map-world {
 		end-script
 	}
 
-	script 203 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0203
+	script draw-trail-line { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0203
 	local variable L.0
 	local variable L.1
 	local variable L.2
@@ -959,9 +959,9 @@ room map-world {
 
 		L.16 = min-jiffies
 		min-jiffies = L.6
-		V.443 = (camera-x - 160)
-		L.0 -= V.443
-		L.2 -= V.443
+		foo2 = (camera-x - 160)
+		L.0 -= foo2
+		L.2 -= foo2
 		if !(L.2 >= L.0) jump &[00000065]
 		L.7 = 1
 		L.9 = (L.2 - L.0)
@@ -991,7 +991,7 @@ room map-world {
 		start-script 201 (L.12,L.13,L.4,L.5)
 		L.14 = 0
 [00000183]:
-		if !(L.14 >= V.443) jump &[00000193]
+		if !(L.14 >= foo2) jump &[00000193]
 		jump &[00000286]
 [00000193]:
 		sleep-for 1 jiffies
@@ -1018,7 +1018,7 @@ room map-world {
 		end-script
 	}
 
-	script 204 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0204
+	script map-build-sentence {
 	local variable L.2
 	local variable L.3
 	local variable L.4
@@ -1026,19 +1026,19 @@ room map-world {
 		L.2 = V.108
 		L.3 = actor-x L.2
 		L.4 = actor-y L.2
-		V.351 = actor-x 10
-		V.352 = actor-y 10
-		if !(V.351 is L.3) jump &[00000067]
-		if !(V.352 is L.4) jump &[00000067]
-		B.86 = 1
-		if !(V.224 is-not 67) jump &[00000065]
-		current-room V.224
+		indy-x = actor-x 10
+		indy-y = actor-y 10
+		if !(indy-x is L.3) jump &[00000067]
+		if !(indy-y is L.4) jump &[00000067]
+		going-nowhere = 1
+		if !(last-room is-not algiers-dig-exterior) jump &[00000065]
+		current-room last-room
 		jump &[00000065]
 [00000065]:
 		stop-script 0
 [00000067]:
 		if !(L.2) jump &[00000199]
-		actor 10 costume 0
+		actor travel-dot costume 0
 		cut-scene
 		start-sound 18
 		sound-kludge 65535
@@ -1048,20 +1048,20 @@ room map-world {
 		jump &[00000181]
 		jump &[00000181]
 [00000123]:
-		if (V.351 < L.3) {
-			if (V.352 < L.4) {
-				V.351 -= 1
-				V.352 -= 1
+		if (indy-x < L.3) {
+			if (indy-y < L.4) {
+				indy-x -= 1
+				indy-y -= 1
 			}
 		}
-		start-script 202 (V.351,V.352,L.3,L.4,40,1,1)
+		start-script 202 (indy-x,indy-y,L.3,L.4,40,1,1)
 		break-until (!script-running 202)
 [00000181]:
 		if (override-hit) {
 			min-jiffies = 6
 		}
 		end-cut-scene
-		start-object L.2 verb 10 ()
+		start-object L.2 verb walk-to ()
 		stop-script 0
 [00000199]:
 		end-script
@@ -1071,7 +1071,7 @@ room map-world {
 	local variable L.0
 
 [00000008]:
-		V.442 = random 1
+		foo = random 1
 		L.0 = find-actor cursor-x,cursor-y
 		if !(L.0) jump &[00000032]
 		V.108 = L.0
@@ -1085,7 +1085,7 @@ room map-world {
 		end-script
 	}
 
-	script 206 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0206
+	travel-to { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0206
 	local variable L.0
 	local variable L.1
 	local variable L.2
@@ -1093,10 +1093,10 @@ room map-world {
 	local variable L.4
 
 		cut-scene
-		L.1 = actor-x 1033
-		L.2 = actor-y 1033
-		L.3 = actor-x 1027
-		L.4 = actor-y 1027
+		L.1 = actor-x dig-site-dest
+		L.2 = actor-y dig-site-dest
+		L.3 = actor-x algiers-dest
+		L.4 = actor-y algiers-dest
 		override &[00000126]
 		start-script 202 (L.1,L.2,L.3,L.4,40,1,1)
 		break-until (!script-running 202)
@@ -1107,21 +1107,21 @@ room map-world {
 		start-script 202 (L.1,L.2,L.3,L.4,40,1,1)
 		break-until (!script-running 202)
 [00000126]:
-		V.316 = 4
-		if !(L.0 is 1026) jump &[00000146]
-		V.315 = 27
+		world-map-picture = 4
+		if !(L.0 is monte-carlo-dest) jump &[00000146]
+		last-room-from-map = 27
 		jump &[00000151]
 [00000146]:
-		V.315 = 33
+		last-room-from-map = labyrinth-exterior
 [00000151]:
-		class-of 1029 is 8
-		class-of 1026 is 8
+		class-of crete-dest is 8
+		class-of monte-carlo-dest is 8
 		end-cut-scene
-		if !(L.0 is 1026) jump &[00000178]
-		current-room 27
+		if !(L.0 is monte-carlo-dest) jump &[00000178]
+		current-room montecarlo-hotel
 		jump &[00000180]
 [00000178]:
-		current-room 33
+		current-room labyrinth-exterior
 [00000180]:
 		end-script
 	}
@@ -1142,7 +1142,7 @@ room map-world {
 		break-here 2
 		actor 5 costume 56 init-animation 1 scale 0 0 ignore-boxes never-zclip
 		actor 6 costume 56 init-animation 2 scale 0 0 ignore-boxes never-zclip
-		put-actor 5 in-room 75
+		put-actor 5 in-room world-map
 		put-actor 5 at 1130,90
 		do-animation 5 250
 		do-animation 6 250
@@ -1237,11 +1237,11 @@ room map-world {
 		if !(L.4 is 121) jump &[00000472]
 		min-jiffies = 6
 		sleep-for 60 jiffies
-		draw-object 67 
+		draw-object and-the-fate-of-atlantis 
 		sleep-for 120 jiffies
-		start-script 94 (208,208)
+		start-script credits-text-speed (208,208)
 		break-until (!script-running 94)
-		state-of 67 is 0
+		state-of and-the-fate-of-atlantis is 0
 		put-actor 5 in-room 0
 		put-actor 6 in-room 0
 		actor 5 default
@@ -1250,8 +1250,8 @@ room map-world {
 		end-script
 	}
 
-	script 208 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0208
-		V.452 = 100
+	script demo-copyright-notice { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0208
+		credit-display-duration = 100
 		charset 1
 		print-line color 4 center at 160,130 "= & \\x0F 1992 LucasArts Entertainment Company\\xFF\\x01All Rights Reserved.  Indiana Jones is a\\xFF\\x01registered trademark of Lucasfilm Ltd."
 		charset 2
