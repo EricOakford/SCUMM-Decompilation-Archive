@@ -6,118 +6,110 @@
 
 room salvage-boat {
 
-	object air-compressor-switch {
+	object air-compressor-switch { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0492
 		name is "air compressor switch"
 
 		verb use {
-			if !(script-running compressor-is-running) jump &[00000036]
-			state-of air-compressor-switch is 1
-			stop-script turn-on-compressor
-			stop-sound sound-201
-			stop-sound sound-202
-			start-script turn-off-compressor (1)
-			jump &[00000043]
-[00000036]:
-			state-of air-compressor-switch is 0
-			start-script bak turn-on-compressor ()
-[00000043]:
+			if (script-running compressor-is-running) {
+				state-of air-compressor-switch is state-1
+				stop-script turn-on-compressor
+				stop-sound sound-201
+				stop-sound sound-202
+				start-script turn-off-compressor (1)
+			} else {
+				state-of air-compressor-switch is state-0
+				start-script bak turn-on-compressor ()
+			}
 			end-object
 		}
 
 		verb pull {
-			if !(!script-running compressor-is-running) jump &[00000063]
-			state-of air-compressor-switch is 0
-			start-script bak turn-on-compressor ()
-			jump &[00000082]
-[00000063]:
-			say-line "It's already on."
-[00000082]:
+			if (!script-running compressor-is-running) {
+				state-of air-compressor-switch is state-0
+				start-script bak turn-on-compressor ()
+			} else {
+				say-line "It's already on."
+			}
 			end-object
 		}
 
-		verb push {
-			if !(script-running compressor-is-running) jump &[00000111]
-			state-of air-compressor-switch is 1
-			stop-script turn-on-compressor
-			stop-sound sound-201
-			stop-sound sound-202
-			start-script turn-off-compressor (1)
-			jump &[00000131]
-[00000111]:
-			say-line "It's already off."
-[00000131]:
+		verb verb-6 {
+			if (script-running compressor-is-running) {
+				state-of air-compressor-switch is state-1
+				stop-script turn-on-compressor
+				stop-sound sound-201
+				stop-sound sound-202
+				start-script turn-off-compressor (1)
+			} else {
+				say-line "It's already off."
+			}
 			end-object
 		}
 
 		verb look-at {
-			if !(script-running compressor-is-running) jump &[00000164]
-			say-line "It's switched\\x10on."
-			jump &[00000202]
-[00000164]:
-			say-line "This must be the compressor\\x10switch."
-[00000202]:
+			if (script-running compressor-is-running) {
+				say-line "It's switched\\x10on."
+			} else {
+				say-line "This must be the compressor\\x10switch."
+			}
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object door-7 {
+	object door-7 { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0489
 		name is "door"
 
 		verb open {
-			if !(state-of me is 1) jump &[00000044]
-			say-line "It's already open."
-			jump &[00000050]
-[00000044]:
-			state-of me is 1
-			start-sound door-open
-[00000050]:
+			if (state-of me is 1) {
+				say-line "It's already open."
+			} else {
+				state-of me is state-1
+				start-sound door-open
+			}
 			end-object
 		}
 
-		verb close {
-			if !(state-of me is 0) jump &[00000089]
-			say-line "It's already closed."
-			jump &[00000095]
-[00000089]:
-			state-of me is 0
-			start-sound door-close
-[00000095]:
+		verb verb-4 {
+			if (state-of me is state-0) {
+				say-line "It's already closed."
+			} else {
+				state-of me is state-0
+				start-sound door-close
+			}
 			end-object
 		}
 
 		verb look-at {
-			if !(state-of me is 1) jump &[00000154]
-			say-line "It's a convenient place to store\\x10things."
-			jump &[00000170]
-[00000154]:
-			say-line "It's a hatch."
-[00000170]:
+			if (state-of me is 1) {
+				say-line "It's a convenient place to store\\x10things."
+			} else {
+				say-line "It's a hatch."
+			}
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object indy-in-diving-suit {
+	object indy-in-diving-suit { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0500
 		name is "Indy in diving suit"
 
 		verb use {
 		local variable L.0
 
-			if !(L.0 is hoist) jump &[00000026]
-			start-object hoist verb use (indy-in-diving-suit)
-			jump &[00000050]
-[00000026]:
-			say-line "That will never\\x10work."
-[00000050]:
+			if (L.0 is 497) {
+				start-object hoist verb use (indy-in-diving-suit)
+			} else {
+				say-line "That will never\\x10work."
+			}
 			end-object
 		}
 
@@ -133,24 +125,22 @@ room salvage-boat {
 			if (foo2 < 0) {
 				foo2 = (0 - foo2)
 			}
-			do-animation selected-actor 255
-			if !(foo <= foo2) jump &[00000187]
-			return-y -= actor-y selected-actor
-			if !(return-y <= 0) jump &[00000180]
-			do-animation selected-actor 247
-			jump &[00000184]
-[00000180]:
-			do-animation selected-actor 246
-[00000184]:
-			jump &[00000215]
-[00000187]:
-			return-x -= actor-x selected-actor
-			if !(return-x <= 0) jump &[00000211]
-			do-animation selected-actor 244
-			jump &[00000215]
-[00000211]:
-			do-animation selected-actor 245
-[00000215]:
+			do-animation selected-actor chore-255
+			if (foo <= foo2) {
+				return-y -= actor-y selected-actor
+				if (return-y <= 0) {
+					do-animation selected-actor chore-247
+				} else {
+					do-animation selected-actor chore-246
+				}
+			} else {
+				return-x -= actor-x selected-actor
+				if (return-x <= 0) {
+					do-animation selected-actor chore-244
+				} else {
+					do-animation selected-actor chore-245
+				}
+			}
 			break-here 2
 			end-object
 		}
@@ -165,13 +155,13 @@ room salvage-boat {
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object punctured-diving-suit {
+	object punctured-diving-suit { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0491
 		name is "punctured diving suit@@@@@@@@@@"
 
 		verb pick-up {
@@ -185,113 +175,109 @@ room salvage-boat {
 		local variable L.0
 
 			tried-to-wear-diving-suit = 1
-			if !(class-of punctured-diving-suit is 140) jump &[00000189]
-			if !(class-of punctured-diving-suit is 6) jump &[00000140]
-			say-line "I'm not putting that on, it's\\x10not\\x10rigged\\x10yet."
-			jump &[00000186]
-[00000140]:
-			say-line "I'm not putting that on, it\\x10won't\\x10hold\\x10air."
-[00000186]:
-			jump &[00000259]
-[00000189]:
-			if !(class-of punctured-diving-suit is 6) jump &[00000251]
-			say-line "I'm not putting that on, there's\\x10no\\x10air\\x10supply."
-			jump &[00000259]
-[00000251]:
-			if (!L.0) {
-				start-script indy-puts-on-suit ()
+			case class-of punctured-diving-suit {
+				of 140 {
+					if (class-of punctured-diving-suit is 6) {
+						say-line "I'm not putting that on, it's\\x10not\\x10rigged\\x10yet."
+					} else {
+						say-line "I'm not putting that on, it\\x10won't\\x10hold\\x10air."
+					}
+				}
+				of 6 {
+					say-line "I'm not putting that on, there's\\x10no\\x10air\\x10supply."
+				}
+				default {
+					if (!L.0) {
+						start-script indy-puts-on-suit ()
+					}
+				}
 			}
-[00000259]:
 			end-object
 		}
 
 		verb look-at {
-			if !(class-of me is 12) jump &[00000372]
-			if !(class-of me is 134) jump &[00000338]
-			say-line "It's a repaired diving suit with an air hose\\x10attached."
-			jump &[00000369]
-[00000338]:
-			say-line "It's a repaired diving\\x10suit."
-[00000369]:
-			jump &[00000515]
-[00000372]:
-			if !(class-of me is 134) jump &[00000442]
-			say-line "It's a punctured diving suit with an air\\x10hose\\x10attached."
-			jump &[00000515]
-[00000442]:
-			cut-scene
-			say-line "It's an old diving suit.\\xFF\\x03Uh-oh^\\xFF\\x03^there's a small HOLE in\\x10it."
-			wait-for-message
-			end-cut-scene
-[00000515]:
+			case class-of me {
+				of 12 {
+					if (class-of me is 134) {
+						say-line "It's a repaired diving suit with an air hose\\x10attached."
+					} else {
+						say-line "It's a repaired diving\\x10suit."
+					}
+				}
+				of 134 {
+					say-line "It's a punctured diving suit with an air\\x10hose\\x10attached."
+				}
+				default {
+					cut-scene 2
+					say-line "It's an old diving suit.\\xFF\\x03Uh-oh^\\xFF\\x03^there's a small HOLE in\\x10it."
+					wait-for-message
+					end-cut-scene
+				}
+			}
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object storage-locker {
+	object storage-locker { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0490
 		name is "storage locker"
 
 		verb open {
-			if !(state-of me is 1) jump &[00000051]
-			class-of storage-locker is 154
-			say-line "It's already open."
-			jump &[00000071]
-[00000051]:
-			if (class-of indy-in-diving-suit is 160) {
-				class-of punctured-diving-suit is 32
+			if (state-of me is state-1) {
+				class-of storage-locker is 154
+				say-line "It's already open."
+			} else {
+				if (class-of indy-in-diving-suit is 160) {
+					class-of punctured-diving-suit is 32
+				}
+				state-of me is state-1
 			}
-			state-of me is 1
-[00000071]:
 			end-object
 		}
 
-		verb close {
-			if !(state-of me is 0) jump &[00000110]
-			say-line "It's already closed."
-			jump &[00000114]
-[00000110]:
-			state-of me is 0
-[00000114]:
+		verb verb-4 {
+			if (state-of me is state-0) {
+				say-line "It's already closed."
+			} else {
+				state-of me is state-0
+			}
 			end-object
 		}
 
 		verb look-at {
-			if !(state-of me is 0) jump &[00000172]
-			say-line "It's a convenient place to stow\\x10things."
-			jump &[00000239]
-[00000172]:
-			if !(state-of punctured-diving-suit is 0) jump &[00000225]
-			say-line "There's an old diving suit in\\x10here."
-			jump &[00000239]
-[00000225]:
-			say-line "It's empty."
-[00000239]:
+			if (state-of me is state-0) {
+				say-line "It's a convenient place to stow\\x10things."
+			} else {
+				if (state-of punctured-diving-suit is state-0) {
+					say-line "There's an old diving suit in\\x10here."
+				} else {
+					say-line "It's empty."
+				}
+			}
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object hoist {
+	object hoist { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0497
 		name is "hoist"
 
 		verb use {
 		local variable L.0
 
-			if !(L.0 is indy-in-diving-suit) jump &[00000021]
-			start-script drop-indy-into-sea ()
-			jump &[00000027]
-[00000021]:
-			start-script default-response (8)
-[00000027]:
+			if (L.0 is indy-in-diving-suit) {
+				start-script drop-indy-into-sea ()
+			} else {
+				start-script default-response (use)
+			}
 			end-object
 		}
 
@@ -300,51 +286,48 @@ room salvage-boat {
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object air-hose {
+	object air-hose { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0496
 		name is "air-hose@@@@@@@@@@@@@@"
 
 		verb use {
 		local variable L.0
 
-			if !(L.0 is punctured-diving-suit) jump &[00000207]
-			if !(class-of punctured-diving-suit is 6) jump &[00000178]
-			cut-scene
-			class-of punctured-diving-suit is 134
-			class-of punctured-diving-suit is 1 2 3 4
-			walk selected-actor to-object air-hose
-			wait-for-actor selected-actor
-			do-animation selected-actor 12
-			break-here 4
-			do-animation selected-actor 3
-			break-here
-			walk selected-actor to-object punctured-diving-suit
-			wait-for-actor selected-actor
-			do-animation selected-actor 10
-			break-here 4
-			do-animation selected-actor 3
-			break-here
-			draw-object indy-in-diving-suit 
-			if !(class-of punctured-diving-suit is 12) jump &[00000146]
-			new-name-of punctured-diving-suit is "repaired diving suit with hose"
-			jump &[00000174]
-[00000146]:
-			new-name-of punctured-diving-suit is "punctured suit with hose"
-[00000174]:
-			end-cut-scene
-			jump &[00000204]
-[00000178]:
-			say-line "It's already connected."
-[00000204]:
-			jump &[00000213]
-[00000207]:
-			chain-script default-response (use)
-[00000213]:
+			if (L.0 is punctured-diving-suit) {
+				if (class-of punctured-diving-suit is 6) {
+					cut-scene 2
+					class-of punctured-diving-suit is 134
+					class-of punctured-diving-suit is 1 2 3 4
+					walk selected-actor to-object air-hose
+					wait-for-actor selected-actor
+					do-animation selected-actor chore-12
+					break-here 4
+					do-animation selected-actor chore-3
+					break-here
+					walk selected-actor to-object punctured-diving-suit
+					wait-for-actor selected-actor
+					do-animation selected-actor chore-10
+					break-here 4
+					do-animation selected-actor chore-3
+					break-here
+					draw-object indy-in-diving-suit
+					if (class-of punctured-diving-suit is 12) {
+						new-name-of punctured-diving-suit is "repaired diving suit with hose"
+					} else {
+						new-name-of punctured-diving-suit is "punctured suit with hose"
+					}
+					end-cut-scene
+				} else {
+					say-line "It's already connected."
+				}
+			} else {
+				chain-script default-response (use)
+			}
 			end-object
 		}
 
@@ -353,13 +336,13 @@ room salvage-boat {
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object air-compressor {
+	object air-compressor { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0493
 		name is "air compressor"
 
 		verb use {
@@ -368,38 +351,37 @@ room salvage-boat {
 		}
 
 		verb look-at {
-			if !(script-running compressor-is-running) jump &[00000054]
-			say-line "The machine is pumping\\x10air."
-			jump &[00000080]
-[00000054]:
-			say-line "It's an air compressor."
-[00000080]:
+			if (script-running compressor-is-running) {
+				say-line "The machine is pumping\\x10air."
+			} else {
+				say-line "It's an air compressor."
+			}
 			end-object
 		}
 
-		verb 90 {
+		verb verb-90 {
 			double-verb = look-at
 			end-object
 		}
 	}
 
-	object sal-waving-shirt-anim {
+	object sal-waving-shirt-anim { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0494
 		name is "sal-waving-shirt-anim"
 	}
 
-	object sal-air-lights-anim {
+	object sal-air-lights-anim { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0498
 		name is "sal-air-lights-anim"
 	}
 
-	object sal-air-hose-anim {
+	object sal-air-hose-anim { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0495
 		name is "sal-air-hose-anim"
 	}
 
-	object sal-winch-anim {
+	object sal-winch-anim { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0499
 		name is "sal-winch-anim"
 	}
 
-	object sal-sub-surf {
+	object sal-sub-surf { ; OBCD LECF_0001\LFLF_0042\ROOM\OBCD_0488
 		name is "sal-sub-surf"
 	}
 
@@ -424,56 +406,55 @@ room salvage-boat {
 	enter { ; ENCD LECF_0001\LFLF_0042\ROOM\ENCD
 		start-script award-iq-points (89,3)
 		talk-to-actor-script = talk-to-actor
-		state-of air-compressor-switch is 1
+		state-of air-compressor-switch is state-1
 		start-script bak shirt-waves ()
-		actor captain default costume 44 talk-color 2 name "captain"
+		actor captain default costume costume-44 talk-color color-2 name "captain"
 		class-of captain is 141
-		put-actor captain in-room 42
+		put-actor captain in-room salvage-boat
 		put-actor captain at 82,68
-		do-animation captain 248
-		actor 12 default costume 154 ignore-boxes always-zclip 2 init-animation 6 stand-animation 6
-		if !(state-of sal-sub-surf is 1) jump &[00000152]
-		if (!sound-running 81) {
-			if (!sound-running 80) {
-				start-sound salvage-ship-theme
+		do-animation captain chore-248
+		actor actor-12 default costume costume-154 ignore-boxes always-zclip 2 init-animation chore-6 stand-animation chore-6      
+		if (state-of sal-sub-surf is 1) {
+			if (!sound-running sound-81) {
+				if (!sound-running sound-80) {
+					start-sound salvage-ship-theme
+				}
 			}
+			do-animation captain chore-248
+			put-actor indy in-room salvage-boat
+			put-actor indy at 150,101
+			do-animation indy chore-1
+			do-animation indy chore-249
+			put-actor sophia in-room salvage-boat
+			put-actor sophia at 184,101
+			do-animation sophia chore-1
+			do-animation sophia chore-248
+			start-script we-have-arrived ()
+			camera-at 160
+		} else {
+			put-actor actor-12 in-room selected-room
+			put-actor actor-12 at 298,133
+			start-script bak compressor-is-running ()
+			start-script kerner-is-here ()
 		}
-		do-animation captain 248
-		put-actor indy in-room 42
-		put-actor indy at 150,101
-		do-animation indy 1
-		do-animation indy 249
-		put-actor sophia in-room 42
-		put-actor sophia at 184,101
-		do-animation sophia 1
-		do-animation sophia 248
-		start-script we-have-arrived ()
-		camera-at 160
-		jump &[00000168]
-[00000152]:
-		put-actor 12 in-room selected-room
-		put-actor 12 at 298,133
-		start-script bak compressor-is-running ()
-		start-script kerner-is-here ()
-[00000168]:
 		end-object
 	}
 
-	script kerner-is-here {
+	script kerner-is-here { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0200
 		override off
 		camera-at 248
-		actor kerner costume 20
-		put-actor kerner in-room 42
+		actor kerner costume costume-20
+		put-actor kerner in-room salvage-boat
 		put-actor kerner at 200,112
-		put-actor sophia in-room 42
+		put-actor sophia in-room salvage-boat
 		put-actor sophia at 160,112
-		do-animation kerner 248
-		do-animation kerner 7
-		do-animation sophia 249
+		do-animation kerner chore-248
+		do-animation kerner chore-7
+		do-animation sophia chore-249
 		break-here
-		state-of storage-locker is 0
+		state-of storage-locker is state-0
 		break-here
-		cut-scene
+		cut-scene 1
 		override &[00000649]
 		break-here 4
 		say-line sophia center at 90,31 "Kerner!\\xFF\\x03Perfect^\\xFF\\x03^another slimy creature oozing up from the\\x10depths!"
@@ -487,7 +468,7 @@ room salvage-boat {
 		say-line sophia center at 90,31 "Back on Thera.\\xFF\\x01You'll never find\\x10him. \\xFF\\x09\\x13\\x00 "
 		wait-for-message
 		say-line kerner "Really^"
-		do-animation sophia 3
+		do-animation sophia chore-3
 		wait-for-message
 		say-line kerner "^what do you say,\\x10Captain?"
 		wait-for-message
@@ -499,71 +480,70 @@ room salvage-boat {
 		break-here 2
 		say-line captain "I brought them both like you told me, Herr\\x10Kerner."
 		wait-for-message
-		do-animation kerner 17
+		do-animation kerner chore-17
 		say-line captain "I tried to keep Jones from\\x10diving^"
 		wait-for-message
-		do-animation kerner 12
+		do-animation kerner chore-12
 		say-line captain "^but he's a very determined\\x10man."
 		wait-for-message
-		do-animation kerner 1
+		do-animation kerner chore-1
 		walk kerner to 245,135
 		wait-for-actor kerner
 [00000649]:
-		if !(override-hit) jump &[00000809]
-		sound-kludge 257 experiment-theme 0
-		sound-kludge 65535
-		sound-kludge 269 experiment-theme 0 360
-		put-actor captain in-room 42
-		put-actor captain at 134,69
-		do-animation captain 3
-		do-animation captain 249
-		put-actor kerner in-room 42
-		put-actor kerner at 245,135
-		do-animation kerner 3
-		do-animation kerner 249
-		say-line kerner "Goodbye, Dr. Jones."
-		load-sound diving-theme-1
-		load-sound diving-theme-2
-		sound-kludge 65535
-		sound-kludge 2
-		sound-kludge 8 diving-theme-1
-		sound-kludge 8 diving-theme-2
-		sound-kludge 65535
-		sound-kludge 3
-		sound-kludge 262 experiment-theme 0
-		sound-kludge 269 experiment-theme 0 30
-		wait-for-message
-		jump &[00000995]
-[00000809]:
-		say-line kerner "Now, he's a dead\\x10man^"
-		sound-kludge 257 experiment-theme 0
-		sound-kludge 65535
-		sound-kludge 269 experiment-theme 0 360
-		wait-for-message
-		say-line kerner "^one rude archaeologist is quite enough for my\\x10purposes."
-		sound-kludge 262 experiment-theme 0
-		sound-kludge 269 experiment-theme 0 60
-		load-sound diving-theme
-		load-sound diving-theme2
-		sound-kludge 65535
-		sound-kludge 2
-		sound-kludge 8 diving-theme-1
-		sound-kludge 8 diving-theme-2
-		sound-kludge 65535
-		sound-kludge 3
-		wait-for-message
-[00000995]:
-		do-animation kerner 22
+		if (override-hit) {
+			sound-kludge 257 experiment-theme 0
+			sound-kludge 65535
+			sound-kludge 269 experiment-theme 0 360
+			put-actor captain in-room salvage-boat
+			put-actor captain at 134,69
+			do-animation captain chore-3
+			do-animation captain chore-249
+			put-actor kerner in-room salvage-boat
+			put-actor kerner at 245,135
+			do-animation kerner chore-3
+			do-animation kerner chore-249
+			say-line kerner "Goodbye, Dr. Jones."
+			load-sound diving-theme-1
+			load-sound diving-theme-2
+			sound-kludge 65535
+			sound-kludge 2
+			sound-kludge 8 diving-theme-1
+			sound-kludge 8 diving-theme-2
+			sound-kludge 65535
+			sound-kludge 3
+			sound-kludge 262 experiment-theme 0
+			sound-kludge 269 experiment-theme 0 30
+			wait-for-message
+		} else {
+			say-line kerner "Now, he's a dead\\x10man^"
+			sound-kludge 257 experiment-theme 0
+			sound-kludge 65535
+			sound-kludge 269 experiment-theme 0 360
+			wait-for-message
+			say-line kerner "^one rude archaeologist is quite enough for my\\x10purposes."
+			sound-kludge 262 experiment-theme 0
+			sound-kludge 269 experiment-theme 0 60
+			load-sound diving-theme-1
+			load-sound diving-theme-2
+			sound-kludge 65535
+			sound-kludge 2
+			sound-kludge 8 diving-theme-1
+			sound-kludge 8 diving-theme-2
+			sound-kludge 65535
+			sound-kludge 3
+			wait-for-message
+		}
+		do-animation kerner chore-22
 		start-sound sound-185
 		start-sound sound-185
 		break-here 3
 		start-script turn-off-compressor ()
-		break-until (!script-running 202)
+		break-until (!script-running turn-off-compressor)
 		end-cut-scene
 		end-script
 	}
 
-	script compressor-is-running {
+	script compressor-is-running { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0201
 	local variable L.0
 	local variable L.1
 
@@ -592,17 +572,17 @@ room salvage-boat {
 	local variable L.0
 
 		stop-script compressor-is-running
-		state-of air-compressor is 0
-		state-of sal-air-lights-anim is 0
-		state-of sal-air-hose-anim is 0
+		state-of air-compressor is state-0
+		state-of sal-air-lights-anim is state-0
+		state-of sal-air-hose-anim is state-0
 		if (!L.0) {
-			do-animation 12 7
+			do-animation actor-12 chore-7
 			break-here 3
-			do-animation kerner 3
+			do-animation kerner chore-3
 			break-here 4
-			do-animation kerner 20
-			return-x = actor-x 12
-			return-y = actor-y 12
+			do-animation kerner chore-20
+			return-x = actor-x actor-12
+			return-y = actor-y actor-12
 			foo = (camera-x + 35)
 			print-line color 11 at camera-x,125 "BLUB!"
 			break-here 13
@@ -611,96 +591,94 @@ room salvage-boat {
 		end-script
 	}
 
-	script talk-to-actor {
-		if !(dialog-actor is captain) jump &[00000021]
-		chain-script talk-to-captain ()
-		jump &[00000034]
-[00000021]:
-		if !(dialog-actor is sophia) jump &[00000034]
-		chain-script talk-to-sophia ()
-		jump &[00000034]
-[00000034]:
+	script script-203 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0203
+		case V.176 {
+			of 11 {
+				chain-script talk-to-captain ()
+			}
+			of 2 {
+				chain-script talk-to-sophia ()
+			}
+		}
 		end-script
 	}
 
 	script we-have-arrived { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0204
-		if !(salvage-direction is 1) jump &[00000031]
-		salvage-direction-string = "southwest"
-		jump &[00000073]
-[00000031]:
-		if !(salvage-direction is 2) jump &[00000050]
-		salvage-direction-string = "south"
-		jump &[00000073]
-[00000050]:
-		if !(salvage-direction is 3) jump &[00000073]
-		salvage-direction-string = "southeast"
-		jump &[00000073]
-[00000073]:
-		cut-scene
-		if !(B.400[9] is 0) jump &[00000449]
-		walk captain to 134,69
-		wait-for-actor captain
-		override &[00000416]
-		say-line captain "Avast, you lubbers.  We've\\x10arrived."
-		break-here 2
-		walk indy to 157,101
-		wait-for-actor indy
-		do-animation indy face-towards captain
-		break-here 2
-		do-animation captain face-towards indy
-		break-here 2
-		do-animation sophia 248
-		wait-for-message
-		say-line indy "Are you sure?"
-		wait-for-message
-		say-line captain "Exactly %n415% miles %s38% of\\x10Thera.\\xFF\\x03There's a diving suit in one of the\\x10lockers^\\xFF\\x03^the rest is up to\\x10you."
-		wait-for-message
-		say-line indy "Aren't you going to help?"
-		wait-for-message
-		override off
-		say-line captain "I'm against helping anyone into an early\\x10grave^\\xFF\\x03^from now on, you're on your\\x10own."
-[00000416]:
-		if (override-hit) {
-			say-line captain "You're on your\\x10own."
-		}
-		wait-for-message
-		jump &[00000710]
-[00000449]:
-		state-of punctured-diving-suit is 0
-		if (class-of punctured-diving-suit is 12) {
-			new-name-of punctured-diving-suit is "diving suit"
-		}
-		if (class-of punctured-diving-suit is 134) {
-			draw-object indy-in-diving-suit 
-			new-name-of punctured-diving-suit is "broken suit with hose"
-		}
-		if (class-of punctured-diving-suit is 12) {
-			if (class-of punctured-diving-suit is 134) {
-				new-name-of punctured-diving-suit is "diving suit with hose"
-				class-of punctured-diving-suit is 1 2 3 4
+		case V.416 {
+			of 1 {
+				*38 = "southwest"
+			}
+			of 2 {
+				*38 = "south"
+			}
+			of 3 {
+				*38 = "southeast"
 			}
 		}
-		walk captain to 134,69
-		wait-for-actor captain
-		override &[00000690]
-		say-line captain "Alright, we're in position^"
-		break-here 2
-		walk indy to 157,101
-		wait-for-actor indy
-		do-animation indy face-towards captain
-		break-here 2
-		do-animation captain face-towards indy
-		break-here 2
-		do-animation sophia 248
-		wait-for-message
-		override off
-		say-line captain "^%n415% miles %s38% of\\x10Thera.\\xFF\\x03Go to it."
+		cut-scene 2
+		if (B.400[9] is 0) {
+			walk captain to 134,69
+			wait-for-actor captain
+			override &[00000416]
+			say-line captain "Avast, you lubbers.  We've\\x10arrived."
+			break-here 2
+			walk indy to 157,101
+			wait-for-actor indy
+			do-animation indy face-towards captain
+			break-here 2
+			do-animation captain face-towards indy
+			break-here 2
+			do-animation sophia chore-248
+			wait-for-message
+			say-line indy "Are you sure?"
+			wait-for-message
+			say-line captain "Exactly %n415% miles %s38% of\\x10Thera.\\xFF\\x03There's a diving suit in one of the\\x10lockers^\\xFF\\x03^the rest is up to\\x10you."
+			wait-for-message
+			say-line indy "Aren't you going to help?"
+			wait-for-message
+			override off
+			say-line captain "I'm against helping anyone into an early\\x10grave^\\xFF\\x03^from now on, you're on your\\x10own." 
+[00000416]:
+			if (override-hit) {
+				say-line captain "You're on your\\x10own."
+			}
+			wait-for-message
+		} else {
+			state-of punctured-diving-suit is state-0
+			if (class-of punctured-diving-suit is 12) {
+				new-name-of punctured-diving-suit is "diving suit"
+			}
+			if (class-of punctured-diving-suit is 134) {
+				draw-object indy-in-diving-suit
+				new-name-of punctured-diving-suit is "broken suit with hose"
+			}
+			if (class-of punctured-diving-suit is 12) {
+				if (class-of punctured-diving-suit is 134) {
+					new-name-of punctured-diving-suit is "diving suit with hose"
+					class-of punctured-diving-suit is 1 2 3 4
+				}
+			}
+			walk captain to 134,69
+			wait-for-actor captain
+			override &[00000690]
+			say-line captain "Alright, we're in position^"
+			break-here 2
+			walk indy to 157,101
+			wait-for-actor indy
+			do-animation indy face-towards captain
+			break-here 2
+			do-animation captain face-towards indy
+			break-here 2
+			do-animation sophia chore-248
+			wait-for-message
+			override off
+			say-line captain "^%n415% miles %s38% of\\x10Thera.\\xFF\\x03Go to it."
 [00000690]:
-		if (override-hit) {
-			say-line captain "Go to it."
+			if (override-hit) {
+				say-line captain "Go to it."
+			}
+			wait-for-message
 		}
-		wait-for-message
-[00000710]:
 		walk captain to 82,68
 		wait-for-actor captain
 		end-cut-scene
@@ -712,22 +690,22 @@ room salvage-boat {
 		end-script
 	}
 
-	script talk-to-sophia {
+	script talk-to-sophia { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0205
 	local variable L.0
 	local variable L.1
 
 		stop-script follow-actor
-		start-script 136 (1,2,30,1)
-		break-until (!script-running 136)
+		start-script script-136 (1,2,30,1)
+		break-until (!script-running script-136)
 		if (B.22) {
 			if (actor-room sophia is selected-room) {
 				if (!script-running follow-actor) {
 					start-script bak follow-actor (1,2,1)
 				}
 			}
-			stop-script 0
+			stop-script
 		}
-		cut-scene
+		cut-scene 2
 		foo = random 2
 		if !(foo is 0) jump &[00000112]
 		say-line indy "Listen, Sophia^"
@@ -835,7 +813,7 @@ room salvage-boat {
 		jump &[00000895]
 [00000895]:
 		wait-for-message
-		start-end-dialog-ui ()
+		start-script end-dialog-ui ()
 		if (actor-room sophia is selected-room) {
 			if (!script-running follow-actor) {
 				start-script bak follow-actor (1,2,0)
@@ -847,7 +825,7 @@ room salvage-boat {
 	script talk-to-captain { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0206
 	local variable L.0
 
-		cut-scene
+		cut-scene 2
 		stop-script follow-actor
 		walk selected-actor to 157,101
 		wait-for-actor selected-actor
@@ -950,7 +928,7 @@ room salvage-boat {
 		jump &[00000224]
 [00000849]:
 		wait-for-message
-		start-end-dialog-ui ()
+		start-script end-dialog-ui ()
 		if !(!L.0) jump &[00000868]
 		walk captain to 82,68
 		jump &[00000907]
@@ -960,7 +938,7 @@ room salvage-boat {
 		if (selected-actor is-not indy) {
 			start-script switch-actor (indy)
 		}
-		actor selected-actor costume 2 follow-boxes
+		actor selected-actor costume costume-2 follow-boxes
 		V.315 = 42
 		current-room world-map
 [00000907]:
@@ -974,150 +952,146 @@ room salvage-boat {
 		end-script
 	}
 
-	script drop-indy-into-sea
-		cut-scene
+	script drop-indy-into-sea { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0207
+		cut-scene 2
 		if (!script-running compressor-is-running) {
 			say-line sophia "Better turn that compressor on\\x10first."
-			do-sentence 7 air-compressor-switch with 0
+			do-sentence pull air-compressor-switch with object-0
 			wait-for-sentence
 		}
 		walk sophia to-object hoist
 		wait-for-actor sophia
 		break-here 2
-		if !(got-coordinates-wrong is 0) jump &[00000136]
-		say-line indy "Watch that\\x10hook!"
-		wait-for-message
-		say-line sophia "Okay, okay.\\xFF\\x09\\x0D\\x00"
-		wait-for-message
-		do-animation sophia 1
-		jump &[00000187]
-[00000136]:
-		say-line indy "Here, I go again!"
-		wait-for-message
-		say-line sophia "Better luck this\\x10time!"
-		wait-for-message
-[00000187]:
-		do-animation sophia 246
-		draw-object sal-winch-anim image 1
+		if (got-coordinates-wrong is 0) {
+			say-line indy "Watch that\\x10hook!"
+			wait-for-message
+			say-line sophia "Okay, okay.\\xFF\\x09\\x0D\\x00"
+			wait-for-message
+			do-animation sophia chore-1
+		} else {
+			say-line indy "Here, I go again!"
+			wait-for-message
+			say-line sophia "Better luck this\\x10time!"
+			wait-for-message
+		}
+		do-animation sophia chore-246
+		draw-object sal-winch-anim image state-1
 		break-here 4
-		draw-object sal-winch-anim image 2
+		draw-object sal-winch-anim image state-2
 		break-here 4
-		do-animation sophia 244
-		draw-object sal-winch-anim image 3
+		do-animation sophia chore-244
+		draw-object sal-winch-anim image state-3
 		break-here 4
 		sound-kludge 263 salvage-ship-theme 1 4 400
 		sound-kludge 270 salvage-ship-theme 1
 		sound-kludge 271 262 salvage-ship-theme 0
 		sound-kludge 271 65535
-		state-of indy-in-diving-suit is 0
-		do-animation indy 6
+		state-of indy-in-diving-suit is state-0
+		do-animation indy chore-6
 		break-here 5
 		camera-pan-to shirt-waves
 		wait-for-camera
 		actor indy ignore-boxes always-zclip 2
 		break-here
 		put-actor indy at 304,102
-		do-animation indy 9
-		do-animation sophia 245
-		draw-object sal-winch-anim image 2
+		do-animation indy chore-9
+		do-animation sophia chore-245
+		draw-object sal-winch-anim image state-2
 		break-here
 		put-actor indy at 318,104
-		do-animation indy 10
-		draw-object sal-winch-anim image 1
+		do-animation indy chore-10
+		draw-object sal-winch-anim image state-1
 		break-here
 		put-actor indy at 318,104
-		do-animation indy 11
-		state-of sal-winch-anim is 0
+		do-animation indy chore-11
+		state-of sal-winch-anim is state-0
 		break-here
-		do-animation indy 8
+		do-animation indy chore-8
 		break-here 18
 		attempted-dive = 1
 		end-cut-scene
-		if !(coordinates-are-correct) jump &[00000422]
-		start-script award-iq-points (90,10)
-		actor indy never-zclip ignore-boxes
-		put-actor indy in-room 82
-		put-actor indy at 345,0
-		start-script switch-actor (indy)
-		break-until (!script-running switch-actor)
-		current-room salvage-boat-under
-		jump &[00000701]
-[00000422]:
-		cut-scene
-		do-animation indy 13
-		break-here 5
-		if !(got-coordinates-wrong is 0) jump &[00000523]
-		got-coordinates-wrong = 1
-		do-animation indy 14
-		break-here
-		print-line at camera-x,70 center overhead color 15 "Nothing.\\xFF\\x03I must have picked the wrong\\x10coordinates."
-		wait-for-message
-		do-animation indy 15
-		jump &[00000587]
-[00000523]:
-		do-animation indy 14
-		break-here
-		print-line at camera-x,70 center overhead color 15 "Drat!\\xFF\\x03We got the coordinates wrong\\x10again."
-		wait-for-message
-		do-animation indy 15
-[00000587]:
-		wait-for-message
-		do-animation indy 14
-		print-line at camera-x,70 center overhead color 15 "Take us back, Captain!"
-		wait-for-message
-		do-animation indy 15
-		end-cut-scene
-		V.316 = 4
-		B.400[14] = 1
-		V.315 = 42
-		start-script switch-actor (indy)
-		actor selected-actor costume 2 follow-boxes
-		sound-kludge 262 salvage-ship-theme 0
-		sound-kludge 257 salvage-ship-theme 0
-		sound-kludge 269 salvage-ship-theme 40 640
-		current-room world-map
-[00000701]:
+		if (coordinates-are-correct) {
+			start-script award-iq-points (90,10)
+			actor indy never-zclip ignore-boxes
+			put-actor indy in-room salvage-boat-under
+			put-actor indy at 345,0
+			start-script switch-actor (indy)
+			break-until (!script-running switch-actor)
+			current-room salvage-boat-under
+		} else {
+			cut-scene 3
+			do-animation indy chore-13
+			break-here 5
+			if (got-coordinates-wrong is 0) {
+				got-coordinates-wrong = 1
+				do-animation indy chore-14
+				break-here
+				print-line at camera-x,70 center overhead color 15 "Nothing.\\xFF\\x03I must have picked the wrong\\x10coordinates."
+				wait-for-message
+				do-animation indy chore-15
+			} else {
+				do-animation indy chore-14
+				break-here
+				print-line at camera-x,70 center overhead color 15 "Drat!\\xFF\\x03We got the coordinates wrong\\x10again."
+				wait-for-message
+				do-animation indy chore-15
+			}
+			wait-for-message
+			do-animation indy chore-14
+			print-line at camera-x,70 center overhead color 15 "Take us back, Captain!"
+			wait-for-message
+			do-animation indy chore-15
+			end-cut-scene
+			V.316 = 4
+			B.400[14] = 1
+			V.315 = 42
+			start-script switch-actor (indy)
+			actor selected-actor costume costume-2 follow-boxes
+			sound-kludge 262 salvage-ship-theme 0
+			sound-kludge 257 salvage-ship-theme 0
+			sound-kludge 269 salvage-ship-theme 40 640
+			current-room world-map
+		}
 		end-script
 	}
 
-	script shirt-waves {
+	script shirt-waves { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0208
 		do {
-			draw-object sal-waving-shirt-anim image 1
+			draw-object sal-waving-shirt-anim image state-1
 			break-here 4
-			draw-object sal-waving-shirt-anim image 2
+			draw-object sal-waving-shirt-anim image state-2
 			break-here 4
-			draw-object sal-waving-shirt-anim image 3
+			draw-object sal-waving-shirt-anim image state-3
 			break-here 4
-			draw-object sal-waving-shirt-anim image 2
+			draw-object sal-waving-shirt-anim image state-2
 			break-here 4
 		}
 		end-script
 	}
 
-	script indy-puts-on-suit {
-		cut-scene
+	script indy-puts-on-suit { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0209
+		cut-scene 2
 		walk indy to-object storage-locker
 		wait-for-actor indy
-		state-of punctured-diving-suit is 1
+		state-of punctured-diving-suit is state-1
 		class-of punctured-diving-suit is 160
-		do-animation indy 250
-		actor indy costume 86
+		do-animation indy chore-250
+		actor indy costume costume-86
 		put-actor indy at 232,110
 		class-of indy is 160 13
-		do-animation indy 12
+		do-animation indy chore-12
 		break-here 3
-		state-of storage-locker is 0
+		state-of storage-locker is state-0
 		break-here 3
-		do-animation indy 3
+		do-animation indy chore-3
 		class-of indy-in-diving-suit is 32
 		do-animation sophia face-towards indy
 		break-here 2
-		if !(got-coordinates-wrong is 0) jump &[00000178]
-		say-line "I can't move at all in this\\x10thing!\\xFF\\x03You'll have to get me into the\\x10water,\\x10Sophia."
-		jump &[00000213]
-[00000178]:
-		say-line "Sophia, would you do the\\x10honors?"
-[00000213]:
+		if (got-coordinates-wrong is 0) {
+			say-line "I can't move at all in this\\x10thing!\\xFF\\x03You'll have to get me into the\\x10water,\\x10Sophia."
+		} else {
+			say-line "Sophia, would you do the\\x10honors?"
+		}
 		stop-script follow-actor
 		start-script switch-actor (sophia)
 		break-until (!script-running switch-actor)
@@ -1128,17 +1102,17 @@ room salvage-boat {
 		end-script
 	}
 
-	script unused=210 {
+	script script-210 { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0210
 		end-script
 	}
 
-	script talk-to-suited-indy {
+	script talk-to-suited-indy { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0211
 	local variable L.0
 
-		cut-scene
+		cut-scene 2
 		walk selected-actor to 202,109
 		wait-for-actor selected-actor
-		do-animation selected-actor 249
+		do-animation selected-actor chore-249
 		break-here
 		end-cut-scene
 		L.0 = 0
@@ -1250,34 +1224,33 @@ room salvage-boat {
 		jump &[00000904]
 [00000904]:
 		wait-for-message
-		start-end-dialog-ui ()
+		start-script end-dialog-ui ()
 [00000909]:
 		end-script
 	}
 
-	script fix-diving-suit {
+	script fix-diving-suit { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0212
 		class-of punctured-diving-suit is 12
 		start-script award-iq-points (91,5)
-		cut-scene
-		do-animation indy 251
-		do-animation indy 10
+		cut-scene 2
+		do-animation indy chore-251
+		do-animation indy chore-10
 		break-here 4
-		do-animation indy 1
+		do-animation indy chore-1
 		say-line "There, good as new^\\xFF\\x03^almost."
-		if !(class-of punctured-diving-suit is 134) jump &[00000113]
-		new-name-of punctured-diving-suit is "repaired suit with hose"
-		jump &[00000130]
-[00000113]:
-		new-name-of punctured-diving-suit is "repaired suit"
-[00000130]:
+		if (class-of punctured-diving-suit is 134) {
+			new-name-of punctured-diving-suit is "repaired suit with hose"
+		} else {
+			new-name-of punctured-diving-suit is "repaired suit"
+		}
 		wait-for-message
 		end-cut-scene
-		owner-of tire-repair-kit is 0
+		owner-of tire-repair-kit is object-0
 		start-script update-inventory ()
 		end-script
 	}
 
-	script turn-on-compressor {
+	script turn-on-compressor { ; LSCR LECF_0001\LFLF_0042\ROOM\LSCR_0213
 		start-sound sound-202
 		sleep-for 60 jiffies
 		start-script bak compressor-is-running ()
