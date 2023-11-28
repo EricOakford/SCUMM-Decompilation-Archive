@@ -1,0 +1,902 @@
+;/**
+; * Indiana Jones and the Fate of Atlantis: CD Demo
+; * 
+; * Room 62: German Research Lab (nazi-labo)
+; */
+
+room nazi-laboratory {
+
+	object lab-zap { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0839
+		name is "lab-zap"
+	}
+
+	object lab-trode { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0849
+		name is "lab-trode"
+	}
+
+	object lab-buzz-off { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0845
+		name is "lab-buzz-off"
+	}
+
+	object console-topple { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0850
+		name is "console-topple"
+	}
+
+	object lab-dial { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0842
+		name is "lab-dial"
+	}
+
+	object lab-van { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0843
+		name is "lab-van"
+	}
+
+	object lab-jake { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0846
+		name is "lab-jake"
+	}
+
+	object lab-scope { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0847
+		name is "lab-scope"
+	}
+
+	object lab-van-boom { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0848
+		name is "lab-van-boom"
+	}
+
+	object lab-bulbs { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0844
+		name is "lab-bulbs"
+	}
+
+	object lab-hole { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0841
+		name is "lab-hole"
+	}
+
+	object lab-door { ; VERB LECF_0001\LFLF_0062\ROOM\OBCD_0840
+		name is ""
+	}
+
+	exit { ; EXCD LECF_0001\LFLF_0062\ROOM\EXCD
+		actor 5 default
+		set-screen 0 to 144
+		start-script set-verbs (2)
+		sound-kludge 257 140 0
+		sound-kludge 65535
+		end-object
+	}
+
+	enter { ; ENCD LECF_0001\LFLF_0062\ROOM\ENCD
+		set-screen 0 to 200
+		start-script set-verbs (1)
+		stop-script boot-script
+		draw-object lab-trode 
+		actor kerner costume 20 talk-color 14 follow-boxes elevation 0
+		actor ubermann default costume 36 talk-color 11
+		actor explosion-2 default costume 16 ignore-boxes never-zclip
+		actor explosion-1 default costume 16 init-animation 8 walk-animation 8 step-dist 6,6
+		class-of ubermann is 0
+		actor microtaur-experiment default costume 35 step-dist 16,4 stand-animation 3 walk-animation 2 ignore-boxes always-zclip 1
+		put-actor ubermann in-room nazi-laboratory
+		put-actor ubermann at 360,130
+		put-actor kerner in-room nazi-laboratory
+		put-actor kerner at 80,80
+		draw-object lab-dial image 1
+		selected-actor = kerner
+		chain-script set-up-room ()
+		end-object
+	}
+
+	script animate-overpowered-zap { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0200
+	local variable L.0
+	local variable L.1
+
+[00000008]:
+		L.1 = random 2
+		if !(L.1 is 0) jump &[00000028]
+		draw-object lab-zap image 1
+		jump &[00000060]
+[00000028]:
+		if !(L.1 is 1) jump &[00000044]
+		draw-object lab-zap image 2
+		jump &[00000060]
+[00000044]:
+		if !(L.1 is 2) jump &[00000060]
+		draw-object lab-zap image 3
+		jump &[00000060]
+[00000060]:
+		break-here
+		if !(L.1 is 0) jump &[00000077]
+		draw-object lab-zap image 3
+		jump &[00000109]
+[00000077]:
+		if !(L.1 is 1) jump &[00000093]
+		draw-object lab-zap image 1
+		jump &[00000109]
+[00000093]:
+		if !(L.1 is 2) jump &[00000109]
+		draw-object lab-zap image 2
+		jump &[00000109]
+[00000109]:
+		break-here
+		draw-object lab-buzz-off 
+		L.0 = random 20
+		L.0 += 1
+		L.0 *= min-jiffies
+		sleep-for L.0 jiffies
+		jump &[00000008]
+		end-script
+	}
+
+	script 201 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0201
+	local variable L.0
+
+[00000008]:
+		L.0 = random 2
+		if !(L.0 is 0) jump &[00000028]
+		draw-object lab-zap image 1
+		jump &[00000060]
+[00000028]:
+		if !(L.0 is 1) jump &[00000044]
+		draw-object lab-zap image 2
+		jump &[00000060]
+[00000044]:
+		if !(L.0 is 2) jump &[00000060]
+		draw-object lab-zap image 3
+		jump &[00000060]
+[00000060]:
+		break-here
+		jump &[00000008]
+		end-script
+	}
+
+	script scale-kerner { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0202
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		do {
+			break-here
+			L.4 = (actor-box kerner)
+			if (L.4 is 1) {
+				L.1 = actor-x 4
+				if (L.1 > 100) {
+					L.2 = (L.1 - 100)
+					L.3 = (L.2 / 2)
+					L.0 = (L.3 + 160)
+				}
+				actor kerner scale L.0 L.0
+			}
+		}
+		end-script
+	}
+
+	script animate-lab-dial { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0203
+	local variable L.0
+	local variable L.1
+
+		for L.1 = 1 to L.0 ++ {
+			draw-object lab-dial image 2
+			break-here
+			draw-object lab-dial image 3
+			break-here
+			draw-object lab-dial image 1
+			break-here
+		}
+		end-script
+	}
+
+	script 204 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0204
+	local variable L.0
+
+		if !(L.0 is 1) jump &[00000025]
+		draw-object lab-dial image 1
+		break-here
+		jump &[00000059]
+[00000025]:
+		if !(L.0 is 2) jump &[00000042]
+		draw-object lab-dial image 2
+		break-here
+		jump &[00000059]
+[00000042]:
+		if !(L.0 is 3) jump &[00000059]
+		draw-object lab-dial image 3
+		break-here
+		jump &[00000059]
+[00000059]:
+		end-script
+	}
+
+	script watch-the-statue { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0205
+		do {
+			do-animation kerner face-towards microtaur-experiment
+			do-animation ubermann face-towards microtaur-experiment
+			break-here 2
+		}
+		end-script
+	}
+
+	script kerner-shows-ubermann-the-statue { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0206
+	local variable L.2
+
+		cut-scene
+		print-debug "bts:%n37%"
+		L.2 = text-speed
+		text-speed = 3
+		override &[00002779]
+		state-of lab-door is 0
+		break-here 6
+		print-line color 127 center at 160,130 "A RESEARCH LABORATORY\\xFF\\x01SOMEWHERE IN GERMANY"
+		wait-for-message
+		break-here 4
+		state-of lab-door is 1
+		start-sound 192
+		break-here 4
+		walk kerner to 135,84
+		wait-for-actor kerner
+		do-animation kerner 245
+		say-line kerner "\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Dr. Ubermann!"
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\xAC\\x36\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Fantastic news^"
+		break-here 4
+		walk kerner to 220,115
+		walk ubermann to 250,130
+		wait-for-actor ubermann
+		wait-for-message
+		say-line ubermann "\\xFF\\x0A\\x89\\xD5\\xFF\\x0A\\x05\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Kerner^at last!"
+		wait-for-message
+		camera-pan-to 216
+		wait-for-camera
+		wait-for-actor kerner
+		do-animation kerner face-towards ubermann
+		wait-for-message
+		do-animation kerner face-towards ubermann
+		break-here 2
+		do-animation ubermann face-towards kerner
+		break-here 2
+		say-line kerner "\\xFF\\x0A\\x92\\x73\\xFF\\x0A\\x00\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00See what Herr Jones\\xFF\\x01has\\x10kindly provided!"
+		wait-for-message
+		do-animation kerner 22
+		actor microtaur-experiment elevation 21 never-zclip
+		put-actor microtaur-experiment in-room nazi-laboratory
+		put-actor microtaur-experiment at 235,116
+		break-here 3
+		do-animation kerner 3
+		break-here
+		do-animation ubermann 247
+		break-here
+		say-line ubermann "\\xFF\\x0A\\x57\\x32\\xFF\\x0A\\x06\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00What on earth?"
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\xA5\\x17\\xFF\\x0A\\x01\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Isn't it amazing?\\xFF\\x09\\x17\\x00"
+		break-here 15
+		walk ubermann to 350,120
+		wait-for-actor ubermann
+		walk ubermann to 250,115
+		wait-for-message
+		wait-for-actor ubermann
+		say-line ubermann "\\xFF\\x0A\\xCA\\x71\\xFF\\x0A\\x06\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00You fool!\\xFF\\x03You've come back to show me this^\\xFF\\x03^this^this^\\xFF\\x09\\x09\\x00"
+		wait-for-message
+		do-animation ubermann 1
+		say-line ubermann "\\xFF\\x0A\\xB1\\x1B\\xFF\\x0A\\x07\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00^prehistoric knick-knack!?"
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\x7C\\x5C\\xFF\\x0A\\x01\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Herr Doktor^ \\xFF\\x09\\x18\\x00 \\xFF\\x03I believe this knick-knack, as you call it,\\xFF\\x01comes from the Lost\\x10City.\\xFF\\x09\\x19\\x00 "
+		wait-for-message
+		do-animation kerner 1
+		break-here
+		do-animation ubermann face-towards kerner
+		break-here 2
+		do-animation kerner face-towards ubermann
+		break-here 2
+		say-line ubermann "\\xFF\\x0A\\xF6\\x73\\xFF\\x0A\\x07\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Then we have failed!\\xFF\\x03I see no evidence here\\xFF\\x01of the magical metal Plato called^\\xFF\\x03^ORICHALCUM."
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\x82\\x20\\xFF\\x0A\\x02\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Look here!\\xFF\\x09\\x0A\\x00\\xFF\\x03Concealed in the base is this\\xFF\\x01small shiny bead^ \\xFF\\x09\\x0B\\x00"
+		wait-for-message
+		do-animation kerner 22
+		break-here 4
+		do-animation ubermann 10
+		break-here 5
+		do-animation kerner 3
+		break-here
+		do-animation ubermann 3
+		break-here 2
+		wait-for-message
+		do-animation ubermann 245
+		break-here 2
+		do-animation ubermann 17
+		break-here
+		actor 7 default costume 163 ignore-boxes never-zclip
+		put-actor 7 in-room nazi-laboratory
+		put-actor 7 at 258,76
+		do-animation 7 250
+		do-animation 7 7
+		print-line color 11 center at 180,40 "\\xFF\\x0A\\x2B\\x6E\\xFF\\x0A\\x0B\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00^and it GLITTERS LIKE FIRE^\\xFF\\x03^exactly as Plato described!"
+		sound-kludge 267 140 0 1
+		sound-kludge 278 140 0 0
+		start-script rec 218 (0,127,8,1)
+		start-script rec 218 (102,0,8,0)
+		wait-for-message
+		put-actor 7 in-room 0
+		do-animation ubermann 1
+		say-line kerner "\\xFF\\x0A\\x00\\xCD\\xFF\\x0A\\x02\\x00\\xFF\\x0A\\x16\\x00\\xFF\\x0A\\x00\\x00It's my guess we've found\\xFF\\x01the treasure we seek.\\xFF\\x09\\x17\\x00"
+		break-here
+		do-animation ubermann 244
+		wait-for-message
+		say-line ubermann center at 180,40 "\\xFF\\x0A\\x19\\x44\\xFF\\x0A\\x0C\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00I never guess."
+		wait-for-message
+		say-line ubermann "\\xFF\\x0A\\xBD\\x96\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00We must TEST!"
+		wait-for-message
+		walk ubermann to 265,115
+		wait-for-actor ubermann
+		put-actor 7 in-room nazi-laboratory
+		put-actor 7 at 265,94
+		do-animation 7 250
+		do-animation 7 7
+		do-animation ubermann 246
+		break-here 2
+		state-of lab-trode is 0
+		actor 10 default costume 143 ignore-boxes never-zclip
+		put-actor 10 in-room selected-room
+		put-actor 10 at 263,94
+		break-here 4
+		put-actor 7 in-room 0
+		put-actor 7 in-room 0
+		actor 7 default name " "
+		class-of 7 is 0
+		actor ubermann costume 142
+		do-animation ubermann 6
+		do-animation 10 6
+		break-here 6
+		sound-kludge 278 140 4 102
+		sound-kludge 263 140 1 4 400
+		do-animation 10 7
+		break-here
+		do-animation kerner 25
+		break-here
+		start-script 210 (1)
+		start-script 215 ()
+		break-here 8
+		actor kerner costume 241
+		start-script bak animate-explosions ()
+		break-here 10
+		start-script bak 211 ()
+		break-here 12
+		do-animation ubermann 1
+		break-here
+		do-animation ubermann 7
+		do-animation 10 8
+		break-here 5
+		put-actor 10 in-room 0
+		draw-object lab-trode 
+		stop-script 215
+		start-script 216 (0)
+		actor ubermann costume 36
+		break-here
+		set-box 5 to 8
+		set-box 4 to 8
+		walk ubermann to 235,115
+		walk kerner to 200,115
+		wait-for-actor ubermann
+		wait-for-actor kerner
+		say-line kerner "\\xFF\\x0A\\x9E\\x5A\\xFF\\x0A\\x03\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Mein Gott!"
+		set-box 5 to 0
+		set-box 4 to 0
+		start-script animate-lab-dial (8)
+		start-script animate-overpowered-zap ()
+		break-here 6
+		stop-script animate-overpowered-zap
+		start-script bak 201 ()
+		state-of lab-van is 0
+		do-animation ubermann 1
+		break-until (!script-running 209)
+		start-script 217 ()
+		actor kerner costume 20
+		walk ubermann to 265,115
+		wait-for-actor ubermann
+		do-animation kerner 1
+		break-here
+		do-animation ubermann 246
+		break-here 2
+		say-line ubermann "\\xFF\\x0A\\x1E\\xD1\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00We've done it!"
+		do-animation kerner 20
+		break-here 11
+		wait-for-message
+		do-animation kerner 1
+		break-here
+		do-animation kerner 245
+		wait-for-message
+		stop-script animate-lab-jake
+		state-of lab-jake is 0
+		stop-script 201
+		draw-object lab-buzz-off 
+		do-animation ubermann 1
+		break-here
+		say-line ubermann "\\xFF\\x0A\\xF3\\xFB\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00The energy of URANIUM^\\xFF\\x01without ANY radioactivity!\\xFF\\x03And those smug American scientists know\\x10nothing!"
+		wait-for-message
+		walk kerner to 225,115
+		wait-for-actor kerner
+		do-animation kerner 18
+		break-here 10
+		say-line kerner "\\xFF\\x0A\\xA8\\x7F\\xFF\\x0A\\x03\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00That gives me an\\x10idea!"
+		break-here 4
+		do-animation ubermann face-towards kerner
+		break-here 8
+		walk ubermann to 250,115
+		wait-for-actor ubermann
+		do-animation ubermann face-towards kerner
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\x82\\xCC\\xFF\\x0A\\x03\\x00\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Suppose I place the bead inside\\xFF\\x01the statue's open\\x10MOUTH!\\xFF\\x09\\x16\\x00"
+		start-script 219 ()
+		break-until (!script-running 219)
+		sound-kludge 269 140 50 360
+		wait-for-message
+		do-animation kerner 16
+		break-here 4
+		do-animation kerner 3
+		print-line "\\xFF\\x0A\\xBC\\x8F\\xFF\\x0A\\x0C\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00"
+		sound-kludge 65535
+		sound-kludge 258 52 105
+		sound-kludge 65535
+		start-script 213 (11,52)
+		start-script 212 (11,52)
+		walk microtaur-experiment to 220,116
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 275,116
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 220,116
+		wait-for-actor microtaur-experiment
+		actor microtaur-experiment elevation 0 ignore-boxes
+		walk microtaur-experiment to 180,120
+		wait-for-actor microtaur-experiment
+		start-script bak watch-the-statue ()
+		actor microtaur-experiment default follow-boxes step-dist 16,4
+		walk microtaur-experiment to 265,130
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 350,120
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 265,114
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 180,120
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 280,130
+		wait-for-actor microtaur-experiment
+		walk microtaur-experiment to 200,130
+		wait-for-actor microtaur-experiment
+		camera-pan-to 296
+		walk microtaur-experiment to 422,126
+		wait-for-actor microtaur-experiment
+		print-line "\\xFF\\x0A\\xAA\\x1D\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00"
+		put-actor explosion-2 in-room nazi-laboratory
+		put-actor explosion-2 at 422,126
+		stop-script watch-the-statue
+		do-animation 9 10
+		put-actor microtaur-experiment in-room 0
+		draw-object lab-hole 
+		sound-kludge 258 140 127
+		sound-kludge 263 140 5 4 400
+		sound-kludge 9 52
+		break-here
+		shake on
+		break-here 2
+		put-actor explosion-2 in-room 0
+		stop-script 212
+		stop-script 213
+		break-here 5
+		shake off
+		wait-for-camera
+		stop-script watch-the-statue
+		walk kerner to 270,130
+		do-animation ubermann 245
+		break-here 2
+		do-animation ubermann 14
+		break-here 7
+		say-line kerner "\\xFF\\x0A\\x61\\xB0\\xFF\\x0A\\x04\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00You saw that?"
+		wait-for-actor kerner
+		wait-for-message
+		say-line kerner "\\xFF\\x0A\\xC3\\xD8\\xFF\\x0A\\x04\\x00\\xFF\\x0A\\x1A\\x00\\xFF\\x0A\\x00\\x00Think of TRUCKS powered by these beads."
+		wait-for-message
+		walk kerner to 295,130
+		wait-for-actor kerner
+		say-line kerner "\\xFF\\x0A\\xE9\\x4B\\xFF\\x0A\\x05\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Think of TANKS!"
+		wait-for-message
+		walk kerner to 320,130
+		wait-for-actor kerner
+		say-line kerner "\\xFF\\x0A\\xE3\\x81\\xFF\\x0A\\x05\\x00\\xFF\\x0A\\x12\\x00\\xFF\\x0A\\x00\\x00Think of AIRPLANES! \\xFF\\x09\\x0F\\x00"
+		wait-for-message
+		do-animation ubermann 15
+		break-here 6
+		do-animation kerner 16
+		do-animation ubermann 1
+		break-here 2
+		walk ubermann to 390,120
+		wait-for-actor ubermann
+		say-line ubermann "\\xFF\\x0A\\xDE\\x55\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x00\\x00Use your imagination,\\x10Kerner!"
+		wait-for-message
+		do-animation ubermann face-towards kerner
+		break-here 2
+		say-line ubermann "\\xFF\\x0A\\xA0\\xBF\\xFF\\x0A\\x0A\\x00\\xFF\\x0A\\x0E\\x00\\xFF\\x0A\\x00\\x00Think BIG like the\\x10Americans^"
+		wait-for-message
+		start-script 219 ()
+		break-until (!script-running 219)
+		say-line ubermann "\\xFF\\x0A\\xD9\\x1E\\xFF\\x0A\\x0B\\x00\\xFF\\x0A\\x08\\x00\\xFF\\x0A\\x00\\x00^think of BOMBS!\\xFF\\x09\\x16\\x00"
+		wait-for-message
+		sleep-for 45 jiffies
+[00002779]:
+		if (override-hit) {
+			sound-kludge 11
+			sound-kludge 65535
+		}
+		override off
+		text-speed = L.2
+		end-cut-scene
+		B.211 = 1
+		restart
+		end-script
+	}
+
+	script animate-lab-jake { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0207
+	local variable L.0
+
+		do {
+			for L.0 = 1 to 4 ++ {
+				draw-object lab-jake image L.0
+				break-here
+			}
+			break-here 5
+		}
+		end-script
+	}
+
+	script animate-lab-van { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0208
+	local variable L.0
+	local variable L.1
+
+		do {
+			for L.0 = 1 to 3 ++ {
+				draw-object lab-van image L.0
+				break-here
+			}
+			L.1 = random 103
+			L.1 += 1
+			sleep-for L.1 jiffies
+		}
+		end-script
+	}
+
+	script animate-explosions { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0209
+		load-costume 16
+		draw-object lab-van-boom image 1
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 2
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 1
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 2
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 1
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 2
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 3
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 2
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 3
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 4
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 3
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 4
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 5
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 6
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 5
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 6
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 7
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		draw-object lab-van-boom image 6
+		break-here
+		draw-object lab-van-boom image 10
+		break-here
+		do-animation 9 250
+		put-actor explosion-2 in-room selected-room
+		put-actor explosion-2 at 334,84
+		break-here
+		sound-kludge 263 140 2 4 400
+		do-animation 9 6
+		draw-object lab-van-boom image 7
+		break-here
+		start-script 216 (1)
+		draw-object lab-van-boom image 8
+		break-here
+		draw-object lab-van-boom image 9
+		start-script 216 (0)
+		break-here
+		draw-object console-topple image 1
+		break-here
+		draw-object console-topple image 2
+		break-here
+		draw-object console-topple image 3
+		break-here 6
+		actor 5 default costume 52 palette 3 in-slot 33 palette 4 in-slot 35 ignore-boxes
+		put-actor 5 in-room nazi-laboratory
+		put-actor 5 at 326,68
+		do-animation 5 250
+		do-animation 5 2
+		draw-object lab-van-boom image 8
+		break-here
+		draw-object lab-van-boom image 9
+		break-here 2
+		put-actor explosion-2 in-room 0
+		actor explosion-2 default name " "
+		class-of 9 is 0
+		put-actor explosion-1 in-room selected-room
+		put-actor explosion-1 at 278,57
+		walk 8 to 155,35
+		do-animation kerner 250
+		do-animation ubermann 250
+		wait-for-actor explosion-1
+		actor explosion-2 ignore-boxes
+		do-animation kerner 244
+		do-animation ubermann 244
+		sound-kludge 263 140 3 4 400
+		put-actor explosion-2 in-room selected-room
+		put-actor explosion-2 at 145,52
+		do-animation 9 7
+		break-here
+		start-script 216 (1)
+		break-here
+		start-script 216 (0)
+		break-here 2
+		draw-object lab-bulbs image 2
+		put-actor explosion-1 at 155,35
+		put-actor explosion-2 in-room 0
+		actor explosion-2 default name " "
+		class-of 9 is 0
+		walk 8 to 124,7
+		wait-for-actor explosion-1
+		sound-kludge 263 140 4 4 400
+		sound-kludge 270 140 1
+		sound-kludge 271 257 140 0
+		sound-kludge 271 263 140 5 4 400
+		sound-kludge 271 65535
+		put-actor explosion-2 in-room selected-room
+		put-actor explosion-2 at 105,35
+		do-animation 9 7
+		break-here
+		start-script 216 (1)
+		break-here
+		start-script 216 (0)
+		break-here 2
+		draw-object lab-bulbs image 3
+		put-actor explosion-1 at 124,7
+		put-actor explosion-2 in-room 0
+		actor explosion-2 default name " "
+		class-of 9 is 0
+		put-actor explosion-1 in-room 0
+		actor explosion-1 default name " "
+		class-of 8 is 0
+		end-script
+	}
+
+	script 210 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0210
+	local variable L.1
+
+		L.0 *= min-jiffies
+		do {
+			for L.1 = 3 to 1 -- {
+				draw-object lab-scope image L.1
+				sleep-for 5 jiffies
+			}
+		}
+		end-script
+	}
+
+	script 211 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0211
+	local variable L.0
+
+		stop-script 210
+		for L.0 = 4 to 8 ++ {
+			draw-object lab-scope image L.0
+			break-here
+		}
+		end-script
+	}
+
+	script 212 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0212
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		do {
+			L.2 = actor-x L.0
+			L.2 -= camera-x
+			if (L.2 > 160) {
+				L.2 = 160
+			}
+			if (L.2 < 65376) {
+				L.2 = 65376
+			}
+			L.2 *= 80
+			L.2 /= 100
+			sound-kludge 259 L.1 L.2
+			break-here
+		}
+		end-script
+	}
+
+	script 213 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0213
+	local variable L.0
+	local variable L.1
+	local variable L.2
+
+		do {
+			L.2 = actor-y L.0
+			L.2 -= 16
+			sound-kludge 258 L.1 L.2
+			break-here
+		}
+		end-script
+	}
+
+	script set-up-room { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0214
+		sound-kludge 269 43 0 90
+		start-sound experiment-theme
+		sound-kludge 65535
+		start-script bak scale-kerner ()
+		start-script bak animate-lab-jake ()
+		start-script kerner-shows-ubermann-the-statue ()
+		end-script
+	}
+
+	script 215 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0215
+		do {
+			palette intensity [rgb] 125 125 125 in-slot 0 to 13
+			palette intensity [rgb] 125 125 125 in-slot 15 to 89
+			palette intensity [rgb] 125 125 125 in-slot 91 to 91
+			palette intensity [rgb] 125 125 125 in-slot 93 to 94
+			palette intensity [rgb] 125 125 125 in-slot 96 to 126
+			palette intensity [rgb] 125 125 125 in-slot 128 to 142
+			palette intensity [rgb] 125 125 125 in-slot 144 to 255
+			break-here
+			palette intensity [rgb] 255 255 255 in-slot 0 to 191
+			break-here
+		}
+		end-script
+	}
+
+	script 216 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0216
+	local variable L.0
+
+		if !(L.0) jump &[00000027]
+		palette intensity [rgb] 255 200 200 in-slot 0 to 255
+		jump &[00000170]
+[00000027]:
+		palette intensity [rgb] 255 255 255 in-slot 0 to 255
+		palette intensity [rgb] 125 125 125 in-slot 2 to 13
+		palette intensity [rgb] 125 125 125 in-slot 16 to 89
+		palette intensity [rgb] 125 125 125 in-slot 91 to 91
+		palette intensity [rgb] 125 125 125 in-slot 93 to 94
+		palette intensity [rgb] 125 125 125 in-slot 97 to 126
+		palette intensity [rgb] 125 125 125 in-slot 128 to 142
+		palette intensity [rgb] 125 125 125 in-slot 144 to 206
+		palette intensity [rgb] 125 125 125 in-slot 208 to 218
+		palette intensity [rgb] 125 125 125 in-slot 221 to 222
+		palette intensity [rgb] 125 125 125 in-slot 224 to 231
+		palette intensity [rgb] 125 125 125 in-slot 233 to 233
+		palette intensity [rgb] 125 125 125 in-slot 235 to 255
+[00000170]:
+		end-script
+	}
+
+	script 217 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0217
+	local variable L.0
+
+		for L.0 = 125 to 255 ++ {
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 2 to 13
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 16 to 89
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 91 to 91
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 93 to 94
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 97 to 126
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 128 to 142
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 144 to 206
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 208 to 218
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 221 to 222
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 224 to 231
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 233 to 233
+			palette intensity [rgb] L.0 L.0 L.0 in-slot 235 to 255
+			L.0 += 4
+			break-here
+		}
+		end-script
+	}
+
+	script 218 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0218
+	local variable L.0
+	local variable L.1
+	local variable L.2
+	local variable L.3
+	local variable L.4
+
+		L.2 -= 1
+		if !(L.3) jump &[00000080]
+		if (sound-mode is-not 4) {
+			L.1 = 70
+		}
+		if (L.4 > L.1) {
+			L.4 = L.1
+		}
+		for L.4 = L.0 to L.1 ++ {
+			sound-kludge 278 140 0 L.4
+			L.4 += L.2
+			break-here
+		}
+		jump &[00000141]
+[00000080]:
+		for L.4 = L.0 to L.1 -- {
+			sound-kludge 278 140 4 L.4
+			L.4 -= L.2
+			if (L.4 < L.1) {
+				L.4 = L.1
+				sound-kludge 267 140 4 0
+			}
+			break-here
+		}
+[00000141]:
+		end-script
+	}
+
+	script 219 { ; LSCR LECF_0001\LFLF_0062\ROOM\LSCR_0219
+		if !(sound-running 140) jump &[00000064]
+		sound-kludge 268 140 0 1
+		sound-kludge 65535
+[00000036]:
+		sound-kludge 256 140 18
+		sound-kludge 65535
+		if !(!V.56) jump &[00000060]
+		jump &[00000064]
+[00000060]:
+		break-here
+		jump &[00000036]
+[00000064]:
+		end-script
+	}
+}
+

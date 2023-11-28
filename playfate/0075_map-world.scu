@@ -78,13 +78,13 @@ local variable L.1
 	end-script
 }
 
-script credits-text-speed { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
+script display-credits-for { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
 local variable L.0
 local variable L.1
 local variable L.2
 local variable L.3
 
-	start-script 107 ()
+	start-script credits-text-speed ()
 	text-speed = 5
 	palette intensity 55 in-slot 11 to 11
 	opening-credit-display-done = 0
@@ -117,7 +117,7 @@ local variable L.3
 	end-script
 }
 
-script 107 { ; SCRP LECF_0001\LFLF_0075\SCRP_0107
+script credits-text-speed { ; SCRP LECF_0001\LFLF_0075\SCRP_0107
 	do {
 		text-speed = 3
 		break-here
@@ -135,7 +135,7 @@ script 129 { ; SCRP LECF_0001\LFLF_0075\SCRP_0129
 		palette intensity 255 in-slot engine-credit-color to engine-credit-color
 		engine-credit-color = 0
 	}
-	stop-script 107
+	stop-script credits-text-speed
 	end-script
 }
 
@@ -1239,7 +1239,7 @@ room world-map {
 		sleep-for 60 jiffies
 		draw-object and-the-fate-of-atlantis 
 		sleep-for 120 jiffies
-		start-script credits-text-speed (208,208)
+		start-script display-credits-for (208,208)
 		break-until (!script-running 94)
 		state-of and-the-fate-of-atlantis is 0
 		put-actor 5 in-room 0
