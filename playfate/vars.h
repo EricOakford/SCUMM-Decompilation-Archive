@@ -3,10 +3,8 @@ Rinclude ".\nums.h"
 variables {
     clicked-cursor-x                    : Number                = 100
     clicked-cursor-y                    : Number                = 101
-variables {
-    clicked-cursor-x                    : Number                = 100
-    clicked-cursor-y                    : Number                = 101
 
+    var-*                               : Verb                  = 103
     sentence-loop-counter               : Number                = 104
     last-noun1                          : Object                = 105
     last-noun2                          : Object                = 106
@@ -14,13 +12,18 @@ variables {
     selected-noun1                      : Object                = 108
     selected-noun2                      : Object                = 109
     selected-prep                       : Verb                  = 110
-
+    revert-verb                         : Verb                  = 111
     selected-verb-hold                  : Verb                  = 112
+    last-noun1-hold                     : Object                = 113
+    last-noun2-hold                     : Object                = 114
+    last-verb-hold                      : Verb                  = 115
+    last-verb                           : Verb                  = 116
+    sentence-line-highlight-color       : PaletteIndex          = 117
+    sentence-line-lowlight-color        : PaletteIndex          = 118
 
-    var-*                               : Verb                  = 117
-    var-*                               : Verb                  = 118
     last-obj                                                    = 120
     last-entered-door                   : Object                = 121
+
     double-verb                         : Verb                  = 123
     last-double-verb                    : Verb                  = 124
             
@@ -170,6 +173,8 @@ variables {
 
     credits-display-duration-adjustment : Number                = 489
     inv-lines                           : Number                = 490
+
+    minimum-heap                        : Number                = 493
 }
 
 bit-variables {
@@ -289,7 +294,11 @@ bit-variables {
     tried-to-wear-diving-suit                       = 446
 
     cageroom-dialog             [12]                = 524
+
     got-rid-of-cageroom-guard                       = 540
+
+    on-crab-raft                                    = 543
+
     sunstone-in-spindle                             = 650
     moonstone-in-spindle                            = 651
     worldstone-in-spindle                           = 652
@@ -300,6 +309,10 @@ bit-variables {
 }
 
 string-variables {
+    ;these strings are used by the interpreter, and are to be set in the boot-script
+    insert-string                                   = 1
+    unable-string                                   = 2
+    diskerror-string                                = 3
     pause-string                                    = 4
     restart-string                                  = 5
     quit-game-string                                = 6
@@ -309,7 +322,7 @@ string-variables {
     CANCEL-string                                   = 10
     QUIT-string                                     = 11
     OK-string                                       = 12
-    insert-disk-string                              = 13
+    insert-save-load-disk-string                    = 13
     must-enter-name-string                          = 14
     game-not-saved-string                           = 15
     game-not-loaded-string                          = 16
@@ -319,8 +332,12 @@ string-variables {
     load-a-game-string                              = 20
     save-load-colors                                = 21 ; Seems like it - 42 items, like MI2
     save-load-heading-string			    = 28
+
+    ;strings 30+ appear to be for game use
     current-iq-points                               = 30
     total-iq-points                                 = 31
+    selected-noun1-string                           = 32
+    selected-noun2-string                           = 33
     
     version                                         = 37
     salvage-direction-string                        = 38

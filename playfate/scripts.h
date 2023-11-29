@@ -172,6 +172,28 @@ local-scripts {
         stone-disk-result                                                               = 214
     }
 
+    college-attic {
+        fall-through-trapdoor                                                           = 200
+        display-title-card { scaling, unused1, unused2, jiffies, seq-i, per-sec, key-i,
+            next-key-i, inc, scale-val, new-frame:Boolean, prev-jiffies }               = 201
+        pick-up-urn                                                                     = 202
+        climb-down-trapdoor                                                             = 203
+        look-at-urn                                                                     = 204
+        pick-up-candlestick                                                             = 205
+        titles-and-indy-entry { unused1, i:Script }                                     = 206
+        copyright-notice                                                                = 207
+        credit-header-story-and-design                                                  = 208
+        credit-header-programming                                                       = 209
+        names-barwood-falstein                                                          = 210
+        name-stemmle                                                                    = 211
+        name-baldwin                                                                    = 212
+        name-hsieh                                                                      = 213
+        name-clark                                                                      = 214
+        name-barrett                                                                    = 215
+        climb-up-trapdoor                                                               = 216
+        credits-override(do-override:Boolean)                                           = 217
+    }
+
     college-catroom {
         land-in-catroom { indy-ele, other-ele, i:Script }                               = 200
         cat-surprise                                                                    = 201
@@ -197,6 +219,18 @@ local-scripts {
     
     logo {
         ending-logo-animation                                                           = 200
+    }
+
+    nazi-laboratory {
+        animate-overpowered-zap                                                         = 200
+        scale-kerner                                                                    = 202
+        animate-lab-dial                                                                = 203
+        watch-the-statue                                                                = 205
+        kerner-shows-ubermann-the-statue                                                = 206
+        animate-lab-jake                                                                = 207
+        animate-lab-van                                                                 = 208
+        animate-explosions                                                              = 209
+        set-up-room                                                                     = 214
     }
         
     salvage-boat {

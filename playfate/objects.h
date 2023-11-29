@@ -21,6 +21,7 @@ verbs {
     verb-iq                 = 54
     verb-total-iq           = 55
 
+    sentence-line-verb      = 100
     inv-verb-1              = 101
     inv-verb-2              = 102
     inv-verb-3              = 103
@@ -31,10 +32,18 @@ verbs {
     inv-verb-8              = 108
     inv-verb-9              = 109
     inv-verb-10             = 110
-    
     up-arrow                = 111
     dn-arrow                = 112
-    
+
+    dialog-verb-1           = 120
+    dialog-verb-2           = 121
+    dialog-verb-3           = 122
+    dialog-verb-4           = 123
+    dialog-verb-5           = 124
+    dialog-verb-6           = 125
+    dialog-verb-7           = 126
+    dialog-verb-8           = 127
+    dialog-verb-9           = 128
     prep-in                 = 129
     prep-with               = 130
     prep-on                 = 131
@@ -875,7 +884,7 @@ objects {
     statue-head-9                                            =   837
     minotaur-statue                                          =   838
     lab-zap                                                  =   839
-    object-840                                               =   840
+    lab-door                                                 =   840
     lab-hole                                                 =   841
     lab-dial                                                 =   842
     lab-van                                                  =   843

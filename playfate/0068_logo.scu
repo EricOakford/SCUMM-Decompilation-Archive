@@ -6,14 +6,14 @@
 
 script boot-script { ; SCRP LECF_0001\LFLF_0068\SCRP_0001
 local variable boot-param
-local variable L.1
+local variable i
 
 	charset system-font
 	min-jiffies = 6
 	override-key = 27
 	restart-key = 0
 	pause-key = 32
-	V.57 = 46
+	sayline-override-key = 46
 	version = "Indy Atlantis PLAY DEMO v2 H%n40% M%n68% V%n69% J%n6%"
 	V.58 = 176
 	pause-string = "Game Paused.  Press SPACE to Continue."
@@ -25,7 +25,7 @@ local variable L.1
 	CANCEL-string = "Cancel"
 	QUIT-string = "Quit"
 	OK-string = "OK"
-	insert-disk-string = "Insert save/load game disk"
+	insert-save-load-disk-string = "Insert save/load game disk"
 	must-enter-name-string = "You must enter a name"
 	game-not-saved-string = "The game was NOT saved"
 	game-not-loaded-string = "The game was NOT loaded"
@@ -87,7 +87,7 @@ local variable L.1
 	V.134 = 0 156 165 174 183 192 192
 	load-string total-iq-points "iq-points"
 	text-speed = 3
-	V.111 = 10
+	revert-verb = walk-to
 	give-to-actor-script = give-to-actor
 	cut-scene1-script = start-cut-scene
 	cut-scene2-script = end-cut-scene
@@ -364,11 +364,11 @@ local variable L.1
 		start-sound escape-from-atlantis-theme
 		sound-kludge 65535
 		sleep-for 300 jiffies
-		for L.1 = 1 to 55 ++ {
-			verb L.1 new name " "
+		for i = 1 to 55 ++ {
+			verb i new name " "
 		}
-		for L.1 = 100 to 128 ++ {
-			verb L.1 new name " "
+		for i = 100 to 128 ++ {
+			verb i new name " "
 		}
 		pick-up-object light-wand in-room atl1-entrance
 		escaping-atlantis = 1
@@ -385,11 +385,11 @@ local variable L.1
 		start-sound escape-from-atlantis-theme
 		sound-kludge 65535
 		sleep-for 300 jiffies
-		for L.1 = 1 to 55 ++ {
-			verb L.1 new name " "
+		for i = 1 to 55 ++ {
+			verb i new name " "
 		}
-		for L.1 = 100 to 128 ++ {
-			verb L.1 new name " "
+		for i = 100 to 128 ++ {
+			verb i new name " "
 		}
 		state-of portable-ladder is 1
 		sophia-present = 0
@@ -451,9 +451,9 @@ local variable L.1
 		state-of cellar-roof-2 is 1
 		know-collection = random 4
 		know-collection += 1
-		for L.1 = 104 to 108 ++ {
-			state-of L.1 is 0
-			class-of L.1 is 32
+		for i = 104 to 108 ++ {
+			state-of i is 0
+			class-of i is 32
 		}
 		class-of cat-figurine-mesopotamian is 145
 		class-of cat-figurine-bast is 146
@@ -1118,26 +1118,26 @@ local variable L.1
 	return-value = (5 - 1)
 	return-value = ((random return-value) + 1)
 	chest-collection = return-value
-	L.1 = 0
+	i = 0
 	do {
 		return-value = (5 - 1)
 		return-value = ((random return-value) + 1)
 		if (return-value is-not chest-collection) {
 			bookshelf-collection = return-value
-			L.1 = 1
+			i = 1
 		}
-	} until (L.1)
-	L.1 = 0
+	} until (i)
+	i = 0
 	do {
 		return-value = (5 - 1)
 		return-value = ((random return-value) + 1)
 		if (return-value is-not chest-collection) {
 			if (return-value is-not bookshelf-collection) {
 				wax-cat-collection = return-value
-				L.1 = 1
+				i = 1
 			}
 		}
-	} until (L.1)
+	} until (i)
 	if !(know-collection is 1) jump &[00008539]
 	plato-collection-name = "Ashkenazy"
 	jump &[00008620]
@@ -1951,8 +1951,8 @@ local variable L.1
 		owner-of necklace is 0
 		owner-of lost-dialogue-of-plato is 0
 		owner-of orichalcum-beads is 0
-		for L.1 = 1 to 55 ++ {
-			verb L.1 new name " "
+		for i = 1 to 55 ++ {
+			verb i new name " "
 		}
 		put-actor indy in-room endscene
 		put-actor indy at 0,0
@@ -2109,12 +2109,12 @@ local variable give-prox
 [00000051]:
 	sentence-loop-counter = 0
 [00000056]:
-	V.116 = current-verb
+	last-verb = current-verb
 	last-noun1 = current-noun1
 	last-noun2 = current-noun2
-	V.113 = current-noun1
-	V.114 = current-noun2
-	V.115 = current-verb
+	last-noun1-hold = current-noun1
+	last-noun2-hold = current-noun2
+	last-verb-hold = current-verb
 	sentence-actor = selected-actor
 	if !(current-verb is give) jump &[00000296]
 	if !(current-noun2 > max-actors) jump &[00000129]
@@ -2407,11 +2407,11 @@ local variable current-verb
 }
 
 script build-sentence { ; SCRP LECF_0001\LFLF_0068\SCRP_0004
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.4
-local variable L.6
+local variable clicked-zone
+local variable item
+local variable button
+local variable inv-index
+local variable exec-sentence-flag
 
 	clicked-cursor-x = cursor-x
 	clicked-cursor-y = cursor-y
@@ -2419,18 +2419,18 @@ local variable L.6
 		B.22 = 1
 		B.733 = 0
 	}
-	if (L.2 is 2) {
+	if (button is 2) {
 		if (!selected-prep) {
 			if (double-verb) {
 				selected-verb = double-verb
 			}
 		}
 	}
-	if !(L.0 is 4) jump &[00000192]
-	if !(L.1 is 109) jump &[00000072]
+	if !(clicked-zone is 4) jump &[00000192]
+	if !(item is 109) jump &[00000072]
 	jump &[00000192]
 [00000072]:
-	if !(L.1 is 102) jump &[00000153]
+	if !(item is 102) jump &[00000153]
 	if !(mouse-fighting) jump &[00000118]
 	print-system color 8 "Keyboard Fighting On"
 	mouse-fighting = 0
@@ -2441,49 +2441,49 @@ local variable L.6
 [00000150]:
 	jump &[00000192]
 [00000153]:
-	if !(L.1 is 105) jump &[00000166]
+	if !(item is 105) jump &[00000166]
 	start-script display-indy-quotient ()
 	jump &[00000192]
 [00000166]:
-	start-script key-pressed (L.1)
-	L.1 = return-value
-	if (L.1) {
-		L.0 = 1
+	start-script key-pressed (item)
+	item = return-value
+	if (item) {
+		clicked-zone = 1
 	}
 	B.6 = 0
 [00000192]:
-	if !(L.0 is 1) jump &[00000473]
-	if (!L.1) {
+	if !(clicked-zone is 1) jump &[00000473]
+	if (!item) {
 		stop-script 0
 	}
-	if (L.1 is 100) {
+	if (item is 100) {
 		stop-script 0
 	}
-	if (L.1 is 52) {
+	if (item is 52) {
 		chain-script display-indy-quotient ()
 	}
-	if (L.1 is 53) {
+	if (item is 53) {
 		chain-script display-indy-quotient ()
 	}
-	if (L.1 is 54) {
+	if (item is 54) {
 		chain-script display-indy-quotient ()
 	}
-	if (L.1 is 55) {
+	if (item is 55) {
 		chain-script display-indy-quotient ()
 	}
-	if !(L.1 is 1) jump &[00000283]
+	if !(item is 1) jump &[00000283]
 	if !(V.103) jump &[00000281]
 	verb V.103 color 14
-	L.1 = V.103
+	item = V.103
 	jump &[00000438]
 [00000281]:
 	stop-script 0
 [00000283]:
-	if (L.1 is 2) {
+	if (item is 2) {
 		stop-script 0
 	}
-	if !(L.1 is 111) jump &[00000325]
-	if !(L.2 is 2) jump &[00000314]
+	if !(item is 111) jump &[00000325]
+	if !(button is 2) jump &[00000314]
 	inv-pointer = 0
 	jump &[00000319]
 [00000314]:
@@ -2491,8 +2491,8 @@ local variable L.6
 [00000319]:
 	chain-script update-inventory (1)
 [00000325]:
-	if !(L.1 is 112) jump &[00000371]
-	if !(L.2 is 2) jump &[00000360]
+	if !(item is 112) jump &[00000371]
+	if !(button is 2) jump &[00000360]
 	inv-pointer = (((inventory-size selected-actor) - 2) / 5)
 	jump &[00000365]
 [00000360]:
@@ -2500,24 +2500,24 @@ local variable L.6
 [00000365]:
 	chain-script update-inventory (1)
 [00000371]:
-	if !(L.1 >= 101) jump &[00000438]
-	if !(L.1 <= 110) jump &[00000438]
+	if !(item >= 101) jump &[00000438]
+	if !(item <= 110) jump &[00000438]
 	if !(selected-verb is-not walk-to) jump &[00000436]
-	L.4 = (L.1 - 101)
+	inv-index = (item - 101)
 	if !(selected-prep) jump &[00000418]
-	selected-noun2 = objnums[L.4]
+	selected-noun2 = objnums[inv-index]
 	jump &[00000425]
 [00000418]:
-	selected-noun1 = objnums[L.4]
+	selected-noun1 = objnums[inv-index]
 [00000425]:
-	L.6 = 1
+	exec-sentence-flag = 1
 	jump &[00000473]
 	jump &[00000438]
 [00000436]:
 	stop-script 0
 [00000438]:
-	selected-verb = L.1
-	selected-verb-hold = L.1
+	selected-verb = item
+	selected-verb-hold = item
 	selected-noun1 = 0
 	selected-noun2 = 0
 	selected-prep = 0
@@ -2531,10 +2531,10 @@ local variable L.6
 				stop-sentence
 				dialog-actor = selected-noun1
 				start-script display-sentence ()
-				verb 100 color V.117
+				verb sentence-line-verb color sentence-line-highlight-color
 				do-animation selected-actor face-towards selected-noun1
 				break-here 2
-				selected-verb = V.111
+				selected-verb = revert-verb
 				selected-noun1 = 0
 				selected-noun2 = 0
 				selected-prep = 0
@@ -2554,7 +2554,7 @@ local variable L.6
 	say-line "There's nothing to look at."
 	jump &[00000662]
 [00000631]:
-	selected-verb = V.111
+	selected-verb = revert-verb
 	selected-noun1 = 0
 	selected-noun2 = 0
 	selected-prep = 0
@@ -2577,11 +2577,11 @@ local variable L.6
 			selected-prep = prep-to
 		}
 	}
-	if !(L.0 is 2) jump &[00000764]
+	if !(clicked-zone is 2) jump &[00000764]
 	B.16 = 1
 	if !(selected-prep) jump &[00000759]
 	if !(selected-noun2) jump &[00000740]
-	L.6 = 1
+	exec-sentence-flag = 1
 	jump &[00000756]
 [00000740]:
 	if !(B.18) jump &[00000751]
@@ -2592,13 +2592,13 @@ local variable L.6
 [00000756]:
 	jump &[00000764]
 [00000759]:
-	L.6 = 1
+	exec-sentence-flag = 1
 [00000764]:
 	if (!selected-verb) {
-		selected-verb = V.111
+		selected-verb = revert-verb
 	}
 	start-script display-sentence ()
-	if !(L.6) jump &[00000982]
+	if !(exec-sentence-flag) jump &[00000982]
 	stop-script walk-to-room
 	if !(selected-noun1) jump &[00000877]
 	if !(selected-prep) jump &[00000827]
@@ -2631,12 +2631,12 @@ local variable L.6
 [00000877]:
 	if !(selected-verb is walk-to) jump &[00000937]
 	if (!actor-stuck[selected-actor]) {
-		if (L.0 is 2) {
+		if (clicked-zone is 2) {
 			stop-sentence
 			charset system-font
-			verb 100 color V.117
+			verb sentence-line-verb color sentence-line-highlight-color
 			charset fat-font
-			V.113 = 0
+			last-noun1-hold = 0
 			walk selected-actor to cursor-x,cursor-y
 			walking-to-x = cursor-x
 			walking-to-y = cursor-y
@@ -2648,7 +2648,7 @@ local variable L.6
 	start-script display-sentence ()
 [00000943]:
 	wait-for-actor selected-actor
-	verb 100 color V.118
+	verb sentence-line-verb color sentence-line-lowlight-color
 [00000953]:
 	if (V.125) {
 		start-script V.125 ()
@@ -2657,7 +2657,7 @@ local variable L.6
 	start-script display-sentence ()
 	jump &[00000982]
 [00000973]:
-	verb 100 color V.117
+	verb sentence-line-verb color sentence-line-highlight-color
 	start-script revert-sentence ()
 [00000982]:
 	end-script
@@ -2673,29 +2673,29 @@ script enter-room2 { ; SCRP LECF_0001\LFLF_0068\SCRP_0005
 }
 
 script get-preps { ; SCRP LECF_0001\LFLF_0068\SCRP_0009
-local variable L.0
-local variable L.1
+local variable object-to-check
+local variable i
 
 	return-value = 0
-	for L.1 = 129 to 132 ++ {
-		if (class-of L.0 is L.1) {
-			return-value = L.1
+	for i = 129 to 132 ++ {
+		if (class-of object-to-check is i) {
+			return-value = i
 		}
 	}
 	end-script
 }
 
 script update-inventory { ; SCRP LECF_0001\LFLF_0068\SCRP_0010
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
+local variable new-object
+local variable i
+local variable obj
+local variable icon-obj
 local variable L.4
-local variable L.5
-local variable L.6
-local variable L.7
+local variable start
+local variable end
+local variable index
 local variable L.8
-local variable L.9
+local variable inv-verb
 
 	L.8 = 0
 	if !(owner-of orichalcum-beads is selected-actor) jump &[00000060]
@@ -2706,7 +2706,7 @@ local variable L.9
 [00000060]:
 	inv-lines = (((inventory-size selected-actor) - 1) / 5)
 [00000078]:
-	if (!L.0) {
+	if (!new-object) {
 		inv-pointer = (inv-lines - 1)
 	}
 	if (inv-pointer > inv-lines) {
@@ -2728,38 +2728,38 @@ local variable L.9
 		}
 		start-script 131 ()
 	}
-	L.5 = ((inv-pointer * 5) + 1)
-	L.6 = ((L.5 + 10) - 1)
+	start = ((inv-pointer * 5) + 1)
+	end = ((start + 10) - 1)
 	if (L.8) {
-		if (L.8 < L.5) {
-			++L.5
-			++L.6
+		if (L.8 < start) {
+			++start
+			++end
 		}
 	}
 	V.429 = 0
-	L.7 = 0
+	index = 0
 	foo2 = 0
-	L.1 = L.5
+	i = start
 [00000273]:
-	L.2 = find-inventory selected-actor,L.1
-	objnums[L.7] = L.2
-	if !(L.2) jump &[00000503]
-	if !(class-of L.2 is 30) jump &[00000497]
-	if !(valid-verb L.2, 91) jump &[00000326]
-	start-object L.2 verb 91 ()
-	L.3 = icon-number
+	obj = find-inventory selected-actor,i
+	objnums[index] = obj
+	if !(obj) jump &[00000503]
+	if !(class-of obj is 30) jump &[00000497]
+	if !(valid-verb obj, 91) jump &[00000326]
+	start-object obj verb 91 ()
+	icon-obj = icon-number
 	jump &[00000331]
 [00000326]:
-	L.3 = no-icon
+	icon-obj = no-icon
 [00000331]:
-	L.9 = (101 + L.7)
-	if (L.2 is rib-cage) {
+	inv-verb = (101 + index)
+	if (obj is rib-cage) {
 		if (class-of rib-cage is 146) {
 			if (!hide-inventory) {
-				V.429 = L.9
-				start-script strange-modulo (L.7,5)
+				V.429 = inv-verb
+				start-script strange-modulo (index,5)
 				L.4 = return-value
-				if (L.7 > 4) {
+				if (index > 4) {
 					foo2 = 1
 				}
 				L.4 = ((L.4 * 32) + 160)
@@ -2772,16 +2772,16 @@ local variable L.9
 		}
 	}
 	if (!hide-inventory) {
-		verb L.9 image L.3 in-room icons on
+		verb inv-verb image icon-obj in-room icons on
 	}
 	jump &[00000503]
 [00000497]:
-	--L.7
-	++L.6
+	--index
+	++end
 [00000503]:
-	++L.7
-	++L.1
-	if !(L.1 > L.6) jump &[00000273]
+	++index
+	++i
+	if !(i > end) jump &[00000273]
 	if !(!V.429) jump &[00000531]
 	B.542 = 0
 	stop-script 197
@@ -2814,40 +2814,40 @@ local variable L.9
 }
 
 script give-to-actor { ; SCRP LECF_0001\LFLF_0068\SCRP_0011
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
+local variable obj
+local variable give-actor
+local variable receive-actor
+local variable chore
 
 	cut-scene
-	if (!L.3) {
-		L.3 = 10
+	if (!chore) {
+		chore = 10
 	}
-	do-animation L.2 face-towards L.1
-	do-animation L.1 face-towards L.2
+	do-animation receive-actor face-towards give-actor
+	do-animation give-actor face-towards receive-actor
 	break-here 2
-	do-animation L.1 L.3
+	do-animation give-actor chore
 	sleep-for 15 jiffies
-	do-animation L.2 L.3
-	if (L.0) {
-		owner-of L.0 is L.2
+	do-animation receive-actor chore
+	if (obj) {
+		owner-of obj is receive-actor
 	}
 	sleep-for 15 jiffies
-	do-animation L.1 3
+	do-animation give-actor 3
 	sleep-for 15 jiffies
-	do-animation L.2 3
+	do-animation receive-actor 3
 	end-cut-scene
 	end-script
 }
 
 script give-to-object { ; SCRP LECF_0001\LFLF_0068\SCRP_0012
-local variable L.0
-local variable L.1
+local variable give-object
+local variable give-actor
 
-	if !(owner-of L.0 is 15) jump &[00000055]
-	if !(class-of L.0 is 135) jump &[00000049]
-	do-sentence give L.0 with L.1
-	do-sentence pick-up L.0 with 0
+	if !(owner-of give-object is 15) jump &[00000055]
+	if !(class-of give-object is 135) jump &[00000049]
+	do-sentence give give-object with give-actor
+	do-sentence pick-up give-object with 0
 	start-script display-sentence ()
 	stop-script 0
 	jump &[00000055]
@@ -2855,24 +2855,24 @@ local variable L.1
 	chain-script default-response (use)
 [00000055]:
 	if (!actor-stuck[selected-actor]) {
-		walk selected-actor to-object L.1
-		walking-to-x = actor-x L.1
-		walking-to-y = actor-y L.1
+		walk selected-actor to-object give-actor
+		walking-to-x = actor-x give-actor
+		walking-to-y = actor-y give-actor
 	}
 	wait-for-actor selected-actor
-	if !(proximity selected-actor,L.1 <= 32) jump &[00000106]
-	start-object L.1 verb 80 (L.0)
+	if !(proximity selected-actor,give-actor <= 32) jump &[00000106]
+	start-object give-actor verb 80 (give-object)
 	jump &[00000123]
 [00000106]:
-	if (class-of L.1 is 136) {
-		start-object L.1 verb 80 (L.0)
+	if (class-of give-actor is 136) {
+		start-object give-actor verb 80 (give-object)
 	}
 [00000123]:
 	end-script
 }
 
 script revert-sentence { ; SCRP LECF_0001\LFLF_0068\SCRP_0013
-	selected-verb = V.111
+	selected-verb = revert-verb
 	selected-noun1 = 0
 	selected-noun2 = 0
 	selected-prep = 0
@@ -2880,130 +2880,130 @@ script revert-sentence { ; SCRP LECF_0001\LFLF_0068\SCRP_0013
 	B.18 = 0
 	last-noun1 = 0
 	last-noun2 = 0
-	V.113 = 0
-	V.114 = 0
-	V.115 = 0
+	last-noun1-hold = 0
+	last-noun2-hold = 0
+	last-verb-hold = 0
 	end-script
 }
 
 script display-sentence { ; SCRP LECF_0001\LFLF_0068\SCRP_0014
 	if !(selected-noun1 is orichalcum-beads) jump &[00000032]
-	*32 = "orichalcum"
+	selected-noun1-string = "orichalcum"
 	jump &[00000040]
 [00000032]:
-	*32 = "%o108%"
+	selected-noun1-string = "%o108%"
 [00000040]:
 	if !(selected-noun2 is orichalcum-beads) jump &[00000064]
-	*33 = "orichalcum"
+	selected-noun2-string = "orichalcum"
 	jump &[00000072]
 [00000064]:
-	*33 = "%o109%"
+	selected-noun2-string = "%o109%"
 [00000072]:
 	if !(selected-noun1) jump &[00000146]
 	if !(class-of selected-noun1 is 141) jump &[00000116]
-	verb 100 name "%v107% %o108% %v110% %o109%" color V.118
+	verb sentence-line-verb name "%v107% %o108% %v110% %o109%" color sentence-line-lowlight-color
 	jump &[00000143]
 [00000116]:
-	verb 100 name "%v107% %s32% %v110% %s33%" color V.118
+	verb sentence-line-verb name "%v107% %s32% %v110% %s33%" color sentence-line-lowlight-color
 [00000143]:
 	jump &[00000265]
 [00000146]:
-	if !(selected-verb is V.111) jump &[00000243]
+	if !(selected-verb is revert-verb) jump &[00000243]
 	if !(selected-room is-not cu-necklace) jump &[00000222]
-	if !(B.543) jump &[00000201]
+	if !(on-crab-raft) jump &[00000201]
 	if !(selected-room >= 226) jump &[00000201]
 	if !(selected-room <= 231) jump &[00000201]
-	verb 100 name "\\x10"
-	verb 100 name "Float" color V.118
+	verb sentence-line-verb name "\\x10"
+	verb sentence-line-verb name "Float" color sentence-line-lowlight-color
 	jump &[00000265]
 [00000201]:
-	verb 100 name "\\x10"
-	verb 100 name "Walk" color V.118
+	verb sentence-line-verb name "\\x10"
+	verb sentence-line-verb name "Walk" color sentence-line-lowlight-color
 	jump &[00000240]
 [00000222]:
-	verb 100 name "\\x10"
-	verb 100 name "Look" color V.118
+	verb sentence-line-verb name "\\x10"
+	verb sentence-line-verb name "Look" color sentence-line-lowlight-color
 [00000240]:
 	jump &[00000265]
 [00000243]:
-	verb 100 name "%v107% %v110% %s33%" color V.118
+	verb sentence-line-verb name "%v107% %v110% %s33%" color sentence-line-lowlight-color
 [00000265]:
 	end-script
 }
 
 script one-second-update { ; SCRP LECF_0001\LFLF_0068\SCRP_0015
-local variable L.0
+local variable rnd
 
 	do {
 		sleep-for 60 jiffies
-		L.0 = random 10
+		rnd = random 10
 		sentence-loop-counter = 0
 	}
 	end-script
 }
 
 script get-dialog { ; SCRP LECF_0001\LFLF_0068\SCRP_0017
-local variable L.0
-local variable L.1
-local variable L.5
-local variable L.6
+local variable clicked-zone
+local variable item
+local variable obj
+local variable j
 
-	if !(L.0 is 2) jump &[00000135]
-	L.5 = find-object cursor-x,cursor-y
-	L.6 = 0
+	if !(clicked-zone is 2) jump &[00000135]
+	obj = find-object cursor-x,cursor-y
+	j = 0
 [00000027]:
-	if !(V.167[L.6] is 1) jump &[00000075]
-	L.1 = (120 + L.6)
-	L.0 = 1
-	if !(say-screen-escape[L.6]) jump &[00000067]
-	B.5 = 0
+	if !(screen-escape-array[j] is 1) jump &[00000075]
+	item = (dialog-verb-1 + j)
+	clicked-zone = 1
+	if !(say-screen-escape[j]) jump &[00000067]
+	dont-say-dialog-lines = 0
 	jump &[00000072]
 [00000067]:
-	B.5 = 1
+	dont-say-dialog-lines = 1
 [00000072]:
 	jump &[00000125]
 [00000075]:
-	if !(L.5) jump &[00000125]
-	if !(V.167[L.6] is L.5) jump &[00000125]
-	L.1 = (120 + L.6)
-	L.0 = 1
-	if !(say-screen-escape[L.6]) jump &[00000120]
-	B.5 = 0
+	if !(obj) jump &[00000125]
+	if !(screen-escape-array[j] is obj) jump &[00000125]
+	item = (dialog-verb-1 + j)
+	clicked-zone = 1
+	if !(say-screen-escape[j]) jump &[00000120]
+	dont-say-dialog-lines = 0
 	jump &[00000125]
 [00000120]:
-	B.5 = 1
+	dont-say-dialog-lines = 1
 [00000125]:
-	++L.6
-	if !(L.6 > 8) jump &[00000027]
+	++j
+	if !(j > 8) jump &[00000027]
 [00000135]:
-	if (L.0 is 1) {
-		if (L.1 is 50) {
+	if (clicked-zone is 1) {
+		if (item is verb-dlg-bak) {
 			stop-script 0
 		}
-		if (L.1) {
-			for foo = 120 to 128 ++ {
+		if (item) {
+			for foo = dialog-verb-1 to dialog-verb-9 ++ {
 				verb foo off
 			}
-			V.167 = 0 0 0 0 0 0 0 0 0
+			screen-escape-array = 0 0 0 0 0 0 0 0 0
 			say-screen-escape = 0 0 0 0 0 0 0 0 0
 			cursor off
 			userput off
 		}
-		if (L.1 >= 120) {
-			if (L.1 <= 128) {
-				if (!B.5) {
+		if (item >= dialog-verb-1) {
+			if (item <= dialog-verb-9) {
+				if (!dont-say-dialog-lines) {
 					say-line selected-actor "%v16385%"
-					if (!V.179) {
+					if (!dont-wait-for-dialog-lines) {
 						wait-for-message
 					}
 				}
 				print-line 
-				V.165 = L.1
+				choice = item
 			}
 		}
 	}
-	if (L.0 is 4) {
-		chain-script key-pressed (L.1)
+	if (clicked-zone is 4) {
+		chain-script key-pressed (item)
 	}
 	end-script
 }
@@ -3016,7 +3016,7 @@ script define-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0018
 	verb verb-path new at 261,159 name "None" off
 	verb verb-iq new at 261,173 name "0" off
 	verb verb-total-iq new at 261,187 name "0" off
-	for foo = 53 to 55 ++ {
+	for foo = verb-path to verb-total-iq ++ {
 		verb foo color 14 hicolor 14 bakcolor 176 dimcolor 14
 	}
 	verb verb-dlg-bak new at 0,144 image verbs-background in-room icons off bakcolor 0
@@ -3031,7 +3031,7 @@ script define-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0018
 	verb push new name "Push" key 115 at 106,173
 	verb pull new name "Pull" key 121 at 108,187
 	verb walk-to new name "Walk to" key 119 at 0,210
-	for foo = 1 to 18 ++ {
+	for foo = verb-bak to 18 ++ {
 		verb foo color 178 hicolor 14 bakcolor 176 dimcolor 177
 	}
 	start-script setup-inventory-verbs ()
@@ -3041,58 +3041,58 @@ script define-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0018
 	verb prep-to new name "to" off
 	verb up-arrow new at 147,158 color 178 hicolor 14 name "\\x01" off key 62 dimcolor 177 bakcolor 176
 	verb down-arrow new at 147,180 color 178 hicolor 14 name "\\x02" off key 60 dimcolor 177 bakcolor 176
-	verb 100 new name "Walk" at 160,144 color V.118 hicolor V.117 bakcolor 0 center
-	V.118 = 3
-	V.117 = 11
+	verb sentence-line-verb new name "Walk" at 160,144 color sentence-line-lowlight-color hicolor sentence-line-highlight-color bakcolor 0 center
+	sentence-line-lowlight-color = 3
+	sentence-line-highlight-color = 11
 	charset fat-font
 	end-script
 }
 
 script set-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0019
-local variable L.0
-local variable L.1
+local variable verb-state
+local variable i
 
-	if !(L.0 is 3) jump &[00000056]
+	if !(verb-state is verbs-off) jump &[00000056]
 	last-obj = 65535
-	for L.1 = 1 to 128 ++ {
-		verb L.1 off
+	for i = verb-bak to dialog-verb-9 ++ {
+		verb i off
 	}
 	if (B.542) {
 		stop-script 197
 	}
-	start-script set-verbs (1)
+	start-script set-verbs (save-normal-verbs)
 	jump &[00000647]
 [00000056]:
-	if !(L.0 is 2) jump &[00000227]
+	if !(verb-state is normal-verbs) jump &[00000227]
 	last-obj = 65535
 	if !(!hide-inventory) jump &[00000086]
-	restore-verbs 1 to 100 set 1
-	restore-verbs 101 to 112 set 5
+	restore-verbs verb-bak to sentence-line-verb set 1
+	restore-verbs inv-verb-1 to up-arrow set 5
 	jump &[00000106]
 [00000086]:
-	restore-verbs 101 to 112 set 5
-	restore-verbs 1 to 2 set 1
-	restore-verbs 3 to 100 set 1
-	restore-verbs 111 to 112 set 5
+	restore-verbs inv-verb-1 to up-arrow set 5
+	restore-verbs verb-bak to verb-inv-bak set 1
+	restore-verbs open to sentence-line-verb set 1
+	restore-verbs up-arrow to down-arrow set 5
 [00000106]:
-	restore-verbs 52 to 55 set 1
-	for L.1 = 3 to 12 ++ {
-		verb L.1 on
+	restore-verbs verb-iq-bak to verb-total-iq set 1
+	for i = open to talk-to ++ {
+		verb i on
 	}
-	verb 1 on
+	verb verb-bak on
 	if (!hide-inventory) {
-		verb 2 dim
+		verb verb-inv-bak dim
 	}
-	verb 51 off
-	for L.1 = 1 to 12 ++ {
-		verb L.1 color 178
+	verb verb-fight-bak off
+	for i = verb-bak to talk-to ++ {
+		verb i color 178
 	}
 	if (hide-inventory) {
-		for L.1 = 52 to 55 ++ {
-			verb L.1 on
+		for i = verb-iq-bak to verb-total-iq ++ {
+			verb i on
 		}
 	}
-	verb 100 name "Walk" on
+	verb sentence-line-verb name "Walk" on
 	start-script scan-for-icon ()
 	start-script update-special-verbs ()
 	start-script update-inventory (1)
@@ -3101,29 +3101,29 @@ local variable L.1
 	}
 	jump &[00000647]
 [00000227]:
-	if !(L.0 is 7) jump &[00000268]
+	if !(verb-state is 7) jump &[00000268]
 	last-obj = 65535
-	for L.1 = 1 to 128 ++ {
-		verb L.1 dim
+	for i = verb-bak to dialog-verb-9 ++ {
+		verb i dim
 	}
-	verb 100 off
+	verb sentence-line-verb off
 	stop-script scan-for-icon
 	jump &[00000647]
 [00000268]:
-	if !(L.0 is 1) jump &[00000316]
+	if !(verb-state is save-normal-verbs) jump &[00000316]
 	last-obj = 65535
 	if (B.542) {
 		stop-script 197
 	}
-	save-verbs 1 to 12 set 1
-	save-verbs 101 to 112 set 5
-	save-verbs 100 to 100 set 1
-	save-verbs 52 to 55 set 1
+	save-verbs verb-bak to talk-to set 1
+	save-verbs inv-verb-1 to dn-arrow set 5
+	save-verbs sentence-line-verb to sentence-line-verb set 1
+	save-verbs verb-iq-bak to verb-total-iq set 1
 	stop-script scan-for-icon
-	verb 2 off
+	verb verb-inv-bak off
 	jump &[00000647]
 [00000316]:
-	if !(L.0 is 5) jump &[00000647]
+	if !(verb-state is dialog-verbs) jump &[00000647]
 	last-obj = 65535
 	if (last-double-verb) {
 		verb last-double-verb color 178
@@ -3139,41 +3139,41 @@ local variable L.1
 	dialog-text-7 = "\\x10"
 	dialog-text-8 = "\\x10"
 	dialog-text-9 = "\\x10"
-	verb 120 new at 0,145 color 178 hicolor 14 key 49 bakcolor 176
-	verb 121 new at 0,155 color 178 hicolor 14 key 50 bakcolor 176
-	verb 122 new at 0,166 color 178 hicolor 14 key 51 bakcolor 176
-	verb 123 new at 0,175 color 178 hicolor 14 key 52 bakcolor 176
-	verb 124 new at 0,185 color 178 hicolor 14 key 53 bakcolor 176
-	verb 125 new at 0,190 color 178 hicolor 14 key 54 bakcolor 176
-	verb 126 new at 0,190 color 178 hicolor 14 key 55 bakcolor 176
-	verb 127 new at 0,190 color 178 hicolor 14 key 56 bakcolor 176
-	verb 128 new at 0,190 color 178 hicolor 14 key 57 bakcolor 176
-	verb 120 name "\\x7F%s41%"
-	verb 121 name "\\x7F%s42%"
-	verb 122 name "\\x7F%s43%"
-	verb 123 name "\\x7F%s44%"
-	verb 124 name "\\x7F%s45%"
-	verb 125 name "\\x7F%s46%"
-	verb 126 name "\\x7F%s47%"
-	verb 127 name "\\x7F%s48%"
-	verb 128 name "\\x7F%s49%"
+	verb dialog-verb-1 new at 0,145 color 178 hicolor 14 key 49 bakcolor 176
+	verb dialog-verb-2 new at 0,155 color 178 hicolor 14 key 50 bakcolor 176
+	verb dialog-verb-3 new at 0,166 color 178 hicolor 14 key 51 bakcolor 176
+	verb dialog-verb-4 new at 0,175 color 178 hicolor 14 key 52 bakcolor 176
+	verb dialog-verb-5 new at 0,185 color 178 hicolor 14 key 53 bakcolor 176
+	verb dialog-verb-6 new at 0,190 color 178 hicolor 14 key 54 bakcolor 176
+	verb dialog-verb-7 new at 0,190 color 178 hicolor 14 key 55 bakcolor 176
+	verb dialog-verb-8 new at 0,190 color 178 hicolor 14 key 56 bakcolor 176
+	verb dialog-verb-9 new at 0,190 color 178 hicolor 14 key 57 bakcolor 176
+	verb dialog-verb-1 name "\\x7F%s41%"
+	verb dialog-verb-2 name "\\x7F%s42%"
+	verb dialog-verb-3 name "\\x7F%s43%"
+	verb dialog-verb-4 name "\\x7F%s44%"
+	verb dialog-verb-5 name "\\x7F%s45%"
+	verb dialog-verb-6 name "\\x7F%s46%"
+	verb dialog-verb-7 name "\\x7F%s47%"
+	verb dialog-verb-8 name "\\x7F%s48%"
+	verb dialog-verb-9 name "\\x7F%s49%"
 	charset fat-font
-	start-script set-verbs (1)
+	start-script set-verbs (save-normal-verbs)
 	jump &[00000647]
 [00000647]:
 	end-script
 }
 
 script start-cut-scene { ; SCRP LECF_0001\LFLF_0068\SCRP_0020
-local variable L.0
-local variable L.1
+local variable level
+local variable i
 
 	cursor soft-off
 	userput soft-off
-	if (L.0 is 1) {
-		verb 100 off
-		for L.1 = 3 to 12 ++ {
-			verb L.1 dim
+	if (level is 1) {
+		verb sentence-line-verb off
+		for i = open to talk-to ++ {
+			verb i dim
 		}
 		if (!hide-inventory) {
 			verb 111 dim
@@ -3182,19 +3182,19 @@ local variable L.1
 		palette intensity 180 in-slot 160 to 175
 		palette intensity 180 in-slot 179 to 191
 	}
-	if (L.0 is 3) {
-		verb 100 off
-		for L.1 = 3 to 12 ++ {
-			verb L.1 dim
+	if (level is 3) {
+		verb sentence-line-verb off
+		for i = open to talk-to ++ {
+			verb i dim
 		}
 		if (!hide-inventory) {
-			verb 111 dim
-			verb 112 dim
+			verb up-arrow dim
+			verb dn-arrow dim
 		}
 		palette intensity 180 in-slot 160 to 175
 		palette intensity 180 in-slot 179 to 191
 	}
-	if (L.0 is 0) {
+	if (level is 0) {
 		stop-sentence
 		start-script revert-sentence ()
 		start-script display-sentence ()
@@ -3208,51 +3208,51 @@ local variable L.1
 }
 
 script end-cut-scene { ; SCRP LECF_0001\LFLF_0068\SCRP_0021
-local variable L.0
-local variable L.1
+local variable level
+local variable i
 
 	cursor soft-on
 	userput soft-on
 	override off
-	if !(L.0 is 1) jump &[00000056]
-	verb 100 on
-	for L.1 = 3 to 12 ++ {
-		verb L.1 on
+	if !(level is 1) jump &[00000056]
+	verb sentence-line-verb on
+	for i = open to talk-to ++ {
+		verb i on
 	}
 	palette intensity 255 in-slot 160 to 191
 	jump &[00000092]
 	jump &[00000152]
 [00000056]:
-	if !(L.0 is 3) jump &[00000152]
-	verb 100 on
-	for L.1 = 3 to 12 ++ {
-		verb L.1 on
+	if !(level is 3) jump &[00000152]
+	verb sentence-line-verb on
+	for i = open to talk-to ++ {
+		verb i on
 	}
 	palette intensity 255 in-slot 160 to 191
 [00000092]:
 	if !(!hide-inventory) jump &[00000152]
-	verb 111 off
-	verb 112 off
+	verb up-arrow off
+	verb down-arrow off
 	if !(inv-pointer > 0) jump &[00000119]
-	verb 111 on
+	verb up-arrow on
 	jump &[00000123]
 [00000119]:
-	verb 111 dim
+	verb up-arrow dim
 [00000123]:
 	foo = (inv-lines - 1)
 	if !(inv-pointer < foo) jump &[00000148]
-	verb 112 on
+	verb dn-arrow on
 	jump &[00000152]
 [00000148]:
-	verb 112 dim
+	verb dn-arrow dim
 [00000152]:
 	unfreeze-scripts
-	if (L.0 is-not 2) {
+	if (level is-not 2) {
 		stop-sentence
 		start-script revert-sentence ()
 		start-script display-sentence ()
 		start-script update-special-verbs ()
-		if (L.0 is-not 3) {
+		if (level is-not 3) {
 			camera-follow selected-actor
 		}
 	}
@@ -3260,11 +3260,11 @@ local variable L.1
 }
 
 script key-pressed { ; SCRP LECF_0001\LFLF_0068\SCRP_0022
-local variable L.0
+local variable which-key
 local variable L.1
 
-	L.1 = L.0
-	L.0 = 0
+	L.1 = which-key
+	which-key = 0
 	if !(L.1 is 22) jump &[00000036]
 	print-system "%s37%"
 	jump &[00000067]
@@ -3273,7 +3273,7 @@ local variable L.1
 	print-system "H%n40% M%n68% V%n69%"
 	jump &[00000067]
 [00000067]:
-	return-value = L.0
+	return-value = which-key
 	end-script
 }
 
@@ -3292,9 +3292,9 @@ script exit-room1 { ; SCRP LECF_0001\LFLF_0068\SCRP_0023
 }
 
 script follow-actor { ; SCRP LECF_0001\LFLF_0068\SCRP_0031
-local variable L.0
-local variable L.1
-local variable L.2
+local variable leader
+local variable follower
+local variable change-rooms
 local variable L.3
 local variable L.4
 local variable L.7
@@ -3306,7 +3306,7 @@ local variable L.9
 	L.8 = walking-to-x
 	L.9 = walking-to-y
 [00000028]:
-	start-script follow-actor-2 (L.0,L.1,L.2,L.3)
+	start-script follow-actor-2 (leader,follower,change-rooms,L.3)
 	L.4 = 0
 	L.7 = (V.183 * 2)
 	if (V.187 > L.7) {
@@ -3317,15 +3317,15 @@ local variable L.9
 		L.4 = 1
 	}
 	if !(L.4) jump &[00000109]
-	walk L.1 to V.185,V.186
+	walk follower to V.185,V.186
 	jump &[00000118]
 [00000109]:
-	do-animation L.1 face-towards L.0
+	do-animation follower face-towards leader
 	break-here
 	jump &[00000028]
 [00000118]:
-	start-script follow-actor-2 (L.0,L.1,L.2,L.3,1)
-	if !(!actor-moving L.1) jump &[00000149]
+	start-script follow-actor-2 (leader,follower,change-rooms,L.3,1)
+	if !(!actor-moving follower) jump &[00000149]
 	jump &[00000028]
 [00000149]:
 	L.4 = 1
@@ -3335,7 +3335,7 @@ local variable L.9
 		}
 	}
 	if !(!L.4) jump &[00000232]
-	start-script follow-actor-2 (L.0,L.1,L.2,L.3)
+	start-script follow-actor-2 (leader,follower,change-rooms,L.3)
 	L.4 = 0
 	if (V.187 <= V.183) {
 		if (V.188 <= V.184) {
@@ -3343,7 +3343,7 @@ local variable L.9
 		}
 	}
 	if !(L.4) jump &[00000229]
-	do-animation L.1 255
+	do-animation follower 255
 	jump &[00000028]
 [00000229]:
 	jump &[00000236]
@@ -3352,12 +3352,12 @@ local variable L.9
 	jump &[00000118]
 [00000236]:
 	if !(walking-to-y is-not 32771) jump &[00000263]
-	walk L.1 to walking-to-x,walking-to-y
+	walk follower to walking-to-x,walking-to-y
 	L.8 = walking-to-x
 	L.9 = walking-to-y
 	jump &[00000270]
 [00000263]:
-	do-animation L.1 255
+	do-animation follower 255
 	jump &[00000028]
 [00000270]:
 	if !(L.8 is-not walking-to-x) jump &[00000280]
@@ -3366,7 +3366,7 @@ local variable L.9
 	if !(L.9 is-not walking-to-y) jump &[00000290]
 	jump &[00000118]
 [00000290]:
-	start-script follow-actor-2 (L.0,L.1,L.2,L.3)
+	start-script follow-actor-2 (leader,follower,change-rooms,L.3)
 	L.4 = 1
 	if (V.187 <= V.183) {
 		if (V.188 <= V.184) {
@@ -3378,37 +3378,37 @@ local variable L.9
 	jump &[00000270]
 	jump &[00000348]
 [00000341]:
-	do-animation L.1 255
+	do-animation follower 255
 	jump &[00000028]
 [00000348]:
 	end-script
 }
 
 script get-touched-object { ; SCRP LECF_0001\LFLF_0068\SCRP_0032
-local variable L.0
-local variable L.1
-local variable L.2
+local variable legal-class
+local variable actor-check
+local variable touched-object
 
-	if !(L.1) jump &[00000054]
-	L.2 = find-actor cursor-x,cursor-y
-	if (L.2 is selected-actor) {
-		L.2 = 0
+	if !(actor-check) jump &[00000054]
+	touched-object = find-actor cursor-x,cursor-y
+	if (touched-object is selected-actor) {
+		touched-object = 0
 	}
-	if !(L.0) jump &[00000054]
-	if !(class-of L.2 is L.0) jump &[00000049]
+	if !(legal-class) jump &[00000054]
+	if !(class-of touched-object is legal-class) jump &[00000049]
 	jump &[00000088]
 [00000049]:
-	L.2 = 0
+	touched-object = 0
 [00000054]:
-	if !(!L.2) jump &[00000088]
-	L.2 = find-object cursor-x,cursor-y
-	if !(L.0) jump &[00000088]
-	if !(class-of L.2 is L.0) jump &[00000083]
+	if !(!touched-object) jump &[00000088]
+	touched-object = find-object cursor-x,cursor-y
+	if !(legal-class) jump &[00000088]
+	if !(class-of touched-object is legal-class) jump &[00000083]
 	jump &[00000088]
 [00000083]:
-	L.2 = 0
+	touched-object = 0
 [00000088]:
-	return-value = L.2
+	return-value = touched-object
 	end-script
 }
 
@@ -3421,28 +3421,28 @@ script update-special-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0045
 }
 
 script scan-for-icon { ; SCRP LECF_0001\LFLF_0068\SCRP_0059
-local variable L.0
-local variable L.1
-local variable L.3
+local variable obj
+local variable act
+local variable offset
 local variable L.6
 local variable L.7
 
-	selected-verb = 10
+	selected-verb = walk-to
 [00000013]:
 	V.103 = 0
 	if !(cursor-state > 0) jump &[00000790]
 	if !(screen-y >= 153) jump &[00000323]
 	if !(screen-x > 160) jump &[00000133]
 	if !(!hide-inventory) jump &[00000127]
-	L.3 = ((screen-x - 160) / 32)
-	L.3 = (L.3 + (((screen-y - 152) / 24) * 5))
-	L.0 = objnums[L.3]
-	if (L.6 is-not V.111) {
+	offset = ((screen-x - 160) / 32)
+	offset = (offset + (((screen-y - 152) / 24) * 5))
+	obj = objnums[offset]
+	if (L.6 is-not revert-verb) {
 		verb L.6 color 178
 	}
 	if (selected-verb is walk-to) {
 		selected-verb-hold = selected-verb
-		selected-verb = 9
+		selected-verb = look-at
 		L.7 = 1
 	}
 	jump &[00000130]
@@ -3524,65 +3524,65 @@ local variable L.7
 		selected-verb = selected-verb-hold
 		selected-verb-hold = 0
 	}
-	L.1 = find-actor cursor-x,cursor-y
-	if !(L.1) jump &[00000521]
-	if !(L.1 is-not selected-actor) jump &[00000511]
+	act = find-actor cursor-x,cursor-y
+	if !(act) jump &[00000521]
+	if !(act is-not selected-actor) jump &[00000511]
 	if !(selected-verb is-not use) jump &[00000501]
 	if !(selected-verb is-not open) jump &[00000491]
 	if !(selected-verb is-not close) jump &[00000481]
 	if !(selected-verb is-not pick-up) jump &[00000471]
-	if !(class-of L.1 is 141) jump &[00000461]
-	L.0 = L.1
+	if !(class-of act is 141) jump &[00000461]
+	obj = act
 	jump &[00000468]
 [00000461]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000468]:
 	jump &[00000478]
 [00000471]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000478]:
 	jump &[00000488]
 [00000481]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000488]:
 	jump &[00000498]
 [00000491]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000498]:
 	jump &[00000508]
 [00000501]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000508]:
 	jump &[00000518]
 [00000511]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000518]:
 	jump &[00000528]
 [00000521]:
-	L.0 = find-object cursor-x,cursor-y
+	obj = find-object cursor-x,cursor-y
 [00000528]:
 	if !(selected-verb is talk-to) jump &[00000552]
-	if !(class-of L.0 is 141) jump &[00000547]
+	if !(class-of obj is 141) jump &[00000547]
 	jump &[00000552]
 [00000547]:
-	L.0 = 0
+	obj = 0
 [00000552]:
 	if !(selected-verb is give) jump &[00000600]
 	if !(selected-prep) jump &[00000600]
-	if !(class-of L.0 is 133) jump &[00000576]
+	if !(class-of obj is 133) jump &[00000576]
 	jump &[00000600]
 [00000576]:
-	L.0 = find-actor cursor-x,cursor-y
-	if !(class-of L.0 is 133) jump &[00000595]
+	obj = find-actor cursor-x,cursor-y
+	if !(class-of obj is 133) jump &[00000595]
 	jump &[00000600]
 [00000595]:
-	L.0 = 0
+	obj = 0
 [00000600]:
-	if !(L.0 is-not last-obj) jump &[00000790]
-	last-obj = L.0
+	if !(obj is-not last-obj) jump &[00000790]
+	last-obj = obj
 	if !(selected-prep) jump &[00000640]
-	if !(L.0 is-not selected-noun1) jump &[00000632]
-	selected-noun2 = L.0
+	if !(obj is-not selected-noun1) jump &[00000632]
+	selected-noun2 = obj
 	jump &[00000637]
 [00000632]:
 	selected-noun2 = 0
@@ -3590,26 +3590,26 @@ local variable L.7
 	jump &[00000694]
 [00000640]:
 	if !(selected-verb is walk-to) jump &[00000689]
-	if !(owner-of L.0 is 15) jump &[00000667]
-	selected-noun1 = L.0
+	if !(owner-of obj is 15) jump &[00000667]
+	selected-noun1 = obj
 	jump &[00000672]
 [00000667]:
 	selected-noun1 = 0
 [00000672]:
-	if (class-of L.0 is 141) {
-		selected-noun1 = L.0
+	if (class-of obj is 141) {
+		selected-noun1 = obj
 	}
 	jump &[00000694]
 [00000689]:
-	selected-noun1 = L.0
+	selected-noun1 = obj
 [00000694]:
 	if (last-double-verb) {
 		verb last-double-verb color 178
 	}
 	double-verb = 0
-	me = L.0
-	if !(L.0 <= 12) jump &[00000757]
-	if !(class-of L.0 is 141) jump &[00000749]
+	me = obj
+	if !(obj <= 12) jump &[00000757]
+	if !(class-of obj is 141) jump &[00000749]
 	verb talk-to color 14
 	double-verb = talk-to
 	last-double-verb = talk-to
@@ -3619,7 +3619,7 @@ local variable L.7
 [00000754]:
 	jump &[00000778]
 [00000757]:
-	start-object L.0 verb 90 ()
+	start-object obj verb 90 ()
 	if (double-verb) {
 		verb double-verb color 14
 	}
@@ -3635,17 +3635,17 @@ local variable L.7
 }
 
 script lock-door { ; SCRP LECF_0001\LFLF_0068\SCRP_0060
-local variable L.0
-local variable L.1
+local variable this-door
+local variable other-door
 
-	if (!L.0) {
-		L.0 = me
+	if (!this-door) {
+		this-door = me
 	}
-	if (class-of L.0 is 134) {
-		class-of L.0 is 6
-		if (L.1) {
-			if (class-of L.1 is 11) {
-				class-of L.1 is 6
+	if (class-of this-door is 134) {
+		class-of this-door is 6
+		if (other-door) {
+			if (class-of other-door is 11) {
+				class-of other-door is 6
 			}
 		}
 	}
@@ -3653,17 +3653,17 @@ local variable L.1
 }
 
 script unlock-door { ; SCRP LECF_0001\LFLF_0068\SCRP_0061
-local variable L.0
-local variable L.1
+local variable this-door
+local variable other-door
 
-	if (!L.0) {
-		L.0 = me
+	if (!this-door) {
+		this-door = me
 	}
-	if (class-of L.0 is 6) {
-		class-of L.0 is 134
-		if (L.1) {
-			if (class-of L.1 is 11) {
-				class-of L.1 is 134
+	if (class-of this-door is 6) {
+		class-of this-door is 134
+		if (other-door) {
+			if (class-of other-door is 11) {
+				class-of other-door is 134
 			}
 		}
 	}
@@ -3671,22 +3671,22 @@ local variable L.1
 }
 
 script open-door { ; SCRP LECF_0001\LFLF_0068\SCRP_0062
-local variable L.0
-local variable L.1
+local variable this-door
+local variable other-door
 
-	if (!L.0) {
-		L.0 = me
+	if (!this-door) {
+		this-door = me
 	}
-	if !(state-of L.0 is 0) jump &[00000115]
-	if !(class-of L.0 is 6) jump &[00000072]
+	if !(state-of this-door is 0) jump &[00000115]
+	if !(class-of this-door is 6) jump &[00000072]
 	cut-scene
-	state-of L.0 is 1
-	if (L.1) {
-		if (class-of L.1 is 11) {
-			state-of L.1 is 1
+	state-of this-door is 1
+	if (other-door) {
+		if (class-of other-door is 11) {
+			state-of other-door is 1
 		}
 	}
-	start-sound 192
+	start-sound door-open
 	end-cut-scene
 	jump &[00000112]
 [00000072]:
@@ -3700,21 +3700,21 @@ local variable L.1
 }
 
 script close-door { ; SCRP LECF_0001\LFLF_0068\SCRP_0063
-local variable L.0
-local variable L.1
+local variable this-door
+local variable other-door
 
-	if (!L.0) {
-		L.0 = me
+	if (!this-door) {
+		this-door = me
 	}
-	if !(state-of L.0 is 1) jump &[00000063]
+	if !(state-of this-door is 1) jump &[00000063]
 	cut-scene
-	state-of L.0 is 0
-	if (L.1) {
-		if (class-of L.1 is 11) {
-			state-of L.1 is 0
+	state-of this-door is 0
+	if (other-door) {
+		if (class-of other-door is 11) {
+			state-of other-door is 0
 		}
 	}
-	start-sound 190
+	start-sound door-close
 	end-cut-scene
 	jump &[00000086]
 [00000063]:
@@ -3724,66 +3724,66 @@ local variable L.1
 }
 
 script use-door { ; SCRP LECF_0001\LFLF_0068\SCRP_0064
-local variable L.0
+local variable this-door
 
-	if (!L.0) {
-		L.0 = me
+	if (!this-door) {
+		this-door = me
 	}
-	if !(state-of L.0 is 1) jump &[00000039]
-	do-sentence close L.0 with 0
+	if !(state-of this-door is 1) jump &[00000039]
+	do-sentence close this-door with 0
 	jump &[00000045]
 [00000039]:
-	do-sentence open L.0 with 0
+	do-sentence open this-door with 0
 [00000045]:
 	end-script
 }
 
 script walk-and-face { ; SCRP LECF_0001\LFLF_0068\SCRP_0065
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
-local variable L.4
+local variable which-actor
+local variable x-dest
+local variable y-dest
+local variable facing
+local variable extra-anim
 
-	walk L.0 to L.1,L.2
-	wait-for-actor L.0
-	do-animation L.0 L.3
-	wait-for-actor L.0
-	if (L.4) {
-		do-animation L.0 L.4
-		wait-for-actor L.0
+	walk which-actor to x-dest,y-dest
+	wait-for-actor which-actor
+	do-animation which-actor facing
+	wait-for-actor which-actor
+	if (extra-anim) {
+		do-animation which-actor extra-anim
+		wait-for-actor which-actor
 	}
 	end-script
 }
 
 script go-to-new-room { ; SCRP LECF_0001\LFLF_0068\SCRP_0066
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
-local variable L.4
+local variable which-room
+local variable x-offset
+local variable y-offset
+local variable x
+local variable y
 
-	L.3 = ((actor-x selected-actor) + L.1)
-	L.4 = ((actor-y selected-actor) + L.2)
-	put-actor selected-actor in-room L.0
-	put-actor selected-actor at L.3,L.4
+	x = ((actor-x selected-actor) + x-offset)
+	y = ((actor-y selected-actor) + y-offset)
+	put-actor selected-actor in-room which-room
+	put-actor selected-actor at x,y
 	camera-follow selected-actor
 	end-script
 }
 
 script watch-for-click { ; SCRP LECF_0001\LFLF_0068\SCRP_0067
-local variable L.0
-local variable L.1
+local variable clicked-zone
+local variable item
 
-	if (L.0 is 4) {
-		chain-script build-sentence (L.0,L.1)
+	if (clicked-zone is 4) {
+		chain-script build-sentence (clicked-zone,item)
 	}
-	++V.165
+	++choice
 	end-script
 }
 
 script start-dialog { ; SCRP LECF_0001\LFLF_0068\SCRP_0068
-local variable L.0
+local variable j
 local variable L.1
 local variable L.2
 
@@ -3794,31 +3794,31 @@ local variable L.2
 	dont-say-dialog-lines = 0
 	cursor on
 	userput on
-	verb 50 dim
-	for L.0 = 120 to 128 ++ {
-		verb L.0 off
+	verb verb-dlg-bak dim
+	for j = dialog-verb-1 to dialog-verb-9 ++ {
+		verb j off
 	}
-	V.167 = 0 0 0 0 0 0 0 0 0
+	screen-escape-array = 0 0 0 0 0 0 0 0 0
 	say-screen-escape = 0 0 0 0 0 0 0 0 0
 	end-script
 }
 
 script walk-to-room { ; SCRP LECF_0001\LFLF_0068\SCRP_0069
-local variable L.0
-local variable L.1
-local variable L.2
+local variable x
+local variable y
+local variable room
 
-	walk selected-actor to L.0,L.1
+	walk selected-actor to x,y
 	wait-for-actor selected-actor
-	if (L.2) {
-		current-room L.2
+	if (room) {
+		current-room room
 	}
 	end-script
 }
 
 script display-lucaslogo { ; SCRP LECF_0001\LFLF_0068\SCRP_0074
-local variable L.0
-local variable L.1
+local variable i
+local variable rnd
 
 	cut-scene
 	charset system-font
@@ -3827,9 +3827,9 @@ local variable L.1
 	palette intensity 0 in-slot 16 to 255
 	break-here 8
 	min-jiffies = 0
-	current-room 68
+	current-room logo
 	restart-key = 322
-	start-sound 150
+	start-sound lucaslogo-theme
 	palette intensity 0 in-slot 16 to 255
 	jiffy1 = 0
 	break-here
@@ -3839,10 +3839,10 @@ local variable L.1
 	min-jiffies = 6
 	min-jiffies = 3
 	override &[00000119]
-	for L.0 = 1 to 256 ++ {
-		palette intensity L.0 in-slot 16 to 255
-		L.0 += 7
-		L.1 = random 255
+	for i = 1 to 256 ++ {
+		palette intensity i in-slot 16 to 255
+		i += 7
+		rnd = random 255
 		break-here
 	}
 	sleep-for 480 jiffies
@@ -3857,13 +3857,13 @@ local variable L.1
 }
 
 script heal-indy { ; SCRP LECF_0001\LFLF_0068\SCRP_0075
-local variable L.0
+local variable rnd
 
 	do {
 		foo = random 255
 		sleep-for foo jiffies
-		L.0 = random 1
-		if (!L.0) {
+		rnd = random 1
+		if (!rnd) {
 			break-here
 			if (indy-health < indy-max-health ) {
 				break-here
@@ -3901,15 +3901,15 @@ local variable L.4
 }
 
 script full-screen-build-sentence { ; SCRP LECF_0001\LFLF_0068\SCRP_0078
-local variable L.0
-local variable L.1
+local variable clicked-zone
+local variable item
 
 	clicked-cursor-x = cursor-x
 	clicked-cursor-y = cursor-y
-	if (L.0 is 4) {
-		chain-script key-pressed (L.1)
+	if (clicked-zone is 4) {
+		chain-script key-pressed (item)
 	}
-	if !(L.0 is 2) jump &[00000178]
+	if !(clicked-zone is 2) jump &[00000178]
 	stop-script walk-to-room
 	B.16 = 1
 	V.119 = selected-noun1
@@ -3999,7 +3999,7 @@ local variable L.3
 }
 
 script switch-actor { ; SCRP LECF_0001\LFLF_0068\SCRP_0080
-local variable L.0
+local variable which-actor
 
 	start-script revert-sentence ()
 	start-script display-sentence ()
@@ -4010,26 +4010,26 @@ local variable L.0
 		stop-script follow-actor
 	}
 	wait-for-message
-	selected-actor = L.0
-	if !(L.0 is indy) jump &[00000092]
+	selected-actor = which-actor
+	if !(which-actor is indy) jump &[00000092]
 	class-of sophia is 141
 	class-of indy is 13 5
 	companion-actor = sophia
-	verb 100 color 9 hicolor 11
-	V.118 = 3
-	V.117 = 11
+	verb sentence-line-verb color 9 hicolor 11
+	sentence-line-lowlight-color = 3
+	sentence-line-highlight-color = 11
 	jump &[00000141]
 [00000092]:
-	if !(L.0 is sophia) jump &[00000141]
+	if !(which-actor is sophia) jump &[00000141]
 	class-of sophia is 13
 	class-of indy is 141 133
 	companion-actor = indy
-	verb 100 color 5 hicolor 13
-	V.118 = 5
-	V.117 = 13
+	verb sentence-line-verb color 5 hicolor 13
+	sentence-line-lowlight-color = 5
+	sentence-line-highlight-color = 13
 	jump &[00000141]
 [00000141]:
-	camera-follow L.0
+	camera-follow which-actor
 	start-script display-sentence ()
 	start-script update-inventory ()
 	end-script
@@ -4046,15 +4046,15 @@ script begin-dialog-ui { ; SCRP LECF_0001\LFLF_0068\SCRP_0082
 }
 
 script end-dialog-ui { ; SCRP LECF_0001\LFLF_0068\SCRP_0083
-local variable L.0
+local variable keep-verbs
 
 	if (dialog-ui-active) {
 		dialog-ui-active = 0
 		last-dialog-actor = dialog-actor
 		dialog-actor = 0
-		verb 50 off
+		verb verb-dlg-bak off
 		build-sentence-script = build-sentence-script-backup
-		if (!L.0) {
+		if (!keep-verbs) {
 			start-script set-verbs (2)
 		}
 		cursor on
@@ -4069,28 +4069,28 @@ script dummy { ; SCRP LECF_0001\LFLF_0068\SCRP_0084
 }
 
 script clear-flags { ; SCRP LECF_0001\LFLF_0068\SCRP_0085
-local variable L.0
+local variable j
 
-	for L.0 = 0 to 31 ++ {
-		flags[L.0] = 0
+	for j = 0 to 31 ++ {
+		flags[j] = 0
 	}
 	end-script
 }
 
 script keep-facing-actor { ; SCRP LECF_0001\LFLF_0068\SCRP_0086
-local variable L.0
-local variable L.1
+local variable focus-actor
+local variable watching-actor
 
 	if (script-running follow-actor) {
 		stop-script follow-actor
 	}
-	do-animation L.1 255
-	do-animation L.1 1
+	do-animation watching-actor 255
+	do-animation watching-actor 1
 	break-here 2
 	do {
-		do-animation L.1 face-towards L.0
+		do-animation watching-actor face-towards focus-actor
 		break-here 4
-	} until (actor-moving L.1)
+	} until (actor-moving watching-actor)
 	end-script
 }
 
@@ -4136,7 +4136,7 @@ local variable L.4
 	break-until (!script-running 192)
 	if (selected-room >= 226) {
 		if (selected-room <= 231) {
-			if (B.543) {
+			if (on-crab-raft) {
 				do-animation 9 255
 				if (B.544) {
 					do-animation sophia 255
@@ -4521,10 +4521,10 @@ local variable L.0
 }
 
 script autosave-current-room { ; SCRP LECF_0001\LFLF_0068\SCRP_0119
-local variable L.0
-local variable L.1
+local variable go-room
+local variable save-load
 
-	if !(L.1 is 1) jump &[00000072]
+	if !(save-load is 1) jump &[00000072]
 	freeze-scripts 127
 	saveload-game 1 in-slot 26
 	B.23 = 1
@@ -4539,7 +4539,7 @@ local variable L.1
 [00000056]:
 	save-load-key = 0
 	save-game-enabled = 0
-	current-room L.0
+	current-room go-room
 [00000069]:
 	jump &[00000082]
 [00000072]:
@@ -4642,19 +4642,19 @@ script 131 { ; SCRP LECF_0001\LFLF_0068\SCRP_0131
 }
 
 script setup-inventory-verbs { ; SCRP LECF_0001\LFLF_0068\SCRP_0132
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
-local variable L.4
+local variable row
+local variable column
+local variable inv-verb
+local variable x
+local variable y
 
-	L.2 = inv-verb-1
-	for L.0 = 1 to 2 ++ {
-		for L.1 = 1 to 5 ++ {
-			L.3 = (((L.1 - 1) * 32) + 160)
-			L.4 = (((L.0 - 1) * 24) + 152)
-			verb L.2 new at L.3,L.4 off
-			++L.2
+	inv-verb = inv-verb-1
+	for row = 1 to 2 ++ {
+		for column = 1 to 5 ++ {
+			x = (((column - 1) * 32) + 160)
+			y = (((row - 1) * 24) + 152)
+			verb inv-verb new at x,y off
+			++inv-verb
 		}
 	}
 	verb inv-verb-1 key 49
@@ -4671,9 +4671,9 @@ local variable L.4
 }
 
 script follow-actor-2 { ; SCRP LECF_0001\LFLF_0068\SCRP_0133
-local variable L.0
-local variable L.1
-local variable L.2
+local variable leader
+local variable follower
+local variable change-rooms
 local variable L.3
 local variable L.4
 local variable L.5
@@ -4686,23 +4686,23 @@ local variable L.11
 local variable L.12
 
 	if !(!L.4) jump &[00000026]
-	V.185 = actor-x L.0
-	V.186 = actor-y L.0
+	V.185 = actor-x leader
+	V.186 = actor-y leader
 	jump &[00000181]
 [00000026]:
-	L.8 = actor-x L.0
-	L.9 = actor-y L.0
-	L.10 = ((actor-x L.1) - L.8)
-	L.11 = ((actor-y L.1) - L.9)
+	L.8 = actor-x leader
+	L.9 = actor-y leader
+	L.10 = ((actor-x follower) - L.8)
+	L.11 = ((actor-y follower) - L.9)
 	if (L.10 < 0) {
 		L.10 = (0 - L.10)
 	}
 	if (L.11 < 0) {
 		L.11 = (0 - L.11)
 	}
-	L.5 = actor-scale L.0
-	if (actor-scale L.1 < L.5) {
-		L.5 = actor-scale L.1
+	L.5 = actor-scale leader
+	if (actor-scale follower < L.5) {
+		L.5 = actor-scale follower
 	}
 	L.8 = 45
 	L.8 *= L.5
@@ -4712,14 +4712,14 @@ local variable L.12
 	L.9 /= 255
 	if (L.10 <= L.8) {
 		if (L.11 <= L.9) {
-			V.185 = actor-x L.0
-			V.186 = actor-y L.0
+			V.185 = actor-x leader
+			V.186 = actor-y leader
 			L.4 = 0
 		}
 	}
 [00000181]:
-	V.187 = (V.185 - (actor-x L.1))
-	V.188 = (V.186 - (actor-y L.1))
+	V.187 = (V.185 - (actor-x follower))
+	V.188 = (V.186 - (actor-y follower))
 	if (V.187 < 0) {
 		V.187 = (0 - V.187)
 	}
@@ -4727,12 +4727,12 @@ local variable L.12
 		V.188 = (0 - V.188)
 	}
 	if !(!L.3) jump &[00000346]
-	L.5 = actor-scale L.0
-	if (actor-scale L.1 < L.5) {
-		L.5 = actor-scale L.1
+	L.5 = actor-scale leader
+	if (actor-scale follower < L.5) {
+		L.5 = actor-scale follower
 	}
 	if !(L.4) jump &[00000313]
-	if !(actor-moving L.0) jump &[00000300]
+	if !(actor-moving leader) jump &[00000300]
 	V.183 = 8
 	V.184 = 2
 	jump &[00000310]
@@ -4764,17 +4764,17 @@ local variable L.12
 	}
 	B.734 = 0
 [00000386]:
-	L.6 = actor-room L.0
-	if !(actor-room L.1 is-not L.6) jump &[00000700]
-	if !(L.2) jump &[00000697]
+	L.6 = actor-room leader
+	if !(actor-room follower is-not L.6) jump &[00000700]
+	if !(change-rooms) jump &[00000697]
 	stop-script follow-actor
-	L.7 = actor-facing L.0
+	L.7 = actor-facing leader
 [00000415]:
-	L.8 = actor-x L.0
+	L.8 = actor-x leader
 	L.10 = L.8
-	L.9 = actor-y L.0
+	L.9 = actor-y leader
 	L.11 = L.9
-	L.12 = ((actor-width L.0) * 2)
+	L.12 = ((actor-width leader) * 2)
 	if !(L.7 is 0) jump &[00000464]
 	L.10 -= L.12
 	jump &[00000511]
@@ -4793,48 +4793,48 @@ local variable L.12
 	jump &[00000511]
 [00000511]:
 	L.11 += L.12
-	if (!actor-moving L.0) {
-		walk L.0 to L.10,L.11
+	if (!actor-moving leader) {
+		walk leader to L.10,L.11
 	}
 	break-here 5
-	if !(actor-room L.0 is-not L.6) jump &[00000558]
+	if !(actor-room leader is-not L.6) jump &[00000558]
 	B.734 = 1
 	jump &[00000386]
 [00000558]:
-	if !(actor-x L.0 is L.8) jump &[00000585]
-	if !(actor-y L.0 is L.9) jump &[00000585]
+	if !(actor-x leader is L.8) jump &[00000585]
+	if !(actor-y leader is L.9) jump &[00000585]
 	jump &[00000415]
 [00000585]:
 	if !(last-entered-door) jump &[00000603]
-	put-actor L.1 in-room L.6
-	put-actor L.1 at-object last-entered-door
+	put-actor follower in-room L.6
+	put-actor follower at-object last-entered-door
 	jump &[00000615]
 [00000603]:
-	put-actor L.1 in-room L.6
-	put-actor L.1 at L.8,L.9
+	put-actor follower in-room L.6
+	put-actor follower at L.8,L.9
 [00000615]:
 	if !(!L.7) jump &[00000682]
 	if !(L.7 is 0) jump &[00000634]
-	do-animation L.1 248
+	do-animation follower 248
 	jump &[00000676]
 [00000634]:
 	if !(L.7 is 1) jump &[00000648]
-	do-animation L.1 249
+	do-animation follower 249
 	jump &[00000676]
 [00000648]:
 	if !(L.7 is 2) jump &[00000662]
-	do-animation L.1 250
+	do-animation follower 250
 	jump &[00000676]
 [00000662]:
 	if !(L.7 is 3) jump &[00000676]
-	do-animation L.1 251
+	do-animation follower 251
 	jump &[00000676]
 [00000676]:
 	break-here
-	do-animation L.1 3
+	do-animation follower 3
 	break-here
 [00000682]:
-	chain-script follow-actor (L.0,L.1,L.2,L.3)
+	chain-script follow-actor (leader,follower,change-rooms,L.3)
 [00000697]:
 	jump &[00000708]
 [00000700]:
@@ -5063,18 +5063,18 @@ script make-charged-comb-on-string { ; SCRP LECF_0001\LFLF_0068\SCRP_0142
 }
 
 script award-iq-points { ; SCRP LECF_0001\LFLF_0068\SCRP_0144
-local variable L.0
-local variable L.1
-local variable L.2
+local variable key	;EO: Wouldn't "points-flag" be a less conflicting name?
+local variable points
+local variable already-awarded
 
-	if (L.0 >= 0) {
-		if (L.0 < 153) {
-			L.2 = current-iq-points[L.0]
-			L.2 -= 100
-			if (!L.2) {
-				V.450 += L.1
-				L.1 += 100
-				current-iq-points[L.0] = L.1
+	if (key >= 0) {
+		if (key < 153) {
+			already-awarded = current-iq-points[key]
+			already-awarded -= 100
+			if (!already-awarded) {
+				V.450 += points
+				points += 100
+				current-iq-points[key] = points
 				verb verb-iq name "%n450%"
 				start-script calculate-total-iq-points ()
 			}
@@ -5084,46 +5084,46 @@ local variable L.2
 }
 
 script calculate-total-iq-points { ; SCRP LECF_0001\LFLF_0068\SCRP_0145
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
+local variable key
+local variable total
+local variable current
+local variable changed
 
 	V.451 = 0
-	L.3 = 0
-	load-string 31 "iq-points"
-	L.0 = 0
+	changed = 0
+	load-string total-iq-points "iq-points"
+	key = 0
 [00000036]:
-	L.1 = total-iq-points[L.0]
-	L.1 -= 100
-	if !(L.1) jump &[00000061]
-	V.451 += L.1
+	total = total-iq-points[key]
+	total -= 100
+	if !(total) jump &[00000061]
+	V.451 += total
 	jump &[00000100]
 [00000061]:
-	L.2 = current-iq-points[L.0]
-	L.2 -= 100
-	if (L.2) {
-		V.451 += L.2
-		L.2 += 100
-		total-iq-points[L.0] = L.2
-		L.3 = 1
+	current = current-iq-points[key]
+	current -= 100
+	if (current) {
+		V.451 += current
+		current += 100
+		total-iq-points[key] = current
+		changed = 1
 	}
 [00000100]:
-	++L.0
-	if !(L.0 > 153) jump &[00000036]
+	++key
+	if !(key > 153) jump &[00000036]
 	verb verb-total-iq name "%n451%"
-	if (L.3) {
-		save-string 31 "iq-points"
+	if (changed) {
+		save-string total-iq-points "iq-points"
 	}
 	end-script
 }
 
 script display-indy-quotient { ; SCRP LECF_0001\LFLF_0068\SCRP_0150
-local variable L.0
+local variable current-verb
 
 	if !(hide-inventory) jump &[00000050]
-	for L.0 = 52 to 55 ++ {
-		verb L.0 off
+	for current-verb = verb-iq-bak to verb-total-iq ++ {
+		verb current-verb off
 	}
 	hide-inventory = 0
 	start-script update-inventory ()
@@ -5139,8 +5139,8 @@ local variable L.0
 		verb 85 new name " " off
 		B.542 = 0
 	}
-	for L.0 = 101 to 110 ++ {
-		verb L.0 off
+	for current-verb = inv-verb-1 to inv-verb-10 ++ {
+		verb current-verb off
 	}
 	verb up-arrow off
 	verb dn-arrow off
@@ -5148,8 +5148,8 @@ local variable L.0
 	hide-inventory = 1
 	verb verb-iq-bak on
 	verb verb-iq name "%n450%"
-	for L.0 = 53 to 55 ++ {
-		verb L.0 on
+	for current-verb = verb-path to verb-total-iq ++ {
+		verb current-verb on
 	}
 	start-script revert-sentence ()
 [00000173]:
@@ -5157,12 +5157,12 @@ local variable L.0
 }
 
 script 156 { ; SCRP LECF_0001\LFLF_0068\SCRP_0156
-local variable L.0
+local variable v
 
-	for L.0 = 3 to 12 ++ {
-		verb L.0 dim
+	for v = open to talk-to ++ {
+		verb v dim
 	}
-	verb 100 off
+	verb sentence-line-verb off
 	if (!hide-inventory) {
 		verb up-arrow dim
 		verb dn-arrow dim
@@ -5270,7 +5270,7 @@ local variable L.2
 [00000456]:
 	if !(class-of gold-box is 6) jump &[00000470]
 [00000465]:
-	start-object gold-box verb 4 ()
+	start-object gold-box verb close ()
 [00000470]:
 	say-line indy "Thanks."
 	wait-for-message
@@ -5303,41 +5303,41 @@ local variable L.0
 }
 
 script animate-sparkle { ; SCRP LECF_0001\LFLF_0068\SCRP_0164
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
-local variable L.4
-local variable L.5
-local variable L.6
+local variable actor
+local variable x
+local variable y
+local variable twinkle-change
+local variable scaling
+local variable zclip
+local variable rnd
 
-	actor L.0 default costume sparkles-skin ignore-boxes scale L.4 L.4
-	if !(L.5 is 0) jump &[00000036]
-	actor L.0 never-zclip
+	actor actor default costume sparkles-skin ignore-boxes scale scaling scaling
+	if !(zclip is 0) jump &[00000036]
+	actor actor never-zclip
 	jump &[00000084]
 [00000036]:
-	if !(L.5 is 1) jump &[00000052]
-	actor L.0 always-zclip 1
+	if !(zclip is 1) jump &[00000052]
+	actor actor always-zclip 1
 	jump &[00000084]
 [00000052]:
-	if !(L.5 is 2) jump &[00000068]
-	actor L.0 always-zclip 2
+	if !(zclip is 2) jump &[00000068]
+	actor actor always-zclip 2
 	jump &[00000084]
 [00000068]:
-	if !(L.5 is 3) jump &[00000084]
-	actor L.0 always-zclip 3
+	if !(zclip is 3) jump &[00000084]
+	actor actor always-zclip 3
 	jump &[00000084]
 [00000084]:
-	put-actor L.0 in-room selected-room
-	put-actor L.0 at L.1,L.2
-	do-animation L.0 250
+	put-actor actor in-room selected-room
+	put-actor actor at x,y
+	do-animation actor 250
 	do {
-		L.6 = random 100
-		if (L.6 < L.3) {
-			do-animation L.0 7
+		rnd = random 100
+		if (rnd < twinkle-change) {
+			do-animation actor 7
 		}
 		break-here 9
-		do-animation L.0 1
+		do-animation actor 1
 	}
 	end-script
 }
@@ -5443,7 +5443,7 @@ room logo {
 			if !(class-of orichalcum-beads is 146) jump &[00000371]
 			if !(class-of gold-box is 6) jump &[00000347]
 			class-of orichalcum-beads is 18
-			start-object orichalcum-beads verb add-beads (0)
+			start-object orichalcum-beads verb verb-add-beads (0)
 			jump &[00000368]
 [00000347]:
 			say-line "The box is closed."
@@ -5455,16 +5455,16 @@ room logo {
 			end-object
 		}
 
-		verb add-beads {
-		local variable L.0
+		verb verb-add-beads {
+		local variable added-beads
 
-			orichalcum-count = (orichalcum-count + L.0)
+			orichalcum-count = (orichalcum-count + added-beads)
 			if !(class-of orichalcum-beads is 146) jump &[00000496]
-			if !(L.0 > 1) jump &[00000457]
+			if !(added-beads > 1) jump &[00000457]
 			say-line indy "I'll put them in the box,\\x10too."
 			jump &[00000496]
 [00000457]:
-			if (L.0 > 0) {
+			if (added-beads > 0) {
 				say-line indy "I'll put it in the box,\\x10too."
 			}
 [00000496]:
@@ -5551,11 +5551,11 @@ room logo {
 			jump &[00000101]
 			jump &[00000098]
 [00000092]:
-			do-sentence 8 L.0 with me
+			do-sentence use L.0 with me
 [00000098]:
 			jump &[00000112]
 [00000101]:
-			start-object L.0 verb use (sunstone,8)
+			start-object L.0 verb use (sunstone,use)
 [00000112]:
 			end-object
 		}
@@ -5608,7 +5608,7 @@ room logo {
 [00000072]:
 			jump &[00000086]
 [00000075]:
-			start-object L.0 verb use (moonstone,8)
+			start-object L.0 verb use (moonstone,use)
 [00000086]:
 			end-object
 		}
@@ -5656,7 +5656,7 @@ room logo {
 [00000059]:
 			jump &[00000073]
 [00000062]:
-			start-object L.0 verb use (worldstone,8)
+			start-object L.0 verb use (worldstone,use)
 [00000073]:
 			end-object
 		}

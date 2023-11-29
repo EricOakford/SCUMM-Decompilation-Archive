@@ -13,7 +13,7 @@ local variable L.1
 	override-key = 27
 	restart-key = 0
 	pause-key = 32
-	V.57 = 46
+	sayline-override-key = 46
 	version = "Indy Atlantis, V1.0 10-9-92 H%n40% M%n68% V%n69% J%n6%"
 	pause-string = "Game Paused.  Press SPACE to Continue."
 	restart-string = "Are you sure you want to restart?  (Y/N)Y"
@@ -24,7 +24,7 @@ local variable L.1
 	CANCEL-string = "Cancel"
 	QUIT-string = "Quit"
 	OK-string = "OK"
-	insert-disk-string = "Insert save/load game disk"
+	insert-save-load-disk-string = "Insert save/load game disk"
 	must-enter-name-string = "You must enter a name"
 	game-not-saved-string = "The game was NOT saved"
 	game-not-loaded-string = "The game was NOT loaded"
