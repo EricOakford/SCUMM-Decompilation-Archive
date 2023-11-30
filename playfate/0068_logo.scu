@@ -3176,8 +3176,8 @@ local variable i
 			verb i dim
 		}
 		if (!hide-inventory) {
-			verb 111 dim
-			verb 112 dim
+			verb up-arrow dim
+			verb dn-arrow dim
 		}
 		palette intensity 180 in-slot 160 to 175
 		palette intensity 180 in-slot 179 to 191
@@ -3261,15 +3261,15 @@ local variable i
 
 script key-pressed { ; SCRP LECF_0001\LFLF_0068\SCRP_0022
 local variable which-key
-local variable L.1
+local variable which-key-hit
 
-	L.1 = which-key
+	which-key-hit = which-key
 	which-key = 0
-	if !(L.1 is 22) jump &[00000036]
+	if !(which-key-hit is 22) jump &[00000036]
 	print-system "%s37%"
 	jump &[00000067]
 [00000036]:
-	if !(L.1 is 5) jump &[00000067]
+	if !(which-key-hit is 5) jump &[00000067]
 	print-system "H%n40% M%n68% V%n69%"
 	jump &[00000067]
 [00000067]:
@@ -4457,10 +4457,10 @@ local variable L.4
 	break-until (!script-running aim-orichalcum-detector)
 	class-of orichalcum-detector is 6
 	say-line "It's pointing at Sophia's necklace!"
-	B.26 = 1
+	fish-pointed-at-necklace = 1
 	wait-for-message
-	if (B.28 is 0) {
-		B.28 = 1
+	if (realized-fish-detects-necklace is 0) {
+		realized-fish-detects-necklace = 1
 		say-line sophia "It must be detecting the orichalcum\\x10residue."
 	}
 	jump &[00002970]
@@ -5433,9 +5433,9 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			do-sentence use L.0 with orichalcum-beads
+			do-sentence use obj with orichalcum-beads
 			end-object
 		}
 
@@ -5525,37 +5525,37 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			if !(L.0 is 1006) jump &[00000027]
+			if !(obj is sunstone-on-peg) jump &[00000027]
 			jump &[00000101]
 			jump &[00000098]
 [00000027]:
-			if !(L.0 is 992) jump &[00000040]
+			if !(obj is thera-interior-spindle) jump &[00000040]
 			jump &[00000101]
 			jump &[00000098]
 [00000040]:
-			if !(L.0 is 377) jump &[00000053]
+			if !(obj is stone-pedestal) jump &[00000053]
 			jump &[00000101]
 			jump &[00000098]
 [00000053]:
-			if !(L.0 is 817) jump &[00000066]
+			if !(obj is maproom-spindle) jump &[00000066]
 			jump &[00000101]
 			jump &[00000098]
 [00000066]:
-			if !(L.0 is 589) jump &[00000079]
+			if !(obj is atl1-entrance-spindle) jump &[00000079]
 			jump &[00000101]
 			jump &[00000098]
 [00000079]:
-			if !(L.0 is 264) jump &[00000092]
+			if !(obj is colossus-spindle) jump &[00000092]
 			jump &[00000101]
 			jump &[00000098]
 [00000092]:
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 [00000098]:
 			jump &[00000112]
 [00000101]:
-			start-object L.0 verb use (sunstone,use)
+			start-object obj verb use (sunstone,use)
 [00000112]:
 			end-object
 		}
@@ -5586,29 +5586,29 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			if !(L.0 is stone-pedestal) jump &[00000027]
+			if !(obj is stone-pedestal) jump &[00000027]
 			jump &[00000075]
 			jump &[00000072]
 [00000027]:
-			if !(L.0 is maproom-spindle) jump &[00000040]
+			if !(obj is maproom-spindle) jump &[00000040]
 			jump &[00000075]
 			jump &[00000072]
 [00000040]:
-			if !(L.0 is atl1-entrance-spindle) jump &[00000053]
+			if !(obj is atl1-entrance-spindle) jump &[00000053]
 			jump &[00000075]
 			jump &[00000072]
 [00000053]:
-			if !(L.0 is colossus-spindle) jump &[00000066]
+			if !(obj is colossus-spindle) jump &[00000066]
 			jump &[00000075]
 			jump &[00000072]
 [00000066]:
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 [00000072]:
 			jump &[00000086]
 [00000075]:
-			start-object L.0 verb use (moonstone,use)
+			start-object obj verb use (moonstone,use)
 [00000086]:
 			end-object
 		}
@@ -5638,25 +5638,25 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			if !(L.0 is maproom-spindle) jump &[00000027]
+			if !(obj is maproom-spindle) jump &[00000027]
 			jump &[00000062]
 			jump &[00000059]
 [00000027]:
-			if !(L.0 is atl1-entrance-spindle) jump &[00000040]
+			if !(obj is atl1-entrance-spindle) jump &[00000040]
 			jump &[00000062]
 			jump &[00000059]
 [00000040]:
-			if !(L.0 is colossus-spindle) jump &[00000053]
+			if !(obj is colossus-spindle) jump &[00000053]
 			jump &[00000062]
 			jump &[00000059]
 [00000053]:
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 [00000059]:
 			jump &[00000073]
 [00000062]:
-			start-object L.0 verb use (worldstone,use)
+			start-object obj verb use (worldstone,use)
 [00000073]:
 			end-object
 		}
@@ -5709,9 +5709,9 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 			end-object
 		}
 
@@ -5750,9 +5750,9 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 			end-object
 		}
 
@@ -5785,9 +5785,9 @@ room logo {
 		}
 
 		verb use {
-		local variable L.0
+		local variable obj
 
-			do-sentence use L.0 with me
+			do-sentence use obj with me
 			end-object
 		}
 

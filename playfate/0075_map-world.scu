@@ -5,67 +5,67 @@
 ; */
 
 script fade-credit { ; SCRP LECF_0001\LFLF_0075\SCRP_0093
-local variable L.0
-local variable L.1
+local variable mode
+local variable i
 
 	palette intensity 0 in-slot 11 to 11
-	for L.1 = 55 to 255 ++ {
-		palette intensity L.1 in-slot 11 to 11
-		if (L.0 is 1) {
-			palette intensity L.1 in-slot 159 to 159
+	for i = 55 to 255 ++ {
+		palette intensity i in-slot 11 to 11
+		if (mode is 1) {
+			palette intensity i in-slot 159 to 159
 			if (engine-credit-color) {
-				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
+				palette intensity i in-slot engine-credit-color to engine-credit-color
 			}
 		}
-		if (L.0 is 3) {
-			palette intensity L.1 in-slot 159 to 159
+		if (mode is 3) {
+			palette intensity i in-slot 159 to 159
 			if (engine-credit-color) {
-				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
+				palette intensity i in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		break-here
-		L.1 += 40
+		i += 40
 	}
 	palette intensity 255 in-slot 11 to 11
-	if (L.0 is 1) {
+	if (mode is 1) {
 		palette intensity 255 in-slot 159 to 159
 		if (engine-credit-color) {
 			palette intensity 255 in-slot engine-credit-color to engine-credit-color
 		}
 	}
-	if (L.0 is 3) {
+	if (mode is 3) {
 		palette intensity 255 in-slot 159 to 159
 		if (engine-credit-color) {
 			palette intensity 255 in-slot engine-credit-color to engine-credit-color
 		}
 	}
 	sleep-for credit-display-duration jiffies
-	for L.1 = 255 to 55 -- {
-		palette intensity L.1 in-slot 11 to 11
-		if (L.0 is 2) {
-			palette intensity L.1 in-slot 159 to 159
+	for i = 255 to 55 -- {
+		palette intensity i in-slot 11 to 11
+		if (mode is 2) {
+			palette intensity i in-slot 159 to 159
 			if (engine-credit-color) {
-				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
+				palette intensity i in-slot engine-credit-color to engine-credit-color
 			}
 		}
-		if (L.0 is 3) {
-			palette intensity L.1 in-slot 159 to 159
+		if (mode is 3) {
+			palette intensity i in-slot 159 to 159
 			if (engine-credit-color) {
-				palette intensity L.1 in-slot engine-credit-color to engine-credit-color
+				palette intensity i in-slot engine-credit-color to engine-credit-color
 			}
 		}
 		break-here
-		L.1 -= 49
+		i -= 49
 	}
 	palette intensity 55 in-slot 11 to 11
-	if (L.0 is 2) {
+	if (mode is 2) {
 		palette intensity 55 in-slot 159 to 159
 		if (engine-credit-color) {
 			palette intensity 55 in-slot engine-credit-color to engine-credit-color
 		}
 		start-script 129 ()
 	}
-	if (L.0 is 3) {
+	if (mode is 3) {
 		palette intensity 55 in-slot 159 to 159
 		if (engine-credit-color) {
 			palette intensity 55 in-slot engine-credit-color to engine-credit-color
@@ -79,41 +79,41 @@ local variable L.1
 }
 
 script display-credits-for { ; SCRP LECF_0001\LFLF_0075\SCRP_0094
-local variable L.0
-local variable L.1
-local variable L.2
-local variable L.3
+local variable from-credit
+local variable to-credit
+local variable current-credit-script
+local variable mode
 
 	start-script credits-text-speed ()
 	text-speed = 5
 	palette intensity 55 in-slot 11 to 11
 	opening-credit-display-done = 0
 	charset small-credits-font
-	L.2 = L.0
+	current-credit-script = from-credit
 [00000034]:
-	if !(L.0 is L.1) jump &[00000049]
-	L.3 = 3
+	if !(from-credit is to-credit) jump &[00000049]
+	mode = 3
 	jump &[00000084]
 [00000049]:
-	if !(L.2 is L.0) jump &[00000064]
-	L.3 = 1
+	if !(current-credit-script is from-credit) jump &[00000064]
+	mode = 1
 	jump &[00000084]
 [00000064]:
-	if !(L.2 is L.1) jump &[00000079]
-	L.3 = 2
+	if !(current-credit-script is to-credit) jump &[00000079]
+	mode = 2
 	jump &[00000084]
 [00000079]:
-	L.3 = 0
+	mode = 0
 [00000084]:
-	start-script fade-credit (L.3)
-	start-script L.2 ()
+	start-script fade-credit (mode)
+	start-script current-credit-script ()
 	break-until (opening-credit-display-done)
-	if (L.2 is L.1) {
+	if (current-credit-script is to-credit) {
 		draw-object ui-cover-image 
 	}
 	opening-credit-display-done = 0
-	++L.2
-	if !(L.2 > L.1) jump &[00000034]
+	++current-credit-script
+	if !(current-credit-script > to-credit) jump &[00000034]
 	end-script
 }
 
@@ -369,17 +369,17 @@ room world-map {
 
 	exit { ; EXCD LECF_0001\LFLF_0075\ROOM\EXCD
 		min-jiffies = 6
-		unlock-sound 18
-		sound-kludge 269 17 70 180
+		unlock-sound travelling-theme
+		sound-kludge 269 map-theme 70 180
 		sound-kludge 65535
-		sound-kludge 9 17
+		sound-kludge 9 map-theme
 		build-sentence-script = build-sentence-script-backup
 		if (script-running 205) {
 			stop-script 205
 		}
 		start-script scan-for-icon ()
 		set-screen 0 to 144
-		start-script set-verbs (2)
+		start-script set-verbs (normal-verbs)
 		actor travel-dot init-animation indy follow-boxes
 		class-of sophia is 141
 		end-object
@@ -388,7 +388,7 @@ room world-map {
 	enter { ; ENCD LECF_0001\LFLF_0075\ROOM\ENCD
 		cursor off
 		stop-script 199
-		stop-sound 76
+		stop-sound submarine-siren-sound
 		if (script-running follow-actor) {
 			stop-script follow-actor
 		}
@@ -396,35 +396,35 @@ room world-map {
 			stop-script keep-facing-actor
 		}
 		if !(last-room-from-map is thera-dock) jump &[00000138]
-		load-sound 157
-		load-sound 81
+		load-sound salvage-ship-theme
+		load-sound labyrinth-entrance-theme
 		sound-kludge 272
 		sound-kludge 257 80 0
 		sound-kludge 65535
 		sound-kludge 269 82 0 30
 		sound-kludge 269 80 0 30
-		start-sound 81
+		start-sound labyrinth-entrance-theme
 		sound-kludge 270 81 1
 		sound-kludge 271 8 157
 		sound-kludge 271 65535
 		jump &[00000266]
 [00000138]:
 		if !(last-room-from-map is salvage-boat) jump &[00000221]
-		load-sound 80
-		load-sound 81
+		load-sound colonies-theme
+		load-sound labyrinth-entrance-theme
 		sound-kludge 272
 		sound-kludge 257 157 0
 		sound-kludge 65535
 		sound-kludge 269 157 0 30
-		start-sound 81
+		start-sound labyrinth-entrance-theme
 		sound-kludge 270 81 1
 		sound-kludge 271 8 80
 		sound-kludge 271 65535
 		jump &[00000266]
 [00000221]:
 		if (last-room is-not sophias-study) {
-			load-sound 17
-			load-sound 18
+			load-sound map-theme
+			load-sound travelling-theme
 			if (!B.105) {
 				sound-kludge 11
 			}
@@ -455,7 +455,7 @@ room world-map {
 		selected-actor = indy
 		set-screen 0 to 200
 		actor travel-dot default costume 58 scale 255 255 name "Indy" ignore-boxes never-zclip
-		start-script set-verbs (3)
+		start-script set-verbs (verbs-off)
 		if (script-running scan-for-icon) {
 			stop-script scan-for-icon
 		}
@@ -478,7 +478,7 @@ room world-map {
 		put-actor travel-dot in-room world-map
 		put-actor travel-dot at-object barnett-college-dest
 		break-here 8
-		start-sound 18
+		start-sound travelling-theme
 		sound-kludge 65535
 		sound-kludge 269 17 0 15
 		B.105 = 0
@@ -704,12 +704,12 @@ room world-map {
 		camera-at 1120
 		if !(last-room-from-map is labyrinth-exterior) jump &[00001429]
 		cut-scene
-		start-sound 81
+		start-sound labyrinth-entrance-theme
 		start-script 207 ()
 		break-until (!script-running 207)
 		break-here 4
-		stop-sound 81
-		start-sound 17
+		stop-sound labyrinth-entrance-theme
+		start-sound map-theme
 		start-script draw-trail-line (1136,177,1164,48,40,1,1)
 		break-until (!script-running draw-trail-line)
 		actor indy costume 2
@@ -939,97 +939,97 @@ room world-map {
 	}
 
 	script draw-trail-line { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0203
-	local variable L.0
-	local variable L.1
-	local variable L.2
-	local variable L.3
-	local variable L.4
-	local variable L.5
-	local variable L.6
-	local variable L.7
-	local variable L.8
-	local variable L.9
-	local variable L.10
-	local variable L.11
-	local variable L.12
-	local variable L.13
-	local variable L.14
-	local variable L.15
-	local variable L.16
+	local variable par0
+	local variable par1
+	local variable par2
+	local variable par3
+	local variable par4
+	local variable par5
+	local variable jiffies
+	local variable loc-7
+	local variable loc-8
+	local variable loc-9
+	local variable loc-10
+	local variable loc-11
+	local variable loc-12
+	local variable loc-13
+	local variable loc-14
+	local variable loc-15
+	local variable backup-min-jiffies
 
-		L.16 = min-jiffies
-		min-jiffies = L.6
+		backup-min-jiffies = min-jiffies
+		min-jiffies = jiffies
 		foo2 = (camera-x - 160)
-		L.0 -= foo2
-		L.2 -= foo2
-		if !(L.2 >= L.0) jump &[00000065]
-		L.7 = 1
-		L.9 = (L.2 - L.0)
+		par0 -= foo2
+		par2 -= foo2
+		if !(par2 >= par0) jump &[00000065]
+		loc-7 = 1
+		loc-9 = (par2 - par0)
 		jump &[00000081]
 [00000065]:
-		L.7 = 65535
-		L.9 = (L.0 - L.2)
+		loc-7 = 65535
+		loc-9 = (par0 - par2)
 [00000081]:
-		if !(L.3 >= L.1) jump &[00000107]
-		L.8 = 1
-		L.10 = (L.3 - L.1)
+		if !(par3 >= par1) jump &[00000107]
+		loc-8 = 1
+		loc-10 = (par3 - par1)
 		jump &[00000123]
 [00000107]:
-		L.8 = 65535
-		L.10 = (L.1 - L.3)
+		loc-8 = 65535
+		loc-10 = (par1 - par3)
 [00000123]:
-		if !(L.9 > L.10) jump &[00000138]
-		L.11 = L.9
+		if !(loc-9 > loc-10) jump &[00000138]
+		loc-11 = loc-9
 		jump &[00000143]
 [00000138]:
-		L.11 = L.10
+		loc-11 = loc-10
 [00000143]:
-		L.12 = L.0
-		L.13 = L.1
-		L.0 = 0
-		L.1 = 0
-		start-script 201 (L.12,L.13,L.4,L.5)
-		L.14 = 0
+		loc-12 = par0
+		loc-13 = par1
+		par0 = 0
+		par1 = 0
+		start-script 201 (loc-12,loc-13,par4,par5)
+		loc-14 = 0
 [00000183]:
-		if !(L.14 >= foo2) jump &[00000193]
+		if !(loc-14 >= foo2) jump &[00000193]
 		jump &[00000286]
 [00000193]:
 		sleep-for 1 jiffies
-		L.0 += L.9
-		L.1 += L.10
-		L.15 = 0
-		if (L.0 > L.11) {
-			L.15 = 1
-			L.0 -= L.11
-			L.12 += L.7
+		par0 += loc-9
+		par1 += loc-10
+		loc-15 = 0
+		if (par0 > loc-11) {
+			loc-15 = 1
+			par0 -= loc-11
+			loc-12 += loc-7
 		}
-		if (L.1 > L.11) {
-			L.15 = 1
-			L.1 -= L.11
-			L.13 += L.8
+		if (par1 > loc-11) {
+			loc-15 = 1
+			par1 -= loc-11
+			loc-13 += loc-8
 		}
-		if (L.15) {
-			start-script 201 (L.12,L.13,L.4,L.5)
+		if (loc-15) {
+			start-script 201 (loc-12,loc-13,par4,par5)
 		}
-		++L.14
-		if !(L.14 > L.11) jump &[00000183]
+		++loc-14
+		if !(loc-14 > loc-11) jump &[00000183]
 [00000286]:
-		min-jiffies = L.16
+		min-jiffies = backup-min-jiffies
 		end-script
 	}
 
 	script map-build-sentence {
-	local variable L.2
-	local variable L.3
-	local variable L.4
+	local variable item
+	local variable x
+	local variable y
 
-		L.2 = V.108
-		L.3 = actor-x L.2
-		L.4 = actor-y L.2
+		item = selected-noun1
+		x = actor-x item
+		y = actor-y item
 		indy-x = actor-x 10
 		indy-y = actor-y 10
-		if !(indy-x is L.3) jump &[00000067]
-		if !(indy-y is L.4) jump &[00000067]
+		if !(indy-x is x) jump &[00000067]
+		if !(indy-y is y) jump &[00000067]
 		going-nowhere = 1
 		if !(last-room is-not algiers-dig-exterior) jump &[00000065]
 		current-room last-room
@@ -1037,48 +1037,48 @@ room world-map {
 [00000065]:
 		stop-script 0
 [00000067]:
-		if !(L.2) jump &[00000199]
+		if !(item) jump &[00000199]
 		actor travel-dot costume 0
 		cut-scene
-		start-sound 18
+		start-sound travelling-theme
 		sound-kludge 65535
 		sound-kludge 269 17 0 15
 		override &[00000181]
-		if !(class-of L.2 is 136) jump &[00000123]
+		if !(class-of item is 136) jump &[00000123]
 		jump &[00000181]
 		jump &[00000181]
 [00000123]:
-		if (indy-x < L.3) {
-			if (indy-y < L.4) {
+		if (indy-x < x) {
+			if (indy-y < y) {
 				indy-x -= 1
 				indy-y -= 1
 			}
 		}
-		start-script 202 (indy-x,indy-y,L.3,L.4,40,1,1)
+		start-script 202 (indy-x,indy-y,x,y,40,1,1)
 		break-until (!script-running 202)
 [00000181]:
 		if (override-hit) {
 			min-jiffies = 6
 		}
 		end-cut-scene
-		start-object L.2 verb walk-to ()
+		start-object item verb walk-to ()
 		stop-script 0
 [00000199]:
 		end-script
 	}
 
 	script 205 { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0205
-	local variable L.0
+	local variable item
 
 [00000008]:
 		foo = random 1
-		L.0 = find-actor cursor-x,cursor-y
-		if !(L.0) jump &[00000032]
-		V.108 = L.0
+		item = find-actor cursor-x,cursor-y
+		if !(item) jump &[00000032]
+		selected-noun1 = item
 		jump &[00000044]
 [00000032]:
-		L.0 = find-object cursor-x,cursor-y
-		V.108 = L.0
+		item = find-object cursor-x,cursor-y
+		selected-noun1 = item
 [00000044]:
 		break-here
 		jump &[00000008]
@@ -1086,7 +1086,7 @@ room world-map {
 	}
 
 	travel-to { ; LSCR LECF_0001\LFLF_0075\ROOM\LSCR_0206
-	local variable L.0
+	local variable destination
 	local variable L.1
 	local variable L.2
 	local variable L.3
@@ -1102,13 +1102,13 @@ room world-map {
 		break-until (!script-running 202)
 		L.1 = L.3
 		L.2 = L.4
-		L.3 = actor-x L.0
-		L.4 = actor-y L.0
+		L.3 = actor-x destination
+		L.4 = actor-y destination
 		start-script 202 (L.1,L.2,L.3,L.4,40,1,1)
 		break-until (!script-running 202)
 [00000126]:
 		world-map-picture = 4
-		if !(L.0 is monte-carlo-dest) jump &[00000146]
+		if !(destination is monte-carlo-dest) jump &[00000146]
 		last-room-from-map = 27
 		jump &[00000151]
 [00000146]:
@@ -1117,7 +1117,7 @@ room world-map {
 		class-of crete-dest is 8
 		class-of monte-carlo-dest is 8
 		end-cut-scene
-		if !(L.0 is monte-carlo-dest) jump &[00000178]
+		if !(destination is monte-carlo-dest) jump &[00000178]
 		current-room montecarlo-hotel
 		jump &[00000180]
 [00000178]:

@@ -10,11 +10,11 @@ room cu-plato {
 		name is ""
 	}
 
-	object 1103 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1103
+	object plato-left-page { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1103
 		name is ""
 	}
 
-	object 1104 { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1104
+	object plato-right-page { ; VERB LECF_0001\LFLF_0083\ROOM\OBCD_1104
 		name is ""
 	}
 
@@ -81,7 +81,7 @@ room cu-plato {
 	exit { ; EXCD LECF_0001\LFLF_0083\ROOM\EXCD
 		build-sentence-script = build-sentence-script-backup
 		set-screen 0 to 144
-		start-script set-verbs (2)
+		start-script set-verbs (normal-verbs)
 		charset fat-font
 		found-lost-dialogue = 1
 		end-object
@@ -90,7 +90,7 @@ room cu-plato {
 	enter { ; ENCD LECF_0001\LFLF_0083\ROOM\ENCD
 		stop-script follow-actor
 		set-screen 0 to 200
-		start-script set-verbs (1)
+		start-script set-verbs (save-normal-verbs)
 		camera-at 160
 		build-sentence-script-backup = build-sentence-script
 		build-sentence-script = 200
@@ -117,12 +117,12 @@ room cu-plato {
 		if (state-of foo is 0) {
 			stop-script 0
 		}
-		if !(foo is 1103) jump &[00000085]
+		if !(foo is plato-left-page) jump &[00000085]
 		jump &[00000037]
 		stop-script 0
 		jump &[00000345]
 [00000085]:
-		if !(foo is 1104) jump &[00000100]
+		if !(foo is plato-right-page) jump &[00000100]
 		jump &[00000037]
 		stop-script 0
 		jump &[00000345]
@@ -202,8 +202,8 @@ room cu-plato {
 
 	script turn-to-passage-1 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0201
 		flags[1] = 1
-		draw-object 1103 
-		draw-object 1104 
+		draw-object plato-left-page 
+		draw-object plato-right-page 
 		state-of plato-clip-01 is 0
 		state-of plato-clip-02 is 0
 		state-of plato-clip-11 is 1
@@ -248,8 +248,8 @@ room cu-plato {
 
 	script turn-to-passage-2 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0202
 		flags[2] = 1
-		draw-object 1103 
-		draw-object 1104 
+		draw-object plato-left-page 
+		draw-object plato-right-page 
 		state-of plato-clip-01 is 1
 		state-of plato-clip-02 is 0
 		state-of plato-clip-11 is 0
@@ -299,8 +299,8 @@ room cu-plato {
 
 	script turn-to-passage-3 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0203
 		flags[3] = 1
-		draw-object 1103 
-		draw-object 1104 
+		draw-object plato-left-page 
+		draw-object plato-right-page 
 		state-of plato-clip-01 is 1
 		state-of plato-clip-02 is 0
 		state-of plato-clip-11 is 0
@@ -474,8 +474,8 @@ room cu-plato {
 
 	script turn-to-passage-4 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0204
 		flags[4] = 1
-		draw-object 1103 
-		draw-object 1104 
+		draw-object plato-left-page 
+		draw-object plato-right-page 
 		state-of plato-clip-01 is 1
 		state-of plato-clip-02 is 0
 		state-of plato-clip-11 is 0
@@ -524,8 +524,8 @@ room cu-plato {
 
 	script turn-to-passage-5 { ; LSCR LECF_0001\LFLF_0083\ROOM\LSCR_0205
 		flags[5] = 1
-		draw-object 1103 
-		draw-object 1104 
+		draw-object plato-left-page 
+		draw-object plato-right-page 
 		state-of plato-clip-01 is 1
 		state-of plato-clip-02 is 0
 		state-of plato-clip-11 is 0

@@ -1035,7 +1035,7 @@ objects {
     object-989                                               =   989
     carved-sign                                              =   990
     thera-interior-junk                                      =   991
-    peg-7                                                    =   992
+    thera-interior-spindle                                   =   992
     ladder-7                                                 =   993
     secret-opening                                           =   994
     wall-with-ark-painting                                   =   995
@@ -1049,7 +1049,7 @@ objects {
     wooden-peg                                               =  1003
     wall-5                                                   =  1004
     stone-disk-3                                             =  1005
-    sunstone-2                                               =  1006
+    sunstone-on-peg                                          =  1006
     spark-plug                                               =  1007
     wall-4                                                   =  1008
     gas-cap                                                  =  1009
@@ -1146,8 +1146,8 @@ objects {
     underwater-cave-5                                        =  1100
     underwater-cave-6                                        =  1101
     underwater-cave-7                                        =  1102
-    object-1103                                              =  1103 ; Lost Dialogue page background?
-    object-1104                                              =  1104
+    plato-left-page                                          =  1103
+    plato-right-page                                         =  1104
     plato-clip-01                                            =  1105
     plato-clip-02                                            =  1106
     plato-clip-03                                            =  1107
